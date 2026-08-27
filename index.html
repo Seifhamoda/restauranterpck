@@ -1,0 +1,2135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-root">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نظام إدارة مطعم متكامل — Restaurant ERP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+/* ===================================================
+   RESET & ROOT STYLES
+=================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Cairo', 'Inter', sans-serif;
+  background: #090e1a;
+  color: #e2e8f0;
+  display: flex;
+  user-select: none;
+}
+
+[dir="ltr"] {
+  font-family: 'Inter', 'Cairo', sans-serif;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* ===================================================
+   SIDEBAR
+=================================================== */
+.sidebar {
+  width: 260px;
+  min-width: 260px;
+  height: 100vh;
+  background: linear-gradient(180deg, #0d1527 0%, #080d1a 100%);
+  border-inline-end: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), min-width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.sidebar.collapsed {
+  width: 72px;
+  min-width: 72px;
+}
+.sidebar.collapsed .nav-label,
+.sidebar.collapsed .brand-text,
+.sidebar.collapsed .nav-section-label,
+.sidebar.collapsed .footer-text {
+  display: none !important;
+}
+.sidebar.collapsed .nav-item {
+  justify-content: center;
+  padding: 12px;
+}
+.sidebar.collapsed .brand-area {
+  justify-content: center;
+  padding: 18px 10px;
+}
+
+.brand-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.35);
+}
+.brand-text h2 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+.brand-text p {
+  font-size: 11px;
+  color: #f97316;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.nav-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 12px 8px 4px;
+  white-space: nowrap;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 11px;
+  cursor: pointer;
+  color: #94a3b8;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.nav-item:hover {
+  background: rgba(249, 115, 22, 0.08);
+  color: #fb923c;
+  border-color: rgba(249, 115, 22, 0.15);
+}
+.nav-item.active {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.22), rgba(234, 88, 12, 0.12));
+  color: #fb923c;
+  border-color: rgba(249, 115, 22, 0.35);
+  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.12);
+}
+.nav-icon {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+}
+.nav-label {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.sidebar-footer {
+  padding: 12px 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ===================================================
+   MAIN WRAPPER & TOPBAR
+=================================================== */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 64px;
+  background: rgba(9, 14, 26, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+  gap: 12px;
+}
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+#page-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+}
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ===================================================
+   CONTENT & PAGES
+=================================================== */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+.page {
+  display: none;
+}
+.page.active {
+  display: block;
+  animation: fadeIn 0.25s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================================================
+   CARDS & GRIDS
+=================================================== */
+.card {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+.stat-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 1024px) {
+  .g4 { grid-template-columns: repeat(2, 1fr); }
+  .g3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .g4, .g2 { grid-template-columns: 1fr; }
+}
+
+/* ===================================================
+   BADGES, BUTTONS & FORM INPUTS
+=================================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.badge-blue { background: rgba(59, 130, 246, 0.16); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.25); }
+.badge-green { background: rgba(34, 197, 94, 0.16); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.25); }
+.badge-red { background: rgba(239, 68, 68, 0.16); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.25); }
+.badge-amber { background: rgba(234, 179, 8, 0.16); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.25); }
+.badge-orange { background: rgba(249, 115, 22, 0.16); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.25); }
+.badge-slate { background: rgba(100, 116, 139, 0.16); color: #94a3b8; border: 1px solid rgba(100, 116, 139, 0.25); }
+
+.badge-pulse {
+  animation: pulse-anim 2s infinite;
+}
+@keyframes pulse-anim {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  user-select: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.45);
+}
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.07);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.btn-danger {
+  background: rgba(239, 68, 68, 0.14);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+.btn-danger:hover {
+  background: rgba(239, 68, 68, 0.24);
+}
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 8px;
+}
+.btn-icon {
+  padding: 8px;
+}
+
+.input, .select, .textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+.input:focus, .select:focus, .textarea:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+}
+.select option {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+.input::placeholder {
+  color: #475569;
+}
+.field-label {
+  font-size: 12.5px;
+  color: #94a3b8;
+  margin-bottom: 6px;
+  display: block;
+  font-weight: 600;
+}
+
+/* ===================================================
+   TABLES
+=================================================== */
+.tbl-wrap {
+  overflow-x: auto;
+}
+table.tbl {
+  width: 100%;
+  border-collapse: collapse;
+}
+table.tbl th {
+  background: rgba(255, 255, 255, 0.04);
+  color: #94a3b8;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 12px 16px;
+  text-align: start;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+table.tbl td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 13.5px;
+  vertical-align: middle;
+  color: #cbd5e1;
+}
+table.tbl tr:last-child td {
+  border-bottom: none;
+}
+table.tbl tr:hover td {
+  background: rgba(255, 255, 255, 0.025);
+}
+.td-mono {
+  font-family: monospace;
+  color: #94a3b8;
+  font-size: 12.5px;
+}
+
+/* Progress bar */
+.progress {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+/* Utilities */
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.flex-wrap { flex-wrap: wrap; }
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.w-full { width: 100%; }
+.text-white { color: #ffffff; }
+.text-muted { color: #94a3b8; }
+.text-sm { font-size: 13px; }
+.font-bold { font-weight: 800; }
+.font-semibold { font-weight: 600; }
+.mt-1 { margin-top: 4px; }
+.mt-2 { margin-top: 8px; }
+.mt-3 { margin-top: 12px; }
+.mt-4 { margin-top: 16px; }
+.mb-3 { margin-bottom: 12px; }
+.mb-4 { margin-bottom: 16px; }
+.sy3 > * + * { margin-top: 12px; }
+.sy4 > * + * { margin-top: 16px; }
+.text-gradient {
+  background: linear-gradient(135deg, #f97316, #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 16px 0;
+}
+.empty-state {
+  text-align: center;
+  padding: 48px 20px;
+  color: #64748b;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 12.5px;
+  color: #cbd5e1;
+}
+
+/* Toast */
+#toast {
+  position: fixed;
+  bottom: 24px;
+  inset-inline-end: 24px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  min-width: 260px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+#toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open {
+  display: flex;
+}
+.modal {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 28px;
+  width: 100%;
+  max-width: 540px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.modal-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* Mobile Responsiveness */
+.mob-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+}
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    inset-inline-start: 0;
+    height: 100%;
+    transform: translateX(-110%);
+    transition: transform 0.3s;
+  }
+  [dir="rtl"] .sidebar {
+    transform: translateX(110%);
+  }
+  .sidebar.mob-open {
+    transform: translateX(0) !important;
+  }
+  .mob-overlay.open {
+    display: block;
+  }
+  .content {
+    padding: 16px;
+  }
+  .topbar {
+    padding: 0 16px;
+  }
+  #mob-btn {
+    display: flex !important;
+  }
+  .orders-layout, .recipes-layout {
+    grid-template-columns: 1fr !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="mob-overlay" id="mob-overlay" onclick="closeMob()"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="brand-area">
+    <div class="brand-logo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+    </div>
+    <div class="brand-text">
+      <h2 data-ar="نظام المطعم" data-en="Restaurant ERP">نظام المطعم</h2>
+      <p data-ar="نظام الإنتاج المتكامل" data-en="Production Suite">نظام الإنتاج المتكامل</p>
+    </div>
+  </div>
+
+  <nav>
+    <span class="nav-section-label" data-ar="الرئيسية" data-en="MAIN">الرئيسية</span>
+    <div class="nav-item active" data-page="dashboard" onclick="nav('dashboard')">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span class="nav-label" data-ar="لوحة التحكم" data-en="Dashboard">لوحة التحكم</span>
+    </div>
+
+    <span class="nav-section-label" data-ar="العمليات" data-en="OPERATIONS">العمليات</span>
+    <div class="nav-item" data-page="orders" onclick="nav('orders')">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="M9 12h6M9 16h4"/></svg>
+      <span class="nav-label" data-ar="طلبات الفروع" data-en="Branch Orders">طلبات الفروع</span>
+    </div>
+    <div class="nav-item" data-page="recipes" onclick="nav('recipes')">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+      <span class="nav-label" data-ar="الوصفات (BOM)" data-en="Recipes (BOM)">الوصفات (BOM)</span>
+    </div>
+    <div class="nav-item" data-page="production" onclick="nav('production')">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 002 2h16a2 2 0 002-2V8l-7-6H4a2 2 0 00-2 2v8"/><path d="M14 2v6h6"/></svg>
+      <span class="nav-label" data-ar="محرك الإنتاج" data-en="Production Engine">محرك الإنتاج</span>
+    </div>
+    <div class="nav-item" data-page="inventory" onclick="nav('inventory')">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+      <span class="nav-label" data-ar="المخزون" data-en="Inventory">المخزون</span>
+    </div>
+    <div class="nav-item" data-page="purchase" onclick="nav('purchase')">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+      <span class="nav-label" data-ar="طلبات الشراء" data-en="Purchase Requests">طلبات الشراء</span>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="nav-item" onclick="toggleLang()" id="lang-btn">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+      <span class="nav-label" id="lang-lbl">English</span>
+    </div>
+    <div class="nav-item" onclick="toggleSidebar()">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+      <span class="nav-label" data-ar="طي القائمة" data-en="Collapse">طي القائمة</span>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="btn btn-secondary btn-icon" id="mob-btn" onclick="openMob()" style="display:none">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <h1 id="page-title" class="text-white">لوحة التحكم</h1>
+    </div>
+    <div class="topbar-right">
+      <div class="chip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span id="hdr-date"></span>
+      </div>
+      <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f97316,#ea580c);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;box-shadow:0 2px 10px rgba(249,115,22,0.3)">ERP</div>
+    </div>
+  </header>
+
+  <div class="content" id="content">
+
+    <!-- DASHBOARD -->
+    <section class="page active" id="page-dashboard">
+      <div class="g4 mb-4" id="dash-stats"></div>
+      <div class="g2 mb-4">
+        <div class="card">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h3 class="text-white font-bold" data-ar="أعلى المكونات استهلاكاً" data-en="Top Consumed Ingredients">أعلى المكونات استهلاكاً</h3>
+              <p class="text-muted text-sm mt-1" data-ar="الاستهلاك اليومي للمواد الخام" data-en="Daily raw material usage">الاستهلاك اليومي للمواد الخام</p>
+            </div>
+            <span class="chip" data-ar="يومي" data-en="Daily">يومي</span>
+          </div>
+          <div style="height:220px;position:relative"><canvas id="ch-ing"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h3 class="text-white font-bold" data-ar="مقارنة طلبات الفروع" data-en="Branch Orders Comparison">مقارنة طلبات الفروع</h3>
+              <p class="text-muted text-sm mt-1" data-ar="إجمالي الوحدات المطلوبة لكل فرع" data-en="Total units requested per branch">إجمالي الوحدات المطلوبة لكل فرع</p>
+            </div>
+            <span class="chip" data-ar="اليوم" data-en="Today">اليوم</span>
+          </div>
+          <div style="height:220px;position:relative"><canvas id="ch-br"></canvas></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="text-white font-bold mb-3">⚠️ <span data-ar="التنبيهات النشطة ونقص المخزون" data-en="Active Alerts & Shortages">التنبيهات النشطة ونقص المخزون</span></h3>
+        <div id="dash-alerts"></div>
+      </div>
+    </section>
+
+    <!-- BRANCH ORDERS -->
+    <section class="page" id="page-orders">
+      <div style="display:grid;grid-template-columns:340px 1fr;gap:20px" class="orders-layout">
+        <div>
+          <div class="card sy4">
+            <h3 class="text-white font-bold flex items-center gap-2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+              <span data-ar="تسجيل طلب فرع جديد" data-en="Submit Branch Order">تسجيل طلب فرع جديد</span>
+            </h3>
+            <div>
+              <label class="field-label" data-ar="اختر الفرع" data-en="Select Branch">اختر الفرع</label>
+              <select class="select" id="o-branch">
+                <option value="" data-ar="-- اختر الفرع --" data-en="-- Select Branch --">-- اختر الفرع --</option>
+                <option value="فرع وسط البلد" data-ar="فرع وسط البلد" data-en="Downtown Branch">فرع وسط البلد</option>
+                <option value="فرع المطار" data-ar="فرع المطار" data-en="Airport Branch">فرع المطار</option>
+                <option value="فرع المول" data-ar="فرع المول" data-en="Mall Branch">فرع المول</option>
+                <option value="فرع الزمالك" data-ar="فرع الزمالك" data-en="Zamalek Branch">فرع الزمالك</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label" data-ar="تاريخ الطلب" data-en="Order Date">تاريخ الطلب</label>
+              <input type="date" class="input" id="o-date"/>
+            </div>
+            <div>
+              <label class="field-label" data-ar="الكميات المطلوبة لكل وجبة" data-en="Quantities per Meal">الكميات المطلوبة لكل وجبة</label>
+              <div id="o-prods" class="sy3"></div>
+            </div>
+            <div>
+              <label class="field-label" data-ar="ملاحظات الطلب" data-en="Notes">ملاحظات الطلب</label>
+              <textarea class="textarea" rows="2" id="o-notes" placeholder="ملاحظات إضافية..."></textarea>
+            </div>
+            <button class="btn btn-primary w-full" style="justify-content:center" onclick="submitOrder()">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <span data-ar="إرسال الطلب واعتماد الخطة" data-en="Submit Order">إرسال الطلب واعتماد الخطة</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="sy3">
+          <!-- Filter bar -->
+          <div class="card">
+            <div class="flex items-center gap-3 flex-wrap">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+              <select class="select" id="f-branch" style="width:180px" onchange="renderOrders()">
+                <option value="" data-ar="جميع الفروع" data-en="All Branches">جميع الفروع</option>
+                <option value="فرع وسط البلد" data-ar="فرع وسط البلد" data-en="Downtown Branch">فرع وسط البلد</option>
+                <option value="فرع المطار" data-ar="فرع المطار" data-en="Airport Branch">فرع المطار</option>
+                <option value="فرع المول" data-ar="فرع المول" data-en="Mall Branch">فرع المول</option>
+                <option value="فرع الزمالك" data-ar="فرع الزمالك" data-en="Zamalek Branch">فرع الزمالك</option>
+              </select>
+              <input type="date" class="input" id="f-date" style="width:160px" onchange="renderOrders()"/>
+              <button class="btn btn-secondary btn-sm" onclick="clearFilters()" data-ar="مسح الفلتر" data-en="Clear Filter">مسح الفلتر</button>
+            </div>
+          </div>
+
+          <!-- Aggregated table -->
+          <div class="card">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-white font-bold" data-ar="إجمالي الطلبات مجمّع بالمنتج" data-en="Aggregated Demand by Product">إجمالي الطلبات مجمّع بالمنتج</h3>
+              <span class="badge badge-orange" id="orders-count-badge">0 طلبات</span>
+            </div>
+            <div class="tbl-wrap">
+              <table class="tbl">
+                <thead>
+                  <tr>
+                    <th data-ar="المنتج" data-en="Product">المنتج</th>
+                    <th data-ar="إجمالي الوحدات" data-en="Total Units">إجمالي الوحدات</th>
+                    <th data-ar="الفروع الطالبة" data-en="Branches">الفروع الطالبة</th>
+                    <th data-ar="تكلفة الوحدة" data-en="Unit Cost">تكلفة الوحدة</th>
+                    <th data-ar="إجمالي التكلفة" data-en="Total Cost">إجمالي التكلفة</th>
+                  </tr>
+                </thead>
+                <tbody id="agg-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Individual orders -->
+          <div class="card">
+            <h3 class="text-white font-bold mb-3" data-ar="سجل الطلبات الفردية" data-en="Individual Branch Orders">سجل الطلبات الفردية</h3>
+            <div id="orders-list" class="sy3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECIPES -->
+    <section class="page" id="page-recipes">
+      <div style="display:grid;grid-template-columns:280px 1fr;gap:20px" class="recipes-layout">
+        <div class="card" style="height:fit-content">
+          <h3 class="text-white font-bold mb-3" data-ar="قائمة الوجبات" data-en="Meals & Products">قائمة الوجبات</h3>
+          <div id="recipe-list" class="sy3"></div>
+          <div class="divider"></div>
+          <button class="btn btn-secondary w-full" style="justify-content:center" onclick="openModal('modal-prod')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            <span data-ar="إضافة منتج جديد" data-en="New Product">إضافة منتج جديد</span>
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h2 class="text-white font-bold" style="font-size:20px" id="recipe-title">—</h2>
+              <p class="text-muted text-sm mt-1" data-ar="شجرة المكونات وتكاليف المواد الخام (BOM)" data-en="Bill of Materials & Costing">شجرة المكونات وتكاليف المواد الخام (BOM)</p>
+            </div>
+            <div style="text-align:end">
+              <div class="text-gradient font-bold" style="font-size:24px" id="recipe-total-cost">0.00</div>
+              <div class="text-muted text-sm" data-ar="ج.م / للوجبة الواحدة" data-en="EGP / per meal">ج.م / للوجبة الواحدة</div>
+            </div>
+          </div>
+          <div class="tbl-wrap mb-3">
+            <table class="tbl">
+              <thead>
+                <tr>
+                  <th data-ar="المكون" data-en="Ingredient">المكون</th>
+                  <th data-ar="الكمية المطلوبة" data-en="Qty / Unit">الكمية المطلوبة</th>
+                  <th data-ar="الوحدة" data-en="UOM">الوحدة</th>
+                  <th data-ar="نسبة الهدر %" data-en="Waste %">نسبة الهدر %</th>
+                  <th data-ar="سعر الوحدة" data-en="Unit Price">سعر الوحدة</th>
+                  <th data-ar="تكلفة السطر" data-en="Line Cost">تكلفة السطر</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="recipe-tbl"></tbody>
+            </table>
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="addIngRow()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            <span data-ar="إضافة مكون للوصفة" data-en="Add Ingredient">إضافة مكون للوصفة</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTION ENGINE -->
+    <section class="page" id="page-production">
+      <div class="g3 mb-4" id="prod-stats"></div>
+      <div class="card mb-4">
+        <h3 class="text-white font-bold mb-4" data-ar="خطة الإنتاج اليومية (الطلب المجمّع + 5% احتياطي)" data-en="Daily Production Plan (Aggregated Demand + 5% Buffer)">خطة الإنتاج اليومية (الطلب المجمّع + 5% احتياطي)</h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th data-ar="المنتج" data-en="Product">المنتج</th>
+                <th data-ar="طلبات الفروع" data-en="Branch Orders">طلبات الفروع</th>
+                <th data-ar="احتياطي (5%)" data-en="Buffer (5%)">احتياطي (5%)</th>
+                <th data-ar="إجمالي المطلوب إنتاجه" data-en="Total to Produce">إجمالي المطلوب إنتاجه</th>
+                <th data-ar="تكلفة الوحدة" data-en="Unit Cost">تكلفة الوحدة</th>
+                <th data-ar="إجمالي التكلفة" data-en="Total Cost">إجمالي التكلفة</th>
+                <th data-ar="الحالة" data-en="Status">الحالة</th>
+              </tr>
+            </thead>
+            <tbody id="prod-plan-tbl"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="text-white font-bold mb-4">🧪 <span data-ar="احتياجات المواد الخام المطلوبة لتشغيل الخطة" data-en="Raw Materials Requirements for Production">احتياجات المواد الخام المطلوبة لتشغيل الخطة</span></h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th data-ar="المادة الخام" data-en="Ingredient">المادة الخام</th>
+                <th data-ar="الاحتياج الأساسي" data-en="Base Required">الاحتياج الأساسي</th>
+                <th data-ar="+ كمية الهدر" data-en="+ Waste Qty">+ كمية الهدر</th>
+                <th data-ar="الإجمالي المطلوب" data-en="Total Required">الإجمالي المطلوب</th>
+                <th data-ar="سعر الوحدة" data-en="Unit Price">سعر الوحدة</th>
+                <th data-ar="إجمالي التكلفة" data-en="Total Cost">إجمالي التكلفة</th>
+                <th data-ar="المخزون الحالي" data-en="In Stock">المخزون الحالي</th>
+                <th data-ar="الحالة والمطابقة" data-en="Status">الحالة والمطابقة</th>
+              </tr>
+            </thead>
+            <tbody id="prod-rm-tbl"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVENTORY -->
+    <section class="page" id="page-inventory">
+      <div class="g4 mb-4" id="inv-stats"></div>
+      <div class="card">
+        <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+          <div>
+            <h3 class="text-white font-bold" data-ar="أرصدة المخزون ومقارنتها بالاحتياجات الفعلية" data-en="Real-Time Stock vs Production Needs">أرصدة المخزون ومقارنتها بالاحتياجات الفعلية</h3>
+            <p class="text-muted text-sm mt-1" data-ar="يتم تحديد العجز تلقائياً بناءً على أوامر الفروع" data-en="Shortages are automatically detected from orders">يتم تحديد العجز تلقائياً بناءً على أوامر الفروع</p>
+          </div>
+          <div class="flex gap-3 flex-wrap">
+            <button class="btn btn-secondary btn-sm" onclick="openModal('modal-ing')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+              <span data-ar="إضافة خامة جديدة" data-en="Add Ingredient">إضافة خامة جديدة</span>
+            </button>
+            <button class="btn btn-primary btn-sm" onclick="genPOs()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+              <span data-ar="توليد طلبات الشراء تلقائياً" data-en="Generate Purchase Requests">توليد طلبات الشراء تلقائياً</span>
+            </button>
+          </div>
+        </div>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th data-ar="المادة الخام" data-en="Ingredient">المادة الخام</th>
+                <th data-ar="المخزون الحالي" data-en="Current Stock">المخزون الحالي</th>
+                <th data-ar="حد الأمان" data-en="Safety Stock">حد الأمان</th>
+                <th data-ar="المطلوب للإنتاج" data-en="Required Today">المطلوب للإنتاج</th>
+                <th data-ar="الفارق / العجز" data-en="Shortage / Gap">الفارق / العجز</th>
+                <th data-ar="حالة الرصيد" data-en="Status">حالة الرصيد</th>
+                <th data-ar="مؤشر الكفاية" data-en="Stock Level">مؤشر الكفاية</th>
+                <th data-ar="تعديل الرصيد" data-en="Edit">تعديل الرصيد</th>
+              </tr>
+            </thead>
+            <tbody id="inv-tbl"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- PURCHASE REQUESTS -->
+    <section class="page" id="page-purchase">
+      <div class="g3 mb-4" id="po-stats"></div>
+      <div class="card">
+        <div class="flex items-center justify-between flex-wrap gap-4 mb-4">
+          <div>
+            <h3 class="text-white font-bold" data-ar="إدارة ومتابعة طلبات الشراء للموردين" data-en="Purchase Orders Management">إدارة ومتابعة طلبات الشراء للموردين</h3>
+            <p class="text-muted text-sm mt-1" data-ar="يتم توليد الأوامر وتحديث المخزون فور الاستلام" data-en="Orders generated from shortages; inventory auto-updated upon receipt">يتم توليد الأوامر وتحديث المخزون فور الاستلام</p>
+          </div>
+          <div class="flex gap-3 flex-wrap">
+            <button class="btn btn-secondary btn-sm" onclick="genPOs()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+              <span data-ar="إعادة الحساب والتحديث" data-en="Refresh POs">إعادة الحساب والتحديث</span>
+            </button>
+            <button class="btn btn-primary btn-sm" onclick="sendAllDraft()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <span data-ar="إرسال جميع المسودات للموردين" data-en="Send All Drafts">إرسال جميع المسودات للموردين</span>
+            </button>
+          </div>
+        </div>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th data-ar="رقم الطلب" data-en="PO #">رقم الطلب</th>
+                <th data-ar="المادة المطلوبة" data-en="Ingredient">المادة المطلوبة</th>
+                <th data-ar="الكمية المطلوبة" data-en="Quantity">الكمية المطلوبة</th>
+                <th data-ar="الوحدة" data-en="UOM">الوحدة</th>
+                <th data-ar="التكلفة التقديرية" data-en="Est. Cost">التكلفة التقديرية</th>
+                <th data-ar="المورد المعتمد" data-en="Supplier">المورد المعتمد</th>
+                <th data-ar="درجة الأولوية" data-en="Priority">درجة الأولوية</th>
+                <th data-ar="حالة الطلب" data-en="Status">حالة الطلب</th>
+                <th data-ar="الإجراء" data-en="Actions">الإجراء</th>
+              </tr>
+            </thead>
+            <tbody id="po-tbl"></tbody>
+          </table>
+        </div>
+        <div id="po-empty" class="empty-state" style="display:none">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <p class="mt-3 text-white font-bold" data-ar="ممتاز! لا يوجد أي عجز في المخزون حالياً" data-en="Excellent! No shortages detected in inventory">ممتاز! لا يوجد أي عجز في المخزون حالياً</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast">
+  <svg id="t-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+  <span id="t-msg" style="font-size:13.5px;font-weight:600;color:#fff"></span>
+</div>
+
+<!-- MODAL: ADD INGREDIENT -->
+<div class="modal-overlay" id="modal-ing">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title" data-ar="إضافة مادة خام جديدة" data-en="Add New Ingredient">إضافة مادة خام جديدة</h3>
+      <button class="btn btn-secondary btn-icon btn-sm" onclick="closeModal('modal-ing')">✕</button>
+    </div>
+    <div class="sy4">
+      <div class="g2">
+        <div>
+          <label class="field-label" data-ar="الاسم بالعربية" data-en="Arabic Name">الاسم بالعربية</label>
+          <input class="input" id="ing-ar" placeholder="مثال: لحم مفروم"/>
+        </div>
+        <div>
+          <label class="field-label" data-ar="الاسم بالإنجليزية" data-en="English Name">الاسم بالإنجليزية</label>
+          <input class="input" id="ing-en" placeholder="e.g. Minced Meat"/>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+        <div>
+          <label class="field-label" data-ar="وحدة القياس" data-en="UOM">وحدة القياس</label>
+          <select class="select" id="ing-uom">
+            <option value="kg">kg (كيلو)</option>
+            <option value="pcs">pcs (قطعة)</option>
+            <option value="ltr">ltr (لتر)</option>
+            <option value="g">g (جرام)</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label" data-ar="سعر الوحدة (ج.م)" data-en="Price (EGP)">سعر الوحدة (ج.م)</label>
+          <input class="input" type="number" min="0" step="0.01" id="ing-price" placeholder="0.00"/>
+        </div>
+        <div>
+          <label class="field-label" data-ar="الرصيد الحالي" data-en="Current Stock">الرصيد الحالي</label>
+          <input class="input" type="number" min="0" step="0.01" id="ing-stock" placeholder="0"/>
+        </div>
+      </div>
+      <div class="g2">
+        <div>
+          <label class="field-label" data-ar="حد الأمان (الحد الأدنى)" data-en="Safety Stock">حد الأمان (الحد الأدنى)</label>
+          <input class="input" type="number" min="0" step="0.01" id="ing-safety" placeholder="0"/>
+        </div>
+        <div>
+          <label class="field-label" data-ar="اسم المورد المعتمد" data-en="Supplier Name">اسم المورد المعتمد</label>
+          <input class="input" id="ing-sup" placeholder="اسم شركة التوريد"/>
+        </div>
+      </div>
+      <div class="flex gap-3" style="justify-content:flex-end">
+        <button class="btn btn-secondary" onclick="closeModal('modal-ing')" data-ar="إلغاء" data-en="Cancel">إلغاء</button>
+        <button class="btn btn-primary" onclick="saveIngredient()"><span data-ar="حفظ المادة" data-en="Save Ingredient">حفظ المادة</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: ADD PRODUCT -->
+<div class="modal-overlay" id="modal-prod">
+  <div class="modal" style="max-width:440px">
+    <div class="modal-header">
+      <h3 class="modal-title" data-ar="إضافة منتج / وجبة جديدة" data-en="New Meal / Product">إضافة منتج / وجبة جديدة</h3>
+      <button class="btn btn-secondary btn-icon btn-sm" onclick="closeModal('modal-prod')">✕</button>
+    </div>
+    <div class="sy4">
+      <div class="g2">
+        <div>
+          <label class="field-label" data-ar="اسم الوجبة (عربي)" data-en="Meal Name (Arabic)">اسم الوجبة (عربي)</label>
+          <input class="input" id="prod-ar" placeholder="مثال: بيتزا مارجريتا"/>
+        </div>
+        <div>
+          <label class="field-label" data-ar="اسم الوجبة (إنجليزي)" data-en="Meal Name (English)">اسم الوجبة (إنجليزي)</label>
+          <input class="input" id="prod-en" placeholder="e.g. Margherita Pizza"/>
+        </div>
+      </div>
+      <div>
+        <label class="field-label" data-ar="لون التمييز" data-en="Color Tag">لون التمييز</label>
+        <input type="color" class="input" id="prod-color" value="#f97316" style="height:44px;padding:4px;cursor:pointer"/>
+      </div>
+      <div class="flex gap-3" style="justify-content:flex-end">
+        <button class="btn btn-secondary" onclick="closeModal('modal-prod')" data-ar="إلغاء" data-en="Cancel">إلغاء</button>
+        <button class="btn btn-primary" onclick="saveProduct()"><span data-ar="إنشاء الوجبة" data-en="Create Product">إنشاء الوجبة</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: EDIT STOCK -->
+<div class="modal-overlay" id="modal-stock">
+  <div class="modal" style="max-width:380px">
+    <div class="modal-header">
+      <h3 class="modal-title" id="stock-modal-title" data-ar="تحديث رصيد المخزون" data-en="Update Stock Level">تحديث رصيد المخزون</h3>
+      <button class="btn btn-secondary btn-icon btn-sm" onclick="closeModal('modal-stock')">✕</button>
+    </div>
+    <div class="sy4">
+      <input type="hidden" id="stock-ing-id"/>
+      <div>
+        <label class="field-label" data-ar="الرصيد الفعلي الحالي" data-en="Actual Stock Level">الرصيد الفعلي الحالي</label>
+        <input class="input" type="number" min="0" step="0.01" id="stock-cur"/>
+      </div>
+      <div>
+        <label class="field-label" data-ar="حد الأمان (الحد الأدنى)" data-en="Safety Stock Level">حد الأمان (الحد الأدنى)</label>
+        <input class="input" type="number" min="0" step="0.01" id="stock-safety"/>
+      </div>
+      <div class="flex gap-3" style="justify-content:flex-end">
+        <button class="btn btn-secondary" onclick="closeModal('modal-stock')" data-ar="إلغاء" data-en="Cancel">إلغاء</button>
+        <button class="btn btn-primary" onclick="saveStock()"><span data-ar="حفظ التعديل" data-en="Save Changes">حفظ التعديل</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   GLOBAL APPLICATION STATE
+============================================================ */
+const S = {
+  lang: 'ar',
+  sbCol: false,
+  curPage: 'dashboard',
+  curRecipe: 'burger',
+  POs: [],
+  products: [
+    { id: 'burger',  ar: 'برجر اللحم الفاخر',    en: 'Premium Beef Burger',     cost: 0, color: '#f97316' },
+    { id: 'chicken', ar: 'ساندويتش الدجاج المقرمش', en: 'Crispy Chicken Sandwich', cost: 0, color: '#8b5cf6' },
+    { id: 'salad',   ar: 'سلطة سيزر بالدجاج',     en: 'Chicken Caesar Salad',    cost: 0, color: '#22c55e' },
+    { id: 'fries',   ar: 'بطاطس محملة بالجبن',    en: 'Loaded Cheese Fries',     cost: 0, color: '#eab308' }
+  ],
+  ings: {
+    'beef-patty':     { ar: 'شرائح اللحم البقري', en: 'Beef Patty',       uom: 'kg',  price: 130, stock: 25,  safety: 10, sup: 'شركة لحوم القاهرة' },
+    'chicken-breast': { ar: 'صدور دجاج متبلة',    en: 'Chicken Breast',   uom: 'kg',  price: 70,  stock: 20,  safety: 8,  sup: 'دواجن الفارس' },
+    'burger-bun':     { ar: 'خبز البرجر بالسمسم',  en: 'Burger Bun',       uom: 'pcs', price: 3.5, stock: 800, safety: 150,sup: 'المخبز الذهبي' },
+    'chicken-bun':    { ar: 'خبز كيزر للدجاج',    en: 'Chicken Bun',      uom: 'pcs', price: 3,   stock: 180, safety: 80, sup: 'المخبز الذهبي' },
+    'lettuce':        { ar: 'خس كابوتشا طازج',    en: 'Fresh Lettuce',    uom: 'kg',  price: 14,  stock: 8,   safety: 5,  sup: 'مزارع النيل' },
+    'tomato':         { ar: 'طماطم طازجة',        en: 'Fresh Tomato',     uom: 'kg',  price: 12,  stock: 9,   safety: 4,  sup: 'مزارع النيل' },
+    'cheese':         { ar: 'شرائح جبن شيدر',     en: 'Cheddar Slices',   uom: 'pcs', price: 5.5, stock: 350, safety: 100,sup: 'ألبان المراعي' },
+    'sauce':          { ar: 'صوص خاص بالشيف',     en: 'Special Sauce',    uom: 'ltr', price: 40,  stock: 12,  safety: 3,  sup: 'ماسترز فليفر' },
+    'fries-raw':      { ar: 'بطاطس نصف مقلية',    en: 'Fries (Raw)',      uom: 'kg',  price: 18,  stock: 30,  safety: 10, sup: 'مزارع النيل' },
+    'croutons':       { ar: 'خبز محمص متبل',      en: 'Seasoned Croutons',uom: 'kg',  price: 25,  stock: 4,   safety: 2,  sup: 'المخبز الذهبي' }
+  },
+  recipes: {
+    burger: {
+      ings: [
+        { id: 'beef-patty', qty: 0.18, waste: 5 },
+        { id: 'burger-bun', qty: 1,    waste: 2 },
+        { id: 'lettuce',    qty: 0.03, waste: 10 },
+        { id: 'tomato',     qty: 0.04, waste: 8 },
+        { id: 'cheese',     qty: 2,    waste: 0 },
+        { id: 'sauce',      qty: 0.03, waste: 3 }
+      ]
+    },
+    chicken: {
+      ings: [
+        { id: 'chicken-breast', qty: 0.15, waste: 8 },
+        { id: 'chicken-bun',    qty: 1,    waste: 2 },
+        { id: 'lettuce',        qty: 0.02, waste: 10 },
+        { id: 'sauce',          qty: 0.04, waste: 3 }
+      ]
+    },
+    salad: {
+      ings: [
+        { id: 'lettuce',  qty: 0.12, waste: 15 },
+        { id: 'croutons', qty: 0.04, waste: 5 },
+        { id: 'sauce',    qty: 0.05, waste: 3 },
+        { id: 'cheese',   qty: 1,    waste: 0 },
+        { id: 'tomato',   qty: 0.05, waste: 8 }
+      ]
+    },
+    fries: {
+      ings: [
+        { id: 'fries-raw', qty: 0.25, waste: 12 },
+        { id: 'sauce',     qty: 0.03, waste: 3 }
+      ]
+    }
+  },
+  orders: [
+    { id: 1, branch: 'فرع وسط البلد', date: todayStr(), items: { burger: 120, chicken: 80,  salad: 40, fries: 90 }, notes: 'ذروة الغداء والعشاء' },
+    { id: 2, branch: 'فرع المطار',    date: todayStr(), items: { burger: 95,  chicken: 110, salad: 30, fries: 70 }, notes: 'رحلات المساء' },
+    { id: 3, branch: 'فرع المول',     date: todayStr(), items: { burger: 80,  chicken: 60,  salad: 50, fries: 60 }, notes: 'عروض الويكند' },
+    { id: 4, branch: 'فرع الزمالك',  date: todayStr(), items: { burger: 35,  chicken: 40,  salad: 25, fries: 30 }, notes: 'طلب إضافي' },
+    { id: 5, branch: 'فرع وسط البلد', date: todayStr(), items: { burger: 10,  chicken: 0,   salad: 0,  fries: 15 }, notes: 'طلب طارئ' }
+  ]
+};
+
+/* Helper functions */
+function todayStr() {
+  return new Date().toISOString().split('T')[0];
+}
+function fmt(v) {
+  return (+v || 0).toLocaleString(S.lang === 'ar' ? 'ar-EG' : 'en-US', { maximumFractionDigits: 1 });
+}
+function f2(v) {
+  return (+v || 0).toFixed(2);
+}
+function isAr() {
+  return S.lang === 'ar';
+}
+function T(a, e) {
+  return isAr() ? a : e;
+}
+function pname(p) {
+  return isAr() ? p.ar : p.en;
+}
+function iname(id) {
+  const d = S.ings[id];
+  return d ? (isAr() ? d.ar : d.en) : id;
+}
+function cur() {
+  return T('ج.م', 'EGP');
+}
+
+/* ============================================================
+   LANGUAGE SWITCHING
+============================================================ */
+function applyLang() {
+  const root = document.getElementById('html-root');
+  root.setAttribute('lang', S.lang);
+  root.setAttribute('dir', isAr() ? 'rtl' : 'ltr');
+
+  document.querySelectorAll('[data-ar]').forEach(el => {
+    el.textContent = isAr() ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+  });
+
+  const langLbl = document.getElementById('lang-lbl');
+  if (langLbl) {
+    langLbl.textContent = isAr() ? 'English' : 'عربي';
+  }
+
+  const hdrDate = document.getElementById('hdr-date');
+  if (hdrDate) {
+    hdrDate.textContent = new Date().toLocaleDateString(
+      isAr() ? 'ar-EG' : 'en-GB',
+      { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' }
+    );
+  }
+
+  const ni = document.querySelector('.nav-item[data-page="' + S.curPage + '"]');
+  if (ni) {
+    const pt = document.getElementById('page-title');
+    if (pt) pt.textContent = ni.querySelector('.nav-label')?.textContent || '';
+  }
+}
+
+function toggleLang() {
+  S.lang = isAr() ? 'en' : 'ar';
+  applyLang();
+  renderPage(S.curPage);
+}
+
+/* ============================================================
+   SIDEBAR & NAVIGATION
+============================================================ */
+function toggleSidebar() {
+  S.sbCol = !S.sbCol;
+  document.getElementById('sidebar').classList.toggle('collapsed', S.sbCol);
+}
+function openMob() {
+  document.getElementById('sidebar').classList.add('mob-open');
+  document.getElementById('mob-overlay').classList.add('open');
+}
+function closeMob() {
+  document.getElementById('sidebar').classList.remove('mob-open');
+  document.getElementById('mob-overlay').classList.remove('open');
+}
+
+function nav(page) {
+  S.curPage = page;
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const targetPage = document.getElementById('page-' + page);
+  if (targetPage) targetPage.classList.add('active');
+
+  document.querySelectorAll('.nav-item[data-page]').forEach(n => n.classList.remove('active'));
+  const ni = document.querySelector('.nav-item[data-page="' + page + '"]');
+  if (ni) {
+    ni.classList.add('active');
+    document.getElementById('page-title').textContent = ni.querySelector('.nav-label')?.textContent || '';
+  }
+  closeMob();
+  renderPage(page);
+}
+
+function renderPage(p) {
+  if (p === 'dashboard') renderDash();
+  else if (p === 'orders') renderOrders();
+  else if (p === 'recipes') renderRecipes();
+  else if (p === 'production') renderProd();
+  else if (p === 'inventory') renderInv();
+  else if (p === 'purchase') renderPOs();
+}
+
+/* ============================================================
+   TOAST NOTIFICATION
+============================================================ */
+let _tt;
+function toast(msg, type = 'success') {
+  const ic = {
+    success: '<path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
+    error: '<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>',
+    info: '<circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>'
+  };
+  const cl = { success: '#4ade80', error: '#f87171', info: '#60a5fa' };
+  const el = document.getElementById('toast');
+  const icon = document.getElementById('t-icon');
+  icon.innerHTML = ic[type] || ic.success;
+  icon.setAttribute('stroke', cl[type] || cl.success);
+  document.getElementById('t-msg').textContent = msg;
+  el.classList.add('show');
+  clearTimeout(_tt);
+  _tt = setTimeout(() => el.classList.remove('show'), 3500);
+}
+
+/* ============================================================
+   MODALS
+============================================================ */
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+}
+
+/* ============================================================
+   CALCULATION ENGINE (COMPUTE)
+============================================================ */
+function recipeCost(r) {
+  if (!r || !r.ings) return 0;
+  return r.ings.reduce((sum, item) => {
+    const d = S.ings[item.id];
+    if (!d) return sum;
+    return sum + (item.qty * (1 + item.waste / 100) * d.price);
+  }, 0);
+}
+
+function computePlan() {
+  const tot = {};
+  S.products.forEach(p => tot[p.id] = 0);
+  S.orders.forEach(o => {
+    Object.entries(o.items).forEach(([pid, q]) => {
+      if (tot[pid] !== undefined) tot[pid] += q;
+    });
+  });
+
+  let totalCost = 0;
+  let totalWaste = 0;
+
+  const plan = S.products.map(p => {
+    const ordered = tot[p.id] || 0;
+    const buf = Math.ceil(ordered * 0.05);
+    const ttp = ordered + buf;
+    const r = S.recipes[p.id];
+    const uc = r ? recipeCost(r) : p.cost;
+    const tc = ttp * uc;
+    const wc = r ? r.ings.reduce((s, i) => {
+      const d = S.ings[i.id];
+      if (!d) return s;
+      return s + (i.qty * (i.waste / 100) * d.price * ttp);
+    }, 0) : 0;
+
+    totalCost += tc;
+    totalWaste += wc;
+    p.cost = uc;
+    return { p, ordered, buf, ttp, uc, tc, wc };
+  });
+
+  return { plan, totalCost, totalWaste };
+}
+
+function computeRM() {
+  const { plan } = computePlan();
+  const mats = {};
+
+  plan.forEach(({ p, ttp }) => {
+    const r = S.recipes[p.id];
+    if (!r) return;
+    r.ings.forEach(ing => {
+      const d = S.ings[ing.id];
+      if (!d) return;
+      const base = ing.qty * ttp;
+      const wq = base * (ing.waste / 100);
+      if (!mats[ing.id]) {
+        mats[ing.id] = { id: ing.id, base: 0, waste: 0, total: 0 };
+      }
+      mats[ing.id].base += base;
+      mats[ing.id].waste += wq;
+      mats[ing.id].total += base + wq;
+    });
+  });
+
+  return Object.values(mats).sort((a, b) => b.total - a.total);
+}
+
+function getShortages() {
+  return computeRM()
+    .filter(m => {
+      const iv = S.ings[m.id];
+      return iv && iv.stock < m.total;
+    })
+    .map(m => {
+      const iv = S.ings[m.id];
+      return { ...m, shortage: m.total - iv.stock, unit: iv.uom };
+    });
+}
+
+/* ============================================================
+   DASHBOARD
+============================================================ */
+let chIng = null;
+let chBr = null;
+
+function renderDash() {
+  const { totalCost } = computePlan();
+  const shorts = getShortages();
+  const totalUnits = S.orders.reduce((s, o) => s + Object.values(o.items).reduce((a, b) => a + b, 0), 0);
+
+  const sv = [
+    '<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="M9 12h6M9 16h4"/>',
+    '<path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/>',
+    '<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/>',
+    '<path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>'
+  ];
+
+  const stats = [
+    { svg: sv[0], color: '#60a5fa', bg: 'rgba(59,130,246,0.16)', val: S.orders.length, lbl: T('إجمالي طلبات الفروع', 'Total Branch Orders'), bc: 'badge-blue', bt: T('اليوم', 'Today') },
+    { svg: sv[1], color: '#f87171', bg: 'rgba(239,68,68,0.16)', val: shorts.length, lbl: T('نواقص في الخامات', 'Material Shortages'), bc: 'badge-red' + (shorts.length ? ' badge-pulse' : ''), bt: T('تنبيه', 'Alert') },
+    { svg: sv[2], color: '#fbbf24', bg: 'rgba(234,179,8,0.16)', val: fmt(Math.round(totalCost)) + ' ' + cur(), lbl: T('تكلفة الإنتاج الإجمالية', 'Total Production Cost'), bc: 'badge-amber', bt: T('التكلفة', 'Cost') },
+    { svg: sv[3], color: '#4ade80', bg: 'rgba(34,197,94,0.16)', val: fmt(totalUnits), lbl: T('إجمالي الوجبات المطلوبة', 'Total Meals Ordered'), bc: 'badge-green', bt: T('في المسار', 'On Track') }
+  ];
+
+  document.getElementById('dash-stats').innerHTML = stats.map(s => `
+    <div class="stat-card">
+      <div class="flex items-center justify-between mb-3">
+        <div style="width:40px;height:40px;border-radius:11px;background:${s.bg};display:flex;align-items:center;justify-content:center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${s.color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${s.svg}</svg>
+        </div>
+        <span class="badge ${s.bc}">${s.bt}</span>
+      </div>
+      <div style="font-size:26px;font-weight:800;color:#fff;margin-bottom:4px">${s.val}</div>
+      <div class="text-muted text-sm">${s.lbl}</div>
+    </div>
+  `).join('');
+
+  renderAlerts(shorts);
+  setTimeout(() => {
+    renderChartIng();
+    renderChartBr();
+  }, 60);
+}
+
+function renderAlerts(shorts) {
+  const el = document.getElementById('dash-alerts');
+  if (!shorts.length) {
+    el.innerHTML = `
+      <div style="display:flex;align-items:center;gap:12px;padding:16px;border-radius:12px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.18)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span style="color:#4ade80;font-size:13.5px;font-weight:600">${T('جميع مستويات المخزون كافية لتغطية طلبات الإنتاج بالكامل!', 'All stock levels are completely adequate for today!')}</span>
+      </div>
+    `;
+    return;
+  }
+
+  el.innerHTML = shorts.map(s => `
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-radius:12px;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.18);margin-bottom:10px;flex-wrap:wrap;gap:10px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/></svg>
+        <span style="color:#ffffff;font-size:14px;font-weight:700">${iname(s.id)}</span>
+        <span class="text-muted text-sm">${T('العجز المطلوب شراؤه:', 'Shortage to Order:')} <span style="color:#f87171;font-weight:700">${f2(s.shortage)} ${s.unit}</span></span>
+      </div>
+      <button class="btn btn-danger btn-sm" onclick="nav('purchase')">${T('إصدار طلب شراء فوري', 'Order Now')}</button>
+    </div>
+  `).join('');
+}
+
+function renderChartIng() {
+  const ctx = document.getElementById('ch-ing');
+  if (!ctx) return;
+  if (chIng) {
+    chIng.destroy();
+    chIng = null;
+  }
+  const rm = computeRM();
+  const labs = rm.slice(0, 7).map(m => iname(m.id));
+  const data = rm.slice(0, 7).map(m => +m.total.toFixed(2));
+  const colors = ['#f97316', '#8b5cf6', '#22c55e', '#3b82f6', '#eab308', '#ec4899', '#06b6d4'];
+
+  chIng = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labs,
+      datasets: [{
+        data: data,
+        backgroundColor: colors.map(c => c + 'cc'),
+        borderColor: colors,
+        borderWidth: 2,
+        borderRadius: 8
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: {
+          ticks: { color: '#94a3b8', font: { size: 11, family: isAr() ? 'Cairo, sans-serif' : 'Inter, sans-serif' } },
+          grid: { color: 'rgba(255, 255, 255, 0.04)' }
+        },
+        y: {
+          ticks: { color: '#94a3b8', font: { size: 11 } },
+          grid: { color: 'rgba(255, 255, 255, 0.04)' }
+        }
+      }
+    }
+  });
+}
+
+function renderChartBr() {
+  const ctx = document.getElementById('ch-br');
+  if (!ctx) return;
+  if (chBr) {
+    chBr.destroy();
+    chBr = null;
+  }
+  const bmap = {};
+  S.orders.forEach(o => {
+    if (!bmap[o.branch]) bmap[o.branch] = 0;
+    Object.values(o.items).forEach(v => bmap[o.branch] += v);
+  });
+  const labs = Object.keys(bmap);
+  const data = Object.values(bmap);
+  const colors = ['#f97316', '#8b5cf6', '#22c55e', '#3b82f6'];
+
+  chBr = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: labs,
+      datasets: [{
+        data: data,
+        backgroundColor: colors.map(c => c + 'cc'),
+        borderColor: colors,
+        borderWidth: 2,
+        hoverOffset: 6
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { color: '#94a3b8', padding: 14, font: { size: 11.5, family: isAr() ? 'Cairo, sans-serif' : 'Inter, sans-serif' } }
+        }
+      }
+    }
+  });
+}
+
+/* ============================================================
+   BRANCH ORDERS
+============================================================ */
+function renderOrders() {
+  document.getElementById('o-date').value = todayStr();
+  document.getElementById('o-prods').innerHTML = S.products.map(p => `
+    <div style="display:flex;align-items:center;gap:10px">
+      <span style="width:9px;height:9px;border-radius:50%;background:${p.color};flex-shrink:0;display:inline-block"></span>
+      <label style="font-size:13.5px;color:#cbd5e1;flex:1">${pname(p)}</label>
+      <input type="number" min="0" value="0" class="input" id="oq-${p.id}" style="width:95px;text-align:center;padding:7px 10px"/>
+    </div>
+  `).join('');
+
+  const fb = document.getElementById('f-branch').value;
+  const fd = document.getElementById('f-date').value;
+
+  const filtered = S.orders.filter(o => {
+    if (fb && o.branch !== fb) return false;
+    if (fd && o.date !== fd) return false;
+    return true;
+  });
+
+  const agg = {};
+  S.products.forEach(p => agg[p.id] = { p, tot: 0, brs: new Set() });
+  filtered.forEach(o => {
+    Object.entries(o.items).forEach(([pid, q]) => {
+      if (agg[pid]) {
+        agg[pid].tot += q;
+        agg[pid].brs.add(o.branch);
+      }
+    });
+  });
+
+  document.getElementById('orders-count-badge').textContent = filtered.length + ' ' + T('طلب', 'Orders');
+
+  const aggHtml = Object.values(agg).filter(a => a.tot > 0).map(a => `
+    <tr>
+      <td>
+        <div style="display:flex;align-items:center;gap:9px">
+          <span style="width:9px;height:9px;border-radius:50%;background:${a.p.color};display:inline-block"></span>
+          <span style="font-weight:700;color:#fff">${pname(a.p)}</span>
+        </div>
+      </td>
+      <td><span style="font-weight:800;color:#fff">${fmt(a.tot)}</span></td>
+      <td><span class="badge badge-slate">${a.brs.size} ${T('فروع', 'branches')}</span></td>
+      <td style="color:#fbbf24">${f2(a.p.cost)} ${cur()}</td>
+      <td><span class="text-gradient font-bold">${fmt(Math.round(a.tot * a.p.cost))} ${cur()}</span></td>
+    </tr>
+  `).join('');
+
+  document.getElementById('agg-body').innerHTML = aggHtml || `<tr><td colspan="5" class="text-muted" style="text-align:center;padding:24px">${T('لا توجد طلبات مسجلة', 'No orders recorded')}</td></tr>`;
+
+  document.getElementById('orders-list').innerHTML = filtered.map(o => {
+    const total = Object.entries(o.items).reduce((s, [pid, q]) => {
+      const p = S.products.find(x => x.id === pid);
+      return s + (p ? q * p.cost : 0);
+    }, 0);
+    const items = Object.entries(o.items).filter(([, v]) => v > 0).map(([pid, q]) => {
+      const p = S.products.find(x => x.id === pid);
+      return q + ' × ' + pname(p);
+    }).join('  |  ');
+
+    return `
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:16px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);flex-wrap:wrap;gap:10px">
+        <div>
+          <div style="display:flex;align-items:center;gap:9px;margin-bottom:6px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+            <span style="font-weight:700;color:#ffffff;font-size:14.5px">${o.branch}</span>
+            <span class="chip">${o.date}</span>
+          </div>
+          <div class="text-muted text-sm">${items || '—'}</div>
+          ${o.notes ? `<div style="font-size:12px;color:#94a3b8;margin-top:4px">📝 ${o.notes}</div>` : ''}
+        </div>
+        <div style="text-align:end;flex-shrink:0">
+          <div class="text-gradient font-bold" style="font-size:15px">${fmt(Math.round(total))} ${cur()}</div>
+          <button style="font-size:11.5px;color:#f87171;background:none;border:none;cursor:pointer;margin-top:6px;font-family:inherit;font-weight:600" onclick="delOrder(${o.id})">✕ ${T('حذف الطلب', 'Delete')}</button>
+        </div>
+      </div>
+    `;
+  }).join('') || `<div class="empty-state"><p>${T('لا توجد طلبات تطابق معايير الفلترة', 'No orders match criteria')}</p></div>`;
+}
+
+function submitOrder() {
+  const branch = document.getElementById('o-branch').value;
+  const date = document.getElementById('o-date').value;
+  if (!branch) {
+    toast(T('يرجى اختيار الفرع أولاً', 'Please select a branch'), 'error');
+    return;
+  }
+  const items = {};
+  S.products.forEach(p => {
+    items[p.id] = parseInt(document.getElementById('oq-' + p.id).value) || 0;
+  });
+  if (Object.values(items).every(v => v === 0)) {
+    toast(T('يرجى كتابة كمية واحدة على الأقل', 'Please enter at least one quantity'), 'error');
+    return;
+  }
+
+  S.orders.unshift({
+    id: Date.now(),
+    branch: branch,
+    date: date || todayStr(),
+    items: items,
+    notes: document.getElementById('o-notes').value
+  });
+
+  toast(T('✅ تم إرسال الطلب وانعكست الخطة على الإنتاج والمخزون!', '✅ Order recorded and synced!'));
+  renderOrders();
+}
+
+function delOrder(id) {
+  S.orders = S.orders.filter(o => o.id !== id);
+  renderOrders();
+  toast(T('تم حذف الطلب وتحديث الحسابات', 'Order removed'), 'info');
+}
+
+function clearFilters() {
+  document.getElementById('f-branch').value = '';
+  document.getElementById('f-date').value = '';
+  renderOrders();
+}
+
+/* ============================================================
+   RECIPES (BOM)
+============================================================ */
+function renderRecipes() {
+  if (!S.curRecipe && S.products.length) {
+    S.curRecipe = S.products[0].id;
+  }
+  const chv = isAr()
+    ? '<polyline points="15 18 9 12 15 6"/>'
+    : '<polyline points="9 18 15 12 9 6"/>';
+
+  document.getElementById('recipe-list').innerHTML = S.products.map(p => {
+    const r = S.recipes[p.id];
+    const cost = r ? recipeCost(r) : 0;
+    return `
+      <div class="nav-item ${S.curRecipe === p.id ? 'active' : ''}" onclick="selRecipe('${p.id}')">
+        <span style="width:10px;height:10px;border-radius:50%;background:${p.color};flex-shrink:0;display:inline-block"></span>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:13.5px;font-weight:700">${pname(p)}</div>
+          <div style="font-size:11.5px;color:#94a3b8">${f2(cost)} ${cur()} / ${T('للوجبة', 'unit')}</div>
+        </div>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${chv}</svg>
+      </div>
+    `;
+  }).join('');
+
+  renderBOM(S.curRecipe);
+}
+
+function selRecipe(id) {
+  S.curRecipe = id;
+  renderRecipes();
+}
+
+function renderBOM(pid) {
+  const p = S.products.find(x => x.id === pid);
+  if (!p) {
+    document.getElementById('recipe-title').textContent = '—';
+    return;
+  }
+  if (!S.recipes[pid]) S.recipes[pid] = { ings: [] };
+  const rec = S.recipes[pid];
+
+  document.getElementById('recipe-title').textContent = pname(p);
+  const cost = recipeCost(rec);
+  document.getElementById('recipe-total-cost').textContent = f2(cost);
+  p.cost = cost;
+
+  document.getElementById('recipe-tbl').innerHTML = rec.ings.map((ing, i) => {
+    const d = S.ings[ing.id];
+    if (!d) return '';
+    const eff = ing.qty * (1 + ing.waste / 100);
+    const lc = eff * d.price;
+    return `
+      <tr>
+        <td>
+          <select class="select" style="padding:6px 10px;font-size:13px" onchange="updIng('${pid}', ${i}, 'id', this.value)">
+            ${Object.entries(S.ings).map(([k, v]) => `<option value="${k}" ${k === ing.id ? 'selected' : ''}>${isAr() ? v.ar : v.en}</option>`).join('')}
+          </select>
+        </td>
+        <td>
+          <input type="number" step="0.001" min="0" value="${ing.qty}" class="input" style="width:85px;padding:6px 10px;font-size:13px" onchange="updIng('${pid}', ${i}, 'qty', +this.value)"/>
+        </td>
+        <td class="text-muted" style="font-size:13px">${d.uom}</td>
+        <td>
+          <div style="display:flex;align-items:center;gap:4px">
+            <input type="number" step="1" min="0" max="100" value="${ing.waste}" class="input" style="width:70px;padding:6px 10px;font-size:13px" onchange="updIng('${pid}', ${i}, 'waste', +this.value)"/>
+            <span style="color:#94a3b8">%</span>
+          </div>
+        </td>
+        <td class="text-muted" style="font-size:13px">${d.price} ${cur()}</td>
+        <td style="font-weight:700;color:#fbbf24;font-size:14px">${f2(lc)} ${cur()}</td>
+        <td>
+          <button class="btn btn-danger btn-icon btn-sm" onclick="remIng('${pid}', ${i})">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
+          </button>
+        </td>
+      </tr>
+    `;
+  }).join('') || `<tr><td colspan="7" class="text-muted" style="text-align:center;padding:24px">${T('لا توجد خامات مضافة لهذه الوصفة بعد', 'No ingredients yet')}</td></tr>`;
+}
+
+function updIng(pid, i, f, v) {
+  S.recipes[pid].ings[i][f] = (f === 'id') ? v : +v;
+  renderBOM(pid);
+  renderRecipes();
+}
+function remIng(pid, i) {
+  S.recipes[pid].ings.splice(i, 1);
+  renderBOM(pid);
+  renderRecipes();
+}
+function addIngRow() {
+  if (!S.curRecipe) {
+    toast(T('اختر منتجاً أولاً', 'Select product'), 'error');
+    return;
+  }
+  const k = Object.keys(S.ings)[0];
+  S.recipes[S.curRecipe].ings.push({ id: k, qty: 0.1, waste: 5 });
+  renderBOM(S.curRecipe);
+}
+
+function saveProduct() {
+  const a = document.getElementById('prod-ar').value.trim();
+  const e = document.getElementById('prod-en').value.trim();
+  if (!a || !e) {
+    toast(T('يرجى كتابة الاسم بالعربية والإنجليزية', 'Enter both names'), 'error');
+    return;
+  }
+  const id = 'prod_' + Date.now();
+  const color = document.getElementById('prod-color').value;
+  S.products.push({ id, ar: a, en: e, cost: 0, color });
+  S.recipes[id] = { ings: [] };
+  closeModal('modal-prod');
+  document.getElementById('prod-ar').value = '';
+  document.getElementById('prod-en').value = '';
+  S.curRecipe = id;
+  renderRecipes();
+  toast(T('✅ تم إنشاء الوجبة الجديدة بنجاح', '✅ Product created!'));
+}
+
+/* ============================================================
+   PRODUCTION ENGINE
+============================================================ */
+function renderProd() {
+  const { plan, totalCost, totalWaste } = computePlan();
+  const rm = computeRM();
+  const units = plan.reduce((s, p) => s + p.ttp, 0);
+
+  document.getElementById('prod-stats').innerHTML = [
+    { val: fmt(units) + ' ' + T('وجبة', 'Meals'), lbl: T('إجمالي حجم الإنتاج المطلوب اليوم', 'Total Units to Produce'), color: '#ffffff' },
+    { val: fmt(Math.round(totalCost)) + ' ' + cur(), lbl: T('تكلفة المواد الخام المباشرة', 'Raw Material Cost'), color: '#fb923c' },
+    { val: fmt(Math.round(totalWaste)) + ' ' + cur(), lbl: T('تكلفة الهدر المتوقع المحسوب', 'Calculated Waste Cost'), color: '#fbbf24' }
+  ].map(s => `
+    <div class="stat-card" style="text-align:center">
+      <div style="font-size:26px;font-weight:800;color:${s.color}">${s.val}</div>
+      <div class="text-muted text-sm mt-2">${s.lbl}</div>
+    </div>
+  `).join('');
+
+  document.getElementById('prod-plan-tbl').innerHTML = plan.map(({ p, ordered, buf, ttp, uc, tc }) => `
+    <tr>
+      <td>
+        <div style="display:flex;align-items:center;gap:9px">
+          <span style="width:9px;height:9px;border-radius:50%;background:${p.color};display:inline-block"></span>
+          <span style="font-weight:700;color:#fff">${pname(p)}</span>
+        </div>
+      </td>
+      <td style="color:#60a5fa;font-weight:700">${fmt(ordered)}</td>
+      <td style="color:#fbbf24">+${buf}</td>
+      <td style="font-weight:800;color:#fff">${fmt(ttp)}</td>
+      <td class="text-muted">${f2(uc)} ${cur()}</td>
+      <td><span class="text-gradient font-bold">${fmt(Math.round(tc))} ${cur()}</span></td>
+      <td>
+        ${ordered > 0
+          ? `<span class="badge badge-green">${T('قيد التحضير والإنتاج', 'In Production')}</span>`
+          : `<span class="badge badge-amber">${T('لا توجد طلبات', 'No Demand')}</span>`}
+      </td>
+    </tr>
+  `).join('');
+
+  document.getElementById('prod-rm-tbl').innerHTML = rm.map(m => {
+    const d = S.ings[m.id];
+    if (!d) return '';
+    const cost = m.total * d.price;
+    const iv = S.ings[m.id];
+    const short = iv && iv.stock < m.total;
+    return `
+      <tr>
+        <td>
+          <div style="display:flex;align-items:center;gap:8px">
+            ${short ? `<span class="badge badge-red" style="padding:1px 6px;font-size:10px">!</span>` : ''}
+            <span style="font-weight:700;color:#fff">${isAr() ? d.ar : d.en}</span>
+          </div>
+        </td>
+        <td class="text-muted">${f2(m.base)} ${d.uom}</td>
+        <td style="color:#fbbf24">+${f2(m.waste)}</td>
+        <td style="font-weight:800;color:#fff">${f2(m.total)} ${d.uom}</td>
+        <td class="text-muted">${d.price} ${cur()}</td>
+        <td style="${short ? 'color:#f87171' : 'color:#4ade80'};font-weight:700">${f2(cost)} ${cur()}</td>
+        <td>${iv ? `<span style="font-weight:700;color:${short ? '#f87171' : '#4ade80'}">${iv.stock} ${d.uom}</span>` : '—'}</td>
+        <td>
+          ${short
+            ? `<span class="badge badge-red badge-pulse">${T('يوجد عجز بالمخزون', 'Shortage')}</span>`
+            : `<span class="badge badge-green">${T('الرصيد كافٍ', 'Adequate')}</span>`}
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+/* ============================================================
+   INVENTORY
+============================================================ */
+function renderInv() {
+  const rm = computeRM();
+  const rmap = {};
+  rm.forEach(m => rmap[m.id] = m.total);
+
+  const rows = Object.entries(S.ings).map(([id, iv]) => {
+    const req = rmap[id] || 0;
+    const gap = req - iv.stock;
+    const isShort = gap > 0;
+    const isLow = iv.stock <= iv.safety && !isShort;
+    const pct = req > 0 ? Math.min(100, (iv.stock / req) * 100) : 100;
+    return {
+      id, iv, req, gap, isShort, isLow, pct,
+      bc: isShort ? '#ef4444' : isLow ? '#eab308' : '#22c55e'
+    };
+  });
+
+  const sh = rows.filter(r => r.isShort).length;
+  const lo = rows.filter(r => r.isLow).length;
+  const ok = rows.filter(r => !r.isShort && !r.isLow).length;
+
+  document.getElementById('inv-stats').innerHTML = [
+    { v: rows.length, l: T('إجمالي الأصناف بالمخزن', 'Total Raw Materials'), c: '#ffffff' },
+    { v: sh, l: T('خامات بها عجز حالي', 'Material Shortages'), c: '#f87171' },
+    { v: lo, l: T('خامات عند حد الأمان', 'Low Safety Stock'), c: '#fbbf24' },
+    { v: ok, l: T('خامات برصيد كافٍ', 'Adequate Stock'), c: '#4ade80' }
+  ].map(s => `
+    <div class="stat-card" style="text-align:center">
+      <div style="font-size:26px;font-weight:800;color:${s.c}">${s.v}</div>
+      <div class="text-muted text-sm mt-2">${s.l}</div>
+    </div>
+  `).join('');
+
+  document.getElementById('inv-tbl').innerHTML = rows.map(r => {
+    const d = S.ings[r.id];
+    if (!d) return '';
+    return `
+      <tr>
+        <td style="font-weight:700;color:#fff">${isAr() ? d.ar : d.en}</td>
+        <td><span style="font-weight:800;color:${r.isShort ? '#f87171' : r.isLow ? '#fbbf24' : '#4ade80'}">${r.iv.stock} ${r.iv.uom}</span></td>
+        <td class="text-muted">${r.iv.safety} ${r.iv.uom}</td>
+        <td style="color:#60a5fa;font-weight:600">${f2(r.req)} ${r.iv.uom}</td>
+        <td>
+          ${r.isShort
+            ? `<span class="badge badge-red badge-pulse">▼ ${f2(r.gap)} ${r.iv.uom}</span>`
+            : `<span class="badge badge-green">✓ ${T('لا يوجد عجز', 'No Gap')}</span>`}
+        </td>
+        <td>
+          ${r.isShort
+            ? `<span class="badge badge-red">${T('عجز حرج', 'Shortage')}</span>`
+            : r.isLow
+            ? `<span class="badge badge-amber">${T('منخفض (أمان)', 'Low')}</span>`
+            : `<span class="badge badge-green">${T('كافٍ ومستقر', 'Adequate')}</span>`}
+        </td>
+        <td style="min-width:110px">
+          <div class="progress"><div class="progress-bar" style="width:${f2(r.pct)}%;background:${r.bc}"></div></div>
+          <div style="font-size:11px;color:#94a3b8;margin-top:3px">${Math.round(r.pct)}%</div>
+        </td>
+        <td>
+          <button class="btn btn-secondary btn-icon btn-sm" onclick="openEditStock('${r.id}')" title="تعديل الرصيد">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </button>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function openEditStock(id) {
+  const iv = S.ings[id];
+  document.getElementById('stock-ing-id').value = id;
+  document.getElementById('stock-cur').value = iv.stock;
+  document.getElementById('stock-safety').value = iv.safety;
+  openModal('modal-stock');
+}
+
+function saveStock() {
+  const id = document.getElementById('stock-ing-id').value;
+  S.ings[id].stock = +document.getElementById('stock-cur').value || 0;
+  S.ings[id].safety = +document.getElementById('stock-safety').value || 0;
+  closeModal('modal-stock');
+  renderInv();
+  toast(T('✅ تم تحديث بيانات المخزون بنجاح!', '✅ Stock updated!'));
+}
+
+function saveIngredient() {
+  const a = document.getElementById('ing-ar').value.trim();
+  const e = document.getElementById('ing-en').value.trim();
+  if (!a || !e) {
+    toast(T('يرجى إدخال الاسم بالعربية والإنجليزية', 'Enter both names'), 'error');
+    return;
+  }
+  const id = 'ing_' + Date.now();
+  S.ings[id] = {
+    ar: a,
+    en: e,
+    uom: document.getElementById('ing-uom').value,
+    price: +document.getElementById('ing-price').value || 0,
+    stock: +document.getElementById('ing-stock').value || 0,
+    safety: +document.getElementById('ing-safety').value || 0,
+    sup: document.getElementById('ing-sup').value.trim() || 'المورد الافتراضي'
+  };
+  closeModal('modal-ing');
+  ['ing-ar', 'ing-en', 'ing-sup', 'ing-price', 'ing-stock', 'ing-safety'].forEach(i => document.getElementById(i).value = '');
+  renderInv();
+  toast(T('✅ تمت إضافة المادة الخام بنجاح!', '✅ Ingredient added!'));
+}
+
+/* ============================================================
+   PURCHASE ORDERS
+============================================================ */
+function genPOs() {
+  const rm = computeRM();
+  const rmap = {};
+  rm.forEach(m => rmap[m.id] = m.total);
+
+  S.POs = [];
+  let pn = 1001;
+
+  Object.entries(S.ings).forEach(([id, iv]) => {
+    const d = S.ings[id];
+    if (!d) return;
+    const req = rmap[id] || 0;
+    const gap = req - iv.stock;
+    const isLow = iv.stock <= iv.safety;
+
+    if (gap > 0 || isLow) {
+      const qty = gap > 0 ? gap + iv.safety : (iv.safety * 2) - iv.stock;
+      const qn = Math.max(0.1, qty);
+      S.POs.push({
+        id: 'PO-' + pn++,
+        ingId: id,
+        qty: f2(qn),
+        unit: iv.uom,
+        cost: f2(qn * d.price),
+        sup: d.sup || 'مورد عام',
+        priority: gap > 0 ? 'high' : 'medium',
+        status: 'draft'
+      });
+    }
+  });
+
+  nav('purchase');
+  toast(T(`✅ تم توليد ${S.POs.length} طلب شراء للمواد الناقصة!`, `✅ Generated ${S.POs.length} POs!`));
+}
+
+function renderPOs() {
+  const dr = S.POs.filter(p => p.status === 'draft').length;
+  const sn = S.POs.filter(p => p.status === 'sent').length;
+  const rc = S.POs.filter(p => p.status === 'received').length;
+
+  document.getElementById('po-stats').innerHTML = [
+    { v: dr, l: T('مسودات قيد المراجعة', 'Draft Orders'), c: '#94a3b8' },
+    { v: sn, l: T('أوامر أرسلت للموردين', 'Sent to Suppliers'), c: '#fbbf24' },
+    { v: rc, l: T('طلبيات تم استلامها وإدخالها', 'Received into Stock'), c: '#4ade80' }
+  ].map(s => `
+    <div class="stat-card" style="text-align:center">
+      <div style="font-size:26px;font-weight:800;color:${s.c}">${s.v}</div>
+      <div class="text-muted text-sm mt-2">${s.l}</div>
+    </div>
+  `).join('');
+
+  const em = document.getElementById('po-empty');
+  const tbl = document.getElementById('po-tbl');
+
+  if (!S.POs.length) {
+    tbl.innerHTML = '';
+    em.style.display = 'block';
+    return;
+  }
+  em.style.display = 'none';
+
+  const opts = [
+    { v: 'draft',    ar: 'مسودة',       en: 'Draft' },
+    { v: 'sent',     ar: 'تم الإرسال',  en: 'Sent' },
+    { v: 'received', ar: 'تم الاستلام', en: 'Received' }
+  ];
+
+  tbl.innerHTML = S.POs.map((po, i) => {
+    const d = S.ings[po.ingId];
+    const nm = d ? (isAr() ? d.ar : d.en) : po.ingId;
+    return `
+      <tr>
+        <td class="td-mono font-bold">${po.id}</td>
+        <td style="font-weight:700;color:#fff">${nm}</td>
+        <td style="font-weight:800;color:#60a5fa">${po.qty}</td>
+        <td class="text-muted">${po.unit}</td>
+        <td><span class="text-gradient font-bold">${(+po.cost).toLocaleString()} ${cur()}</span></td>
+        <td class="text-muted" style="font-size:12.5px">${po.sup}</td>
+        <td>
+          ${po.priority === 'high'
+            ? `<span class="badge badge-red">${T('أولوية قصوى', 'Urgent')}</span>`
+            : `<span class="badge badge-amber">${T('أولوية عادية', 'Medium')}</span>`}
+        </td>
+        <td>
+          <select class="select" style="padding:5px 10px;font-size:12.5px;width:auto;color:${po.status === 'received' ? '#4ade80' : po.status === 'sent' ? '#facc15' : '#94a3b8'}" onchange="updPO(${i}, this.value)">
+            ${opts.map(o => `<option value="${o.v}" ${o.v === po.status ? 'selected' : ''}>${isAr() ? o.ar : o.en}</option>`).join('')}
+          </select>
+        </td>
+        <td>
+          <div style="display:flex;gap:6px">
+            ${po.status === 'draft'
+              ? `<button class="btn btn-primary btn-sm" onclick="sendPO(${i})"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>${T('إرسال للمورد', 'Send')}</button>`
+              : ''}
+            ${po.status === 'sent'
+              ? `<button class="btn btn-secondary btn-sm" style="color:#4ade80;border-color:rgba(74,222,128,0.3)" onclick="receivePO(${i})"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>${T('استلام بالمخزن', 'Receive')}</button>`
+              : ''}
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function updPO(i, v) {
+  if (v === 'received' && S.POs[i].status !== 'received') {
+    receivePO(i);
+  } else {
+    S.POs[i].status = v;
+    renderPOs();
+  }
+}
+
+function sendPO(i) {
+  S.POs[i].status = 'sent';
+  renderPOs();
+  toast(T('📤 تم إرسال أمر الشراء إلى المورد بنجاح!', '📤 Sent to supplier!'));
+}
+
+function receivePO(i) {
+  const po = S.POs[i];
+  if (S.ings[po.ingId]) {
+    S.ings[po.ingId].stock += +po.qty;
+  }
+  po.status = 'received';
+  renderPOs();
+  renderInv();
+  toast(T(`✅ تم استلام الشحنة وإضافة ${po.qty} ${po.unit} إلى رصيد المخزن فوراً!`, `✅ Received! Added ${po.qty} ${po.unit} to stock.`));
+}
+
+function sendAllDraft() {
+  const ds = S.POs.filter(p => p.status === 'draft');
+  if (!ds.length) {
+    toast(T('لا توجد مسودات للإرسال حالياً', 'No drafts to send'), 'info');
+    return;
+  }
+  ds.forEach(p => p.status = 'sent');
+  renderPOs();
+  toast(T(`📤 تم إرسال ${ds.length} أوامر شراء إلى الموردين بنجاح!`, `📤 Sent ${ds.length} POs!`));
+}
+
+/* ============================================================
+   INITIALIZATION
+============================================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.innerWidth <= 768) {
+    document.getElementById('mob-btn').style.display = 'flex';
+  }
+  window.addEventListener('resize', () => {
+    document.getElementById('mob-btn').style.display = (window.innerWidth <= 768) ? 'flex' : 'none';
+  });
+
+  applyLang();
+
+  // Pre-generate Initial POs based on shortages
+  const rm = computeRM();
+  const rmap = {};
+  rm.forEach(m => rmap[m.id] = m.total);
+  let pn = 1001;
+
+  Object.entries(S.ings).forEach(([id, iv]) => {
+    const d = S.ings[id];
+    if (!d) return;
+    const req = rmap[id] || 0;
+    const gap = req - iv.stock;
+    const isLow = iv.stock <= iv.safety;
+    if (gap > 0 || isLow) {
+      const qty = gap > 0 ? gap + iv.safety : (iv.safety * 2) - iv.stock;
+      const qn = Math.max(0.1, qty);
+      S.POs.push({
+        id: 'PO-' + pn++,
+        ingId: id,
+        qty: f2(qn),
+        unit: iv.uom,
+        cost: f2(qn * d.price),
+        sup: d.sup || 'مورد عام',
+        priority: gap > 0 ? 'high' : 'medium',
+        status: 'draft'
+      });
+    }
+  });
+
+  renderDash();
+});
+</script>
+</body>
+</html>
