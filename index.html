@@ -11,8 +11,18 @@
   <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
 <style>
 /* ===================================================
-   RESET & ROOT STYLES
+   RESET & ROOT STYLES — COMMUNITY RESTAURANTS ERP
 =================================================== */
+:root {
+  --accent: #f97316;
+  --accent2: #a855f7;
+  --accent3: #06b6d4;
+  --neon-green: #22c55e;
+  --card-bg: rgba(255,255,255,0.035);
+  --border: rgba(255,255,255,0.09);
+  --surface: #0b111f;
+  --surface2: #0f1928;
+}
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -26,32 +36,66 @@ html, body {
 
 body {
   font-family: 'Cairo', 'Inter', sans-serif;
-  background: #090e1a;
+  background: #060c18;
   color: #e2e8f0;
   display: flex;
   height: 100vh;
   overflow: hidden;
+  position: relative;
 }
+
+/* ===== ANIMATED GALAXY BACKGROUND ===== */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(168, 85, 247, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 80%, rgba(6, 182, 212, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 70% at 50% 50%, rgba(249, 115, 22, 0.05) 0%, transparent 65%),
+    linear-gradient(135deg, #060c18 0%, #080f1e 50%, #060c18 100%);
+  animation: auroraShift 18s ease-in-out infinite alternate;
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1.5px 1.5px at 20% 30%, rgba(255,255,255,0.55) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 10%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 50% 60%, rgba(255,255,255,0.35) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 70% 80%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 10% 90%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 35% 15%, rgba(255,255,255,0.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 65% 45%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 88% 55%, rgba(255,255,255,0.4) 0%, transparent 100%);
+  opacity: 0.6;
+}
+@keyframes auroraShift {
+  0%   { opacity:1; filter: hue-rotate(0deg); }
+  50%  { opacity:0.85; filter: hue-rotate(25deg); }
+  100% { opacity:1; filter: hue-rotate(-15deg); }
+}
+
+/* All main layout elements need z-index above the bg */
+.sidebar, .main { position: relative; z-index: 1; }
 
 [dir="ltr"] {
   font-family: 'Inter', 'Cairo', sans-serif;
 }
 
 /* Custom Scrollbars */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.6);
-}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: rgba(6,12,24,0.5); }
 ::-webkit-scrollbar-thumb {
-  background: #334155;
-  border-radius: 4px;
+  background: linear-gradient(180deg, #a855f7, #f97316);
+  border-radius: 99px;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #f97316;
-}
+::-webkit-scrollbar-thumb:hover { background: #f97316; }
 
 /* ===================================================
    SIDEBAR
@@ -60,8 +104,11 @@ body {
   width: 260px;
   min-width: 260px;
   height: 100vh;
-  background: linear-gradient(180deg, #0d1527 0%, #080d1a 100%);
-  border-inline-end: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg,
+    rgba(11,17,31,0.98) 0%,
+    rgba(8,13,26,0.97) 60%,
+    rgba(10,7,20,0.98) 100%);
+  border-inline-end: 1px solid rgba(168,85,247,0.15);
   display: flex;
   flex-direction: column;
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), min-width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -69,6 +116,7 @@ body {
   position: relative;
   z-index: 100;
   flex-shrink: 0;
+  box-shadow: 2px 0 40px rgba(168,85,247,0.07);
 }
 
 .sidebar.collapsed {
@@ -94,23 +142,36 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 20px 18px;
+  padding: 18px 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
-.brand-logo {
-  width: 40px;
-  height: 40px;
+.brand-logo-wrap {
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #f97316, #ea580c);
+  background: #ffffff;
+  padding: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.35);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), 0 0 16px rgba(249, 115, 22, 0.25);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+.brand-logo-wrap:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 6px 24px rgba(249, 115, 22, 0.45);
+}
+.brand-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
 }
 .brand-text h2 {
-  font-size: 16px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 900;
   color: #ffffff;
   white-space: nowrap;
   letter-spacing: -0.01em;
@@ -118,7 +179,7 @@ body {
 .brand-text p {
   font-size: 11px;
   color: #f97316;
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
 }
 
@@ -144,23 +205,46 @@ nav {
   align-items: center;
   gap: 12px;
   padding: 11px 14px;
-  border-radius: 11px;
+  border-radius: 12px;
   cursor: pointer;
-  color: #94a3b8;
-  transition: all 0.2s ease;
+  color: #64748b;
+  transition: all 0.22s cubic-bezier(0.34,1.56,0.64,1);
   white-space: nowrap;
   border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
 }
+.nav-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(168,85,247,0.12), rgba(249,115,22,0.07));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border-radius: 12px;
+}
+.nav-item:hover::before { opacity: 1; }
 .nav-item:hover {
-  background: rgba(249, 115, 22, 0.08);
-  color: #fb923c;
-  border-color: rgba(249, 115, 22, 0.15);
+  color: #d8b4fe;
+  border-color: rgba(168,85,247,0.2);
+  transform: translateX(-3px);
 }
 .nav-item.active {
-  background: linear-gradient(135deg, rgba(249, 115, 22, 0.22), rgba(234, 88, 12, 0.12));
-  color: #fb923c;
-  border-color: rgba(249, 115, 22, 0.35);
-  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.12);
+  background: linear-gradient(135deg, rgba(168,85,247,0.22), rgba(249,115,22,0.14));
+  color: #e9d5ff;
+  border-color: rgba(168,85,247,0.4);
+  box-shadow: 0 4px 20px rgba(168,85,247,0.18), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 30%;
+  bottom: 30%;
+  width: 3px;
+  background: linear-gradient(180deg, #a855f7, #f97316);
+  border-radius: 99px;
+  box-shadow: 0 0 10px #a855f7;
 }
 .nav-icon {
   width: 19px;
@@ -198,11 +282,16 @@ nav {
   justify-content: space-between;
   padding: 0 24px;
   height: 64px;
-  background: rgba(9, 14, 26, 0.85);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(90deg,
+    rgba(7,10,20,0.92) 0%,
+    rgba(10,14,28,0.88) 50%,
+    rgba(7,10,20,0.92) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(168,85,247,0.12);
   flex-shrink: 0;
   gap: 12px;
+  box-shadow: 0 1px 30px rgba(0,0,0,0.5), 0 0 0 0.5px rgba(255,255,255,0.06);
 }
 .topbar-left {
   display: flex;
@@ -214,10 +303,90 @@ nav {
   font-weight: 800;
   color: #ffffff;
 }
+.live-ticker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: #4ade80;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  position: relative;
+  box-shadow: 0 0 8px #22c55e;
+  flex-shrink: 0;
+}
+.live-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid #22c55e;
+  animation: pulseRing 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+@keyframes pulseRing {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
 .topbar-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+}
+.cmd-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.cmd-btn:hover {
+  background: rgba(249, 115, 22, 0.1);
+  border-color: rgba(249, 115, 22, 0.3);
+  color: #fb923c;
+}
+.cmd-btn kbd {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 10px;
+  font-family: inherit;
+  color: #cbd5e1;
+}
+.topbar-brand-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 10px rgba(249, 115, 22, 0.2);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.topbar-brand-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 /* ===================================================
@@ -228,7 +397,7 @@ nav {
   min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 24px;
+  padding: 28px;
   -webkit-overflow-scrolling: touch;
 }
 .page {
@@ -236,39 +405,76 @@ nav {
 }
 .page.active {
   display: block;
-  animation: fadeIn 0.25s ease-out;
+  animation: fadeInUp 0.32s cubic-bezier(0.22,1,0.36,1);
 }
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px) scale(0.99); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
 }
 
 /* ===================================================
-   CARDS & GRIDS
+   CARDS & GRIDS — GLASSMORPHISM PREMIUM
 =================================================== */
 .card {
-  background: rgba(255, 255, 255, 0.035);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.055) 0%,
+    rgba(255,255,255,0.022) 100%);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
 }
-.stat-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.stat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+.card:hover {
+  border-color: rgba(168,85,247,0.18);
+  box-shadow:
+    0 12px 48px rgba(0,0,0,0.45),
+    0 0 0 0.5px rgba(168,85,247,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.1);
 }
 
-.g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.stat-card {
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.065) 0%,
+    rgba(255,255,255,0.025) 100%);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow:
+    0 8px 30px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
+  position: relative;
+  overflow: hidden;
+}
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  inset-inline-start: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(168,85,247,0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+.stat-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.45),
+    0 0 30px rgba(168,85,247,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.14);
+  border-color: rgba(168,85,247,0.25);
+}
+
+.g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 @media (max-width: 1024px) {
   .g4 { grid-template-columns: repeat(2, 1fr); }
   .g3 { grid-template-columns: 1fr; }
@@ -308,50 +514,73 @@ nav {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 18px;
-  border-radius: 10px;
+  padding: 10px 20px;
+  border-radius: 12px;
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
   border: none;
-  transition: all 0.2s ease;
+  transition: all 0.22s cubic-bezier(0.34,1.56,0.64,1);
   font-family: inherit;
   user-select: none;
+  position: relative;
+  overflow: hidden;
 }
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.btn:hover::before { opacity: 1; }
+
 .btn-primary {
-  background: linear-gradient(135deg, #f97316, #ea580c);
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 60%, #a855f7 120%);
+  background-size: 200% 200%;
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3);
+  box-shadow:
+    0 4px 18px rgba(249,115,22,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+  animation: gradShift 4s ease infinite;
+}
+@keyframes gradShift {
+  0%,100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
 }
 .btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.45);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 28px rgba(249,115,22,0.5), 0 0 20px rgba(168,85,247,0.25);
 }
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.07);
-  color: #e2e8f0;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255,255,255,0.06);
+  color: #cbd5e1;
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
 }
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(168,85,247,0.1);
+  border-color: rgba(168,85,247,0.3);
+  color: #d8b4fe;
+  transform: translateY(-1px);
 }
 .btn-danger {
-  background: rgba(239, 68, 68, 0.14);
-  color: #f87171;
-  border: 1px solid rgba(239, 68, 68, 0.25);
+  background: rgba(239,68,68,0.1);
+  color: #fca5a5;
+  border: 1px solid rgba(239,68,68,0.25);
 }
 .btn-danger:hover {
-  background: rgba(239, 68, 68, 0.24);
+  background: rgba(239,68,68,0.22);
+  box-shadow: 0 4px 16px rgba(239,68,68,0.25);
+  transform: translateY(-1px);
 }
 .btn-sm {
-  padding: 6px 12px;
+  padding: 6px 14px;
   font-size: 12px;
-  border-radius: 8px;
+  border-radius: 9px;
 }
-.btn-icon {
-  padding: 8px;
-}
+.btn-icon { padding: 8px; }
 
 .input, .select, .textarea {
   background: rgba(255, 255, 255, 0.05);
@@ -386,44 +615,56 @@ nav {
 }
 
 /* ===================================================
-   TABLES
+   TABLES — NEON ROW HOVER
 =================================================== */
 .tbl-wrap {
   overflow-x: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(168,85,247,0.1);
 }
 table.tbl {
   width: 100%;
   border-collapse: collapse;
 }
+table.tbl thead {
+  background: linear-gradient(90deg,
+    rgba(168,85,247,0.12) 0%,
+    rgba(6,182,212,0.07) 100%);
+}
 table.tbl th {
-  background: rgba(255, 255, 255, 0.04);
-  color: #94a3b8;
-  font-size: 11.5px;
-  font-weight: 700;
+  color: #a78bfa;
+  font-size: 11px;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 12px 16px;
+  letter-spacing: 0.07em;
+  padding: 14px 16px;
   text-align: start;
   white-space: nowrap;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(168,85,247,0.15);
 }
 table.tbl td {
-  padding: 12px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 13px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
   font-size: 13.5px;
   vertical-align: middle;
   color: #cbd5e1;
+  transition: background 0.15s ease, color 0.15s ease;
 }
-table.tbl tr:last-child td {
-  border-bottom: none;
+table.tbl tr:last-child td { border-bottom: none; }
+table.tbl tbody tr {
+  transition: all 0.15s ease;
 }
-table.tbl tr:hover td {
-  background: rgba(255, 255, 255, 0.025);
+table.tbl tbody tr:hover td {
+  background: linear-gradient(90deg,
+    rgba(168,85,247,0.07) 0%,
+    rgba(249,115,22,0.04) 100%);
+  color: #e2e8f0;
 }
 .td-mono {
-  font-family: monospace;
-  color: #94a3b8;
-  font-size: 12.5px;
+  font-family: 'Courier New', monospace;
+  color: #a78bfa;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 /* Progress bar */
@@ -461,10 +702,11 @@ table.tbl tr:hover td {
 .sy3 > * + * { margin-top: 12px; }
 .sy4 > * + * { margin-top: 16px; }
 .text-gradient {
-  background: linear-gradient(135deg, #f97316, #fbbf24);
+  background: linear-gradient(135deg, #f97316 0%, #fbbf24 50%, #a855f7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 800;
 }
 .divider {
   height: 1px;
@@ -488,67 +730,357 @@ table.tbl tr:hover td {
   color: #cbd5e1;
 }
 
-/* Toast */
+/* Toast — Premium Neon */
 #toast {
   position: fixed;
-  bottom: 24px;
-  inset-inline-end: 24px;
+  bottom: 28px;
+  inset-inline-end: 28px;
   z-index: 9999;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 20px;
-  border-radius: 14px;
-  background: #1e293b;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  min-width: 260px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-  transform: translateY(100px);
+  gap: 12px;
+  padding: 14px 22px;
+  border-radius: 16px;
+  background: linear-gradient(135deg,
+    rgba(15,23,42,0.96) 0%,
+    rgba(30,20,50,0.96) 100%);
+  border: 1px solid rgba(168,85,247,0.35);
+  min-width: 270px;
+  box-shadow:
+    0 24px 64px rgba(0,0,0,0.7),
+    0 0 20px rgba(168,85,247,0.15);
+  transform: translateY(100px) scale(0.9);
   opacity: 0;
-  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   pointer-events: none;
+  backdrop-filter: blur(20px);
 }
 #toast.show {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   opacity: 1;
 }
 
-/* Modals */
+/* Modals — Glassmorphism Dark Premium */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   z-index: 500;
   display: none;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  animation: modalFadeIn 0.2s ease;
+}
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 .modal-overlay.open {
   display: flex;
 }
 .modal {
-  background: #0f172a;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 20px;
-  padding: 28px;
+  background: linear-gradient(145deg,
+    rgba(13,20,40,0.97) 0%,
+    rgba(18,12,35,0.97) 100%);
+  border: 1px solid rgba(168,85,247,0.25);
+  border-radius: 24px;
+  padding: 30px;
   width: 100%;
   max-width: 540px;
   max-height: 85vh;
   overflow-y: auto;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.7),
+    0 0 0 0.5px rgba(168,85,247,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  animation: modalSlideUp 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 .modal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 .modal-title {
   font-size: 18px;
   font-weight: 800;
+  background: linear-gradient(135deg, #e9d5ff, #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Command Palette Modal */
+.cmd-palette {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  width: 100%;
+  max-width: 580px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 30px rgba(249, 115, 22, 0.15);
+  overflow: hidden;
+}
+.cmd-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.cmd-input {
+  background: transparent;
+  border: none;
   color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  width: 100%;
+  outline: none;
+}
+.cmd-results {
+  max-height: 360px;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cmd-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.cmd-item:hover, .cmd-item.selected {
+  background: rgba(249, 115, 22, 0.14);
+}
+.cmd-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cmd-item-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f97316;
+  flex-shrink: 0;
+}
+.cmd-item-title {
+  font-weight: 700;
+  font-size: 13.5px;
+  color: #ffffff;
+}
+.cmd-item-sub {
+  font-size: 11.5px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+/* Printable Voucher & Official Header */
+.voucher-sheet {
+  background: #ffffff;
+  color: #0f172a;
+  padding: 28px;
+  border-radius: 12px;
+  max-width: 680px;
+  margin: 0 auto;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  font-family: 'Cairo', sans-serif;
+}
+.voucher-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #0f172a;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-area, #printable-area * {
+    visibility: visible;
+  }
+  #printable-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white !important;
+    color: black !important;
+    padding: 20px;
+  }
+}
+/* ===================================================
+   EXTRA PREMIUM STYLING — GLOW NUMBERS & SECTION HEADERS
+=================================================== */
+
+/* Section / page headers */
+.page-header {
+  margin-bottom: 24px;
+}
+.page-header h1 {
+  font-size: 26px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ffffff 0%, #d8b4fe 60%, #fb923c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+.page-header .sub {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* Big glowing KPI numbers */
+.kpi-number {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.kpi-green  { color: #4ade80; text-shadow: 0 0 20px rgba(74,222,128,0.45); }
+.kpi-purple { color: #c084fc; text-shadow: 0 0 20px rgba(192,132,252,0.45); }
+.kpi-orange { color: #fb923c; text-shadow: 0 0 20px rgba(249,115,22,0.45); }
+.kpi-red    { color: #f87171; text-shadow: 0 0 20px rgba(248,113,113,0.45); }
+.kpi-cyan   { color: #22d3ee; text-shadow: 0 0 20px rgba(34,211,238,0.45); }
+.kpi-amber  { color: #fbbf24; text-shadow: 0 0 20px rgba(251,191,36,0.45); }
+
+/* Input premium */
+.input:focus, .select:focus, .textarea:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 3px rgba(168,85,247,0.18), 0 0 12px rgba(168,85,247,0.1);
+  background: rgba(255,255,255,0.07);
+}
+
+/* Nav section label vivid */
+.nav-section-label {
+  font-size: 9.5px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #a855f7, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 14px 8px 4px;
+  white-space: nowrap;
+}
+
+/* Command palette aurora glow */
+.cmd-palette {
+  background: linear-gradient(145deg,
+    rgba(11,17,35,0.98) 0%,
+    rgba(16,10,30,0.98) 100%);
+  border: 1px solid rgba(168,85,247,0.3);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow:
+    0 40px 100px rgba(0,0,0,0.9),
+    0 0 40px rgba(168,85,247,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+.cmd-item:hover, .cmd-item.selected {
+  background: linear-gradient(90deg,
+    rgba(168,85,247,0.18) 0%,
+    rgba(249,115,22,0.1) 100%);
+}
+.cmd-item-icon {
+  background: linear-gradient(135deg,
+    rgba(168,85,247,0.15),
+    rgba(249,115,22,0.1));
+  border: 1px solid rgba(168,85,247,0.2);
+}
+
+/* Floating aurora orbs */
+.aurora-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: orbFloat 20s ease-in-out infinite alternate;
+}
+.orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(168,85,247,0.08) 0%, transparent 70%);
+  top: -100px; right: 10%;
+  animation-delay: 0s;
+}
+.orb-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(6,182,212,0.07) 0%, transparent 70%);
+  bottom: -80px; left: 5%;
+  animation-delay: -7s;
+}
+.orb-3 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(249,115,22,0.06) 0%, transparent 70%);
+  top: 40%; left: 40%;
+  animation-delay: -14s;
+}
+@keyframes orbFloat {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(30px, -40px) scale(1.05); }
+  66%  { transform: translate(-20px, 20px) scale(0.97); }
+  100% { transform: translate(15px, 10px) scale(1.02); }
+}
+
+/* Progress bars — gradient neon */
+.progress { height: 8px; background: rgba(255,255,255,0.06); border-radius: 99px; overflow: hidden; }
+.progress-bar {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.5s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow: 0 0 8px rgba(168,85,247,0.4);
+}
+
+/* Section divider vivid */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(168,85,247,0.3) 30%,
+    rgba(249,115,22,0.2) 70%,
+    transparent 100%);
+  margin: 20px 0;
+}
+
+/* Chip glowing */
+.chip {
+  background: rgba(168,85,247,0.08);
+  border: 1px solid rgba(168,85,247,0.2);
+  color: #c084fc;
+}
+
+/* Card subtle glow on active page title area */
+#page-title {
+  font-size: 18px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ffffff 0%, #d8b4fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Mobile Responsiveness */
@@ -556,7 +1088,8 @@ table.tbl tr:hover td {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
   z-index: 99;
 }
 @media (max-width: 768px) {
@@ -594,17 +1127,22 @@ table.tbl tr:hover td {
 </head>
 <body>
 
+<!-- FLOATING AURORA AMBIENT GLOW ORBS -->
+<div class="aurora-orb orb-1"></div>
+<div class="aurora-orb orb-2"></div>
+<div class="aurora-orb orb-3"></div>
+
 <div class="mob-overlay" id="mob-overlay" onclick="closeMob()"></div>
 
 <!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
   <div class="brand-area">
-    <div class="brand-logo">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+    <div class="brand-logo-wrap">
+      <img src="images.png" alt="Community Restaurants" class="brand-logo-img" />
     </div>
     <div class="brand-text">
-      <h2 data-ar="نظام المطعم" data-en="Restaurant ERP">نظام المطعم</h2>
-      <p data-ar="نظام الإنتاج المتكامل" data-en="Production Suite">نظام الإنتاج المتكامل</p>
+      <h2>Community</h2>
+      <p data-ar="المطبخ المركزي — ERP" data-en="Central Kitchen ERP">المطبخ المركزي — ERP</p>
     </div>
   </div>
 
@@ -670,13 +1208,24 @@ table.tbl tr:hover td {
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
       <h1 id="page-title" class="text-white">لوحة التحكم</h1>
+      <div class="live-ticker" id="live-pulse-ticker">
+        <span class="live-dot"></span>
+        <span class="live-text" id="live-ticker-text">المطبخ المركزي: تشغيل مباشر | تلبية الطلبات: 100%</span>
+      </div>
     </div>
     <div class="topbar-right">
+      <button class="cmd-btn" onclick="openCmdBar()" title="بحث سريع (Ctrl + K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span data-ar="بحث سريع..." data-en="Quick Search...">بحث سريع...</span>
+        <kbd>Ctrl K</kbd>
+      </button>
       <div class="chip">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         <span id="hdr-date"></span>
       </div>
-      <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f97316,#ea580c);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;box-shadow:0 2px 10px rgba(249,115,22,0.3)">ERP</div>
+      <div class="topbar-brand-badge" title="Community Restaurants">
+        <img src="images.png" alt="CR"/>
+      </div>
     </div>
   </header>
 
@@ -1424,6 +1973,88 @@ table.tbl tr:hover td {
   </div>
 </div>
 
+<!-- MODAL: COMMAND SEARCH PALETTE (Ctrl + K) -->
+<div class="modal-overlay" id="modal-cmd" onclick="if(event.target===this)closeCmdBar()">
+  <div class="cmd-palette">
+    <div class="cmd-input-wrap">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="cmd-input" id="cmd-search-input" placeholder="ابحث عن خامة، وجبة، مورد، أو تنقل سريع..." oninput="handleCmdSearch(this.value)" />
+      <button class="btn btn-secondary btn-icon btn-sm" onclick="closeCmdBar()" style="padding:3px 8px">✕</button>
+    </div>
+    <div class="cmd-results" id="cmd-results"></div>
+  </div>
+</div>
+
+<!-- MODAL: PRINT OFFICIAL PO VOUCHER -->
+<div class="modal-overlay" id="modal-print-po">
+  <div class="modal" style="max-width:720px;padding:20px;background:#0b1120">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-white font-bold flex items-center gap-2">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        <span data-ar="معاينة وطباعة أمر الشراء الرسمي" data-en="Print Official Purchase Order">معاينة وطباعة أمر الشراء الرسمي</span>
+      </h3>
+      <div class="flex gap-2">
+        <button class="btn btn-primary btn-sm" onclick="window.print()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <span data-ar="طباعة فورية" data-en="Print Now">طباعة فورية</span>
+        </button>
+        <button class="btn btn-secondary btn-icon btn-sm" onclick="closeModal('modal-print-po')">✕</button>
+      </div>
+    </div>
+
+    <!-- Printable Paper Sheet -->
+    <div id="printable-area">
+      <div class="voucher-sheet">
+        <div class="voucher-header">
+          <div style="display:flex;align-items:center;gap:14px">
+            <img src="images.png" alt="Community Restaurants" style="width:64px;height:64px;object-fit:contain;border-radius:8px;border:1px solid #e2e8f0;padding:2px"/>
+            <div>
+              <h2 style="font-size:20px;font-weight:900;color:#0f172a;margin:0">COMMUNITY RESTAURANTS</h2>
+              <div style="font-size:13px;font-weight:700;color:#f97316">إدارة المطبخ المركزي — Central Kitchen Management</div>
+              <div style="font-size:11px;color:#64748b;margin-top:2px">أمر توريد وشراء خامات ومواد تشغيل</div>
+            </div>
+          </div>
+          <div style="text-align:end">
+            <div style="font-size:16px;font-weight:900;color:#0f172a" id="pr-po-number">PO-1001</div>
+            <div style="font-size:12px;color:#64748b" id="pr-po-date">التاريخ: 2026-08-28</div>
+            <span style="display:inline-block;padding:2px 8px;border-radius:12px;background:#fef3c7;color:#d97706;font-size:11px;font-weight:700;margin-top:4px" id="pr-po-status">معتمد للطلب</span>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#f8fafc;padding:12px;border-radius:8px;margin-bottom:16px;font-size:12.5px">
+          <div><strong>المورد المعتمد:</strong> <span id="pr-po-sup">—</span></div>
+          <div><strong>درجة الأولوية:</strong> <span id="pr-po-priority">—</span></div>
+        </div>
+
+        <table style="width:100%;border-collapse:collapse;margin-bottom:20px;font-size:13px">
+          <thead>
+            <tr style="background:#f1f5f9;border-bottom:2px solid #cbd5e1;text-align:start">
+              <th style="padding:8px 10px">#</th>
+              <th style="padding:8px 10px">المادة الخام / الصنف</th>
+              <th style="padding:8px 10px">الكمية المطلوبة</th>
+              <th style="padding:8px 10px">الوحدة</th>
+              <th style="padding:8px 10px">سعر الوحدة التقريبي</th>
+              <th style="padding:8px 10px">إجمالي القيمة</th>
+            </tr>
+          </thead>
+          <tbody id="pr-po-items"></tbody>
+        </table>
+
+        <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:20px;border-top:1px dashed #cbd5e1;font-size:12px">
+          <div style="text-align:center;width:180px">
+            <div style="font-weight:700;margin-bottom:30px">توقيع مسؤول المطبخ المركزي</div>
+            <div style="border-bottom:1px solid #94a3b8;width:100%"></div>
+          </div>
+          <div style="text-align:center;width:180px">
+            <div style="font-weight:700;margin-bottom:30px">استلام وتوقيع مندوب المورد</div>
+            <div style="border-bottom:1px solid #94a3b8;width:100%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ============================================================
    GLOBAL APPLICATION STATE
@@ -1796,22 +2427,22 @@ function renderDash() {
   ];
 
   const stats = [
-    { svg: sv[0], color: '#60a5fa', bg: 'rgba(59,130,246,0.16)', val: S.orders.length, lbl: T('إجمالي طلبات الفروع', 'Total Branch Orders'), bc: 'badge-blue', bt: T('اليوم', 'Today') },
-    { svg: sv[1], color: '#f87171', bg: 'rgba(239,68,68,0.16)', val: shorts.length, lbl: T('نواقص في الخامات', 'Material Shortages'), bc: 'badge-red' + (shorts.length ? ' badge-pulse' : ''), bt: T('تنبيه', 'Alert') },
-    { svg: sv[2], color: '#fbbf24', bg: 'rgba(234,179,8,0.16)', val: fmt(Math.round(totalCost)) + ' ' + cur(), lbl: T('تكلفة الإنتاج الإجمالية', 'Total Production Cost'), bc: 'badge-amber', bt: T('التكلفة', 'Cost') },
-    { svg: sv[3], color: '#4ade80', bg: 'rgba(34,197,94,0.16)', val: fmt(totalUnits), lbl: T('إجمالي الوجبات المطلوبة', 'Total Meals Ordered'), bc: 'badge-green', bt: T('في المسار', 'On Track') }
+    { svg: sv[0], color: '#38bdf8', bg: 'linear-gradient(135deg, rgba(56,189,248,0.2), rgba(56,189,248,0.05))', val: S.orders.length, lbl: T('إجمالي طلبات الفروع', 'Total Branch Orders'), bc: 'badge-blue', bt: T('اليوم', 'Today'), kpiClass: 'kpi-cyan' },
+    { svg: sv[1], color: '#f87171', bg: 'linear-gradient(135deg, rgba(239,68,68,0.2), rgba(239,68,68,0.05))', val: shorts.length, lbl: T('نواقص في الخامات', 'Material Shortages'), bc: 'badge-red' + (shorts.length ? ' badge-pulse' : ''), bt: shorts.length ? T('⚠️ تنبيه عجز', '⚠️ Alert') : T('مستقر', 'Stable'), kpiClass: 'kpi-red' },
+    { svg: sv[2], color: '#fbbf24', bg: 'linear-gradient(135deg, rgba(251,191,36,0.2), rgba(251,191,36,0.05))', val: fmt(Math.round(totalCost)) + ' <span style="font-size:16px;font-weight:600;opacity:0.8">' + cur() + '</span>', lbl: T('تكلفة الإنتاج الإجمالية', 'Total Production Cost'), bc: 'badge-amber', bt: T('التكلفة', 'Cost'), kpiClass: 'kpi-amber' },
+    { svg: sv[3], color: '#4ade80', bg: 'linear-gradient(135deg, rgba(74,222,128,0.2), rgba(74,222,128,0.05))', val: fmt(totalUnits), lbl: T('إجمالي الوجبات المطلوبة', 'Total Meals Ordered'), bc: 'badge-green', bt: T('في المسار', 'On Track'), kpiClass: 'kpi-green' }
   ];
 
   document.getElementById('dash-stats').innerHTML = stats.map(s => `
     <div class="stat-card">
       <div class="flex items-center justify-between mb-3">
-        <div style="width:40px;height:40px;border-radius:11px;background:${s.bg};display:flex;align-items:center;justify-content:center">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${s.color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${s.svg}</svg>
+        <div style="width:42px;height:42px;border-radius:12px;background:${s.bg};border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.3)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${s.color}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${s.svg}</svg>
         </div>
         <span class="badge ${s.bc}">${s.bt}</span>
       </div>
-      <div style="font-size:26px;font-weight:800;color:#fff;margin-bottom:4px">${s.val}</div>
-      <div class="text-muted text-sm">${s.lbl}</div>
+      <div class="kpi-number ${s.kpiClass}" style="margin-bottom:6px">${s.val}</div>
+      <div class="text-muted text-sm font-semibold">${s.lbl}</div>
     </div>
   `).join('');
 
@@ -2454,7 +3085,11 @@ function renderPOs() {
           </select>
         </td>
         <td>
-          <div style="display:flex;gap:6px">
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <button class="btn btn-secondary btn-sm" onclick="printPO(${i})" title="${T('طباعة أمر الشراء مع الترويسة الرسمية', 'Print Official PO Voucher')}">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              ${T('طباعة', 'Print')}
+            </button>
             ${po.status === 'draft'
               ? `<button class="btn btn-primary btn-sm" onclick="sendPO(${i})"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>${T('إرسال للمورد', 'Send')}</button>`
               : ''}
@@ -2858,15 +3493,17 @@ function renderReports() {
 
   // Populate KPI cards
   document.getElementById('rep-kpi-stats').innerHTML = [
-    { v: fmt(totalUnitsM2), l: T(`إجمالي أوردرات الشهر (${m2})`, `Orders in (${m2})`), diff: `${orderDiff >= 0 ? '▲ +' : '▼ '}${orderDiff} (${orderPct}%)`, c: orderDiff >= 0 ? '#4ade80' : '#f87171' },
-    { v: fmt(Math.round(wasteLossM2)) + ' ' + cur(), l: T(`خسائر الهدر بالشهر (${m2})`, `Waste Loss (${m2})`), diff: `${wasteDiff <= 0 ? '▼ ' : '▲ +'}${Math.round(wasteDiff)} ${cur()} (${wastePct}%)`, c: wasteDiff <= 0 ? '#4ade80' : '#f87171' },
-    { v: fmt(Math.round(invCostM2)) + ' ' + cur(), l: T(`تكلفة الفواتير والمشتروات (${m2})`, `Invoices Cost (${m2})`), diff: `${invCostM2 - invCostM1 >= 0 ? '▲ +' : '▼ '}${Math.round(invCostM2 - invCostM1)} ${cur()}`, c: '#60a5fa' },
-    { v: ordersM2.length, l: T(`عدد شحنات الفروع (${m2})`, `Shipments Count (${m2})`), diff: `${ordersM2.length - ordersM1.length >= 0 ? '▲ +' : '▼ '}${ordersM2.length - ordersM1.length}`, c: '#fbbf24' }
+    { v: fmt(totalUnitsM2), l: T(`إجمالي طلبات الشهر (${m2})`, `Orders in (${m2})`), diff: `${orderDiff >= 0 ? '▲ +' : '▼ '}${orderDiff} (${orderPct}%)`, c: orderDiff >= 0 ? '#4ade80' : '#f87171', kpi: 'kpi-cyan', bg: orderDiff >= 0 ? 'rgba(74,222,128,0.12)' : 'rgba(248,113,113,0.12)' },
+    { v: fmt(Math.round(wasteLossM2)) + ' ' + cur(), l: T(`خسائر الهدر بالشهر (${m2})`, `Waste Loss (${m2})`), diff: `${wasteDiff <= 0 ? '▼ ' : '▲ +'}${Math.round(wasteDiff)} ${cur()} (${wastePct}%)`, c: wasteDiff <= 0 ? '#4ade80' : '#f87171', kpi: 'kpi-red', bg: wasteDiff <= 0 ? 'rgba(74,222,128,0.12)' : 'rgba(248,113,113,0.12)' },
+    { v: fmt(Math.round(invCostM2)) + ' ' + cur(), l: T(`تكلفة الفواتير والمشتروات (${m2})`, `Invoices Cost (${m2})`), diff: `${invCostM2 - invCostM1 >= 0 ? '▲ +' : '▼ '}${Math.round(invCostM2 - invCostM1)} ${cur()}`, c: '#a78bfa', kpi: 'kpi-purple', bg: 'rgba(168,85,247,0.12)' },
+    { v: ordersM2.length, l: T(`عدد شحنات الفروع (${m2})`, `Shipments Count (${m2})`), diff: `${ordersM2.length - ordersM1.length >= 0 ? '▲ +' : '▼ '}${ordersM2.length - ordersM1.length}`, c: '#fbbf24', kpi: 'kpi-amber', bg: 'rgba(251,191,36,0.12)' }
   ].map(s => `
     <div class="stat-card">
-      <div style="font-size:24px;font-weight:800;color:#fff;margin-bottom:4px">${s.v}</div>
-      <div class="text-muted text-sm mb-2">${s.l}</div>
-      <div style="font-size:12px;font-weight:700;color:${s.c}">${s.diff}</div>
+      <div class="kpi-number ${s.kpi}" style="margin-bottom:6px">${s.v}</div>
+      <div class="text-muted text-sm font-semibold mb-3">${s.l}</div>
+      <div style="display:inline-flex;align-items:center;padding:4px 10px;border-radius:20px;background:${s.bg};font-size:12px;font-weight:700;color:${s.c};border:1px solid ${s.c}33">
+        ${s.diff}
+      </div>
     </div>
   `).join('');
 
@@ -3256,6 +3893,173 @@ function confirmExcelImport() {
 }
 
 /* ============================================================
+   COMMUNITY RESTAURANTS: OFFICIAL PRINT VOUCHER & PRINT PO
+============================================================ */
+function printPO(i) {
+  const po = S.POs[i];
+  if (!po) return;
+  const d = S.ings[po.ingId];
+  const nm = d ? (isAr() ? d.ar : d.en) : po.ingId;
+  const price = d ? d.price : 0;
+  
+  document.getElementById('pr-po-number').textContent = po.id;
+  document.getElementById('pr-po-date').textContent = (isAr() ? 'التاريخ: ' : 'Date: ') + new Date().toISOString().slice(0, 10);
+  document.getElementById('pr-po-status').textContent = po.status === 'received' ? (isAr() ? 'تم الاستلام' : 'Received') : (po.status === 'sent' ? (isAr() ? 'تم الإرسال للمورد' : 'Sent to Supplier') : (isAr() ? 'مسودة معتمدة' : 'Approved Draft'));
+  document.getElementById('pr-po-sup').textContent = po.sup || 'مورد عام';
+  document.getElementById('pr-po-priority').textContent = po.priority === 'high' ? (isAr() ? 'أولوية قصوى (عاجل جداً)' : 'Urgent Priority') : (isAr() ? 'أولوية عادية' : 'Normal Priority');
+  
+  document.getElementById('pr-po-items').innerHTML = `
+    <tr style="border-bottom:1px solid #e2e8f0">
+      <td style="padding:10px">1</td>
+      <td style="padding:10px;font-weight:700;color:#0f172a">${nm}</td>
+      <td style="padding:10px;font-weight:800;color:#2563eb">${po.qty}</td>
+      <td style="padding:10px">${po.unit}</td>
+      <td style="padding:10px">${price} ${cur()}</td>
+      <td style="padding:10px;font-weight:700">${(+po.cost).toLocaleString()} ${cur()}</td>
+    </tr>
+    <tr style="background:#f8fafc;font-weight:800">
+      <td colspan="5" style="padding:12px;text-align:end">${isAr() ? 'إجمالي قيمة أمر الشراء:' : 'Total PO Value:'}</td>
+      <td style="padding:12px;color:#ea580c;font-size:15px">${(+po.cost).toLocaleString()} ${cur()}</td>
+    </tr>
+  `;
+  
+  openModal('modal-print-po');
+}
+
+/* ============================================================
+   LIVE KITCHEN PULSE TICKER
+============================================================ */
+function updateLiveTicker() {
+  const ticker = document.getElementById('live-ticker-text');
+  if (!ticker) return;
+  const shorts = getShortages();
+  const totalOrders = S.orders.length;
+  
+  if (shorts.length > 0) {
+    ticker.textContent = isAr() 
+      ? `المطبخ المركزي: تشغيل مباشر | ⚠️ عجز ${shorts.length} خامات مطلوب شراؤها`
+      : `Central Kitchen: LIVE | ⚠️ ${shorts.length} Shortage(s) detected`;
+    ticker.parentElement.style.borderColor = 'rgba(239, 68, 68, 0.35)';
+    ticker.parentElement.style.color = '#f87171';
+  } else {
+    ticker.textContent = isAr()
+      ? `المطبخ المركزي: تشغيل مباشر | تلبية الطلبات 100% | ${totalOrders} طلبات فروع`
+      : `Central Kitchen: LIVE | 100% Demand Met | ${totalOrders} Branch Orders`;
+    ticker.parentElement.style.borderColor = 'rgba(34, 197, 94, 0.25)';
+    ticker.parentElement.style.color = '#4ade80';
+  }
+}
+
+/* ============================================================
+   COMMAND PALETTE SEARCH (Ctrl + K)
+============================================================ */
+function openCmdBar() {
+  const m = document.getElementById('modal-cmd');
+  if (!m) return;
+  m.classList.add('open');
+  const inp = document.getElementById('cmd-search-input');
+  inp.value = '';
+  inp.focus();
+  handleCmdSearch('');
+}
+
+function closeCmdBar() {
+  const m = document.getElementById('modal-cmd');
+  if (m) m.classList.remove('open');
+}
+
+function handleCmdSearch(q) {
+  const res = document.getElementById('cmd-results');
+  if (!res) return;
+  const query = (q || '').trim().toLowerCase();
+
+  const items = [];
+
+  // Navigation pages
+  const pages = [
+    { name: isAr() ? 'لوحة التحكم والمؤشرات' : 'Dashboard', page: 'dashboard', icon: '📊', sub: isAr() ? 'المؤشرات العامة وتنبيهات النواقص' : 'General metrics & shortages' },
+    { name: isAr() ? 'التقارير والمقارنات الشهرية' : 'Reports & Analytics', page: 'reports', icon: '📈', sub: isAr() ? 'مقارنة أداء الشهور والهدر والطلب' : 'Month-over-month comparisons' },
+    { name: isAr() ? 'طلبات الفروع واستيراد الإكسيل' : 'Branch Orders', page: 'orders', icon: '📥', sub: isAr() ? 'استيراد شيت الإكسيل والطلبيات' : 'Excel import & branch orders' },
+    { name: isAr() ? 'شجرة الوصفات والتجهيزات (BOM)' : 'Recipes (BOM)', page: 'recipes', icon: '🧪', sub: isAr() ? 'معادلات صوصات وبرجر وفراخ المطبخ المركزي' : 'Sub-assemblies & BOM' },
+    { name: isAr() ? 'محرك وخطة الإنتاج اليومية' : 'Production Engine', page: 'production', icon: '⚙️', sub: isAr() ? 'حساب متطلبات الخامات مع 5% احتياطي' : 'Raw material calculation + 5% buffer' },
+    { name: isAr() ? 'أرصدة المخزون وحدود الأمان' : 'Inventory Stock', page: 'inventory', icon: '📦', sub: isAr() ? 'مراقبة أرصدة الخامات وتعديلها' : 'Stock levels & safety thresholds' },
+    { name: isAr() ? 'طلبات الشراء للموردين' : 'Purchase Orders', page: 'purchase', icon: '🛒', sub: isAr() ? 'توليد أوامر الشراء وإرسالها وطباعتها' : 'Generate & print purchase orders' },
+    { name: isAr() ? 'سجل فواتير الموردين' : 'Invoices Ledger', page: 'invoices', icon: '🧾', sub: isAr() ? 'متابعة الفواتير الواردة وحالات الدفع' : 'Supplier bills & payments' },
+    { name: isAr() ? 'تسجيل الهدر والتالف اليومي' : 'Waste & Spoilage', page: 'waste', icon: '🗑️', sub: isAr() ? 'تسجيل الخسائر وخصمها من المخزن' : 'Log spoilage & financial loss' }
+  ];
+
+  pages.forEach(p => {
+    if (!query || p.name.toLowerCase().includes(query) || p.page.toLowerCase().includes(query)) {
+      items.push({
+        title: p.name,
+        sub: p.sub,
+        icon: p.icon,
+        action: () => { nav(p.page); closeCmdBar(); }
+      });
+    }
+  });
+
+  // Raw Materials
+  Object.entries(S.ings).forEach(([id, iv]) => {
+    const nmAr = iv.ar || '';
+    const nmEn = iv.en || '';
+    if (query && (nmAr.toLowerCase().includes(query) || nmEn.toLowerCase().includes(query) || id.toLowerCase().includes(query))) {
+      items.push({
+        title: `${isAr() ? iv.ar : iv.en} (${iv.stock} ${iv.uom})`,
+        sub: `${isAr() ? 'خامة مخزن | سعر:' : 'Raw Material | Price:'} ${iv.price} ${cur()} | ${iv.sup || 'مورد عام'}`,
+        icon: '📦',
+        action: () => { nav('inventory'); closeCmdBar(); }
+      });
+    }
+  });
+
+  // Products
+  S.products.forEach(p => {
+    const nmAr = p.ar || '';
+    const nmEn = p.en || '';
+    if (query && (nmAr.toLowerCase().includes(query) || nmEn.toLowerCase().includes(query) || p.id.toLowerCase().includes(query))) {
+      items.push({
+        title: `${isAr() ? p.ar : p.en}`,
+        sub: `${isAr() ? 'تجهيز مطبخ مركزي | الوحدة:' : 'Central Kitchen Item | Unit:'} ${p.unit}`,
+        icon: '🥫',
+        action: () => { nav('recipes'); S.curRecipe = p.id; renderRecipes(); closeCmdBar(); }
+      });
+    }
+  });
+
+  if (!items.length) {
+    res.innerHTML = `<div style="text-align:center;padding:24px;color:#94a3b8;font-size:13px">${isAr() ? 'لا توجد نتائج تطابق بحثك' : 'No matching results found'}</div>`;
+    return;
+  }
+
+  res.innerHTML = items.slice(0, 10).map((it, idx) => `
+    <div class="cmd-item" onclick="window._cmdActions[${idx}]()">
+      <div class="cmd-item-left">
+        <div class="cmd-item-icon">${it.icon}</div>
+        <div>
+          <div class="cmd-item-title">${it.title}</div>
+          <div class="cmd-item-sub">${it.sub}</div>
+        </div>
+      </div>
+      <span style="font-size:11px;color:#94a3b8">↵</span>
+    </div>
+  `).join('');
+
+  window._cmdActions = items.map(it => it.action);
+}
+
+// Global Ctrl + K listener
+window.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+    e.preventDefault();
+    openCmdBar();
+  }
+  if (e.key === 'Escape') {
+    closeCmdBar();
+  }
+});
+
+/* ============================================================
    INITIALIZATION
 ============================================================ */
 // Add invoices & wastes array to state
@@ -3307,6 +4111,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   renderDash();
+  updateLiveTicker();
 });
 </script>
 </body>
