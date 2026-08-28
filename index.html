@@ -629,6 +629,10 @@ table.tbl tr:hover td {
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
       <span class="nav-label" data-ar="طلبات الشراء" data-en="Purchase Requests">طلبات الشراء</span>
     </div>
+    <div class="nav-item" data-page="invoices" onclick="nav('invoices')">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      <span class="nav-label" data-ar="سجل الفواتير" data-en="Invoices">سجل الفواتير</span>
+    </div>
   </nav>
 
   <div class="sidebar-footer">
@@ -958,6 +962,48 @@ table.tbl tr:hover td {
       </div>
     </section>
 
+    <!-- INVOICES -->
+    <section class="page" id="page-invoices">
+      <div class="g3 mb-4" id="inv-bill-stats"></div>
+      <div class="card">
+        <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+          <div>
+            <h3 class="text-white font-bold" data-ar="سجل الفواتير الواردة من الموردين" data-en="Supplier Invoices Ledger">سجل الفواتير الواردة من الموردين</h3>
+            <p class="text-muted text-sm mt-1" data-ar="تُسجَّل الفاتورة تلقائياً عند الاستلام من المخزن" data-en="Invoices are logged automatically upon warehouse receipt">تُسجَّل الفاتورة تلقائياً عند الاستلام من المخزن</p>
+          </div>
+          <div class="flex gap-3 flex-wrap">
+            <select class="select" id="inv-bill-sup" style="width:200px" onchange="renderInvoices()">
+              <option value="" data-ar="جميع الموردين" data-en="All Suppliers">جميع الموردين</option>
+            </select>
+            <input type="month" class="input" id="inv-bill-month" style="width:160px" onchange="renderInvoices()"/>
+            <button class="btn btn-secondary btn-sm" onclick="document.getElementById('inv-bill-sup').value='';document.getElementById('inv-bill-month').value='';renderInvoices()" data-ar="مسح الفلتر" data-en="Clear">مسح الفلتر</button>
+          </div>
+        </div>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th data-ar="رقم الفاتورة" data-en="Invoice #">رقم الفاتورة</th>
+                <th data-ar="رقم أمر الشراء" data-en="PO #">رقم أمر الشراء</th>
+                <th data-ar="المادة المستلمة" data-en="Ingredient">المادة المستلمة</th>
+                <th data-ar="الكمية المستلمة" data-en="Qty Received">الكمية المستلمة</th>
+                <th data-ar="الوحدة" data-en="UOM">الوحدة</th>
+                <th data-ar="قيمة الفاتورة" data-en="Invoice Value">قيمة الفاتورة</th>
+                <th data-ar="المورد" data-en="Supplier">المورد</th>
+                <th data-ar="تاريخ الاستلام" data-en="Received Date">تاريخ الاستلام</th>
+                <th data-ar="حالة الدفع" data-en="Payment">حالة الدفع</th>
+              </tr>
+            </thead>
+            <tbody id="invoices-tbl"></tbody>
+          </table>
+        </div>
+        <div id="invoices-empty" class="empty-state" style="display:none">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <p class="mt-3" data-ar="لا توجد فواتير مسجلة بعد — ستظهر هنا بعد استلام أول شحنة" data-en="No invoices yet — they appear here after receiving shipments">لا توجد فواتير مسجلة بعد — ستظهر هنا بعد استلام أول شحنة</p>
+        </div>
+      </div>
+    </section>
+
   </div>
 </div>
 
@@ -965,6 +1011,52 @@ table.tbl tr:hover td {
 <div id="toast">
   <svg id="t-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
   <span id="t-msg" style="font-size:13.5px;font-weight:600;color:#fff"></span>
+</div>
+
+<!-- MODAL: RECEIVE PO — ENTER INVOICE NUMBER -->
+<div class="modal-overlay" id="modal-receive">
+  <div class="modal" style="max-width:460px">
+    <div class="modal-header">
+      <h3 class="modal-title">🧾 <span data-ar="استلام شحنة من المورد" data-en="Receive Supplier Shipment">استلام شحنة من المورد</span></h3>
+      <button class="btn btn-secondary btn-icon btn-sm" onclick="closeModal('modal-receive')">✕</button>
+    </div>
+    <div class="sy4">
+      <input type="hidden" id="receive-po-idx"/>
+      <div style="background:rgba(249,115,22,0.08);border:1px solid rgba(249,115,22,0.2);border-radius:12px;padding:14px">
+        <div class="text-muted text-sm" style="margin-bottom:6px" data-ar="تفاصيل الشحنة" data-en="Shipment Details">تفاصيل الشحنة</div>
+        <div id="receive-po-details" style="color:#fff;font-size:14px;font-weight:600"></div>
+      </div>
+      <div>
+        <label class="field-label">🔢 <span data-ar="رقم الفاتورة من المورد (مطلوب)" data-en="Supplier Invoice Number (Required)">رقم الفاتورة من المورد (مطلوب)</span></label>
+        <input class="input" id="invoice-number" placeholder="مثال: INV-2024-0091" style="font-size:16px;font-weight:700;letter-spacing:0.05em"/>
+      </div>
+      <div class="g2">
+        <div>
+          <label class="field-label" data-ar="قيمة الفاتورة الفعلية (ج.م)" data-en="Actual Invoice Value (EGP)">قيمة الفاتورة الفعلية (ج.م)</label>
+          <input class="input" type="number" min="0" step="0.01" id="invoice-value" placeholder="0.00"/>
+        </div>
+        <div>
+          <label class="field-label" data-ar="حالة الدفع" data-en="Payment Status">حالة الدفع</label>
+          <select class="select" id="invoice-payment">
+            <option value="unpaid" data-ar="غير مدفوعة" data-en="Unpaid">غير مدفوعة</option>
+            <option value="paid" data-ar="مدفوعة" data-en="Paid">مدفوعة</option>
+            <option value="partial" data-ar="مدفوعة جزئياً" data-en="Partially Paid">مدفوعة جزئياً</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label class="field-label" data-ar="ملاحظات (اختياري)" data-en="Notes (optional)">ملاحظات (اختياري)</label>
+        <textarea class="textarea" rows="2" id="invoice-notes" placeholder="ملاحظات الاستلام..."></textarea>
+      </div>
+      <div class="flex gap-3" style="justify-content:flex-end">
+        <button class="btn btn-secondary" onclick="closeModal('modal-receive')" data-ar="إلغاء" data-en="Cancel">إلغاء</button>
+        <button class="btn btn-primary" onclick="confirmReceivePO()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span data-ar="تأكيد الاستلام وحفظ الفاتورة" data-en="Confirm & Save Invoice">تأكيد الاستلام وحفظ الفاتورة</span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- MODAL: ADD INGREDIENT -->
@@ -1253,6 +1345,7 @@ function renderPage(p) {
   else if (p === 'production') renderProd();
   else if (p === 'inventory') renderInv();
   else if (p === 'purchase') renderPOs();
+  else if (p === 'invoices') renderInvoices();
 }
 
 /* ============================================================
@@ -2052,7 +2145,7 @@ function renderPOs() {
 
 function updPO(i, v) {
   if (v === 'received' && S.POs[i].status !== 'received') {
-    receivePO(i);
+    openReceiveModal(i);
   } else {
     S.POs[i].status = v;
     renderPOs();
@@ -2065,15 +2158,139 @@ function sendPO(i) {
   toast(T('📤 تم إرسال أمر الشراء إلى المورد بنجاح!', '📤 Sent to supplier!'));
 }
 
-function receivePO(i) {
+function openReceiveModal(i) {
   const po = S.POs[i];
-  if (S.ings[po.ingId]) {
-    S.ings[po.ingId].stock += +po.qty;
+  const d = S.ings[po.ingId];
+  const nm = d ? (isAr() ? d.ar : d.en) : po.ingId;
+  document.getElementById('receive-po-idx').value = i;
+  document.getElementById('invoice-number').value = '';
+  document.getElementById('invoice-value').value = po.cost;
+  document.getElementById('invoice-payment').value = 'unpaid';
+  document.getElementById('invoice-notes').value = '';
+  document.getElementById('receive-po-details').innerHTML =
+    `<span style="color:#fb923c">${po.id}</span> &nbsp;|&nbsp; ${nm} &nbsp;|&nbsp; <span style="color:#60a5fa">${po.qty} ${po.unit}</span> &nbsp;|&nbsp; <span style="color:#fbbf24">${(+po.cost).toLocaleString()} ${cur()}</span><br/><span style="font-size:12px;color:#94a3b8;font-weight:400">${T('المورد: ', 'Supplier: ')}${po.sup}</span>`;
+  openModal('modal-receive');
+}
+
+function confirmReceivePO() {
+  const i = +document.getElementById('receive-po-idx').value;
+  const invNum = document.getElementById('invoice-number').value.trim();
+  if (!invNum) {
+    toast(T('يرجى إدخال رقم الفاتورة', 'Please enter invoice number'), 'error');
+    return;
   }
+  const po = S.POs[i];
+  const d = S.ings[po.ingId];
+  // Update stock
+  if (d) d.stock += +po.qty;
   po.status = 'received';
+  // Save invoice record
+  const invValue = +document.getElementById('invoice-value').value || +po.cost;
+  S.invoices.push({
+    id: invNum,
+    poId: po.id,
+    ingId: po.ingId,
+    qty: po.qty,
+    unit: po.unit,
+    value: f2(invValue),
+    sup: po.sup,
+    payment: document.getElementById('invoice-payment').value,
+    notes: document.getElementById('invoice-notes').value.trim(),
+    date: todayStr()
+  });
+  closeModal('modal-receive');
   renderPOs();
   renderInv();
-  toast(T(`✅ تم استلام الشحنة وإضافة ${po.qty} ${po.unit} إلى رصيد المخزن فوراً!`, `✅ Received! Added ${po.qty} ${po.unit} to stock.`));
+  toast(T(`🧾 تم الاستلام وحفظ الفاتورة ${invNum} بنجاح!`, `🧾 Received & Invoice ${invNum} saved!`));
+}
+
+function receivePO(i) {
+  openReceiveModal(i);
+}
+
+/* ============================================================
+   INVOICES
+============================================================ */
+function renderInvoices() {
+  const supFilter = document.getElementById('inv-bill-sup').value;
+  const monthFilter = document.getElementById('inv-bill-month').value;
+
+  // Populate supplier dropdown
+  const supSel = document.getElementById('inv-bill-sup');
+  const prevSup = supSel.value;
+  const sups = [...new Set(S.invoices.map(v => v.sup))].sort();
+  supSel.innerHTML = `<option value="" ${isAr() ? 'data-ar="جميع الموردين"' : ''} data-en="All Suppliers">${T('جميع الموردين', 'All Suppliers')}</option>`
+    + sups.map(s => `<option value="${s}" ${s === prevSup ? 'selected' : ''}>${s}</option>`).join('');
+
+  const filtered = S.invoices.filter(v => {
+    if (supFilter && v.sup !== supFilter) return false;
+    if (monthFilter && !v.date.startsWith(monthFilter)) return false;
+    return true;
+  });
+
+  const totalVal = filtered.reduce((s, v) => s + +v.value, 0);
+  const unpaid = filtered.filter(v => v.payment === 'unpaid').length;
+  const paid = filtered.filter(v => v.payment === 'paid').length;
+
+  document.getElementById('inv-bill-stats').innerHTML = [
+    { v: filtered.length, l: T('إجمالي الفواتير', 'Total Invoices'), c: '#fff' },
+    { v: fmt(Math.round(totalVal)) + ' ' + cur(), l: T('إجمالي قيمة الفواتير', 'Total Value'), c: '#fb923c' },
+    { v: unpaid, l: T('فواتير غير مدفوعة', 'Unpaid Invoices'), c: '#f87171' }
+  ].map(s => `
+    <div class="stat-card" style="text-align:center">
+      <div style="font-size:24px;font-weight:800;color:${s.c}">${s.v}</div>
+      <div class="text-muted text-sm mt-2">${s.l}</div>
+    </div>
+  `).join('');
+
+  const em = document.getElementById('invoices-empty');
+  const tbl = document.getElementById('invoices-tbl');
+  if (!filtered.length) {
+    tbl.innerHTML = '';
+    em.style.display = 'block';
+    return;
+  }
+  em.style.display = 'none';
+
+  const payColors = { unpaid: '#f87171', paid: '#4ade80', partial: '#fbbf24' };
+  const payLabels = {
+    unpaid:  T('غير مدفوعة', 'Unpaid'),
+    paid:    T('مدفوعة', 'Paid'),
+    partial: T('جزئي', 'Partial')
+  };
+  const payBadges = { unpaid: 'badge-red', paid: 'badge-green', partial: 'badge-amber' };
+
+  tbl.innerHTML = [...filtered].reverse().map((v, idx) => {
+    const d = S.ings[v.ingId];
+    const nm = d ? (isAr() ? d.ar : d.en) : v.ingId;
+    const globalIdx = S.invoices.findIndex(x => x.id === v.id && x.date === v.date && x.poId === v.poId);
+    return `
+      <tr>
+        <td><span style="font-family:monospace;font-weight:700;color:#fb923c;font-size:13px">${v.id}</span></td>
+        <td class="td-mono">${v.poId}</td>
+        <td style="font-weight:700;color:#fff">${nm}</td>
+        <td style="color:#60a5fa;font-weight:700">${v.qty}</td>
+        <td class="text-muted">${v.unit}</td>
+        <td><span class="text-gradient font-bold">${(+v.value).toLocaleString()} ${cur()}</span></td>
+        <td class="text-muted" style="font-size:12.5px">${v.sup}</td>
+        <td class="td-mono">${v.date}</td>
+        <td>
+          <select class="select" style="padding:4px 8px;font-size:12px;width:auto;color:${payColors[v.payment] || '#94a3b8'}" onchange="updInvPayment(${globalIdx}, this.value)">
+            ${['unpaid','paid','partial'].map(p => `<option value="${p}" ${p === v.payment ? 'selected' : ''}>${payLabels[p]}</option>`).join('')}
+          </select>
+        </td>
+      </tr>
+      ${v.notes ? `<tr><td colspan="9" style="padding:4px 16px 10px;color:#64748b;font-size:12px;font-style:italic">📝 ${v.notes}</td></tr>` : ''}
+    `;
+  }).join('');
+}
+
+function updInvPayment(idx, val) {
+  if (S.invoices[idx]) {
+    S.invoices[idx].payment = val;
+    renderInvoices();
+    toast(T('✅ تم تحديث حالة الدفع', '✅ Payment status updated'), 'info');
+  }
 }
 
 function sendAllDraft() {
@@ -2090,6 +2307,9 @@ function sendAllDraft() {
 /* ============================================================
    INITIALIZATION
 ============================================================ */
+// Add invoices array to state
+S.invoices = [];
+
 document.addEventListener('DOMContentLoaded', () => {
   if (window.innerWidth <= 768) {
     document.getElementById('mob-btn').style.display = 'flex';
