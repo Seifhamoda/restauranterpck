@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
 <style>
 /* ===================================================
    RESET & ROOT STYLES
@@ -28,7 +29,8 @@ body {
   background: #090e1a;
   color: #e2e8f0;
   display: flex;
-  user-select: none;
+  height: 100vh;
+  overflow: hidden;
 }
 
 [dir="ltr"] {
@@ -37,8 +39,8 @@ body {
 
 /* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
   background: rgba(15, 23, 42, 0.6);
@@ -48,7 +50,7 @@ body {
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: #f97316;
 }
 
 /* ===================================================
@@ -185,6 +187,8 @@ nav {
   flex: 1;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
   min-width: 0;
 }
@@ -218,11 +222,15 @@ nav {
 
 /* ===================================================
    CONTENT & PAGES
-=================================================== */
+============================================================ */
 .content {
   flex: 1;
-  overflow-y: auto;
+  min-height: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
   padding: 24px;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 .page {
   display: none;
@@ -607,6 +615,10 @@ table.tbl tr:hover td {
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
       <span class="nav-label" data-ar="لوحة التحكم" data-en="Dashboard">لوحة التحكم</span>
     </div>
+    <div class="nav-item" data-page="reports" onclick="nav('reports')">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      <span class="nav-label" data-ar="التقارير والتحليلات" data-en="Reports & Analytics">التقارير والتحليلات</span>
+    </div>
 
     <span class="nav-section-label" data-ar="العمليات" data-en="OPERATIONS">العمليات</span>
     <div class="nav-item" data-page="orders" onclick="nav('orders')">
@@ -632,6 +644,10 @@ table.tbl tr:hover td {
     <div class="nav-item" data-page="invoices" onclick="nav('invoices')">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       <span class="nav-label" data-ar="سجل الفواتير" data-en="Invoices">سجل الفواتير</span>
+    </div>
+    <div class="nav-item" data-page="waste" onclick="nav('waste')">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
+      <span class="nav-label" data-ar="سجل الهدر والتالف" data-en="Waste & Spoilage">سجل الهدر والتالف</span>
     </div>
   </nav>
 
@@ -701,11 +717,42 @@ table.tbl tr:hover td {
     <!-- BRANCH ORDERS -->
     <section class="page" id="page-orders">
       <div style="display:grid;grid-template-columns:340px 1fr;gap:20px" class="orders-layout">
-        <div>
+        <div class="sy3">
+
+          <!-- Excel Import Card -->
+          <div class="card sy3" style="border:1.5px dashed rgba(249,115,22,0.4);background:rgba(249,115,22,0.04)">
+            <h3 class="text-white font-bold flex items-center gap-2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+              <span data-ar="📥 استيراد شيت إكسيل الفروع" data-en="📥 Import Branch Excel Sheet">📥 استيراد شيت إكسيل الفروع</span>
+            </h3>
+            <p class="text-muted text-sm" data-ar="ارفع الشيت اللي بتنزله من موقع الفروع — يتحول تلقائياً لطلبيات في النظام ويُحفظ بشكل دائم" data-en="Upload the Excel sheet from the branches system — auto-converts to orders and saves permanently">ارفع الشيت اللي بتنزله من موقع الفروع — يتحول تلقائياً لطلبيات في النظام ويُحفظ بشكل دائم</p>
+            <div style="border:2px dashed rgba(74,222,128,0.3);border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:all 0.2s" id="excel-drop-zone" onclick="document.getElementById('excel-file-input').click()" ondragover="event.preventDefault();this.style.borderColor='#4ade80'" ondragleave="this.style.borderColor='rgba(74,222,128,0.3)'" ondrop="handleExcelDrop(event)">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.5" style="margin:0 auto 8px" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <div style="color:#4ade80;font-weight:700;font-size:14px" data-ar="اسحب وأفلت الملف هنا أو اضغط للاختيار" data-en="Drag & drop file here or click to browse">اسحب وأفلت الملف هنا أو اضغط للاختيار</div>
+              <div class="text-muted text-sm mt-1">.xlsx / .xls / .csv</div>
+            </div>
+            <input type="file" id="excel-file-input" accept=".xlsx,.xls,.csv" style="display:none" onchange="handleExcelFile(this.files[0])"/>
+            <div id="excel-preview" style="display:none">
+              <div class="divider"></div>
+              <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:8px" id="excel-preview-title"></div>
+              <div class="tbl-wrap" style="max-height:180px">
+                <table class="tbl" id="excel-preview-table"><thead></thead><tbody></tbody></table>
+              </div>
+              <div class="flex gap-3 mt-3">
+                <button class="btn btn-secondary btn-sm" onclick="cancelExcelImport()" data-ar="إلغاء" data-en="Cancel">إلغاء</button>
+                <button class="btn btn-primary btn-sm" onclick="confirmExcelImport()">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span data-ar="تأكيد الاستيراد وحفظ الطلبيات" data-en="Confirm & Save Orders">تأكيد الاستيراد وحفظ الطلبيات</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Manual Order Card -->
           <div class="card sy4">
             <h3 class="text-white font-bold flex items-center gap-2">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-              <span data-ar="تسجيل طلب فرع جديد" data-en="Submit Branch Order">تسجيل طلب فرع جديد</span>
+              <span data-ar="تسجيل طلب يدوي للفرع" data-en="Manual Branch Order">تسجيل طلب يدوي للفرع</span>
             </h3>
             <div>
               <label class="field-label" data-ar="اختر الفرع" data-en="Select Branch">اختر الفرع</label>
@@ -734,6 +781,7 @@ table.tbl tr:hover td {
               <span data-ar="إرسال الطلب واعتماد الخطة" data-en="Submit Order">إرسال الطلب واعتماد الخطة</span>
             </button>
           </div>
+        </div>
         </div>
 
         <div class="sy3">
@@ -788,12 +836,12 @@ table.tbl tr:hover td {
     <section class="page" id="page-recipes">
       <div style="display:grid;grid-template-columns:280px 1fr;gap:20px" class="recipes-layout">
         <div class="card" style="height:fit-content">
-          <h3 class="text-white font-bold mb-3" data-ar="قائمة الوجبات" data-en="Meals & Products">قائمة الوجبات</h3>
+          <h3 class="text-white font-bold mb-3" data-ar="تجهيزات المطبخ المركزي" data-en="CK Products (BOM)">تجهيزات المطبخ المركزي</h3>
           <div id="recipe-list" class="sy3"></div>
           <div class="divider"></div>
           <button class="btn btn-secondary w-full" style="justify-content:center" onclick="openModal('modal-prod')">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-            <span data-ar="إضافة منتج جديد" data-en="New Product">إضافة منتج جديد</span>
+            <span data-ar="إضافة تجهيز جديد" data-en="New CK Product">إضافة تجهيز جديد</span>
           </button>
         </div>
 
@@ -801,11 +849,11 @@ table.tbl tr:hover td {
           <div class="flex items-center justify-between mb-4">
             <div>
               <h2 class="text-white font-bold" style="font-size:20px" id="recipe-title">—</h2>
-              <p class="text-muted text-sm mt-1" data-ar="شجرة المكونات وتكاليف المواد الخام (BOM)" data-en="Bill of Materials & Costing">شجرة المكونات وتكاليف المواد الخام (BOM)</p>
+              <p class="text-muted text-sm mt-1" data-ar="شجرة مكونات التجهيز وتكلفة الخامات (Central Kitchen BOM)" data-en="Bill of Materials & Raw Material Costing">شجرة مكونات التجهيز وتكلفة الخامات (Central Kitchen BOM)</p>
             </div>
             <div style="text-align:end">
               <div class="text-gradient font-bold" style="font-size:24px" id="recipe-total-cost">0.00</div>
-              <div class="text-muted text-sm" data-ar="ج.م / للوجبة الواحدة" data-en="EGP / per meal">ج.م / للوجبة الواحدة</div>
+              <div class="text-muted text-sm" data-ar="ج.م / للوحدة المنتجة" data-en="EGP / per unit produced">ج.م / للوحدة المنتجة</div>
             </div>
           </div>
           <div class="tbl-wrap mb-3">
@@ -1001,6 +1049,201 @@ table.tbl tr:hover td {
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           <p class="mt-3" data-ar="لا توجد فواتير مسجلة بعد — ستظهر هنا بعد استلام أول شحنة" data-en="No invoices yet — they appear here after receiving shipments">لا توجد فواتير مسجلة بعد — ستظهر هنا بعد استلام أول شحنة</p>
         </div>
+    </section>
+
+    <!-- WASTE MANAGEMENT -->
+    <section class="page" id="page-waste">
+      <div class="g3 mb-4" id="waste-stats"></div>
+
+      <div style="display:grid;grid-template-columns:360px 1fr;gap:20px" class="orders-layout">
+        <!-- Log Waste Form -->
+        <div>
+          <div class="card sy4" style="border:1px solid rgba(248,113,113,0.3);background:rgba(248,113,113,0.02)">
+            <h3 class="text-white font-bold flex items-center gap-2" style="color:#f87171">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+              <span data-ar="تسجيل هدر / تالف جديد" data-en="Log Waste / Spoilage">تسجيل هدر / تالف جديد</span>
+            </h3>
+            <p class="text-muted text-sm" data-ar="يتم خصم الكمية التالفة فوراً من رصيد المخزن وحساب خسارتها المالية" data-en="Wasted qty auto-deducted from stock & monetary loss calculated">يتم خصم الكمية التالفة فوراً من رصيد المخزن وحساب خسارتها المالية</p>
+
+            <div>
+              <label class="field-label" data-ar="اختر الخامة / المادة التالفة" data-en="Select Ingredient">اختر الخامة / المادة التالفة</label>
+              <select class="select" id="w-ing" onchange="updWasteUnitLabel()"></select>
+            </div>
+
+            <div class="g2">
+              <div>
+                <label class="field-label" data-ar="الكمية التالفة" data-en="Wasted Qty">الكمية التالفة</label>
+                <div style="display:flex;align-items:center;gap:6px">
+                  <input type="number" step="0.01" min="0.01" class="input" id="w-qty" placeholder="0.00"/>
+                  <span id="w-unit-lbl" class="text-muted" style="font-size:12px;font-weight:700">kg</span>
+                </div>
+              </div>
+              <div>
+                <label class="field-label" data-ar="تاريخ الهدر" data-en="Date">تاريخ الهدر</label>
+                <input type="date" class="input" id="w-date"/>
+              </div>
+            </div>
+
+            <div>
+              <label class="field-label" data-ar="سبب الهدر / التلف" data-en="Reason">سبب الهدر / التلف</label>
+              <select class="select" id="w-reason">
+                <option value="expired" data-ar="⏳ انتهاء صلاحية" data-en="⏳ Expired">⏳ انتهاء صلاحية</option>
+                <option value="cooking" data-ar="🍳 تلف أثناء الطبخ/التجهيز" data-en="🍳 Cooking / Prep Spoilage">🍳 تلف أثناء الطبخ/التجهيز</option>
+                <option value="storage" data-ar="📦 سوء تخزين / تلف ثلاجة" data-en="📦 Storage / Refrigerator Issue">📦 سوء تخزين / تلف ثلاجة</option>
+                <option value="trimming" data-ar="🔪 هدر تقطيع وتنظيف" data-en="🔪 Prep Trimming Waste">🔪 هدر تقطيع وتنظيف</option>
+                <option value="other" data-ar="⚠️ أسباب أخرى" data-en="⚠️ Other Reason">⚠️ أسباب أخرى</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="field-label" data-ar="ملاحظات والتفاصيل" data-en="Notes">ملاحظات والتفاصيل</label>
+              <textarea class="textarea" rows="2" id="w-notes" placeholder="اكتب تفاصيل سبب التلف..."></textarea>
+            </div>
+
+            <button class="btn btn-primary w-full" style="justify-content:center;background:linear-gradient(135deg,#ef4444,#dc2626)" onclick="logWaste()">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
+              <span data-ar="تسجيل الهدر وخصمه من المخزن" data-en="Log Waste & Deduct Stock">تسجيل الهدر وخصمه من المخزن</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Waste Log & Analytics Table -->
+        <div class="sy3">
+          <div class="card">
+            <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+              <div>
+                <h3 class="text-white font-bold" data-ar="سجل وتقارير الهدر والتالف" data-en="Waste Ledger & Analytics">سجل وتقارير الهدر والتالف</h3>
+                <p class="text-muted text-sm mt-1" data-ar="مراجعة وتتبع الخسائر المالية الناجمة عن الهدر" data-en="Track monetary loss from spillage and waste">مراجعة وتتبع الخسائر المالية الناجمة عن الهدر</p>
+              </div>
+              <div class="flex gap-3 flex-wrap">
+                <select class="select" id="w-filter-reason" style="width:170px" onchange="renderWaste()">
+                  <option value="" data-ar="جميع أسباب الهدر" data-en="All Reasons">جميع أسباب الهدر</option>
+                  <option value="expired" data-ar="انتهاء صلاحية" data-en="Expired">انتهاء صلاحية</option>
+                  <option value="cooking" data-ar="تلف الطبخ" data-en="Cooking">تلف الطبخ</option>
+                  <option value="storage" data-ar="سوء تخزين" data-en="Storage">سوء تخزين</option>
+                  <option value="trimming" data-ar="هدر تقطيع" data-en="Trimming">هدر تقطيع</option>
+                  <option value="other" data-ar="أسباب أخرى" data-en="Other">أسباب أخرى</option>
+                </select>
+                <input type="month" class="input" id="w-filter-month" style="width:150px" onchange="renderWaste()"/>
+                <button class="btn btn-secondary btn-sm" onclick="document.getElementById('w-filter-reason').value='';document.getElementById('w-filter-month').value='';renderWaste()" data-ar="مسح الفلتر" data-en="Clear">مسح الفلتر</button>
+              </div>
+            </div>
+            <div class="tbl-wrap">
+              <table class="tbl">
+                <thead>
+                  <tr>
+                    <th data-ar="التاريخ" data-en="Date">التاريخ</th>
+                    <th data-ar="الخامة / المادة" data-en="Ingredient">الخامة / المادة</th>
+                    <th data-ar="الكمية التالفة" data-en="Qty Wasted">الكمية التالفة</th>
+                    <th data-ar="الوحدة" data-en="UOM">الوحدة</th>
+                    <th data-ar="سعر الوحدة" data-en="Unit Price">سعر الوحدة</th>
+                    <th data-ar="إجمالي الخسارة" data-en="Total Loss">إجمالي الخسارة</th>
+                    <th data-ar="سبب الهدر" data-en="Reason">سبب الهدر</th>
+                    <th data-ar="الإجراء" data-en="Action">الإجراء</th>
+                  </tr>
+                </thead>
+                <tbody id="waste-tbl"></tbody>
+              </table>
+            </div>
+            <div id="waste-empty" class="empty-state" style="display:none">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <p class="mt-3 text-white font-bold" data-ar="ممتاز! لا يوجد أي هدر مسجل بهذا التصفية" data-en="Great! No waste recorded for this filter">ممتاز! لا يوجد أي هدر مسجل بهذا التصفية</p>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- REPORTS & ANALYTICS -->
+    <section class="page" id="page-reports">
+      <!-- Filter & Comparison Bar -->
+      <div class="card mb-4">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div>
+            <h3 class="text-white font-bold" data-ar="📊 لوحة المقارنات والتحليلات المتقدمة" data-en="📊 Advanced Comparison Analytics">📊 لوحة المقارنات والتحليلات المتقدمة</h3>
+            <p class="text-muted text-sm mt-1" data-ar="مقارنة الأداء والإنتاج والهدر بين الشهور والأيام والفروع" data-en="Compare performance, demand, & waste across months, days, and branches">مقارنة الأداء والإنتاج والهدر بين الشهور والأيام والفروع</p>
+          </div>
+          <div class="flex gap-3 flex-wrap items-center">
+            <div>
+              <label class="text-muted text-sm block mb-1" data-ar="الشهر الأول (الأساس)" data-en="Base Month">الشهر الأول (الأساس)</label>
+              <input type="month" class="input" id="rep-m1" style="width:150px" onchange="renderReports()"/>
+            </div>
+            <div style="align-self:flex-end;padding-bottom:8px;font-size:16px;font-weight:800;color:#f97316">VS</div>
+            <div>
+              <label class="text-muted text-sm block mb-1" data-ar="الشهر الثاني (المقارن)" data-en="Comparison Month">الشهر الثاني (المقارن)</label>
+              <input type="month" class="input" id="rep-m2" style="width:150px" onchange="renderReports()"/>
+            </div>
+            <div style="align-self:flex-end">
+              <select class="select" id="rep-branch" style="width:160px" onchange="renderReports()">
+                <option value="" data-ar="جميع الفروع" data-en="All Branches">جميع الفروع</option>
+                <option value="فرع وسط البلد" data-ar="فرع وسط البلد" data-en="Downtown Branch">فرع وسط البلد</option>
+                <option value="فرع المطار" data-ar="فرع المطار" data-en="Airport Branch">فرع المطار</option>
+                <option value="فرع المول" data-ar="فرع المول" data-en="Mall Branch">فرع المول</option>
+                <option value="فرع الزمالك" data-ar="فرع الزمالك" data-en="Zamalek Branch">فرع الزمالك</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI Summary Cards -->
+      <div class="g4 mb-4" id="rep-kpi-stats"></div>
+
+      <!-- Charts Grid 1: Branch Orders Comparison & Waste Comparison -->
+      <div class="g2 mb-4">
+        <div class="card">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-white font-bold" data-ar="🏢 مقارنة طلبات الفروع بين الشهرين" data-en="Branch Orders Comparison">🏢 مقارنة طلبات الفروع بين الشهرين</h3>
+            <span class="badge badge-orange" data-ar="إجمالي الوحدات" data-en="Total Units">إجمالي الوحدات</span>
+          </div>
+          <div style="height:250px;position:relative"><canvas id="ch-rep-branch"></canvas></div>
+        </div>
+
+        <div class="card">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-white font-bold" data-ar="🗑️ مقارنة خسائر الهدر المالي بين الشهرين" data-en="Waste Loss Comparison">🗑️ مقارنة خسائر الهدر المالي بين الشهرين</h3>
+            <span class="badge badge-red" data-ar="بالجنيه" data-en="EGP">بالجنيه</span>
+          </div>
+          <div style="height:250px;position:relative"><canvas id="ch-rep-waste"></canvas></div>
+        </div>
+      </div>
+
+      <!-- Charts Grid 2: Top Products Trend & Cost Breakdown -->
+      <div class="g2 mb-4">
+        <div class="card">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-white font-bold" data-ar="🥫 استهلاك الأصناف والتجهيزات الأكثر طلباً" data-en="Top CK Products Usage">🥫 استهلاك الأصناف والتجهيزات الأكثر طلباً</h3>
+            <span class="badge badge-blue" data-ar="مقارنة الكميات" data-en="Qty Comparison">مقارنة الكميات</span>
+          </div>
+          <div style="height:250px;position:relative"><canvas id="ch-rep-prods"></canvas></div>
+        </div>
+
+        <div class="card">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-white font-bold" data-ar="💰 توزيع الهدر مقابل تكلفة الإنتاج" data-en="Cost vs Waste Breakdown">💰 توزيع الهدر مقابل تكلفة الإنتاج</h3>
+            <span class="badge badge-green" data-ar="نسبة التكاليف" data-en="Cost Ratio">نسبة التكاليف</span>
+          </div>
+          <div style="height:250px;position:relative"><canvas id="ch-rep-cost"></canvas></div>
+        </div>
+      </div>
+
+      <!-- Detailed Comparison Matrix Table -->
+      <div class="card">
+        <h3 class="text-white font-bold mb-3" data-ar="📋 جدول المقارنة التفصيلي ومؤشرات النمو/الانخفاض" data-en="Detailed Comparison Matrix & Growth Indicators">📋 جدول المقارنة التفصيلي ومؤشرات النمو/الانخفاض</h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th data-ar="البيان / المعيار" data-en="Metric / Branch">البيان / المعيار</th>
+                <th id="rep-th-m1" data-ar="الشهر الأول" data-en="Month 1">الشهر الأول</th>
+                <th id="rep-th-m2" data-ar="الشهر الثاني" data-en="Month 2">الشهر الثاني</th>
+                <th data-ar="الفارق العددي" data-en="Difference">الفارق العددي</th>
+                <th data-ar="نسبة التغير" data-en="% Change">نسبة التغير</th>
+                <th data-ar="المؤشر والتأثير" data-en="Status Indicator">المؤشر والتأثير</th>
+              </tr>
+            </thead>
+            <tbody id="rep-matrix-tbl"></tbody>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -1118,27 +1361,39 @@ table.tbl tr:hover td {
 <div class="modal-overlay" id="modal-prod">
   <div class="modal" style="max-width:440px">
     <div class="modal-header">
-      <h3 class="modal-title" data-ar="إضافة منتج / وجبة جديدة" data-en="New Meal / Product">إضافة منتج / وجبة جديدة</h3>
+      <h3 class="modal-title" data-ar="إضافة تجهيز مطبخ مركزي جديد" data-en="New Central Kitchen Product">إضافة تجهيز مطبخ مركزي جديد</h3>
       <button class="btn btn-secondary btn-icon btn-sm" onclick="closeModal('modal-prod')">✕</button>
     </div>
     <div class="sy4">
       <div class="g2">
         <div>
-          <label class="field-label" data-ar="اسم الوجبة (عربي)" data-en="Meal Name (Arabic)">اسم الوجبة (عربي)</label>
-          <input class="input" id="prod-ar" placeholder="مثال: بيتزا مارجريتا"/>
+          <label class="field-label" data-ar="اسم التجهيز (عربي)" data-en="Product Name (Arabic)">اسم التجهيز (عربي)</label>
+          <input class="input" id="prod-ar" placeholder="مثال: صوص أمريكان"/>
         </div>
         <div>
-          <label class="field-label" data-ar="اسم الوجبة (إنجليزي)" data-en="Meal Name (English)">اسم الوجبة (إنجليزي)</label>
-          <input class="input" id="prod-en" placeholder="e.g. Margherita Pizza"/>
+          <label class="field-label" data-ar="اسم التجهيز (إنجليزي)" data-en="Product Name (English)">اسم التجهيز (إنجليزي)</label>
+          <input class="input" id="prod-en" placeholder="e.g. American Sauce"/>
         </div>
       </div>
-      <div>
-        <label class="field-label" data-ar="لون التمييز" data-en="Color Tag">لون التمييز</label>
-        <input type="color" class="input" id="prod-color" value="#f97316" style="height:44px;padding:4px;cursor:pointer"/>
+      <div class="g2">
+        <div>
+          <label class="field-label" data-ar="وحدة الإنتاج" data-en="Production Unit">وحدة الإنتاج</label>
+          <select class="select" id="prod-unit">
+            <option value="ltr">لتر (ltr)</option>
+            <option value="kg">كيلو (kg)</option>
+            <option value="pcs">قطعة (pcs)</option>
+            <option value="portion">حصة (portion)</option>
+            <option value="tray">صينية (tray)</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label" data-ar="لون التمييز" data-en="Color Tag">لون التمييز</label>
+          <input type="color" class="input" id="prod-color" value="#f97316" style="height:44px;padding:4px;cursor:pointer"/>
+        </div>
       </div>
       <div class="flex gap-3" style="justify-content:flex-end">
         <button class="btn btn-secondary" onclick="closeModal('modal-prod')" data-ar="إلغاء" data-en="Cancel">إلغاء</button>
-        <button class="btn btn-primary" onclick="saveProduct()"><span data-ar="إنشاء الوجبة" data-en="Create Product">إنشاء الوجبة</span></button>
+        <button class="btn btn-primary" onclick="saveProduct()"><span data-ar="إنشاء التجهيز" data-en="Create Product">إنشاء التجهيز</span></button>
       </div>
     </div>
   </div>
@@ -1177,68 +1432,83 @@ const S = {
   lang: 'ar',
   sbCol: false,
   curPage: 'dashboard',
-  curRecipe: 'burger',
+  curRecipe: 'amer-sauce',
   POs: [],
+  /* ── Central Kitchen Products (Semi-Finished / التجهيزات) ── */
   products: [
-    { id: 'burger',  ar: 'برجر اللحم الفاخر',    en: 'Premium Beef Burger',     cost: 0, color: '#f97316' },
-    { id: 'chicken', ar: 'ساندويتش الدجاج المقرمش', en: 'Crispy Chicken Sandwich', cost: 0, color: '#8b5cf6' },
-    { id: 'salad',   ar: 'سلطة سيزر بالدجاج',     en: 'Chicken Caesar Salad',    cost: 0, color: '#22c55e' },
-    { id: 'fries',   ar: 'بطاطس محملة بالجبن',    en: 'Loaded Cheese Fries',     cost: 0, color: '#eab308' }
+    { id: 'amer-sauce',        ar: 'صوص أمريكان',          en: 'American Sauce',        unit: 'ltr',     cost: 0, color: '#f97316' },
+    { id: 'atomic-sauce',      ar: 'صوص أتوميك',           en: 'Atomic Sauce',          unit: 'ltr',     cost: 0, color: '#ef4444' },
+    { id: 'chicken-sauce',     ar: 'صوص الدجاج',           en: 'Chicken Sauce',         unit: 'ltr',     cost: 0, color: '#eab308' },
+    { id: 'beef-patty-prep',   ar: 'برجر لحم متبل (مشكّل)', en: 'Seasoned Beef Patty',   unit: 'kg',      cost: 0, color: '#8b5cf6' },
+    { id: 'chicken-marinated', ar: 'فراخ متبلة جاهزة',     en: 'Marinated Chicken',     unit: 'kg',      cost: 0, color: '#22c55e' }
   ],
+  /* ── Raw Ingredients (الخامات الرئيسية) ── */
   ings: {
-    'beef-patty':     { ar: 'شرائح اللحم البقري', en: 'Beef Patty',       uom: 'kg',  price: 130, stock: 25,  safety: 10, sup: 'شركة لحوم القاهرة' },
-    'chicken-breast': { ar: 'صدور دجاج متبلة',    en: 'Chicken Breast',   uom: 'kg',  price: 70,  stock: 20,  safety: 8,  sup: 'دواجن الفارس' },
-    'burger-bun':     { ar: 'خبز البرجر بالسمسم',  en: 'Burger Bun',       uom: 'pcs', price: 3.5, stock: 800, safety: 150,sup: 'المخبز الذهبي' },
-    'chicken-bun':    { ar: 'خبز كيزر للدجاج',    en: 'Chicken Bun',      uom: 'pcs', price: 3,   stock: 180, safety: 80, sup: 'المخبز الذهبي' },
-    'lettuce':        { ar: 'خس كابوتشا طازج',    en: 'Fresh Lettuce',    uom: 'kg',  price: 14,  stock: 8,   safety: 5,  sup: 'مزارع النيل' },
-    'tomato':         { ar: 'طماطم طازجة',        en: 'Fresh Tomato',     uom: 'kg',  price: 12,  stock: 9,   safety: 4,  sup: 'مزارع النيل' },
-    'cheese':         { ar: 'شرائح جبن شيدر',     en: 'Cheddar Slices',   uom: 'pcs', price: 5.5, stock: 350, safety: 100,sup: 'ألبان المراعي' },
-    'sauce':          { ar: 'صوص خاص بالشيف',     en: 'Special Sauce',    uom: 'ltr', price: 40,  stock: 12,  safety: 3,  sup: 'ماسترز فليفر' },
-    'fries-raw':      { ar: 'بطاطس نصف مقلية',    en: 'Fries (Raw)',      uom: 'kg',  price: 18,  stock: 30,  safety: 10, sup: 'مزارع النيل' },
-    'croutons':       { ar: 'خبز محمص متبل',      en: 'Seasoned Croutons',uom: 'kg',  price: 25,  stock: 4,   safety: 2,  sup: 'المخبز الذهبي' }
+    'beef-raw':      { ar: 'لحم بقري خام',        en: 'Raw Beef',           uom: 'kg',  price: 120, stock: 50,  safety: 15, sup: 'شركة لحوم القاهرة' },
+    'chicken-raw':   { ar: 'دجاج خام (كميلة)',    en: 'Raw Chicken',        uom: 'kg',  price: 55,  stock: 40,  safety: 12, sup: 'دواجن الفارس' },
+    'mayo-raw':      { ar: 'مايونيز خام',          en: 'Mayonnaise (Bulk)',  uom: 'kg',  price: 35,  stock: 20,  safety: 5,  sup: 'ماسترز فليفر' },
+    'mustard':       { ar: 'مستردة صفراء',         en: 'Yellow Mustard',     uom: 'kg',  price: 28,  stock: 8,   safety: 2,  sup: 'ماسترز فليفر' },
+    'chili-sauce':   { ar: 'صوص تشيلي حار',        en: 'Chili Sauce',        uom: 'ltr', price: 40,  stock: 10,  safety: 3,  sup: 'ماسترز فليفر' },
+    'vinegar':       { ar: 'خل أبيض',              en: 'White Vinegar',      uom: 'ltr', price: 8,   stock: 15,  safety: 3,  sup: 'الموردون العامون' },
+    'spice-mix':     { ar: 'خلطة بهارات شيف',      en: 'Chef Spice Mix',     uom: 'kg',  price: 90,  stock: 5,   safety: 1,  sup: 'التوابل الذهبية' },
+    'amer-spice':    { ar: 'بهارات أمريكية',        en: 'American Spices',    uom: 'kg',  price: 110, stock: 3,   safety: 1,  sup: 'التوابل الذهبية' },
+    'garlic-paste':  { ar: 'معجون ثوم',            en: 'Garlic Paste',       uom: 'kg',  price: 45,  stock: 6,   safety: 2,  sup: 'مزارع النيل' },
+    'tomato-paste':  { ar: 'معجون طماطم',          en: 'Tomato Paste',       uom: 'kg',  price: 22,  stock: 12,  safety: 3,  sup: 'مزارع النيل' },
+    'packaging-ltr': { ar: 'عبوات لتر (أكياس)',    en: 'Ltr Packaging Bags', uom: 'pcs', price: 1.5, stock: 500, safety: 100,sup: 'مصنع التعبئة' },
+    'packaging-kg':  { ar: 'أكياس تعبئة كيلو',    en: 'Kg Packaging Bags',  uom: 'pcs', price: 1.2, stock: 400, safety: 100,sup: 'مصنع التعبئة' }
   },
+  /* ── Central Kitchen BOM (وصفات التجهيز) ── */
+  /* الكميات: per 1 ltr أو 1 kg من التجهيز المنتج */
   recipes: {
-    burger: {
+    'amer-sauce': {
       ings: [
-        { id: 'beef-patty', qty: 0.18, waste: 5 },
-        { id: 'burger-bun', qty: 1,    waste: 2 },
-        { id: 'lettuce',    qty: 0.03, waste: 10 },
-        { id: 'tomato',     qty: 0.04, waste: 8 },
-        { id: 'cheese',     qty: 2,    waste: 0 },
-        { id: 'sauce',      qty: 0.03, waste: 3 }
+        { id: 'mayo-raw',      qty: 0.60, waste: 2 },
+        { id: 'mustard',       qty: 0.15, waste: 1 },
+        { id: 'amer-spice',    qty: 0.08, waste: 0 },
+        { id: 'vinegar',       qty: 0.05, waste: 0 },
+        { id: 'garlic-paste',  qty: 0.03, waste: 2 },
+        { id: 'packaging-ltr', qty: 1,    waste: 0 }
       ]
     },
-    chicken: {
+    'atomic-sauce': {
       ings: [
-        { id: 'chicken-breast', qty: 0.15, waste: 8 },
-        { id: 'chicken-bun',    qty: 1,    waste: 2 },
-        { id: 'lettuce',        qty: 0.02, waste: 10 },
-        { id: 'sauce',          qty: 0.04, waste: 3 }
+        { id: 'mayo-raw',     qty: 0.50, waste: 2 },
+        { id: 'chili-sauce',  qty: 0.25, waste: 1 },
+        { id: 'tomato-paste', qty: 0.10, waste: 2 },
+        { id: 'spice-mix',    qty: 0.05, waste: 0 },
+        { id: 'vinegar',      qty: 0.04, waste: 0 },
+        { id: 'packaging-ltr',qty: 1,    waste: 0 }
       ]
     },
-    salad: {
+    'chicken-sauce': {
       ings: [
-        { id: 'lettuce',  qty: 0.12, waste: 15 },
-        { id: 'croutons', qty: 0.04, waste: 5 },
-        { id: 'sauce',    qty: 0.05, waste: 3 },
-        { id: 'cheese',   qty: 1,    waste: 0 },
-        { id: 'tomato',   qty: 0.05, waste: 8 }
+        { id: 'mayo-raw',     qty: 0.55, waste: 2 },
+        { id: 'mustard',      qty: 0.10, waste: 1 },
+        { id: 'spice-mix',    qty: 0.06, waste: 0 },
+        { id: 'garlic-paste', qty: 0.04, waste: 2 },
+        { id: 'vinegar',      qty: 0.03, waste: 0 },
+        { id: 'packaging-ltr',qty: 1,    waste: 0 }
       ]
     },
-    fries: {
+    'beef-patty-prep': {
       ings: [
-        { id: 'fries-raw', qty: 0.25, waste: 12 },
-        { id: 'sauce',     qty: 0.03, waste: 3 }
+        { id: 'beef-raw',    qty: 1.10, waste: 8 },
+        { id: 'spice-mix',   qty: 0.03, waste: 0 },
+        { id: 'garlic-paste',qty: 0.02, waste: 2 },
+        { id: 'packaging-kg',qty: 1,    waste: 0 }
+      ]
+    },
+    'chicken-marinated': {
+      ings: [
+        { id: 'chicken-raw', qty: 1.12, waste: 10 },
+        { id: 'spice-mix',   qty: 0.04, waste: 0  },
+        { id: 'garlic-paste',qty: 0.03, waste: 2  },
+        { id: 'chili-sauce', qty: 0.02, waste: 0  },
+        { id: 'packaging-kg',qty: 1,    waste: 0  }
       ]
     }
   },
-  orders: [
-    { id: 1, branch: 'فرع وسط البلد', date: todayStr(), items: { burger: 120, chicken: 80,  salad: 40, fries: 90 }, notes: 'ذروة الغداء والعشاء' },
-    { id: 2, branch: 'فرع المطار',    date: todayStr(), items: { burger: 95,  chicken: 110, salad: 30, fries: 70 }, notes: 'رحلات المساء' },
-    { id: 3, branch: 'فرع المول',     date: todayStr(), items: { burger: 80,  chicken: 60,  salad: 50, fries: 60 }, notes: 'عروض الويكند' },
-    { id: 4, branch: 'فرع الزمالك',  date: todayStr(), items: { burger: 35,  chicken: 40,  salad: 25, fries: 30 }, notes: 'طلب إضافي' },
-    { id: 5, branch: 'فرع وسط البلد', date: todayStr(), items: { burger: 10,  chicken: 0,   salad: 0,  fries: 15 }, notes: 'طلب طارئ' }
-  ]
+  orders: []
 };
 
 /* Helper functions */
@@ -1250,6 +1520,48 @@ function fmt(v) {
 }
 function f2(v) {
   return (+v || 0).toFixed(2);
+}
+
+/* ============================================================
+   LOCAL STORAGE — PERSISTENT DATA
+============================================================ */
+const LS_KEY = 'ck-erp-v1';
+
+function saveState() {
+  try {
+    const data = {
+      orders:   S.orders,
+      POs:      S.POs,
+      invoices: S.invoices || [],
+      wastes:   S.wastes || [],
+      ings:     S.ings,
+      products: S.products,
+      recipes:  S.recipes
+    };
+    localStorage.setItem(LS_KEY, JSON.stringify(data));
+  } catch(e) { console.warn('saveState failed:', e); }
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (!raw) return false;
+    const data = JSON.parse(raw);
+    if (data.orders   !== undefined) S.orders   = data.orders;
+    if (data.POs      !== undefined) S.POs      = data.POs;
+    if (data.invoices !== undefined) S.invoices = data.invoices;
+    if (data.wastes   !== undefined) S.wastes   = data.wastes;
+    if (data.ings     !== undefined) S.ings     = data.ings;
+    if (data.products !== undefined) S.products = data.products;
+    if (data.recipes  !== undefined) S.recipes  = data.recipes;
+    return true;
+  } catch(e) { console.warn('loadState failed:', e); return false; }
+}
+
+function clearAllData() {
+  if (!confirm(T('هل أنت متأكد من حذف كل البيانات المحفوظة؟ لا يمكن التراجع!', 'Are you sure you want to clear all saved data? This cannot be undone!'))) return;
+  localStorage.removeItem(LS_KEY);
+  location.reload();
 }
 function isAr() {
   return S.lang === 'ar';
@@ -1335,6 +1647,8 @@ function nav(page) {
     document.getElementById('page-title').textContent = ni.querySelector('.nav-label')?.textContent || '';
   }
   closeMob();
+  const cnt = document.querySelector('.content');
+  if (cnt) cnt.scrollTop = 0;
   renderPage(page);
 }
 
@@ -1346,6 +1660,8 @@ function renderPage(p) {
   else if (p === 'inventory') renderInv();
   else if (p === 'purchase') renderPOs();
   else if (p === 'invoices') renderInvoices();
+  else if (p === 'waste') renderWaste();
+  else if (p === 'reports') renderReports();
 }
 
 /* ============================================================
@@ -1718,13 +2034,14 @@ function submitOrder() {
     items: items,
     notes: document.getElementById('o-notes').value
   });
-
+  saveState();
   toast(T('✅ تم إرسال الطلب وانعكست الخطة على الإنتاج والمخزون!', '✅ Order recorded and synced!'));
   renderOrders();
 }
 
 function delOrder(id) {
   S.orders = S.orders.filter(o => o.id !== id);
+  saveState();
   renderOrders();
   toast(T('تم حذف الطلب وتحديث الحسابات', 'Order removed'), 'info');
 }
@@ -1819,11 +2136,13 @@ function renderBOM(pid) {
 
 function updIng(pid, i, f, v) {
   S.recipes[pid].ings[i][f] = (f === 'id') ? v : +v;
+  saveState();
   renderBOM(pid);
   renderRecipes();
 }
 function remIng(pid, i) {
   S.recipes[pid].ings.splice(i, 1);
+  saveState();
   renderBOM(pid);
   renderRecipes();
 }
@@ -1834,6 +2153,7 @@ function addIngRow() {
   }
   const k = Object.keys(S.ings)[0];
   S.recipes[S.curRecipe].ings.push({ id: k, qty: 0.1, waste: 5 });
+  saveState();
   renderBOM(S.curRecipe);
 }
 
@@ -1846,14 +2166,16 @@ function saveProduct() {
   }
   const id = 'prod_' + Date.now();
   const color = document.getElementById('prod-color').value;
-  S.products.push({ id, ar: a, en: e, cost: 0, color });
+  const unit = document.getElementById('prod-unit') ? document.getElementById('prod-unit').value : 'pcs';
+  S.products.push({ id, ar: a, en: e, unit, cost: 0, color });
   S.recipes[id] = { ings: [] };
   closeModal('modal-prod');
   document.getElementById('prod-ar').value = '';
   document.getElementById('prod-en').value = '';
   S.curRecipe = id;
+  saveState();
   renderRecipes();
-  toast(T('✅ تم إنشاء الوجبة الجديدة بنجاح', '✅ Product created!'));
+  toast(T('✅ تم إنشاء التجهيز الجديد بنجاح', '✅ CK Product created!'));
 }
 
 /* ============================================================
@@ -2010,6 +2332,7 @@ function saveStock() {
   S.ings[id].stock = +document.getElementById('stock-cur').value || 0;
   S.ings[id].safety = +document.getElementById('stock-safety').value || 0;
   closeModal('modal-stock');
+  saveState();
   renderInv();
   toast(T('✅ تم تحديث بيانات المخزون بنجاح!', '✅ Stock updated!'));
 }
@@ -2033,6 +2356,7 @@ function saveIngredient() {
   };
   closeModal('modal-ing');
   ['ing-ar', 'ing-en', 'ing-sup', 'ing-price', 'ing-stock', 'ing-safety'].forEach(i => document.getElementById(i).value = '');
+  saveState();
   renderInv();
   toast(T('✅ تمت إضافة المادة الخام بنجاح!', '✅ Ingredient added!'));
 }
@@ -2072,6 +2396,7 @@ function genPOs() {
   });
 
   nav('purchase');
+  saveState();
   toast(T(`✅ تم توليد ${S.POs.length} طلب شراء للمواد الناقصة!`, `✅ Generated ${S.POs.length} POs!`));
 }
 
@@ -2288,6 +2613,7 @@ function renderInvoices() {
 function updInvPayment(idx, val) {
   if (S.invoices[idx]) {
     S.invoices[idx].payment = val;
+    saveState();
     renderInvoices();
     toast(T('✅ تم تحديث حالة الدفع', '✅ Payment status updated'), 'info');
   }
@@ -2300,15 +2626,641 @@ function sendAllDraft() {
     return;
   }
   ds.forEach(p => p.status = 'sent');
+  saveState();
   renderPOs();
   toast(T(`📤 تم إرسال ${ds.length} أوامر شراء إلى الموردين بنجاح!`, `📤 Sent ${ds.length} POs!`));
 }
 
 /* ============================================================
+   WASTE & SPOILAGE MANAGEMENT
+============================================================ */
+function updWasteUnitLabel() {
+  const ingId = document.getElementById('w-ing').value;
+  const iv = S.ings[ingId];
+  if (iv) {
+    document.getElementById('w-unit-lbl').textContent = iv.uom;
+  }
+}
+
+function logWaste() {
+  const ingId = document.getElementById('w-ing').value;
+  const qty = parseFloat(document.getElementById('w-qty').value) || 0;
+  const date = document.getElementById('w-date').value || todayStr();
+  const reason = document.getElementById('w-reason').value;
+  const notes = document.getElementById('w-notes').value.trim();
+
+  if (!ingId || !S.ings[ingId]) {
+    toast(T('يرجى اختيار الخامة التالفة', 'Please select an ingredient'), 'error');
+    return;
+  }
+  if (qty <= 0) {
+    toast(T('يرجى كتابة كمية تالفة أكبر من صفر', 'Quantity must be greater than 0'), 'error');
+    return;
+  }
+
+  const iv = S.ings[ingId];
+  const unitPrice = iv.price || 0;
+  const totalCost = qty * unitPrice;
+
+  // Deduct from stock
+  iv.stock = Math.max(0, iv.stock - qty);
+
+  // Add entry to wastes array
+  const wasteEntry = {
+    id: Date.now(),
+    ingId,
+    qty: f2(qty),
+    unit: iv.uom,
+    unitPrice: f2(unitPrice),
+    totalCost: f2(totalCost),
+    reason,
+    notes,
+    date
+  };
+
+  S.wastes.unshift(wasteEntry);
+
+  saveState();
+  renderWaste();
+  renderInv();
+
+  document.getElementById('w-qty').value = '';
+  document.getElementById('w-notes').value = '';
+
+  const ingName = isAr() ? iv.ar : iv.en;
+  toast(T(`🗑️ تم تسجيل هدر ${qty} ${iv.uom} من (${ingName}) وخصمها من المخزن!`,
+          `🗑️ Logged waste of ${qty} ${iv.uom} (${ingName}) and deducted stock!`));
+}
+
+function delWaste(id) {
+  const item = S.wastes.find(w => w.id === id);
+  if (!item) return;
+  if (!confirm(T('هل تريد حذف سجل الهدر هذا وإعادة الكمية للمخزن؟', 'Delete this waste entry and restore stock?'))) return;
+
+  // Restore stock
+  if (S.ings[item.ingId]) {
+    S.ings[item.ingId].stock += parseFloat(item.qty);
+  }
+
+  S.wastes = S.wastes.filter(w => w.id !== id);
+  saveState();
+  renderWaste();
+  renderInv();
+  toast(T('تم حذف سجل الهدر وإعادة الرصيد للمخزن', 'Waste entry deleted & stock restored'), 'info');
+}
+
+function renderWaste() {
+  document.getElementById('w-date').value = todayStr();
+
+  // Populate ingredient select
+  const ingSel = document.getElementById('w-ing');
+  const curIng = ingSel.value;
+  ingSel.innerHTML = Object.entries(S.ings).map(([id, iv]) => `
+    <option value="${id}" ${id === curIng ? 'selected' : ''}>${isAr() ? iv.ar : iv.en} (${iv.stock} ${iv.uom})</option>
+  `).join('');
+  updWasteUnitLabel();
+
+  // Filters
+  const reasonFilter = document.getElementById('w-filter-reason').value;
+  const monthFilter  = document.getElementById('w-filter-month').value;
+
+  const filtered = S.wastes.filter(w => {
+    if (reasonFilter && w.reason !== reasonFilter) return false;
+    if (monthFilter && !w.date.startsWith(monthFilter)) return false;
+    return true;
+  });
+
+  // Calculate statistics
+  const totalCost = filtered.reduce((s, w) => s + parseFloat(w.totalCost), 0);
+  // Top wasted item
+  const ingLossMap = {};
+  filtered.forEach(w => {
+    ingLossMap[w.ingId] = (ingLossMap[w.ingId] || 0) + parseFloat(w.totalCost);
+  });
+  let topIngId = '';
+  let topIngLoss = 0;
+  Object.entries(ingLossMap).forEach(([id, loss]) => {
+    if (loss > topIngLoss) { topIngLoss = loss; topIngId = id; }
+  });
+  const topIngObj = S.ings[topIngId];
+  const topIngName = topIngObj ? (isAr() ? topIngObj.ar : topIngObj.en) : T('لا يوجد', 'None');
+
+  document.getElementById('waste-stats').innerHTML = [
+    { v: filtered.length, l: T('إجمالي عمليات الهدر المسجلة', 'Total Waste Entries'), c: '#fff' },
+    { v: fmt(Math.round(totalCost)) + ' ' + cur(), l: T('إجمالي الخسارة المالية للهدر', 'Total Monetary Loss'), c: '#f87171' },
+    { v: topIngName, l: T('أكثر خامة تعرضت للهدر', 'Top Wasted Ingredient'), c: '#fbbf24' }
+  ].map(s => `
+    <div class="stat-card" style="text-align:center">
+      <div style="font-size:24px;font-weight:800;color:${s.c}">${s.v}</div>
+      <div class="text-muted text-sm mt-2">${s.l}</div>
+    </div>
+  `).join('');
+
+  const reasonLabels = {
+    expired:  T('⏳ انتهاء صلاحية', '⏳ Expired'),
+    cooking:  T('🍳 تلف الطبخ', '🍳 Cooking'),
+    storage:  T('📦 سوء تخزين', '📦 Storage'),
+    trimming: T('🔪 هدر تقطيع', '🔪 Trimming'),
+    other:    T('⚠️ أسباب أخرى', '⚠️ Other')
+  };
+  const reasonBadges = {
+    expired:  'badge-red',
+    cooking:  'badge-amber',
+    storage:  'badge-red',
+    trimming: 'badge-orange',
+    other:    'badge-amber'
+  };
+
+  const em  = document.getElementById('waste-empty');
+  const tbl = document.getElementById('waste-tbl');
+
+  if (!filtered.length) {
+    tbl.innerHTML = '';
+    em.style.display = 'block';
+    return;
+  }
+  em.style.display = 'none';
+
+  tbl.innerHTML = filtered.map(w => {
+    const d = S.ings[w.ingId];
+    const name = d ? (isAr() ? d.ar : d.en) : w.ingId;
+    return `
+      <tr>
+        <td class="td-mono">${w.date}</td>
+        <td style="font-weight:700;color:#fff">${name}</td>
+        <td style="color:#f87171;font-weight:700">${w.qty}</td>
+        <td class="text-muted">${w.unit}</td>
+        <td class="text-muted">${w.unitPrice} ${cur()}</td>
+        <td><span style="color:#f87171;font-weight:800">${(+w.totalCost).toLocaleString()} ${cur()}</span></td>
+        <td><span class="badge ${reasonBadges[w.reason] || 'badge-amber'}">${reasonLabels[w.reason] || w.reason}</span></td>
+        <td>
+          <button class="btn btn-danger btn-icon btn-sm" onclick="delWaste(${w.id})" title="حذف">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
+          </button>
+        </td>
+      </tr>
+      ${w.notes ? `<tr><td colspan="8" style="padding:4px 16px 10px;color:#64748b;font-size:12px;font-style:italic">📝 ${w.notes}</td></tr>` : ''}
+    `;
+  }).join('');
+}
+
+/* ============================================================
+   REPORTS & COMPARISON ANALYTICS
+============================================================ */
+let chRepBranch = null;
+let chRepWaste  = null;
+let chRepProds  = null;
+let chRepCost   = null;
+
+function renderReports() {
+  const now = new Date();
+  const curMonthStr = now.toISOString().slice(0, 7); // YYYY-MM
+  const prevDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+  const prevMonthStr = prevDate.toISOString().slice(0, 7);
+
+  const m1Input = document.getElementById('rep-m1');
+  const m2Input = document.getElementById('rep-m2');
+  if (!m1Input.value) m1Input.value = prevMonthStr;
+  if (!m2Input.value) m2Input.value = curMonthStr;
+
+  const m1 = m1Input.value;
+  const m2 = m2Input.value;
+  const brFilter = document.getElementById('rep-branch').value;
+
+  document.getElementById('rep-th-m1').textContent = `${T('شهر', 'Month')} (${m1})`;
+  document.getElementById('rep-th-m2').textContent = `${T('شهر', 'Month')} (${m2})`;
+
+  // Filter orders by month & branch
+  const ordersM1 = S.orders.filter(o => o.date.startsWith(m1) && (!brFilter || o.branch === brFilter));
+  const ordersM2 = S.orders.filter(o => o.date.startsWith(m2) && (!brFilter || o.branch === brFilter));
+
+  const totalUnitsM1 = ordersM1.reduce((s, o) => s + Object.values(o.items).reduce((a, b) => a + b, 0), 0);
+  const totalUnitsM2 = ordersM2.reduce((s, o) => s + Object.values(o.items).reduce((a, b) => a + b, 0), 0);
+
+  // Waste filtering
+  const wastesM1 = S.wastes.filter(w => w.date.startsWith(m1));
+  const wastesM2 = S.wastes.filter(w => w.date.startsWith(m2));
+  const wasteLossM1 = wastesM1.reduce((s, w) => s + parseFloat(w.totalCost), 0);
+  const wasteLossM2 = wastesM2.reduce((s, w) => s + parseFloat(w.totalCost), 0);
+
+  // Invoices / Purchase cost filtering
+  const invM1 = S.invoices.filter(v => v.date.startsWith(m1));
+  const invM2 = S.invoices.filter(v => v.date.startsWith(m2));
+  const invCostM1 = invM1.reduce((s, v) => s + parseFloat(v.value), 0);
+  const invCostM2 = invM2.reduce((s, v) => s + parseFloat(v.value), 0);
+
+  // Percentage calculations
+  const orderDiff = totalUnitsM2 - totalUnitsM1;
+  const orderPct  = totalUnitsM1 > 0 ? ((orderDiff / totalUnitsM1) * 100).toFixed(1) : (totalUnitsM2 > 0 ? '+100' : '0');
+
+  const wasteDiff = wasteLossM2 - wasteLossM1;
+  const wastePct  = wasteLossM1 > 0 ? ((wasteDiff / wasteLossM1) * 100).toFixed(1) : (wasteLossM2 > 0 ? '+100' : '0');
+
+  // Populate KPI cards
+  document.getElementById('rep-kpi-stats').innerHTML = [
+    { v: fmt(totalUnitsM2), l: T(`إجمالي أوردرات الشهر (${m2})`, `Orders in (${m2})`), diff: `${orderDiff >= 0 ? '▲ +' : '▼ '}${orderDiff} (${orderPct}%)`, c: orderDiff >= 0 ? '#4ade80' : '#f87171' },
+    { v: fmt(Math.round(wasteLossM2)) + ' ' + cur(), l: T(`خسائر الهدر بالشهر (${m2})`, `Waste Loss (${m2})`), diff: `${wasteDiff <= 0 ? '▼ ' : '▲ +'}${Math.round(wasteDiff)} ${cur()} (${wastePct}%)`, c: wasteDiff <= 0 ? '#4ade80' : '#f87171' },
+    { v: fmt(Math.round(invCostM2)) + ' ' + cur(), l: T(`تكلفة الفواتير والمشتروات (${m2})`, `Invoices Cost (${m2})`), diff: `${invCostM2 - invCostM1 >= 0 ? '▲ +' : '▼ '}${Math.round(invCostM2 - invCostM1)} ${cur()}`, c: '#60a5fa' },
+    { v: ordersM2.length, l: T(`عدد شحنات الفروع (${m2})`, `Shipments Count (${m2})`), diff: `${ordersM2.length - ordersM1.length >= 0 ? '▲ +' : '▼ '}${ordersM2.length - ordersM1.length}`, c: '#fbbf24' }
+  ].map(s => `
+    <div class="stat-card">
+      <div style="font-size:24px;font-weight:800;color:#fff;margin-bottom:4px">${s.v}</div>
+      <div class="text-muted text-sm mb-2">${s.l}</div>
+      <div style="font-size:12px;font-weight:700;color:${s.c}">${s.diff}</div>
+    </div>
+  `).join('');
+
+  // Populate Matrix Table
+  const branches = ['فرع وسط البلد', 'فرع المطار', 'فرع المول', 'فرع الزمالك'];
+  const matrixRows = branches.map(br => {
+    const u1 = ordersM1.filter(o => o.branch === br).reduce((s, o) => s + Object.values(o.items).reduce((a, b) => a + b, 0), 0);
+    const u2 = ordersM2.filter(o => o.branch === br).reduce((s, o) => s + Object.values(o.items).reduce((a, b) => a + b, 0), 0);
+    const diff = u2 - u1;
+    const pct = u1 > 0 ? ((diff / u1) * 100).toFixed(1) : (u2 > 0 ? '100' : '0');
+    const isUp = diff >= 0;
+    return `
+      <tr>
+        <td style="font-weight:700;color:#fff">${br}</td>
+        <td style="color:#60a5fa;font-weight:700">${fmt(u1)}</td>
+        <td style="color:#4ade80;font-weight:700">${fmt(u2)}</td>
+        <td style="font-weight:700;color:${isUp ? '#4ade80' : '#f87171'}">${isUp ? '+' : ''}${fmt(diff)}</td>
+        <td><span class="badge ${isUp ? 'badge-green' : 'badge-red'}">${isUp ? '▲ +' : '▼ '}${pct}%</span></td>
+        <td style="font-size:12.5px" class="text-muted">${isUp ? T('نمو ومطالب إضافية', 'Increased Demand') : T('انخفاض سحب الفرع', 'Reduced Demand')}</td>
+      </tr>
+    `;
+  });
+
+  // Add Row for Waste Loss
+  matrixRows.push(`
+    <tr style="background:rgba(248,113,113,0.04)">
+      <td style="font-weight:800;color:#f87171">🗑️ ${T('إجمالي الخسارة المالية من الهدر', 'Total Waste Loss')}</td>
+      <td style="color:#fbbf24;font-weight:700">${fmt(Math.round(wasteLossM1))} ${cur()}</td>
+      <td style="color:#f87171;font-weight:700">${fmt(Math.round(wasteLossM2))} ${cur()}</td>
+      <td style="font-weight:700;color:${wasteDiff <= 0 ? '#4ade80' : '#f87171'}">${wasteDiff >= 0 ? '+' : ''}${fmt(Math.round(wasteDiff))} ${cur()}</td>
+      <td><span class="badge ${wasteDiff <= 0 ? 'badge-green' : 'badge-red'}">${wasteDiff >= 0 ? '▲ +' : '▼ '}${wastePct}%</span></td>
+      <td style="font-size:12.5px;color:${wasteDiff <= 0 ? '#4ade80' : '#f87171'}">${wasteDiff <= 0 ? T('تحسن وتراجع في الهدر 👏', 'Waste Decreased') : T('ارتفاع في نسبة التالف ⚠️', 'Waste Increased')}</td>
+    </tr>
+  `);
+
+  document.getElementById('rep-matrix-tbl').innerHTML = matrixRows.join('');
+
+  // Delay chart render slightly for DOM ready
+  setTimeout(() => {
+    renderChartRepBranch(m1, m2, ordersM1, ordersM2, branches);
+    renderChartRepWaste(m1, m2, wastesM1, wastesM2);
+    renderChartRepProds(m1, m2, ordersM1, ordersM2);
+    renderChartRepCost(m1, m2, wasteLossM2, invCostM2);
+  }, 60);
+}
+
+function renderChartRepBranch(m1, m2, ordersM1, ordersM2, branches) {
+  const ctx = document.getElementById('ch-rep-branch');
+  if (!ctx) return;
+  if (chRepBranch) { chRepBranch.destroy(); chRepBranch = null; }
+
+  const dataM1 = branches.map(br => ordersM1.filter(o => o.branch === br).reduce((s, o) => s + Object.values(o.items).reduce((a,b)=>a+b,0), 0));
+  const dataM2 = branches.map(br => ordersM2.filter(o => o.branch === br).reduce((s, o) => s + Object.values(o.items).reduce((a,b)=>a+b,0), 0));
+
+  chRepBranch = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: branches,
+      datasets: [
+        { label: m1, data: dataM1, backgroundColor: '#3b82f6cc', borderColor: '#3b82f6', borderWidth: 1.5 },
+        { label: m2, data: dataM2, backgroundColor: '#f97316cc', borderColor: '#f97316', borderWidth: 1.5 }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top', labels: { color: '#94a3b8', font: { family: isAr() ? 'Cairo, sans-serif' : 'Inter, sans-serif' } } }
+      },
+      scales: {
+        x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+        y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+      }
+    }
+  });
+}
+
+function renderChartRepWaste(m1, m2, wastesM1, wastesM2) {
+  const ctx = document.getElementById('ch-rep-waste');
+  if (!ctx) return;
+  if (chRepWaste) { chRepWaste.destroy(); chRepWaste = null; }
+
+  const reasons = ['expired', 'cooking', 'storage', 'trimming', 'other'];
+  const reasonLabels = [T('صلاحية', 'Expired'), T('طبخ', 'Cooking'), T('تخزين', 'Storage'), T('تقطيع', 'Trimming'), T('أخرى', 'Other')];
+
+  const dataM1 = reasons.map(r => wastesM1.filter(w => w.reason === r).reduce((s, w) => s + parseFloat(w.totalCost), 0));
+  const dataM2 = reasons.map(r => wastesM2.filter(w => w.reason === r).reduce((s, w) => s + parseFloat(w.totalCost), 0));
+
+  chRepWaste = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: reasonLabels,
+      datasets: [
+        { label: `${T('هدر', 'Waste')} (${m1})`, data: dataM1, backgroundColor: '#fbbf24cc', borderColor: '#fbbf24', borderWidth: 1.5 },
+        { label: `${T('هدر', 'Waste')} (${m2})`, data: dataM2, backgroundColor: '#f87171cc', borderColor: '#f87171', borderWidth: 1.5 }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top', labels: { color: '#94a3b8', font: { family: isAr() ? 'Cairo, sans-serif' : 'Inter, sans-serif' } } }
+      },
+      scales: {
+        x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+        y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+      }
+    }
+  });
+}
+
+function renderChartRepProds(m1, m2, ordersM1, ordersM2) {
+  const ctx = document.getElementById('ch-rep-prods');
+  if (!ctx) return;
+  if (chRepProds) { chRepProds.destroy(); chRepProds = null; }
+
+  const labs = S.products.map(p => pname(p));
+  const dataM1 = S.products.map(p => ordersM1.reduce((s, o) => s + (o.items[p.id] || 0), 0));
+  const dataM2 = S.products.map(p => ordersM2.reduce((s, o) => s + (o.items[p.id] || 0), 0));
+
+  chRepProds = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labs,
+      datasets: [
+        { label: m1, data: dataM1, borderColor: '#8b5cf6', backgroundColor: '#8b5cf622', fill: true, tension: 0.3 },
+        { label: m2, data: dataM2, borderColor: '#22c55e', backgroundColor: '#22c55e22', fill: true, tension: 0.3 }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top', labels: { color: '#94a3b8', font: { family: isAr() ? 'Cairo, sans-serif' : 'Inter, sans-serif' } } }
+      },
+      scales: {
+        x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+        y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+      }
+    }
+  });
+}
+
+function renderChartRepCost(m1, m2, wasteLossM2, invCostM2) {
+  const ctx = document.getElementById('ch-rep-cost');
+  if (!ctx) return;
+  if (chRepCost) { chRepCost.destroy(); chRepCost = null; }
+
+  const { totalCost } = computePlan();
+  const prodCost = Math.round(totalCost);
+  const wasteCost = Math.round(wasteLossM2);
+  const purCost = Math.round(invCostM2);
+
+  chRepCost = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: [T('تكلفة الإنتاج المباشرة', 'Prod Cost'), T('خسائر الهدر', 'Waste Loss'), T('تكلفة مشتروات الموردين', 'Purchases')],
+      datasets: [{
+        data: [prodCost || 100, wasteCost || 10, purCost || 50],
+        backgroundColor: ['#fb923ccc', '#f87171cc', '#3b82f6cc'],
+        borderColor: ['#fb923c', '#f87171', '#3b82f6'],
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#94a3b8', font: { family: isAr() ? 'Cairo, sans-serif' : 'Inter, sans-serif' } } }
+      }
+    }
+  });
+}
+
+/* ============================================================
+   EXCEL IMPORT
+============================================================ */
+let _excelPendingOrders = null;
+
+function handleExcelDrop(e) {
+  e.preventDefault();
+  document.getElementById('excel-drop-zone').style.borderColor = 'rgba(74,222,128,0.3)';
+  const file = e.dataTransfer.files[0];
+  if (file) handleExcelFile(file);
+}
+
+function handleExcelFile(file) {
+  if (!file) return;
+  if (!window.XLSX) {
+    toast(T('مكتبة قراءة الإكسيل لم تُحمّل بعد — تأكد من اتصالك بالإنترنت', 'SheetJS not loaded. Check internet connection.'), 'error');
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = function(evt) {
+    try {
+      let wb;
+      const rawData = evt.target.result;
+      try {
+        const data = new Uint8Array(rawData);
+        wb = XLSX.read(data, { type: 'array' });
+      } catch(e1) {
+        wb = XLSX.read(rawData, { type: 'binary' });
+      }
+
+      if (!wb || !wb.SheetNames || !wb.SheetNames.length) {
+        toast(T('الملف غير صالح أو فارغ', 'File is invalid or empty'), 'error');
+        return;
+      }
+
+      // Find first non-empty sheet in workbook
+      let ws = null;
+      let sheetName = '';
+      for (const sName of wb.SheetNames) {
+        const s = wb.Sheets[sName];
+        if (s && s['!ref']) {
+          ws = s;
+          sheetName = sName;
+          break;
+        }
+      }
+      if (!ws) ws = wb.Sheets[wb.SheetNames[0]];
+
+      // Try 2D matrix first
+      let matrix = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '' });
+      matrix = matrix.filter(r => Array.isArray(r) && r.some(c => c !== null && c !== undefined && String(c).trim() !== ''));
+
+      if (!matrix.length) {
+        toast(T('الشيت فارغ تماماً من البيانات', 'Sheet contains no data rows'), 'error');
+        return;
+      }
+
+      // Auto-detect header row
+      const keywordsRegex = /فرع|محل|موقع|مكان|branch|store|location|site|منتج|صنف|اسم|مادة|تجهيز|وجبة|item|product|name|desc|sku|كمية|عدد|مطلوب|qty|quantity|count|amount/i;
+      let headerIdx = matrix.findIndex(r => r.some(c => keywordsRegex.test(String(c))));
+      if (headerIdx === -1) headerIdx = 0;
+
+      const headers = matrix[headerIdx].map(c => String(c || '').trim());
+      const dataRows = matrix.slice(headerIdx + 1);
+
+      // Convert rows to objects
+      const rows = dataRows.map(r => {
+        const obj = {};
+        headers.forEach((h, i) => { if (h) obj[h] = r[i] !== undefined ? String(r[i]).trim() : ''; });
+        return obj;
+      }).filter(obj => Object.values(obj).some(v => v !== ''));
+
+      if (!rows.length) {
+        // Fallback: try standard sheet_to_json if matrix slice failed
+        const altRows = XLSX.utils.sheet_to_json(ws, { defval: '' });
+        if (altRows.length) {
+          rows.push(...altRows);
+          headers.push(...Object.keys(altRows[0]));
+        }
+      }
+
+      if (!rows.length) {
+        toast(T('لم يتم العثور على بيانات صالحة بالشيت', 'No data rows found in sheet'), 'error');
+        return;
+      }
+
+      /* --- Column Detection with exhaustive aliases --- */
+      const keys = [...new Set(headers.filter(Boolean))];
+
+      // Branch column aliases
+      const branchCol = keys.find(k => /فرع|محل|موقع|مكان|المحل|الفرع|branch|store|location|site/i.test(k)) || keys[0];
+      // Date column aliases
+      const dateCol   = keys.find(k => /تاريخ|التاريخ|يوم|date|day|time/i.test(k));
+      // Product column aliases
+      const prodCol   = keys.find(k => /منتج|صنف|المنتج|الصنف|مادة|المادة|تجهيز|التجهيز|وجبة|اسم|الوصف|item|product|name|description|sku|desc/i.test(k));
+      // Quantity column aliases
+      const qtyCol    = keys.find(k => /كمية|الكمية|عدد|العدد|مطلوب|المطلوب|qty|quantity|count|amount|num/i.test(k));
+
+      let pendingOrders = [];
+
+      if (prodCol && qtyCol && prodCol !== branchCol) {
+        /* Format A: Standard List (Branch | Product | Qty) */
+        const grouped = {};
+        rows.forEach(row => {
+          const branch = String(row[branchCol] || '').trim() || 'فرع غير محدد';
+          const date   = dateCol && row[dateCol] ? String(row[dateCol]).trim() : todayStr();
+          const prod   = String(row[prodCol] || '').trim();
+          const qty    = parseFloat(row[qtyCol]) || 0;
+          if (!prod || qty <= 0) return;
+          const key = branch + '|' + date;
+          if (!grouped[key]) grouped[key] = { branch, date, items: {} };
+
+          const matched = S.products.find(p =>
+            pname(p).includes(prod) || prod.includes(pname(p)) ||
+            p.ar.includes(prod) || prod.includes(p.ar) ||
+            p.en.toLowerCase().includes(prod.toLowerCase()) || prod.toLowerCase().includes(p.en.toLowerCase())
+          );
+          if (matched) {
+            grouped[key].items[matched.id] = (grouped[key].items[matched.id] || 0) + qty;
+          } else {
+            grouped[key].items['__raw__' + prod] = qty;
+          }
+        });
+        pendingOrders = Object.values(grouped);
+      } else {
+        /* Format B: Pivot / Matrix table (Columns are Products, Rows are Branches) */
+        rows.forEach(row => {
+          const branch = String(row[branchCol] || '').trim() || 'فرع غير محدد';
+          const date   = dateCol && row[dateCol] ? String(row[dateCol]).trim() : todayStr();
+          const items  = {};
+          keys.forEach(k => {
+            if (k === branchCol || k === dateCol) return;
+            const qty = parseFloat(row[k]) || 0;
+            if (qty <= 0) return;
+            const matched = S.products.find(p =>
+              pname(p).includes(k) || k.includes(pname(p)) ||
+              p.ar.includes(k) || k.includes(p.ar) ||
+              p.en.toLowerCase().includes(k.toLowerCase())
+            );
+            if (matched) items[matched.id] = (items[matched.id] || 0) + qty;
+            else items['__raw__' + k] = (items['__raw__' + k] || 0) + qty;
+          });
+          if (Object.keys(items).length) pendingOrders.push({ branch, date, items });
+        });
+      }
+
+      if (!pendingOrders.length) {
+        toast(T(`الأعمدة المكتشفة بالشيت: [${keys.join(', ')}] — يرجى التأكد من احتواء الشيت على عمود اسم المنتج والكمية`,
+                `Headers found: [${keys.join(', ')}] — Check that your sheet has product & qty columns`), 'error');
+        return;
+      }
+
+      _excelPendingOrders = pendingOrders;
+
+      // Build preview table
+      const preview = document.getElementById('excel-preview');
+      const ptbl   = document.getElementById('excel-preview-table');
+      document.getElementById('excel-preview-title').textContent =
+        T(`📄 تم قراءة ${file.name} (${sheetName}) — تم اكتشاف ${pendingOrders.length} طلب للفروع`,
+          `📄 Read ${file.name} (${sheetName}) — Detected ${pendingOrders.length} branch order(s)`);
+      ptbl.querySelector('thead').innerHTML = `<tr><th>${T('الفرع','Branch')}</th><th>${T('التاريخ','Date')}</th><th>${T('المنتجات','Products')}</th></tr>`;
+      ptbl.querySelector('tbody').innerHTML = pendingOrders.slice(0, 10).map(o => {
+        const itemsSummary = Object.entries(o.items)
+          .map(([pid, qty]) => {
+            const p = S.products.find(x => x.id === pid);
+            const name = p ? pname(p) : pid.replace('__raw__', '');
+            return `${name}: ${qty}`;
+          }).join(' | ');
+        return `<tr><td style="color:#fff;font-weight:700">${o.branch}</td><td class="td-mono">${o.date}</td><td class="text-muted" style="font-size:12px">${itemsSummary}</td></tr>`;
+      }).join('');
+      if (pendingOrders.length > 10) {
+        ptbl.querySelector('tbody').innerHTML += `<tr><td colspan="3" class="text-muted" style="text-align:center;font-size:12px">… ${pendingOrders.length - 10} ${T('طلبات أخرى','more orders')}</td></tr>`;
+      }
+      preview.style.display = 'block';
+
+    } catch(err) {
+      console.error('Excel parse error:', err);
+      toast(T('خطأ أثناء معالجة الملف: ' + err.message, 'File processing error: ' + err.message), 'error');
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function cancelExcelImport() {
+  _excelPendingOrders = null;
+  document.getElementById('excel-preview').style.display = 'none';
+  document.getElementById('excel-file-input').value = '';
+}
+
+function confirmExcelImport() {
+  if (!_excelPendingOrders || !_excelPendingOrders.length) return;
+  const nextId = Date.now();
+  _excelPendingOrders.forEach((o, i) => {
+    // Filter out items with no known product
+    const cleanItems = {};
+    Object.entries(o.items).forEach(([pid, qty]) => {
+      if (!pid.startsWith('__raw__')) cleanItems[pid] = qty;
+    });
+    if (!Object.keys(cleanItems).length) return;
+    S.orders.unshift({
+      id: nextId + i,
+      branch: o.branch,
+      date: o.date || todayStr(),
+      items: cleanItems,
+      notes: T('📥 مستورد من إكسيل', '📥 Imported from Excel')
+    });
+  });
+  saveState();
+  cancelExcelImport();
+  renderOrders();
+  toast(T(`📥 تم حفظ ${_excelPendingOrders.length} طلب من الإكسيل بنجاح!`, `📥 ${_excelPendingOrders.length} order(s) imported from Excel!`));
+  _excelPendingOrders = null;
+}
+
+/* ============================================================
    INITIALIZATION
 ============================================================ */
-// Add invoices array to state
+// Add invoices & wastes array to state
 S.invoices = [];
+S.wastes   = [];
 
 document.addEventListener('DOMContentLoaded', () => {
   if (window.innerWidth <= 768) {
@@ -2318,35 +3270,40 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('mob-btn').style.display = (window.innerWidth <= 768) ? 'flex' : 'none';
   });
 
+  // 💾 Load saved data from LocalStorage (persists across reloads)
+  const hadSavedData = loadState();
+
   applyLang();
 
-  // Pre-generate Initial POs based on shortages
-  const rm = computeRM();
-  const rmap = {};
-  rm.forEach(m => rmap[m.id] = m.total);
-  let pn = 1001;
+  // Only auto-generate initial POs if NO saved data exists yet
+  if (!hadSavedData && S.POs.length === 0) {
+    const rm = computeRM();
+    const rmap = {};
+    rm.forEach(m => rmap[m.id] = m.total);
+    let pn = 1001;
 
-  Object.entries(S.ings).forEach(([id, iv]) => {
-    const d = S.ings[id];
-    if (!d) return;
-    const req = rmap[id] || 0;
-    const gap = req - iv.stock;
-    const isLow = iv.stock <= iv.safety;
-    if (gap > 0 || isLow) {
-      const qty = gap > 0 ? gap + iv.safety : (iv.safety * 2) - iv.stock;
-      const qn = Math.max(0.1, qty);
-      S.POs.push({
-        id: 'PO-' + pn++,
-        ingId: id,
-        qty: f2(qn),
-        unit: iv.uom,
-        cost: f2(qn * d.price),
-        sup: d.sup || 'مورد عام',
-        priority: gap > 0 ? 'high' : 'medium',
-        status: 'draft'
-      });
-    }
-  });
+    Object.entries(S.ings).forEach(([id, iv]) => {
+      const d = S.ings[id];
+      if (!d) return;
+      const req = rmap[id] || 0;
+      const gap = req - iv.stock;
+      const isLow = iv.stock <= iv.safety;
+      if (gap > 0 || isLow) {
+        const qty = gap > 0 ? gap + iv.safety : (iv.safety * 2) - iv.stock;
+        const qn = Math.max(0.1, qty);
+        S.POs.push({
+          id: 'PO-' + pn++,
+          ingId: id,
+          qty: f2(qn),
+          unit: iv.uom,
+          cost: f2(qn * d.price),
+          sup: d.sup || 'مورد عام',
+          priority: gap > 0 ? 'high' : 'medium',
+          status: 'draft'
+        });
+      }
+    });
+  }
 
   renderDash();
 });
