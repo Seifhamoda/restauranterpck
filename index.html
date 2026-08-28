@@ -1083,44 +1083,179 @@ table.tbl tbody tr:hover td {
   background-clip: text;
 }
 
-/* Mobile Responsiveness */
+/* ===================================================
+   MOBILE RESPONSIVENESS SUITE (SMARTPHONES & TABLETS)
+=================================================== */
 .mob-overlay {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
-  z-index: 99;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1050;
+  transition: opacity 0.3s ease;
 }
+
 @media (max-width: 768px) {
+  html, body {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  .main {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    width: 100%;
+  }
+  .content {
+    padding: 14px 12px 60px 12px !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Mobile Sidebar Drawer */
   .sidebar {
-    position: fixed;
-    top: 0;
-    inset-inline-start: 0;
-    height: 100%;
-    transform: translateX(-110%);
-    transition: transform 0.3s;
+    position: fixed !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    height: 100vh !important;
+    width: 280px !important;
+    max-width: 82vw !important;
+    z-index: 1100 !important;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9) !important;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
   }
   [dir="rtl"] .sidebar {
-    transform: translateX(110%);
+    right: 0 !important;
+    left: auto !important;
+    transform: translateX(105%) !important;
+  }
+  [dir="ltr"] .sidebar {
+    left: 0 !important;
+    right: auto !important;
+    transform: translateX(-105%) !important;
   }
   .sidebar.mob-open {
     transform: translateX(0) !important;
   }
   .mob-overlay.open {
-    display: block;
+    display: block !important;
   }
-  .content {
-    padding: 16px;
-  }
+
+  /* Compact Mobile Topbar */
   .topbar {
-    padding: 0 16px;
+    padding: 0 12px !important;
+    height: 56px !important;
+    gap: 8px !important;
+  }
+  .topbar-left {
+    gap: 8px !important;
+    overflow: hidden;
+    flex: 1;
+  }
+  #page-title {
+    font-size: 15px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .live-ticker {
+    display: none !important;
+  }
+  .topbar-right {
+    gap: 6px !important;
+    flex-shrink: 0;
+  }
+  .cmd-btn {
+    padding: 7px 10px !important;
+    font-size: 12px !important;
+  }
+  .cmd-btn span, .cmd-btn kbd {
+    display: none !important;
+  }
+  .topbar .chip {
+    display: none !important;
+  }
+  .topbar-brand-badge {
+    width: 32px !important;
+    height: 32px !important;
   }
   #mob-btn {
     display: flex !important;
+    padding: 8px !important;
+    min-width: 36px;
+    justify-content: center;
   }
-  .orders-layout, .recipes-layout {
+
+  /* Stack all grids & 2-column layouts vertically */
+  .g4, .g3, .g2, .orders-layout, .recipes-layout {
     grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+  .card {
+    padding: 16px 14px !important;
+    border-radius: 16px !important;
+  }
+  .stat-card {
+    padding: 16px 14px !important;
+    border-radius: 16px !important;
+  }
+  .kpi-number {
+    font-size: 26px !important;
+  }
+
+  /* Tables: smooth horizontal scroll without crushing columns */
+  .tbl-wrap {
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    display: block !important;
+    border-radius: 12px !important;
+    margin-bottom: 8px;
+  }
+  table.tbl {
+    min-width: 560px !important;
+    font-size: 12.5px !important;
+  }
+  table.tbl th, table.tbl td {
+    padding: 9px 11px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Touch-friendly inputs & buttons */
+  .input, .select, .textarea {
+    font-size: 15px !important;
+    padding: 10px 12px !important;
+  }
+  .btn {
+    padding: 9px 14px !important;
+    font-size: 12.5px !important;
+  }
+
+  /* Modals: bottom-sheet or full screen fit on mobile */
+  .modal-overlay {
+    padding: 12px 8px !important;
+    align-items: center !important;
+  }
+  .modal {
+    padding: 20px 14px !important;
+    border-radius: 18px !important;
+    max-height: 88vh !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .cmd-palette {
+    max-width: 96vw !important;
+    border-radius: 16px !important;
+  }
+  .voucher-sheet {
+    padding: 16px 12px !important;
+    overflow-x: auto !important;
   }
 }
 </style>
