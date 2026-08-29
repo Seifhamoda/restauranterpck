@@ -33,6 +33,10 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-variant-numeric: lining-nums tabular-nums;
+      -webkit-font-feature-settings: "lnum" 1, "tnum" 1;
+      -moz-font-feature-settings: "lnum" 1, "tnum" 1;
+      font-feature-settings: "lnum" 1, "tnum" 1;
     }
 
     html,
@@ -1816,13 +1820,14 @@
                   <polyline points="14 2 14 8 20 8" />
                   <line x1="16" y1="13" x2="8" y2="13" />
                 </svg>
-                <span data-ar="📥 استيراد وتجميع شيت إكسيل الفروع" data-en="📥 Import & Aggregate Branch Excel">📥 استيراد وتجميع شيت إكسيل الفروع</span>
+                <span data-ar="📥 استيراد وتجميع شيت إكسيل الفروع" data-en="📥 Import & Aggregate Branch Excel">📥
+                  استيراد وتجميع شيت إكسيل الفروع</span>
               </h3>
               <p class="text-muted text-sm"
                 data-ar="قراءة عمود K (الكميات)، وتجميع قوالب المطبخ والبار لكل فرع تلقائياً، واستخراج صوص البرجر منفصلاً"
                 data-en="Reads column K (Qty), auto-aggregates Kitchen & Bar templates per branch, and extracts burger sauce separately">
                 قراءة عمود K (الكميات)، وتجميع قوالب المطبخ والبار لكل فرع تلقائياً، واستخراج صوص البرجر منفصلاً</p>
-              
+
               <div
                 style="border:2px dashed rgba(74,222,128,0.3);border-radius:12px;padding:18px;text-align:center;cursor:pointer;transition:all 0.2s"
                 id="excel-drop-zone" onclick="document.getElementById('excel-file-input').click()"
@@ -1835,7 +1840,8 @@
                   <line x1="12" y1="3" x2="12" y2="15" />
                 </svg>
                 <div style="color:#4ade80;font-weight:700;font-size:13.5px"
-                  data-ar="اسحب وأفلت ملف الفروع هنا أو اضغط للاختيار" data-en="Drag & drop branches file here or click to browse">
+                  data-ar="اسحب وأفلت ملف الفروع هنا أو اضغط للاختيار"
+                  data-en="Drag & drop branches file here or click to browse">
                   اسحب وأفلت ملف الفروع هنا أو اضغط للاختيار</div>
                 <div class="text-muted text-sm mt-1">.xlsx / .xls / .csv</div>
               </div>
@@ -1845,10 +1851,12 @@
               <button type="button" class="btn btn-sm w-full mt-2.5"
                 style="background:linear-gradient(135deg,rgba(34,197,94,0.18),rgba(16,185,129,0.25));border:1px solid rgba(34,197,94,0.45);color:#4ade80;font-weight:800;justify-content:center;padding:9px 14px;border-radius:10px;display:flex;align-items:center;gap:7px;transition:all 0.2s;cursor:pointer"
                 onclick="loadDefaultBranchesFile()">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                 </svg>
-                <span data-ar="⚡ قراءة ملف الفروع المرفق (الفروع.xlsx) فوراً" data-en="⚡ Auto-Load Attached File (الفروع.xlsx)">⚡ قراءة ملف الفروع المرفق (الفروع.xlsx) فوراً</span>
+                <span data-ar="⚡ قراءة ملف الفروع المرفق (الفروع.xlsx) فوراً"
+                  data-en="⚡ Auto-Load Attached File (الفروع.xlsx)">⚡ قراءة ملف الفروع المرفق (الفروع.xlsx) فوراً</span>
               </button>
 
               <div id="excel-preview" style="display:none">
@@ -1860,12 +1868,20 @@
                     <tbody></tbody>
                   </table>
                 </div>
-                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px 14px;margin-top:12px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+                <div
+                  style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px 14px;margin-top:12px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
                   <label class="flex items-center gap-2" style="font-size:13px;color:#e2e8f0;cursor:pointer">
-                    <input type="checkbox" id="excel-replace-mode" checked style="width:16px;height:16px;accent-color:#22c55e" />
-                    <span style="font-weight:700;color:#4ade80" data-ar="🔄 استبدال طلبات نفس التاريخ بالكامل (منع التكرار)" data-en="🔄 Replace existing orders of same date">🔄 استبدال طلبات نفس التاريخ بالكامل (منع التكرار)</span>
+                    <input type="checkbox" id="excel-replace-mode" checked
+                      style="width:16px;height:16px;accent-color:#22c55e" />
+                    <span style="font-weight:700;color:#4ade80"
+                      data-ar="🔄 استبدال طلبات نفس التاريخ بالكامل (منع التكرار)"
+                      data-en="🔄 Replace existing orders of same date">🔄 استبدال طلبات نفس التاريخ بالكامل (منع
+                      التكرار)</span>
                   </label>
-                  <span class="text-muted" style="font-size:11.5px" data-ar="يحذف النسخ السابقة لتاريخ الشيت لتجنب مضاعفة الأرقام" data-en="Removes previous entries for sheet date to prevent duplicate totals">يحذف النسخ السابقة لتاريخ الشيت لتجنب مضاعفة الأرقام</span>
+                  <span class="text-muted" style="font-size:11.5px"
+                    data-ar="يحذف النسخ السابقة لتاريخ الشيت لتجنب مضاعفة الأرقام"
+                    data-en="Removes previous entries for sheet date to prevent duplicate totals">يحذف النسخ السابقة
+                    لتاريخ الشيت لتجنب مضاعفة الأرقام</span>
                 </div>
                 <div class="flex gap-3 mt-3">
                   <button class="btn btn-secondary btn-sm" onclick="cancelExcelImport()" data-ar="إلغاء"
@@ -1875,49 +1891,104 @@
                       stroke-linecap="round" stroke-linejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
-                    <span data-ar="تأكيد وحفظ الطلبيات المجمعة" data-en="Confirm & Save Aggregated Orders">تأكيد وحفظ الطلبيات المجمعة</span>
+                    <span data-ar="تأكيد وحفظ الطلبيات المجمعة" data-en="Confirm & Save Aggregated Orders">تأكيد وحفظ
+                      الطلبيات المجمعة</span>
                   </button>
                 </div>
               </div>
             </div>
 
-            <!-- Manual Order Card -->
-            <div class="card sy4">
-              <h3 class="text-white font-bold flex items-center gap-2">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5"
+            <!-- Sleek & Compact Dynamic Manual Order Card -->
+            <div class="card sy4"
+              style="border:1px solid rgba(249,115,22,0.25);background:linear-gradient(145deg,rgba(15,23,42,0.85),rgba(30,41,59,0.5))">
+              <div class="flex items-center justify-between">
+                <h3 class="text-white font-bold flex items-center gap-2">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="16" />
+                    <line x1="8" y1="12" x2="16" y2="12" />
+                  </svg>
+                  <span data-ar="تسجيل طلبية يدوية للفرع" data-en="Manual Branch Order">تسجيل طلبية يدوية للفرع</span>
+                </h3>
+                <span class="badge badge-orange" style="font-size:11px" data-ar="إضافة سريعة" data-en="Quick Add">إضافة
+                  سريعة</span>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                <div>
+                  <label class="field-label" data-ar="الفرع" data-en="Branch">الفرع</label>
+                  <select class="select" id="o-branch">
+                    <option value="" data-ar="-- اختر الفرع --" data-en="-- Select Branch --">-- اختر الفرع --</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="field-label" data-ar="تاريخ الطلبية" data-en="Order Date">تاريخ الطلبية</label>
+                  <input type="date" class="input" id="o-date" />
+                </div>
+              </div>
+
+              <!-- Item Picker Bar -->
+              <div
+                style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px">
+                <label class="field-label mb-1.5" data-ar="➕ اختيار الصنف وإضافته للطلبية"
+                  data-en="➕ Add Product to Order">➕ اختيار الصنف وإضافته للطلبية</label>
+                <div class="flex gap-2 items-center flex-wrap">
+                  <select class="select" id="o-item-select" style="flex:1;min-width:180px;font-size:13px">
+                    <option value="">-- ابحث أو اختر الصنف (171 صنف) --</option>
+                  </select>
+                  <input type="number" step="any" min="0.01" value="1" class="input" id="o-item-qty"
+                    placeholder="الكمية" style="width:85px;text-align:center;font-weight:700" />
+                  <button type="button" class="btn btn-primary btn-sm" onclick="addManualOrderItem()"
+                    style="padding:8px 14px">
+                    <span>➕ إضافة</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Selected Items Table -->
+              <div id="o-selected-wrap" style="display:none">
+                <div class="flex items-center justify-between mb-1.5">
+                  <label class="field-label m-0" data-ar="📋 قائمة الأصناف المضافة للطلبية"
+                    data-en="📋 Added Items List">📋 قائمة الأصناف المضافة للطلبية</label>
+                  <button type="button" onclick="clearManualOrderItems()"
+                    style="background:none;border:none;color:#f87171;font-size:11.5px;cursor:pointer;font-weight:700">مسح
+                    الكل</button>
+                </div>
+                <div class="tbl-wrap" style="max-height:160px">
+                  <table class="tbl" style="font-size:12px">
+                    <thead>
+                      <tr>
+                        <th style="padding:6px 8px">${T('الصنف', 'Item')}</th>
+                        <th style="width:75px;text-align:center;padding:6px 8px">${T('الكمية', 'Qty')}</th>
+                        <th style="width:60px;text-align:center;padding:6px 8px">${T('الوحدة', 'Unit')}</th>
+                        <th style="width:75px;text-align:center;padding:6px 8px">${T('الإجمالي', 'Total')}</th>
+                        <th style="width:35px;text-align:center;padding:6px 4px">✕</th>
+                      </tr>
+                    </thead>
+                    <tbody id="o-selected-tbody"></tbody>
+                  </table>
+                </div>
+                <div class="flex justify-between items-center mt-2 px-1 text-sm font-bold">
+                  <span class="text-muted" data-ar="إجمالي قيمة الطلبية:" data-en="Order Total:">إجمالي قيمة
+                    الطلبية:</span>
+                  <span class="text-gradient" id="o-manual-total-cost">0 EGP</span>
+                </div>
+              </div>
+
+              <div>
+                <label class="field-label" data-ar="ملاحظات الطلبية" data-en="Notes">ملاحظات الطلبية</label>
+                <input type="text" class="input" id="o-notes" placeholder="ملاحظات إضافية أو تشغيلية..." />
+              </div>
+
+              <button class="btn btn-primary w-full" style="justify-content:center;padding:10px"
+                onclick="submitOrder()">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="16" />
-                  <line x1="8" y1="12" x2="16" y2="12" />
+                  <polyline points="20 6 9 17 4 12" />
                 </svg>
-                <span data-ar="تسجيل طلب يدوي للفرع" data-en="Manual Branch Order">تسجيل طلب يدوي للفرع</span>
-              </h3>
-              <div>
-                <label class="field-label" data-ar="اختر الفرع" data-en="Select Branch">اختر الفرع</label>
-                <select class="select" id="o-branch">
-                  <option value="" data-ar="-- اختر الفرع --" data-en="-- Select Branch --">-- اختر الفرع --</option>
-                </select>
-              </div>
-              <div>
-                <label class="field-label" data-ar="تاريخ الطلب" data-en="Order Date">تاريخ الطلب</label>
-                <input type="date" class="input" id="o-date" />
-              </div>
-              <div>
-                <label class="field-label" data-ar="الكميات المطلوبة لكل وجبة" data-en="Quantities per Meal">الكميات
-                  المطلوبة لكل وجبة</label>
-                <div id="o-prods" class="sy3"></div>
-              </div>
-              <div>
-                <label class="field-label" data-ar="ملاحظات الطلب" data-en="Notes">ملاحظات الطلب</label>
-                <textarea class="textarea" rows="2" id="o-notes" placeholder="ملاحظات إضافية..."></textarea>
-              </div>
-              <button class="btn btn-primary w-full" style="justify-content:center" onclick="submitOrder()">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="22" y1="2" x2="11" y2="13" />
-                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                </svg>
-                <span data-ar="إرسال الطلب واعتماد الخطة" data-en="Submit Order">إرسال الطلب واعتماد الخطة</span>
+                <span data-ar="حفظ واعتماد الطلبية في النظام" data-en="Save & Record Order">حفظ واعتماد الطلبية في
+                  النظام</span>
               </button>
             </div>
           </div>
@@ -1932,17 +2003,24 @@
                     <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
                   </svg>
                   <select class="select" id="f-branch" style="min-width:210px" onchange="renderOrders()">
-                    <option value="" data-ar="🏢 جميع الفروع (بحث وتصفية)" data-en="🏢 All Branches">🏢 جميع الفروع (بحث وتصفية)</option>
+                    <option value="" data-ar="🏢 جميع الفروع (بحث وتصفية)" data-en="🏢 All Branches">🏢 جميع الفروع (بحث
+                      وتصفية)</option>
                   </select>
-                  <input type="date" class="input" id="f-date" style="width:160px" onchange="renderOrders()" title="تصفية بتاريخ الطلب" />
+                  <input type="date" class="input" id="f-date" style="width:160px" onchange="renderOrders()"
+                    title="تصفية بتاريخ الطلب" />
                   <button class="btn btn-secondary btn-sm" onclick="clearFilters()" data-ar="إلغاء الفلتر"
                     data-en="Clear Filter">إلغاء الفلتر</button>
                 </div>
                 <div class="flex items-center gap-2 flex-wrap">
-                  <button class="btn btn-sm" style="background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);color:#f87171;font-weight:700" onclick="clearOrdersForDate()" id="btn-clear-date" title="مسح طلبات التاريخ المحدد">
-                    🗑️ <span data-ar="مسح طلبات اليوم المحدد" data-en="Delete Date Orders">مسح طلبات اليوم المحدد</span>
+                  <button class="btn btn-sm"
+                    style="background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);color:#f87171;font-weight:700"
+                    onclick="clearOrdersForDate()" id="btn-clear-date" title="مسح طلبات التاريخ المحدد">
+                    🗑️ <span data-ar="مسح طلبات اليوم المحدد" data-en="Delete Date Orders">مسح طلبات اليوم
+                      المحدد</span>
                   </button>
-                  <button class="btn btn-sm" style="background:rgba(239,68,68,0.2);border:1px solid rgba(239,68,68,0.45);color:#ef4444;font-weight:800" onclick="clearAllOrders()" title="مسح كل الطلبيات المسجلة">
+                  <button class="btn btn-sm"
+                    style="background:rgba(239,68,68,0.2);border:1px solid rgba(239,68,68,0.45);color:#ef4444;font-weight:800"
+                    onclick="clearAllOrders()" title="مسح كل الطلبيات المسجلة">
                     ⚠️ <span data-ar="مسح كل الطلبيات" data-en="Delete All Orders">مسح كل الطلبيات</span>
                   </button>
                 </div>
@@ -1972,11 +2050,44 @@
               </div>
             </div>
 
-            <!-- Individual orders -->
-            <div class="card">
-              <h3 class="text-white font-bold mb-3" data-ar="سجل الطلبات الفردية" data-en="Individual Branch Orders">سجل
-                الطلبات الفردية</h3>
-              <div id="orders-list" class="sy3"></div>
+            <!-- Individual orders (Sleek & Collapsible Table) -->
+            <div class="card" style="border:1px solid rgba(255,255,255,0.08)">
+              <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                <div class="flex items-center gap-2">
+                  <h3 class="text-white font-bold" data-ar="سجل طلبيات الفروع الفردية"
+                    data-en="Individual Branch Orders Log">سجل طلبيات الفروع الفردية</h3>
+                  <span class="chip" id="indiv-orders-count-badge" style="font-size:11.5px">0 طلبية</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button class="btn btn-secondary btn-sm" onclick="toggleOrdersListCollapse()"
+                    id="btn-toggle-orders-log" style="font-size:11.5px;padding:4px 10px">
+                    <span id="toggle-orders-log-text">👁️ إخفاء السجل الفردي</span>
+                  </button>
+                </div>
+              </div>
+
+              <div id="orders-log-container">
+                <div class="tbl-wrap" style="max-height:420px">
+                  <table class="tbl" id="indiv-orders-table">
+                    <thead>
+                      <tr>
+                        <th style="width:40px;text-align:center">#</th>
+                        <th>${T('الفرع', 'Branch')}</th>
+                        <th style="width:110px;text-align:center">${T('التاريخ', 'Date')}</th>
+                        <th style="width:120px;text-align:center">${T('صوص البرجر', 'Burger Sauce')}</th>
+                        <th style="text-align:center">${T('الأصناف المطلوبة', 'Items Ordered')}</th>
+                        <th style="width:110px;text-align:center">${T('القيمة التقديرية', 'Est. Value')}</th>
+                        <th style="width:140px;text-align:center">${T('إجراءات', 'Actions')}</th>
+                      </tr>
+                    </thead>
+                    <tbody id="orders-tbl-body"></tbody>
+                  </table>
+                </div>
+                <div id="orders-list-empty" class="empty-state" style="display:none;padding:24px">
+                  <p data-ar="لا توجد طلبيات تطابق معايير الفلترة الحالية"
+                    data-en="No branch orders found matching criteria">لا توجد طلبيات تطابق معايير الفلترة الحالية</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -2019,27 +2130,66 @@
               <table class="tbl">
                 <thead>
                   <tr>
-                    <th data-ar="المكون" data-en="Ingredient">المكون</th>
-                    <th data-ar="الكمية المطلوبة" data-en="Qty / Unit">الكمية المطلوبة</th>
+                    <th data-ar="المكون / الخامة" data-en="Ingredient / Raw Material">المكون / الخامة</th>
+                    <th data-ar="معيار (1 وحدة)" data-en="Ratio / Unit">معيار (1 وحدة)</th>
                     <th data-ar="الوحدة" data-en="UOM">الوحدة</th>
-                    <th data-ar="نسبة الهدر %" data-en="Waste %">نسبة الهدر %</th>
                     <th data-ar="سعر الوحدة" data-en="Unit Price">سعر الوحدة</th>
-                    <th data-ar="تكلفة السطر" data-en="Line Cost">تكلفة السطر</th>
+                    <th data-ar="نسبة الهدر %" data-en="Waste %">نسبة الهدر %</th>
+                    <th data-ar="تكلفة المعيار" data-en="Line Cost">تكلفة المعيار</th>
                     <th></th>
                   </tr>
                 </thead>
                 <tbody id="recipe-tbl"></tbody>
               </table>
             </div>
-            <button class="btn btn-secondary btn-sm" onclick="addIngRow()">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="12" y1="8" x2="12" y2="16" />
-                <line x1="8" y1="12" x2="16" y2="12" />
-              </svg>
-              <span data-ar="إضافة مكون للوصفة" data-en="Add Ingredient">إضافة مكون للوصفة</span>
-            </button>
+            <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+              <button class="btn btn-secondary btn-sm" onclick="addIngRow()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="16" />
+                  <line x1="8" y1="12" x2="16" y2="12" />
+                </svg>
+                <span data-ar="إضافة مكون للوصفة" data-en="Add Ingredient">إضافة مكون للوصفة</span>
+              </button>
+            </div>
+
+            <!-- Live Batch Production & Stock Deduction Box -->
+            <div class="card" style="background:rgba(15,23,42,0.8);border:1px solid rgba(56,189,248,0.3);margin-top:16px;padding:16px;border-radius:12px">
+              <div class="flex items-center justify-between flex-wrap gap-3 mb-3">
+                <div>
+                  <h3 class="text-white font-bold flex items-center gap-2" style="font-size:15px">
+                    <span style="font-size:18px">🏭</span>
+                    <span data-ar="محاكي وتشغيل الإنتاج الفعلي (خصم الخامات من المخزن)" data-en="Batch Production & Live Stock Deduction">محاكي وتشغيل الإنتاج الفعلي (خصم الخامات من المخزن)</span>
+                  </h3>
+                  <p class="text-muted text-sm mt-1" data-ar="حدد الكمية التي قمت بإنتاجها اليوم وسيقوم السيستم بحساب الخامات المسحوبة وخصمها فوراً من رصيد المخزن" data-en="Enter produced quantity to calculate consumed materials and deduct from inventory">حدد الكمية التي قمت بإنتاجها اليوم وسيقوم السيستم بحساب الخامات المسحوبة وخصمها فوراً من رصيد المخزن</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-muted text-sm font-bold" data-ar="الكمية المنتجة:" data-en="Produced Qty:">الكمية المنتجة:</span>
+                  <input type="number" id="batch-prod-qty" class="input" style="width:110px;text-align:center;font-size:15px;font-weight:800;color:#38bdf8" value="20" min="0.1" step="any" oninput="calcBatchDeduction()" />
+                  <span class="badge badge-gray" id="batch-prod-uom" style="font-size:12px">kg</span>
+                  <button class="btn btn-primary btn-sm" onclick="executeBatchDeduction()" style="background:linear-gradient(135deg, #0ea5e9, #0284c7);font-weight:700">
+                    <span data-ar="🔻 خصم هذه الخامات من المخزن الآن" data-en="🔻 Deduct Consumed Stock">🔻 خصم هذه الخامات من المخزن الآن</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="tbl-wrap" style="max-height:260px">
+                <table class="tbl" style="font-size:12.5px">
+                  <thead>
+                    <tr style="background:rgba(255,255,255,0.03)">
+                      <th data-ar="الخامة المسحوبة" data-en="Raw Material">الخامة المسحوبة</th>
+                      <th style="text-align:center" data-ar="المعيار / وحدة" data-en="Ratio / Unit">المعيار / وحدة</th>
+                      <th style="text-align:center;color:#38bdf8" data-ar="إجمالي المسحوب للتشغيلة" data-en="Batch Consumed">إجمالي المسحوب للتشغيلة</th>
+                      <th style="text-align:center" data-ar="الرصيد الحالي بالمخزن" data-en="Current Stock">الرصيد الحالي بالمخزن</th>
+                      <th style="text-align:center;color:#4ade80" data-ar="الرصيد بعد الخصم" data-en="Stock After">الرصيد بعد الخصم</th>
+                      <th style="text-align:center" data-ar="الحالة" data-en="Status">الحالة</th>
+                    </tr>
+                  </thead>
+                  <tbody id="batch-deduction-tbody"></tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -2140,15 +2290,15 @@
           </div>
         </div>
 
-        <!-- Dedicated Sub-Card: Taztiki Sauce (صوص البرجر) -->
+        <!-- Dedicated Sub-Card: Burger Sauce (صوص البرجر) -->
         <div class="card mb-4"
           style="border:1px solid rgba(168,85,247,0.35);background:linear-gradient(135deg, rgba(168,85,247,0.06) 0%, rgba(15,23,42,0.85) 100%)">
           <div class="flex items-center justify-between flex-wrap gap-3 mb-3">
             <div>
               <h3 class="text-white font-bold flex items-center gap-2">
                 <span style="font-size:18px">🧴</span>
-                <span data-ar="سجل Taztiki Sauce (صوص البرجر) — مخصص ومنفصل"
-                  data-en="Taztiki Sauce Register — Dedicated & Separate">سجل Taztiki Sauce (صوص البرجر) — مخصص
+                <span data-ar="سجل Burger Sauce (صوص البرجر) — مخصص ومنفصل"
+                  data-en="Burger Sauce Register — Dedicated & Separate">سجل Burger Sauce (صوص البرجر) — مخصص
                   ومنفصل</span>
                 <span class="badge badge-purple" data-ar="شيت إكسيل منفصل للإدارة" data-en="Separate Excel Sheet">شيت
                   إكسيل منفصل للإدارة</span>
@@ -2175,7 +2325,7 @@
               <thead>
                 <tr>
                   <th data-ar="التاريخ" data-en="Date">التاريخ</th>
-                  <th data-ar="الكمية المنتجة (لتر)" data-en="Produced Qty (Ltr)">الكمية المنتجة (لتر)</th>
+                  <th data-ar="الكمية المنتجة (لتر)" data-en="Produced Qty (Kg)">الكمية المنتجة (لتر)</th>
                   <th data-ar="الفروع المستلِمة" data-en="Receiving Branches">الفروع المستلِمة</th>
                   <th data-ar="ملاحظات التشغيل" data-en="Notes">ملاحظات التشغيل</th>
                   <th data-ar="إجراء" data-en="Action">إجراء</th>
@@ -2231,11 +2381,18 @@
         <div class="card">
           <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
             <div>
-              <h3 class="text-white font-bold" data-ar="أرصدة المخزون ومقارنتها بالاحتياجات الفعلية"
-                data-en="Real-Time Stock vs Production Needs">أرصدة المخزون ومقارنتها بالاحتياجات الفعلية</h3>
-              <p class="text-muted text-sm mt-1" data-ar="يتم تحديد العجز تلقائياً بناءً على أوامر الفروع"
-                data-en="Shortages are automatically detected from orders">يتم تحديد العجز تلقائياً بناءً على أوامر
-                الفروع</p>
+              <h3 class="text-white font-bold" data-ar="أرصدة المخزون ومقارنتها بالاحتياجات الفعلية (139 خامة رئيسية)"
+                data-en="Real-Time Stock vs Production Needs (139 Materials)">أرصدة المخزون ومقارنتها بالاحتياجات الفعلية (139 خامة رئيسية)</h3>
+              <p class="text-muted text-sm mt-1" data-ar="يتم تحديد العجز والخصم التلقائي بناءً على طلبيات الفروع وتشغيلات الإنتاج"
+                data-en="Shortages and live deductions are automatically calculated from recipes">يتم تحديد العجز والخصم التلقائي بناءً على طلبيات الفروع وتشغيلات الإنتاج</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <div style="position:relative;width:240px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" style="position:absolute;inset-inline-start:10px;top:50%;transform:translateY(-50%)">
+                  <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input type="text" id="inv-search-input" class="input" placeholder="بحث في الخامات الـ 139..." style="padding-inline-start:32px" oninput="renderInv()" />
+              </div>
             </div>
             <div class="flex gap-3 flex-wrap">
               <button class="btn btn-secondary btn-sm" onclick="openModal('modal-ing')">
@@ -2582,9 +2739,9 @@
               <line x1="12" y1="16" x2="12.01" y2="16" />
             </svg>
             <span style="color:#c084fc;font-size:13px;font-weight:600"
-              data-ar="🧴 Taztiki Sauce (صوص البرجر) يظهر في شيت مستقل داخل ملف الإكسيل المصدّر — يدخل يدوياً أو من الخانة المحددة في شيت الفروع"
+              data-ar="🧴 Burger Sauce (صوص البرجر) يظهر في شيت مستقل داخل ملف الإكسيل المصدّر — يدخل يدوياً أو من الخانة المحددة في شيت الفروع"
               data-en="🧴 Taztiki Sauce appears in a separate sheet in the exported Excel — can be entered manually or mapped from branches sheet">🧴
-              Taztiki Sauce (صوص البرجر) يظهر في شيت مستقل داخل ملف الإكسيل المصدّر</span>
+              Burger Sauce (صوص البرجر) يظهر في شيت مستقل داخل ملف الإكسيل المصدّر</span>
           </div>
 
           <!-- Main table: Products × Days -->
@@ -2607,8 +2764,8 @@
                   stroke-linecap="round" stroke-linejoin="round">
                   <path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3" />
                 </svg>
-                <span data-ar="🧴 سجل Taztiki Sauce (صوص البرجر) — إدخال يدوي منفصل"
-                  data-en="🧴 Taztiki Sauce Register — Separate Manual Entry">🧴 سجل Taztiki Sauce (صوص البرجر)</span>
+                <span data-ar="🧴 سجل Burger Sauce (صوص البرجر) — إدخال يدوي منفصل"
+                  data-en="🧴 Taztiki Sauce Register — Separate Manual Entry">🧴 سجل Burger Sauce (صوص البرجر)</span>
               </h3>
               <p class="text-muted text-sm mt-1"
                 data-ar="يُدخل بشكل منفصل لأنه لا يدخل في الطلبيات الاعتيادية — يظهر في شيت خاص عند التصدير"
@@ -2622,7 +2779,7 @@
                 <line x1="12" y1="8" x2="12" y2="16" />
                 <line x1="8" y1="12" x2="16" y2="12" />
               </svg>
-              <span data-ar="إضافة سطر Taztiki" data-en="Add Taztiki Row">إضافة سطر</span>
+              <span data-ar="إضافة شحنة صوص البرجر" data-en="Add Burger Sauce Batch">إضافة سطر</span>
             </button>
           </div>
           <div class="tbl-wrap">
@@ -2630,7 +2787,7 @@
               <thead>
                 <tr>
                   <th data-ar="التاريخ" data-en="Date">التاريخ</th>
-                  <th data-ar="كمية صوص البرجر (لتر)" data-en="Taztiki Sauce (ltr)">كمية صوص البرجر (لتر)</th>
+                  <th data-ar="كمية صوص البرجر (كجم)" data-en="Burger Sauce (Kg)">كمية صوص البرجر (كجم)</th>
                   <th data-ar="الفروع المستلِمة" data-en="Receiving Branches">الفروع المستلِمة</th>
                   <th data-ar="ملاحظات" data-en="Notes">ملاحظات</th>
                   <th></th>
@@ -3090,87 +3247,188 @@
         'فرع ديستريكت 5 (District 5)',
         'فرع إل بوسكو (IL Bosco)',
         'فرع D2 (Drive 02)',
-        'فرع جولف قطامية (Golf Katameya)',
+        'فرع  قطامية  (Katameya)',
         'فرع Core WOC',
         'فرع Core PH',
         'فرع اسبليت واتر واي (Split Water Way)',
         'فرع اسبليت O1 (Split O1)',
-        'فرع اسبليت نيو جيزة (Split New Giza)'
+        'فرع اسبليت نيو جيزة (Split New Giza)',
+        'فرع الجولف (NNG GOLF)'
       ],
-      /* ── Central Kitchen Products (Semi-Finished / التجهيزات الشاملة) ── */
+      /* ── Central Kitchen Manufactured Products Master (المنتجات المصنعة - 171 صنف) ── */
       products: [
-        // ── برجر ولحوم ──
-        { id: 'beef-patty-prep', ar: 'Beef Burger Patty', en: 'Beef Burger Patty', unit: 'kg', cat: 'beef', cost: 135, color: '#8b5cf6' },
-        { id: 'burger-house-sand', ar: 'Burger House Sandwich', en: 'Burger House Sandwich', unit: 'pcs', cat: 'beef', cost: 45, color: '#a855f7' },
-        { id: 'shot-burger', ar: 'Shot Burger', en: 'Shot Burger', unit: 'pcs', cat: 'beef', cost: 42, color: '#9333ea' },
-        { id: 'shawarma-burger', ar: 'Shawarma Burger', en: 'Shawarma Burger', unit: 'pcs', cat: 'beef', cost: 40, color: '#7e22ce' },
-        { id: 'large-beef', ar: 'Large Beef', en: 'Large Beef', unit: 'kg', cat: 'beef', cost: 140, color: '#6b21a8' },
-        { id: 'roast-beef', ar: 'Roast Beef', en: 'Roast Beef', unit: 'kg', cat: 'beef', cost: 160, color: '#581c87' },
-        { id: 'beef-bacon', ar: 'Beef Bacon', en: 'Beef Bacon', unit: 'kg', cat: 'beef', cost: 180, color: '#dc2626' },
-        { id: 'mozz-burger', ar: 'Mozzarella Burger', en: 'Mozzarella Burger', unit: 'pcs', cat: 'beef', cost: 48, color: '#b91c1c' },
-        { id: 'beef-bun', ar: 'Beef Bun', en: 'Beef Bun', unit: 'pcs', cat: 'bakery', cost: 4.5, color: '#f59e0b' },
-        { id: 'superles-bun', ar: 'Superles Bun', en: 'Superles Bun', unit: 'pcs', cat: 'bakery', cost: 5.0, color: '#d97706' },
-
-        // ── دواجن وفراخ ──
-        { id: 'chicken-crispy', ar: 'Crispy Chicken', en: 'Crispy Chicken', unit: 'kg', cat: 'chicken', cost: 68, color: '#22c55e' },
-        { id: 'chicken-marinated', ar: 'Marinated Chicken', en: 'Marinated Chicken', unit: 'kg', cat: 'chicken', cost: 65, color: '#16a34a' },
-        { id: 'chicken-sandwich', ar: 'Chicken Sandwich', en: 'Chicken Sandwich', unit: 'pcs', cat: 'chicken', cost: 38, color: '#15803d' },
-        { id: 'chicken-tenders', ar: 'Chicken Tenders', en: 'Chicken Tenders', unit: 'kg', cat: 'chicken', cost: 72, color: '#14532d' },
-        { id: 'shish-tawook', ar: 'Shish Tawook', en: 'Shish Tawook', unit: 'kg', cat: 'chicken', cost: 70, color: '#4ade80' },
-        { id: 'roast-turkey', ar: 'Roasted Turkey', en: 'Roasted Turkey', unit: 'kg', cat: 'chicken', cost: 110, color: '#86efac' },
-        { id: 'fajita-saute', ar: 'Fajita Sauté', en: 'Fajita Sauté', unit: 'kg', cat: 'chicken', cost: 75, color: '#10b981' },
-        { id: 'fajita-veggies', ar: 'Fajita Veggies', en: 'Fajita Veggies', unit: 'kg', cat: 'veggies', cost: 25, color: '#059669' },
-
-        // ── صوصات وتتبيلات المطبخ المركزي ──
-        { id: 'taztiki-sauce', ar: 'Taztiki Sauce (Burger Sauce)', en: 'Taztiki Sauce (Burger Sauce)', unit: 'ltr', cat: 'sauces', cost: 35, color: '#c084fc' },
-        { id: 'amer-sauce', ar: 'American Sauce', en: 'American Sauce', unit: 'ltr', cat: 'sauces', cost: 32, color: '#f97316' },
-        { id: 'atomic-sauce', ar: 'Atomic Sauce', en: 'Atomic Sauce', unit: 'ltr', cat: 'sauces', cost: 34, color: '#ef4444' },
-        { id: 'chicken-sauce', ar: 'Chicken Sauce', en: 'Chicken Sauce', unit: 'ltr', cat: 'sauces', cost: 30, color: '#eab308' },
-        { id: 'taquito-sauce', ar: 'Taquito Sauce', en: 'Taquito Sauce', unit: 'ltr', cat: 'sauces', cost: 33, color: '#f59e0b' },
-        { id: 'fajita-sauce', ar: 'Fajita Sauce', en: 'Fajita Sauce', unit: 'ltr', cat: 'sauces', cost: 32, color: '#ea580c' },
-        { id: 'ranch-sauce', ar: 'Ranch Sauce', en: 'Ranch Sauce', unit: 'ltr', cat: 'sauces', cost: 36, color: '#38bdf8' },
-        { id: 'shot-sauce', ar: 'Shot Sauce', en: 'Shot Sauce', unit: 'ltr', cat: 'sauces', cost: 34, color: '#0284c7' },
-        { id: 'caesar-dressing', ar: 'Caesar Dressing', en: 'Caesar Dressing', unit: 'ltr', cat: 'sauces', cost: 38, color: '#06b6d4' },
-        { id: 'coleslaw-dressing', ar: 'Coleslaw Dressing', en: 'Coleslaw Dressing', unit: 'ltr', cat: 'sauces', cost: 28, color: '#0891b2' },
-        { id: 'honey-sriracha', ar: 'Honey Sriracha Sauce', en: 'Honey Sriracha Sauce', unit: 'ltr', cat: 'sauces', cost: 42, color: '#f43f5e' },
-        { id: 'hibiscus-sauce', ar: 'Hibiscus Sauce', en: 'Hibiscus Sauce', unit: 'ltr', cat: 'sauces', cost: 26, color: '#e11d48' },
-        { id: 'rose-sauce', ar: 'Rose Sauce', en: 'Rose Sauce', unit: 'ltr', cat: 'sauces', cost: 30, color: '#ec4899' },
-        { id: 'pesto-mayo', ar: 'Pesto Mayo Sauce', en: 'Pesto Mayo Sauce', unit: 'ltr', cat: 'sauces', cost: 44, color: '#84cc16' },
-        { id: 'pesto-sauce', ar: 'Pesto Sauce', en: 'Pesto Sauce', unit: 'ltr', cat: 'sauces', cost: 48, color: '#65a30d' },
-        { id: 'sweet-chili', ar: 'Sweet Chili Sauce', en: 'Sweet Chili Sauce', unit: 'ltr', cat: 'sauces', cost: 36, color: '#fb923c' },
-        { id: 'sweet-buffalo', ar: 'Sweet Buffalo Sauce', en: 'Sweet Buffalo Sauce', unit: 'ltr', cat: 'sauces', cost: 38, color: '#f97316' },
-        { id: 'balsamic-thyme', ar: 'Balsamic Thyme', en: 'Balsamic Thyme', unit: 'ltr', cat: 'sauces', cost: 40, color: '#a855f7' },
-        { id: 'bayaz-sauce', ar: 'Bayaz Sauce', en: 'Bayaz Sauce', unit: 'ltr', cat: 'sauces', cost: 34, color: '#6366f1' },
-        { id: 'crunch-mayo', ar: 'Crunch Mayo', en: 'Crunch Mayo', unit: 'ltr', cat: 'sauces', cost: 36, color: '#4f46e5' },
-        { id: 'strawberry-sauce', ar: 'Strawberry Sauce', en: 'Strawberry Sauce', unit: 'ltr', cat: 'sauces', cost: 28, color: '#f43f5e' },
-        { id: 'dijon-mustard', ar: 'Dijon Mustard', en: 'Dijon Mustard', unit: 'ltr', cat: 'sauces', cost: 35, color: '#eab308' },
-
-        // ── مخبوزات وكرواسون ──
-        { id: 'croissant-plain', ar: 'Plain Croissant', en: 'Plain Croissant', unit: 'pcs', cat: 'bakery', cost: 12, color: '#f59e0b' },
-        { id: 'croissant-almond', ar: 'Almond Croissant', en: 'Almond Croissant', unit: 'pcs', cat: 'bakery', cost: 18, color: '#d97706' },
-        { id: 'croissant-cheese', ar: 'Cheese Croissant', en: 'Cheese Croissant', unit: 'pcs', cat: 'bakery', cost: 16, color: '#b45309' },
-        { id: 'croissant-nutella', ar: 'Nutella Croissant', en: 'Nutella Croissant', unit: 'pcs', cat: 'bakery', cost: 20, color: '#78350f' },
-        { id: 'croissant-pistachio', ar: 'Pistachio Croissant', en: 'Pistachio Croissant', unit: 'pcs', cat: 'bakery', cost: 22, color: '#84cc16' },
-        { id: 'croissant-sand', ar: 'Croissant Sandwich', en: 'Croissant Sandwich', unit: 'pcs', cat: 'bakery', cost: 25, color: '#a3e635' },
-        { id: 'pancake', ar: 'Pancake', en: 'Pancake', unit: 'pcs', cat: 'bakery', cost: 15, color: '#fcd34d' },
-
-        // ── أجبان ومقبلات وخضار ──
-        { id: 'cheese-provolone', ar: 'Provolone Cheese', en: 'Provolone Cheese', unit: 'kg', cat: 'cheese', cost: 95, color: '#fef08a' },
-        { id: 'cheese-cheddar', ar: 'Cheddar Cheese', en: 'Cheddar Cheese', unit: 'kg', cat: 'cheese', cost: 85, color: '#fde047' },
-        { id: 'cheese-cream', ar: 'Cream Cheese', en: 'Cream Cheese', unit: 'kg', cat: 'cheese', cost: 75, color: '#facc15' },
-        { id: 'cheese-steak', ar: 'Steak Cheese', en: 'Steak Cheese', unit: 'kg', cat: 'cheese', cost: 90, color: '#eab308' },
-        { id: 'mozz-sticks', ar: 'Mozzarella Sticks', en: 'Mozzarella Sticks', unit: 'pcs', cat: 'cheese', cost: 3.5, color: '#ca8a04' },
-        { id: 'cheese-feta', ar: 'Feta Cheese', en: 'Feta Cheese', unit: 'kg', cat: 'cheese', cost: 60, color: '#a16207' },
-        { id: 'coleslaw-salad', ar: 'Coleslaw Salad', en: 'Coleslaw Salad', unit: 'kg', cat: 'veggies', cost: 20, color: '#22c55e' },
-        { id: 'cheese-croquette', ar: 'Cheese Croquettes', en: 'Cheese Croquettes', unit: 'pcs', cat: 'cheese', cost: 4.0, color: '#16a34a' },
-        { id: 'pickle-cucumber', ar: 'Pickled Cucumber', en: 'Pickled Cucumber', unit: 'kg', cat: 'veggies', cost: 18, color: '#15803d' },
-        { id: 'pickle-chips', ar: 'Cucumber Chips', en: 'Cucumber Chips', unit: 'kg', cat: 'veggies', cost: 20, color: '#166534' },
-        { id: 'onion-rings', ar: 'Onion Rings', en: 'Onion Rings', unit: 'kg', cat: 'veggies', cost: 22, color: '#4ade80' },
-        { id: 'pommes-swiss', ar: 'Pommes Swiss', en: 'Pommes Swiss', unit: 'kg', cat: 'veggies', cost: 28, color: '#86efac' },
-        { id: 'french-fries', ar: 'French Fries', en: 'French Fries', unit: 'kg', cat: 'veggies', cost: 24, color: '#fbbf24' },
-        { id: 'kidils-juice', ar: 'Kidils Juice', en: 'Kidils Juice', unit: 'ltr', cat: 'drinks', cost: 25, color: '#f43f5e' },
-        { id: 'lemon-mint', ar: 'Lemon Mint', en: 'Lemon Mint', unit: 'ltr', cat: 'drinks', cost: 20, color: '#10b981' },
-        { id: 'ice-cream', ar: 'Ice Cream', en: 'Ice Cream', unit: 'kg', cat: 'dessert', cost: 50, color: '#ec4899' }
+        { id: 'burger-sauce', item_no: 'BRGR-SAUCE', ar: 'Burger Sauce (BRGR Sauce)', en: 'Burger Sauce (BRGR Sauce)', unit: 'kg', cat: 'sauces', cost: 140.0, color: '#f97316' },
+        { id: 'prod-creamy-tomato-soup-pa', item_no: '110331', ar: 'Creamy Tomato Soup (PA)', en: 'Creamy Tomato Soup (PA)', unit: 'kg', cat: 'drinks', cost: 28.17, color: '#06b6d4' },
+        { id: 'prod-adalia-juice-pa', item_no: '110234', ar: 'Adalia juice (PA)', en: 'Adalia juice (PA)', unit: 'kg', cat: 'drinks', cost: 183.1, color: '#06b6d4' },
+        { id: 'prod-almond-croissant-pa', item_no: '110248', ar: 'Almond Croissant (PA)', en: 'Almond Croissant (PA)', unit: 'pcs', cat: 'bakery', cost: 63.72, color: '#f59e0b' },
+        { id: 'prod-amirecan-sauce-kg-pa', item_no: '110017', ar: 'Amirecan Sauce - Kg (PA)', en: 'Amirecan Sauce - Kg (PA)', unit: 'kg', cat: 'sauces', cost: 136.66, color: '#f97316' },
+        { id: 'prod-apple-pie-croissant-pa', item_no: '110318', ar: 'Apple Pie Croissant (PA)', en: 'Apple Pie Croissant (PA)', unit: 'pcs', cat: 'bakery', cost: 42.05, color: '#f59e0b' },
+        { id: 'prod-apple-pie-mix-pa', item_no: '110307', ar: 'Apple Pie Mix (PA)', en: 'Apple Pie Mix (PA)', unit: 'kg', cat: 'sauces', cost: 275.55, color: '#f97316' },
+        { id: 'prod-atomic-sauce-kg-pa', item_no: '110046', ar: 'Atomic Sauce Kg (PA)', en: 'Atomic Sauce Kg (PA)', unit: 'kg', cat: 'sauces', cost: 125.38, color: '#f97316' },
+        { id: 'prod-baked-sweet-potato-pa', item_no: '110360', ar: 'Baked Sweet Potato (PA)', en: 'Baked Sweet Potato (PA)', unit: 'pcs', cat: 'veggies', cost: 4.91, color: '#06b6d4' },
+        { id: 'prod-baklava-pistachio-pa', item_no: '110359', ar: 'Baklava Pistachio (PA)', en: 'Baklava Pistachio (PA)', unit: 'pcs', cat: 'bakery', cost: 19.76, color: '#f59e0b' },
+        { id: 'prod-balsamic-galze-pa', item_no: '110139', ar: 'Balsamic Galze (PA)', en: 'Balsamic Galze (PA)', unit: 'kg', cat: 'prep', cost: 1054.77, color: '#06b6d4' },
+        { id: 'prod-balsamic-vinaigrette-dressing-pa', item_no: '110185', ar: 'Balsamic Vinaigrette dressing (PA)', en: 'Balsamic Vinaigrette dressing (PA)', unit: 'kg', cat: 'sauces', cost: 232.95, color: '#f97316' },
+        { id: 'prod-batter-frizzle-onion-pa', item_no: '110126', ar: 'Batter Frizzle Onion (PA)', en: 'Batter Frizzle Onion (PA)', unit: 'kg', cat: 'veggies', cost: 136.47, color: '#06b6d4' },
+        { id: 'prod-bbq-sauce-kg-pa', item_no: '110018', ar: 'BBQ Sauce - Kg. (PA)', en: 'BBQ Sauce - Kg. (PA)', unit: 'kg', cat: 'sauces', cost: 120.07, color: '#f97316' },
+        { id: 'prod-beef-burger-patty-pa', item_no: '110003', ar: 'Beef Burger Patty . (PA)', en: 'Beef Burger Patty . (PA)', unit: 'pcs', cat: 'beef', cost: 33.85, color: '#8b5cf6' },
+        { id: 'prod-beef-fillet-marinated-pa', item_no: '110335', ar: 'Beef Fillet Marinated (PA)', en: 'Beef Fillet Marinated (PA)', unit: 'pcs', cat: 'beef', cost: 202.33, color: '#8b5cf6' },
+        { id: 'prod-black-seeds-shamy-bread-pa', item_no: '110349', ar: 'Black Seeds Shamy Bread (PA)', en: 'Black Seeds Shamy Bread (PA)', unit: 'pcs', cat: 'bakery', cost: 2.65, color: '#f59e0b' },
+        { id: 'prod-blue-berry-sauce-pa', item_no: '110302', ar: 'Blue Berry Sauce (PA)', en: 'Blue Berry Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 1525.24, color: '#f97316' },
+        { id: 'prod-blue-cheese-dressing-pa', item_no: '110159', ar: 'Blue Cheese Dressing (PA)', en: 'Blue Cheese Dressing (PA)', unit: 'kg', cat: 'sauces', cost: 168.52, color: '#f97316' },
+        { id: 'prod-bread-garlic-butter-pa', item_no: '110334', ar: 'Bread Garlic Butter (PA)', en: 'Bread Garlic Butter (PA)', unit: 'kg', cat: 'sauces', cost: 142.21, color: '#f97316' },
+        { id: 'prod-bread-sour-dough-pa', item_no: '110288', ar: 'Bread Sour dough (PA)', en: 'Bread Sour dough (PA)', unit: 'pcs', cat: 'bakery', cost: 46.36, color: '#f59e0b' },
+        { id: 'prod-brgr-house-dressing-pa', item_no: '110045', ar: 'BRGR House Dressing (PA)', en: 'BRGR House Dressing (PA)', unit: 'kg', cat: 'sauces', cost: 214.35, color: '#f97316' },
+        { id: 'prod-brown-ciabatta-bread-pa-pa', item_no: '110164', ar: 'Brown Ciabatta Bread (PA) (PA)', en: 'Brown Ciabatta Bread (PA) (PA)', unit: 'pcs', cat: 'bakery', cost: 5.61, color: '#f59e0b' },
+        { id: 'prod-buffalo-mix-pa', item_no: '110202', ar: 'Buffalo Mix (PA)', en: 'Buffalo Mix (PA)', unit: 'kg', cat: 'sauces', cost: 133.29, color: '#f97316' },
+        { id: 'prod-buffalo-sauce-kg-pa', item_no: '110040', ar: 'Buffalo Sauce - Kg (PA)', en: 'Buffalo Sauce - Kg (PA)', unit: 'kg', cat: 'sauces', cost: 151.91, color: '#f97316' },
+        { id: 'prod-caesar-dressing-pa-pa', item_no: '110163', ar: 'Caesar Dressing (PA) (PA)', en: 'Caesar Dressing (PA) (PA)', unit: 'kg', cat: 'sauces', cost: 288.45, color: '#f97316' },
+        { id: 'prod-caesar-sauce-pa', item_no: '110293', ar: 'CAESAR SAUCE (PA)', en: 'CAESAR SAUCE (PA)', unit: 'kg', cat: 'sauces', cost: 322.2, color: '#f97316' },
+        { id: 'prod-cancel-tuna', item_no: '110162', ar: 'Cancel Tuna', en: 'Cancel Tuna', unit: 'kg', cat: 'chicken', cost: 263.25, color: '#22c55e' },
+        { id: 'prod-caramalized-onion-pa', item_no: '110138', ar: 'Caramalized Onion (PA)', en: 'Caramalized Onion (PA)', unit: 'kg', cat: 'veggies', cost: 65.77, color: '#06b6d4' },
+        { id: 'prod-cheader-cheese-slices-pa', item_no: '110261', ar: 'Cheader Cheese Slices (PA)', en: 'Cheader Cheese Slices (PA)', unit: 'pcs', cat: 'cheese', cost: 7.2, color: '#fde047' },
+        { id: 'prod-cheese-cake-large-pa', item_no: '110076', ar: 'Cheese Cake - Large (PA', en: 'Cheese Cake - Large (PA', unit: 'pcs', cat: 'bakery', cost: 248.34, color: '#f59e0b' },
+        { id: 'prod-cheese-cake-small-pa', item_no: '110057', ar: 'Cheese Cake - Small (PA)', en: 'Cheese Cake - Small (PA)', unit: 'pcs', cat: 'bakery', cost: 124.88, color: '#f59e0b' },
+        { id: 'prod-cheese-emmental-pa', item_no: '110238', ar: 'Cheese Emmental (PA)', en: 'Cheese Emmental (PA)', unit: 'pcs', cat: 'cheese', cost: 8.4, color: '#fde047' },
+        { id: 'prod-cheese-provolone-pa', item_no: '110157', ar: 'Cheese Provolone (PA)', en: 'Cheese Provolone (PA)', unit: 'portion', cat: 'cheese', cost: 15.6, color: '#fde047' },
+        { id: 'prod-cheese-sauce-kg-pa', item_no: '110041', ar: 'Cheese Sauce. - Kg (PA)', en: 'Cheese Sauce. - Kg (PA)', unit: 'kg', cat: 'sauces', cost: 334.88, color: '#f97316' },
+        { id: 'prod-chicken-bites-kg-pa', item_no: '110036', ar: 'Chicken Bites - Kg (PA)', en: 'Chicken Bites - Kg (PA)', unit: 'kg', cat: 'chicken', cost: 345.1, color: '#22c55e' },
+        { id: 'prod-chicken-breaded-pa', item_no: '110144', ar: 'Chicken Breaded (PA)', en: 'Chicken Breaded (PA)', unit: 'pcs', cat: 'bakery', cost: 17.87, color: '#f59e0b' },
+        { id: 'prod-chicken-fillet-pa', item_no: '110275', ar: 'Chicken Fillet (PA)', en: 'Chicken Fillet (PA)', unit: 'pcs', cat: 'chicken', cost: 36.21, color: '#22c55e' },
+        { id: 'prod-chicken-fillet-p-pa', item_no: '110006', ar: 'Chicken Fillet P (PA)', en: 'Chicken Fillet P (PA)', unit: 'pcs', cat: 'chicken', cost: 27.9, color: '#22c55e' },
+        { id: 'prod-chicken-liquid-sauce-kg-pa', item_no: '110042', ar: 'Chicken liquid sauce - Kg (PA)', en: 'Chicken liquid sauce - Kg (PA)', unit: 'kg', cat: 'sauces', cost: 45.04, color: '#f97316' },
+        { id: 'prod-chicken-sauce-kg-pa', item_no: '110033', ar: 'Chicken Sauce - Kg (PA)', en: 'Chicken Sauce - Kg (PA)', unit: 'kg', cat: 'sauces', cost: 82.52, color: '#f97316' },
+        { id: 'prod-chicken-tenders-pa', item_no: '110183', ar: 'chicken tenders (PA)', en: 'chicken tenders (PA)', unit: 'pcs', cat: 'chicken', cost: 11.74, color: '#22c55e' },
+        { id: 'prod-chives-cream-cheese-pa', item_no: '110194', ar: 'Chives Cream Cheese (PA)', en: 'Chives Cream Cheese (PA)', unit: 'kg', cat: 'cheese', cost: 615.18, color: '#fde047' },
+        { id: 'prod-ciabatta-bread-pa', item_no: '110148', ar: 'Ciabatta Bread (PA)', en: 'Ciabatta Bread (PA)', unit: 'pcs', cat: 'bakery', cost: 5.21, color: '#f59e0b' },
+        { id: 'prod-citrus-dressing-pa', item_no: '110198', ar: 'Citrus dressing (PA)', en: 'Citrus dressing (PA)', unit: 'kg', cat: 'sauces', cost: 281.48, color: '#f97316' },
+        { id: 'prod-classic-frosting-pa', item_no: '110300', ar: 'Classic Frosting (PA)', en: 'Classic Frosting (PA)', unit: 'kg', cat: 'sauces', cost: 505.84, color: '#f97316' },
+        { id: 'prod-coconut-cinnamon-sauce-pa', item_no: '110130', ar: 'Coconut Cinnamon Sauce (PA)', en: 'Coconut Cinnamon Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 190.47, color: '#f97316' },
+        { id: 'prod-coleslow-dressing-pa', item_no: '110137', ar: 'Coleslow Dressing (PA)', en: 'Coleslow Dressing (PA)', unit: 'kg', cat: 'sauces', cost: 45.85, color: '#f97316' },
+        { id: 'prod-coleslow-salad-pa', item_no: '110146', ar: 'Coleslow Salad (PA)', en: 'Coleslow Salad (PA)', unit: 'kg', cat: 'veggies', cost: 31.19, color: '#06b6d4' },
+        { id: 'prod-cookies-can-pa', item_no: '110230', ar: 'Cookies Can (PA)', en: 'Cookies Can (PA)', unit: 'Order 8 pieces', cat: 'bakery', cost: 419.59, color: '#f59e0b' },
+        { id: 'prod-cookies-can-mini-pa', item_no: '110269', ar: 'Cookies Can Mini (PA)', en: 'Cookies Can Mini (PA)', unit: 'Order 8 pieces', cat: 'bakery', cost: 27.92, color: '#f59e0b' },
+        { id: 'prod-cream-almond-pa', item_no: '110249', ar: 'Cream Almond (PA)', en: 'Cream Almond (PA)', unit: 'kg', cat: 'prep', cost: 372.2, color: '#06b6d4' },
+        { id: 'prod-cream-mix-pa', item_no: '110357', ar: 'Cream Mix (PA)', en: 'Cream Mix (PA)', unit: 'kg', cat: 'sauces', cost: 0.0, color: '#f97316' },
+        { id: 'prod-cream-pistachio-pa', item_no: '110247', ar: 'Cream Pistachio (PA)', en: 'Cream Pistachio (PA)', unit: 'kg', cat: 'prep', cost: 774.52, color: '#06b6d4' },
+        { id: 'prod-creamy-mushroom-soup-pa', item_no: '110330', ar: 'Creamy Mushroom Soup (PA)', en: 'Creamy Mushroom Soup (PA)', unit: 'kg', cat: 'veggies', cost: 80.02, color: '#06b6d4' },
+        { id: 'prod-creamy-pancake-pa', item_no: '110129', ar: 'Creamy Pancake (PA)', en: 'Creamy Pancake (PA)', unit: 'kg', cat: 'bakery', cost: 375.1, color: '#f59e0b' },
+        { id: 'prod-croissant-almond-pa', item_no: '110313', ar: 'Croissant Almond (PA)', en: 'Croissant Almond (PA)', unit: 'pcs', cat: 'bakery', cost: 75.56, color: '#f59e0b' },
+        { id: 'prod-croissant-dough-pa', item_no: '110308', ar: 'Croissant Dough (PA)', en: 'Croissant Dough (PA)', unit: 'pcs', cat: 'bakery', cost: 28.35, color: '#f59e0b' },
+        { id: 'prod-croissant-nutella-pa', item_no: '110314', ar: 'Croissant Nutella (PA)', en: 'Croissant Nutella (PA)', unit: 'pcs', cat: 'bakery', cost: 53.38, color: '#f59e0b' },
+        { id: 'prod-croissant-pistachio-pa', item_no: '110315', ar: 'Croissant Pistachio (PA)', en: 'Croissant Pistachio (PA)', unit: 'pcs', cat: 'bakery', cost: 92.12, color: '#f59e0b' },
+        { id: 'prod-croissant-plain-pa', item_no: '110316', ar: 'Croissant Plain (PA)', en: 'Croissant Plain (PA)', unit: 'pcs', cat: 'bakery', cost: 28.35, color: '#f59e0b' },
+        { id: 'prod-croissant-thyme-goat-pa', item_no: '110317', ar: 'Croissant Thyme goat (PA)', en: 'Croissant Thyme goat (PA)', unit: 'pcs', cat: 'bakery', cost: 37.72, color: '#f59e0b' },
+        { id: 'prod-cucumber-pickle-kg-pa', item_no: '110039', ar: 'Cucumber Pickle - Kg (PA)', en: 'Cucumber Pickle - Kg (PA)', unit: 'kg', cat: 'veggies', cost: 64.1, color: '#06b6d4' },
+        { id: 'prod-cucumber-pickles-chips-pa', item_no: '110265', ar: 'Cucumber pickles Chips (PA)', en: 'Cucumber pickles Chips (PA)', unit: 'kg', cat: 'veggies', cost: 59.29, color: '#06b6d4' },
+        { id: 'prod-danash-pastrame-pa', item_no: '110312', ar: 'Danash Pastrame (PA)', en: 'Danash Pastrame (PA)', unit: 'pcs', cat: 'bakery', cost: 58.97, color: '#f59e0b' },
+        { id: 'prod-demiglase-sauce-pa', item_no: '110342', ar: 'Demiglase Sauce (PA)', en: 'Demiglase Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 103.78, color: '#f97316' },
+        { id: 'prod-dijon-mayo-pa', item_no: '110326', ar: 'Dijon mayo (PA)', en: 'Dijon mayo (PA)', unit: 'kg', cat: 'sauces', cost: 240.52, color: '#f97316' },
+        { id: 'prod-dill-tuna-mix-pa', item_no: '110363', ar: 'Dill Tuna Mix (PA)', en: 'Dill Tuna Mix (PA)', unit: 'pcs', cat: 'sauces', cost: 35.7, color: '#f97316' },
+        { id: 'prod-dry-mix-pa', item_no: '110127', ar: 'Dry Mix (PA)', en: 'Dry Mix (PA)', unit: 'kg', cat: 'sauces', cost: 115.21, color: '#f97316' },
+        { id: 'prod-dry-powder-kg-pa', item_no: '110035', ar: 'Dry Powder - Kg (PA)', en: 'Dry Powder - Kg (PA)', unit: 'kg', cat: 'sauces', cost: 115.83, color: '#f97316' },
+        { id: 'prod-emmental-cheese-pc-pa', item_no: '110086', ar: 'Emmental  Cheese PC (PA', en: 'Emmental  Cheese PC (PA', unit: 'portion', cat: 'cheese', cost: 7.07, color: '#fde047' },
+        { id: 'prod-fattoush-dressing-pa', item_no: '110333', ar: 'Fattoush Dressing (PA)', en: 'Fattoush Dressing (PA)', unit: 'kg', cat: 'sauces', cost: 382.39, color: '#f97316' },
+        { id: 'prod-french-baghette-pa', item_no: '110268', ar: 'French Baghette (PA)', en: 'French Baghette (PA)', unit: 'pcs', cat: 'bakery', cost: 3.4, color: '#f59e0b' },
+        { id: 'prod-fresh-orange-juice-pa', item_no: '110178', ar: 'Fresh orange juice (PA)', en: 'Fresh orange juice (PA)', unit: 'kg', cat: 'drinks', cost: 57.9, color: '#06b6d4' },
+        { id: 'prod-frosting-lotus-sauce-pa', item_no: '110301', ar: 'Frosting Lotus Sauce (PA)', en: 'Frosting Lotus Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 492.44, color: '#f97316' },
+        { id: 'prod-frosting-sauce-basic-pa', item_no: '110299', ar: 'Frosting Sauce Basic (PA)', en: 'Frosting Sauce Basic (PA)', unit: 'kg', cat: 'sauces', cost: 435.9, color: '#f97316' },
+        { id: 'prod-grilled-chicken-marinated-pa', item_no: '110336', ar: 'Grilled Chicken Marinated (PA)', en: 'Grilled Chicken Marinated (PA)', unit: 'pcs', cat: 'chicken', cost: 51.56, color: '#22c55e' },
+        { id: 'prod-hibiscis-glaze-pa', item_no: '110092', ar: 'Hibiscis Glaze (PA)', en: 'Hibiscis Glaze (PA)', unit: 'kg', cat: 'sauces', cost: 112.35, color: '#f97316' },
+        { id: 'prod-honey-mustard-sauce-kg-pa', item_no: '110037', ar: 'Honey Mustard Sauce - Kg (PA)', en: 'Honey Mustard Sauce - Kg (PA)', unit: 'kg', cat: 'sauces', cost: 98.24, color: '#f97316' },
+        { id: 'prod-honey-srirache-sauce-pa', item_no: '110142', ar: 'Honey Srirache Sauce (PA)', en: 'Honey Srirache Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 238.37, color: '#f97316' },
+        { id: 'prod-hot-chocolate-sauce-pa', item_no: '110173', ar: 'Hot Chocolate Sauce (PA)', en: 'Hot Chocolate Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 392.79, color: '#f97316' },
+        { id: 'prod-hot-honey-pa', item_no: '110201', ar: 'Hot Honey (PA)', en: 'Hot Honey (PA)', unit: 'kg', cat: 'prep', cost: 112.66, color: '#06b6d4' },
+        { id: 'prod-hot-mustard-sauce-pa', item_no: '110369', ar: 'Hot Mustard Sauce . (PA)', en: 'Hot Mustard Sauce . (PA)', unit: 'kg', cat: 'sauces', cost: 133.75, color: '#f97316' },
+        { id: 'prod-ice-cream-kg-pa', item_no: '110038', ar: 'Ice Cream - Kg (PA)', en: 'Ice Cream - Kg (PA)', unit: 'kg', cat: 'drinks', cost: 75.1, color: '#06b6d4' },
+        { id: 'prod-japanese-matcha-pa', item_no: '110160', ar: 'Japanese Matcha (PA)', en: 'Japanese Matcha (PA)', unit: 'kg', cat: 'drinks', cost: 8031.93, color: '#06b6d4' },
+        { id: 'prod-karkade-syrup-pa', item_no: '110352', ar: 'Karkade Syrup (PA)', en: 'Karkade Syrup (PA)', unit: 'kg', cat: 'sauces', cost: 95.26, color: '#f97316' },
+        { id: 'prod-konafa-pistachio-roll-pa', item_no: '110358', ar: 'Konafa Pistachio Roll (PA)', en: 'Konafa Pistachio Roll (PA)', unit: 'pcs', cat: 'prep', cost: 4.58, color: '#06b6d4' },
+        { id: 'prod-kunafa-crumbles-pa', item_no: '110353', ar: 'kunafa Crumbles (PA)', en: 'kunafa Crumbles (PA)', unit: 'kg', cat: 'prep', cost: 206.8, color: '#06b6d4' },
+        { id: 'prod-large-pizza-dough-pa', item_no: '110320', ar: 'Large Pizza dough (PA)', en: 'Large Pizza dough (PA)', unit: 'pcs', cat: 'bakery', cost: 47.53, color: '#f59e0b' },
+        { id: 'prod-lemon-chicken-pa', item_no: '110090', ar: 'Lemon chicken (PA)', en: 'Lemon chicken (PA)', unit: 'pcs', cat: 'chicken', cost: 25.1, color: '#22c55e' },
+        { id: 'prod-lemon-chicken-saints-pa', item_no: '110373', ar: 'Lemon chicken (Saints) (PA)', en: 'Lemon chicken (Saints) (PA)', unit: 'pcs', cat: 'chicken', cost: 33.37, color: '#22c55e' },
+        { id: 'prod-lemon-curd-pa', item_no: '110303', ar: 'Lemon Curd (PA)', en: 'Lemon Curd (PA)', unit: 'kg', cat: 'sauces', cost: 423.28, color: '#f97316' },
+        { id: 'prod-lemon-juice-adalia-pa', item_no: '110231', ar: 'Lemon juice (Adalia) (PA)', en: 'Lemon juice (Adalia) (PA)', unit: 'kg', cat: 'drinks', cost: 200.0, color: '#06b6d4' },
+        { id: 'prod-lemon-juice-pa', item_no: '110091', ar: 'Lemon Juice (PA)', en: 'Lemon Juice (PA)', unit: 'kg', cat: 'drinks', cost: 73.91, color: '#06b6d4' },
+        { id: 'prod-lemon-syrup-new-pa', item_no: '110245', ar: 'Lemon Syrup (New) (PA)', en: 'Lemon Syrup (New) (PA)', unit: 'kg', cat: 'sauces', cost: 88.05, color: '#f97316' },
+        { id: 'prod-lovan-dough-pa', item_no: '110267', ar: 'Lovan Dough (PA)', en: 'Lovan Dough (PA)', unit: 'kg', cat: 'bakery', cost: 20.63, color: '#f59e0b' },
+        { id: 'prod-marinara-sauce-saints-pa', item_no: '110340', ar: 'Marinara Sauce saints (PA)', en: 'Marinara Sauce saints (PA)', unit: 'kg', cat: 'sauces', cost: 84.46, color: '#f97316' },
+        { id: 'prod-marination-mushroom-roasted-pa', item_no: '110188', ar: 'Marination Mushroom Roasted (PA)', en: 'Marination Mushroom Roasted (PA)', unit: 'kg', cat: 'sauces', cost: 243.94, color: '#f97316' },
+        { id: 'prod-mashed-potato-pa', item_no: '110337', ar: 'Mashed Potato (PA)', en: 'Mashed Potato (PA)', unit: 'kg', cat: 'veggies', cost: 67.45, color: '#06b6d4' },
+        { id: 'prod-mastic-vanilla-sauce-pa', item_no: '110367', ar: 'Mastic Vanilla Sauce (PA)', en: 'Mastic Vanilla Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 542.54, color: '#f97316' },
+        { id: 'prod-matcha-tins', item_no: '110354', ar: 'Matcha Tins', en: 'Matcha Tins', unit: 'pcs', cat: 'drinks', cost: 255.0, color: '#06b6d4' },
+        { id: 'prod-meatballs-pa', item_no: '110289', ar: 'MEATBALLS (PA)', en: 'MEATBALLS (PA)', unit: 'pcs', cat: 'beef', cost: 16.47, color: '#8b5cf6' },
+        { id: 'prod-medjool-honey-sauce-pa', item_no: '110280', ar: 'Medjool Honey Sauce (PA)', en: 'Medjool Honey Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 133.26, color: '#f97316' },
+        { id: 'prod-moroccan-salad-dressing-pa', item_no: '110044', ar: 'Moroccan salad Dressing  (PA)', en: 'Moroccan salad Dressing  (PA)', unit: 'kg', cat: 'sauces', cost: 342.85, color: '#f97316' },
+        { id: 'prod-mozzarella-sticks-marina-pa', item_no: '110181', ar: 'mozzarella sticks (marina) (PA)', en: 'mozzarella sticks (marina) (PA)', unit: 'pcs', cat: 'cheese', cost: 10.42, color: '#fde047' },
+        { id: 'prod-mushroom-roasted-pa', item_no: '110082', ar: 'Mushroom Roasted (PA)', en: 'Mushroom Roasted (PA)', unit: 'kg', cat: 'veggies', cost: 215.44, color: '#06b6d4' },
+        { id: 'prod-mushroom-white-sauce-pa', item_no: '110343', ar: 'Mushroom White Sauce (PA)', en: 'Mushroom White Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 149.81, color: '#f97316' },
+        { id: 'prod-mustard-mayonnaise-sauce-pa', item_no: '110366', ar: 'Mustard Mayonnaise Sauce (PA)', en: 'Mustard Mayonnaise Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 193.81, color: '#f97316' },
+        { id: 'prod-nutella-croissant-pa', item_no: '110251', ar: 'Nutella Croissant (PA)', en: 'Nutella Croissant (PA)', unit: 'pcs', cat: 'bakery', cost: 65.49, color: '#f59e0b' },
+        { id: 'prod-olive-dip-pa', item_no: '110346', ar: 'Olive Dip (PA)', en: 'Olive Dip (PA)', unit: 'kg', cat: 'veggies', cost: 298.52, color: '#06b6d4' },
+        { id: 'prod-onion-dobree-pa', item_no: '110096', ar: 'Onion ( dobree) (PA)', en: 'Onion ( dobree) (PA)', unit: 'kg', cat: 'veggies', cost: 31.25, color: '#06b6d4' },
+        { id: 'prod-onion-jam-pa', item_no: '110227', ar: 'Onion Jam (PA)', en: 'Onion Jam (PA)', unit: 'kg', cat: 'sauces', cost: 74.25, color: '#f97316' },
+        { id: 'prod-onion-rings-fried-pa', item_no: '110050', ar: 'Onion Rings Fried . (PA)', en: 'Onion Rings Fried . (PA)', unit: 'portion', cat: 'veggies', cost: 10.45, color: '#06b6d4' },
+        { id: 'prod-pan-swiss-croissant-pa', item_no: '110319', ar: 'Pan Swiss Croissant (PA)', en: 'Pan Swiss Croissant (PA)', unit: 'pcs', cat: 'bakery', cost: 47.1, color: '#f59e0b' },
+        { id: 'prod-pancake-dough-pa', item_no: '110195', ar: 'Pancake Dough (PA)', en: 'Pancake Dough (PA)', unit: 'kg', cat: 'bakery', cost: 55.93, color: '#f59e0b' },
+        { id: 'prod-pancake-paste-kg-pa', item_no: '110030', ar: 'Pancake Paste - Kg (PA)', en: 'Pancake Paste - Kg (PA)', unit: 'kg', cat: 'sauces', cost: 53.86, color: '#f97316' },
+        { id: 'prod-pastry-cream-chocolate-pa', item_no: '110305', ar: 'Pastry Cream Chocolate (PA)', en: 'Pastry Cream Chocolate (PA)', unit: 'kg', cat: 'drinks', cost: 452.62, color: '#06b6d4' },
+        { id: 'prod-pastry-cream-nutella-pa', item_no: '110250', ar: 'Pastry Cream Nutella (PA)', en: 'Pastry Cream Nutella (PA)', unit: 'kg', cat: 'prep', cost: 115.41, color: '#06b6d4' },
+        { id: 'prod-pesto-mayo-sauce-pa', item_no: '110158', ar: 'Pesto Mayo Sauce (PA)', en: 'Pesto Mayo Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 492.9, color: '#f97316' },
+        { id: 'prod-pesto-sauce-pa', item_no: '110141', ar: 'Pesto Sauce (PA)', en: 'Pesto Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 848.52, color: '#f97316' },
+        { id: 'prod-pickled-onion-pa', item_no: '110136', ar: 'Pickled Onion (PA)', en: 'Pickled Onion (PA)', unit: 'kg', cat: 'veggies', cost: 62.32, color: '#06b6d4' },
+        { id: 'prod-pistachio-croissant-pa', item_no: '110246', ar: 'Pistachio Croissant (PA)', en: 'Pistachio Croissant (PA)', unit: 'pcs', cat: 'bakery', cost: 90.65, color: '#f59e0b' },
+        { id: 'prod-pistachio-pesto-pa', item_no: '110290', ar: 'PISTACHIO PESTO (PA)', en: 'PISTACHIO PESTO (PA)', unit: 'kg', cat: 'prep', cost: 771.79, color: '#06b6d4' },
+        { id: 'prod-pistachio-sugar-pa', item_no: '110356', ar: 'Pistachio Sugar (PA)', en: 'Pistachio Sugar (PA)', unit: 'kg', cat: 'prep', cost: 0.0, color: '#06b6d4' },
+        { id: 'prod-pizza-dough-pa', item_no: '110252', ar: 'Pizza Dough (PA)', en: 'Pizza Dough (PA)', unit: 'pcs', cat: 'bakery', cost: 18.9, color: '#f59e0b' },
+        { id: 'prod-pumpkin-pie-spice-pa', item_no: '110175', ar: 'Pumpkin Pie Spice (PA)', en: 'Pumpkin Pie Spice (PA)', unit: 'kg', cat: 'bakery', cost: 252.52, color: '#f59e0b' },
+        { id: 'prod-pumpkin-sauce-pa', item_no: '110176', ar: 'Pumpkin Sauce (PA)', en: 'Pumpkin Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 0.59, color: '#f97316' },
+        { id: 'prod-pumpkin-spice-sauce-pa', item_no: '110177', ar: 'Pumpkin Spice Sauce (PA)', en: 'Pumpkin Spice Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 172.13, color: '#f97316' },
+        { id: 'prod-queen-s-salad-dressing-pa', item_no: '110043', ar: 'queen\'s salad Dressing  (PA)', en: 'queen\'s salad Dressing  (PA)', unit: 'kg', cat: 'sauces', cost: 369.31, color: '#f97316' },
+        { id: 'prod-quinoa-sauce-pa', item_no: '110084', ar: 'Quinoa Sauce (PA)', en: 'Quinoa Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 169.91, color: '#f97316' },
+        { id: 'prod-ranch-sauce-kg-pa', item_no: '110031', ar: 'Ranch Sauce - Kg (PA)', en: 'Ranch Sauce - Kg (PA)', unit: 'kg', cat: 'sauces', cost: 81.51, color: '#f97316' },
+        { id: 'prod-raspberry-puree-pa', item_no: '110266', ar: 'Raspberry Puree (PA)', en: 'Raspberry Puree (PA)', unit: 'kg', cat: 'sauces', cost: 815.4, color: '#f97316' },
+        { id: 'prod-rib-eye-pa', item_no: '110156', ar: 'Rib Eye (PA)', en: 'Rib Eye (PA)', unit: 'portion', cat: 'beef', cost: 50.95, color: '#8b5cf6' },
+        { id: 'prod-roast-beef-pa-pa', item_no: '110149', ar: 'Roast Beef (PA) (PA)', en: 'Roast Beef (PA) (PA)', unit: 'portion', cat: 'beef', cost: 52.59, color: '#8b5cf6' },
+        { id: 'prod-roasted-pepper-mushroom-pa', item_no: '110140', ar: 'Roasted Pepper Mushroom (PA)', en: 'Roasted Pepper Mushroom (PA)', unit: 'kg', cat: 'veggies', cost: 338.43, color: '#06b6d4' },
+        { id: 'prod-roasted-potato-pa', item_no: '110197', ar: 'Roasted Potato (PA)', en: 'Roasted Potato (PA)', unit: 'kg', cat: 'veggies', cost: 43.31, color: '#06b6d4' },
+        { id: 'prod-rosted-turkey-pa', item_no: '110143', ar: 'Rosted Turkey (PA)', en: 'Rosted Turkey (PA)', unit: 'portion', cat: 'chicken', cost: 52.72, color: '#22c55e' },
+        { id: 'prod-round-ciabatta-pa', item_no: '110193', ar: 'Round Ciabatta (PA)', en: 'Round Ciabatta (PA)', unit: 'pcs', cat: 'prep', cost: 2.71, color: '#06b6d4' },
+        { id: 'prod-round-pretzel-bread-pa', item_no: '110262', ar: 'Round Pretzel Bread (PA)', en: 'Round Pretzel Bread (PA)', unit: 'pcs', cat: 'bakery', cost: 2.98, color: '#f59e0b' },
+        { id: 'prod-salted-caramel-sauce-pa', item_no: '110124', ar: 'Salted Caramel Sauce (PA)', en: 'Salted Caramel Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 122.81, color: '#f97316' },
+        { id: 'prod-salted-hazelnut-sauce-pa', item_no: '110232', ar: 'Salted hazelnut Sauce (PA)', en: 'Salted hazelnut Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 423.33, color: '#f97316' },
+        { id: 'prod-salted-vanilla-bean-pa', item_no: '110174', ar: 'Salted Vanilla Bean (PA)', en: 'Salted Vanilla Bean (PA)', unit: 'kg', cat: 'prep', cost: 537.47, color: '#06b6d4' },
+        { id: 'prod-sambosak-cheese-pa', item_no: '110332', ar: 'Sambosak Cheese (PA)', en: 'Sambosak Cheese (PA)', unit: 'pcs', cat: 'cheese', cost: 8.18, color: '#fde047' },
+        { id: 'prod-sauce-marinara-pa', item_no: '110134', ar: 'Sauce Marinara (PA)', en: 'Sauce Marinara (PA)', unit: 'kg', cat: 'sauces', cost: 113.91, color: '#f97316' },
+        { id: 'prod-sauce-sriracha-kg-pa', item_no: '110051', ar: 'Sauce Sriracha Kg (PA)', en: 'Sauce Sriracha Kg (PA)', unit: 'kg', cat: 'sauces', cost: 162.95, color: '#f97316' },
+        { id: 'prod-shakshouka-sauce-pa', item_no: '110347', ar: 'Shakshouka Sauce (PA)', en: 'Shakshouka Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 153.27, color: '#f97316' },
+        { id: 'prod-shamy-bread-pa', item_no: '110348', ar: 'Shamy Bread (PA)', en: 'Shamy Bread (PA)', unit: 'pcs', cat: 'bakery', cost: 1.65, color: '#f59e0b' },
+        { id: 'prod-short-ribs-pa', item_no: '110147', ar: 'Short Ribs (PA)', en: 'Short Ribs (PA)', unit: 'portion', cat: 'beef', cost: 89.79, color: '#8b5cf6' },
+        { id: 'prod-smokey-mayo-sauce-pa-pa', item_no: '110165', ar: 'Smokey Mayo Sauce (PA) (PA)', en: 'Smokey Mayo Sauce (PA) (PA)', unit: 'kg', cat: 'sauces', cost: 138.25, color: '#f97316' },
+        { id: 'prod-sour-cream-mix-pa', item_no: '110135', ar: 'Sour Cream Mix (PA)', en: 'Sour Cream Mix (PA)', unit: 'kg', cat: 'sauces', cost: 246.65, color: '#f97316' },
+        { id: 'prod-split-sauce-pa', item_no: '110145', ar: 'SPLIT Sauce (PA)', en: 'SPLIT Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 123.91, color: '#f97316' },
+        { id: 'prod-strawberry-sauce-pa', item_no: '110264', ar: 'Strawberry Sauce (PA)', en: 'Strawberry Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 162.04, color: '#f97316' },
+        { id: 'prod-sundried-tomato-pesto-pa', item_no: '110295', ar: 'SUNDRIED TOMATO PESTO (PA)', en: 'SUNDRIED TOMATO PESTO (PA)', unit: 'kg', cat: 'prep', cost: 732.91, color: '#06b6d4' },
+        { id: 'prod-sweet-chili-mayo-sauce-pa', item_no: '110228', ar: 'Sweet Chili Mayo Sauce (PA)', en: 'Sweet Chili Mayo Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 127.54, color: '#f97316' },
+        { id: 'prod-sweet-relish-pa', item_no: '110128', ar: 'Sweet Relish (PA)', en: 'Sweet Relish (PA)', unit: 'kg', cat: 'prep', cost: 83.37, color: '#06b6d4' },
+        { id: 'prod-taztaziki-sauce-pa', item_no: '110365', ar: 'Taztaziki Sauce (PA)', en: 'Taztaziki Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 234.87, color: '#f97316' },
+        { id: 'prod-thyme-balsamic-vinaigrette-pa', item_no: '110189', ar: 'Thyme Balsamic Vinaigrette (PA)', en: 'Thyme Balsamic Vinaigrette (PA)', unit: 'kg', cat: 'sauces', cost: 122.1, color: '#f97316' },
+        { id: 'prod-thyme-goat-olive-pa', item_no: '110306', ar: 'Thyme Goat Olive (PA)', en: 'Thyme Goat Olive (PA)', unit: 'kg', cat: 'veggies', cost: 360.63, color: '#06b6d4' },
+        { id: 'prod-toast-bread-pa', item_no: '110324', ar: 'Toast Bread (PA)', en: 'Toast Bread (PA)', unit: 'kg', cat: 'bakery', cost: 301.98, color: '#f59e0b' },
+        { id: 'prod-tomato-pizza-sauce-pa', item_no: '110253', ar: 'Tomato Pizza Sauce (PA)', en: 'Tomato Pizza Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 115.98, color: '#f97316' },
+        { id: 'prod-tomato-pizza-sauce-split-pa', item_no: '110321', ar: 'Tomato Pizza Sauce Split (PA)', en: 'Tomato Pizza Sauce Split (PA)', unit: 'kg', cat: 'sauces', cost: 127.72, color: '#f97316' },
+        { id: 'prod-tormaline-pa', item_no: '110304', ar: 'Tormaline (PA)', en: 'Tormaline (PA)', unit: 'kg', cat: 'prep', cost: 17.23, color: '#06b6d4' },
+        { id: 'prod-truffle-mayo-pa', item_no: '110237', ar: 'truffle mayo (PA)', en: 'truffle mayo (PA)', unit: 'kg', cat: 'sauces', cost: 324.61, color: '#f97316' },
+        { id: 'prod-truffle-mayo-test-pa', item_no: '110184', ar: 'truffle mayo test (PA)', en: 'truffle mayo test (PA)', unit: 'kg', cat: 'sauces', cost: 330.26, color: '#f97316' },
+        { id: 'prod-tuna-mix-pa', item_no: '110166', ar: 'Tuna Mix (PA)', en: 'Tuna Mix (PA)', unit: 'pcs', cat: 'sauces', cost: 42.82, color: '#f97316' },
+        { id: 'prod-tuna-mustard-pa', item_no: '110323', ar: 'Tuna Mustard (PA)', en: 'Tuna Mustard (PA)', unit: 'pcs', cat: 'chicken', cost: 27.78, color: '#22c55e' },
+        { id: 'prod-turkey-pastrame-pa', item_no: '110296', ar: 'Turkey pastrame (PA)', en: 'Turkey pastrame (PA)', unit: 'pcs', cat: 'chicken', cost: 50.35, color: '#22c55e' },
+        { id: 'prod-veal-escaolpe-pa', item_no: '110345', ar: 'Veal Escaolpe (PA)', en: 'Veal Escaolpe (PA)', unit: 'pcs', cat: 'prep', cost: 116.63, color: '#06b6d4' },
+        { id: 'prod-vineleaves-pa', item_no: '110350', ar: 'Vineleaves (PA)', en: 'Vineleaves (PA)', unit: 'kg', cat: 'prep', cost: 130.87, color: '#06b6d4' },
+        { id: 'prod-watermelon-pa', item_no: '110229', ar: 'Watermelon (PA)', en: 'Watermelon (PA)', unit: 'pcs', cat: 'veggies', cost: 17.54, color: '#06b6d4' },
+        { id: 'prod-white-chocolate-sauce-pa', item_no: '110123', ar: 'white chocolate sauce (PA)', en: 'white chocolate sauce (PA)', unit: 'kg', cat: 'sauces', cost: 199.52, color: '#f97316' },
+        { id: 'prod-white-sauce-pa', item_no: '110341', ar: 'White Sauce (PA)', en: 'White Sauce (PA)', unit: 'kg', cat: 'sauces', cost: 222.15, color: '#f97316' }
       ],
       /* ── Raw Ingredients (الخامات الرئيسية) ── */
       ings: {
@@ -3242,7 +3500,7 @@
     };
 
     /* Helper functions */
-        function normalizeDateIso(val) {
+    function normalizeDateIso(val) {
       if (!val) return todayStr();
       if (typeof val === 'number') {
         const d = new Date(Math.round((val - 25569) * 86400 * 1000));
@@ -3267,17 +3525,17 @@
     function todayStr() {
       return new Date().toISOString().split('T')[0];
     }
-    function fmt(v) {
-      return (+v || 0).toLocaleString(S.lang === 'ar' ? 'ar-EG' : 'en-US', { maximumFractionDigits: 1 });
+    function fmt(v, maxDec = 1) {
+      return (+v || 0).toLocaleString('en-US', { maximumFractionDigits: maxDec });
     }
     function f2(v) {
       return (+v || 0).toFixed(2);
     }
 
     /* ============================================================
-       LOCAL STORAGE — PERSISTENT DATA
+       LOCAL STORAGE — PERSISTENT DATA (V2 WITH ALL 74 BOM RECIPES)
     ============================================================ */
-    const LS_KEY = 'ck-erp-v1';
+    const LS_KEY = 'ck-erp-v2';
 
     function saveState() {
       try {
@@ -3288,7 +3546,8 @@
           wastes: S.wastes || [],
           ings: S.ings,
           products: S.products,
-          recipes: S.recipes
+          recipes: S.recipes,
+          taztikiRecords: S.taztikiRecords || []
         };
         localStorage.setItem(LS_KEY, JSON.stringify(data));
       } catch (e) { console.warn('saveState failed:', e); }
@@ -3296,23 +3555,44 @@
 
     function loadState() {
       try {
-        const raw = localStorage.getItem(LS_KEY);
+        const raw = localStorage.getItem(LS_KEY) || localStorage.getItem('ck-erp-v1');
         if (!raw) return false;
         const data = JSON.parse(raw);
-        if (data.orders !== undefined) S.orders = data.orders;
-        if (data.POs !== undefined) S.POs = data.POs;
-        if (data.invoices !== undefined) S.invoices = data.invoices;
-        if (data.wastes !== undefined) S.wastes = data.wastes;
-        if (data.ings !== undefined) S.ings = data.ings;
-        if (data.products !== undefined && Array.isArray(data.products) && data.products.length >= 15) {
-          S.products = data.products.map(p => ({
-            ...p,
-            ar: p.en || p.ar,
-            en: p.en || p.ar
-          }));
+        if (data.orders !== undefined && Array.isArray(data.orders)) S.orders = data.orders;
+        if (data.POs !== undefined && Array.isArray(data.POs)) S.POs = data.POs;
+        if (data.invoices !== undefined && Array.isArray(data.invoices)) S.invoices = data.invoices;
+        if (data.wastes !== undefined && Array.isArray(data.wastes)) S.wastes = data.wastes;
+        if (data.taztikiRecords !== undefined && Array.isArray(data.taztikiRecords)) S.taztikiRecords = data.taztikiRecords;
+
+        // Smart merge for raw ingredients: keep all 139 master ings while adopting custom stock/price
+        if (data.ings && typeof data.ings === 'object') {
+          Object.entries(data.ings).forEach(([iid, idata]) => {
+            if (S.ings[iid]) {
+              if (idata.stock !== undefined) S.ings[iid].stock = idata.stock;
+              if (idata.price !== undefined) S.ings[iid].price = idata.price;
+            } else {
+              S.ings[iid] = idata;
+            }
+          });
         }
-        if (data.recipes !== undefined) S.recipes = data.recipes;
-        if (data.taztikiRecords !== undefined) S.taztikiRecords = data.taztikiRecords;
+
+        // Smart merge for recipes: keep all 74 master recipes
+        if (data.recipes && typeof data.recipes === 'object') {
+          Object.entries(data.recipes).forEach(([pid, rdata]) => {
+            if (!S.recipes[pid] || (rdata.ings && rdata.ings.length)) {
+              S.recipes[pid] = rdata;
+            }
+          });
+        }
+
+        // Preserve product custom costs
+        if (data.products !== undefined && Array.isArray(data.products)) {
+          const costMap = {};
+          data.products.forEach(p => { if (p && p.id) costMap[p.id] = p.cost; });
+          S.products.forEach(p => {
+            if (costMap[p.id] !== undefined) p.cost = costMap[p.id];
+          });
+        }
         return true;
       } catch (e) { console.warn('loadState failed:', e); return false; }
     }
@@ -3361,7 +3641,7 @@
       const hdrDate = document.getElementById('hdr-date');
       if (hdrDate) {
         hdrDate.textContent = new Date().toLocaleDateString(
-          isAr() ? 'ar-EG' : 'en-GB',
+          'en-GB',
           { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' }
         );
       }
@@ -3692,19 +3972,22 @@
     }
 
     /* ============================================================
-       BRANCH ORDERS & INVENTORY SYNC
+       BRANCH ORDERS — DYNAMIC PICKER & INDIVIDUAL LOG OVERHAUL
     ============================================================ */
+    let _manualOrderItems = {};
+    let _ordersLogCollapsed = false;
+
     function syncBranchDropdowns() {
       const allBranches = (S.branches && S.branches.length) ? S.branches : [
         'فرع واتر واي (Water Way)', 'فرع أب تاون (Uptown)', 'فرع O1 (O1)', 'فرع المعادي (The Field)',
         'فرع ميفيدا (Mivida)', 'فرع سوديك (Sodic)', 'فرع نيو جيزة (New Giza)', 'فرع نادي نيو جيزة (New Giza Club)',
         'فرع بارك ستريت (Park St)', 'فرع مول العرب (Mall of Arabia)', 'فرع بالم هيلز (Palm Hills)', 'فرع كود (Kode)',
         'فرع دهشور (Dahshour)', 'فرع مدينتي (Madinty)', 'فرع ديستريكت 5 (District 5)', 'فرع إل بوسكو (IL Bosco)',
-        'فرع D2 (Drive 02)', 'فرع جولف قطامية (Golf Katameya)', 'فرع Core WOC', 'فرع Core PH',
+        'فرع D2 (Drive 02)', 'فرع قطامية (Katameya)', 'فرع الجولف (NNG Golf)', 'فرع Core WOC', 'فرع Core PH',
         'فرع اسبليت واتر واي (Split Water Way)', 'فرع اسبليت O1 (Split O1)', 'فرع اسبليت نيو جيزة (Split New Giza)'
       ];
+      S.branches = allBranches;
 
-      // Sync Order Form Branch Select
       const oBranch = document.getElementById('o-branch');
       if (oBranch && oBranch.options.length <= 1) {
         const curVal = oBranch.value;
@@ -3713,7 +3996,6 @@
         if (curVal) oBranch.value = curVal;
       }
 
-      // Sync Filter Branch Select
       const fBranch = document.getElementById('f-branch');
       if (fBranch && fBranch.options.length <= 1) {
         const curFVal = fBranch.value;
@@ -3723,27 +4005,149 @@
       }
     }
 
+    function initManualItemPicker() {
+      const select = document.getElementById('o-item-select');
+      if (!select || select.options.length > 1) return;
+
+      const cats = {
+        sauces: { label: isAr() ? '🥣 صوصات وتتبيلات' : '🥣 Sauces', items: [] },
+        beef: { label: isAr() ? '🥩 لحوم وبرجر' : '🥩 Beef & Burgers', items: [] },
+        chicken: { label: isAr() ? '🍗 دواجن وفراخ' : '🍗 Chicken', items: [] },
+        bakery: { label: isAr() ? '🥐 مخبوزات وعجائن' : '🥐 Bakery', items: [] },
+        cheese: { label: isAr() ? '🧀 أجبان وألبان' : '🧀 Cheeses', items: [] },
+        veggies: { label: isAr() ? '🥗 مقبلات وخضار' : '🥗 Veggies', items: [] },
+        drinks: { label: isAr() ? '🍹 مشروبات وعصائر' : '🍹 Drinks', items: [] },
+        prep: { label: isAr() ? '📦 تجهيزات عامة' : '📦 General Prep', items: [] }
+      };
+
+      S.products.forEach(p => {
+        const c = cats[p.cat] || cats.prep;
+        c.items.push(p);
+      });
+
+      let html = `<option value="">${T('-- ابحث أو اختر الصنف (171 صنف) --', '-- Select Product (171 items) --')}</option>`;
+      Object.values(cats).forEach(grp => {
+        if (grp.items.length) {
+          html += `<optgroup label="${grp.label}">`;
+          grp.items.forEach(p => {
+            html += `<option value="${p.id}">${pname(p)} (${p.unit}) — ${f2(p.cost)} ${cur()}</option>`;
+          });
+          html += `</optgroup>`;
+        }
+      });
+      select.innerHTML = html;
+    }
+
+    function addManualOrderItem() {
+      const select = document.getElementById('o-item-select');
+      const qtyInput = document.getElementById('o-item-qty');
+      const pid = select.value;
+      const qty = parseFloat(qtyInput.value) || 0;
+
+      if (!pid) {
+        toast(T('اختر الصنف المراد إضافته أولاً', 'Please select a product'), 'warning');
+        return;
+      }
+      if (qty <= 0) {
+        toast(T('أدخل كمية أكبر من صفر', 'Enter quantity > 0'), 'warning');
+        return;
+      }
+
+      _manualOrderItems[pid] = (_manualOrderItems[pid] || 0) + qty;
+      renderManualSelectedTable();
+      qtyInput.value = '1';
+      select.value = '';
+      select.focus();
+    }
+
+    function updateManualItemQty(pid, newQty) {
+      const q = parseFloat(newQty) || 0;
+      if (q <= 0) {
+        delete _manualOrderItems[pid];
+      } else {
+        _manualOrderItems[pid] = q;
+      }
+      renderManualSelectedTable();
+    }
+
+    function removeManualOrderItem(pid) {
+      delete _manualOrderItems[pid];
+      renderManualSelectedTable();
+    }
+
+    function clearManualOrderItems() {
+      _manualOrderItems = {};
+      renderManualSelectedTable();
+    }
+
+    function renderManualSelectedTable() {
+      const wrap = document.getElementById('o-selected-wrap');
+      const tbody = document.getElementById('o-selected-tbody');
+      const totalEl = document.getElementById('o-manual-total-cost');
+      const entries = Object.entries(_manualOrderItems);
+
+      if (!entries.length) {
+        if (wrap) wrap.style.display = 'none';
+        return;
+      }
+      if (wrap) wrap.style.display = 'block';
+
+      let grandTotal = 0;
+      tbody.innerHTML = entries.map(([pid, qty]) => {
+        const p = S.products.find(x => x.id === pid);
+        const name = p ? pname(p) : pid;
+        const unit = p ? p.unit : 'kg';
+        const cost = p ? p.cost : 0;
+        const lineTotal = qty * cost;
+        grandTotal += lineTotal;
+
+        return `
+          <tr>
+            <td style="color:#fff;font-weight:700">${name}</td>
+            <td style="text-align:center">
+              <input type="number" step="any" min="0.01" value="${qty}" class="input" style="width:70px;padding:3px 6px;text-align:center;font-size:11.5px;font-weight:700" onchange="updateManualItemQty('${pid}', this.value)" />
+            </td>
+            <td style="text-align:center;color:#94a3b8">${unit}</td>
+            <td style="text-align:center;color:#4ade80;font-weight:700">${fmt(Math.round(lineTotal))}</td>
+            <td style="text-align:center">
+              <button type="button" onclick="removeManualOrderItem('${pid}')" style="background:none;border:none;color:#f87171;cursor:pointer;font-weight:700;font-size:13px" title="حذف الصنف">✕</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      if (totalEl) totalEl.textContent = `${fmt(Math.round(grandTotal))} ${cur()}`;
+    }
+
+    function toggleOrdersListCollapse() {
+      _ordersLogCollapsed = !_ordersLogCollapsed;
+      const container = document.getElementById('orders-log-container');
+      const textEl = document.getElementById('toggle-orders-log-text');
+      if (container) {
+        container.style.display = _ordersLogCollapsed ? 'none' : 'block';
+      }
+      if (textEl) {
+        textEl.textContent = _ordersLogCollapsed ? '👁️ إظهار السجل الفردي' : '👁️ إخفاء السجل الفردي';
+      }
+    }
+
+    function toggleOrderDetailRow(orderId) {
+      const row = document.getElementById('order-detail-row-' + orderId);
+      if (row) {
+        row.style.display = (row.style.display === 'none' || !row.style.display) ? 'table-row' : 'none';
+      }
+    }
+
     function renderOrders() {
       syncBranchDropdowns();
+      initManualItemPicker();
 
       const oDateEl = document.getElementById('o-date');
       if (oDateEl && !oDateEl.value) oDateEl.value = todayStr();
 
-      const oProdsEl = document.getElementById('o-prods');
-      if (oProdsEl && (!oProdsEl.children.length || oProdsEl.children.length !== S.products.length)) {
-        oProdsEl.innerHTML = S.products.map(p => `
-          <div style="display:flex;align-items:center;gap:10px">
-            <span style="width:9px;height:9px;border-radius:50%;background:${p.color};flex-shrink:0;display:inline-block"></span>
-            <label style="font-size:13.5px;color:#cbd5e1;flex:1">${pname(p)}</label>
-            <input type="number" min="0" value="0" class="input" id="oq-${p.id}" style="width:95px;text-align:center;padding:7px 10px"/>
-          </div>
-        `).join('');
-      }
-
       const fb = (document.getElementById('f-branch')?.value || '').trim();
       const fd = (document.getElementById('f-date')?.value || '').trim();
 
-      // Show/Hide Clear Date button depending on whether date filter is active
       const btnClearDate = document.getElementById('btn-clear-date');
       if (btnClearDate) {
         btnClearDate.style.display = fd ? 'inline-flex' : 'none';
@@ -3757,6 +4161,7 @@
         return true;
       });
 
+      // ── Aggregated Table ──
       const agg = {};
       S.products.forEach(p => agg[p.id] = { p, tot: 0, brs: new Set() });
       filtered.forEach(o => {
@@ -3788,37 +4193,107 @@
 
       document.getElementById('agg-body').innerHTML = aggHtml || `<tr><td colspan="5" class="text-muted" style="text-align:center;padding:24px">${T('لا توجد طلبات مسجلة تطابق الفلتر الحالي', 'No orders matching current filter')}</td></tr>`;
 
-      document.getElementById('orders-list').innerHTML = filtered.map(o => {
-        const oDateNorm = normalizeDateIso(o.date);
-        const total = Object.entries(o.items || {}).reduce((s, [pid, q]) => {
-          const p = S.products.find(x => x.id === pid);
-          return s + (p ? q * p.cost : 0);
-        }, 0);
-        const items = Object.entries(o.items || {}).filter(([, v]) => v > 0).map(([pid, q]) => {
-          const p = S.products.find(x => x.id === pid);
-          return `${q} ${p ? p.unit : ''} × <b>${p ? pname(p) : pid}</b>`;
-        }).join(' &nbsp;|&nbsp; ');
+      // ── Sleek Individual Orders Log Table ──
+      const indivTbody = document.getElementById('orders-tbl-body');
+      const indivEmpty = document.getElementById('orders-list-empty');
+      const countBadge = document.getElementById('indiv-orders-count-badge');
+      if (countBadge) countBadge.textContent = `${filtered.length} ${T('طلبية', 'orders')}`;
 
-        return `
-          <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:16px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);flex-wrap:wrap;gap:12px;margin-bottom:10px">
-            <div style="flex:1;min-width:280px">
-              <div style="display:flex;align-items:center;gap:10px;margin-bottom:7px;flex-wrap:wrap">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-                <span style="font-weight:800;color:#ffffff;font-size:14.5px">${o.branch}</span>
-                <span class="chip" style="background:rgba(56,189,248,0.12);color:#38bdf8;font-weight:700;font-family:monospace">📅 ${oDateNorm}</span>
-              </div>
-              <div class="text-muted" style="font-size:12.5px;line-height:1.6">${items || '—'}</div>
-              ${o.notes ? `<div style="font-size:12px;color:#94a3b8;margin-top:6px;background:rgba(0,0,0,0.2);padding:4px 8px;border-radius:6px;display:inline-block">📝 ${o.notes}</div>` : ''}
-            </div>
-            <div style="text-align:end;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:6px">
-              <div class="text-gradient font-bold" style="font-size:15px">${fmt(Math.round(total))} ${cur()}</div>
-              <button class="btn btn-sm" style="font-size:11.5px;color:#f87171;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);padding:4px 10px;border-radius:6px;cursor:pointer;font-weight:700" onclick="delOrder(${o.id})">
-                🗑️ ${T('حذف الطلبية', 'Delete Order')}
-              </button>
-            </div>
-          </div>
-        `;
-      }).join('') || `<div class="empty-state"><p>${T('لا توجد طلبات تطابق معايير الفلترة', 'No orders match criteria')}</p></div>`;
+      if (!filtered.length) {
+        if (indivTbody) indivTbody.innerHTML = '';
+        if (indivEmpty) indivEmpty.style.display = 'block';
+        return;
+      }
+      if (indivEmpty) indivEmpty.style.display = 'none';
+
+      if (indivTbody) {
+        indivTbody.innerHTML = filtered.map((o, idx) => {
+          const oDateNorm = normalizeDateIso(o.date);
+          const totalVal = Object.entries(o.items || {}).reduce((s, [pid, q]) => {
+            const p = S.products.find(x => x.id === pid);
+            return s + (p ? q * p.cost : 0);
+          }, 0);
+
+          const entries = Object.entries(o.items || {}).filter(([, v]) => v > 0);
+          const distinctCount = entries.length;
+          const totalUnits = entries.reduce((s, [, q]) => s + q, 0);
+
+          // Check if burger sauce is part of items
+          const bSauceQty = o.items && o.items['burger-sauce'] ? o.items['burger-sauce'] : 0;
+          const sauceBadge = bSauceQty > 0
+            ? `<span class="badge" style="background:rgba(249,115,22,0.18);color:#fb923c;font-weight:700">🍔 ${bSauceQty} kg</span>`
+            : `<span class="text-muted" style="font-size:11px">—</span>`;
+
+          // Generate nested sub-table breakdown
+          const subRows = entries.map(([pid, q]) => {
+            const p = S.products.find(x => x.id === pid);
+            const pTitle = p ? pname(p) : pid;
+            const pUnit = p ? p.unit : 'kg';
+            const pCost = p ? p.cost : 0;
+            return `
+              <tr style="background:rgba(15,23,42,0.6);border-bottom:1px solid rgba(255,255,255,0.04)">
+                <td style="padding:6px 12px;color:#e2e8f0">${pTitle}</td>
+                <td style="padding:6px 12px;text-align:center;font-weight:700;color:#38bdf8">${fmt(q)}</td>
+                <td style="padding:6px 12px;text-align:center;color:#94a3b8;font-size:11px">${pUnit}</td>
+                <td style="padding:6px 12px;text-align:center;color:#fbbf24">${f2(pCost)}</td>
+                <td style="padding:6px 12px;text-align:center;color:#4ade80;font-weight:700">${fmt(Math.round(q * pCost))} ${cur()}</td>
+              </tr>
+            `;
+          }).join('');
+
+          return `
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+              <td style="text-align:center;color:#64748b;font-size:11.5px">${idx + 1}</td>
+              <td>
+                <div style="font-weight:800;color:#fff;font-size:13.5px">${o.branch}</div>
+                ${o.notes ? `<div style="font-size:11px;color:#94a3b8;margin-top:2px">📝 ${o.notes}</div>` : ''}
+              </td>
+              <td style="text-align:center">
+                <span class="chip" style="background:rgba(56,189,248,0.12);color:#38bdf8;font-family:monospace;font-size:11px">${oDateNorm}</span>
+              </td>
+              <td style="text-align:center">${sauceBadge}</td>
+              <td style="text-align:center">
+                <span class="badge badge-green" style="font-weight:700">${distinctCount} ${T('صنف', 'items')} (${fmt(totalUnits)} ${T('وحدة', 'units')})</span>
+              </td>
+              <td style="text-align:center;font-weight:800;color:#4ade80;font-size:13px">${fmt(Math.round(totalVal))} ${cur()}</td>
+              <td style="text-align:center">
+                <div class="flex gap-1.5 justify-center">
+                  <button class="btn btn-secondary btn-sm" style="font-size:11px;padding:3px 7px" onclick="toggleOrderDetailRow('${o.id}')" title="عرض تفاصيل الأصناف">
+                    📋 ${T('الأصناف', 'Items')}
+                  </button>
+                  <button class="btn btn-sm" style="font-size:11px;padding:3px 7px;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);color:#f87171" onclick="delOrder(${o.id})" title="حذف الطلبية">
+                    🗑️
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr id="order-detail-row-${o.id}" style="display:none;background:rgba(0,0,0,0.25)">
+              <td colspan="7" style="padding:10px 14px">
+                <div style="background:rgba(15,23,42,0.85);border:1px solid rgba(56,189,248,0.2);border-radius:10px;padding:12px">
+                  <div class="flex justify-between items-center mb-2">
+                    <span style="font-size:12px;font-weight:700;color:#38bdf8">📦 تفاصيل أصناف طلبيـة ${o.branch} (${oDateNorm})</span>
+                    <span class="text-muted" style="font-size:11.5px">إجمالي: <b style="color:#4ade80">${fmt(Math.round(totalVal))} ${cur()}</b></span>
+                  </div>
+                  <div class="tbl-wrap" style="max-height:180px">
+                    <table class="tbl" style="font-size:11.5px">
+                      <thead>
+                        <tr>
+                          <th>${T('الصنف', 'Product')}</th>
+                          <th style="width:75px;text-align:center">${T('الكمية', 'Qty')}</th>
+                          <th style="width:60px;text-align:center">${T('الوحدة', 'Unit')}</th>
+                          <th style="width:75px;text-align:center">${T('السعر', 'Price')}</th>
+                          <th style="width:90px;text-align:center">${T('الإجمالي', 'Total')}</th>
+                        </tr>
+                      </thead>
+                      <tbody>${subRows}</tbody>
+                    </table>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
     }
 
     function submitOrder() {
@@ -3828,13 +4303,8 @@
         toast(T('يرجى اختيار الفرع أولاً', 'Please select a branch'), 'error');
         return;
       }
-      const items = {};
-      S.products.forEach(p => {
-        const val = parseFloat(document.getElementById('oq-' + p.id)?.value) || 0;
-        if (val > 0) items[p.id] = val;
-      });
-      if (!Object.keys(items).length) {
-        toast(T('يرجى كتابة كمية واحدة على الأقل لأي منتج', 'Please enter at least one quantity'), 'error');
+      if (!Object.keys(_manualOrderItems).length) {
+        toast(T('يرجى إضافة صنف واحد على الأقل للطلبية باستخدام زر (+) أعلاه', 'Please add at least one product using (+) button'), 'error');
         return;
       }
 
@@ -3842,11 +4312,16 @@
         id: Date.now(),
         branch: branch,
         date: date,
-        items: items,
+        items: { ..._manualOrderItems },
         notes: document.getElementById('o-notes').value || T('تسجيل يدوي', 'Manual entry')
       });
+
+      _manualOrderItems = {};
+      renderManualSelectedTable();
+      document.getElementById('o-notes').value = '';
+
       saveState();
-      toast(T('✅ تم تسجيل الطلبية وتحديث حسابات الإنتاج والمخزون!', '✅ Order recorded and synced!'));
+      toast(T('✅ تم بنجاح تسجيل الطلبية وتحديث حسابات الإنتاج!', '✅ Order recorded and synced!'));
       renderOrders();
       if (typeof renderProd === 'function') renderProd();
     }
@@ -3884,8 +4359,7 @@
         toast(T('لا توجد أي طلبيات مسجلة حالياً', 'No orders to delete'), 'info');
         return;
       }
-      if (!confirm(T(`⚠️ تحذير: هل أنت متأكد من مسح جميع الطلبيات المسجلة بالكامل (${S.orders.length} طلبية)؟
-لا يمكن التراجع عن هذا الإجراء!`, `⚠️ Are you sure you want to delete all ${S.orders.length} orders?`))) return;
+      if (!confirm(T(`⚠️ تحذير: هل أنت متأكد من مسح جميع الطلبيات المسجلة بالكامل (${S.orders.length} طلبية)؟\nلا يمكن التراجع عن هذا الإجراء!`, `⚠️ Are you sure you want to delete all ${S.orders.length} orders?`))) return;
       S.orders = [];
       S.taztikiRecords = [];
       saveState();
@@ -4056,7 +4530,7 @@
       const cat = document.getElementById('prod-cat-filter')?.value || '';
       const search = (document.getElementById('prod-search-input')?.value || '').trim().toLowerCase();
 
-      let prods = S.products.filter(p => p.id !== 'taztiki-sauce');
+      let prods = S.products.filter(p => p.id !== 'burger-sauce');
       if (cat) prods = prods.filter(p => p.cat === cat);
       if (search) prods = prods.filter(p => (p.ar && p.ar.toLowerCase().includes(search)) || (p.en && p.en.toLowerCase().includes(search)));
 
@@ -4112,7 +4586,7 @@
         { v: fmt(totalUnits), l: T(`إجمالي الإنتاج والتوريد (${monthStr})`, `Total Monthly Units (${monthStr})`), c: 'kpi-cyan', sub: `${prods.length} ${T('صنف نشط', 'active items')}` },
         { v: fmt(Math.round(totalValue)) + ' ' + cur(), l: T('القيمة التقديرية للإنتاج', 'Est. Production Value'), c: 'kpi-amber', sub: T('حسب تكلفة الأصناف', 'Based on item cost') },
         { v: days.length + ' ' + T('يوم', 'Days'), l: T('نطاق الأيام المفحوص', 'Active Days Scope'), c: 'kpi-green', sub: T(`من يوم ${days[0]} إلى ${days[days.length - 1]}`, `Day ${days[0]} to ${days[days.length - 1]}`) },
-        { v: fmt(tazTotal, 1) + ' L', l: T('Taztiki Sauce (صوص البرجر)', 'Taztiki Sauce Shipped'), c: 'kpi-purple', sub: T('مسجل بشيت منفصل', 'Separate dedicated sheet') }
+        { v: fmt(tazTotal, 1) + ' L', l: T('Burger Sauce (صوص البرجر)', 'Taztiki Sauce Shipped'), c: 'kpi-purple', sub: T('مسجل بشيت منفصل', 'Separate dedicated sheet') }
       ];
 
       document.getElementById('prod-stats').innerHTML = kpis.map(k => `
@@ -4295,7 +4769,7 @@
       const s1Rows = [
         ['COMMUNITY RESTAURANTS — إدارة المطبخ المركزي'],
         ['تقرير الإنتاج والتوريد اليومي للفروع (سحب المنتجات والتشغيل)'],
-        [`الفترة: شهر ${monthStr} (من يوم ${fromDay} إلى يوم ${toDay})`, '', '', `تاريخ استخراج التقرير: ${new Date().toLocaleDateString('ar-EG')}`],
+        [`الفترة: شهر ${monthStr} (من يوم ${fromDay} إلى يوم ${toDay})`, '', '', `تاريخ استخراج التقرير: ${new Date().toLocaleDateString('en-GB')}`],
         [], // Blank separator row
         ['م', 'كود الصنف', 'البند / المنتج', 'القسم', 'الوحدة', ...days.map(d => `يوم ${d}`), 'إجمالي السحب', 'متوسط اليوم', 'تكلفة الوحدة (ج.م)', 'القيمة الإجمالية (ج.م)']
       ];
@@ -4358,10 +4832,10 @@
 
       const s2Rows = [
         ['COMMUNITY RESTAURANTS — إدارة المطبخ المركزي'],
-        ['سجل شحنات وإنتاج Taztiki Sauce (صوص البرجر المنفصل)'],
+        ['سجل شحنات وإنتاج Burger Sauce (صوص البرجر المنفصل)'],
         [`شهر التقرير: ${monthStr}`, '', `إجمالي الكمية: ${tazTotalLtr.toFixed(2)} لتر`],
         [],
-        ['م', 'التاريخ', 'كمية صوص البرجر (لتر)', 'الفروع المستلمة', 'ملاحظات التشغيل']
+        ['م', 'التاريخ', 'كمية صوص البرجر (كجم)', 'الفروع المستلمة', 'ملاحظات التشغيل']
       ];
 
       taztikiInRange.forEach((r, idx) => {
@@ -4378,7 +4852,7 @@
 
       const ws2 = XLSX.utils.aoa_to_sheet(s2Rows);
       ws2['!cols'] = [{ wch: 6 }, { wch: 14 }, { wch: 22 }, { wch: 30 }, { wch: 30 }];
-      XLSX.utils.book_append_sheet(wb, ws2, 'Taztiki_Sauce_صوص_البرجر');
+      XLSX.utils.book_append_sheet(wb, ws2, 'Burger_Sauce_صوص_البرجر');
 
       // ════════════════════════════════════════════════════════════
       // SHEET 3: تقرير الإدارة التنفيذي وملخص الإنتاج (Executive Summary)
@@ -4390,7 +4864,7 @@
         ['المؤشر الإداري', 'القيمة المحققة', 'الوحدة'],
         ['إجمالي الأصناف المنتجة والموردة', grandUnits, 'وحدة / كجم / لتر'],
         ['إجمالي القيمة التقديرية للإنتاج', Math.round(grandValue), 'جنيه مصري (EGP)'],
-        ['إجمالي Taztiki Sauce (صوص البرجر)', tazTotalLtr, 'لتر'],
+        ['إجمالي Burger Sauce (صوص البرجر)', tazTotalLtr, 'لتر'],
         ['نطاق أيام التشغيل النشطة', days.length, 'يوم'],
         ['متوسط السحب والإنتاج اليومي العام', (grandUnits / (days.length || 1)).toFixed(1), 'وحدة / يوم'],
         [],
@@ -4406,15 +4880,34 @@
       XLSX.writeFile(wb, fileName);
     }
 
-    /* ============================================================
-       INVENTORY
+        /* ============================================================
+       INVENTORY (139 RAW MATERIALS MASTER)
     ============================================================ */
     function renderInv() {
       const rm = computeRM();
       const rmap = {};
       rm.forEach(m => rmap[m.id] = m.total);
 
-      const rows = Object.entries(S.ings).map(([id, iv]) => {
+      const searchInput = document.getElementById('inv-search-input');
+      const query = (searchInput?.value || '').trim().toLowerCase();
+
+      let entries = Object.entries(S.ings);
+      if (query) {
+        entries = entries.filter(([id, iv]) => {
+          const ar = (iv.ar || '').toLowerCase();
+          const en = (iv.en || '').toLowerCase();
+          return ar.includes(query) || en.includes(query) || id.toLowerCase().includes(query) || (iv.sup || '').toLowerCase().includes(query);
+        });
+      }
+
+      // Sort alphabetically A-Z
+      entries.sort((a, b) => {
+        const nameA = isAr() ? (a[1].ar || a[1].en) : (a[1].en || a[1].ar);
+        const nameB = isAr() ? (b[1].ar || b[1].en) : (b[1].en || b[1].ar);
+        return nameA.localeCompare(nameB, isAr() ? 'ar' : 'en', { sensitivity: 'base' });
+      });
+
+      const rows = entries.map(([id, iv]) => {
         const req = rmap[id] || 0;
         const gap = req - iv.stock;
         const isShort = gap > 0;
@@ -4426,54 +4919,67 @@
         };
       });
 
-      const sh = rows.filter(r => r.isShort).length;
-      const lo = rows.filter(r => r.isLow).length;
-      const ok = rows.filter(r => !r.isShort && !r.isLow).length;
+      const allEntries = Object.values(S.ings);
+      const totalShort = allEntries.filter(iv => {
+        const req = rmap[iv.id] || 0;
+        return (req - iv.stock) > 0;
+      }).length;
+      const totalLow = allEntries.filter(iv => iv.stock <= iv.safety).length;
 
       document.getElementById('inv-stats').innerHTML = [
-        { v: rows.length, l: T('إجمالي الأصناف بالمخزن', 'Total Raw Materials'), c: '#ffffff' },
-        { v: sh, l: T('خامات بها عجز حالي', 'Material Shortages'), c: '#f87171' },
-        { v: lo, l: T('خامات عند حد الأمان', 'Low Safety Stock'), c: '#fbbf24' },
-        { v: ok, l: T('خامات برصيد كافٍ', 'Adequate Stock'), c: '#4ade80' }
+        { v: allEntries.length, l: T('إجمالي الخامات المسجلة', 'Total Raw Materials'), c: '#ffffff' },
+        { v: totalShort, l: T('خامات بها عجز حالي', 'Material Shortages'), c: '#f87171' },
+        { v: totalLow, l: T('خامات عند حد الأمان', 'Low Safety Stock'), c: '#fbbf24' },
+        { v: allEntries.length - totalShort, l: T('خامات برصيد كافٍ', 'Adequate Stock'), c: '#4ade80' }
       ].map(s => `
-    <div class="stat-card" style="text-align:center">
-      <div style="font-size:26px;font-weight:800;color:${s.c}">${s.v}</div>
-      <div class="text-muted text-sm mt-2">${s.l}</div>
-    </div>
-  `).join('');
+        <div class="stat-card" style="text-align:center">
+          <div style="font-size:26px;font-weight:800;color:${s.c}">${s.v}</div>
+          <div class="text-muted text-sm mt-2">${s.l}</div>
+        </div>
+      `).join('');
 
-      document.getElementById('inv-tbl').innerHTML = rows.map(r => {
+      const tbl = document.getElementById('inv-tbl');
+      if (!rows.length) {
+        tbl.innerHTML = `<tr><td colspan="8" class="text-center text-muted" style="padding:28px">${T('لا توجد خامات مطابقة للبحث', 'No materials matching search')}</td></tr>`;
+        return;
+      }
+
+      tbl.innerHTML = rows.map(r => {
         const d = S.ings[r.id];
         if (!d) return '';
+        const nameTitle = isAr() ? (d.ar || d.en) : (d.en || d.ar);
         return `
-      <tr>
-        <td style="font-weight:700;color:#fff">${isAr() ? d.ar : d.en}</td>
-        <td><span style="font-weight:800;color:${r.isShort ? '#f87171' : r.isLow ? '#fbbf24' : '#4ade80'}">${r.iv.stock} ${r.iv.uom}</span></td>
-        <td class="text-muted">${r.iv.safety} ${r.iv.uom}</td>
-        <td style="color:#60a5fa;font-weight:600">${f2(r.req)} ${r.iv.uom}</td>
-        <td>
-          ${r.isShort
-            ? `<span class="badge badge-red badge-pulse">▼ ${f2(r.gap)} ${r.iv.uom}</span>`
-            : `<span class="badge badge-green">✓ ${T('لا يوجد عجز', 'No Gap')}</span>`}
-        </td>
-        <td>
-          ${r.isShort
-            ? `<span class="badge badge-red">${T('عجز حرج', 'Shortage')}</span>`
-            : r.isLow
-              ? `<span class="badge badge-amber">${T('منخفض (أمان)', 'Low')}</span>`
-              : `<span class="badge badge-green">${T('كافٍ ومستقر', 'Adequate')}</span>`}
-        </td>
-        <td style="min-width:110px">
-          <div class="progress"><div class="progress-bar" style="width:${f2(r.pct)}%;background:${r.bc}"></div></div>
-          <div style="font-size:11px;color:#94a3b8;margin-top:3px">${Math.round(r.pct)}%</div>
-        </td>
-        <td>
-          <button class="btn btn-secondary btn-icon btn-sm" onclick="openEditStock('${r.id}')" title="تعديل الرصيد">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-          </button>
-        </td>
-      </tr>
-    `;
+          <tr>
+            <td>
+              <div style="font-weight:700;color:#fff">${nameTitle}</div>
+              <div style="font-size:11px;color:#64748b;font-family:monospace">${r.id} | ${d.sup || 'مورد عام'}</div>
+            </td>
+            <td><span style="font-weight:800;font-size:13.5px;color:${r.isShort ? '#f87171' : r.isLow ? '#fbbf24' : '#4ade80'}">${fmt(r.iv.stock, 2)} ${r.iv.uom}</span></td>
+            <td class="text-muted">${fmt(r.iv.safety, 2)} ${r.iv.uom}</td>
+            <td style="color:#60a5fa;font-weight:600">${f2(r.req)} ${r.iv.uom}</td>
+            <td>
+              ${r.isShort
+                ? `<span class="badge badge-red badge-pulse">▼ عجز ${f2(r.gap)} ${r.iv.uom}</span>`
+                : `<span class="badge badge-green">✓ ${T('كافٍ للطلبيات', 'Sufficient')}</span>`}
+            </td>
+            <td>
+              ${r.isShort
+                ? `<span class="badge badge-red">${T('عجز حرج', 'Shortage')}</span>`
+                : r.isLow
+                  ? `<span class="badge badge-amber">${T('منخفض (أمان)', 'Low')}</span>`
+                  : `<span class="badge badge-green">${T('كافٍ ومستقر', 'Adequate')}</span>`}
+            </td>
+            <td style="min-width:110px">
+              <div class="progress"><div class="progress-bar" style="width:${f2(r.pct)}%;background:${r.bc}"></div></div>
+              <div style="font-size:11px;color:#94a3b8;margin-top:3px">${Math.round(r.pct)}%</div>
+            </td>
+            <td>
+              <button class="btn btn-secondary btn-icon btn-sm" onclick="openEditStock('${r.id}')" title="تعديل الرصيد">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              </button>
+            </td>
+          </tr>
+        `;
       }).join('');
     }
 
@@ -4599,7 +5105,7 @@
         <td style="font-weight:700;color:#fff">${nm}</td>
         <td style="font-weight:800;color:#60a5fa">${po.qty}</td>
         <td class="text-muted">${po.unit}</td>
-        <td><span class="text-gradient font-bold">${(+po.cost).toLocaleString()} ${cur()}</span></td>
+        <td><span class="text-gradient font-bold">${(+po.cost).toLocaleString('en-US')} ${cur()}</span></td>
         <td class="text-muted" style="font-size:12.5px">${po.sup}</td>
         <td>
           ${po.priority === 'high'
@@ -4655,7 +5161,7 @@
       document.getElementById('invoice-payment').value = 'unpaid';
       document.getElementById('invoice-notes').value = '';
       document.getElementById('receive-po-details').innerHTML =
-        `<span style="color:#fb923c">${po.id}</span> &nbsp;|&nbsp; ${nm} &nbsp;|&nbsp; <span style="color:#60a5fa">${po.qty} ${po.unit}</span> &nbsp;|&nbsp; <span style="color:#fbbf24">${(+po.cost).toLocaleString()} ${cur()}</span><br/><span style="font-size:12px;color:#94a3b8;font-weight:400">${T('المورد: ', 'Supplier: ')}${po.sup}</span>`;
+        `<span style="color:#fb923c">${po.id}</span> &nbsp;|&nbsp; ${nm} &nbsp;|&nbsp; <span style="color:#60a5fa">${po.qty} ${po.unit}</span> &nbsp;|&nbsp; <span style="color:#fbbf24">${(+po.cost).toLocaleString('en-US')} ${cur()}</span><br/><span style="font-size:12px;color:#94a3b8;font-weight:400">${T('المورد: ', 'Supplier: ')}${po.sup}</span>`;
       openModal('modal-receive');
     }
 
@@ -4758,7 +5264,7 @@
         <td style="font-weight:700;color:#fff">${nm}</td>
         <td style="color:#60a5fa;font-weight:700">${v.qty}</td>
         <td class="text-muted">${v.unit}</td>
-        <td><span class="text-gradient font-bold">${(+v.value).toLocaleString()} ${cur()}</span></td>
+        <td><span class="text-gradient font-bold">${(+v.value).toLocaleString('en-US')} ${cur()}</span></td>
         <td class="text-muted" style="font-size:12.5px">${v.sup}</td>
         <td class="td-mono">${v.date}</td>
         <td>
@@ -4953,7 +5459,7 @@
         <td style="color:#f87171;font-weight:700">${w.qty}</td>
         <td class="text-muted">${w.unit}</td>
         <td class="text-muted">${w.unitPrice} ${cur()}</td>
-        <td><span style="color:#f87171;font-weight:800">${(+w.totalCost).toLocaleString()} ${cur()}</span></td>
+        <td><span style="color:#f87171;font-weight:800">${(+w.totalCost).toLocaleString('en-US')} ${cur()}</span></td>
         <td><span class="badge ${reasonBadges[w.reason] || 'badge-amber'}">${reasonLabels[w.reason] || w.reason}</span></td>
         <td>
           <button class="btn btn-danger btn-icon btn-sm" onclick="delWaste(${w.id})" title="حذف">
@@ -4987,7 +5493,7 @@
       const dates = Array.from(datesSet).sort();
 
       // All products except taztiki-sauce (handled separately)
-      const prods = S.products.filter(p => p.id !== 'taztiki-sauce');
+      const prods = S.products.filter(p => p.id !== 'burger-sauce');
 
       // Build matrix: matrix[prodId][date] = total qty
       const matrix = {};
@@ -4996,7 +5502,7 @@
       orders.forEach(o => {
         const d = o.date;
         Object.entries(o.items || {}).forEach(([pid, qty]) => {
-          if (pid === 'taztiki-sauce') return;
+          if (pid === 'burger-sauce') return;
           if (!matrix[pid]) matrix[pid] = {};
           matrix[pid][d] = (matrix[pid][d] || 0) + qty;
         });
@@ -5030,7 +5536,7 @@
         { val: totalOrders, lbl: T('طلبات الفروع في الفترة', 'Branch Orders in Range'), color: '#38bdf8', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2', kpi: 'kpi-cyan' },
         { val: fmt(allQty), lbl: T('إجمالي الوحدات المشحونة', 'Total Units Shipped'), color: '#4ade80', icon: 'M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z', kpi: 'kpi-green' },
         { val: activeDays, lbl: T('أيام النشاط خلال الفترة', 'Active Production Days'), color: '#fbbf24', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z', kpi: 'kpi-amber' },
-        { val: fmt(totalTaz, 1) + ' L', lbl: T('Taztiki Sauce المشحون', 'Taztiki Sauce Shipped'), color: '#c084fc', icon: 'M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3', kpi: 'kpi-purple' }
+        { val: fmt(totalTaz, 1) + ' L', lbl: T('Burger Sauce المشحون', 'Taztiki Sauce Shipped'), color: '#c084fc', icon: 'M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3', kpi: 'kpi-purple' }
       ];
       document.getElementById('ship-stats').innerHTML = kpiDefs.map(k => `
     <div class="stat-card">
@@ -5118,7 +5624,7 @@
       const today = new Date().toISOString().slice(0, 10);
       const date = prompt(T('أدخل التاريخ (YYYY-MM-DD):', 'Enter date (YYYY-MM-DD):'), today);
       if (!date) return;
-      const qty = parseFloat(prompt(T('أدخل كمية صوص البرجر (لتر):', 'Enter Taztiki Sauce quantity (liters):'), '0') || 0);
+      const qty = parseFloat(prompt(T('أدخل كمية صوص البرجر (كجم):', 'Enter Taztiki Sauce quantity (liters):'), '0') || 0);
       if (!qty || qty <= 0) { alert(T('كمية غير صالحة', 'Invalid quantity')); return; }
       const branches = prompt(T('الفروع المستلِمة (اختياري):', 'Receiving branches (optional):'), '') || '';
       const notes = prompt(T('ملاحظات (اختياري):', 'Notes (optional):'), '') || '';
@@ -5199,7 +5705,7 @@
       const ws3 = XLSX.utils.aoa_to_sheet([
         ['تقرير شحنات الفروع — Community Restaurants'],
         ['الفترة:', `${fromDate} → ${toDate}`],
-        ['تاريخ الطباعة:', new Date().toLocaleDateString('ar-EG')],
+        ['تاريخ الطباعة:', new Date().toLocaleDateString('en-GB')],
         [],
         ['إجمالي وحدات المنتجات المشحونة:', totalMain],
         ['إجمالي Taztiki Sauce (لتر):', tazTotal],
@@ -5587,257 +6093,262 @@
         return isAr() ? 'فرع D2 (Drive 02)' : 'D2 (Drive 02)';
       }
 
-      // 17. Golf Katameya
-      if (full.includes('katamya') || full.includes('katameya') || full.includes('ngg') || full.includes('جولف') || full.includes('القطامية') || full.includes('الجولف')) {
-        return isAr() ? 'فرع جولف قطامية (Golf Katameya)' : 'Golf Katameya';
+            // 17. Katameya
+      if (full.includes('katamya') || full.includes('katameya') || full.includes('القطامية') || full.includes('قطامية') || full.includes('saints-katamya')) {
+        return isAr() ? 'فرع قطامية (Katameya)' : 'Katameya';
       }
 
-      // 18. Core WOC
+      // 18. NGG Golf
+      if (full.includes('ngg') || full.includes('nng') || full.includes('الجولف') || full.includes('جولف') || full.includes('golf') || full.includes('ngg-saint')) {
+        return isAr() ? 'فرع الجولف (NGG Golf)' : 'NGG Golf';
+      }
+
+      // 19. Core WOC
       if (full.includes('core woc') || full.includes('walk') || full.includes('woc')) {
         return isAr() ? 'فرع Core WOC' : 'Core WOC';
       }
 
-      // 19. Core PH
+      // 20. Core PH
       if (full.includes('core ph') || full.includes('p.h') || full.includes('ph')) {
         return isAr() ? 'فرع Core PH' : 'Core PH';
       }
 
-      return ccName || sheetName || (isAr() ? 'فرع عام' : 'General Branch');
-    }
-
-    /* ── Match or Register Product ── */
-    function matchOrRegisterProduct(rawName, rawUnit, rawPrice) {
-      if (!rawName) return null;
-      const clean = rawName.trim();
-      if (!clean || clean === 'Total:') return null;
-
-      // 1. Direct or partial match with existing S.products
-      const cleanLow = clean.toLowerCase();
-      let p = S.products.find(x =>
-        x.ar === clean || x.en.toLowerCase() === cleanLow ||
-        clean.includes(x.ar) || x.ar.includes(clean) ||
-        cleanLow.includes(x.en.toLowerCase()) || x.en.toLowerCase().includes(cleanLow)
-      );
-
-      if (p) return p.id;
-
-      // 2. Auto-register new product dynamically
-      const newId = 'prod-' + clean.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-      const existing = S.products.find(x => x.id === newId);
-      if (existing) return existing.id;
-
-      let u = 'kg';
-      const uLow = (rawUnit || '').toLowerCase();
-      if (uLow.includes('each') || uLow.includes('pcs') || uLow.includes('order') || uLow.includes('plate') || uLow.includes('pkt')) u = 'pcs';
-      else if (uLow.includes('ltr')) u = 'ltr';
-      else if (uLow.includes('portion')) u = 'portion';
-
-      let cat = 'prep';
-      if (cleanLow.includes('sauce') || cleanLow.includes('dressing') || cleanLow.includes('vinaigrette') || cleanLow.includes('mayo') || cleanLow.includes('curd') || cleanLow.includes('puree') || cleanLow.includes('syrup')) cat = 'sauces';
-      else if (cleanLow.includes('croissant') || cleanLow.includes('bread') || cleanLow.includes('baghette') || cleanLow.includes('dough') || cleanLow.includes('toast') || cleanLow.includes('danash') || cleanLow.includes('pancake') || cleanLow.includes('brownie') || cleanLow.includes('cookies')) cat = 'bakery';
-      else if (cleanLow.includes('beef') || cleanLow.includes('rib') || cleanLow.includes('turkey') || cleanLow.includes('chicken') || cleanLow.includes('tuna') || cleanLow.includes('bresaola')) cat = (cleanLow.includes('beef') || cleanLow.includes('rib') || cleanLow.includes('bresaola')) ? 'beef' : 'chicken';
-      else if (cleanLow.includes('cheese') || cleanLow.includes('mozzarella') || cleanLow.includes('provolone') || cleanLow.includes('parmesan') || cleanLow.includes('burrata') || cleanLow.includes('yogurt') || cleanLow.includes('yougurt') || cleanLow.includes('kiri') || cleanLow.includes('sour cream') || cleanLow.includes('egg')) cat = 'cheese';
-      else if (cleanLow.includes('lettuce') || cleanLow.includes('mushroom') || cleanLow.includes('basil') || cleanLow.includes('onion') || cleanLow.includes('potato') || cleanLow.includes('spanish') || cleanLow.includes('chives') || cleanLow.includes('oakleaf') || cleanLow.includes('pickle') || cleanLow.includes('olive') || cleanLow.includes('berry') || cleanLow.includes('raspberry') || cleanLow.includes('strawberry') || cleanLow.includes('watermelon')) cat = 'veggies';
-      else if (cleanLow.includes('juice') || cleanLow.includes('matcha') || cleanLow.includes('karkade') || cleanLow.includes('ice cream') || cleanLow.includes('chocolate')) cat = 'drinks';
-
-      const newProd = {
-        id: newId,
-        ar: clean,
-        en: clean,
-        unit: u,
-        cat: cat,
-        cost: parseFloat(rawPrice) || 30,
-        color: cat === 'sauces' ? '#f97316' : (cat === 'beef' ? '#8b5cf6' : (cat === 'chicken' ? '#22c55e' : (cat === 'bakery' ? '#f59e0b' : '#06b6d4')))
-      };
-      S.products.push(newProd);
-      return newProd.id;
-    }
-
-    /* ── Main Multi-Sheet / Multi-Template Excel Engine ── */
-    function parseWorkbookData(wb, fileName) {
-      if (!wb || !wb.SheetNames || !wb.SheetNames.length) {
-        toast(T('الملف غير صالح أو لا يحتوي على أوراق عمل', 'File is invalid or has no sheets'), 'error');
-        return;
+      return rawCc || sheetName || (isAr() ? 'فرع عام' : 'General Branch');
       }
 
-      const branchMap = {};
-      let totalTemplatesCount = 0;
-      let totalItemsParsed = 0;
-      let totalSauceParsed = 0;
+      /* ── Match or Register Product ── */
+      function matchOrRegisterProduct(rawName, rawUnit, rawPrice) {
+        if (!rawName) return null;
+        const clean = rawName.trim();
+        if (!clean || clean === 'Total:') return null;
 
-      // Iterate through all sheets in the workbook
-      wb.SheetNames.forEach(sheetName => {
-        const ws = wb.Sheets[sheetName];
-        if (!ws || !ws['!ref']) return;
+        // 1. Direct or partial match with existing S.products
+        const cleanLow = clean.toLowerCase();
+        let p = S.products.find(x =>
+          x.ar === clean || x.en.toLowerCase() === cleanLow ||
+          clean.includes(x.ar) || x.ar.includes(clean) ||
+          cleanLow.includes(x.en.toLowerCase()) || x.en.toLowerCase().includes(cleanLow)
+        );
 
-        const matrix = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '' });
-        if (!matrix || !matrix.length) return;
+        if (p) return p.id;
 
-        let currentReq = null;
-        let inItemsTable = false;
-        let headerRowIndexes = { item: -1, qty: -1, unit: -1, price: -1, itemNo: -1 };
+        // 2. Auto-register new product dynamically
+        const newId = 'prod-' + clean.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        const existing = S.products.find(x => x.id === newId);
+        if (existing) return existing.id;
 
-        matrix.forEach(row => {
-          if (!Array.isArray(row)) return;
+        let u = 'kg';
+        const uLow = (rawUnit || '').toLowerCase();
+        if (uLow.includes('each') || uLow.includes('pcs') || uLow.includes('order') || uLow.includes('plate') || uLow.includes('pkt')) u = 'pcs';
+        else if (uLow.includes('ltr')) u = 'ltr';
+        else if (uLow.includes('portion')) u = 'portion';
 
-          const r0 = String(row[0] || '').trim();
-          const r1 = String(row[1] || '').trim();
-          const r3 = String(row[3] || '').trim();
-          const r5 = String(row[5] || '').trim();
+        let cat = 'prep';
+        if (cleanLow.includes('sauce') || cleanLow.includes('dressing') || cleanLow.includes('vinaigrette') || cleanLow.includes('mayo') || cleanLow.includes('curd') || cleanLow.includes('puree') || cleanLow.includes('syrup')) cat = 'sauces';
+        else if (cleanLow.includes('croissant') || cleanLow.includes('bread') || cleanLow.includes('baghette') || cleanLow.includes('dough') || cleanLow.includes('toast') || cleanLow.includes('danash') || cleanLow.includes('pancake') || cleanLow.includes('brownie') || cleanLow.includes('cookies')) cat = 'bakery';
+        else if (cleanLow.includes('beef') || cleanLow.includes('rib') || cleanLow.includes('turkey') || cleanLow.includes('chicken') || cleanLow.includes('tuna') || cleanLow.includes('bresaola')) cat = (cleanLow.includes('beef') || cleanLow.includes('rib') || cleanLow.includes('bresaola')) ? 'beef' : 'chicken';
+        else if (cleanLow.includes('cheese') || cleanLow.includes('mozzarella') || cleanLow.includes('provolone') || cleanLow.includes('parmesan') || cleanLow.includes('burrata') || cleanLow.includes('yogurt') || cleanLow.includes('yougurt') || cleanLow.includes('kiri') || cleanLow.includes('sour cream') || cleanLow.includes('egg')) cat = 'cheese';
+        else if (cleanLow.includes('lettuce') || cleanLow.includes('mushroom') || cleanLow.includes('basil') || cleanLow.includes('onion') || cleanLow.includes('potato') || cleanLow.includes('spanish') || cleanLow.includes('chives') || cleanLow.includes('oakleaf') || cleanLow.includes('pickle') || cleanLow.includes('olive') || cleanLow.includes('berry') || cleanLow.includes('raspberry') || cleanLow.includes('strawberry') || cleanLow.includes('watermelon')) cat = 'veggies';
+        else if (cleanLow.includes('juice') || cleanLow.includes('matcha') || cleanLow.includes('karkade') || cleanLow.includes('ice cream') || cleanLow.includes('chocolate')) cat = 'drinks';
 
-          // Check if a new Issue Request template begins
-          if (r0.includes('Issue Request') || r1.includes('Issue Request') || r0.includes('طلب تحويل') || r1.includes('طلب تحويل')) {
-            if (currentReq && (currentReq.costCenter || Object.keys(currentReq.items).length)) {
-              saveRequestToMap(currentReq);
-            }
-            currentReq = {
-              sheet: sheetName,
-              reqId: r5 || String(row[4] || '') || String(row[3] || ''),
-              date: todayStr(),
-              costCenter: '',
-              info: '',
-              burgerSauce: 0,
-              items: {}
-            };
-            inItemsTable = false;
-            headerRowIndexes = { item: -1, qty: -1, unit: -1, price: -1, itemNo: -1 };
-            totalTemplatesCount++;
-            return;
-          }
+        const newProd = {
+          id: newId,
+          ar: clean,
+          en: clean,
+          unit: u,
+          cat: cat,
+          cost: parseFloat(rawPrice) || 30,
+          color: cat === 'sauces' ? '#f97316' : (cat === 'beef' ? '#8b5cf6' : (cat === 'chicken' ? '#22c55e' : (cat === 'bakery' ? '#f59e0b' : '#06b6d4')))
+        };
+        S.products.push(newProd);
+        return newProd.id;
+      }
 
-          if (currentReq) {
-            // Read Issue Request Metadata
-            if (r1 === 'Date' || r1 === 'التاريخ' || r0 === 'Date') {
-              currentReq.date = normalizeDateIso(r5 || String(row[4] || '') || todayStr());
-            } else if (r1.includes('To Cost Center') || r0.includes('To Cost Center') || r1.includes('إلى مركز التكلفة')) {
-              currentReq.costCenter = r5 || String(row[4] || '') || String(row[6] || '');
-            } else if (r1 === 'Info' || r1 === 'الملاحظات' || r0 === 'Info') {
-              currentReq.info = r5 || String(row[4] || '') || String(row[6] || '');
-              const sQty = extractBurgerSauceQty(currentReq.info);
-              if (sQty > 0) currentReq.burgerSauce = sQty;
-            }
+      /* ── Main Multi-Sheet / Multi-Template Excel Engine ── */
+      function parseWorkbookData(wb, fileName) {
+        if (!wb || !wb.SheetNames || !wb.SheetNames.length) {
+          toast(T('الملف غير صالح أو لا يحتوي على أوراق عمل', 'File is invalid or has no sheets'), 'error');
+          return;
+        }
 
-            // Detect Items Table Headers (Item No, Item, Unit, Qty / Column K)
-            const rowStr = row.map(c => String(c || '').trim().toLowerCase());
-            if (rowStr.some(c => c === 'item no.' || c === 'item' || c === 'qty' || c === 'الكمية' || c === 'الصنف')) {
-              inItemsTable = true;
-              headerRowIndexes.itemNo = rowStr.findIndex(c => c === 'item no.' || c === 'رقم الصنف');
-              headerRowIndexes.item = rowStr.findIndex(c => c === 'item' || c === 'اسم الصنف' || c === 'المنتج');
-              headerRowIndexes.unit = rowStr.findIndex(c => c === 'unit' || c === 'الوحدة');
-              headerRowIndexes.qty = rowStr.findIndex(c => c === 'qty' || c === 'الكمية' || c === 'quantity');
-              headerRowIndexes.price = rowStr.findIndex(c => c === 'price' || c === 'السعر');
-              if (headerRowIndexes.qty === -1) headerRowIndexes.qty = 10; // Default Column K (index 10)
-              if (headerRowIndexes.item === -1) headerRowIndexes.item = 3; // Default Column D (index 3)
+        const branchMap = {};
+        let totalTemplatesCount = 0;
+        let totalItemsParsed = 0;
+        let totalSauceParsed = 0;
+
+        // Iterate through all sheets in the workbook
+        wb.SheetNames.forEach(sheetName => {
+          const ws = wb.Sheets[sheetName];
+          if (!ws || !ws['!ref']) return;
+
+          const matrix = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '' });
+          if (!matrix || !matrix.length) return;
+
+          let currentReq = null;
+          let inItemsTable = false;
+          let headerRowIndexes = { item: -1, qty: -1, unit: -1, price: -1, itemNo: -1 };
+
+          matrix.forEach(row => {
+            if (!Array.isArray(row)) return;
+
+            const r0 = String(row[0] || '').trim();
+            const r1 = String(row[1] || '').trim();
+            const r3 = String(row[3] || '').trim();
+            const r5 = String(row[5] || '').trim();
+
+            // Check if a new Issue Request template begins
+            if (r0.includes('Issue Request') || r1.includes('Issue Request') || r0.includes('طلب تحويل') || r1.includes('طلب تحويل')) {
+              if (currentReq && (currentReq.costCenter || Object.keys(currentReq.items).length)) {
+                saveRequestToMap(currentReq);
+              }
+              currentReq = {
+                sheet: sheetName,
+                reqId: r5 || String(row[4] || '') || String(row[3] || ''),
+                date: todayStr(),
+                costCenter: '',
+                info: '',
+                burgerSauce: 0,
+                items: {}
+              };
+              inItemsTable = false;
+              headerRowIndexes = { item: -1, qty: -1, unit: -1, price: -1, itemNo: -1 };
+              totalTemplatesCount++;
               return;
             }
 
-            // Parse Items Rows
-            if (inItemsTable) {
-              const rawItemName = String(row[headerRowIndexes.item !== -1 ? headerRowIndexes.item : 3] || '').trim();
-              // Read Column K (index 10) or detected Qty index
-              const rawQtyVal = row[headerRowIndexes.qty !== -1 ? headerRowIndexes.qty : 10];
-              const rawUnit = String(row[headerRowIndexes.unit !== -1 ? headerRowIndexes.unit : 6] || '').trim();
-              const rawPrice = row[headerRowIndexes.price !== -1 ? headerRowIndexes.price : 11] || 0;
+            if (currentReq) {
+              // Read Issue Request Metadata
+              if (r1 === 'Date' || r1 === 'التاريخ' || r0 === 'Date') {
+                currentReq.date = normalizeDateIso(r5 || String(row[4] || '') || todayStr());
+              } else if (r1.includes('To Cost Center') || r0.includes('To Cost Center') || r1.includes('إلى مركز التكلفة')) {
+                currentReq.costCenter = r5 || String(row[4] || '') || String(row[6] || '');
+              } else if (r1 === 'Info' || r1 === 'الملاحظات' || r0 === 'Info') {
+                currentReq.info = r5 || String(row[4] || '') || String(row[6] || '');
+                const sQty = extractBurgerSauceQty(currentReq.info);
+                if (sQty > 0) currentReq.burgerSauce = sQty;
+              }
 
-              if (rawItemName && rawItemName !== 'Total:' && rawItemName !== 'الإجمالي:' && rawQtyVal !== undefined && rawQtyVal !== '') {
-                const qtyNum = parseFloat(rawQtyVal);
-                if (qtyNum > 0) {
-                  const pid = matchOrRegisterProduct(rawItemName, rawUnit, rawPrice);
-                  if (pid) {
-                    currentReq.items[pid] = (currentReq.items[pid] || 0) + qtyNum;
-                    totalItemsParsed += qtyNum;
+              // Detect Items Table Headers (Item No, Item, Unit, Qty / Column K)
+              const rowStr = row.map(c => String(c || '').trim().toLowerCase());
+              if (rowStr.some(c => c === 'item no.' || c === 'item' || c === 'qty' || c === 'الكمية' || c === 'الصنف')) {
+                inItemsTable = true;
+                headerRowIndexes.itemNo = rowStr.findIndex(c => c === 'item no.' || c === 'رقم الصنف');
+                headerRowIndexes.item = rowStr.findIndex(c => c === 'item' || c === 'اسم الصنف' || c === 'المنتج');
+                headerRowIndexes.unit = rowStr.findIndex(c => c === 'unit' || c === 'الوحدة');
+                headerRowIndexes.qty = rowStr.findIndex(c => c === 'qty' || c === 'الكمية' || c === 'quantity');
+                headerRowIndexes.price = rowStr.findIndex(c => c === 'price' || c === 'السعر');
+                if (headerRowIndexes.qty === -1) headerRowIndexes.qty = 10; // Default Column K (index 10)
+                if (headerRowIndexes.item === -1) headerRowIndexes.item = 3; // Default Column D (index 3)
+                return;
+              }
+
+              // Parse Items Rows
+              if (inItemsTable) {
+                const rawItemName = String(row[headerRowIndexes.item !== -1 ? headerRowIndexes.item : 3] || '').trim();
+                // Read Column K (index 10) or detected Qty index
+                const rawQtyVal = row[headerRowIndexes.qty !== -1 ? headerRowIndexes.qty : 10];
+                const rawUnit = String(row[headerRowIndexes.unit !== -1 ? headerRowIndexes.unit : 6] || '').trim();
+                const rawPrice = row[headerRowIndexes.price !== -1 ? headerRowIndexes.price : 11] || 0;
+
+                if (rawItemName && rawItemName !== 'Total:' && rawItemName !== 'الإجمالي:' && rawQtyVal !== undefined && rawQtyVal !== '') {
+                  const qtyNum = parseFloat(rawQtyVal);
+                  if (qtyNum > 0) {
+                    const pid = matchOrRegisterProduct(rawItemName, rawUnit, rawPrice);
+                    if (pid) {
+                      currentReq.items[pid] = (currentReq.items[pid] || 0) + qtyNum;
+                      totalItemsParsed += qtyNum;
+                    }
                   }
                 }
               }
             }
+          });
+
+          if (currentReq && (currentReq.costCenter || Object.keys(currentReq.items).length)) {
+            saveRequestToMap(currentReq);
           }
         });
 
-        if (currentReq && (currentReq.costCenter || Object.keys(currentReq.items).length)) {
-          saveRequestToMap(currentReq);
+        function saveRequestToMap(req) {
+          const unifiedBranch = normalizeBranchCostCenter(req.costCenter, req.sheet);
+          if (!branchMap[unifiedBranch]) {
+            branchMap[unifiedBranch] = {
+              branch: unifiedBranch,
+              date: req.date || todayStr(),
+              costCenters: new Set(),
+              items: {},
+              burgerSauce: 0,
+              templatesCount: 0
+            };
+          }
+          branchMap[unifiedBranch].templatesCount++;
+          if (req.costCenter) branchMap[unifiedBranch].costCenters.add(req.costCenter);
+          if (req.burgerSauce > 0) {
+            branchMap[unifiedBranch].burgerSauce += req.burgerSauce;
+            totalSauceParsed += req.burgerSauce;
+          }
+          Object.entries(req.items).forEach(([pid, qty]) => {
+            branchMap[unifiedBranch].items[pid] = (branchMap[unifiedBranch].items[pid] || 0) + qty;
+          });
         }
-      });
 
-      function saveRequestToMap(req) {
-        const unifiedBranch = normalizeBranchCostCenter(req.costCenter, req.sheet);
-        if (!branchMap[unifiedBranch]) {
-          branchMap[unifiedBranch] = {
-            branch: unifiedBranch,
-            date: req.date || todayStr(),
-            costCenters: new Set(),
-            items: {},
-            burgerSauce: 0,
-            templatesCount: 0
+        // If no Issue Request format found, fallback to standard tabular parsing
+        if (!Object.keys(branchMap).length) {
+          const firstSheet = wb.Sheets[wb.SheetNames[0]];
+          const altRows = XLSX.utils.sheet_to_json(firstSheet, { defval: '' });
+          if (altRows.length) {
+            const keys = Object.keys(altRows[0]);
+            const bCol = keys.find(k => /فرع|محل|موقع|branch|store/i.test(k)) || keys[0];
+            const pCol = keys.find(k => /منتج|صنف|item|product|name/i.test(k));
+            const qCol = keys.find(k => /كمية|عدد|مطلوب|qty|quantity/i.test(k)) || (keys[10] ? keys[10] : null);
+
+            if (pCol && qCol) {
+              altRows.forEach(r => {
+                const bName = normalizeBranchCostCenter(String(r[bCol] || ''), wb.SheetNames[0]);
+                const pName = String(r[pCol] || '').trim();
+                const qVal = parseFloat(r[qCol]) || 0;
+                if (pName && qVal > 0) {
+                  if (!branchMap[bName]) branchMap[bName] = { branch: bName, date: todayStr(), costCenters: new Set([bName]), items: {}, burgerSauce: 0, templatesCount: 1 };
+                  const pid = matchOrRegisterProduct(pName, 'kg', 30);
+                  if (pid) branchMap[bName].items[pid] = (branchMap[bName].items[pid] || 0) + qVal;
+                }
+              });
+            }
+          }
+        }
+
+        const pendingList = Object.values(branchMap).map(b => {
+          // Also attach Burger Sauce into items as 'taztiki-sauce' if requested
+          if (b.burgerSauce > 0) {
+            b.items['burger-sauce'] = (b.items['burger-sauce'] || 0) + b.burgerSauce;
+          }
+          return {
+            branch: b.branch,
+            date: b.date,
+            costCentersList: Array.from(b.costCenters).join(' + '),
+            burgerSauce: b.burgerSauce,
+            templatesCount: b.templatesCount,
+            items: b.items
           };
-        }
-        branchMap[unifiedBranch].templatesCount++;
-        if (req.costCenter) branchMap[unifiedBranch].costCenters.add(req.costCenter);
-        if (req.burgerSauce > 0) {
-          branchMap[unifiedBranch].burgerSauce += req.burgerSauce;
-          totalSauceParsed += req.burgerSauce;
-        }
-        Object.entries(req.items).forEach(([pid, qty]) => {
-          branchMap[unifiedBranch].items[pid] = (branchMap[unifiedBranch].items[pid] || 0) + qty;
         });
-      }
 
-      // If no Issue Request format found, fallback to standard tabular parsing
-      if (!Object.keys(branchMap).length) {
-        const firstSheet = wb.Sheets[wb.SheetNames[0]];
-        const altRows = XLSX.utils.sheet_to_json(firstSheet, { defval: '' });
-        if (altRows.length) {
-          const keys = Object.keys(altRows[0]);
-          const bCol = keys.find(k => /فرع|محل|موقع|branch|store/i.test(k)) || keys[0];
-          const pCol = keys.find(k => /منتج|صنف|item|product|name/i.test(k));
-          const qCol = keys.find(k => /كمية|عدد|مطلوب|qty|quantity/i.test(k)) || (keys[10] ? keys[10] : null);
-
-          if (pCol && qCol) {
-            altRows.forEach(r => {
-              const bName = normalizeBranchCostCenter(String(r[bCol] || ''), wb.SheetNames[0]);
-              const pName = String(r[pCol] || '').trim();
-              const qVal = parseFloat(r[qCol]) || 0;
-              if (pName && qVal > 0) {
-                if (!branchMap[bName]) branchMap[bName] = { branch: bName, date: todayStr(), costCenters: new Set([bName]), items: {}, burgerSauce: 0, templatesCount: 1 };
-                const pid = matchOrRegisterProduct(pName, 'kg', 30);
-                if (pid) branchMap[bName].items[pid] = (branchMap[bName].items[pid] || 0) + qVal;
-              }
-            });
-          }
+        if (!pendingList.length) {
+          toast(T('لم يتم العثور على أي طلبيات صالحة في الملف', 'No valid orders found in workbook'), 'error');
+          return;
         }
-      }
 
-      const pendingList = Object.values(branchMap).map(b => {
-        // Also attach Burger Sauce into items as 'taztiki-sauce' if requested
-        if (b.burgerSauce > 0) {
-          b.items['taztiki-sauce'] = (b.items['taztiki-sauce'] || 0) + b.burgerSauce;
-        }
-        return {
-          branch: b.branch,
-          date: b.date,
-          costCentersList: Array.from(b.costCenters).join(' + '),
-          burgerSauce: b.burgerSauce,
-          templatesCount: b.templatesCount,
-          items: b.items
-        };
-      });
+        _excelPendingOrders = pendingList;
 
-      if (!pendingList.length) {
-        toast(T('لم يتم العثور على أي طلبيات صالحة في الملف', 'No valid orders found in workbook'), 'error');
-        return;
-      }
+        // Render Preview Modal
+        const preview = document.getElementById('excel-preview');
+        const ptbl = document.getElementById('excel-preview-table');
+        document.getElementById('excel-preview-title').innerHTML =
+          T(`🎉 <b>تم بنجاح قراءة وتجميع شيت الفروع (${fileName || 'الفروع.xlsx'}):</b><br/>` +
+            `<span style="color:#4ade80;font-size:12px">✨ تم دمج <b>${totalTemplatesCount || pendingList.length} قالب/مركز تكلفة</b> في <b>${pendingList.length} فرع موحد</b> | صوص البرجر المكتشف: <b>${totalSauceParsed.toFixed(2)} كجم</b></span>`,
+            `🎉 <b>Successfully parsed & aggregated (${fileName || 'الفروع.xlsx'}):</b><br/>` +
+            `<span style="color:#4ade80;font-size:12px">✨ Merged <b>${totalTemplatesCount || pendingList.length} templates</b> into <b>${pendingList.length} unified branches</b> | Burger Sauce: <b>${totalSauceParsed.toFixed(2)} KG</b></span>`);
 
-      _excelPendingOrders = pendingList;
-
-      // Render Preview Modal
-      const preview = document.getElementById('excel-preview');
-      const ptbl = document.getElementById('excel-preview-table');
-      document.getElementById('excel-preview-title').innerHTML =
-        T(`🎉 <b>تم بنجاح قراءة وتجميع شيت الفروع (${fileName || 'الفروع.xlsx'}):</b><br/>` +
-          `<span style="color:#4ade80;font-size:12px">✨ تم دمج <b>${totalTemplatesCount || pendingList.length} قالب/مركز تكلفة</b> في <b>${pendingList.length} فرع موحد</b> | صوص البرجر المكتشف: <b>${totalSauceParsed.toFixed(2)} كجم</b></span>`,
-          `🎉 <b>Successfully parsed & aggregated (${fileName || 'الفروع.xlsx'}):</b><br/>` +
-          `<span style="color:#4ade80;font-size:12px">✨ Merged <b>${totalTemplatesCount || pendingList.length} templates</b> into <b>${pendingList.length} unified branches</b> | Burger Sauce: <b>${totalSauceParsed.toFixed(2)} KG</b></span>`);
-
-      ptbl.querySelector('thead').innerHTML = `
+        ptbl.querySelector('thead').innerHTML = `
         <tr>
           <th>${T('الفرع الموحد', 'Unified Branch')}</th>
           <th>${T('مراكز التكلفة المدمجة (مطبخ + بار)', 'Merged Cost Centers')}</th>
@@ -5846,14 +6357,14 @@
         </tr>
       `;
 
-      ptbl.querySelector('tbody').innerHTML = pendingList.map(o => {
-        const sauceBadge = o.burgerSauce > 0
-          ? `<span class="badge" style="background:rgba(192,132,252,0.18);color:#c084fc;font-weight:700">🍔 ${o.burgerSauce} ${T('كجم', 'KG')}</span>`
-          : `<span class="text-muted" style="font-size:11px">—</span>`;
-        const itemsCount = Object.keys(o.items).length;
-        const totalItemsQty = Object.values(o.items).reduce((a, b) => a + b, 0);
+        ptbl.querySelector('tbody').innerHTML = pendingList.map(o => {
+          const sauceBadge = o.burgerSauce > 0
+            ? `<span class="badge" style="background:rgba(192,132,252,0.18);color:#c084fc;font-weight:700">🍔 ${o.burgerSauce} ${T('كجم', 'KG')}</span>`
+            : `<span class="text-muted" style="font-size:11px">—</span>`;
+          const itemsCount = Object.keys(o.items).length;
+          const totalItemsQty = Object.values(o.items).reduce((a, b) => a + b, 0);
 
-        return `
+          return `
           <tr>
             <td style="color:#fff;font-weight:800;font-size:13.5px">${o.branch}</td>
             <td class="text-muted" style="font-size:11px;max-width:240px">${o.costCentersList || '—'}</td>
@@ -5861,269 +6372,269 @@
             <td style="font-weight:700;color:#22c55e">${itemsCount} ${T('صنف', 'items')} (${totalItemsQty.toFixed(1)} ${T('وحدة', 'units')})</td>
           </tr>
         `;
-      }).join('');
+        }).join('');
 
-      preview.style.display = 'block';
-      toast(T(`✨ تم بنجاح تجميع ${pendingList.length} فرع موحد من شيت الفروع!`, `✨ Aggregated ${pendingList.length} branches from Excel!`));
-    }
-
-    /* ── Load File via Input or Drop ── */
-    function handleExcelFile(file) {
-      if (!file) return;
-      if (!window.XLSX) {
-        toast(T('مكتبة قراءة الإكسيل لم تُحمّل بعد — تأكد من اتصالك بالإنترنت', 'SheetJS not loaded. Check internet connection.'), 'error');
-        return;
+        preview.style.display = 'block';
+        toast(T(`✨ تم بنجاح تجميع ${pendingList.length} فرع موحد من شيت الفروع!`, `✨ Aggregated ${pendingList.length} branches from Excel!`));
       }
-      const reader = new FileReader();
-      reader.onload = function (evt) {
-        try {
-          const rawData = evt.target.result;
-          let wb;
+
+      /* ── Load File via Input or Drop ── */
+      function handleExcelFile(file) {
+        if (!file) return;
+        if (!window.XLSX) {
+          toast(T('مكتبة قراءة الإكسيل لم تُحمّل بعد — تأكد من اتصالك بالإنترنت', 'SheetJS not loaded. Check internet connection.'), 'error');
+          return;
+        }
+        const reader = new FileReader();
+        reader.onload = function (evt) {
           try {
-            const data = new Uint8Array(rawData);
-            wb = XLSX.read(data, { type: 'array' });
-          } catch (e1) {
-            wb = XLSX.read(rawData, { type: 'binary' });
+            const rawData = evt.target.result;
+            let wb;
+            try {
+              const data = new Uint8Array(rawData);
+              wb = XLSX.read(data, { type: 'array' });
+            } catch (e1) {
+              wb = XLSX.read(rawData, { type: 'binary' });
+            }
+            parseWorkbookData(wb, file.name);
+          } catch (err) {
+            console.error('Excel parse error:', err);
+            toast(T('خطأ أثناء قراءة الملف: ' + err.message, 'File reading error: ' + err.message), 'error');
           }
-          parseWorkbookData(wb, file.name);
-        } catch (err) {
-          console.error('Excel parse error:', err);
-          toast(T('خطأ أثناء قراءة الملف: ' + err.message, 'File reading error: ' + err.message), 'error');
-        }
-      };
-      reader.readAsArrayBuffer(file);
-    }
-
-    /* ── ⚡ Auto Load Attached Local File (الفروع.xlsx) ── */
-    async function loadDefaultBranchesFile() {
-      if (!window.XLSX) {
-        toast(T('مكتبة قراءة الإكسيل لم تُحمّل بعد', 'SheetJS not loaded'), 'error');
-        return;
+        };
+        reader.readAsArrayBuffer(file);
       }
-      try {
-        toast(T('⏳ جاري قراءة ملف الفروع المحلي (الفروع.xlsx)...', '⏳ Loading local branches file...'));
-        const res = await fetch('الفروع.xlsx');
-        if (!res.ok) {
-          throw new Error(T('لم يتم العثور على الملف في المسار الرئيسي', 'File not found on server'));
+
+      /* ── ⚡ Auto Load Attached Local File (الفروع.xlsx) ── */
+      async function loadDefaultBranchesFile() {
+        if (!window.XLSX) {
+          toast(T('مكتبة قراءة الإكسيل لم تُحمّل بعد', 'SheetJS not loaded'), 'error');
+          return;
         }
-        const arrayBuf = await res.arrayBuffer();
-        const data = new Uint8Array(arrayBuf);
-        const wb = XLSX.read(data, { type: 'array' });
-        parseWorkbookData(wb, 'الفروع.xlsx');
-      } catch (e) {
-        console.warn('Auto-load fetch error:', e);
-        document.getElementById('excel-file-input').click();
-      }
-    }
-
-    function cancelExcelImport() {
-      _excelPendingOrders = null;
-      document.getElementById('excel-preview').style.display = 'none';
-      const finput = document.getElementById('excel-file-input');
-      if (finput) finput.value = '';
-    }
-
-    function confirmExcelImport() {
-      if (!_excelPendingOrders || !_excelPendingOrders.length) return;
-      const isReplaceMode = document.getElementById('excel-replace-mode')?.checked ?? true;
-      const nextId = Date.now();
-      let importedCount = 0;
-
-      // Collect all dates in this imported batch
-      const importedDates = new Set(_excelPendingOrders.map(o => normalizeDateIso(o.date)));
-
-      // If replace mode is ON, clear previous orders for the matching dates to avoid duplicates
-      if (isReplaceMode && importedDates.size > 0) {
-        S.orders = S.orders.filter(o => !importedDates.has(normalizeDateIso(o.date)));
-        if (S.taztikiRecords) {
-          S.taztikiRecords = S.taztikiRecords.filter(r => !importedDates.has(normalizeDateIso(r.date)));
+        try {
+          toast(T('⏳ جاري قراءة ملف الفروع المحلي (الفروع.xlsx)...', '⏳ Loading local branches file...'));
+          const res = await fetch('الفروع.xlsx');
+          if (!res.ok) {
+            throw new Error(T('لم يتم العثور على الملف في المسار الرئيسي', 'File not found on server'));
+          }
+          const arrayBuf = await res.arrayBuffer();
+          const data = new Uint8Array(arrayBuf);
+          const wb = XLSX.read(data, { type: 'array' });
+          parseWorkbookData(wb, 'الفروع.xlsx');
+        } catch (e) {
+          console.warn('Auto-load fetch error:', e);
+          document.getElementById('excel-file-input').click();
         }
       }
 
-      _excelPendingOrders.forEach((o, i) => {
-        if (!o.items || !Object.keys(o.items).length) return;
-        const normalizedOrderDate = normalizeDateIso(o.date);
-        S.orders.unshift({
-          id: nextId + i,
-          branch: o.branch,
-          date: normalizedOrderDate,
-          items: o.items,
-          notes: T(`📥 استيراد مجمع من شيت الفروع (${o.costCentersList || ''})`, `📥 Merged import from branches sheet`)
-        });
-        importedCount++;
+      function cancelExcelImport() {
+        _excelPendingOrders = null;
+        document.getElementById('excel-preview').style.display = 'none';
+        const finput = document.getElementById('excel-file-input');
+        if (finput) finput.value = '';
+      }
 
-        // Add to Taztiki Records if Burger Sauce is requested
-        if (o.burgerSauce > 0) {
-          if (!S.taztikiRecords) S.taztikiRecords = [];
-          S.taztikiRecords.unshift({
-            id: 'tzt-' + (nextId + i),
-            date: normalizedOrderDate,
+      function confirmExcelImport() {
+        if (!_excelPendingOrders || !_excelPendingOrders.length) return;
+        const isReplaceMode = document.getElementById('excel-replace-mode')?.checked ?? true;
+        const nextId = Date.now();
+        let importedCount = 0;
+
+        // Collect all dates in this imported batch
+        const importedDates = new Set(_excelPendingOrders.map(o => normalizeDateIso(o.date)));
+
+        // If replace mode is ON, clear previous orders for the matching dates to avoid duplicates
+        if (isReplaceMode && importedDates.size > 0) {
+          S.orders = S.orders.filter(o => !importedDates.has(normalizeDateIso(o.date)));
+          if (S.taztikiRecords) {
+            S.taztikiRecords = S.taztikiRecords.filter(r => !importedDates.has(normalizeDateIso(r.date)));
+          }
+        }
+
+        _excelPendingOrders.forEach((o, i) => {
+          if (!o.items || !Object.keys(o.items).length) return;
+          const normalizedOrderDate = normalizeDateIso(o.date);
+          S.orders.unshift({
+            id: nextId + i,
             branch: o.branch,
-            qty: o.burgerSauce,
-            type: 'out',
-            notes: T('سحب تلقائي من طلب الفرع بالإكسيل', 'Auto-imported from branch Excel request')
+            date: normalizedOrderDate,
+            items: o.items,
+            notes: T(`📥 استيراد مجمع من شيت الفروع (${o.costCentersList || ''})`, `📥 Merged import from branches sheet`)
           });
-        }
-      });
+          importedCount++;
 
-      // Also set the filter date to the imported date automatically so the user sees it immediately
-      const firstDate = Array.from(importedDates)[0];
-      if (firstDate) {
-        const fDateInput = document.getElementById('f-date');
-        if (fDateInput) fDateInput.value = firstDate;
+          // Add to Taztiki Records if Burger Sauce is requested
+          if (o.burgerSauce > 0) {
+            if (!S.taztikiRecords) S.taztikiRecords = [];
+            S.taztikiRecords.unshift({
+              id: 'tzt-' + (nextId + i),
+              date: normalizedOrderDate,
+              branch: o.branch,
+              qty: o.burgerSauce,
+              type: 'out',
+              notes: T('سحب تلقائي من طلب الفرع بالإكسيل', 'Auto-imported from branch Excel request')
+            });
+          }
+        });
+
+        // Also set the filter date to the imported date automatically so the user sees it immediately
+        const firstDate = Array.from(importedDates)[0];
+        if (firstDate) {
+          const fDateInput = document.getElementById('f-date');
+          if (fDateInput) fDateInput.value = firstDate;
+        }
+
+        saveState();
+        cancelExcelImport();
+        renderOrders();
+        if (typeof renderProd === 'function') renderProd();
+        if (typeof renderProduction === 'function') renderProduction();
+
+        toast(T(`📥 تم بنجاح حفظ ${importedCount} طلبية مجمعة للفروع ${isReplaceMode ? '(تم استبدال النسخ السابقة لتفادي التكرار)' : ''}`, `📥 Successfully saved ${importedCount} orders!`));
+        _excelPendingOrders = null;
       }
 
-      saveState();
-      cancelExcelImport();
-      renderOrders();
-      if (typeof renderProd === 'function') renderProd();
-      if (typeof renderProduction === 'function') renderProduction();
+      /* ============================================================
+         COMMUNITY RESTAURANTS: OFFICIAL PRINT VOUCHER & PRINT PO
+      ============================================================ */
+      function printPO(i) {
+        const po = S.POs[i];
+        if (!po) return;
+        const d = S.ings[po.ingId];
+        const nm = d ? (isAr() ? d.ar : d.en) : po.ingId;
+        const price = d ? d.price : 0;
 
-      toast(T(`📥 تم بنجاح حفظ ${importedCount} طلبية مجمعة للفروع ${isReplaceMode ? '(تم استبدال النسخ السابقة لتفادي التكرار)' : ''}`, `📥 Successfully saved ${importedCount} orders!`));
-      _excelPendingOrders = null;
-    }
+        document.getElementById('pr-po-number').textContent = po.id;
+        document.getElementById('pr-po-date').textContent = (isAr() ? 'التاريخ: ' : 'Date: ') + new Date().toISOString().slice(0, 10);
+        document.getElementById('pr-po-status').textContent = po.status === 'received' ? (isAr() ? 'تم الاستلام' : 'Received') : (po.status === 'sent' ? (isAr() ? 'تم الإرسال للمورد' : 'Sent to Supplier') : (isAr() ? 'مسودة معتمدة' : 'Approved Draft'));
+        document.getElementById('pr-po-sup').textContent = po.sup || 'مورد عام';
+        document.getElementById('pr-po-priority').textContent = po.priority === 'high' ? (isAr() ? 'أولوية قصوى (عاجل جداً)' : 'Urgent Priority') : (isAr() ? 'أولوية عادية' : 'Normal Priority');
 
-    /* ============================================================
-       COMMUNITY RESTAURANTS: OFFICIAL PRINT VOUCHER & PRINT PO
-    ============================================================ */
-    function printPO(i) {
-      const po = S.POs[i];
-      if (!po) return;
-      const d = S.ings[po.ingId];
-      const nm = d ? (isAr() ? d.ar : d.en) : po.ingId;
-      const price = d ? d.price : 0;
-
-      document.getElementById('pr-po-number').textContent = po.id;
-      document.getElementById('pr-po-date').textContent = (isAr() ? 'التاريخ: ' : 'Date: ') + new Date().toISOString().slice(0, 10);
-      document.getElementById('pr-po-status').textContent = po.status === 'received' ? (isAr() ? 'تم الاستلام' : 'Received') : (po.status === 'sent' ? (isAr() ? 'تم الإرسال للمورد' : 'Sent to Supplier') : (isAr() ? 'مسودة معتمدة' : 'Approved Draft'));
-      document.getElementById('pr-po-sup').textContent = po.sup || 'مورد عام';
-      document.getElementById('pr-po-priority').textContent = po.priority === 'high' ? (isAr() ? 'أولوية قصوى (عاجل جداً)' : 'Urgent Priority') : (isAr() ? 'أولوية عادية' : 'Normal Priority');
-
-      document.getElementById('pr-po-items').innerHTML = `
+        document.getElementById('pr-po-items').innerHTML = `
     <tr style="border-bottom:1px solid #e2e8f0">
       <td style="padding:10px">1</td>
       <td style="padding:10px;font-weight:700;color:#0f172a">${nm}</td>
       <td style="padding:10px;font-weight:800;color:#2563eb">${po.qty}</td>
       <td style="padding:10px">${po.unit}</td>
       <td style="padding:10px">${price} ${cur()}</td>
-      <td style="padding:10px;font-weight:700">${(+po.cost).toLocaleString()} ${cur()}</td>
+      <td style="padding:10px;font-weight:700">${(+po.cost).toLocaleString('en-US')} ${cur()}</td>
     </tr>
     <tr style="background:#f8fafc;font-weight:800">
       <td colspan="5" style="padding:12px;text-align:end">${isAr() ? 'إجمالي قيمة أمر الشراء:' : 'Total PO Value:'}</td>
-      <td style="padding:12px;color:#ea580c;font-size:15px">${(+po.cost).toLocaleString()} ${cur()}</td>
+      <td style="padding:12px;color:#ea580c;font-size:15px">${(+po.cost).toLocaleString('en-US')} ${cur()}</td>
     </tr>
   `;
 
-      openModal('modal-print-po');
-    }
-
-    /* ============================================================
-       LIVE KITCHEN PULSE TICKER
-    ============================================================ */
-    function updateLiveTicker() {
-      const ticker = document.getElementById('live-ticker-text');
-      if (!ticker) return;
-      const shorts = getShortages();
-      const totalOrders = S.orders.length;
-
-      if (shorts.length > 0) {
-        ticker.textContent = isAr()
-          ? `المطبخ المركزي: تشغيل مباشر | ⚠️ عجز ${shorts.length} خامات مطلوب شراؤها`
-          : `Central Kitchen: LIVE | ⚠️ ${shorts.length} Shortage(s) detected`;
-        ticker.parentElement.style.borderColor = 'rgba(239, 68, 68, 0.35)';
-        ticker.parentElement.style.color = '#f87171';
-      } else {
-        ticker.textContent = isAr()
-          ? `المطبخ المركزي: تشغيل مباشر | تلبية الطلبات 100% | ${totalOrders} طلبات فروع`
-          : `Central Kitchen: LIVE | 100% Demand Met | ${totalOrders} Branch Orders`;
-        ticker.parentElement.style.borderColor = 'rgba(34, 197, 94, 0.25)';
-        ticker.parentElement.style.color = '#4ade80';
-      }
-    }
-
-    /* ============================================================
-       COMMAND PALETTE SEARCH (Ctrl + K)
-    ============================================================ */
-    function openCmdBar() {
-      const m = document.getElementById('modal-cmd');
-      if (!m) return;
-      m.classList.add('open');
-      const inp = document.getElementById('cmd-search-input');
-      inp.value = '';
-      inp.focus();
-      handleCmdSearch('');
-    }
-
-    function closeCmdBar() {
-      const m = document.getElementById('modal-cmd');
-      if (m) m.classList.remove('open');
-    }
-
-    function handleCmdSearch(q) {
-      const res = document.getElementById('cmd-results');
-      if (!res) return;
-      const query = (q || '').trim().toLowerCase();
-
-      const items = [];
-
-      // Navigation pages
-      const pages = [
-        { name: isAr() ? 'لوحة التحكم والمؤشرات' : 'Dashboard', page: 'dashboard', icon: '📊', sub: isAr() ? 'المؤشرات العامة وتنبيهات النواقص' : 'General metrics & shortages' },
-        { name: isAr() ? 'التقارير والمقارنات الشهرية' : 'Reports & Analytics', page: 'reports', icon: '📈', sub: isAr() ? 'مقارنة أداء الشهور والهدر والطلب' : 'Month-over-month comparisons' },
-        { name: isAr() ? 'طلبات الفروع واستيراد الإكسيل' : 'Branch Orders', page: 'orders', icon: '📥', sub: isAr() ? 'استيراد شيت الإكسيل والطلبيات' : 'Excel import & branch orders' },
-        { name: isAr() ? 'شجرة الوصفات والتجهيزات (BOM)' : 'Recipes (BOM)', page: 'recipes', icon: '🧪', sub: isAr() ? 'معادلات صوصات وبرجر وفراخ المطبخ المركزي' : 'Sub-assemblies & BOM' },
-        { name: isAr() ? 'محرك وخطة الإنتاج اليومية' : 'Production Engine', page: 'production', icon: '⚙️', sub: isAr() ? 'حساب متطلبات الخامات مع 5% احتياطي' : 'Raw material calculation + 5% buffer' },
-        { name: isAr() ? 'أرصدة المخزون وحدود الأمان' : 'Inventory Stock', page: 'inventory', icon: '📦', sub: isAr() ? 'مراقبة أرصدة الخامات وتعديلها' : 'Stock levels & safety thresholds' },
-        { name: isAr() ? 'طلبات الشراء للموردين' : 'Purchase Orders', page: 'purchase', icon: '🛒', sub: isAr() ? 'توليد أوامر الشراء وإرسالها وطباعتها' : 'Generate & print purchase orders' },
-        { name: isAr() ? 'سجل فواتير الموردين' : 'Invoices Ledger', page: 'invoices', icon: '🧾', sub: isAr() ? 'متابعة الفواتير الواردة وحالات الدفع' : 'Supplier bills & payments' },
-        { name: isAr() ? 'تسجيل الهدر والتالف اليومي' : 'Waste & Spoilage', page: 'waste', icon: '🗑️', sub: isAr() ? 'تسجيل الخسائر وخصمها من المخزن' : 'Log spoilage & financial loss' }
-      ];
-
-      pages.forEach(p => {
-        if (!query || p.name.toLowerCase().includes(query) || p.page.toLowerCase().includes(query)) {
-          items.push({
-            title: p.name,
-            sub: p.sub,
-            icon: p.icon,
-            action: () => { nav(p.page); closeCmdBar(); }
-          });
-        }
-      });
-
-      // Raw Materials
-      Object.entries(S.ings).forEach(([id, iv]) => {
-        const nmAr = iv.ar || '';
-        const nmEn = iv.en || '';
-        if (query && (nmAr.toLowerCase().includes(query) || nmEn.toLowerCase().includes(query) || id.toLowerCase().includes(query))) {
-          items.push({
-            title: `${isAr() ? iv.ar : iv.en} (${iv.stock} ${iv.uom})`,
-            sub: `${isAr() ? 'خامة مخزن | سعر:' : 'Raw Material | Price:'} ${iv.price} ${cur()} | ${iv.sup || 'مورد عام'}`,
-            icon: '📦',
-            action: () => { nav('inventory'); closeCmdBar(); }
-          });
-        }
-      });
-
-      // Products
-      S.products.forEach(p => {
-        const nmAr = p.ar || '';
-        const nmEn = p.en || '';
-        if (query && (nmAr.toLowerCase().includes(query) || nmEn.toLowerCase().includes(query) || p.id.toLowerCase().includes(query))) {
-          items.push({
-            title: `${pname(p)}`,
-            sub: `${isAr() ? 'تجهيز مطبخ مركزي | الوحدة:' : 'Central Kitchen Item | Unit:'} ${p.unit}`,
-            icon: '🥫',
-            action: () => { nav('recipes'); S.curRecipe = p.id; renderRecipes(); closeCmdBar(); }
-          });
-        }
-      });
-
-      if (!items.length) {
-        res.innerHTML = `<div style="text-align:center;padding:24px;color:#94a3b8;font-size:13px">${isAr() ? 'لا توجد نتائج تطابق بحثك' : 'No matching results found'}</div>`;
-        return;
+        openModal('modal-print-po');
       }
 
-      res.innerHTML = items.slice(0, 10).map((it, idx) => `
+      /* ============================================================
+         LIVE KITCHEN PULSE TICKER
+      ============================================================ */
+      function updateLiveTicker() {
+        const ticker = document.getElementById('live-ticker-text');
+        if (!ticker) return;
+        const shorts = getShortages();
+        const totalOrders = S.orders.length;
+
+        if (shorts.length > 0) {
+          ticker.textContent = isAr()
+            ? `المطبخ المركزي: تشغيل مباشر | ⚠️ عجز ${shorts.length} خامات مطلوب شراؤها`
+            : `Central Kitchen: LIVE | ⚠️ ${shorts.length} Shortage(s) detected`;
+          ticker.parentElement.style.borderColor = 'rgba(239, 68, 68, 0.35)';
+          ticker.parentElement.style.color = '#f87171';
+        } else {
+          ticker.textContent = isAr()
+            ? `المطبخ المركزي: تشغيل مباشر | تلبية الطلبات 100% | ${totalOrders} طلبات فروع`
+            : `Central Kitchen: LIVE | 100% Demand Met | ${totalOrders} Branch Orders`;
+          ticker.parentElement.style.borderColor = 'rgba(34, 197, 94, 0.25)';
+          ticker.parentElement.style.color = '#4ade80';
+        }
+      }
+
+      /* ============================================================
+         COMMAND PALETTE SEARCH (Ctrl + K)
+      ============================================================ */
+      function openCmdBar() {
+        const m = document.getElementById('modal-cmd');
+        if (!m) return;
+        m.classList.add('open');
+        const inp = document.getElementById('cmd-search-input');
+        inp.value = '';
+        inp.focus();
+        handleCmdSearch('');
+      }
+
+      function closeCmdBar() {
+        const m = document.getElementById('modal-cmd');
+        if (m) m.classList.remove('open');
+      }
+
+      function handleCmdSearch(q) {
+        const res = document.getElementById('cmd-results');
+        if (!res) return;
+        const query = (q || '').trim().toLowerCase();
+
+        const items = [];
+
+        // Navigation pages
+        const pages = [
+          { name: isAr() ? 'لوحة التحكم والمؤشرات' : 'Dashboard', page: 'dashboard', icon: '📊', sub: isAr() ? 'المؤشرات العامة وتنبيهات النواقص' : 'General metrics & shortages' },
+          { name: isAr() ? 'التقارير والمقارنات الشهرية' : 'Reports & Analytics', page: 'reports', icon: '📈', sub: isAr() ? 'مقارنة أداء الشهور والهدر والطلب' : 'Month-over-month comparisons' },
+          { name: isAr() ? 'طلبات الفروع واستيراد الإكسيل' : 'Branch Orders', page: 'orders', icon: '📥', sub: isAr() ? 'استيراد شيت الإكسيل والطلبيات' : 'Excel import & branch orders' },
+          { name: isAr() ? 'شجرة الوصفات والتجهيزات (BOM)' : 'Recipes (BOM)', page: 'recipes', icon: '🧪', sub: isAr() ? 'معادلات صوصات وبرجر وفراخ المطبخ المركزي' : 'Sub-assemblies & BOM' },
+          { name: isAr() ? 'محرك وخطة الإنتاج اليومية' : 'Production Engine', page: 'production', icon: '⚙️', sub: isAr() ? 'حساب متطلبات الخامات مع 5% احتياطي' : 'Raw material calculation + 5% buffer' },
+          { name: isAr() ? 'أرصدة المخزون وحدود الأمان' : 'Inventory Stock', page: 'inventory', icon: '📦', sub: isAr() ? 'مراقبة أرصدة الخامات وتعديلها' : 'Stock levels & safety thresholds' },
+          { name: isAr() ? 'طلبات الشراء للموردين' : 'Purchase Orders', page: 'purchase', icon: '🛒', sub: isAr() ? 'توليد أوامر الشراء وإرسالها وطباعتها' : 'Generate & print purchase orders' },
+          { name: isAr() ? 'سجل فواتير الموردين' : 'Invoices Ledger', page: 'invoices', icon: '🧾', sub: isAr() ? 'متابعة الفواتير الواردة وحالات الدفع' : 'Supplier bills & payments' },
+          { name: isAr() ? 'تسجيل الهدر والتالف اليومي' : 'Waste & Spoilage', page: 'waste', icon: '🗑️', sub: isAr() ? 'تسجيل الخسائر وخصمها من المخزن' : 'Log spoilage & financial loss' }
+        ];
+
+        pages.forEach(p => {
+          if (!query || p.name.toLowerCase().includes(query) || p.page.toLowerCase().includes(query)) {
+            items.push({
+              title: p.name,
+              sub: p.sub,
+              icon: p.icon,
+              action: () => { nav(p.page); closeCmdBar(); }
+            });
+          }
+        });
+
+        // Raw Materials
+        Object.entries(S.ings).forEach(([id, iv]) => {
+          const nmAr = iv.ar || '';
+          const nmEn = iv.en || '';
+          if (query && (nmAr.toLowerCase().includes(query) || nmEn.toLowerCase().includes(query) || id.toLowerCase().includes(query))) {
+            items.push({
+              title: `${isAr() ? iv.ar : iv.en} (${iv.stock} ${iv.uom})`,
+              sub: `${isAr() ? 'خامة مخزن | سعر:' : 'Raw Material | Price:'} ${iv.price} ${cur()} | ${iv.sup || 'مورد عام'}`,
+              icon: '📦',
+              action: () => { nav('inventory'); closeCmdBar(); }
+            });
+          }
+        });
+
+        // Products
+        S.products.forEach(p => {
+          const nmAr = p.ar || '';
+          const nmEn = p.en || '';
+          if (query && (nmAr.toLowerCase().includes(query) || nmEn.toLowerCase().includes(query) || p.id.toLowerCase().includes(query))) {
+            items.push({
+              title: `${pname(p)}`,
+              sub: `${isAr() ? 'تجهيز مطبخ مركزي | الوحدة:' : 'Central Kitchen Item | Unit:'} ${p.unit}`,
+              icon: '🥫',
+              action: () => { nav('recipes'); S.curRecipe = p.id; renderRecipes(); closeCmdBar(); }
+            });
+          }
+        });
+
+        if (!items.length) {
+          res.innerHTML = `<div style="text-align:center;padding:24px;color:#94a3b8;font-size:13px">${isAr() ? 'لا توجد نتائج تطابق بحثك' : 'No matching results found'}</div>`;
+          return;
+        }
+
+        res.innerHTML = items.slice(0, 10).map((it, idx) => `
     <div class="cmd-item" onclick="window._cmdActions[${idx}]()">
       <div class="cmd-item-left">
         <div class="cmd-item-icon">${it.icon}</div>
@@ -6136,74 +6647,74 @@
     </div>
   `).join('');
 
-      window._cmdActions = items.map(it => it.action);
-    }
-
-    // Global Ctrl + K listener
-    window.addEventListener('keydown', (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault();
-        openCmdBar();
+        window._cmdActions = items.map(it => it.action);
       }
-      if (e.key === 'Escape') {
-        closeCmdBar();
-      }
-    });
 
-    /* ============================================================
-       INITIALIZATION
-    ============================================================ */
-    // Add invoices & wastes array to state
-    S.invoices = [];
-    S.wastes = [];
-
-
-    document.addEventListener('DOMContentLoaded', () => {
-      if (window.innerWidth <= 768) {
-        document.getElementById('mob-btn').style.display = 'flex';
-      }
-      window.addEventListener('resize', () => {
-        document.getElementById('mob-btn').style.display = (window.innerWidth <= 768) ? 'flex' : 'none';
+      // Global Ctrl + K listener
+      window.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+          e.preventDefault();
+          openCmdBar();
+        }
+        if (e.key === 'Escape') {
+          closeCmdBar();
+        }
       });
 
-      // 💾 Load saved data from LocalStorage (persists across reloads)
-      const hadSavedData = loadState();
+      /* ============================================================
+         INITIALIZATION
+      ============================================================ */
+      // Add invoices & wastes array to state
+      S.invoices = [];
+      S.wastes = [];
 
-      applyLang();
 
-      // Only auto-generate initial POs if NO saved data exists yet
-      if (!hadSavedData && S.POs.length === 0) {
-        const rm = computeRM();
-        const rmap = {};
-        rm.forEach(m => rmap[m.id] = m.total);
-        let pn = 1001;
-
-        Object.entries(S.ings).forEach(([id, iv]) => {
-          const d = S.ings[id];
-          if (!d) return;
-          const req = rmap[id] || 0;
-          const gap = req - iv.stock;
-          const isLow = iv.stock <= iv.safety;
-          if (gap > 0 || isLow) {
-            const qty = gap > 0 ? gap + iv.safety : (iv.safety * 2) - iv.stock;
-            const qn = Math.max(0.1, qty);
-            S.POs.push({
-              id: 'PO-' + pn++,
-              ingId: id,
-              qty: f2(qn),
-              unit: iv.uom,
-              cost: f2(qn * d.price),
-              sup: d.sup || 'مورد عام',
-              priority: gap > 0 ? 'high' : 'medium',
-              status: 'draft'
-            });
-          }
+      document.addEventListener('DOMContentLoaded', () => {
+        if (window.innerWidth <= 768) {
+          document.getElementById('mob-btn').style.display = 'flex';
+        }
+        window.addEventListener('resize', () => {
+          document.getElementById('mob-btn').style.display = (window.innerWidth <= 768) ? 'flex' : 'none';
         });
-      }
 
-      renderDash();
-      updateLiveTicker();
-    });
+        // 💾 Load saved data from LocalStorage (persists across reloads)
+        const hadSavedData = loadState();
+
+        applyLang();
+
+        // Only auto-generate initial POs if NO saved data exists yet
+        if (!hadSavedData && S.POs.length === 0) {
+          const rm = computeRM();
+          const rmap = {};
+          rm.forEach(m => rmap[m.id] = m.total);
+          let pn = 1001;
+
+          Object.entries(S.ings).forEach(([id, iv]) => {
+            const d = S.ings[id];
+            if (!d) return;
+            const req = rmap[id] || 0;
+            const gap = req - iv.stock;
+            const isLow = iv.stock <= iv.safety;
+            if (gap > 0 || isLow) {
+              const qty = gap > 0 ? gap + iv.safety : (iv.safety * 2) - iv.stock;
+              const qn = Math.max(0.1, qty);
+              S.POs.push({
+                id: 'PO-' + pn++,
+                ingId: id,
+                qty: f2(qn),
+                unit: iv.uom,
+                cost: f2(qn * d.price),
+                sup: d.sup || 'مورد عام',
+                priority: gap > 0 ? 'high' : 'medium',
+                status: 'draft'
+              });
+            }
+          });
+        }
+
+        renderDash();
+        updateLiveTicker();
+      });
   </script>
 </body>
 
