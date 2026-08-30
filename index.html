@@ -1752,6 +1752,9 @@
           <span data-ar="بحث سريع..." data-en="Quick Search...">بحث سريع...</span>
           <kbd>Ctrl K</kbd>
         </button>
+        <div id="sql-sync-badge" class="badge badge-green" onclick="toggleSqlSync()" style="cursor:pointer;font-size:11.5px;padding:4px 10px;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;user-select:none" title="اضغط للتبديل بين وضع التجربة والمزامنة السحابية">
+          <span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block"></span> ⚡ السيرفر السحابي متصل ومحدّث
+        </div>
         <div class="chip">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -2096,10 +2099,15 @@
       <!-- RECIPES -->
       <section class="page" id="page-recipes">
         <div style="display:grid;grid-template-columns:280px 1fr;gap:20px" class="recipes-layout">
-          <div class="card" style="height:fit-content">
-            <h3 class="text-white font-bold mb-3" data-ar="تجهيزات المطبخ المركزي" data-en="CK Products (BOM)">تجهيزات
-              المطبخ المركزي</h3>
-            <div id="recipe-list" class="sy3"></div>
+          <div class="card" style="height:fit-content;max-height:720px;display:flex;flex-direction:column">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-white font-bold" data-ar="تجهيزات المطبخ المركزي" data-en="CK Products (BOM)">تجهيزات المطبخ المركزي</h3>
+              <span class="badge badge-purple" id="recipes-count-badge">74 ريسبي</span>
+            </div>
+            <div style="position:relative;margin-bottom:10px">
+              <input type="text" id="recipe-search-input" class="input" placeholder="بحث في الـ 74 ريسبي..." style="padding:6px 10px;font-size:12px" oninput="filterRecipesList()" />
+            </div>
+            <div id="recipe-list" class="sy3" style="flex:1;overflow-y:auto;max-height:500px;padding-inline-end:4px"></div>
             <div class="divider"></div>
             <button class="btn btn-secondary w-full" style="justify-content:center" onclick="openModal('modal-prod')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -2113,77 +2121,132 @@
           </div>
 
           <div class="card">
-            <div class="flex items-center justify-between mb-4">
+            <!-- Header of selected product -->
+            <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
               <div>
-                <h2 class="text-white font-bold" style="font-size:20px" id="recipe-title">—</h2>
-                <p class="text-muted text-sm mt-1" data-ar="شجرة مكونات التجهيز وتكلفة الخامات (Central Kitchen BOM)"
-                  data-en="Bill of Materials & Raw Material Costing">شجرة مكونات التجهيز وتكلفة الخامات (Central Kitchen
-                  BOM)</p>
+                <div class="flex items-center gap-2">
+                  <h2 class="text-white font-bold" style="font-size:22px" id="recipe-title">—</h2>
+                  <span class="badge badge-purple" id="recipe-cat-badge">تجهيز مطبخ مركزي</span>
+                </div>
+                <p class="text-muted text-sm mt-1" data-ar="شجرة مواصفات تشغيل وتصنيع الصنف وحساب الخامات المسحوبة (Manufacturing BOM)"
+                  data-en="Central Kitchen Recipe, Material Breakdown & Live Branch Demand">شجرة مواصفات تشغيل وتصنيع الصنف وحساب الخامات المسحوبة (Manufacturing BOM)</p>
               </div>
               <div style="text-align:end">
-                <div class="text-gradient font-bold" style="font-size:24px" id="recipe-total-cost">0.00</div>
-                <div class="text-muted text-sm" data-ar="ج.م / للوحدة المنتجة" data-en="EGP / per unit produced">ج.م /
-                  للوحدة المنتجة</div>
+                <div class="text-gradient font-bold" style="font-size:26px" id="recipe-total-cost">0.00</div>
+                <div class="text-muted text-sm" id="recipe-cost-label">ج.م / كجم منتج</div>
               </div>
             </div>
-            <div class="tbl-wrap mb-3">
-              <table class="tbl">
-                <thead>
-                  <tr>
-                    <th data-ar="المكون / الخامة" data-en="Ingredient / Raw Material">المكون / الخامة</th>
-                    <th data-ar="معيار (1 وحدة)" data-en="Ratio / Unit">معيار (1 وحدة)</th>
-                    <th data-ar="الوحدة" data-en="UOM">الوحدة</th>
-                    <th data-ar="سعر الوحدة" data-en="Unit Price">سعر الوحدة</th>
-                    <th data-ar="نسبة الهدر %" data-en="Waste %">نسبة الهدر %</th>
-                    <th data-ar="تكلفة المعيار" data-en="Line Cost">تكلفة المعيار</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody id="recipe-tbl"></tbody>
-              </table>
-            </div>
-            <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
-              <button class="btn btn-secondary btn-sm" onclick="addIngRow()">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="16" />
-                  <line x1="8" y1="12" x2="16" y2="12" />
-                </svg>
-                <span data-ar="إضافة مكون للوصفة" data-en="Add Ingredient">إضافة مكون للوصفة</span>
-              </button>
-            </div>
 
-            <!-- Live Batch Production & Stock Deduction Box -->
-            <div class="card" style="background:rgba(15,23,42,0.8);border:1px solid rgba(56,189,248,0.3);margin-top:16px;padding:16px;border-radius:12px">
+            <!-- Live Branch Demand Banner for this product (Executive & Structured) -->
+            <div id="recipe-branch-demand-card" class="card" style="background:linear-gradient(145deg, rgba(30,41,59,0.7), rgba(15,23,42,0.85));border:1px solid rgba(56,189,248,0.22);border-radius:14px;padding:16px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,0.25)">
               <div class="flex items-center justify-between flex-wrap gap-3 mb-3">
-                <div>
-                  <h3 class="text-white font-bold flex items-center gap-2" style="font-size:15px">
-                    <span style="font-size:18px">🏭</span>
-                    <span data-ar="محاكي وتشغيل الإنتاج الفعلي (خصم الخامات من المخزن)" data-en="Batch Production & Live Stock Deduction">محاكي وتشغيل الإنتاج الفعلي (خصم الخامات من المخزن)</span>
-                  </h3>
-                  <p class="text-muted text-sm mt-1" data-ar="حدد الكمية التي قمت بإنتاجها اليوم وسيقوم السيستم بحساب الخامات المسحوبة وخصمها فوراً من رصيد المخزن" data-en="Enter produced quantity to calculate consumed materials and deduct from inventory">حدد الكمية التي قمت بإنتاجها اليوم وسيقوم السيستم بحساب الخامات المسحوبة وخصمها فوراً من رصيد المخزن</p>
+                <div class="flex items-center gap-3">
+                  <div style="width:42px;height:42px;border-radius:10px;background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.25);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">
+                    📦
+                  </div>
+                  <div>
+                    <div style="font-size:14px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px">
+                      <span data-ar="مؤشر طلبات الفروع المباشرة" data-en="Live Branch Demand Indicator">مؤشر طلبات الفروع المباشرة</span>
+                      <span class="badge badge-purple" id="recipe-demand-branches-count" style="font-size:11px;font-weight:700">0 فروع</span>
+                    </div>
+                    <div class="text-muted text-xs mt-0.5" data-ar="إجمالي الكميات المسحوبة والمطلوبة لتغطية طلبيات الفروع الحالية" data-en="Total product quantity requested across active branch orders">إجمالي الكميات المسحوبة والمطلوبة لتغطية طلبيات الفروع الحالية</div>
+                  </div>
                 </div>
-                <div class="flex items-center gap-2">
-                  <span class="text-muted text-sm font-bold" data-ar="الكمية المنتجة:" data-en="Produced Qty:">الكمية المنتجة:</span>
-                  <input type="number" id="batch-prod-qty" class="input" style="width:110px;text-align:center;font-size:15px;font-weight:800;color:#38bdf8" value="20" min="0.1" step="any" oninput="calcBatchDeduction()" />
-                  <span class="badge badge-gray" id="batch-prod-uom" style="font-size:12px">kg</span>
-                  <button class="btn btn-primary btn-sm" onclick="executeBatchDeduction()" style="background:linear-gradient(135deg, #0ea5e9, #0284c7);font-weight:700">
-                    <span data-ar="🔻 خصم هذه الخامات من المخزن الآن" data-en="🔻 Deduct Consumed Stock">🔻 خصم هذه الخامات من المخزن الآن</span>
+
+                <div class="flex items-center gap-3">
+                  <div style="text-align:center;padding:5px 14px;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.28);border-radius:10px">
+                    <span style="font-size:10.5px;color:#fb923c;font-weight:700;display:block" data-ar="إجمالي المطلوب" data-en="Total Demand">إجمالي المطلوب</span>
+                    <span id="recipe-demand-total-badge" style="font-size:16px;font-weight:900;color:#fb923c">0.00</span>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="applyBranchDemandToBatch()" id="btn-apply-demand-batch" style="padding:8px 14px;font-weight:700;background:linear-gradient(135deg,#f97316,#ea580c);border:none;box-shadow:0 4px 14px rgba(249,115,22,0.25);border-radius:8px">
+                    ⚡ <span data-ar="تغذية أمر التشغيل بهذا الإجمالي" data-en="Feed Production Batch">تغذية أمر التشغيل بهذا الإجمالي</span>
                   </button>
                 </div>
               </div>
 
-              <div class="tbl-wrap" style="max-height:260px">
-                <table class="tbl" style="font-size:12.5px">
+              <!-- Individual Branch Badges Grid -->
+              <div style="background:rgba(0,0,0,0.22);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px">
+                <div class="text-xs font-bold mb-2 flex items-center justify-between" style="color:#94a3b8">
+                  <div class="flex items-center gap-1.5">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span data-ar="توزيع الكميات حسب الفروع الطالبة:" data-en="Demand breakdown by branch:">توزيع الكميات حسب الفروع الطالبة:</span>
+                  </div>
+                </div>
+                <div id="recipe-demand-branches-tags" style="display:flex;flex-wrap:wrap;gap:8px">
+                  <span class="text-muted text-xs">—</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab Switcher (Base Standard vs Live Batch Deduction) -->
+            <div style="display:flex;gap:8px;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:10px;margin-bottom:14px">
+              <button class="btn btn-sm btn-primary" id="tab-btn-base-bom" onclick="switchRecipeTab('base')" style="border-radius:8px">
+                📋 <span data-ar="معيار ومكونات الوحدة الأساسية (1 كجم / 1 وحدة)" data-en="Standard Recipe (1 Unit)">معيار ومكونات الوحدة الأساسية (1 كجم / 1 وحدة)</span>
+              </button>
+              <button class="btn btn-sm btn-secondary" id="tab-btn-batch-bom" onclick="switchRecipeTab('batch')" style="border-radius:8px">
+                🏭 <span data-ar="تشغيل الإنتاج الفعلي وحساب الخامات المسحوبة من المخزن" data-en="Batch Production & Material Consumption">تشغيل الإنتاج الفعلي وحساب الخامات المسحوبة من المخزن</span>
+              </button>
+            </div>
+
+            <!-- TAB 1: Base Recipe Standard -->
+            <div id="recipe-tab-base">
+              <div class="tbl-wrap mb-3">
+                <table class="tbl">
+                  <thead>
+                    <tr>
+                      <th data-ar="الخامة / المكون" data-en="Ingredient / Raw Material">الخامة / المكون</th>
+                      <th data-ar="معيار (1 وحدة)" data-en="Ratio / Unit">معيار (1 وحدة)</th>
+                      <th data-ar="الوحدة" data-en="UOM">الوحدة</th>
+                      <th data-ar="سعر الخامة" data-en="Unit Price">سعر الخامة</th>
+                      <th data-ar="نسبة الهدر %" data-en="Waste %">نسبة الهدر %</th>
+                      <th data-ar="تكلفة المعيار" data-en="Line Cost">تكلفة المعيار</th>
+                      <th style="width:40px"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="recipe-tbl"></tbody>
+                </table>
+              </div>
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <button class="btn btn-secondary btn-sm" onclick="addIngRow()">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="16" />
+                    <line x1="8" y1="12" x2="16" y2="12" />
+                  </svg>
+                  <span data-ar="إضافة خامة للوصفة" data-en="Add Raw Material">إضافة خامة للوصفة</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- TAB 2: Live Batch Deduction & Material Consumption -->
+            <div id="recipe-tab-batch" style="display:none">
+              <div style="background:rgba(15,23,42,0.7);border:1px solid rgba(56,189,248,0.25);border-radius:12px;padding:16px;margin-bottom:14px">
+                <div class="flex items-center justify-between flex-wrap gap-3">
+                  <div>
+                    <h3 class="text-white font-bold" style="font-size:15px" data-ar="تحديد حجم التشغيلة الفعلية اليوم:" data-en="Enter Batch Size to Produce:">تحديد حجم التشغيلة الفعلية اليوم:</h3>
+                    <p class="text-muted text-sm mt-1" data-ar="السيستم يحسب تلقائياً إجمالي الخامات المسحوبة ويفحص رصيدها بالمخزن قبل الخصم" data-en="Calculates consumed materials and checks inventory stock before deduction">السيستم يحسب تلقائياً إجمالي الخامات المسحوبة ويفحص رصيدها بالمخزن قبل الخصم</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-muted text-sm font-bold" data-ar="الكمية المنتجة:" data-en="Produced Qty:">الكمية المنتجة:</span>
+                    <input type="number" id="batch-prod-qty" class="input" style="width:110px;text-align:center;font-size:15px;font-weight:800;color:#38bdf8" value="20" min="0.01" step="any" oninput="calcBatchDeduction()" />
+                    <span class="badge badge-purple" id="batch-prod-uom" style="font-size:12px">kg</span>
+                    <button class="btn btn-primary btn-sm" onclick="executeBatchDeduction()" style="background:linear-gradient(135deg, #0ea5e9, #0284c7);font-weight:800;box-shadow:0 4px 14px rgba(14,165,233,0.3)">
+                      <span data-ar="⚡ اعتماد التشغيل وخصم الخامات من المخزون" data-en="⚡ Confirm Production & Deduct Stock">⚡ اعتماد التشغيل وخصم الخامات من المخزون</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tbl-wrap" style="max-height:360px">
+                <table class="tbl" style="font-size:13px">
                   <thead>
                     <tr style="background:rgba(255,255,255,0.03)">
                       <th data-ar="الخامة المسحوبة" data-en="Raw Material">الخامة المسحوبة</th>
-                      <th style="text-align:center" data-ar="المعيار / وحدة" data-en="Ratio / Unit">المعيار / وحدة</th>
-                      <th style="text-align:center;color:#38bdf8" data-ar="إجمالي المسحوب للتشغيلة" data-en="Batch Consumed">إجمالي المسحوب للتشغيلة</th>
-                      <th style="text-align:center" data-ar="الرصيد الحالي بالمخزن" data-en="Current Stock">الرصيد الحالي بالمخزن</th>
-                      <th style="text-align:center;color:#4ade80" data-ar="الرصيد بعد الخصم" data-en="Stock After">الرصيد بعد الخصم</th>
-                      <th style="text-align:center" data-ar="الحالة" data-en="Status">الحالة</th>
+                      <th style="text-align:center" data-ar="المعيار الأساسي" data-en="Standard Ratio">المعيار الأساسي</th>
+                      <th style="text-align:center;color:#38bdf8;font-weight:800" data-ar="إجمالي المسحوب للتشغيلة" data-en="Total Consumed">إجمالي المسحوب للتشغيلة</th>
+                      <th style="text-align:center" data-ar="الرصيد المتاح بالمخزن" data-en="Current Stock">الرصيد المتاح بالمخزن</th>
+                      <th style="text-align:center;color:#4ade80" data-ar="الرصيد المتبقي بعد الخصم" data-en="Stock After">الرصيد المتبقي بعد الخصم</th>
+                      <th style="text-align:center" data-ar="حالة التغطية" data-en="Coverage Status">حالة التغطية</th>
                     </tr>
                   </thead>
                   <tbody id="batch-deduction-tbody"></tbody>
@@ -3253,7 +3316,9 @@
         'فرع اسبليت واتر واي (Split Water Way)',
         'فرع اسبليت O1 (Split O1)',
         'فرع اسبليت نيو جيزة (Split New Giza)',
-        'فرع الجولف (NNG GOLF)'
+        'فرع الجولف (NNG GOLF)',
+        'فرع CAC (CAC)',
+        'فرع أورانج (Orange)'
       ],
       /* ── Central Kitchen Manufactured Products Master (المنتجات المصنعة - 171 صنف) ── */
       products: [
@@ -3536,6 +3601,288 @@
        LOCAL STORAGE — PERSISTENT DATA (V2 WITH ALL 74 BOM RECIPES)
     ============================================================ */
     const LS_KEY = 'ck-erp-v2';
+
+        /* ============================================================
+       SUPABASE CLOUD SQL DATABASE SYNC & PERSISTENCE
+    ============================================================ */
+    const SUPABASE_URL = 'https://ihminamcbstcexsdacys.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlobWluYW1jYnN0Y2V4c2RhY3lzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc5Mjg5MDksImV4cCI6MjEwMzUwNDkwOX0.4i4zO2ygSHdkQULp2Chqz3mxiUYevOjbX537w7uWRrE';
+    const supabase = (window.supabase && typeof window.supabase.createClient === 'function')
+      ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+      : null;
+
+    // Toggleable SQL Sync Flag (Allows pausing SQL completely for safe local testing)
+    let SQL_SYNC_ENABLED = localStorage.getItem('ck_sql_sync_enabled') !== 'false';
+
+    function updateSqlSyncBadge() {
+      const badge = document.getElementById('sql-sync-badge');
+      if (!badge) return;
+      if (!SQL_SYNC_ENABLED) {
+        badge.className = 'badge badge-amber cursor-pointer';
+        badge.style.background = 'rgba(245,158,11,0.18)';
+        badge.style.borderColor = 'rgba(245,158,11,0.4)';
+        badge.style.color = '#fbbf24';
+        badge.style.cursor = 'pointer';
+        badge.title = T('اضغط لتفعيل المزامنة السحابية والحفظ في SQL', 'Click to resume live Cloud SQL sync');
+        badge.innerHTML = '🧪 <span>' + T('وضع التجربة (SQL متوقف مؤقتاً)', 'Sandbox (SQL Paused)') + '</span>';
+      } else {
+        badge.className = 'badge badge-green cursor-pointer';
+        badge.style.background = 'rgba(34,197,94,0.15)';
+        badge.style.borderColor = 'rgba(34,197,94,0.35)';
+        badge.style.color = '#4ade80';
+        badge.style.cursor = 'pointer';
+        badge.title = T('اضغط لإيقاف الـ SQL مؤقتاً والتحويل إلى وضع التجربة الآمن', 'Click to pause SQL & test safely');
+        badge.innerHTML = '<span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block"></span> ⚡ <span>' + T('السيرفر السحابي متصل ومحدّث', 'Cloud SQL Connected') + '</span>';
+      }
+    }
+
+    function toggleSqlSync() {
+      SQL_SYNC_ENABLED = !SQL_SYNC_ENABLED;
+      localStorage.setItem('ck_sql_sync_enabled', SQL_SYNC_ENABLED ? 'true' : 'false');
+      updateSqlSyncBadge();
+      if (SQL_SYNC_ENABLED) {
+        toast(T('⚡ تم استئناف المزامنة السحابية — البيانات تُحفظ في قاعدة البيانات مباشرة', 'Cloud SQL Sync RESUMED!'), 'success');
+        syncFromSQL().then(() => {
+          renderOrders();
+          renderInv();
+          renderRecipes();
+          if (typeof renderProd === 'function') renderProd();
+        });
+      } else {
+        toast(T('🧪 تم إيقاف الـ SQL مؤقتاً — أنت الآن في وضع التجربة المحلي (لن يتم تعديل أو حفظ أي شيء في الداتابيز)', 'SQL PAUSED: Sandbox mode active (zero DB writes)'), 'warning');
+      }
+    }
+
+    async function syncFromSQL() {
+      updateSqlSyncBadge();
+      if (!SQL_SYNC_ENABLED) {
+        console.log('🧪 SQL Sync is currently paused. Running in local sandbox mode.');
+        return false;
+      }
+      try {
+        if (supabase) {
+          // Fetch from Supabase Cloud
+          const [brRes, prRes, rawRes, recRes, ordRes, ordItemsRes, tazRes] = await Promise.all([
+            supabase.from('branches').select('name').order('id', { ascending: true }),
+            supabase.from('products').select('*').order('ar', { ascending: true }),
+            supabase.from('raw_materials').select('*').order('ar', { ascending: true }),
+            supabase.from('recipe_items').select('*'),
+            supabase.from('orders').select('*').order('created_at', { ascending: false }),
+            supabase.from('order_items').select('*'),
+            supabase.from('taztiki_records').select('*').order('created_at', { ascending: false })
+          ]);
+
+          if (brRes.data && brRes.data.length) S.branches = brRes.data.map(r => r.name);
+          if (prRes.data && prRes.data.length) S.products = prRes.data;
+
+          if (rawRes.data && rawRes.data.length) {
+            S.ings = {};
+            rawRes.data.forEach(r => {
+              S.ings[r.id] = { ar: r.ar, en: r.en, uom: r.uom, price: r.price, stock: r.stock, safety: r.safety, sup: r.sup };
+            });
+          }
+
+          if (recRes.data && recRes.data.length) {
+            S.recipes = {};
+            recRes.data.forEach(row => {
+              if (!S.recipes[row.product_id]) S.recipes[row.product_id] = { ings: [] };
+              S.recipes[row.product_id].ings.push({ id: row.raw_id, qty: row.qty, waste: row.waste });
+            });
+          }
+
+          if (ordRes.data) {
+            const itemsMap = {};
+            (ordItemsRes.data || []).forEach(it => {
+              if (!itemsMap[it.order_id]) itemsMap[it.order_id] = {};
+              itemsMap[it.order_id][it.product_id] = it.qty;
+            });
+            S.orders = ordRes.data.map(o => ({
+              id: isNaN(o.id) ? o.id : Number(o.id),
+              branch: o.branch,
+              date: o.order_date,
+              notes: o.notes,
+              items: itemsMap[o.id] || {}
+            }));
+          }
+
+          if (tazRes.data) {
+            S.taztikiRecords = tazRes.data.map(r => ({
+              id: r.id,
+              date: r.order_date,
+              branch: r.branch,
+              qty: r.qty,
+              type: r.type,
+              notes: r.notes
+            }));
+          }
+
+          updateSqlSyncBadge();
+          return true;
+        }
+
+        // Fallback to local server /api
+        const res = await fetch('/api/state');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success) {
+            if (data.branches) S.branches = data.branches;
+            if (data.products) S.products = data.products;
+            if (data.ings) S.ings = data.ings;
+            if (data.recipes) S.recipes = data.recipes;
+            if (data.orders) S.orders = data.orders;
+            if (data.taztikiRecords) S.taztikiRecords = data.taztikiRecords;
+            return true;
+          }
+        }
+      } catch (err) {
+        console.warn('Sync failed:', err);
+        const badge = document.getElementById('sql-sync-badge');
+        if (badge) {
+          badge.className = 'badge badge-amber';
+          badge.innerHTML = '⚠️ وضع محلي (Local)';
+        }
+        return false;
+      }
+    }
+
+    async function apiSaveOrders(ordersList, replaceDates = []) {
+      if (!SQL_SYNC_ENABLED) return;
+      try {
+        if (supabase) {
+          if (replaceDates && replaceDates.length) {
+            for (const d of replaceDates) {
+              const { data: oldOrders } = await supabase.from('orders').select('id').eq('order_date', d);
+              if (oldOrders && oldOrders.length) {
+                const oids = oldOrders.map(o => o.id);
+                await supabase.from('order_items').delete().in('order_id', oids);
+                await supabase.from('orders').delete().in('id', oids);
+              }
+              await supabase.from('taztiki_records').delete().eq('order_date', d);
+            }
+          }
+
+          const orderRows = ordersList.map(o => ({
+            id: String(o.id || Date.now()),
+            branch: o.branch,
+            order_date: o.date,
+            notes: o.notes || ''
+          }));
+          await supabase.from('orders').upsert(orderRows);
+
+          const itemRows = [];
+          ordersList.forEach(o => {
+            const oid = String(o.id || Date.now());
+            if (o.items) {
+              Object.entries(o.items).forEach(([pid, qty]) => {
+                if (qty > 0) itemRows.push({ order_id: oid, product_id: pid, qty });
+              });
+            }
+          });
+          if (itemRows.length) {
+            await supabase.from('order_items').insert(itemRows);
+          }
+          return;
+        }
+
+        await fetch('/api/orders', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ orders: ordersList, replaceDates })
+        });
+      } catch (e) { console.warn('apiSaveOrders error:', e); }
+    }
+
+    async function apiDeleteOrder(orderId) {
+      if (!SQL_SYNC_ENABLED) return;
+      try {
+        if (supabase) {
+          const oid = String(orderId);
+          await supabase.from('order_items').delete().eq('order_id', oid);
+          await supabase.from('orders').delete().eq('id', oid);
+          return;
+        }
+        await fetch(`/api/orders/${orderId}`, { method: 'DELETE' });
+      } catch (e) { console.warn('apiDeleteOrder error:', e); }
+    }
+
+    async function apiDeleteOrdersForDate(dateStr) {
+      if (!SQL_SYNC_ENABLED) return;
+      try {
+        if (supabase) {
+          const { data: oldOrders } = await supabase.from('orders').select('id').eq('order_date', dateStr);
+          if (oldOrders && oldOrders.length) {
+            const oids = oldOrders.map(o => o.id);
+            await supabase.from('order_items').delete().in('order_id', oids);
+            await supabase.from('orders').delete().in('id', oids);
+          }
+          await supabase.from('taztiki_records').delete().eq('order_date', dateStr);
+          return;
+        }
+        await fetch(`/api/orders/date/${dateStr}`, { method: 'DELETE' });
+      } catch (e) { console.warn('apiDeleteOrdersForDate error:', e); }
+    }
+
+    async function apiClearAllOrders() {
+      if (!SQL_SYNC_ENABLED) return;
+      try {
+        if (supabase) {
+          await supabase.from('order_items').delete().neq('id', 0);
+          await supabase.from('orders').delete().neq('id', '');
+          await supabase.from('taztiki_records').delete().neq('id', '');
+          return;
+        }
+        await fetch('/api/orders', { method: 'DELETE' });
+      } catch (e) { console.warn('apiClearAllOrders error:', e); }
+    }
+
+    async function apiBatchDeduct(productId, batchQty, deductions) {
+      if (!SQL_SYNC_ENABLED) return;
+      try {
+        if (supabase) {
+          for (const d of deductions) {
+            const cur = S.ings[d.id] ? S.ings[d.id].stock : 0;
+            await supabase.from('raw_materials').update({ stock: Math.max(0, cur) }).eq('id', d.id);
+            await supabase.from('stock_movements').insert({
+              ing_id: d.id,
+              change_qty: -d.qty,
+              reason: `Batch Production: ${batchQty} of ${productId}`,
+              ref_id: productId
+            });
+          }
+          return;
+        }
+        await fetch('/api/batch-deduct', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ productId, batchQty, deductions })
+        });
+      } catch (e) { console.warn('apiBatchDeduct error:', e); }
+    }
+
+    async function apiUpdateRawStock(id, stock, safety, price) {
+      if (!SQL_SYNC_ENABLED) return;
+      try {
+        if (supabase) {
+          await supabase.from('raw_materials').update({ stock, safety, price }).eq('id', id);
+          return;
+        }
+        await fetch(`/api/raw-materials/${id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ stock, safety, price })
+        });
+      } catch (e) { console.warn('apiUpdateRawStock error:', e); }
+    }
+
+    async function apiAddRawMaterial(rawObj) {
+      try {
+        await fetch(`${API_BASE}/raw-materials`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(rawObj)
+        });
+      } catch (e) { console.warn('apiAddRawMaterial error:', e); }
+    }
 
     function saveState() {
       try {
@@ -4329,6 +4676,7 @@
     function delOrder(id) {
       if (!confirm(T('هل تريد بالتأكيد حذف هذه الطلبية؟', 'Are you sure you want to delete this order?'))) return;
       S.orders = S.orders.filter(o => o.id !== id);
+      apiDeleteOrder(id);
       saveState();
       renderOrders();
       if (typeof renderProd === 'function') renderProd();
@@ -4348,6 +4696,7 @@
       if (S.taztikiRecords) {
         S.taztikiRecords = S.taztikiRecords.filter(r => normalizeDateIso(r.date) !== fd);
       }
+      apiDeleteOrdersForDate(fd);
       saveState();
       renderOrders();
       if (typeof renderProd === 'function') renderProd();
@@ -4362,6 +4711,7 @@
       if (!confirm(T(`⚠️ تحذير: هل أنت متأكد من مسح جميع الطلبيات المسجلة بالكامل (${S.orders.length} طلبية)؟\nلا يمكن التراجع عن هذا الإجراء!`, `⚠️ Are you sure you want to delete all ${S.orders.length} orders?`))) return;
       S.orders = [];
       S.taztikiRecords = [];
+      apiClearAllOrders();
       saveState();
       renderOrders();
       if (typeof renderProd === 'function') renderProd();
@@ -4403,9 +4753,96 @@
       renderBOM(S.curRecipe);
     }
 
+        function filterRecipesList() {
+      const q = (document.getElementById('recipe-search-input')?.value || '').trim().toLowerCase();
+      const listEl = document.getElementById('recipe-list');
+      if (!listEl) return;
+
+      const prodsWithRecs = S.products.filter(p => S.recipes[p.id] && S.recipes[p.id].ings && S.recipes[p.id].ings.length > 0)
+        .sort((a, b) => pname(a).localeCompare(pname(b), isAr() ? 'ar' : 'en', { sensitivity: 'base' }));
+
+      const filtered = q
+        ? prodsWithRecs.filter(p => (p.ar && p.ar.toLowerCase().includes(q)) || (p.en && p.en.toLowerCase().includes(q)) || p.id.toLowerCase().includes(q))
+        : prodsWithRecs;
+
+      const chv = isAr() ? '<polyline points="15 18 9 12 15 6"/>' : '<polyline points="9 18 15 12 9 6"/>';
+      const badge = document.getElementById('recipes-count-badge');
+      if (badge) badge.textContent = `${filtered.length} ريسبي`;
+
+      if (!filtered.length) {
+        listEl.innerHTML = `<div class="text-muted text-sm text-center" style="padding:20px">${T('لا توجد وصفات تطابق البحث', 'No matching recipes')}</div>`;
+        return;
+      }
+
+      listEl.innerHTML = filtered.map(p => {
+        const r = S.recipes[p.id];
+        const cost = r ? recipeCost(r) : p.cost;
+        const ingsCount = r && r.ings ? r.ings.length : 0;
+        return `
+          <div class="nav-item ${S.curRecipe === p.id ? 'active' : ''}" onclick="selRecipe('${p.id}')" style="padding:10px 12px;margin-bottom:6px;border-radius:10px;transition:all 0.2s">
+            <span style="width:9px;height:9px;border-radius:50%;background:${p.color};flex-shrink:0;display:inline-block"></span>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:13px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${pname(p)}</div>
+              <div style="font-size:11px;color:#94a3b8;display:flex;gap:8px;align-items:center;margin-top:2px">
+                <span style="color:#fbbf24">${f2(cost)} ${cur()} / ${p.unit}</span>
+                <span class="badge badge-slate" style="font-size:10px;padding:1px 5px">${ingsCount} خامات</span>
+              </div>
+            </div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${chv}</svg>
+          </div>
+        `;
+      }).join('');
+    }
+
     function selRecipe(id) {
       S.curRecipe = id;
       renderRecipes();
+    }
+
+        /* ============================================================
+       CENTRAL KITCHEN MANUFACTURING BOM & LIVE DEMAND AGGREGATION
+    ============================================================ */
+    let _activeRecipeTab = 'base';
+
+    function switchRecipeTab(tabName) {
+      _activeRecipeTab = tabName;
+      const tabBase = document.getElementById('recipe-tab-base');
+      const tabBatch = document.getElementById('recipe-tab-batch');
+      const btnBase = document.getElementById('tab-btn-base-bom');
+      const btnBatch = document.getElementById('tab-btn-batch-bom');
+
+      if (tabName === 'batch') {
+        if (tabBase) tabBase.style.display = 'none';
+        if (tabBatch) tabBatch.style.display = 'block';
+        if (btnBase) { btnBase.className = 'btn btn-sm btn-secondary'; }
+        if (btnBatch) { btnBatch.className = 'btn btn-sm btn-primary'; }
+        calcBatchDeduction();
+      } else {
+        if (tabBase) tabBase.style.display = 'block';
+        if (tabBatch) tabBatch.style.display = 'none';
+        if (btnBase) { btnBase.className = 'btn btn-sm btn-primary'; }
+        if (btnBatch) { btnBatch.className = 'btn btn-sm btn-secondary'; }
+      }
+    }
+
+    function applyBranchDemandToBatch() {
+      const pid = S.curRecipe;
+      if (!pid) return;
+      let totalDemand = 0;
+      S.orders.forEach(o => {
+        if (o.items && o.items[pid]) totalDemand += o.items[pid];
+      });
+
+      if (totalDemand <= 0) {
+        toast(T('لا توجد طلبات مسجلة من الفروع لهذا الصنف حالياً', 'No branch demand registered for this product'), 'warning');
+        return;
+      }
+
+      const input = document.getElementById('batch-prod-qty');
+      if (input) input.value = totalDemand.toFixed(2);
+      switchRecipeTab('batch');
+      calcBatchDeduction();
+      toast(T(`⚡ تم تطبيق إجمالي طلبات الفروع (${totalDemand.toFixed(2)}) في حاسبة الإنتاج!`, `Applied ${totalDemand.toFixed(2)} to batch calculator!`));
     }
 
     function renderBOM(pid) {
@@ -4422,38 +4859,172 @@
       document.getElementById('recipe-total-cost').textContent = f2(cost);
       p.cost = cost;
 
+      const costLbl = document.getElementById('recipe-cost-label');
+      if (costLbl) costLbl.textContent = `${cur()} / ${p.unit} منتج`;
+
+      const catBadge = document.getElementById('recipe-cat-badge');
+      if (catBadge) {
+        catBadge.textContent = p.cat ? (isAr() ? (p.cat === 'sauces' ? '🥣 صوصات وتتبيلات' : (p.cat === 'bakery' ? '🥐 مخبوزات' : (p.cat === 'beef' ? '🥩 لحوم' : (p.cat === 'chicken' ? '🍗 دواجن' : '🥫 تجهيزات مطبخ')))) : p.cat) : 'CK Product';
+      }
+
+      // Calculate Live Branch Demand for this Product
+      let totalDemand = 0;
+      const demandingBranches = [];
+      S.orders.forEach(o => {
+        if (o.items && o.items[pid] && o.items[pid] > 0) {
+          const qty = o.items[pid];
+          totalDemand += qty;
+          demandingBranches.push({
+            branch: o.branch,
+            qty: qty,
+            date: o.date
+          });
+        }
+      });
+
+      const demandBadge = document.getElementById('recipe-demand-total-badge');
+      if (demandBadge) demandBadge.textContent = `${totalDemand.toFixed(2)} ${p.unit}`;
+
+      const countBadge = document.getElementById('recipe-demand-branches-count');
+      if (countBadge) countBadge.textContent = isAr() ? `${demandingBranches.length} فروع` : `${demandingBranches.length} branches`;
+
+      const demandTags = document.getElementById('recipe-demand-branches-tags');
+      if (demandTags) {
+        if (demandingBranches.length > 0) {
+          demandTags.innerHTML = demandingBranches.map(b => `
+            <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:5px 10px;border-radius:8px;font-size:12px;box-shadow:0 2px 6px rgba(0,0,0,0.15)">
+              <span style="color:#cbd5e1;font-weight:600">🏢 ${b.branch}</span>
+              <span style="color:#38bdf8;font-weight:900;background:rgba(56,189,248,0.15);border:1px solid rgba(56,189,248,0.25);padding:1px 7px;border-radius:6px">${fmt(b.qty)} ${p.unit}</span>
+            </div>
+          `).join('');
+        } else {
+          demandTags.innerHTML = `<span class="text-muted text-xs" style="padding:2px 0">${T('لا توجد طلبات مسجلة من الفروع لهذا الصنف حالياً', 'No active branch orders')}</span>`;
+        }
+      }
+
+      const batchUom = document.getElementById('batch-prod-uom');
+      if (batchUom) batchUom.textContent = p.unit;
+
+      const batchQtyInput = document.getElementById('batch-prod-qty');
+      if (batchQtyInput && (!batchQtyInput.value || batchQtyInput.value === '20')) {
+        batchQtyInput.value = totalDemand > 0 ? totalDemand.toFixed(2) : '20';
+      }
+
+      // Render Base Recipe Table
       document.getElementById('recipe-tbl').innerHTML = rec.ings.map((ing, i) => {
         const d = S.ings[ing.id];
         if (!d) return '';
         const eff = ing.qty * (1 + ing.waste / 100);
         const lc = eff * d.price;
         return `
-      <tr>
-        <td>
-          <select class="select" style="padding:6px 10px;font-size:13px" onchange="updIng('${pid}', ${i}, 'id', this.value)">
-            ${Object.entries(S.ings).map(([k, v]) => `<option value="${k}" ${k === ing.id ? 'selected' : ''}>${isAr() ? v.ar : v.en}</option>`).join('')}
-          </select>
-        </td>
-        <td>
-          <input type="number" step="0.001" min="0" value="${ing.qty}" class="input" style="width:85px;padding:6px 10px;font-size:13px" onchange="updIng('${pid}', ${i}, 'qty', +this.value)"/>
-        </td>
-        <td class="text-muted" style="font-size:13px">${d.uom}</td>
-        <td>
-          <div style="display:flex;align-items:center;gap:4px">
-            <input type="number" step="1" min="0" max="100" value="${ing.waste}" class="input" style="width:70px;padding:6px 10px;font-size:13px" onchange="updIng('${pid}', ${i}, 'waste', +this.value)"/>
-            <span style="color:#94a3b8">%</span>
-          </div>
-        </td>
-        <td class="text-muted" style="font-size:13px">${d.price} ${cur()}</td>
-        <td style="font-weight:700;color:#fbbf24;font-size:14px">${f2(lc)} ${cur()}</td>
-        <td>
-          <button class="btn btn-danger btn-icon btn-sm" onclick="remIng('${pid}', ${i})">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
-          </button>
-        </td>
-      </tr>
-    `;
+          <tr>
+            <td>
+              <select class="select" style="padding:6px 10px;font-size:13px" onchange="updIng('${pid}', ${i}, 'id', this.value)">
+                ${Object.entries(S.ings).map(([k, v]) => `<option value="${k}" ${k === ing.id ? 'selected' : ''}>${isAr() ? v.ar : v.en}</option>`).join('')}
+              </select>
+            </td>
+            <td>
+              <input type="number" step="any" min="0" value="${ing.qty}" class="input" style="width:85px;padding:6px 10px;font-size:13px" onchange="updIng('${pid}', ${i}, 'qty', +this.value)"/>
+            </td>
+            <td class="text-muted" style="font-size:13px">${d.uom}</td>
+            <td class="text-muted" style="font-size:13px">${d.price} ${cur()}</td>
+            <td>
+              <div style="display:flex;align-items:center;gap:4px">
+                <input type="number" step="1" min="0" max="100" value="${ing.waste}" class="input" style="width:65px;padding:6px 10px;font-size:13px" onchange="updIng('${pid}', ${i}, 'waste', +this.value)"/>
+                <span style="color:#94a3b8">%</span>
+              </div>
+            </td>
+            <td style="font-weight:700;color:#fbbf24;font-size:14px">${f2(lc)} ${cur()}</td>
+            <td>
+              <button class="btn btn-danger btn-icon btn-sm" onclick="remIng('${pid}', ${i})">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
+              </button>
+            </td>
+          </tr>
+        `;
       }).join('') || `<tr><td colspan="7" class="text-muted" style="text-align:center;padding:24px">${T('لا توجد خامات مضافة لهذه الوصفة بعد', 'No ingredients yet')}</td></tr>`;
+
+      calcBatchDeduction();
+    }
+
+    function calcBatchDeduction() {
+      const pid = S.curRecipe;
+      const tbody = document.getElementById('batch-deduction-tbody');
+      if (!tbody || !pid) return;
+
+      const rec = S.recipes[pid];
+      if (!rec || !rec.ings || !rec.ings.length) {
+        tbody.innerHTML = `<tr><td colspan="6" class="text-muted" style="text-align:center;padding:20px">${T('لا توجد خامات مضافة لحساب المسحوب', 'No ingredients found')}</td></tr>`;
+        return;
+      }
+
+      const batchQty = parseFloat(document.getElementById('batch-prod-qty')?.value || 0);
+
+      tbody.innerHTML = rec.ings.map(ing => {
+        const d = S.ings[ing.id];
+        if (!d) return '';
+        const effRatio = ing.qty * (1 + (ing.waste || 0) / 100);
+        const totalNeeded = batchQty * effRatio;
+        const curStock = d.stock || 0;
+        const remStock = Math.max(0, curStock - totalNeeded);
+        const isShort = curStock < totalNeeded;
+        const diffShort = isShort ? (totalNeeded - curStock) : 0;
+
+        const statusBadge = isShort
+          ? `<span class="badge badge-red" style="font-weight:800">⚠️ عجز: ${fmt(diffShort)} ${d.uom}</span>`
+          : `<span class="badge badge-green" style="font-weight:700">✅ رصيد كافي</span>`;
+
+        return `
+          <tr>
+            <td style="font-weight:700;color:#fff">${isAr() ? d.ar : d.en}</td>
+            <td style="text-align:center;font-size:12px;color:#94a3b8">${ing.qty} ${d.uom} (+${ing.waste || 0}%)</td>
+            <td style="text-align:center;font-weight:900;color:#38bdf8;font-size:14px">${fmt(totalNeeded)} ${d.uom}</td>
+            <td style="text-align:center;font-weight:700">${fmt(curStock)} ${d.uom}</td>
+            <td style="text-align:center;font-weight:800;color:${isShort ? '#f87171' : '#4ade80'}">${fmt(remStock)} ${d.uom}</td>
+            <td style="text-align:center">${statusBadge}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    async function executeBatchDeduction() {
+      const pid = S.curRecipe;
+      const p = S.products.find(x => x.id === pid);
+      const batchQty = parseFloat(document.getElementById('batch-prod-qty')?.value || 0);
+      if (!p || !pid || batchQty <= 0) {
+        toast(T('حدد كمية تشغيل صحيحة أكبر من صفر', 'Enter valid quantity'), 'error');
+        return;
+      }
+      const rec = S.recipes[pid];
+      if (!rec || !rec.ings || !rec.ings.length) {
+        toast(T('لا توجد خامات مضافة لهذه الوصفة لخصمها', 'No ingredients in recipe'), 'error');
+        return;
+      }
+
+      const pTitle = pname(p);
+      if (!confirm(T(`🏭 تأكيد تشغيل إنتاج دفعة (${batchQty} ${p.unit}) من [${pTitle}]؟
+سيتم خصم كافة الخامات المسحوبة وتحديث أرصدة المخزون فوراً.`, `Confirm batch production of ${batchQty} ${p.unit} of ${pTitle}?`))) return;
+
+      let deductedItemsCount = 0;
+      const deductionsList = [];
+      rec.ings.forEach(ing => {
+        const d = S.ings[ing.id];
+        if (d) {
+          const effRatio = ing.qty * (1 + (ing.waste || 0) / 100);
+          const totalNeeded = batchQty * effRatio;
+          d.stock = Math.max(0, parseFloat((d.stock - totalNeeded).toFixed(4)));
+          deductionsList.push({ id: ing.id, qty: totalNeeded });
+          deductedItemsCount++;
+        }
+      });
+
+      // Sync deduction with SQL database and cloud
+      apiBatchDeduct(pid, batchQty, deductionsList);
+      saveState();
+      renderInv();
+      renderBOM(pid);
+      updateLiveTicker();
+      toast(T(`✅ تم اعتماد إنتاج الدفعة (${batchQty} ${p.unit}) وخصم ${deductedItemsCount} صنف خام من المخزون بنجاح`, `✅ Batch production recorded and inventory updated!`));
     }
 
     function updIng(pid, i, f, v) {
@@ -4993,12 +5564,15 @@
 
     function saveStock() {
       const id = document.getElementById('stock-ing-id').value;
-      S.ings[id].stock = +document.getElementById('stock-cur').value || 0;
-      S.ings[id].safety = +document.getElementById('stock-safety').value || 0;
+      const newStock = +document.getElementById('stock-cur').value || 0;
+      const newSafety = +document.getElementById('stock-safety').value || 0;
+      S.ings[id].stock = newStock;
+      S.ings[id].safety = newSafety;
+      apiUpdateRawStock(id, newStock, newSafety, S.ings[id].price || 45);
       closeModal('modal-stock');
       saveState();
       renderInv();
-      toast(T('✅ تم تحديث بيانات المخزون بنجاح!', '✅ Stock updated!'));
+      toast(T('✅ تم تحديث بيانات المخزون وقاعدة بيانات SQL بنجاح!', '✅ Stock updated in SQL!'));
     }
 
     function saveIngredient() {
@@ -5995,15 +6569,22 @@
       return 0;
     }
 
-    /* ── Comprehensive Branch & Cost Center Normalizer ── */
-    function normalizeBranchCostCenter(ccName, sheetName) {
-      const cc = (ccName || '').trim().toLowerCase();
-      const sh = (sheetName || '').trim().toLowerCase();
-      const full = cc + ' ' + sh;
+        /* ── Comprehensive Branch & Cost Center Normalizer ── */
+    function normalizeBranchCostCenter(ccName, sheetName, reqId) {
+      let rawCc = (ccName || '').trim();
+      if ((!rawCc || rawCc === ':') && reqId) {
+        const m = String(reqId).match(/\((.*?)\)/);
+        if (m) rawCc = m[1].trim();
+      }
+
+      const cc = (rawCc || '').toLowerCase();
+      const sh = (sheetName || '').toLowerCase();
+      const req = (reqId || '').toLowerCase();
+      const full = `${cc} ${sh} ${req}`.trim();
 
       // 1. Water Way
-      if (full.includes('water way') || full.includes('وتر واى') || full.includes('ww')) {
-        if (full.includes('split') || full.includes('اسباليت') || full.includes('اسبليت')) {
+      if (full.includes('water way') || full.includes('ww') || full.includes('وتر واى') || full.includes('the drive ww')) {
+        if (full.includes('split') || full.includes('اسباليت') || full.includes('اسبليت') || full.includes('drive 01') || full.includes('drive 1')) {
           return isAr() ? 'فرع اسبليت واتر واي (Split Water Way)' : 'Split Water Way';
         }
         return isAr() ? 'فرع واتر واي (Water Way)' : 'Water Way';
@@ -6041,8 +6622,8 @@
       if (full.includes('new giza club') || full.includes('النادى') || full.includes('النادي')) {
         return isAr() ? 'فرع نادي نيو جيزة (New Giza Club)' : 'New Giza Club';
       }
-      if (full.includes('new giza') || full.includes('نيو جيزه') || full.includes('نيو جيزة') || full.includes('ng')) {
-        if (full.includes('split') || full.includes('اسباليت') || full.includes('اسبليت')) {
+      if (full.includes('new giza') || full.includes('نيو جيزه') || full.includes('نيوجيزه') || full.includes('نيو جيزة')) {
+        if (full.includes('split') || full.includes('اسباليت') || full.includes('اسبليت') || full.includes('split-ng')) {
           return isAr() ? 'فرع اسبليت نيو جيزة (Split New Giza)' : 'Split New Giza';
         }
         return isAr() ? 'فرع نيو جيزة (New Giza)' : 'New Giza';
@@ -6054,7 +6635,7 @@
       }
 
       // 9. Mall of Arabia
-      if (full.includes('mall of arabia') || full.includes('moa') || full.includes('مول العرب')) {
+      if (full.includes('mall of arabia') || full.includes('moa') || full.includes('العرب')) {
         return isAr() ? 'فرع مول العرب (Mall of Arabia)' : 'Mall of Arabia';
       }
 
@@ -6093,7 +6674,7 @@
         return isAr() ? 'فرع D2 (Drive 02)' : 'D2 (Drive 02)';
       }
 
-            // 17. Katameya
+      // 17. Katameya
       if (full.includes('katamya') || full.includes('katameya') || full.includes('القطامية') || full.includes('قطامية') || full.includes('saints-katamya')) {
         return isAr() ? 'فرع قطامية (Katameya)' : 'Katameya';
       }
@@ -6113,297 +6694,307 @@
         return isAr() ? 'فرع Core PH' : 'Core PH';
       }
 
+      // 21. CAC
+      if (full.includes('cac') || full.includes('كـاك') || full.includes('كاك') || full.includes('c.a.c')) {
+        return isAr() ? 'فرع CAC (CAC)' : 'CAC';
+      }
+
+      // 22. Orange
+      if (full.includes('orange') || full.includes('اورانج') || full.includes('أورانج') || full.includes('اورنج') || full.includes('أورنج')) {
+        return isAr() ? 'فرع أورانج (Orange)' : 'Orange';
+      }
+
       return rawCc || sheetName || (isAr() ? 'فرع عام' : 'General Branch');
+    }
+
+    /* ── Match or Register Product ── */
+    function matchOrRegisterProduct(rawName, rawUnit, rawPrice) {
+      if (!rawName) return null;
+      const clean = String(rawName).trim();
+      if (!clean || clean === 'Total:' || clean === 'الإجمالي:') return null;
+
+      // 1. Direct or partial match with existing S.products
+      const cleanLow = clean.toLowerCase();
+      let p = S.products.find(x =>
+        (x.ar && x.ar.toLowerCase() === cleanLow) ||
+        (x.en && x.en.toLowerCase() === cleanLow) ||
+        (x.ar && (cleanLow.includes(x.ar.toLowerCase()) || x.ar.toLowerCase().includes(cleanLow))) ||
+        (x.en && (cleanLow.includes(x.en.toLowerCase()) || x.en.toLowerCase().includes(cleanLow)))
+      );
+
+      if (p) return p.id;
+
+      // 2. Auto-register new product dynamically
+      const newId = 'prod-' + clean.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+      const existing = S.products.find(x => x.id === newId);
+      if (existing) return existing.id;
+
+      let u = 'kg';
+      const uLow = (rawUnit || '').toLowerCase();
+      if (uLow.includes('each') || uLow.includes('pcs') || uLow.includes('order') || uLow.includes('plate') || uLow.includes('pkt')) u = 'pcs';
+      else if (uLow.includes('ltr')) u = 'ltr';
+      else if (uLow.includes('portion')) u = 'portion';
+
+      let cat = 'prep';
+      if (cleanLow.includes('sauce') || cleanLow.includes('dressing') || cleanLow.includes('vinaigrette') || cleanLow.includes('mayo') || cleanLow.includes('curd') || cleanLow.includes('puree') || cleanLow.includes('syrup')) cat = 'sauces';
+      else if (cleanLow.includes('croissant') || cleanLow.includes('bread') || cleanLow.includes('baghette') || cleanLow.includes('dough') || cleanLow.includes('toast') || cleanLow.includes('danash') || cleanLow.includes('pancake') || cleanLow.includes('brownie') || cleanLow.includes('cookies')) cat = 'bakery';
+      else if (cleanLow.includes('beef') || cleanLow.includes('rib') || cleanLow.includes('turkey') || cleanLow.includes('chicken') || cleanLow.includes('tuna') || cleanLow.includes('bresaola')) cat = (cleanLow.includes('beef') || cleanLow.includes('rib') || cleanLow.includes('bresaola')) ? 'beef' : 'chicken';
+      else if (cleanLow.includes('cheese') || cleanLow.includes('mozzarella') || cleanLow.includes('provolone') || cleanLow.includes('parmesan') || cleanLow.includes('burrata') || cleanLow.includes('yogurt') || cleanLow.includes('yougurt') || cleanLow.includes('kiri') || cleanLow.includes('sour cream') || cleanLow.includes('egg')) cat = 'cheese';
+      else if (cleanLow.includes('lettuce') || cleanLow.includes('mushroom') || cleanLow.includes('basil') || cleanLow.includes('onion') || cleanLow.includes('potato') || cleanLow.includes('spanish') || cleanLow.includes('chives') || cleanLow.includes('oakleaf') || cleanLow.includes('pickle') || cleanLow.includes('olive') || cleanLow.includes('berry') || cleanLow.includes('raspberry') || cleanLow.includes('strawberry') || cleanLow.includes('watermelon')) cat = 'veggies';
+      else if (cleanLow.includes('juice') || cleanLow.includes('matcha') || cleanLow.includes('karkade') || cleanLow.includes('ice cream') || cleanLow.includes('chocolate')) cat = 'drinks';
+
+      const newProd = {
+        id: newId,
+        ar: clean,
+        en: clean,
+        unit: u,
+        cat: cat,
+        cost: parseFloat(rawPrice) || 30,
+        color: cat === 'sauces' ? '#f97316' : (cat === 'beef' ? '#8b5cf6' : (cat === 'chicken' ? '#22c55e' : (cat === 'bakery' ? '#f59e0b' : '#06b6d4')))
+      };
+      S.products.push(newProd);
+      return newProd.id;
+    }
+
+    /* ── Main Multi-Sheet / Multi-Template Excel Engine ── */
+    function parseWorkbookData(wb, fileName) {
+      if (!wb || !wb.SheetNames || !wb.SheetNames.length) {
+        toast(T('الملف غير صالح أو لا يحتوي على أوراق عمل', 'File is invalid or has no sheets'), 'error');
+        return;
       }
 
-      /* ── Match or Register Product ── */
-      function matchOrRegisterProduct(rawName, rawUnit, rawPrice) {
-        if (!rawName) return null;
-        const clean = rawName.trim();
-        if (!clean || clean === 'Total:') return null;
+      const branchMap = {};
+      let totalTemplatesCount = 0;
+      let totalItemsParsed = 0;
+      let totalSauceParsed = 0;
 
-        // 1. Direct or partial match with existing S.products
-        const cleanLow = clean.toLowerCase();
-        let p = S.products.find(x =>
-          x.ar === clean || x.en.toLowerCase() === cleanLow ||
-          clean.includes(x.ar) || x.ar.includes(clean) ||
-          cleanLow.includes(x.en.toLowerCase()) || x.en.toLowerCase().includes(cleanLow)
-        );
+      // Iterate through all sheets in the workbook
+      wb.SheetNames.forEach(sheetName => {
+        const ws = wb.Sheets[sheetName];
+        if (!ws || !ws['!ref']) return;
 
-        if (p) return p.id;
+        const matrix = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '' });
+        if (!matrix || !matrix.length) return;
 
-        // 2. Auto-register new product dynamically
-        const newId = 'prod-' + clean.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-        const existing = S.products.find(x => x.id === newId);
-        if (existing) return existing.id;
+        let currentReq = null;
+        let inItemsTable = false;
+        let headerRowIndexes = { item: -1, qty: -1, unit: -1, price: -1, itemNo: -1 };
 
-        let u = 'kg';
-        const uLow = (rawUnit || '').toLowerCase();
-        if (uLow.includes('each') || uLow.includes('pcs') || uLow.includes('order') || uLow.includes('plate') || uLow.includes('pkt')) u = 'pcs';
-        else if (uLow.includes('ltr')) u = 'ltr';
-        else if (uLow.includes('portion')) u = 'portion';
+        matrix.forEach(row => {
+          if (!Array.isArray(row)) return;
 
-        let cat = 'prep';
-        if (cleanLow.includes('sauce') || cleanLow.includes('dressing') || cleanLow.includes('vinaigrette') || cleanLow.includes('mayo') || cleanLow.includes('curd') || cleanLow.includes('puree') || cleanLow.includes('syrup')) cat = 'sauces';
-        else if (cleanLow.includes('croissant') || cleanLow.includes('bread') || cleanLow.includes('baghette') || cleanLow.includes('dough') || cleanLow.includes('toast') || cleanLow.includes('danash') || cleanLow.includes('pancake') || cleanLow.includes('brownie') || cleanLow.includes('cookies')) cat = 'bakery';
-        else if (cleanLow.includes('beef') || cleanLow.includes('rib') || cleanLow.includes('turkey') || cleanLow.includes('chicken') || cleanLow.includes('tuna') || cleanLow.includes('bresaola')) cat = (cleanLow.includes('beef') || cleanLow.includes('rib') || cleanLow.includes('bresaola')) ? 'beef' : 'chicken';
-        else if (cleanLow.includes('cheese') || cleanLow.includes('mozzarella') || cleanLow.includes('provolone') || cleanLow.includes('parmesan') || cleanLow.includes('burrata') || cleanLow.includes('yogurt') || cleanLow.includes('yougurt') || cleanLow.includes('kiri') || cleanLow.includes('sour cream') || cleanLow.includes('egg')) cat = 'cheese';
-        else if (cleanLow.includes('lettuce') || cleanLow.includes('mushroom') || cleanLow.includes('basil') || cleanLow.includes('onion') || cleanLow.includes('potato') || cleanLow.includes('spanish') || cleanLow.includes('chives') || cleanLow.includes('oakleaf') || cleanLow.includes('pickle') || cleanLow.includes('olive') || cleanLow.includes('berry') || cleanLow.includes('raspberry') || cleanLow.includes('strawberry') || cleanLow.includes('watermelon')) cat = 'veggies';
-        else if (cleanLow.includes('juice') || cleanLow.includes('matcha') || cleanLow.includes('karkade') || cleanLow.includes('ice cream') || cleanLow.includes('chocolate')) cat = 'drinks';
+          const r0 = String(row[0] || '').trim();
+          const r1 = String(row[1] || '').trim();
+          const r3 = String(row[3] || '').trim();
+          const r5 = String(row[5] || '').trim();
 
-        const newProd = {
-          id: newId,
-          ar: clean,
-          en: clean,
-          unit: u,
-          cat: cat,
-          cost: parseFloat(rawPrice) || 30,
-          color: cat === 'sauces' ? '#f97316' : (cat === 'beef' ? '#8b5cf6' : (cat === 'chicken' ? '#22c55e' : (cat === 'bakery' ? '#f59e0b' : '#06b6d4')))
-        };
-        S.products.push(newProd);
-        return newProd.id;
-      }
+          // Check if a new Issue Request template begins
+          if (r0.includes('Issue Request') || r1.includes('Issue Request') || r0.includes('طلب تحويل') || r1.includes('طلب تحويل')) {
+            if (currentReq && (currentReq.costCenter || Object.keys(currentReq.items).length)) {
+              saveRequestToMap(currentReq);
+            }
+            currentReq = {
+              sheet: sheetName,
+              reqId: r5 || String(row[4] || '') || String(row[3] || ''),
+              date: todayStr(),
+              costCenter: '',
+              info: '',
+              burgerSauce: 0,
+              items: {}
+            };
+            inItemsTable = false;
+            headerRowIndexes = { item: -1, qty: -1, unit: -1, price: -1, itemNo: -1 };
+            totalTemplatesCount++;
+            return;
+          }
 
-      /* ── Main Multi-Sheet / Multi-Template Excel Engine ── */
-      function parseWorkbookData(wb, fileName) {
-        if (!wb || !wb.SheetNames || !wb.SheetNames.length) {
-          toast(T('الملف غير صالح أو لا يحتوي على أوراق عمل', 'File is invalid or has no sheets'), 'error');
-          return;
-        }
-
-        const branchMap = {};
-        let totalTemplatesCount = 0;
-        let totalItemsParsed = 0;
-        let totalSauceParsed = 0;
-
-        // Iterate through all sheets in the workbook
-        wb.SheetNames.forEach(sheetName => {
-          const ws = wb.Sheets[sheetName];
-          if (!ws || !ws['!ref']) return;
-
-          const matrix = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '' });
-          if (!matrix || !matrix.length) return;
-
-          let currentReq = null;
-          let inItemsTable = false;
-          let headerRowIndexes = { item: -1, qty: -1, unit: -1, price: -1, itemNo: -1 };
-
-          matrix.forEach(row => {
-            if (!Array.isArray(row)) return;
-
-            const r0 = String(row[0] || '').trim();
-            const r1 = String(row[1] || '').trim();
-            const r3 = String(row[3] || '').trim();
-            const r5 = String(row[5] || '').trim();
-
-            // Check if a new Issue Request template begins
-            if (r0.includes('Issue Request') || r1.includes('Issue Request') || r0.includes('طلب تحويل') || r1.includes('طلب تحويل')) {
-              if (currentReq && (currentReq.costCenter || Object.keys(currentReq.items).length)) {
-                saveRequestToMap(currentReq);
+          if (currentReq) {
+            // Read Issue Request Metadata
+            if (r1 === 'Date' || r1 === 'التاريخ' || r0 === 'Date') {
+              currentReq.date = normalizeDateIso(r5 || String(row[4] || '') || todayStr());
+            } else if (r1.includes('To Cost Center') || r0.includes('To Cost Center') || r1.includes('إلى مركز التكلفة')) {
+              let toCcVal = '';
+              for (let ci = 2; ci < row.length; ci++) {
+                const cellVal = String(row[ci] || '').trim();
+                if (cellVal && cellVal !== ':') {
+                  toCcVal = cellVal;
+                  break;
+                }
               }
-              currentReq = {
-                sheet: sheetName,
-                reqId: r5 || String(row[4] || '') || String(row[3] || ''),
-                date: todayStr(),
-                costCenter: '',
-                info: '',
-                burgerSauce: 0,
-                items: {}
-              };
-              inItemsTable = false;
-              headerRowIndexes = { item: -1, qty: -1, unit: -1, price: -1, itemNo: -1 };
-              totalTemplatesCount++;
+              currentReq.costCenter = toCcVal || r5 || String(row[6] || '');
+            } else if (r1 === 'Info' || r1 === 'الملاحظات' || r0 === 'Info') {
+              let infoVal = '';
+              for (let ci = 2; ci < row.length; ci++) {
+                const cellVal = String(row[ci] || '').trim();
+                if (cellVal && cellVal !== ':') {
+                  infoVal = cellVal;
+                  break;
+                }
+              }
+              currentReq.info = infoVal || r5 || String(row[6] || '');
+              const sQty = extractBurgerSauceQty(currentReq.info);
+              if (sQty > 0) currentReq.burgerSauce = sQty;
+            }
+
+            // Detect Items Table Headers (Item No, Item, Unit, Qty / Column K)
+            const rowStr = row.map(c => String(c || '').trim().toLowerCase());
+            if (rowStr.some(c => c === 'item no.' || c === 'item' || c === 'qty' || c === 'الكمية' || c === 'الصنف')) {
+              inItemsTable = true;
+              headerRowIndexes.itemNo = rowStr.findIndex(c => c === 'item no.' || c === 'رقم الصنف');
+              headerRowIndexes.item = rowStr.findIndex(c => c === 'item' || c === 'اسم الصنف' || c === 'المنتج');
+              headerRowIndexes.unit = rowStr.findIndex(c => c === 'unit' || c === 'الوحدة');
+              headerRowIndexes.qty = rowStr.findIndex(c => c === 'qty' || c === 'الكمية' || c === 'quantity');
+              headerRowIndexes.price = rowStr.findIndex(c => c === 'price' || c === 'السعر');
+              if (headerRowIndexes.qty === -1) headerRowIndexes.qty = 10;
+              if (headerRowIndexes.item === -1) headerRowIndexes.item = 3;
               return;
             }
 
-            if (currentReq) {
-              // Read Issue Request Metadata
-              if (r1 === 'Date' || r1 === 'التاريخ' || r0 === 'Date') {
-                currentReq.date = normalizeDateIso(r5 || String(row[4] || '') || todayStr());
-              } else if (r1.includes('To Cost Center') || r0.includes('To Cost Center') || r1.includes('إلى مركز التكلفة')) {
-                currentReq.costCenter = r5 || String(row[4] || '') || String(row[6] || '');
-              } else if (r1 === 'Info' || r1 === 'الملاحظات' || r0 === 'Info') {
-                currentReq.info = r5 || String(row[4] || '') || String(row[6] || '');
-                const sQty = extractBurgerSauceQty(currentReq.info);
-                if (sQty > 0) currentReq.burgerSauce = sQty;
-              }
+            // Parse Items Rows
+            if (inItemsTable) {
+              const rawItemName = String(row[headerRowIndexes.item !== -1 ? headerRowIndexes.item : 3] || '').trim();
+              const rawQtyVal = row[headerRowIndexes.qty !== -1 ? headerRowIndexes.qty : 10];
+              const rawUnit = String(row[headerRowIndexes.unit !== -1 ? headerRowIndexes.unit : 6] || '').trim();
+              const rawPrice = row[headerRowIndexes.price !== -1 ? headerRowIndexes.price : 11] || 0;
 
-              // Detect Items Table Headers (Item No, Item, Unit, Qty / Column K)
-              const rowStr = row.map(c => String(c || '').trim().toLowerCase());
-              if (rowStr.some(c => c === 'item no.' || c === 'item' || c === 'qty' || c === 'الكمية' || c === 'الصنف')) {
-                inItemsTable = true;
-                headerRowIndexes.itemNo = rowStr.findIndex(c => c === 'item no.' || c === 'رقم الصنف');
-                headerRowIndexes.item = rowStr.findIndex(c => c === 'item' || c === 'اسم الصنف' || c === 'المنتج');
-                headerRowIndexes.unit = rowStr.findIndex(c => c === 'unit' || c === 'الوحدة');
-                headerRowIndexes.qty = rowStr.findIndex(c => c === 'qty' || c === 'الكمية' || c === 'quantity');
-                headerRowIndexes.price = rowStr.findIndex(c => c === 'price' || c === 'السعر');
-                if (headerRowIndexes.qty === -1) headerRowIndexes.qty = 10; // Default Column K (index 10)
-                if (headerRowIndexes.item === -1) headerRowIndexes.item = 3; // Default Column D (index 3)
-                return;
-              }
-
-              // Parse Items Rows
-              if (inItemsTable) {
-                const rawItemName = String(row[headerRowIndexes.item !== -1 ? headerRowIndexes.item : 3] || '').trim();
-                // Read Column K (index 10) or detected Qty index
-                const rawQtyVal = row[headerRowIndexes.qty !== -1 ? headerRowIndexes.qty : 10];
-                const rawUnit = String(row[headerRowIndexes.unit !== -1 ? headerRowIndexes.unit : 6] || '').trim();
-                const rawPrice = row[headerRowIndexes.price !== -1 ? headerRowIndexes.price : 11] || 0;
-
-                if (rawItemName && rawItemName !== 'Total:' && rawItemName !== 'الإجمالي:' && rawQtyVal !== undefined && rawQtyVal !== '') {
-                  const qtyNum = parseFloat(rawQtyVal);
-                  if (qtyNum > 0) {
-                    const pid = matchOrRegisterProduct(rawItemName, rawUnit, rawPrice);
-                    if (pid) {
-                      currentReq.items[pid] = (currentReq.items[pid] || 0) + qtyNum;
-                      totalItemsParsed += qtyNum;
-                    }
+              if (rawItemName && rawItemName !== 'Total:' && rawItemName !== 'الإجمالي:' && rawQtyVal !== undefined && rawQtyVal !== '') {
+                const qtyNum = parseFloat(rawQtyVal);
+                if (qtyNum > 0) {
+                  const pid = matchOrRegisterProduct(rawItemName, rawUnit, rawPrice);
+                  if (pid) {
+                    currentReq.items[pid] = (currentReq.items[pid] || 0) + qtyNum;
+                    totalItemsParsed += qtyNum;
                   }
                 }
               }
             }
-          });
-
-          if (currentReq && (currentReq.costCenter || Object.keys(currentReq.items).length)) {
-            saveRequestToMap(currentReq);
           }
         });
 
-        function saveRequestToMap(req) {
-          const unifiedBranch = normalizeBranchCostCenter(req.costCenter, req.sheet);
-          if (!branchMap[unifiedBranch]) {
-            branchMap[unifiedBranch] = {
-              branch: unifiedBranch,
-              date: req.date || todayStr(),
-              costCenters: new Set(),
-              items: {},
-              burgerSauce: 0,
-              templatesCount: 0
-            };
-          }
-          branchMap[unifiedBranch].templatesCount++;
-          if (req.costCenter) branchMap[unifiedBranch].costCenters.add(req.costCenter);
-          if (req.burgerSauce > 0) {
-            branchMap[unifiedBranch].burgerSauce += req.burgerSauce;
-            totalSauceParsed += req.burgerSauce;
-          }
-          Object.entries(req.items).forEach(([pid, qty]) => {
-            branchMap[unifiedBranch].items[pid] = (branchMap[unifiedBranch].items[pid] || 0) + qty;
-          });
+        if (currentReq && (currentReq.costCenter || Object.keys(currentReq.items).length)) {
+          saveRequestToMap(currentReq);
         }
+      });
 
-        // If no Issue Request format found, fallback to standard tabular parsing
-        if (!Object.keys(branchMap).length) {
-          const firstSheet = wb.Sheets[wb.SheetNames[0]];
-          const altRows = XLSX.utils.sheet_to_json(firstSheet, { defval: '' });
-          if (altRows.length) {
-            const keys = Object.keys(altRows[0]);
-            const bCol = keys.find(k => /فرع|محل|موقع|branch|store/i.test(k)) || keys[0];
-            const pCol = keys.find(k => /منتج|صنف|item|product|name/i.test(k));
-            const qCol = keys.find(k => /كمية|عدد|مطلوب|qty|quantity/i.test(k)) || (keys[10] ? keys[10] : null);
-
-            if (pCol && qCol) {
-              altRows.forEach(r => {
-                const bName = normalizeBranchCostCenter(String(r[bCol] || ''), wb.SheetNames[0]);
-                const pName = String(r[pCol] || '').trim();
-                const qVal = parseFloat(r[qCol]) || 0;
-                if (pName && qVal > 0) {
-                  if (!branchMap[bName]) branchMap[bName] = { branch: bName, date: todayStr(), costCenters: new Set([bName]), items: {}, burgerSauce: 0, templatesCount: 1 };
-                  const pid = matchOrRegisterProduct(pName, 'kg', 30);
-                  if (pid) branchMap[bName].items[pid] = (branchMap[bName].items[pid] || 0) + qVal;
-                }
-              });
-            }
-          }
-        }
-
-        const pendingList = Object.values(branchMap).map(b => {
-          // Also attach Burger Sauce into items as 'taztiki-sauce' if requested
-          if (b.burgerSauce > 0) {
-            b.items['burger-sauce'] = (b.items['burger-sauce'] || 0) + b.burgerSauce;
-          }
-          return {
-            branch: b.branch,
-            date: b.date,
-            costCentersList: Array.from(b.costCenters).join(' + '),
-            burgerSauce: b.burgerSauce,
-            templatesCount: b.templatesCount,
-            items: b.items
+      function saveRequestToMap(req) {
+        const unifiedBranch = normalizeBranchCostCenter(req.costCenter, req.sheet, req.reqId);
+        if (!branchMap[unifiedBranch]) {
+          branchMap[unifiedBranch] = {
+            branch: unifiedBranch,
+            date: req.date || todayStr(),
+            costCenters: new Set(),
+            items: {},
+            burgerSauce: 0,
+            templatesCount: 0
           };
-        });
-
-        if (!pendingList.length) {
-          toast(T('لم يتم العثور على أي طلبيات صالحة في الملف', 'No valid orders found in workbook'), 'error');
-          return;
         }
+        branchMap[unifiedBranch].templatesCount++;
+        if (req.costCenter) branchMap[unifiedBranch].costCenters.add(req.costCenter);
+        if (req.burgerSauce > 0) {
+          branchMap[unifiedBranch].burgerSauce += req.burgerSauce;
+          totalSauceParsed += req.burgerSauce;
+        }
+        Object.entries(req.items).forEach(([pid, qty]) => {
+          branchMap[unifiedBranch].items[pid] = (branchMap[unifiedBranch].items[pid] || 0) + qty;
+        });
+      }
 
-        _excelPendingOrders = pendingList;
+      const pendingList = Object.values(branchMap).map(b => {
+        if (b.burgerSauce > 0) {
+          b.items['burger-sauce'] = (b.items['burger-sauce'] || 0) + b.burgerSauce;
+        }
+        return {
+          branch: b.branch,
+          date: b.date,
+          costCentersList: Array.from(b.costCenters).join(' + '),
+          burgerSauce: b.burgerSauce,
+          templatesCount: b.templatesCount,
+          items: b.items
+        };
+      });
 
-        // Render Preview Modal
-        const preview = document.getElementById('excel-preview');
-        const ptbl = document.getElementById('excel-preview-table');
+      if (!pendingList.length) {
+        toast(T('لم يتم العثور على أي طلبيات صالحة في الملف', 'No valid orders found in workbook'), 'error');
+        return;
+      }
+
+      _excelPendingOrders = pendingList;
+
+      // Render Preview Modal
+      const preview = document.getElementById('excel-preview');
+      const ptbl = document.getElementById('excel-preview-table');
+      if (document.getElementById('excel-preview-title')) {
         document.getElementById('excel-preview-title').innerHTML =
           T(`🎉 <b>تم بنجاح قراءة وتجميع شيت الفروع (${fileName || 'الفروع.xlsx'}):</b><br/>` +
             `<span style="color:#4ade80;font-size:12px">✨ تم دمج <b>${totalTemplatesCount || pendingList.length} قالب/مركز تكلفة</b> في <b>${pendingList.length} فرع موحد</b> | صوص البرجر المكتشف: <b>${totalSauceParsed.toFixed(2)} كجم</b></span>`,
             `🎉 <b>Successfully parsed & aggregated (${fileName || 'الفروع.xlsx'}):</b><br/>` +
             `<span style="color:#4ade80;font-size:12px">✨ Merged <b>${totalTemplatesCount || pendingList.length} templates</b> into <b>${pendingList.length} unified branches</b> | Burger Sauce: <b>${totalSauceParsed.toFixed(2)} KG</b></span>`);
-
-        ptbl.querySelector('thead').innerHTML = `
-        <tr>
-          <th>${T('الفرع الموحد', 'Unified Branch')}</th>
-          <th>${T('مراكز التكلفة المدمجة (مطبخ + بار)', 'Merged Cost Centers')}</th>
-          <th>${T('صوص البرجر', 'Burger Sauce')}</th>
-          <th>${T('إجمالي المنتجات', 'Total Items')}</th>
-        </tr>
-      `;
-
-        ptbl.querySelector('tbody').innerHTML = pendingList.map(o => {
-          const sauceBadge = o.burgerSauce > 0
-            ? `<span class="badge" style="background:rgba(192,132,252,0.18);color:#c084fc;font-weight:700">🍔 ${o.burgerSauce} ${T('كجم', 'KG')}</span>`
-            : `<span class="text-muted" style="font-size:11px">—</span>`;
-          const itemsCount = Object.keys(o.items).length;
-          const totalItemsQty = Object.values(o.items).reduce((a, b) => a + b, 0);
-
-          return `
-          <tr>
-            <td style="color:#fff;font-weight:800;font-size:13.5px">${o.branch}</td>
-            <td class="text-muted" style="font-size:11px;max-width:240px">${o.costCentersList || '—'}</td>
-            <td>${sauceBadge}</td>
-            <td style="font-weight:700;color:#22c55e">${itemsCount} ${T('صنف', 'items')} (${totalItemsQty.toFixed(1)} ${T('وحدة', 'units')})</td>
-          </tr>
-        `;
-        }).join('');
-
-        preview.style.display = 'block';
-        toast(T(`✨ تم بنجاح تجميع ${pendingList.length} فرع موحد من شيت الفروع!`, `✨ Aggregated ${pendingList.length} branches from Excel!`));
       }
 
-      /* ── Load File via Input or Drop ── */
-      function handleExcelFile(file) {
-        if (!file) return;
-        if (!window.XLSX) {
-          toast(T('مكتبة قراءة الإكسيل لم تُحمّل بعد — تأكد من اتصالك بالإنترنت', 'SheetJS not loaded. Check internet connection.'), 'error');
-          return;
+      if (ptbl) {
+        const thead = ptbl.querySelector('thead');
+        if (thead) {
+          thead.innerHTML = `
+            <tr>
+              <th>${T('الفرع الموحد', 'Unified Branch')}</th>
+              <th>${T('مراكز التكلفة المدمجة (مطبخ + بار)', 'Merged Cost Centers')}</th>
+              <th>${T('صوص البرجر', 'Burger Sauce')}</th>
+              <th>${T('إجمالي المنتجات', 'Total Items')}</th>
+            </tr>
+          `;
         }
-        const reader = new FileReader();
-        reader.onload = function (evt) {
-          try {
-            const rawData = evt.target.result;
-            let wb;
-            try {
-              const data = new Uint8Array(rawData);
-              wb = XLSX.read(data, { type: 'array' });
-            } catch (e1) {
-              wb = XLSX.read(rawData, { type: 'binary' });
-            }
-            parseWorkbookData(wb, file.name);
-          } catch (err) {
-            console.error('Excel parse error:', err);
-            toast(T('خطأ أثناء قراءة الملف: ' + err.message, 'File reading error: ' + err.message), 'error');
-          }
-        };
-        reader.readAsArrayBuffer(file);
+
+        const tbody = ptbl.querySelector('tbody');
+        if (tbody) {
+          tbody.innerHTML = pendingList.map(o => {
+            const sauceBadge = o.burgerSauce > 0
+              ? `<span class="badge" style="background:rgba(192,132,252,0.18);color:#c084fc;font-weight:700">🍔 ${o.burgerSauce} ${T('كجم', 'KG')}</span>`
+              : `<span class="text-muted" style="font-size:11px">—</span>`;
+            const itemsCount = Object.keys(o.items).length;
+            const totalItemsQty = Object.values(o.items).reduce((a, b) => a + b, 0);
+
+            return `
+              <tr>
+                <td style="color:#fff;font-weight:800;font-size:13.5px">${o.branch}</td>
+                <td class="text-muted" style="font-size:11px;max-width:240px">${o.costCentersList || '—'}</td>
+                <td>${sauceBadge}</td>
+                <td style="font-weight:700;color:#22c55e">${itemsCount} ${T('صنف', 'items')} (${totalItemsQty.toFixed(1)} ${T('وحدة', 'units')})</td>
+              </tr>
+            `;
+          }).join('');
+        }
       }
+
+      if (preview) preview.style.display = 'block';
+      toast(T(`✨ تم بنجاح تجميع ${pendingList.length} فرع موحد من شيت الفروع!`, `✨ Aggregated ${pendingList.length} branches from Excel!`));
+    }
+
+    /* ── Load File via Input or Drop ── */
+    function handleExcelFile(file) {
+      if (!file) return;
+      if (!window.XLSX) {
+        toast(T('مكتبة قراءة الإكسيل لم تُحمّل بعد — تأكد من اتصالك بالإنترنت', 'SheetJS not loaded. Check internet connection.'), 'error');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = function (evt) {
+        try {
+          const rawData = evt.target.result;
+          let wb;
+          try {
+            const data = new Uint8Array(rawData);
+            wb = XLSX.read(data, { type: 'array' });
+          } catch (e1) {
+            wb = XLSX.read(rawData, { type: 'binary' });
+          }
+          parseWorkbookData(wb, file.name);
+        } catch (err) {
+          console.error('Excel parse error:', err);
+          toast(T('خطأ أثناء قراءة الملف: ' + err.message, 'File reading error: ' + err.message), 'error');
+        }
+      };
+      reader.readAsArrayBuffer(file);
+    }
 
       /* ── ⚡ Auto Load Attached Local File (الفروع.xlsx) ── */
       async function loadDefaultBranchesFile() {
