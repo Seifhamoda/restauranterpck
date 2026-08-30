@@ -4655,20 +4655,23 @@
         return;
       }
 
-      S.orders.unshift({
+      const newOrder = {
         id: Date.now(),
         branch: branch,
         date: date,
         items: { ..._manualOrderItems },
         notes: document.getElementById('o-notes').value || T('تسجيل يدوي', 'Manual entry')
-      });
+      };
+
+      S.orders.unshift(newOrder);
+      apiSaveOrders([newOrder]);
 
       _manualOrderItems = {};
       renderManualSelectedTable();
       document.getElementById('o-notes').value = '';
 
       saveState();
-      toast(T('✅ تم بنجاح تسجيل الطلبية وتحديث حسابات الإنتاج!', '✅ Order recorded and synced!'));
+      toast(T('✅ تم بنجاح تسجيل ومزامنة الطلبية سحابياً!', '✅ Order recorded and synced to cloud!'));
       renderOrders();
       if (typeof renderProd === 'function') renderProd();
     }
@@ -7042,16 +7045,19 @@
           }
         }
 
+        const newlyImportedOrders = [];
         _excelPendingOrders.forEach((o, i) => {
           if (!o.items || !Object.keys(o.items).length) return;
           const normalizedOrderDate = normalizeDateIso(o.date);
-          S.orders.unshift({
+          const ord = {
             id: nextId + i,
             branch: o.branch,
             date: normalizedOrderDate,
             items: o.items,
             notes: T(`📥 استيراد مجمع من شيت الفروع (${o.costCentersList || ''})`, `📥 Merged import from branches sheet`)
-          });
+          };
+          S.orders.unshift(ord);
+          newlyImportedOrders.push(ord);
           importedCount++;
 
           // Add to Taztiki Records if Burger Sauce is requested
@@ -7068,6 +7074,11 @@
           }
         });
 
+        // Sync directly to Supabase Cloud so all devices (Mobile, PC, etc.) see it instantly!
+        if (newlyImportedOrders.length) {
+          apiSaveOrders(newlyImportedOrders, isReplaceMode ? Array.from(importedDates) : []);
+        }
+
         // Also set the filter date to the imported date automatically so the user sees it immediately
         const firstDate = Array.from(importedDates)[0];
         if (firstDate) {
@@ -7081,7 +7092,7 @@
         if (typeof renderProd === 'function') renderProd();
         if (typeof renderProduction === 'function') renderProduction();
 
-        toast(T(`📥 تم بنجاح حفظ ${importedCount} طلبية مجمعة للفروع ${isReplaceMode ? '(تم استبدال النسخ السابقة لتفادي التكرار)' : ''}`, `📥 Successfully saved ${importedCount} orders!`));
+        toast(T(`📥 تم بنجاح حفظ ومزامنة ${importedCount} طلبية للفروع سحابياً`, `📥 Successfully saved & synced ${importedCount} orders to cloud!`));
         _excelPendingOrders = null;
       }
 
@@ -7268,43 +7279,24 @@
           document.getElementById('mob-btn').style.display = (window.innerWidth <= 768) ? 'flex' : 'none';
         });
 
-        // 💾 Load saved data from LocalStorage (persists across reloads)
+        // 💾 1. Fast initial render from localStorage
         const hadSavedData = loadState();
-
         applyLang();
-
-        // Only auto-generate initial POs if NO saved data exists yet
-        if (!hadSavedData && S.POs.length === 0) {
-          const rm = computeRM();
-          const rmap = {};
-          rm.forEach(m => rmap[m.id] = m.total);
-          let pn = 1001;
-
-          Object.entries(S.ings).forEach(([id, iv]) => {
-            const d = S.ings[id];
-            if (!d) return;
-            const req = rmap[id] || 0;
-            const gap = req - iv.stock;
-            const isLow = iv.stock <= iv.safety;
-            if (gap > 0 || isLow) {
-              const qty = gap > 0 ? gap + iv.safety : (iv.safety * 2) - iv.stock;
-              const qn = Math.max(0.1, qty);
-              S.POs.push({
-                id: 'PO-' + pn++,
-                ingId: id,
-                qty: f2(qn),
-                unit: iv.uom,
-                cost: f2(qn * d.price),
-                sup: d.sup || 'مورد عام',
-                priority: gap > 0 ? 'high' : 'medium',
-                status: 'draft'
-              });
-            }
-          });
-        }
-
         renderDash();
         updateLiveTicker();
+
+        // ⚡ 2. Async Cloud Sync from Supabase SQL (loads real-time data on Phone, PC, Tablet)
+        syncFromSQL().then(synced => {
+          if (synced) {
+            renderDash();
+            renderOrders();
+            renderInv();
+            renderRecipes();
+            if (typeof renderProd === 'function') renderProd();
+            if (typeof renderProduction === 'function') renderProduction();
+            updateLiveTicker();
+          }
+        });
       });
   </script>
 </body>
