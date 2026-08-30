@@ -2118,77 +2118,109 @@
           </div>
 
           <div class="card">
-            <div class="flex items-center justify-between mb-4">
+            <!-- Header of selected product -->
+            <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
               <div>
-                <h2 class="text-white font-bold" style="font-size:20px" id="recipe-title">—</h2>
-                <p class="text-muted text-sm mt-1" data-ar="شجرة مكونات التجهيز وتكلفة الخامات (Central Kitchen BOM)"
-                  data-en="Bill of Materials & Raw Material Costing">شجرة مكونات التجهيز وتكلفة الخامات (Central Kitchen
-                  BOM)</p>
+                <div class="flex items-center gap-2">
+                  <h2 class="text-white font-bold" style="font-size:22px" id="recipe-title">—</h2>
+                  <span class="badge badge-purple" id="recipe-cat-badge">تجهيز مطبخ مركزي</span>
+                </div>
+                <p class="text-muted text-sm mt-1" data-ar="شجرة مواصفات تشغيل وتصنيع الصنف وحساب الخامات المسحوبة (Manufacturing BOM)"
+                  data-en="Central Kitchen Recipe, Material Breakdown & Live Branch Demand">شجرة مواصفات تشغيل وتصنيع الصنف وحساب الخامات المسحوبة (Manufacturing BOM)</p>
               </div>
               <div style="text-align:end">
-                <div class="text-gradient font-bold" style="font-size:24px" id="recipe-total-cost">0.00</div>
-                <div class="text-muted text-sm" data-ar="ج.م / للوحدة المنتجة" data-en="EGP / per unit produced">ج.م /
-                  للوحدة المنتجة</div>
+                <div class="text-gradient font-bold" style="font-size:26px" id="recipe-total-cost">0.00</div>
+                <div class="text-muted text-sm" id="recipe-cost-label">ج.م / كجم منتج</div>
               </div>
             </div>
-            <div class="tbl-wrap mb-3">
-              <table class="tbl">
-                <thead>
-                  <tr>
-                    <th data-ar="المكون / الخامة" data-en="Ingredient / Raw Material">المكون / الخامة</th>
-                    <th data-ar="معيار (1 وحدة)" data-en="Ratio / Unit">معيار (1 وحدة)</th>
-                    <th data-ar="الوحدة" data-en="UOM">الوحدة</th>
-                    <th data-ar="سعر الوحدة" data-en="Unit Price">سعر الوحدة</th>
-                    <th data-ar="نسبة الهدر %" data-en="Waste %">نسبة الهدر %</th>
-                    <th data-ar="تكلفة المعيار" data-en="Line Cost">تكلفة المعيار</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody id="recipe-tbl"></tbody>
-              </table>
+
+            <!-- Live Branch Demand Banner for this product -->
+            <div id="recipe-branch-demand-card" style="background:linear-gradient(135deg,rgba(168,85,247,0.12),rgba(249,115,22,0.08));border:1px solid rgba(168,85,247,0.25);border-radius:14px;padding:16px;margin-bottom:18px">
+              <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
+                <div class="flex items-center gap-2">
+                  <span style="font-size:18px">📊</span>
+                  <span style="color:#fff;font-weight:800;font-size:14px" data-ar="إجمالي المطلوب والمسحوب من واقع طلبات الفروع الحالية:" data-en="Total Live Demand from Branch Orders:">إجمالي المطلوب والمسحوب من واقع طلبات الفروع الحالية:</span>
+                  <span class="badge badge-orange" id="recipe-demand-total-badge" style="font-size:14px;padding:4px 12px;font-weight:900">0 كجم</span>
+                </div>
+                <button class="btn btn-secondary btn-sm" onclick="applyBranchDemandToBatch()" id="btn-apply-demand-batch" style="background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.35);color:#fb923c;font-weight:700">
+                  ⚡ <span data-ar="تطبيق هذا الإجمالي في تشغيل الإنتاج الفعلي" data-en="Apply to Batch Production">تطبيق هذا الإجمالي في تشغيل الإنتاج الفعلي</span>
+                </button>
+              </div>
+              <div style="font-size:12px;color:#cbd5e1" id="recipe-demand-branches-list">
+                <span class="text-muted">الفروع الطالبة: </span>
+                <span id="recipe-demand-branches-tags">—</span>
+              </div>
             </div>
-            <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
-              <button class="btn btn-secondary btn-sm" onclick="addIngRow()">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="16" />
-                  <line x1="8" y1="12" x2="16" y2="12" />
-                </svg>
-                <span data-ar="إضافة مكون للوصفة" data-en="Add Ingredient">إضافة مكون للوصفة</span>
+
+            <!-- Tab Switcher (Base Standard vs Live Batch Deduction) -->
+            <div style="display:flex;gap:8px;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:10px;margin-bottom:14px">
+              <button class="btn btn-sm btn-primary" id="tab-btn-base-bom" onclick="switchRecipeTab('base')" style="border-radius:8px">
+                📋 <span data-ar="معيار ومكونات الوحدة الأساسية (1 كجم / 1 وحدة)" data-en="Standard Recipe (1 Unit)">معيار ومكونات الوحدة الأساسية (1 كجم / 1 وحدة)</span>
+              </button>
+              <button class="btn btn-sm btn-secondary" id="tab-btn-batch-bom" onclick="switchRecipeTab('batch')" style="border-radius:8px">
+                🏭 <span data-ar="تشغيل الإنتاج الفعلي وحساب الخامات المسحوبة من المخزن" data-en="Batch Production & Material Consumption">تشغيل الإنتاج الفعلي وحساب الخامات المسحوبة من المخزن</span>
               </button>
             </div>
 
-            <!-- Live Batch Production & Stock Deduction Box -->
-            <div class="card" style="background:rgba(15,23,42,0.8);border:1px solid rgba(56,189,248,0.3);margin-top:16px;padding:16px;border-radius:12px">
-              <div class="flex items-center justify-between flex-wrap gap-3 mb-3">
-                <div>
-                  <h3 class="text-white font-bold flex items-center gap-2" style="font-size:15px">
-                    <span style="font-size:18px">🏭</span>
-                    <span data-ar="محاكي وتشغيل الإنتاج الفعلي (خصم الخامات من المخزن)" data-en="Batch Production & Live Stock Deduction">محاكي وتشغيل الإنتاج الفعلي (خصم الخامات من المخزن)</span>
-                  </h3>
-                  <p class="text-muted text-sm mt-1" data-ar="حدد الكمية التي قمت بإنتاجها اليوم وسيقوم السيستم بحساب الخامات المسحوبة وخصمها فوراً من رصيد المخزن" data-en="Enter produced quantity to calculate consumed materials and deduct from inventory">حدد الكمية التي قمت بإنتاجها اليوم وسيقوم السيستم بحساب الخامات المسحوبة وخصمها فوراً من رصيد المخزن</p>
-                </div>
-                <div class="flex items-center gap-2">
-                  <span class="text-muted text-sm font-bold" data-ar="الكمية المنتجة:" data-en="Produced Qty:">الكمية المنتجة:</span>
-                  <input type="number" id="batch-prod-qty" class="input" style="width:110px;text-align:center;font-size:15px;font-weight:800;color:#38bdf8" value="20" min="0.1" step="any" oninput="calcBatchDeduction()" />
-                  <span class="badge badge-gray" id="batch-prod-uom" style="font-size:12px">kg</span>
-                  <button class="btn btn-primary btn-sm" onclick="executeBatchDeduction()" style="background:linear-gradient(135deg, #0ea5e9, #0284c7);font-weight:700">
-                    <span data-ar="🔻 خصم هذه الخامات من المخزن الآن" data-en="🔻 Deduct Consumed Stock">🔻 خصم هذه الخامات من المخزن الآن</span>
-                  </button>
+            <!-- TAB 1: Base Recipe Standard -->
+            <div id="recipe-tab-base">
+              <div class="tbl-wrap mb-3">
+                <table class="tbl">
+                  <thead>
+                    <tr>
+                      <th data-ar="الخامة / المكون" data-en="Ingredient / Raw Material">الخامة / المكون</th>
+                      <th data-ar="معيار (1 وحدة)" data-en="Ratio / Unit">معيار (1 وحدة)</th>
+                      <th data-ar="الوحدة" data-en="UOM">الوحدة</th>
+                      <th data-ar="سعر الخامة" data-en="Unit Price">سعر الخامة</th>
+                      <th data-ar="نسبة الهدر %" data-en="Waste %">نسبة الهدر %</th>
+                      <th data-ar="تكلفة المعيار" data-en="Line Cost">تكلفة المعيار</th>
+                      <th style="width:40px"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="recipe-tbl"></tbody>
+                </table>
+              </div>
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <button class="btn btn-secondary btn-sm" onclick="addIngRow()">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="16" />
+                    <line x1="8" y1="12" x2="16" y2="12" />
+                  </svg>
+                  <span data-ar="إضافة خامة للوصفة" data-en="Add Raw Material">إضافة خامة للوصفة</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- TAB 2: Live Batch Deduction & Material Consumption -->
+            <div id="recipe-tab-batch" style="display:none">
+              <div style="background:rgba(15,23,42,0.7);border:1px solid rgba(56,189,248,0.25);border-radius:12px;padding:16px;margin-bottom:14px">
+                <div class="flex items-center justify-between flex-wrap gap-3">
+                  <div>
+                    <h3 class="text-white font-bold" style="font-size:15px" data-ar="تحديد حجم التشغيلة الفعلية اليوم:" data-en="Enter Batch Size to Produce:">تحديد حجم التشغيلة الفعلية اليوم:</h3>
+                    <p class="text-muted text-sm mt-1" data-ar="السيستم يحسب تلقائياً إجمالي الخامات المسحوبة ويفحص رصيدها بالمخزن قبل الخصم" data-en="Calculates consumed materials and checks inventory stock before deduction">السيستم يحسب تلقائياً إجمالي الخامات المسحوبة ويفحص رصيدها بالمخزن قبل الخصم</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-muted text-sm font-bold" data-ar="الكمية المنتجة:" data-en="Produced Qty:">الكمية المنتجة:</span>
+                    <input type="number" id="batch-prod-qty" class="input" style="width:110px;text-align:center;font-size:15px;font-weight:800;color:#38bdf8" value="20" min="0.01" step="any" oninput="calcBatchDeduction()" />
+                    <span class="badge badge-purple" id="batch-prod-uom" style="font-size:12px">kg</span>
+                    <button class="btn btn-primary btn-sm" onclick="executeBatchDeduction()" style="background:linear-gradient(135deg, #0ea5e9, #0284c7);font-weight:800">
+                      <span data-ar="🔻 خصم هذه الخامات من المخزن وسحابة Supabase الآن" data-en="🔻 Deduct Consumed Stock">🔻 خصم هذه الخامات من المخزن وسحابة Supabase الآن</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 
-              <div class="tbl-wrap" style="max-height:260px">
-                <table class="tbl" style="font-size:12.5px">
+              <div class="tbl-wrap" style="max-height:360px">
+                <table class="tbl" style="font-size:13px">
                   <thead>
                     <tr style="background:rgba(255,255,255,0.03)">
                       <th data-ar="الخامة المسحوبة" data-en="Raw Material">الخامة المسحوبة</th>
-                      <th style="text-align:center" data-ar="المعيار / وحدة" data-en="Ratio / Unit">المعيار / وحدة</th>
-                      <th style="text-align:center;color:#38bdf8" data-ar="إجمالي المسحوب للتشغيلة" data-en="Batch Consumed">إجمالي المسحوب للتشغيلة</th>
-                      <th style="text-align:center" data-ar="الرصيد الحالي بالمخزن" data-en="Current Stock">الرصيد الحالي بالمخزن</th>
-                      <th style="text-align:center;color:#4ade80" data-ar="الرصيد بعد الخصم" data-en="Stock After">الرصيد بعد الخصم</th>
-                      <th style="text-align:center" data-ar="الحالة" data-en="Status">الحالة</th>
+                      <th style="text-align:center" data-ar="المعيار الأساسي" data-en="Standard Ratio">المعيار الأساسي</th>
+                      <th style="text-align:center;color:#38bdf8;font-weight:800" data-ar="إجمالي المسحوب للتشغيلة" data-en="Total Consumed">إجمالي المسحوب للتشغيلة</th>
+                      <th style="text-align:center" data-ar="الرصيد المتاح بالمخزن" data-en="Current Stock">الرصيد المتاح بالمخزن</th>
+                      <th style="text-align:center;color:#4ade80" data-ar="الرصيد المتبقي بعد الخصم" data-en="Stock After">الرصيد المتبقي بعد الخصم</th>
+                      <th style="text-align:center" data-ar="حالة التغطية" data-en="Coverage Status">حالة التغطية</th>
                     </tr>
                   </thead>
                   <tbody id="batch-deduction-tbody"></tbody>
@@ -4690,6 +4722,52 @@
       renderRecipes();
     }
 
+        /* ============================================================
+       CENTRAL KITCHEN MANUFACTURING BOM & LIVE DEMAND AGGREGATION
+    ============================================================ */
+    let _activeRecipeTab = 'base';
+
+    function switchRecipeTab(tabName) {
+      _activeRecipeTab = tabName;
+      const tabBase = document.getElementById('recipe-tab-base');
+      const tabBatch = document.getElementById('recipe-tab-batch');
+      const btnBase = document.getElementById('tab-btn-base-bom');
+      const btnBatch = document.getElementById('tab-btn-batch-bom');
+
+      if (tabName === 'batch') {
+        if (tabBase) tabBase.style.display = 'none';
+        if (tabBatch) tabBatch.style.display = 'block';
+        if (btnBase) { btnBase.className = 'btn btn-sm btn-secondary'; }
+        if (btnBatch) { btnBatch.className = 'btn btn-sm btn-primary'; }
+        calcBatchDeduction();
+      } else {
+        if (tabBase) tabBase.style.display = 'block';
+        if (tabBatch) tabBatch.style.display = 'none';
+        if (btnBase) { btnBase.className = 'btn btn-sm btn-primary'; }
+        if (btnBatch) { btnBatch.className = 'btn btn-sm btn-secondary'; }
+      }
+    }
+
+    function applyBranchDemandToBatch() {
+      const pid = S.curRecipe;
+      if (!pid) return;
+      let totalDemand = 0;
+      S.orders.forEach(o => {
+        if (o.items && o.items[pid]) totalDemand += o.items[pid];
+      });
+
+      if (totalDemand <= 0) {
+        toast(T('لا توجد طلبات مسجلة من الفروع لهذا الصنف حالياً', 'No branch demand registered for this product'), 'warning');
+        return;
+      }
+
+      const input = document.getElementById('batch-prod-qty');
+      if (input) input.value = totalDemand.toFixed(2);
+      switchRecipeTab('batch');
+      calcBatchDeduction();
+      toast(T(`⚡ تم تطبيق إجمالي طلبات الفروع (${totalDemand.toFixed(2)}) في حاسبة الإنتاج!`, `Applied ${totalDemand.toFixed(2)} to batch calculator!`));
+    }
+
     function renderBOM(pid) {
       const p = S.products.find(x => x.id === pid);
       if (!p) {
@@ -4704,38 +4782,157 @@
       document.getElementById('recipe-total-cost').textContent = f2(cost);
       p.cost = cost;
 
+      const costLbl = document.getElementById('recipe-cost-label');
+      if (costLbl) costLbl.textContent = `${cur()} / ${p.unit} منتج`;
+
+      const catBadge = document.getElementById('recipe-cat-badge');
+      if (catBadge) {
+        catBadge.textContent = p.cat ? (isAr() ? (p.cat === 'sauces' ? '🥣 صوصات وتتبيلات' : (p.cat === 'bakery' ? '🥐 مخبوزات' : (p.cat === 'beef' ? '🥩 لحوم' : (p.cat === 'chicken' ? '🍗 دواجن' : '🥫 تجهيزات مطبخ')))) : p.cat) : 'CK Product';
+      }
+
+      // Calculate Live Branch Demand for this Product
+      let totalDemand = 0;
+      const demandingBranches = [];
+      S.orders.forEach(o => {
+        if (o.items && o.items[pid] && o.items[pid] > 0) {
+          totalDemand += o.items[pid];
+          demandingBranches.push(`${o.branch}: <b>${o.items[pid]} ${p.unit}</b>`);
+        }
+      });
+
+      const demandBadge = document.getElementById('recipe-demand-total-badge');
+      if (demandBadge) demandBadge.textContent = `${totalDemand.toFixed(2)} ${p.unit}`;
+
+      const demandTags = document.getElementById('recipe-demand-branches-tags');
+      if (demandTags) {
+        demandTags.innerHTML = demandingBranches.length
+          ? demandingBranches.join(' | ')
+          : `<span class="text-muted">${T('لا توجد طلبيات مفتوحة لهذا الصنف اليوم', 'No active branch orders')}</span>`;
+      }
+
+      const batchUom = document.getElementById('batch-prod-uom');
+      if (batchUom) batchUom.textContent = p.unit;
+
+      const batchQtyInput = document.getElementById('batch-prod-qty');
+      if (batchQtyInput && (!batchQtyInput.value || batchQtyInput.value === '20')) {
+        batchQtyInput.value = totalDemand > 0 ? totalDemand.toFixed(2) : '20';
+      }
+
+      // Render Base Recipe Table
       document.getElementById('recipe-tbl').innerHTML = rec.ings.map((ing, i) => {
         const d = S.ings[ing.id];
         if (!d) return '';
         const eff = ing.qty * (1 + ing.waste / 100);
         const lc = eff * d.price;
         return `
-      <tr>
-        <td>
-          <select class="select" style="padding:6px 10px;font-size:13px" onchange="updIng('${pid}', ${i}, 'id', this.value)">
-            ${Object.entries(S.ings).map(([k, v]) => `<option value="${k}" ${k === ing.id ? 'selected' : ''}>${isAr() ? v.ar : v.en}</option>`).join('')}
-          </select>
-        </td>
-        <td>
-          <input type="number" step="0.001" min="0" value="${ing.qty}" class="input" style="width:85px;padding:6px 10px;font-size:13px" onchange="updIng('${pid}', ${i}, 'qty', +this.value)"/>
-        </td>
-        <td class="text-muted" style="font-size:13px">${d.uom}</td>
-        <td>
-          <div style="display:flex;align-items:center;gap:4px">
-            <input type="number" step="1" min="0" max="100" value="${ing.waste}" class="input" style="width:70px;padding:6px 10px;font-size:13px" onchange="updIng('${pid}', ${i}, 'waste', +this.value)"/>
-            <span style="color:#94a3b8">%</span>
-          </div>
-        </td>
-        <td class="text-muted" style="font-size:13px">${d.price} ${cur()}</td>
-        <td style="font-weight:700;color:#fbbf24;font-size:14px">${f2(lc)} ${cur()}</td>
-        <td>
-          <button class="btn btn-danger btn-icon btn-sm" onclick="remIng('${pid}', ${i})">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
-          </button>
-        </td>
-      </tr>
-    `;
+          <tr>
+            <td>
+              <select class="select" style="padding:6px 10px;font-size:13px" onchange="updIng('${pid}', ${i}, 'id', this.value)">
+                ${Object.entries(S.ings).map(([k, v]) => `<option value="${k}" ${k === ing.id ? 'selected' : ''}>${isAr() ? v.ar : v.en}</option>`).join('')}
+              </select>
+            </td>
+            <td>
+              <input type="number" step="any" min="0" value="${ing.qty}" class="input" style="width:85px;padding:6px 10px;font-size:13px" onchange="updIng('${pid}', ${i}, 'qty', +this.value)"/>
+            </td>
+            <td class="text-muted" style="font-size:13px">${d.uom}</td>
+            <td class="text-muted" style="font-size:13px">${d.price} ${cur()}</td>
+            <td>
+              <div style="display:flex;align-items:center;gap:4px">
+                <input type="number" step="1" min="0" max="100" value="${ing.waste}" class="input" style="width:65px;padding:6px 10px;font-size:13px" onchange="updIng('${pid}', ${i}, 'waste', +this.value)"/>
+                <span style="color:#94a3b8">%</span>
+              </div>
+            </td>
+            <td style="font-weight:700;color:#fbbf24;font-size:14px">${f2(lc)} ${cur()}</td>
+            <td>
+              <button class="btn btn-danger btn-icon btn-sm" onclick="remIng('${pid}', ${i})">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
+              </button>
+            </td>
+          </tr>
+        `;
       }).join('') || `<tr><td colspan="7" class="text-muted" style="text-align:center;padding:24px">${T('لا توجد خامات مضافة لهذه الوصفة بعد', 'No ingredients yet')}</td></tr>`;
+
+      calcBatchDeduction();
+    }
+
+    function calcBatchDeduction() {
+      const pid = S.curRecipe;
+      const tbody = document.getElementById('batch-deduction-tbody');
+      if (!tbody || !pid) return;
+
+      const rec = S.recipes[pid];
+      if (!rec || !rec.ings || !rec.ings.length) {
+        tbody.innerHTML = `<tr><td colspan="6" class="text-muted" style="text-align:center;padding:20px">${T('لا توجد خامات مضافة لحساب المسحوب', 'No ingredients found')}</td></tr>`;
+        return;
+      }
+
+      const batchQty = parseFloat(document.getElementById('batch-prod-qty')?.value || 0);
+
+      tbody.innerHTML = rec.ings.map(ing => {
+        const d = S.ings[ing.id];
+        if (!d) return '';
+        const effRatio = ing.qty * (1 + (ing.waste || 0) / 100);
+        const totalNeeded = batchQty * effRatio;
+        const curStock = d.stock || 0;
+        const remStock = Math.max(0, curStock - totalNeeded);
+        const isShort = curStock < totalNeeded;
+        const diffShort = isShort ? (totalNeeded - curStock) : 0;
+
+        const statusBadge = isShort
+          ? `<span class="badge badge-red" style="font-weight:800">⚠️ عجز: ${fmt(diffShort)} ${d.uom}</span>`
+          : `<span class="badge badge-green" style="font-weight:700">✅ رصيد كافي</span>`;
+
+        return `
+          <tr>
+            <td style="font-weight:700;color:#fff">${isAr() ? d.ar : d.en}</td>
+            <td style="text-align:center;font-size:12px;color:#94a3b8">${ing.qty} ${d.uom} (+${ing.waste || 0}%)</td>
+            <td style="text-align:center;font-weight:900;color:#38bdf8;font-size:14px">${fmt(totalNeeded)} ${d.uom}</td>
+            <td style="text-align:center;font-weight:700">${fmt(curStock)} ${d.uom}</td>
+            <td style="text-align:center;font-weight:800;color:${isShort ? '#f87171' : '#4ade80'}">${fmt(remStock)} ${d.uom}</td>
+            <td style="text-align:center">${statusBadge}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    async function executeBatchDeduction() {
+      const pid = S.curRecipe;
+      const p = S.products.find(x => x.id === pid);
+      const batchQty = parseFloat(document.getElementById('batch-prod-qty')?.value || 0);
+      if (!p || !pid || batchQty <= 0) {
+        toast(T('حدد كمية تشغيل صحيحة أكبر من صفر', 'Enter valid quantity'), 'error');
+        return;
+      }
+      const rec = S.recipes[pid];
+      if (!rec || !rec.ings || !rec.ings.length) {
+        toast(T('لا توجد خامات مضافة لهذه الوصفة لخصمها', 'No ingredients in recipe'), 'error');
+        return;
+      }
+
+      const pTitle = pname(p);
+      if (!confirm(T(`🏭 تأكيد تشغيل إنتاج دفعة (${batchQty} ${p.unit}) من [${pTitle}]؟
+سيتم خصم كافة الخامات المسحوبة من المخزن وقاعدة البيانات فوراً.`, `Confirm batch production of ${batchQty} ${p.unit} of ${pTitle}?`))) return;
+
+      let deductedItemsCount = 0;
+      const deductionsList = [];
+      rec.ings.forEach(ing => {
+        const d = S.ings[ing.id];
+        if (d) {
+          const effRatio = ing.qty * (1 + (ing.waste || 0) / 100);
+          const totalNeeded = batchQty * effRatio;
+          d.stock = Math.max(0, parseFloat((d.stock - totalNeeded).toFixed(4)));
+          deductionsList.push({ id: ing.id, qty: totalNeeded });
+          deductedItemsCount++;
+        }
+      });
+
+      // Sync deduction with SQL database and Supabase
+      apiBatchDeduct(pid, batchQty, deductionsList);
+      saveState();
+      renderInv();
+      renderBOM(pid);
+      updateLiveTicker();
+      toast(T(`✅ تم بنجاح تشغيل الدفعة (${batchQty} ${p.unit}) وخصم ${deductedItemsCount} خامات من المخزن وسحابة Supabase!`, `✅ Batch production recorded & stock deducted!`));
     }
 
     function updIng(pid, i, f, v) {
