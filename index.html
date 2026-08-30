@@ -1752,8 +1752,11 @@
           <span data-ar="بحث سريع..." data-en="Quick Search...">بحث سريع...</span>
           <kbd>Ctrl K</kbd>
         </button>
-        <div id="sql-sync-badge" class="badge badge-green" onclick="toggleSqlSync()" style="cursor:pointer;font-size:11.5px;padding:4px 10px;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;user-select:none" title="اضغط للتبديل بين وضع التجربة والمزامنة السحابية">
-          <span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block"></span> ⚡ السيرفر السحابي متصل ومحدّث
+        <div id="sql-sync-badge" class="badge badge-green" onclick="toggleSqlSync()"
+          style="cursor:pointer;font-size:11.5px;padding:4px 10px;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;user-select:none"
+          title="اضغط للتبديل بين وضع التجربة والمزامنة السحابية">
+          <span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block"></span> ⚡ السيرفر
+          السحابي متصل ومحدّث
         </div>
         <div class="chip">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -2101,13 +2104,16 @@
         <div style="display:grid;grid-template-columns:280px 1fr;gap:20px" class="recipes-layout">
           <div class="card" style="height:fit-content;max-height:720px;display:flex;flex-direction:column">
             <div class="flex items-center justify-between mb-2">
-              <h3 class="text-white font-bold" data-ar="تجهيزات المطبخ المركزي" data-en="CK Products (BOM)">تجهيزات المطبخ المركزي</h3>
+              <h3 class="text-white font-bold" data-ar="تجهيزات المطبخ المركزي" data-en="CK Products (BOM)">تجهيزات
+                المطبخ المركزي</h3>
               <span class="badge badge-purple" id="recipes-count-badge">74 ريسبي</span>
             </div>
             <div style="position:relative;margin-bottom:10px">
-              <input type="text" id="recipe-search-input" class="input" placeholder="بحث في الـ 74 ريسبي..." style="padding:6px 10px;font-size:12px" oninput="filterRecipesList()" />
+              <input type="text" id="recipe-search-input" class="input" placeholder="بحث في الـ 74 ريسبي..."
+                style="padding:6px 10px;font-size:12px" oninput="filterRecipesList()" />
             </div>
-            <div id="recipe-list" class="sy3" style="flex:1;overflow-y:auto;max-height:500px;padding-inline-end:4px"></div>
+            <div id="recipe-list" class="sy3" style="flex:1;overflow-y:auto;max-height:500px;padding-inline-end:4px">
+            </div>
             <div class="divider"></div>
             <button class="btn btn-secondary w-full" style="justify-content:center" onclick="openModal('modal-prod')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -2128,8 +2134,10 @@
                   <h2 class="text-white font-bold" style="font-size:22px" id="recipe-title">—</h2>
                   <span class="badge badge-purple" id="recipe-cat-badge">تجهيز مطبخ مركزي</span>
                 </div>
-                <p class="text-muted text-sm mt-1" data-ar="شجرة مواصفات تشغيل وتصنيع الصنف وحساب الخامات المسحوبة (Manufacturing BOM)"
-                  data-en="Central Kitchen Recipe, Material Breakdown & Live Branch Demand">شجرة مواصفات تشغيل وتصنيع الصنف وحساب الخامات المسحوبة (Manufacturing BOM)</p>
+                <p class="text-muted text-sm mt-1"
+                  data-ar="شجرة مواصفات تشغيل وتصنيع الصنف وحساب الخامات المسحوبة (Manufacturing BOM)"
+                  data-en="Central Kitchen Recipe, Material Breakdown & Live Branch Demand">شجرة مواصفات تشغيل وتصنيع
+                  الصنف وحساب الخامات المسحوبة (Manufacturing BOM)</p>
               </div>
               <div style="text-align:end">
                 <div class="text-gradient font-bold" style="font-size:26px" id="recipe-total-cost">0.00</div>
@@ -2138,38 +2146,56 @@
             </div>
 
             <!-- Live Branch Demand Banner for this product (Executive & Structured) -->
-            <div id="recipe-branch-demand-card" class="card" style="background:linear-gradient(145deg, rgba(30,41,59,0.7), rgba(15,23,42,0.85));border:1px solid rgba(56,189,248,0.22);border-radius:14px;padding:16px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,0.25)">
+            <div id="recipe-branch-demand-card" class="card"
+              style="background:linear-gradient(145deg, rgba(30,41,59,0.7), rgba(15,23,42,0.85));border:1px solid rgba(56,189,248,0.22);border-radius:14px;padding:16px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,0.25)">
               <div class="flex items-center justify-between flex-wrap gap-3 mb-3">
                 <div class="flex items-center gap-3">
-                  <div style="width:42px;height:42px;border-radius:10px;background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.25);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">
+                  <div
+                    style="width:42px;height:42px;border-radius:10px;background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.25);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">
                     📦
                   </div>
                   <div>
                     <div style="font-size:14px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px">
-                      <span data-ar="مؤشر طلبات الفروع المباشرة" data-en="Live Branch Demand Indicator">مؤشر طلبات الفروع المباشرة</span>
-                      <span class="badge badge-purple" id="recipe-demand-branches-count" style="font-size:11px;font-weight:700">0 فروع</span>
+                      <span data-ar="مؤشر طلبات الفروع المباشرة" data-en="Live Branch Demand Indicator">مؤشر طلبات
+                        الفروع المباشرة</span>
+                      <span class="badge badge-purple" id="recipe-demand-branches-count"
+                        style="font-size:11px;font-weight:700">0 فروع</span>
                     </div>
-                    <div class="text-muted text-xs mt-0.5" data-ar="إجمالي الكميات المسحوبة والمطلوبة لتغطية طلبيات الفروع الحالية" data-en="Total product quantity requested across active branch orders">إجمالي الكميات المسحوبة والمطلوبة لتغطية طلبيات الفروع الحالية</div>
+                    <div class="text-muted text-xs mt-0.5"
+                      data-ar="إجمالي الكميات المسحوبة والمطلوبة لتغطية طلبيات الفروع الحالية"
+                      data-en="Total product quantity requested across active branch orders">إجمالي الكميات المسحوبة
+                      والمطلوبة لتغطية طلبيات الفروع الحالية</div>
                   </div>
                 </div>
 
                 <div class="flex items-center gap-3">
-                  <div style="text-align:center;padding:5px 14px;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.28);border-radius:10px">
-                    <span style="font-size:10.5px;color:#fb923c;font-weight:700;display:block" data-ar="إجمالي المطلوب" data-en="Total Demand">إجمالي المطلوب</span>
-                    <span id="recipe-demand-total-badge" style="font-size:16px;font-weight:900;color:#fb923c">0.00</span>
+                  <div
+                    style="text-align:center;padding:5px 14px;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.28);border-radius:10px">
+                    <span style="font-size:10.5px;color:#fb923c;font-weight:700;display:block" data-ar="إجمالي المطلوب"
+                      data-en="Total Demand">إجمالي المطلوب</span>
+                    <span id="recipe-demand-total-badge"
+                      style="font-size:16px;font-weight:900;color:#fb923c">0.00</span>
                   </div>
-                  <button class="btn btn-primary btn-sm" onclick="applyBranchDemandToBatch()" id="btn-apply-demand-batch" style="padding:8px 14px;font-weight:700;background:linear-gradient(135deg,#f97316,#ea580c);border:none;box-shadow:0 4px 14px rgba(249,115,22,0.25);border-radius:8px">
-                    ⚡ <span data-ar="تغذية أمر التشغيل بهذا الإجمالي" data-en="Feed Production Batch">تغذية أمر التشغيل بهذا الإجمالي</span>
+                  <button class="btn btn-primary btn-sm" onclick="applyBranchDemandToBatch()"
+                    id="btn-apply-demand-batch"
+                    style="padding:8px 14px;font-weight:700;background:linear-gradient(135deg,#f97316,#ea580c);border:none;box-shadow:0 4px 14px rgba(249,115,22,0.25);border-radius:8px">
+                    ⚡ <span data-ar="تغذية أمر التشغيل بهذا الإجمالي" data-en="Feed Production Batch">تغذية أمر التشغيل
+                      بهذا الإجمالي</span>
                   </button>
                 </div>
               </div>
 
               <!-- Individual Branch Badges Grid -->
-              <div style="background:rgba(0,0,0,0.22);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px">
+              <div
+                style="background:rgba(0,0,0,0.22);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px">
                 <div class="text-xs font-bold mb-2 flex items-center justify-between" style="color:#94a3b8">
                   <div class="flex items-center gap-1.5">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    <span data-ar="توزيع الكميات حسب الفروع الطالبة:" data-en="Demand breakdown by branch:">توزيع الكميات حسب الفروع الطالبة:</span>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span data-ar="توزيع الكميات حسب الفروع الطالبة:" data-en="Demand breakdown by branch:">توزيع
+                      الكميات حسب الفروع الطالبة:</span>
                   </div>
                 </div>
                 <div id="recipe-demand-branches-tags" style="display:flex;flex-wrap:wrap;gap:8px">
@@ -2179,12 +2205,18 @@
             </div>
 
             <!-- Tab Switcher (Base Standard vs Live Batch Deduction) -->
-            <div style="display:flex;gap:8px;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:10px;margin-bottom:14px">
-              <button class="btn btn-sm btn-primary" id="tab-btn-base-bom" onclick="switchRecipeTab('base')" style="border-radius:8px">
-                📋 <span data-ar="معيار ومكونات الوحدة الأساسية (1 كجم / 1 وحدة)" data-en="Standard Recipe (1 Unit)">معيار ومكونات الوحدة الأساسية (1 كجم / 1 وحدة)</span>
+            <div
+              style="display:flex;gap:8px;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:10px;margin-bottom:14px">
+              <button class="btn btn-sm btn-primary" id="tab-btn-base-bom" onclick="switchRecipeTab('base')"
+                style="border-radius:8px">
+                📋 <span data-ar="معيار ومكونات الوحدة الأساسية (1 كجم / 1 وحدة)"
+                  data-en="Standard Recipe (1 Unit)">معيار ومكونات الوحدة الأساسية (1 كجم / 1 وحدة)</span>
               </button>
-              <button class="btn btn-sm btn-secondary" id="tab-btn-batch-bom" onclick="switchRecipeTab('batch')" style="border-radius:8px">
-                🏭 <span data-ar="تشغيل الإنتاج الفعلي وحساب الخامات المسحوبة من المخزن" data-en="Batch Production & Material Consumption">تشغيل الإنتاج الفعلي وحساب الخامات المسحوبة من المخزن</span>
+              <button class="btn btn-sm btn-secondary" id="tab-btn-batch-bom" onclick="switchRecipeTab('batch')"
+                style="border-radius:8px">
+                🏭 <span data-ar="تشغيل الإنتاج الفعلي وحساب الخامات المسحوبة من المخزن"
+                  data-en="Batch Production & Material Consumption">تشغيل الإنتاج الفعلي وحساب الخامات المسحوبة من
+                  المخزن</span>
               </button>
             </div>
 
@@ -2208,7 +2240,8 @@
               </div>
               <div class="flex items-center justify-between flex-wrap gap-2">
                 <button class="btn btn-secondary btn-sm" onclick="addIngRow()">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10" />
                     <line x1="12" y1="8" x2="12" y2="16" />
                     <line x1="8" y1="12" x2="16" y2="12" />
@@ -2220,18 +2253,28 @@
 
             <!-- TAB 2: Live Batch Deduction & Material Consumption -->
             <div id="recipe-tab-batch" style="display:none">
-              <div style="background:rgba(15,23,42,0.7);border:1px solid rgba(56,189,248,0.25);border-radius:12px;padding:16px;margin-bottom:14px">
+              <div
+                style="background:rgba(15,23,42,0.7);border:1px solid rgba(56,189,248,0.25);border-radius:12px;padding:16px;margin-bottom:14px">
                 <div class="flex items-center justify-between flex-wrap gap-3">
                   <div>
-                    <h3 class="text-white font-bold" style="font-size:15px" data-ar="تحديد حجم التشغيلة الفعلية اليوم:" data-en="Enter Batch Size to Produce:">تحديد حجم التشغيلة الفعلية اليوم:</h3>
-                    <p class="text-muted text-sm mt-1" data-ar="السيستم يحسب تلقائياً إجمالي الخامات المسحوبة ويفحص رصيدها بالمخزن قبل الخصم" data-en="Calculates consumed materials and checks inventory stock before deduction">السيستم يحسب تلقائياً إجمالي الخامات المسحوبة ويفحص رصيدها بالمخزن قبل الخصم</p>
+                    <h3 class="text-white font-bold" style="font-size:15px" data-ar="تحديد حجم التشغيلة الفعلية اليوم:"
+                      data-en="Enter Batch Size to Produce:">تحديد حجم التشغيلة الفعلية اليوم:</h3>
+                    <p class="text-muted text-sm mt-1"
+                      data-ar="السيستم يحسب تلقائياً إجمالي الخامات المسحوبة ويفحص رصيدها بالمخزن قبل الخصم"
+                      data-en="Calculates consumed materials and checks inventory stock before deduction">السيستم يحسب
+                      تلقائياً إجمالي الخامات المسحوبة ويفحص رصيدها بالمخزن قبل الخصم</p>
                   </div>
                   <div class="flex items-center gap-2">
-                    <span class="text-muted text-sm font-bold" data-ar="الكمية المنتجة:" data-en="Produced Qty:">الكمية المنتجة:</span>
-                    <input type="number" id="batch-prod-qty" class="input" style="width:110px;text-align:center;font-size:15px;font-weight:800;color:#38bdf8" value="20" min="0.01" step="any" oninput="calcBatchDeduction()" />
+                    <span class="text-muted text-sm font-bold" data-ar="الكمية المنتجة:" data-en="Produced Qty:">الكمية
+                      المنتجة:</span>
+                    <input type="number" id="batch-prod-qty" class="input"
+                      style="width:110px;text-align:center;font-size:15px;font-weight:800;color:#38bdf8" value="20"
+                      min="0.01" step="any" oninput="calcBatchDeduction()" />
                     <span class="badge badge-purple" id="batch-prod-uom" style="font-size:12px">kg</span>
-                    <button class="btn btn-primary btn-sm" onclick="executeBatchDeduction()" style="background:linear-gradient(135deg, #0ea5e9, #0284c7);font-weight:800;box-shadow:0 4px 14px rgba(14,165,233,0.3)">
-                      <span data-ar="⚡ اعتماد التشغيل وخصم الخامات من المخزون" data-en="⚡ Confirm Production & Deduct Stock">⚡ اعتماد التشغيل وخصم الخامات من المخزون</span>
+                    <button class="btn btn-primary btn-sm" onclick="executeBatchDeduction()"
+                      style="background:linear-gradient(135deg, #0ea5e9, #0284c7);font-weight:800;box-shadow:0 4px 14px rgba(14,165,233,0.3)">
+                      <span data-ar="⚡ اعتماد التشغيل وخصم الخامات من المخزون"
+                        data-en="⚡ Confirm Production & Deduct Stock">⚡ اعتماد التشغيل وخصم الخامات من المخزون</span>
                     </button>
                   </div>
                 </div>
@@ -2242,10 +2285,14 @@
                   <thead>
                     <tr style="background:rgba(255,255,255,0.03)">
                       <th data-ar="الخامة المسحوبة" data-en="Raw Material">الخامة المسحوبة</th>
-                      <th style="text-align:center" data-ar="المعيار الأساسي" data-en="Standard Ratio">المعيار الأساسي</th>
-                      <th style="text-align:center;color:#38bdf8;font-weight:800" data-ar="إجمالي المسحوب للتشغيلة" data-en="Total Consumed">إجمالي المسحوب للتشغيلة</th>
-                      <th style="text-align:center" data-ar="الرصيد المتاح بالمخزن" data-en="Current Stock">الرصيد المتاح بالمخزن</th>
-                      <th style="text-align:center;color:#4ade80" data-ar="الرصيد المتبقي بعد الخصم" data-en="Stock After">الرصيد المتبقي بعد الخصم</th>
+                      <th style="text-align:center" data-ar="المعيار الأساسي" data-en="Standard Ratio">المعيار الأساسي
+                      </th>
+                      <th style="text-align:center;color:#38bdf8;font-weight:800" data-ar="إجمالي المسحوب للتشغيلة"
+                        data-en="Total Consumed">إجمالي المسحوب للتشغيلة</th>
+                      <th style="text-align:center" data-ar="الرصيد المتاح بالمخزن" data-en="Current Stock">الرصيد
+                        المتاح بالمخزن</th>
+                      <th style="text-align:center;color:#4ade80" data-ar="الرصيد المتبقي بعد الخصم"
+                        data-en="Stock After">الرصيد المتبقي بعد الخصم</th>
                       <th style="text-align:center" data-ar="حالة التغطية" data-en="Coverage Status">حالة التغطية</th>
                     </tr>
                   </thead>
@@ -2445,16 +2492,22 @@
           <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
             <div>
               <h3 class="text-white font-bold" data-ar="أرصدة المخزون ومقارنتها بالاحتياجات الفعلية (139 خامة رئيسية)"
-                data-en="Real-Time Stock vs Production Needs (139 Materials)">أرصدة المخزون ومقارنتها بالاحتياجات الفعلية (139 خامة رئيسية)</h3>
-              <p class="text-muted text-sm mt-1" data-ar="يتم تحديد العجز والخصم التلقائي بناءً على طلبيات الفروع وتشغيلات الإنتاج"
-                data-en="Shortages and live deductions are automatically calculated from recipes">يتم تحديد العجز والخصم التلقائي بناءً على طلبيات الفروع وتشغيلات الإنتاج</p>
+                data-en="Real-Time Stock vs Production Needs (139 Materials)">أرصدة المخزون ومقارنتها بالاحتياجات
+                الفعلية (139 خامة رئيسية)</h3>
+              <p class="text-muted text-sm mt-1"
+                data-ar="يتم تحديد العجز والخصم التلقائي بناءً على طلبيات الفروع وتشغيلات الإنتاج"
+                data-en="Shortages and live deductions are automatically calculated from recipes">يتم تحديد العجز والخصم
+                التلقائي بناءً على طلبيات الفروع وتشغيلات الإنتاج</p>
             </div>
             <div class="flex items-center gap-3">
               <div style="position:relative;width:240px">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" style="position:absolute;inset-inline-start:10px;top:50%;transform:translateY(-50%)">
-                  <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"
+                  style="position:absolute;inset-inline-start:10px;top:50%;transform:translateY(-50%)">
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
                 </svg>
-                <input type="text" id="inv-search-input" class="input" placeholder="بحث في الخامات الـ 139..." style="padding-inline-start:32px" oninput="renderInv()" />
+                <input type="text" id="inv-search-input" class="input" placeholder="بحث في الخامات الـ 139..."
+                  style="padding-inline-start:32px" oninput="renderInv()" />
               </div>
             </div>
             <div class="flex gap-3 flex-wrap">
@@ -3602,9 +3655,9 @@
     ============================================================ */
     const LS_KEY = 'ck-erp-v2';
 
-        /* ============================================================
-       SUPABASE CLOUD SQL DATABASE SYNC & PERSISTENCE
-    ============================================================ */
+    /* ============================================================
+   SUPABASE CLOUD SQL DATABASE SYNC & PERSISTENCE
+============================================================ */
     const SUPABASE_URL = 'https://ihminamcbstcexsdacys.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlobWluYW1jYnN0Y2V4c2RhY3lzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc5Mjg5MDksImV4cCI6MjEwMzUwNDkwOX0.4i4zO2ygSHdkQULp2Chqz3mxiUYevOjbX537w7uWRrE';
     const supabase = (window.supabase && typeof window.supabase.createClient === 'function')
@@ -4756,7 +4809,7 @@
       renderBOM(S.curRecipe);
     }
 
-        function filterRecipesList() {
+    function filterRecipesList() {
       const q = (document.getElementById('recipe-search-input')?.value || '').trim().toLowerCase();
       const listEl = document.getElementById('recipe-list');
       if (!listEl) return;
@@ -4802,9 +4855,9 @@
       renderRecipes();
     }
 
-        /* ============================================================
-       CENTRAL KITCHEN MANUFACTURING BOM & LIVE DEMAND AGGREGATION
-    ============================================================ */
+    /* ============================================================
+   CENTRAL KITCHEN MANUFACTURING BOM & LIVE DEMAND AGGREGATION
+============================================================ */
     let _activeRecipeTab = 'base';
 
     function switchRecipeTab(tabName) {
@@ -5454,9 +5507,9 @@
       XLSX.writeFile(wb, fileName);
     }
 
-        /* ============================================================
-       INVENTORY (139 RAW MATERIALS MASTER)
-    ============================================================ */
+    /* ============================================================
+   INVENTORY (139 RAW MATERIALS MASTER)
+============================================================ */
     function renderInv() {
       const rm = computeRM();
       const rmap = {};
@@ -5533,15 +5586,15 @@
             <td style="color:#60a5fa;font-weight:600">${f2(r.req)} ${r.iv.uom}</td>
             <td>
               ${r.isShort
-                ? `<span class="badge badge-red badge-pulse">▼ عجز ${f2(r.gap)} ${r.iv.uom}</span>`
-                : `<span class="badge badge-green">✓ ${T('كافٍ للطلبيات', 'Sufficient')}</span>`}
+            ? `<span class="badge badge-red badge-pulse">▼ عجز ${f2(r.gap)} ${r.iv.uom}</span>`
+            : `<span class="badge badge-green">✓ ${T('كافٍ للطلبيات', 'Sufficient')}</span>`}
             </td>
             <td>
               ${r.isShort
-                ? `<span class="badge badge-red">${T('عجز حرج', 'Shortage')}</span>`
-                : r.isLow
-                  ? `<span class="badge badge-amber">${T('منخفض (أمان)', 'Low')}</span>`
-                  : `<span class="badge badge-green">${T('كافٍ ومستقر', 'Adequate')}</span>`}
+            ? `<span class="badge badge-red">${T('عجز حرج', 'Shortage')}</span>`
+            : r.isLow
+              ? `<span class="badge badge-amber">${T('منخفض (أمان)', 'Low')}</span>`
+              : `<span class="badge badge-green">${T('كافٍ ومستقر', 'Adequate')}</span>`}
             </td>
             <td style="min-width:110px">
               <div class="progress"><div class="progress-bar" style="width:${f2(r.pct)}%;background:${r.bc}"></div></div>
@@ -6556,7 +6609,7 @@
       const gramMatch = t.match(/([0-9]*\.?[0-9]+)\s*(?:جرام|جم|gram|g)/i);
       if (gramMatch) {
         const val = parseFloat(gramMatch[1]);
-        return val > 10 ? val / 1000 : val;
+        return val > 10 ? val / 1000 : val; https://github.com/Seifhamoda/restauranterpck
       }
 
       // Kg / K match: e.g. 8 ك, 1kg, 3.5k, 1.250, 1.500Kg, 0.120 KG
@@ -6572,7 +6625,7 @@
       return 0;
     }
 
-        /* ── Comprehensive Branch & Cost Center Normalizer ── */
+    /* ── Comprehensive Branch & Cost Center Normalizer ── */
     function normalizeBranchCostCenter(ccName, sheetName, reqId) {
       let rawCc = (ccName || '').trim();
       if ((!rawCc || rawCc === ':') && reqId) {
@@ -6999,120 +7052,120 @@
       reader.readAsArrayBuffer(file);
     }
 
-      /* ── ⚡ Auto Load Attached Local File (الفروع.xlsx) ── */
-      async function loadDefaultBranchesFile() {
-        if (!window.XLSX) {
-          toast(T('مكتبة قراءة الإكسيل لم تُحمّل بعد', 'SheetJS not loaded'), 'error');
-          return;
+    /* ── ⚡ Auto Load Attached Local File (الفروع.xlsx) ── */
+    async function loadDefaultBranchesFile() {
+      if (!window.XLSX) {
+        toast(T('مكتبة قراءة الإكسيل لم تُحمّل بعد', 'SheetJS not loaded'), 'error');
+        return;
+      }
+      try {
+        toast(T('⏳ جاري قراءة ملف الفروع المحلي (الفروع.xlsx)...', '⏳ Loading local branches file...'));
+        const res = await fetch('الفروع.xlsx');
+        if (!res.ok) {
+          throw new Error(T('لم يتم العثور على الملف في المسار الرئيسي', 'File not found on server'));
         }
-        try {
-          toast(T('⏳ جاري قراءة ملف الفروع المحلي (الفروع.xlsx)...', '⏳ Loading local branches file...'));
-          const res = await fetch('الفروع.xlsx');
-          if (!res.ok) {
-            throw new Error(T('لم يتم العثور على الملف في المسار الرئيسي', 'File not found on server'));
-          }
-          const arrayBuf = await res.arrayBuffer();
-          const data = new Uint8Array(arrayBuf);
-          const wb = XLSX.read(data, { type: 'array' });
-          parseWorkbookData(wb, 'الفروع.xlsx');
-        } catch (e) {
-          console.warn('Auto-load fetch error:', e);
-          document.getElementById('excel-file-input').click();
+        const arrayBuf = await res.arrayBuffer();
+        const data = new Uint8Array(arrayBuf);
+        const wb = XLSX.read(data, { type: 'array' });
+        parseWorkbookData(wb, 'الفروع.xlsx');
+      } catch (e) {
+        console.warn('Auto-load fetch error:', e);
+        document.getElementById('excel-file-input').click();
+      }
+    }
+
+    function cancelExcelImport() {
+      _excelPendingOrders = null;
+      document.getElementById('excel-preview').style.display = 'none';
+      const finput = document.getElementById('excel-file-input');
+      if (finput) finput.value = '';
+    }
+
+    function confirmExcelImport() {
+      if (!_excelPendingOrders || !_excelPendingOrders.length) return;
+      const isReplaceMode = document.getElementById('excel-replace-mode')?.checked ?? true;
+      const nextId = Date.now();
+      let importedCount = 0;
+
+      // Collect all dates in this imported batch
+      const importedDates = new Set(_excelPendingOrders.map(o => normalizeDateIso(o.date)));
+
+      // If replace mode is ON, clear previous orders for the matching dates to avoid duplicates
+      if (isReplaceMode && importedDates.size > 0) {
+        S.orders = S.orders.filter(o => !importedDates.has(normalizeDateIso(o.date)));
+        if (S.taztikiRecords) {
+          S.taztikiRecords = S.taztikiRecords.filter(r => !importedDates.has(normalizeDateIso(r.date)));
         }
       }
 
-      function cancelExcelImport() {
-        _excelPendingOrders = null;
-        document.getElementById('excel-preview').style.display = 'none';
-        const finput = document.getElementById('excel-file-input');
-        if (finput) finput.value = '';
-      }
+      const newlyImportedOrders = [];
+      _excelPendingOrders.forEach((o, i) => {
+        if (!o.items || !Object.keys(o.items).length) return;
+        const normalizedOrderDate = normalizeDateIso(o.date);
+        const ord = {
+          id: nextId + i,
+          branch: o.branch,
+          date: normalizedOrderDate,
+          items: o.items,
+          notes: T(`📥 استيراد مجمع من شيت الفروع (${o.costCentersList || ''})`, `📥 Merged import from branches sheet`)
+        };
+        S.orders.unshift(ord);
+        newlyImportedOrders.push(ord);
+        importedCount++;
 
-      function confirmExcelImport() {
-        if (!_excelPendingOrders || !_excelPendingOrders.length) return;
-        const isReplaceMode = document.getElementById('excel-replace-mode')?.checked ?? true;
-        const nextId = Date.now();
-        let importedCount = 0;
-
-        // Collect all dates in this imported batch
-        const importedDates = new Set(_excelPendingOrders.map(o => normalizeDateIso(o.date)));
-
-        // If replace mode is ON, clear previous orders for the matching dates to avoid duplicates
-        if (isReplaceMode && importedDates.size > 0) {
-          S.orders = S.orders.filter(o => !importedDates.has(normalizeDateIso(o.date)));
-          if (S.taztikiRecords) {
-            S.taztikiRecords = S.taztikiRecords.filter(r => !importedDates.has(normalizeDateIso(r.date)));
-          }
-        }
-
-        const newlyImportedOrders = [];
-        _excelPendingOrders.forEach((o, i) => {
-          if (!o.items || !Object.keys(o.items).length) return;
-          const normalizedOrderDate = normalizeDateIso(o.date);
-          const ord = {
-            id: nextId + i,
-            branch: o.branch,
+        // Add to Taztiki Records if Burger Sauce is requested
+        if (o.burgerSauce > 0) {
+          if (!S.taztikiRecords) S.taztikiRecords = [];
+          S.taztikiRecords.unshift({
+            id: 'tzt-' + (nextId + i),
             date: normalizedOrderDate,
-            items: o.items,
-            notes: T(`📥 استيراد مجمع من شيت الفروع (${o.costCentersList || ''})`, `📥 Merged import from branches sheet`)
-          };
-          S.orders.unshift(ord);
-          newlyImportedOrders.push(ord);
-          importedCount++;
-
-          // Add to Taztiki Records if Burger Sauce is requested
-          if (o.burgerSauce > 0) {
-            if (!S.taztikiRecords) S.taztikiRecords = [];
-            S.taztikiRecords.unshift({
-              id: 'tzt-' + (nextId + i),
-              date: normalizedOrderDate,
-              branch: o.branch,
-              qty: o.burgerSauce,
-              type: 'out',
-              notes: T('سحب تلقائي من طلب الفرع بالإكسيل', 'Auto-imported from branch Excel request')
-            });
-          }
-        });
-
-        // Sync directly to Supabase Cloud so all devices (Mobile, PC, etc.) see it instantly!
-        if (newlyImportedOrders.length) {
-          apiSaveOrders(newlyImportedOrders, isReplaceMode ? Array.from(importedDates) : []);
+            branch: o.branch,
+            qty: o.burgerSauce,
+            type: 'out',
+            notes: T('سحب تلقائي من طلب الفرع بالإكسيل', 'Auto-imported from branch Excel request')
+          });
         }
+      });
 
-        // Also set the filter date to the imported date automatically so the user sees it immediately
-        const firstDate = Array.from(importedDates)[0];
-        if (firstDate) {
-          const fDateInput = document.getElementById('f-date');
-          if (fDateInput) fDateInput.value = firstDate;
-        }
-
-        saveState();
-        cancelExcelImport();
-        renderOrders();
-        if (typeof renderProd === 'function') renderProd();
-        if (typeof renderProduction === 'function') renderProduction();
-
-        toast(T(`📥 تم بنجاح حفظ ومزامنة ${importedCount} طلبية للفروع سحابياً`, `📥 Successfully saved & synced ${importedCount} orders to cloud!`));
-        _excelPendingOrders = null;
+      // Sync directly to Supabase Cloud so all devices (Mobile, PC, etc.) see it instantly!
+      if (newlyImportedOrders.length) {
+        apiSaveOrders(newlyImportedOrders, isReplaceMode ? Array.from(importedDates) : []);
       }
 
-      /* ============================================================
-         COMMUNITY RESTAURANTS: OFFICIAL PRINT VOUCHER & PRINT PO
-      ============================================================ */
-      function printPO(i) {
-        const po = S.POs[i];
-        if (!po) return;
-        const d = S.ings[po.ingId];
-        const nm = d ? (isAr() ? d.ar : d.en) : po.ingId;
-        const price = d ? d.price : 0;
+      // Also set the filter date to the imported date automatically so the user sees it immediately
+      const firstDate = Array.from(importedDates)[0];
+      if (firstDate) {
+        const fDateInput = document.getElementById('f-date');
+        if (fDateInput) fDateInput.value = firstDate;
+      }
 
-        document.getElementById('pr-po-number').textContent = po.id;
-        document.getElementById('pr-po-date').textContent = (isAr() ? 'التاريخ: ' : 'Date: ') + new Date().toISOString().slice(0, 10);
-        document.getElementById('pr-po-status').textContent = po.status === 'received' ? (isAr() ? 'تم الاستلام' : 'Received') : (po.status === 'sent' ? (isAr() ? 'تم الإرسال للمورد' : 'Sent to Supplier') : (isAr() ? 'مسودة معتمدة' : 'Approved Draft'));
-        document.getElementById('pr-po-sup').textContent = po.sup || 'مورد عام';
-        document.getElementById('pr-po-priority').textContent = po.priority === 'high' ? (isAr() ? 'أولوية قصوى (عاجل جداً)' : 'Urgent Priority') : (isAr() ? 'أولوية عادية' : 'Normal Priority');
+      saveState();
+      cancelExcelImport();
+      renderOrders();
+      if (typeof renderProd === 'function') renderProd();
+      if (typeof renderProduction === 'function') renderProduction();
 
-        document.getElementById('pr-po-items').innerHTML = `
+      toast(T(`📥 تم بنجاح حفظ ومزامنة ${importedCount} طلبية للفروع سحابياً`, `📥 Successfully saved & synced ${importedCount} orders to cloud!`));
+      _excelPendingOrders = null;
+    }
+
+    /* ============================================================
+       COMMUNITY RESTAURANTS: OFFICIAL PRINT VOUCHER & PRINT PO
+    ============================================================ */
+    function printPO(i) {
+      const po = S.POs[i];
+      if (!po) return;
+      const d = S.ings[po.ingId];
+      const nm = d ? (isAr() ? d.ar : d.en) : po.ingId;
+      const price = d ? d.price : 0;
+
+      document.getElementById('pr-po-number').textContent = po.id;
+      document.getElementById('pr-po-date').textContent = (isAr() ? 'التاريخ: ' : 'Date: ') + new Date().toISOString().slice(0, 10);
+      document.getElementById('pr-po-status').textContent = po.status === 'received' ? (isAr() ? 'تم الاستلام' : 'Received') : (po.status === 'sent' ? (isAr() ? 'تم الإرسال للمورد' : 'Sent to Supplier') : (isAr() ? 'مسودة معتمدة' : 'Approved Draft'));
+      document.getElementById('pr-po-sup').textContent = po.sup || 'مورد عام';
+      document.getElementById('pr-po-priority').textContent = po.priority === 'high' ? (isAr() ? 'أولوية قصوى (عاجل جداً)' : 'Urgent Priority') : (isAr() ? 'أولوية عادية' : 'Normal Priority');
+
+      document.getElementById('pr-po-items').innerHTML = `
     <tr style="border-bottom:1px solid #e2e8f0">
       <td style="padding:10px">1</td>
       <td style="padding:10px;font-weight:700;color:#0f172a">${nm}</td>
@@ -7127,116 +7180,116 @@
     </tr>
   `;
 
-        openModal('modal-print-po');
+      openModal('modal-print-po');
+    }
+
+    /* ============================================================
+       LIVE KITCHEN PULSE TICKER
+    ============================================================ */
+    function updateLiveTicker() {
+      const ticker = document.getElementById('live-ticker-text');
+      if (!ticker) return;
+      const shorts = getShortages();
+      const totalOrders = S.orders.length;
+
+      if (shorts.length > 0) {
+        ticker.textContent = isAr()
+          ? `المطبخ المركزي: تشغيل مباشر | ⚠️ عجز ${shorts.length} خامات مطلوب شراؤها`
+          : `Central Kitchen: LIVE | ⚠️ ${shorts.length} Shortage(s) detected`;
+        ticker.parentElement.style.borderColor = 'rgba(239, 68, 68, 0.35)';
+        ticker.parentElement.style.color = '#f87171';
+      } else {
+        ticker.textContent = isAr()
+          ? `المطبخ المركزي: تشغيل مباشر | تلبية الطلبات 100% | ${totalOrders} طلبات فروع`
+          : `Central Kitchen: LIVE | 100% Demand Met | ${totalOrders} Branch Orders`;
+        ticker.parentElement.style.borderColor = 'rgba(34, 197, 94, 0.25)';
+        ticker.parentElement.style.color = '#4ade80';
       }
+    }
 
-      /* ============================================================
-         LIVE KITCHEN PULSE TICKER
-      ============================================================ */
-      function updateLiveTicker() {
-        const ticker = document.getElementById('live-ticker-text');
-        if (!ticker) return;
-        const shorts = getShortages();
-        const totalOrders = S.orders.length;
+    /* ============================================================
+       COMMAND PALETTE SEARCH (Ctrl + K)
+    ============================================================ */
+    function openCmdBar() {
+      const m = document.getElementById('modal-cmd');
+      if (!m) return;
+      m.classList.add('open');
+      const inp = document.getElementById('cmd-search-input');
+      inp.value = '';
+      inp.focus();
+      handleCmdSearch('');
+    }
 
-        if (shorts.length > 0) {
-          ticker.textContent = isAr()
-            ? `المطبخ المركزي: تشغيل مباشر | ⚠️ عجز ${shorts.length} خامات مطلوب شراؤها`
-            : `Central Kitchen: LIVE | ⚠️ ${shorts.length} Shortage(s) detected`;
-          ticker.parentElement.style.borderColor = 'rgba(239, 68, 68, 0.35)';
-          ticker.parentElement.style.color = '#f87171';
-        } else {
-          ticker.textContent = isAr()
-            ? `المطبخ المركزي: تشغيل مباشر | تلبية الطلبات 100% | ${totalOrders} طلبات فروع`
-            : `Central Kitchen: LIVE | 100% Demand Met | ${totalOrders} Branch Orders`;
-          ticker.parentElement.style.borderColor = 'rgba(34, 197, 94, 0.25)';
-          ticker.parentElement.style.color = '#4ade80';
+    function closeCmdBar() {
+      const m = document.getElementById('modal-cmd');
+      if (m) m.classList.remove('open');
+    }
+
+    function handleCmdSearch(q) {
+      const res = document.getElementById('cmd-results');
+      if (!res) return;
+      const query = (q || '').trim().toLowerCase();
+
+      const items = [];
+
+      // Navigation pages
+      const pages = [
+        { name: isAr() ? 'لوحة التحكم والمؤشرات' : 'Dashboard', page: 'dashboard', icon: '📊', sub: isAr() ? 'المؤشرات العامة وتنبيهات النواقص' : 'General metrics & shortages' },
+        { name: isAr() ? 'التقارير والمقارنات الشهرية' : 'Reports & Analytics', page: 'reports', icon: '📈', sub: isAr() ? 'مقارنة أداء الشهور والهدر والطلب' : 'Month-over-month comparisons' },
+        { name: isAr() ? 'طلبات الفروع واستيراد الإكسيل' : 'Branch Orders', page: 'orders', icon: '📥', sub: isAr() ? 'استيراد شيت الإكسيل والطلبيات' : 'Excel import & branch orders' },
+        { name: isAr() ? 'شجرة الوصفات والتجهيزات (BOM)' : 'Recipes (BOM)', page: 'recipes', icon: '🧪', sub: isAr() ? 'معادلات صوصات وبرجر وفراخ المطبخ المركزي' : 'Sub-assemblies & BOM' },
+        { name: isAr() ? 'محرك وخطة الإنتاج اليومية' : 'Production Engine', page: 'production', icon: '⚙️', sub: isAr() ? 'حساب متطلبات الخامات مع 5% احتياطي' : 'Raw material calculation + 5% buffer' },
+        { name: isAr() ? 'أرصدة المخزون وحدود الأمان' : 'Inventory Stock', page: 'inventory', icon: '📦', sub: isAr() ? 'مراقبة أرصدة الخامات وتعديلها' : 'Stock levels & safety thresholds' },
+        { name: isAr() ? 'طلبات الشراء للموردين' : 'Purchase Orders', page: 'purchase', icon: '🛒', sub: isAr() ? 'توليد أوامر الشراء وإرسالها وطباعتها' : 'Generate & print purchase orders' },
+        { name: isAr() ? 'سجل فواتير الموردين' : 'Invoices Ledger', page: 'invoices', icon: '🧾', sub: isAr() ? 'متابعة الفواتير الواردة وحالات الدفع' : 'Supplier bills & payments' },
+        { name: isAr() ? 'تسجيل الهدر والتالف اليومي' : 'Waste & Spoilage', page: 'waste', icon: '🗑️', sub: isAr() ? 'تسجيل الخسائر وخصمها من المخزن' : 'Log spoilage & financial loss' }
+      ];
+
+      pages.forEach(p => {
+        if (!query || p.name.toLowerCase().includes(query) || p.page.toLowerCase().includes(query)) {
+          items.push({
+            title: p.name,
+            sub: p.sub,
+            icon: p.icon,
+            action: () => { nav(p.page); closeCmdBar(); }
+          });
         }
-      }
+      });
 
-      /* ============================================================
-         COMMAND PALETTE SEARCH (Ctrl + K)
-      ============================================================ */
-      function openCmdBar() {
-        const m = document.getElementById('modal-cmd');
-        if (!m) return;
-        m.classList.add('open');
-        const inp = document.getElementById('cmd-search-input');
-        inp.value = '';
-        inp.focus();
-        handleCmdSearch('');
-      }
-
-      function closeCmdBar() {
-        const m = document.getElementById('modal-cmd');
-        if (m) m.classList.remove('open');
-      }
-
-      function handleCmdSearch(q) {
-        const res = document.getElementById('cmd-results');
-        if (!res) return;
-        const query = (q || '').trim().toLowerCase();
-
-        const items = [];
-
-        // Navigation pages
-        const pages = [
-          { name: isAr() ? 'لوحة التحكم والمؤشرات' : 'Dashboard', page: 'dashboard', icon: '📊', sub: isAr() ? 'المؤشرات العامة وتنبيهات النواقص' : 'General metrics & shortages' },
-          { name: isAr() ? 'التقارير والمقارنات الشهرية' : 'Reports & Analytics', page: 'reports', icon: '📈', sub: isAr() ? 'مقارنة أداء الشهور والهدر والطلب' : 'Month-over-month comparisons' },
-          { name: isAr() ? 'طلبات الفروع واستيراد الإكسيل' : 'Branch Orders', page: 'orders', icon: '📥', sub: isAr() ? 'استيراد شيت الإكسيل والطلبيات' : 'Excel import & branch orders' },
-          { name: isAr() ? 'شجرة الوصفات والتجهيزات (BOM)' : 'Recipes (BOM)', page: 'recipes', icon: '🧪', sub: isAr() ? 'معادلات صوصات وبرجر وفراخ المطبخ المركزي' : 'Sub-assemblies & BOM' },
-          { name: isAr() ? 'محرك وخطة الإنتاج اليومية' : 'Production Engine', page: 'production', icon: '⚙️', sub: isAr() ? 'حساب متطلبات الخامات مع 5% احتياطي' : 'Raw material calculation + 5% buffer' },
-          { name: isAr() ? 'أرصدة المخزون وحدود الأمان' : 'Inventory Stock', page: 'inventory', icon: '📦', sub: isAr() ? 'مراقبة أرصدة الخامات وتعديلها' : 'Stock levels & safety thresholds' },
-          { name: isAr() ? 'طلبات الشراء للموردين' : 'Purchase Orders', page: 'purchase', icon: '🛒', sub: isAr() ? 'توليد أوامر الشراء وإرسالها وطباعتها' : 'Generate & print purchase orders' },
-          { name: isAr() ? 'سجل فواتير الموردين' : 'Invoices Ledger', page: 'invoices', icon: '🧾', sub: isAr() ? 'متابعة الفواتير الواردة وحالات الدفع' : 'Supplier bills & payments' },
-          { name: isAr() ? 'تسجيل الهدر والتالف اليومي' : 'Waste & Spoilage', page: 'waste', icon: '🗑️', sub: isAr() ? 'تسجيل الخسائر وخصمها من المخزن' : 'Log spoilage & financial loss' }
-        ];
-
-        pages.forEach(p => {
-          if (!query || p.name.toLowerCase().includes(query) || p.page.toLowerCase().includes(query)) {
-            items.push({
-              title: p.name,
-              sub: p.sub,
-              icon: p.icon,
-              action: () => { nav(p.page); closeCmdBar(); }
-            });
-          }
-        });
-
-        // Raw Materials
-        Object.entries(S.ings).forEach(([id, iv]) => {
-          const nmAr = iv.ar || '';
-          const nmEn = iv.en || '';
-          if (query && (nmAr.toLowerCase().includes(query) || nmEn.toLowerCase().includes(query) || id.toLowerCase().includes(query))) {
-            items.push({
-              title: `${isAr() ? iv.ar : iv.en} (${iv.stock} ${iv.uom})`,
-              sub: `${isAr() ? 'خامة مخزن | سعر:' : 'Raw Material | Price:'} ${iv.price} ${cur()} | ${iv.sup || 'مورد عام'}`,
-              icon: '📦',
-              action: () => { nav('inventory'); closeCmdBar(); }
-            });
-          }
-        });
-
-        // Products
-        S.products.forEach(p => {
-          const nmAr = p.ar || '';
-          const nmEn = p.en || '';
-          if (query && (nmAr.toLowerCase().includes(query) || nmEn.toLowerCase().includes(query) || p.id.toLowerCase().includes(query))) {
-            items.push({
-              title: `${pname(p)}`,
-              sub: `${isAr() ? 'تجهيز مطبخ مركزي | الوحدة:' : 'Central Kitchen Item | Unit:'} ${p.unit}`,
-              icon: '🥫',
-              action: () => { nav('recipes'); S.curRecipe = p.id; renderRecipes(); closeCmdBar(); }
-            });
-          }
-        });
-
-        if (!items.length) {
-          res.innerHTML = `<div style="text-align:center;padding:24px;color:#94a3b8;font-size:13px">${isAr() ? 'لا توجد نتائج تطابق بحثك' : 'No matching results found'}</div>`;
-          return;
+      // Raw Materials
+      Object.entries(S.ings).forEach(([id, iv]) => {
+        const nmAr = iv.ar || '';
+        const nmEn = iv.en || '';
+        if (query && (nmAr.toLowerCase().includes(query) || nmEn.toLowerCase().includes(query) || id.toLowerCase().includes(query))) {
+          items.push({
+            title: `${isAr() ? iv.ar : iv.en} (${iv.stock} ${iv.uom})`,
+            sub: `${isAr() ? 'خامة مخزن | سعر:' : 'Raw Material | Price:'} ${iv.price} ${cur()} | ${iv.sup || 'مورد عام'}`,
+            icon: '📦',
+            action: () => { nav('inventory'); closeCmdBar(); }
+          });
         }
+      });
 
-        res.innerHTML = items.slice(0, 10).map((it, idx) => `
+      // Products
+      S.products.forEach(p => {
+        const nmAr = p.ar || '';
+        const nmEn = p.en || '';
+        if (query && (nmAr.toLowerCase().includes(query) || nmEn.toLowerCase().includes(query) || p.id.toLowerCase().includes(query))) {
+          items.push({
+            title: `${pname(p)}`,
+            sub: `${isAr() ? 'تجهيز مطبخ مركزي | الوحدة:' : 'Central Kitchen Item | Unit:'} ${p.unit}`,
+            icon: '🥫',
+            action: () => { nav('recipes'); S.curRecipe = p.id; renderRecipes(); closeCmdBar(); }
+          });
+        }
+      });
+
+      if (!items.length) {
+        res.innerHTML = `<div style="text-align:center;padding:24px;color:#94a3b8;font-size:13px">${isAr() ? 'لا توجد نتائج تطابق بحثك' : 'No matching results found'}</div>`;
+        return;
+      }
+
+      res.innerHTML = items.slice(0, 10).map((it, idx) => `
     <div class="cmd-item" onclick="window._cmdActions[${idx}]()">
       <div class="cmd-item-left">
         <div class="cmd-item-icon">${it.icon}</div>
@@ -7249,55 +7302,55 @@
     </div>
   `).join('');
 
-        window._cmdActions = items.map(it => it.action);
+      window._cmdActions = items.map(it => it.action);
+    }
+
+    // Global Ctrl + K listener
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        openCmdBar();
       }
+      if (e.key === 'Escape') {
+        closeCmdBar();
+      }
+    });
 
-      // Global Ctrl + K listener
-      window.addEventListener('keydown', (e) => {
-        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-          e.preventDefault();
-          openCmdBar();
-        }
-        if (e.key === 'Escape') {
-          closeCmdBar();
-        }
+    /* ============================================================
+       INITIALIZATION
+    ============================================================ */
+    // Add invoices & wastes array to state
+    S.invoices = [];
+    S.wastes = [];
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.innerWidth <= 768) {
+        document.getElementById('mob-btn').style.display = 'flex';
+      }
+      window.addEventListener('resize', () => {
+        document.getElementById('mob-btn').style.display = (window.innerWidth <= 768) ? 'flex' : 'none';
       });
 
-      /* ============================================================
-         INITIALIZATION
-      ============================================================ */
-      // Add invoices & wastes array to state
-      S.invoices = [];
-      S.wastes = [];
+      // 💾 1. Fast initial render from localStorage
+      const hadSavedData = loadState();
+      applyLang();
+      renderDash();
+      updateLiveTicker();
 
-
-      document.addEventListener('DOMContentLoaded', () => {
-        if (window.innerWidth <= 768) {
-          document.getElementById('mob-btn').style.display = 'flex';
+      // ⚡ 2. Async Cloud Sync from Supabase SQL (loads real-time data on Phone, PC, Tablet)
+      syncFromSQL().then(synced => {
+        if (synced) {
+          renderDash();
+          renderOrders();
+          renderInv();
+          renderRecipes();
+          if (typeof renderProd === 'function') renderProd();
+          if (typeof renderProduction === 'function') renderProduction();
+          updateLiveTicker();
         }
-        window.addEventListener('resize', () => {
-          document.getElementById('mob-btn').style.display = (window.innerWidth <= 768) ? 'flex' : 'none';
-        });
-
-        // 💾 1. Fast initial render from localStorage
-        const hadSavedData = loadState();
-        applyLang();
-        renderDash();
-        updateLiveTicker();
-
-        // ⚡ 2. Async Cloud Sync from Supabase SQL (loads real-time data on Phone, PC, Tablet)
-        syncFromSQL().then(synced => {
-          if (synced) {
-            renderDash();
-            renderOrders();
-            renderInv();
-            renderRecipes();
-            if (typeof renderProd === 'function') renderProd();
-            if (typeof renderProduction === 'function') renderProduction();
-            updateLiveTicker();
-          }
-        });
       });
+    });
   </script>
 </body>
 
