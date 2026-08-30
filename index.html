@@ -2096,10 +2096,15 @@
       <!-- RECIPES -->
       <section class="page" id="page-recipes">
         <div style="display:grid;grid-template-columns:280px 1fr;gap:20px" class="recipes-layout">
-          <div class="card" style="height:fit-content">
-            <h3 class="text-white font-bold mb-3" data-ar="تجهيزات المطبخ المركزي" data-en="CK Products (BOM)">تجهيزات
-              المطبخ المركزي</h3>
-            <div id="recipe-list" class="sy3"></div>
+          <div class="card" style="height:fit-content;max-height:720px;display:flex;flex-direction:column">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-white font-bold" data-ar="تجهيزات المطبخ المركزي" data-en="CK Products (BOM)">تجهيزات المطبخ المركزي</h3>
+              <span class="badge badge-purple" id="recipes-count-badge">74 ريسبي</span>
+            </div>
+            <div style="position:relative;margin-bottom:10px">
+              <input type="text" id="recipe-search-input" class="input" placeholder="بحث في الـ 74 ريسبي..." style="padding:6px 10px;font-size:12px" oninput="filterRecipesList()" />
+            </div>
+            <div id="recipe-list" class="sy3" style="flex:1;overflow-y:auto;max-height:500px;padding-inline-end:4px"></div>
             <div class="divider"></div>
             <button class="btn btn-secondary w-full" style="justify-content:center" onclick="openModal('modal-prod')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -4637,6 +4642,47 @@
       }).join('');
 
       renderBOM(S.curRecipe);
+    }
+
+        function filterRecipesList() {
+      const q = (document.getElementById('recipe-search-input')?.value || '').trim().toLowerCase();
+      const listEl = document.getElementById('recipe-list');
+      if (!listEl) return;
+
+      const prodsWithRecs = S.products.filter(p => S.recipes[p.id] && S.recipes[p.id].ings && S.recipes[p.id].ings.length > 0)
+        .sort((a, b) => pname(a).localeCompare(pname(b), isAr() ? 'ar' : 'en', { sensitivity: 'base' }));
+
+      const filtered = q
+        ? prodsWithRecs.filter(p => (p.ar && p.ar.toLowerCase().includes(q)) || (p.en && p.en.toLowerCase().includes(q)) || p.id.toLowerCase().includes(q))
+        : prodsWithRecs;
+
+      const chv = isAr() ? '<polyline points="15 18 9 12 15 6"/>' : '<polyline points="9 18 15 12 9 6"/>';
+      const badge = document.getElementById('recipes-count-badge');
+      if (badge) badge.textContent = `${filtered.length} ريسبي`;
+
+      if (!filtered.length) {
+        listEl.innerHTML = `<div class="text-muted text-sm text-center" style="padding:20px">${T('لا توجد وصفات تطابق البحث', 'No matching recipes')}</div>`;
+        return;
+      }
+
+      listEl.innerHTML = filtered.map(p => {
+        const r = S.recipes[p.id];
+        const cost = r ? recipeCost(r) : p.cost;
+        const ingsCount = r && r.ings ? r.ings.length : 0;
+        return `
+          <div class="nav-item ${S.curRecipe === p.id ? 'active' : ''}" onclick="selRecipe('${p.id}')" style="padding:10px 12px;margin-bottom:6px;border-radius:10px;transition:all 0.2s">
+            <span style="width:9px;height:9px;border-radius:50%;background:${p.color};flex-shrink:0;display:inline-block"></span>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:13px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${pname(p)}</div>
+              <div style="font-size:11px;color:#94a3b8;display:flex;gap:8px;align-items:center;margin-top:2px">
+                <span style="color:#fbbf24">${f2(cost)} ${cur()} / ${p.unit}</span>
+                <span class="badge badge-slate" style="font-size:10px;padding:1px 5px">${ingsCount} خامات</span>
+              </div>
+            </div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${chv}</svg>
+          </div>
+        `;
+      }).join('');
     }
 
     function selRecipe(id) {
