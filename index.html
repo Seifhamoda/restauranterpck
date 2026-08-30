@@ -1752,6 +1752,9 @@
           <span data-ar="بحث سريع..." data-en="Quick Search...">بحث سريع...</span>
           <kbd>Ctrl K</kbd>
         </button>
+        <div id="sql-sync-badge" class="badge badge-green" onclick="toggleSqlSync()" style="cursor:pointer;font-size:11.5px;padding:4px 10px;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;user-select:none" title="اضغط للتبديل بين وضع التجربة والمزامنة السحابية">
+          <span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block"></span> ⚡ السيرفر السحابي متصل ومحدّث
+        </div>
         <div class="chip">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -2134,21 +2137,44 @@
               </div>
             </div>
 
-            <!-- Live Branch Demand Banner for this product -->
-            <div id="recipe-branch-demand-card" style="background:linear-gradient(135deg,rgba(168,85,247,0.12),rgba(249,115,22,0.08));border:1px solid rgba(168,85,247,0.25);border-radius:14px;padding:16px;margin-bottom:18px">
-              <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
-                <div class="flex items-center gap-2">
-                  <span style="font-size:18px">📊</span>
-                  <span style="color:#fff;font-weight:800;font-size:14px" data-ar="إجمالي المطلوب والمسحوب من واقع طلبات الفروع الحالية:" data-en="Total Live Demand from Branch Orders:">إجمالي المطلوب والمسحوب من واقع طلبات الفروع الحالية:</span>
-                  <span class="badge badge-orange" id="recipe-demand-total-badge" style="font-size:14px;padding:4px 12px;font-weight:900">0 كجم</span>
+            <!-- Live Branch Demand Banner for this product (Executive & Structured) -->
+            <div id="recipe-branch-demand-card" class="card" style="background:linear-gradient(145deg, rgba(30,41,59,0.7), rgba(15,23,42,0.85));border:1px solid rgba(56,189,248,0.22);border-radius:14px;padding:16px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,0.25)">
+              <div class="flex items-center justify-between flex-wrap gap-3 mb-3">
+                <div class="flex items-center gap-3">
+                  <div style="width:42px;height:42px;border-radius:10px;background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.25);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">
+                    📦
+                  </div>
+                  <div>
+                    <div style="font-size:14px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px">
+                      <span data-ar="مؤشر طلبات الفروع المباشرة" data-en="Live Branch Demand Indicator">مؤشر طلبات الفروع المباشرة</span>
+                      <span class="badge badge-purple" id="recipe-demand-branches-count" style="font-size:11px;font-weight:700">0 فروع</span>
+                    </div>
+                    <div class="text-muted text-xs mt-0.5" data-ar="إجمالي الكميات المسحوبة والمطلوبة لتغطية طلبيات الفروع الحالية" data-en="Total product quantity requested across active branch orders">إجمالي الكميات المسحوبة والمطلوبة لتغطية طلبيات الفروع الحالية</div>
+                  </div>
                 </div>
-                <button class="btn btn-secondary btn-sm" onclick="applyBranchDemandToBatch()" id="btn-apply-demand-batch" style="background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.35);color:#fb923c;font-weight:700">
-                  ⚡ <span data-ar="تطبيق هذا الإجمالي في تشغيل الإنتاج الفعلي" data-en="Apply to Batch Production">تطبيق هذا الإجمالي في تشغيل الإنتاج الفعلي</span>
-                </button>
+
+                <div class="flex items-center gap-3">
+                  <div style="text-align:center;padding:5px 14px;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.28);border-radius:10px">
+                    <span style="font-size:10.5px;color:#fb923c;font-weight:700;display:block" data-ar="إجمالي المطلوب" data-en="Total Demand">إجمالي المطلوب</span>
+                    <span id="recipe-demand-total-badge" style="font-size:16px;font-weight:900;color:#fb923c">0.00</span>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="applyBranchDemandToBatch()" id="btn-apply-demand-batch" style="padding:8px 14px;font-weight:700;background:linear-gradient(135deg,#f97316,#ea580c);border:none;box-shadow:0 4px 14px rgba(249,115,22,0.25);border-radius:8px">
+                    ⚡ <span data-ar="تغذية أمر التشغيل بهذا الإجمالي" data-en="Feed Production Batch">تغذية أمر التشغيل بهذا الإجمالي</span>
+                  </button>
+                </div>
               </div>
-              <div style="font-size:12px;color:#cbd5e1" id="recipe-demand-branches-list">
-                <span class="text-muted">الفروع الطالبة: </span>
-                <span id="recipe-demand-branches-tags">—</span>
+
+              <!-- Individual Branch Badges Grid -->
+              <div style="background:rgba(0,0,0,0.22);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px">
+                <div class="text-xs font-bold mb-2 flex items-center justify-between" style="color:#94a3b8">
+                  <div class="flex items-center gap-1.5">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span data-ar="توزيع الكميات حسب الفروع الطالبة:" data-en="Demand breakdown by branch:">توزيع الكميات حسب الفروع الطالبة:</span>
+                  </div>
+                </div>
+                <div id="recipe-demand-branches-tags" style="display:flex;flex-wrap:wrap;gap:8px">
+                  <span class="text-muted text-xs">—</span>
+                </div>
               </div>
             </div>
 
@@ -2204,8 +2230,8 @@
                     <span class="text-muted text-sm font-bold" data-ar="الكمية المنتجة:" data-en="Produced Qty:">الكمية المنتجة:</span>
                     <input type="number" id="batch-prod-qty" class="input" style="width:110px;text-align:center;font-size:15px;font-weight:800;color:#38bdf8" value="20" min="0.01" step="any" oninput="calcBatchDeduction()" />
                     <span class="badge badge-purple" id="batch-prod-uom" style="font-size:12px">kg</span>
-                    <button class="btn btn-primary btn-sm" onclick="executeBatchDeduction()" style="background:linear-gradient(135deg, #0ea5e9, #0284c7);font-weight:800">
-                      <span data-ar="🔻 خصم هذه الخامات من المخزن وسحابة Supabase الآن" data-en="🔻 Deduct Consumed Stock">🔻 خصم هذه الخامات من المخزن وسحابة Supabase الآن</span>
+                    <button class="btn btn-primary btn-sm" onclick="executeBatchDeduction()" style="background:linear-gradient(135deg, #0ea5e9, #0284c7);font-weight:800;box-shadow:0 4px 14px rgba(14,165,233,0.3)">
+                      <span data-ar="⚡ اعتماد التشغيل وخصم الخامات من المخزون" data-en="⚡ Confirm Production & Deduct Stock">⚡ اعتماد التشغيل وخصم الخامات من المخزون</span>
                     </button>
                   </div>
                 </div>
@@ -3290,7 +3316,9 @@
         'فرع اسبليت واتر واي (Split Water Way)',
         'فرع اسبليت O1 (Split O1)',
         'فرع اسبليت نيو جيزة (Split New Giza)',
-        'فرع الجولف (NNG GOLF)'
+        'فرع الجولف (NNG GOLF)',
+        'فرع CAC (CAC)',
+        'فرع أورانج (Orange)'
       ],
       /* ── Central Kitchen Manufactured Products Master (المنتجات المصنعة - 171 صنف) ── */
       products: [
@@ -3583,7 +3611,54 @@
       ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
       : null;
 
+    // Toggleable SQL Sync Flag (Allows pausing SQL completely for safe local testing)
+    let SQL_SYNC_ENABLED = localStorage.getItem('ck_sql_sync_enabled') !== 'false';
+
+    function updateSqlSyncBadge() {
+      const badge = document.getElementById('sql-sync-badge');
+      if (!badge) return;
+      if (!SQL_SYNC_ENABLED) {
+        badge.className = 'badge badge-amber cursor-pointer';
+        badge.style.background = 'rgba(245,158,11,0.18)';
+        badge.style.borderColor = 'rgba(245,158,11,0.4)';
+        badge.style.color = '#fbbf24';
+        badge.style.cursor = 'pointer';
+        badge.title = T('اضغط لتفعيل المزامنة السحابية والحفظ في SQL', 'Click to resume live Cloud SQL sync');
+        badge.innerHTML = '🧪 <span>' + T('وضع التجربة (SQL متوقف مؤقتاً)', 'Sandbox (SQL Paused)') + '</span>';
+      } else {
+        badge.className = 'badge badge-green cursor-pointer';
+        badge.style.background = 'rgba(34,197,94,0.15)';
+        badge.style.borderColor = 'rgba(34,197,94,0.35)';
+        badge.style.color = '#4ade80';
+        badge.style.cursor = 'pointer';
+        badge.title = T('اضغط لإيقاف الـ SQL مؤقتاً والتحويل إلى وضع التجربة الآمن', 'Click to pause SQL & test safely');
+        badge.innerHTML = '<span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block"></span> ⚡ <span>' + T('السيرفر السحابي متصل ومحدّث', 'Cloud SQL Connected') + '</span>';
+      }
+    }
+
+    function toggleSqlSync() {
+      SQL_SYNC_ENABLED = !SQL_SYNC_ENABLED;
+      localStorage.setItem('ck_sql_sync_enabled', SQL_SYNC_ENABLED ? 'true' : 'false');
+      updateSqlSyncBadge();
+      if (SQL_SYNC_ENABLED) {
+        toast(T('⚡ تم استئناف المزامنة السحابية — البيانات تُحفظ في قاعدة البيانات مباشرة', 'Cloud SQL Sync RESUMED!'), 'success');
+        syncFromSQL().then(() => {
+          renderOrders();
+          renderInv();
+          renderRecipes();
+          if (typeof renderProd === 'function') renderProd();
+        });
+      } else {
+        toast(T('🧪 تم إيقاف الـ SQL مؤقتاً — أنت الآن في وضع التجربة المحلي (لن يتم تعديل أو حفظ أي شيء في الداتابيز)', 'SQL PAUSED: Sandbox mode active (zero DB writes)'), 'warning');
+      }
+    }
+
     async function syncFromSQL() {
+      updateSqlSyncBadge();
+      if (!SQL_SYNC_ENABLED) {
+        console.log('🧪 SQL Sync is currently paused. Running in local sandbox mode.');
+        return false;
+      }
       try {
         if (supabase) {
           // Fetch from Supabase Cloud
@@ -3641,11 +3716,7 @@
             }));
           }
 
-          const badge = document.getElementById('sql-sync-badge');
-          if (badge) {
-            badge.className = 'badge badge-green';
-            badge.innerHTML = '<span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block"></span> ⚡ Supabase متصل وسحابي';
-          }
+          updateSqlSyncBadge();
           return true;
         }
 
@@ -3675,6 +3746,7 @@
     }
 
     async function apiSaveOrders(ordersList, replaceDates = []) {
+      if (!SQL_SYNC_ENABLED) return;
       try {
         if (supabase) {
           if (replaceDates && replaceDates.length) {
@@ -3721,6 +3793,7 @@
     }
 
     async function apiDeleteOrder(orderId) {
+      if (!SQL_SYNC_ENABLED) return;
       try {
         if (supabase) {
           const oid = String(orderId);
@@ -3733,6 +3806,7 @@
     }
 
     async function apiDeleteOrdersForDate(dateStr) {
+      if (!SQL_SYNC_ENABLED) return;
       try {
         if (supabase) {
           const { data: oldOrders } = await supabase.from('orders').select('id').eq('order_date', dateStr);
@@ -3749,6 +3823,7 @@
     }
 
     async function apiClearAllOrders() {
+      if (!SQL_SYNC_ENABLED) return;
       try {
         if (supabase) {
           await supabase.from('order_items').delete().neq('id', 0);
@@ -3761,6 +3836,7 @@
     }
 
     async function apiBatchDeduct(productId, batchQty, deductions) {
+      if (!SQL_SYNC_ENABLED) return;
       try {
         if (supabase) {
           for (const d of deductions) {
@@ -3784,6 +3860,7 @@
     }
 
     async function apiUpdateRawStock(id, stock, safety, price) {
+      if (!SQL_SYNC_ENABLED) return;
       try {
         if (supabase) {
           await supabase.from('raw_materials').update({ stock, safety, price }).eq('id', id);
@@ -4795,19 +4872,34 @@
       const demandingBranches = [];
       S.orders.forEach(o => {
         if (o.items && o.items[pid] && o.items[pid] > 0) {
-          totalDemand += o.items[pid];
-          demandingBranches.push(`${o.branch}: <b>${o.items[pid]} ${p.unit}</b>`);
+          const qty = o.items[pid];
+          totalDemand += qty;
+          demandingBranches.push({
+            branch: o.branch,
+            qty: qty,
+            date: o.date
+          });
         }
       });
 
       const demandBadge = document.getElementById('recipe-demand-total-badge');
       if (demandBadge) demandBadge.textContent = `${totalDemand.toFixed(2)} ${p.unit}`;
 
+      const countBadge = document.getElementById('recipe-demand-branches-count');
+      if (countBadge) countBadge.textContent = isAr() ? `${demandingBranches.length} فروع` : `${demandingBranches.length} branches`;
+
       const demandTags = document.getElementById('recipe-demand-branches-tags');
       if (demandTags) {
-        demandTags.innerHTML = demandingBranches.length
-          ? demandingBranches.join(' | ')
-          : `<span class="text-muted">${T('لا توجد طلبيات مفتوحة لهذا الصنف اليوم', 'No active branch orders')}</span>`;
+        if (demandingBranches.length > 0) {
+          demandTags.innerHTML = demandingBranches.map(b => `
+            <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:5px 10px;border-radius:8px;font-size:12px;box-shadow:0 2px 6px rgba(0,0,0,0.15)">
+              <span style="color:#cbd5e1;font-weight:600">🏢 ${b.branch}</span>
+              <span style="color:#38bdf8;font-weight:900;background:rgba(56,189,248,0.15);border:1px solid rgba(56,189,248,0.25);padding:1px 7px;border-radius:6px">${fmt(b.qty)} ${p.unit}</span>
+            </div>
+          `).join('');
+        } else {
+          demandTags.innerHTML = `<span class="text-muted text-xs" style="padding:2px 0">${T('لا توجد طلبات مسجلة من الفروع لهذا الصنف حالياً', 'No active branch orders')}</span>`;
+        }
       }
 
       const batchUom = document.getElementById('batch-prod-uom');
@@ -4911,7 +5003,7 @@
 
       const pTitle = pname(p);
       if (!confirm(T(`🏭 تأكيد تشغيل إنتاج دفعة (${batchQty} ${p.unit}) من [${pTitle}]؟
-سيتم خصم كافة الخامات المسحوبة من المخزن وقاعدة البيانات فوراً.`, `Confirm batch production of ${batchQty} ${p.unit} of ${pTitle}?`))) return;
+سيتم خصم كافة الخامات المسحوبة وتحديث أرصدة المخزون فوراً.`, `Confirm batch production of ${batchQty} ${p.unit} of ${pTitle}?`))) return;
 
       let deductedItemsCount = 0;
       const deductionsList = [];
@@ -4926,13 +5018,13 @@
         }
       });
 
-      // Sync deduction with SQL database and Supabase
+      // Sync deduction with SQL database and cloud
       apiBatchDeduct(pid, batchQty, deductionsList);
       saveState();
       renderInv();
       renderBOM(pid);
       updateLiveTicker();
-      toast(T(`✅ تم بنجاح تشغيل الدفعة (${batchQty} ${p.unit}) وخصم ${deductedItemsCount} خامات من المخزن وسحابة Supabase!`, `✅ Batch production recorded & stock deducted!`));
+      toast(T(`✅ تم اعتماد إنتاج الدفعة (${batchQty} ${p.unit}) وخصم ${deductedItemsCount} صنف خام من المخزون بنجاح`, `✅ Batch production recorded and inventory updated!`));
     }
 
     function updIng(pid, i, f, v) {
@@ -6600,6 +6692,16 @@
       // 20. Core PH
       if (full.includes('core ph') || full.includes('p.h') || full.includes('ph')) {
         return isAr() ? 'فرع Core PH' : 'Core PH';
+      }
+
+      // 21. CAC
+      if (full.includes('cac') || full.includes('كـاك') || full.includes('كاك') || full.includes('c.a.c')) {
+        return isAr() ? 'فرع CAC (CAC)' : 'CAC';
+      }
+
+      // 22. Orange
+      if (full.includes('orange') || full.includes('اورانج') || full.includes('أورانج') || full.includes('اورنج') || full.includes('أورنج')) {
+        return isAr() ? 'فرع أورانج (Orange)' : 'Orange';
       }
 
       return rawCc || sheetName || (isAr() ? 'فرع عام' : 'General Branch');

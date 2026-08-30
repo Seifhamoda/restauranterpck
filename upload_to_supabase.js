@@ -10,14 +10,15 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 async function seedSupabase() {
   console.log('🚀 Connecting to Supabase and uploading ERP dataset...');
 
-  // 1. Upload Branches (24 branches)
+  // 1. Upload Branches (26 branches)
   const branches = [
     'فرع واتر واي (Water Way)', 'فرع أب تاون (Uptown)', 'فرع O1 (O1)', 'فرع المعادي (The Field)',
     'فرع ميفيدا (Mivida)', 'فرع سوديك (Sodic)', 'فرع نيو جيزة (New Giza)', 'فرع نادي نيو جيزة (New Giza Club)',
     'فرع بارك ستريت (Park St)', 'فرع مول العرب (Mall of Arabia)', 'فرع بالم هيلز (Palm Hills)', 'فرع كود (Kode)',
     'فرع دهشور (Dahshour)', 'فرع مدينتي (Madinty)', 'فرع ديستريكت 5 (District 5)', 'فرع إل بوسكو (IL Bosco)',
     'فرع D2 (Drive 02)', 'فرع قطامية (Katameya)', 'فرع الجولف (NGG Golf)', 'فرع Core WOC', 'فرع Core PH',
-    'فرع اسبليت واتر واي (Split Water Way)', 'فرع اسبليت O1 (Split O1)', 'فرع اسبليت نيو جيزة (Split New Giza)'
+    'فرع اسبليت واتر واي (Split Water Way)', 'فرع اسبليت O1 (Split O1)', 'فرع اسبليت نيو جيزة (Split New Giza)',
+    'فرع CAC (CAC)', 'فرع أورانج (Orange)'
   ];
 
   const branchRows = branches.map((b, idx) => ({ id: `br-${idx + 1}`, name: b }));
