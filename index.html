@@ -3661,9 +3661,14 @@
 ============================================================ */
     const SUPABASE_URL = 'https://ihminamcbstcexsdacys.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlobWluYW1jYnN0Y2V4c2RhY3lzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc5Mjg5MDksImV4cCI6MjEwMzUwNDkwOX0.4i4zO2ygSHdkQULp2Chqz3mxiUYevOjbX537w7uWRrE';
-    const supabase = (window.supabase && typeof window.supabase.createClient === 'function')
-      ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-      : null;
+    let _supaClient = null;
+
+    function getSupabaseClient() {
+      if (!_supaClient && typeof window !== 'undefined' && window.supabase && typeof window.supabase.createClient === 'function') {
+        _supaClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      }
+      return _supaClient;
+    }
 
     // Toggleable SQL Sync Flag (Allows pausing SQL completely for safe local testing)
     let SQL_SYNC_ENABLED = localStorage.getItem('ck_sql_sync_enabled') !== 'false';
@@ -3707,23 +3712,28 @@
       }
     }
 
-    async function syncFromSQL() {
+    async function syncFromSQL(retries = 3) {
       updateSqlSyncBadge();
       if (!SQL_SYNC_ENABLED) {
         console.log('🧪 SQL Sync is currently paused. Running in local sandbox mode.');
         return false;
       }
       try {
-        if (supabase) {
+        let client = getSupabaseClient();
+        if (!client && retries > 0) {
+          await new Promise(r => setTimeout(r, 200));
+          return syncFromSQL(retries - 1);
+        }
+        if (client) {
           // Fetch from Supabase Cloud
           const [brRes, prRes, rawRes, recRes, ordRes, ordItemsRes, tazRes] = await Promise.all([
-            supabase.from('branches').select('name').order('id', { ascending: true }),
-            supabase.from('products').select('*').order('ar', { ascending: true }),
-            supabase.from('raw_materials').select('*').order('ar', { ascending: true }),
-            supabase.from('recipe_items').select('*'),
-            supabase.from('orders').select('*').order('created_at', { ascending: false }),
-            supabase.from('order_items').select('*'),
-            supabase.from('taztiki_records').select('*').order('created_at', { ascending: false })
+            client.from('branches').select('name').order('id', { ascending: true }),
+            client.from('products').select('*').order('ar', { ascending: true }),
+            client.from('raw_materials').select('*').order('ar', { ascending: true }),
+            client.from('recipe_items').select('*'),
+            client.from('orders').select('*').order('created_at', { ascending: false }),
+            client.from('order_items').select('*'),
+            client.from('taztiki_records').select('*').order('created_at', { ascending: false })
           ]);
 
           if (brRes.data && brRes.data.length) S.branches = brRes.data.map(r => r.name);
@@ -3802,16 +3812,17 @@
     async function apiSaveOrders(ordersList, replaceDates = []) {
       if (!SQL_SYNC_ENABLED) return;
       try {
-        if (supabase) {
+        const client = getSupabaseClient();
+        if (client) {
           if (replaceDates && replaceDates.length) {
             for (const d of replaceDates) {
-              const { data: oldOrders } = await supabase.from('orders').select('id').eq('order_date', d);
+              const { data: oldOrders } = await client.from('orders').select('id').eq('order_date', d);
               if (oldOrders && oldOrders.length) {
                 const oids = oldOrders.map(o => o.id);
-                await supabase.from('order_items').delete().in('order_id', oids);
-                await supabase.from('orders').delete().in('id', oids);
+                await client.from('order_items').delete().in('order_id', oids);
+                await client.from('orders').delete().in('id', oids);
               }
-              await supabase.from('taztiki_records').delete().eq('order_date', d);
+              await client.from('taztiki_records').delete().eq('order_date', d);
             }
           }
 
@@ -3821,7 +3832,7 @@
             order_date: o.date,
             notes: o.notes || ''
           }));
-          await supabase.from('orders').upsert(orderRows);
+          await client.from('orders').upsert(orderRows);
 
           const itemRows = [];
           ordersList.forEach(o => {
@@ -3833,7 +3844,7 @@
             }
           });
           if (itemRows.length) {
-            await supabase.from('order_items').insert(itemRows);
+            await client.from('order_items').insert(itemRows);
           }
           return;
         }
@@ -3849,10 +3860,11 @@
     async function apiDeleteOrder(orderId) {
       if (!SQL_SYNC_ENABLED) return;
       try {
-        if (supabase) {
+        const client = getSupabaseClient();
+        if (client) {
           const oid = String(orderId);
-          await supabase.from('order_items').delete().eq('order_id', oid);
-          await supabase.from('orders').delete().eq('id', oid);
+          await client.from('order_items').delete().eq('order_id', oid);
+          await client.from('orders').delete().eq('id', oid);
           return;
         }
         await fetch(`/api/orders/${orderId}`, { method: 'DELETE' });
@@ -3862,14 +3874,15 @@
     async function apiDeleteOrdersForDate(dateStr) {
       if (!SQL_SYNC_ENABLED) return;
       try {
-        if (supabase) {
-          const { data: oldOrders } = await supabase.from('orders').select('id').eq('order_date', dateStr);
+        const client = getSupabaseClient();
+        if (client) {
+          const { data: oldOrders } = await client.from('orders').select('id').eq('order_date', dateStr);
           if (oldOrders && oldOrders.length) {
             const oids = oldOrders.map(o => o.id);
-            await supabase.from('order_items').delete().in('order_id', oids);
-            await supabase.from('orders').delete().in('id', oids);
+            await client.from('order_items').delete().in('order_id', oids);
+            await client.from('orders').delete().in('id', oids);
           }
-          await supabase.from('taztiki_records').delete().eq('order_date', dateStr);
+          await client.from('taztiki_records').delete().eq('order_date', dateStr);
           return;
         }
         await fetch(`/api/orders/date/${dateStr}`, { method: 'DELETE' });
@@ -3879,10 +3892,11 @@
     async function apiClearAllOrders() {
       if (!SQL_SYNC_ENABLED) return;
       try {
-        if (supabase) {
-          await supabase.from('order_items').delete().neq('id', 0);
-          await supabase.from('orders').delete().neq('id', '');
-          await supabase.from('taztiki_records').delete().neq('id', '');
+        const client = getSupabaseClient();
+        if (client) {
+          await client.from('order_items').delete().neq('id', 0);
+          await client.from('orders').delete().neq('id', '');
+          await client.from('taztiki_records').delete().neq('id', '');
           return;
         }
         await fetch('/api/orders', { method: 'DELETE' });
@@ -3892,11 +3906,12 @@
     async function apiBatchDeduct(productId, batchQty, deductions) {
       if (!SQL_SYNC_ENABLED) return;
       try {
-        if (supabase) {
+        const client = getSupabaseClient();
+        if (client) {
           for (const d of deductions) {
             const cur = S.ings[d.id] ? S.ings[d.id].stock : 0;
-            await supabase.from('raw_materials').update({ stock: Math.max(0, cur) }).eq('id', d.id);
-            await supabase.from('stock_movements').insert({
+            await client.from('raw_materials').update({ stock: Math.max(0, cur) }).eq('id', d.id);
+            await client.from('stock_movements').insert({
               ing_id: d.id,
               change_qty: -d.qty,
               reason: `Batch Production: ${batchQty} of ${productId}`,
@@ -3916,8 +3931,9 @@
     async function apiUpdateRawStock(id, stock, safety, price) {
       if (!SQL_SYNC_ENABLED) return;
       try {
-        if (supabase) {
-          await supabase.from('raw_materials').update({ stock, safety, price }).eq('id', id);
+        const client = getSupabaseClient();
+        if (client) {
+          await client.from('raw_materials').update({ stock, safety, price }).eq('id', id);
           return;
         }
         await fetch(`/api/raw-materials/${id}`, {
@@ -7326,15 +7342,17 @@
 
 
     document.addEventListener('DOMContentLoaded', () => {
-      if (window.innerWidth <= 768) {
-        document.getElementById('mob-btn').style.display = 'flex';
+      const mobBtn = document.getElementById('mob-btn');
+      if (mobBtn) {
+        mobBtn.style.display = (window.innerWidth <= 768) ? 'flex' : 'none';
       }
       window.addEventListener('resize', () => {
-        document.getElementById('mob-btn').style.display = (window.innerWidth <= 768) ? 'flex' : 'none';
+        const mob = document.getElementById('mob-btn');
+        if (mob) mob.style.display = (window.innerWidth <= 768) ? 'flex' : 'none';
       });
 
-      // 💾 1. Fast initial render from localStorage
-      const hadSavedData = loadState();
+      // 💾 1. Fast initial render from state/localStorage
+      loadState();
       applyLang();
       renderDash();
       updateLiveTicker();
@@ -7350,7 +7368,7 @@
           if (typeof renderProduction === 'function') renderProduction();
           updateLiveTicker();
         }
-      });
+      }).catch(err => console.warn('Init sync failed:', err));
     });
   </script>
 </body>
