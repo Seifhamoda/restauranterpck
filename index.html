@@ -6609,7 +6609,7 @@
       const gramMatch = t.match(/([0-9]*\.?[0-9]+)\s*(?:جرام|جم|gram|g)/i);
       if (gramMatch) {
         const val = parseFloat(gramMatch[1]);
-        return val > 10 ? val / 1000 : val; https://github.com/Seifhamoda/restauranterpck
+        return val > 10 ? val / 1000 : val;
       }
 
       // Kg / K match: e.g. 8 ك, 1kg, 3.5k, 1.250, 1.500Kg, 0.120 KG
