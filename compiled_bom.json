@@ -1,0 +1,3828 @@
+{
+  "bom": {
+    "prod-amirecan-sauce-kg-pa": {
+      "ings": [
+        {
+          "id": "raw-mayonnaise-mazola",
+          "qty": 0.83143,
+          "waste": 1
+        },
+        {
+          "id": "raw-mustard-dijon",
+          "qty": 0.1084,
+          "waste": 1
+        },
+        {
+          "id": "raw-ketchup-gal",
+          "qty": 0.0547,
+          "waste": 1
+        },
+        {
+          "id": "raw-cucmber-pickeld-water",
+          "qty": 0.00348,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-red-pepper-pow-500gr",
+          "qty": 0.00199,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-cheese-sauce-kg-pa": {
+      "ings": [
+        {
+          "id": "raw-cream-whipping-kg",
+          "qty": 0.54242,
+          "waste": 1
+        },
+        {
+          "id": "raw-cheddar-cheese-kg",
+          "qty": 0.21697,
+          "waste": 1
+        },
+        {
+          "id": "raw-cheddar-american-cheese",
+          "qty": 0.10848,
+          "waste": 1
+        },
+        {
+          "id": "raw-la-vache-quirit-cheese",
+          "qty": 0.13181,
+          "waste": 1
+        },
+        {
+          "id": "raw-sauce-hot-kg",
+          "qty": 0.00033,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-dry-powder-kg-pa": {
+      "ings": [
+        {
+          "id": "raw-flour-50-kg",
+          "qty": 0.69383,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-ole-powder",
+          "qty": 0.20815,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.0104,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-cayani-box-16",
+          "qty": 0.00346,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-red-pepper-pow-500gr",
+          "qty": 0.0052,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.03252,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-chinese",
+          "qty": 0.03252,
+          "waste": 1
+        },
+        {
+          "id": "raw-baking-powder-kg",
+          "qty": 0.01388,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-cucumber-pickle-kg-pa": {
+      "ings": [
+        {
+          "id": "raw-vinegar-white",
+          "qty": 0.50793,
+          "waste": 1
+        },
+        {
+          "id": "raw-cucumber",
+          "qty": 1.26984,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-50-kg",
+          "qty": 0.50794,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-truffle-mayo-pa": {
+      "ings": [
+        {
+          "id": "raw-truffle-paste",
+          "qty": 0.09091,
+          "waste": 1
+        },
+        {
+          "id": "raw-mayonnaisec-hellmanns-3-4-kg",
+          "qty": 0.90909,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-medjool-honey-sauce-pa": {
+      "ings": [
+        {
+          "id": "raw-ajwa-medjool",
+          "qty": 0.42796,
+          "waste": 1
+        },
+        {
+          "id": "raw-cream-whipping-kg",
+          "qty": 0.14265,
+          "waste": 1
+        },
+        {
+          "id": "raw-honey-white",
+          "qty": 0.42796,
+          "waste": 1
+        },
+        {
+          "id": "raw-spice-cinnamon-powder",
+          "qty": 0.00143,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-dry-mix-pa": {
+      "ings": [
+        {
+          "id": "raw-flour-50-kg",
+          "qty": 0.69383,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-ole-powder",
+          "qty": 0.20815,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.0104,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-cayani-box-16",
+          "qty": 0.00346,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-red-pepper-pow-500gr",
+          "qty": 0.0055,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.03252,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-chinese",
+          "qty": 0.03252,
+          "waste": 1
+        },
+        {
+          "id": "raw-baking-powder-kg",
+          "qty": 0.01388,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-karkade-syrup-pa": {
+      "ings": [
+        {
+          "id": "raw-hibiscus-dry",
+          "qty": 0.14,
+          "waste": 1
+        },
+        {
+          "id": "raw-water-gallon-19-lit",
+          "qty": 0.3997,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-pkt-1kg",
+          "qty": 0.4998,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-salted-vanilla-bean-pa": {
+      "ings": [
+        {
+          "id": "raw-condensed-milk-nestle",
+          "qty": 0.72,
+          "waste": 1
+        },
+        {
+          "id": "raw-frensh-vanilla",
+          "qty": 0.28,
+          "waste": 1
+        },
+        {
+          "id": "raw-sea-salt",
+          "qty": 0.00826,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-salted-hazelnut-sauce-pa": {
+      "ings": [
+        {
+          "id": "raw-condensed-milk-nestle",
+          "qty": 0.89189,
+          "waste": 1
+        },
+        {
+          "id": "raw-sea-salt",
+          "qty": 0.00721,
+          "waste": 1
+        },
+        {
+          "id": "raw-italian-roasted-hazelnut",
+          "qty": 0.11351,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-roasted-potato-pa": {
+      "ings": [
+        {
+          "id": "raw-potato",
+          "qty": 1.0,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.005,
+          "waste": 1
+        },
+        {
+          "id": "raw-olive-oil-wadi-food",
+          "qty": 0.04,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.001,
+          "waste": 1
+        },
+        {
+          "id": "raw-thyme",
+          "qty": 0.005,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-marination-mushroom-roasted-pa": {
+      "ings": [
+        {
+          "id": "raw-red-onion",
+          "qty": 2.06897,
+          "waste": 1
+        },
+        {
+          "id": "raw-red-chili",
+          "qty": 0.2069,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.06897,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-olive-box-12-btl-1-lit",
+          "qty": 2.06897,
+          "waste": 1
+        },
+        {
+          "id": "raw-garlic-chinese",
+          "qty": 0.2069,
+          "waste": 1
+        },
+        {
+          "id": "raw-parsley",
+          "qty": 0.68966,
+          "waste": 1
+        },
+        {
+          "id": "raw-vinegar-apple",
+          "qty": 0.68966,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-hot-honey-pa": {
+      "ings": [
+        {
+          "id": "raw-honey-white",
+          "qty": 0.96852,
+          "waste": 1
+        },
+        {
+          "id": "raw-chili-flakes",
+          "qty": 0.008,
+          "waste": 1
+        },
+        {
+          "id": "raw-vinegar-apple",
+          "qty": 0.00969,
+          "waste": 1
+        },
+        {
+          "id": "raw-sauce-hot-sriracha",
+          "qty": 0.00969,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-balsamic-galze-pa": {
+      "ings": [
+        {
+          "id": "raw-vinegar-balsamic",
+          "qty": 1.0504,
+          "waste": 1
+        },
+        {
+          "id": "raw-honey-white",
+          "qty": 0.0352,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-sauce-marinara-pa": {
+      "ings": [
+        {
+          "id": "raw-tomato",
+          "qty": 0.16847,
+          "waste": 1
+        },
+        {
+          "id": "raw-tomato-peeled-mirella",
+          "qty": 0.16848,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-olive-box-12-btl-1-lit",
+          "qty": 0.0,
+          "waste": 1
+        },
+        {
+          "id": "raw-white-onion",
+          "qty": 0.04493,
+          "waste": 1
+        },
+        {
+          "id": "raw-garlic-chinese",
+          "qty": 0.00584,
+          "waste": 1
+        },
+        {
+          "id": "raw-fresh-basil",
+          "qty": 0.00359,
+          "waste": 1
+        },
+        {
+          "id": "raw-tomato-paste-heinz",
+          "qty": 0.01572,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.0054,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-oregano-dry",
+          "qty": 0.00045,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.00022,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-pickled-onion-pa": {
+      "ings": [
+        {
+          "id": "raw-water-gallon-19-lit",
+          "qty": 0.23985,
+          "waste": 1
+        },
+        {
+          "id": "raw-vinegar-white",
+          "qty": 0.47971,
+          "waste": 1
+        },
+        {
+          "id": "raw-brown-sugar",
+          "qty": 0.03598,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.01199,
+          "waste": 1
+        },
+        {
+          "id": "raw-garlic-chinese",
+          "qty": 0.01199,
+          "waste": 1
+        },
+        {
+          "id": "raw-red-onion",
+          "qty": 0.49769,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-chicken-fillet-pa": {
+      "ings": [
+        {
+          "id": "raw-milk-rayeb-plain",
+          "qty": 1.0465,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.0209,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-red-pepper-pow-500gr",
+          "qty": 0.0073,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.0052,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-onion-powder",
+          "qty": 0.0052,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-50-kg",
+          "qty": 0.0576,
+          "waste": 1
+        },
+        {
+          "id": "raw-garlic-chinese",
+          "qty": 0.0084,
+          "waste": 1
+        },
+        {
+          "id": "raw-thyme",
+          "qty": 0.0209,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-lemon-chicken-pa": {
+      "ings": [
+        {
+          "id": "raw-chicken-breast",
+          "qty": 4.5,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-sunflower-gal-20-l",
+          "qty": 0.2,
+          "waste": 1
+        },
+        {
+          "id": "raw-yogurt",
+          "qty": 0.15,
+          "waste": 1
+        },
+        {
+          "id": "raw-mustard-heinz-gal-5l",
+          "qty": 0.05,
+          "waste": 1
+        },
+        {
+          "id": "raw-garlic-chinese",
+          "qty": 0.03,
+          "waste": 1
+        },
+        {
+          "id": "raw-mint",
+          "qty": 0.015,
+          "waste": 1
+        },
+        {
+          "id": "raw-lemon-adalia",
+          "qty": 0.08,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.035,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.005,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-red-pepper-pow-500gr",
+          "qty": 0.005,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-onion-powder",
+          "qty": 0.005,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-chicken-bites-kg-pa": {
+      "ings": [
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.02308,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-rayeb-plain",
+          "qty": 1.553,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.00494,
+          "waste": 1
+        },
+        {
+          "id": "raw-garlic-chinese",
+          "qty": 0.016,
+          "waste": 1
+        },
+        {
+          "id": "raw-red-onion",
+          "qty": 0.11996,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-chicken-breaded-pa": {
+      "ings": [
+        {
+          "id": "raw-red-egg",
+          "qty": 0.12096,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.00378,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.00027,
+          "waste": 1
+        },
+        {
+          "id": "raw-flour-50-kg",
+          "qty": 0.054,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-red-pepper-pow-500gr",
+          "qty": 0.00216,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-onion-powder",
+          "qty": 0.00324,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-garlic-powder-500-gr",
+          "qty": 0.00324,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-rayeb-plain",
+          "qty": 0.0162,
+          "waste": 1
+        },
+        {
+          "id": "raw-yogurt",
+          "qty": 0.1296,
+          "waste": 1
+        },
+        {
+          "id": "raw-total-chicken-breast",
+          "qty": 27.0,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-roast-beef-pa-pa": {
+      "ings": [
+        {
+          "id": "raw-oil-olive-box-12-btl-1-lit",
+          "qty": 0.05412,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-kosher",
+          "qty": 0.01804,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.01353,
+          "waste": 1
+        },
+        {
+          "id": "raw-knorr-demiglace-suces",
+          "qty": 0.04059,
+          "waste": 1
+        },
+        {
+          "id": "raw-fresh-rosemary",
+          "qty": 0.00902,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-pancake-paste-kg-pa": {
+      "ings": [
+        {
+          "id": "raw-butter-fern-10-pkt-1-kg",
+          "qty": 0.908,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.091,
+          "waste": 1
+        },
+        {
+          "id": "raw-flour-white-box-10-bag-1-kg",
+          "qty": 5.449,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-pkt-1kg",
+          "qty": 1.816,
+          "waste": 1
+        },
+        {
+          "id": "raw-baking-powder-kg",
+          "qty": 0.581,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-lamar-full-fat-box-12-pkt-1-lit",
+          "qty": 9.082,
+          "waste": 1
+        },
+        {
+          "id": "raw-red-egg",
+          "qty": 2.576,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-chicken-liquid-sauce-kg-pa": {
+      "ings": [
+        {
+          "id": "raw-corn-starch",
+          "qty": 12.0,
+          "waste": 1
+        },
+        {
+          "id": "raw-flour-50-kg",
+          "qty": 5.0,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.75,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-onion-powder",
+          "qty": 0.35,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-garlic-powder-500-gr",
+          "qty": 0.35,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-rayeb-plain",
+          "qty": 5.0,
+          "waste": 1
+        },
+        {
+          "id": "raw-red-egg",
+          "qty": 4.05,
+          "waste": 1
+        },
+        {
+          "id": "raw-soda-schweppes",
+          "qty": 12.5,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-caramalized-onion-pa": {
+      "ings": [
+        {
+          "id": "raw-white-onion",
+          "qty": 12.6,
+          "waste": 1
+        },
+        {
+          "id": "raw-butter-fern-10-pkt-1-kg",
+          "qty": 0.35,
+          "waste": 1
+        },
+        {
+          "id": "raw-brown-sugar",
+          "qty": 0.3,
+          "waste": 1
+        },
+        {
+          "id": "raw-garlic-chinese",
+          "qty": 0.03,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-ice-cream-kg-pa": {
+      "ings": [
+        {
+          "id": "raw-ice-cream-powder",
+          "qty": 10.0,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-lamar-full-fat-box-12-pkt-1-lit",
+          "qty": 24.0,
+          "waste": 1
+        },
+        {
+          "id": "raw-cream-whipping-kg",
+          "qty": 2.0,
+          "waste": 1
+        },
+        {
+          "id": "raw-water-gallon-19-lit",
+          "qty": 3.0,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-sweet-relish-pa": {
+      "ings": [
+        {
+          "id": "raw-cucumber",
+          "qty": 0.522,
+          "waste": 1
+        },
+        {
+          "id": "raw-cucumber-pickle-kg-pa",
+          "qty": 0.23,
+          "waste": 1
+        },
+        {
+          "id": "raw-red-onion",
+          "qty": 0.131,
+          "waste": 1
+        },
+        {
+          "id": "raw-red-pepper-fresh",
+          "qty": 0.122,
+          "waste": 1
+        },
+        {
+          "id": "raw-green-papper-fresh",
+          "qty": 0.091,
+          "waste": 1
+        },
+        {
+          "id": "raw-chili-green-papper",
+          "qty": 0.018,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.016,
+          "waste": 1
+        },
+        {
+          "id": "raw-spice-cinnamon-powder",
+          "qty": 0.004,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-turmeric-powder",
+          "qty": 0.004,
+          "waste": 1
+        },
+        {
+          "id": "raw-vinegar-apple",
+          "qty": 0.084,
+          "waste": 1
+        },
+        {
+          "id": "raw-vinegar-balsamic",
+          "qty": 0.03,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-pkt-1kg",
+          "qty": 0.084,
+          "waste": 1
+        },
+        {
+          "id": "raw-corn-starch",
+          "qty": 0.028,
+          "waste": 1
+        },
+        {
+          "id": "raw-water-gallon-19-lit",
+          "qty": 0.095,
+          "waste": 1
+        },
+        {
+          "id": "raw-mustard-heinz-gal-5l",
+          "qty": 0.016,
+          "waste": 1
+        },
+        {
+          "id": "raw-sweet-chile",
+          "qty": 0.017,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-onion-jam-pa": {
+      "ings": [
+        {
+          "id": "raw-white-onion",
+          "qty": 0.71471,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-olive-box-12-btl-1-lit",
+          "qty": 0.01953,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-sunflower-gal-20-l",
+          "qty": 0.01953,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-pkt-1kg",
+          "qty": 0.03999,
+          "waste": 1
+        },
+        {
+          "id": "raw-honey-white",
+          "qty": 0.01023,
+          "waste": 1
+        },
+        {
+          "id": "raw-vinegar-balsamic",
+          "qty": 0.01023,
+          "waste": 1
+        },
+        {
+          "id": "raw-vinegar-apple",
+          "qty": 0.00093,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-strawberry-sauce-pa": {
+      "ings": [
+        {
+          "id": "raw-strawberry-frozen",
+          "qty": 0.378,
+          "waste": 1
+        },
+        {
+          "id": "raw-water-gallon-19-lit",
+          "qty": 0.378,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-pkt-1kg",
+          "qty": 0.2268,
+          "waste": 1
+        },
+        {
+          "id": "raw-dvg-syrup-strawberry",
+          "qty": 0.1134,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-lemon",
+          "qty": 0.00047,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-split-sauce-pa": {
+      "ings": [
+        {
+          "id": "raw-mayonnaisec-hellmanns-3-4-kg",
+          "qty": 0.24,
+          "waste": 1
+        },
+        {
+          "id": "raw-ketchup-gal",
+          "qty": 0.07,
+          "waste": 1
+        },
+        {
+          "id": "raw-mustard-heinz-gal-5l",
+          "qty": 0.008,
+          "waste": 1
+        },
+        {
+          "id": "raw-lemon-adalia",
+          "qty": 0.008,
+          "waste": 1
+        },
+        {
+          "id": "raw-sauce-hot-sriracha",
+          "qty": 0.008,
+          "waste": 1
+        },
+        {
+          "id": "raw-sauce-worcester",
+          "qty": 0.008,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-onion-powder",
+          "qty": 0.004,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-garlic-powder-500-gr",
+          "qty": 0.002,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-smoked-paprika",
+          "qty": 0.003,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.00025,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-tuna-mix-pa": {
+      "ings": [
+        {
+          "id": "raw-tuna",
+          "qty": 0.24324,
+          "waste": 1
+        },
+        {
+          "id": "raw-kiri-creamy-spread",
+          "qty": 0.11676,
+          "waste": 1
+        },
+        {
+          "id": "raw-mayonnaisec-hellmanns-3-4-kg",
+          "qty": 0.04865,
+          "waste": 1
+        },
+        {
+          "id": "raw-sweet-corn",
+          "qty": 0.12649,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.00097,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.00097,
+          "waste": 1
+        },
+        {
+          "id": "raw-lemon-adalia",
+          "qty": 0.00973,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-ranch-sauce-kg-pa": {
+      "ings": [
+        {
+          "id": "raw-yogurt",
+          "qty": 1.98597,
+          "waste": 1
+        },
+        {
+          "id": "raw-mayonnaise-box-4-gal-3-290-kg",
+          "qty": 3.81108,
+          "waste": 1
+        },
+        {
+          "id": "raw-sauce-hot-kg",
+          "qty": 0.05,
+          "waste": 1
+        },
+        {
+          "id": "raw-vinegar-white",
+          "qty": 0.11159,
+          "waste": 1
+        },
+        {
+          "id": "raw-sauce-worcester",
+          "qty": 0.0625,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-rayeb-plain",
+          "qty": 0.9926,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-dill-powder-500-gr",
+          "qty": 0.01388,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-parsley-pow-500-gr",
+          "qty": 0.00694,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.01487,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-chicken-sauce-kg-pa": {
+      "ings": [
+        {
+          "id": "raw-yogurt",
+          "qty": 1.86904,
+          "waste": 1
+        },
+        {
+          "id": "raw-mayonnaise-box-4-gal-3-290-kg",
+          "qty": 1.65704,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-onion-powder",
+          "qty": 0.0212,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.0212,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-rayeb-plain",
+          "qty": 0.21552,
+          "waste": 1
+        },
+        {
+          "id": "raw-garlic-chinese",
+          "qty": 0.01412,
+          "waste": 1
+        },
+        {
+          "id": "raw-parsley",
+          "qty": 0.14484,
+          "waste": 1
+        },
+        {
+          "id": "raw-vinegar-white",
+          "qty": 0.05608,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.00092,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-atomic-sauce-kg-pa": {
+      "ings": [
+        {
+          "id": "raw-sauce-texas",
+          "qty": 2.50905,
+          "waste": 1
+        },
+        {
+          "id": "raw-mayonnaise-box-4-gal-3-290-kg",
+          "qty": 4.14021,
+          "waste": 1
+        },
+        {
+          "id": "raw-mustard-dijon",
+          "qty": 0.25063,
+          "waste": 1
+        },
+        {
+          "id": "raw-lemon-adalia",
+          "qty": 0.10011,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-bbq-sauce-kg-pa": {
+      "ings": [
+        {
+          "id": "raw-sauce-bbq",
+          "qty": 0.807,
+          "waste": 1
+        },
+        {
+          "id": "raw-mayonnaise-box-4-gal-3-290-kg",
+          "qty": 1.05,
+          "waste": 1
+        },
+        {
+          "id": "raw-mustard-heinz-gal-5l",
+          "qty": 0.24,
+          "waste": 1
+        },
+        {
+          "id": "raw-mustard-dijon",
+          "qty": 0.24,
+          "waste": 1
+        },
+        {
+          "id": "raw-lemon-adalia",
+          "qty": 0.066,
+          "waste": 1
+        },
+        {
+          "id": "raw-honey-white",
+          "qty": 0.597,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-blue-cheese-dressing-pa": {
+      "ings": [
+        {
+          "id": "raw-mayonnaise-box-4-gal-3-290-kg",
+          "qty": 0.2489,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-rayeb-plain",
+          "qty": 0.11958,
+          "waste": 1
+        },
+        {
+          "id": "raw-lemon-adalia",
+          "qty": 0.00531,
+          "waste": 1
+        },
+        {
+          "id": "raw-vinegar-white",
+          "qty": 0.00266,
+          "waste": 1
+        },
+        {
+          "id": "raw-sauce-worcester",
+          "qty": 0.00177,
+          "waste": 1
+        },
+        {
+          "id": "raw-honey-white",
+          "qty": 0.00974,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-garlic-powder-500-gr",
+          "qty": 0.00053,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.00053,
+          "waste": 1
+        },
+        {
+          "id": "raw-parsley",
+          "qty": 0.00177,
+          "waste": 1
+        },
+        {
+          "id": "raw-blue-cheese",
+          "qty": 0.0992,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-sauce-sriracha-kg-pa": {
+      "ings": [
+        {
+          "id": "raw-mayonnaise-box-4-gal-3-290-kg",
+          "qty": 1.846,
+          "waste": 1
+        },
+        {
+          "id": "raw-sauce-hot-sriracha",
+          "qty": 0.692,
+          "waste": 1
+        },
+        {
+          "id": "raw-honey-white",
+          "qty": 0.461,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-queen-s-salad-dressing-pa": {
+      "ings": [
+        {
+          "id": "raw-vinegar-balsamic",
+          "qty": 0.48118,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-olive-box-12-btl-1-lit",
+          "qty": 1.11,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-50-kg",
+          "qty": 0.22376,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.02376,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.00396,
+          "waste": 1
+        },
+        {
+          "id": "raw-mustard-dijon",
+          "qty": 0.149,
+          "waste": 1
+        },
+        {
+          "id": "raw-garlic-chinese",
+          "qty": 0.008,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-citrus-dressing-pa": {
+      "ings": [
+        {
+          "id": "raw-fresh-orange-juice-pa",
+          "qty": 0.11726,
+          "waste": 1
+        },
+        {
+          "id": "raw-vinegar-apple",
+          "qty": 0.05863,
+          "waste": 1
+        },
+        {
+          "id": "raw-honey-white",
+          "qty": 0.01173,
+          "waste": 1
+        },
+        {
+          "id": "raw-mustard-dijon",
+          "qty": 0.02345,
+          "waste": 1
+        },
+        {
+          "id": "raw-mustard-wholegrain",
+          "qty": 0.03518,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.00195,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-olive-box-12-btl-1-lit",
+          "qty": 0.1759,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-sunflower-gal-20-l",
+          "qty": 0.1759,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-moroccan-salad-dressing-pa": {
+      "ings": [
+        {
+          "id": "raw-rasberry-frozen",
+          "qty": 0.41941,
+          "waste": 1
+        },
+        {
+          "id": "raw-vinegar-balsamic",
+          "qty": 0.58681,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-olive-box-12-btl-1-lit",
+          "qty": 0.39942,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-sunflower-gal-20-l",
+          "qty": 0.39942,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-50-kg",
+          "qty": 0.05868,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.02348,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.00392,
+          "waste": 1
+        },
+        {
+          "id": "raw-honey-white",
+          "qty": 0.05868,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-balsamic-vinaigrette-dressing-pa": {
+      "ings": [
+        {
+          "id": "raw-mustard-dijon",
+          "qty": 0.0436,
+          "waste": 1
+        },
+        {
+          "id": "raw-vinegar-balsamic",
+          "qty": 0.04651,
+          "waste": 1
+        },
+        {
+          "id": "raw-honey-white",
+          "qty": 0.05233,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-olive-box-12-btl-1-lit",
+          "qty": 0.07267,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-sunflower-gal-20-l",
+          "qty": 0.14535,
+          "waste": 1
+        },
+        {
+          "id": "raw-lemon-adalia",
+          "qty": 0.01453,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-brgr-house-dressing-pa": {
+      "ings": [
+        {
+          "id": "raw-lemon-adalia",
+          "qty": 0.37103,
+          "waste": 1
+        },
+        {
+          "id": "raw-vinegar-apple",
+          "qty": 0.24603,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-olive-box-12-btl-1-lit",
+          "qty": 0.49108,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-sunflower-gal-20-l",
+          "qty": 0.49108,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.02579,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.00397,
+          "waste": 1
+        },
+        {
+          "id": "raw-honey-white",
+          "qty": 0.37104,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-pistachio-pesto-pa": {
+      "ings": [
+        {
+          "id": "raw-fresh-basil",
+          "qty": 0.065,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-olive-box-12-btl-1-lit",
+          "qty": 0.2,
+          "waste": 1
+        },
+        {
+          "id": "raw-parmesan-cheese",
+          "qty": 0.047,
+          "waste": 1
+        },
+        {
+          "id": "raw-garlic-chinese",
+          "qty": 0.005,
+          "waste": 1
+        },
+        {
+          "id": "raw-nutes-pinenut",
+          "qty": 0.022,
+          "waste": 1
+        },
+        {
+          "id": "raw-pistachio-whole",
+          "qty": 0.02,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.003,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.001,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-thyme-balsamic-vinaigrette-pa": {
+      "ings": [
+        {
+          "id": "raw-vinegar-balsamic",
+          "qty": 0.2451,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-sunflower-gal-20-l",
+          "qty": 0.4902,
+          "waste": 1
+        },
+        {
+          "id": "raw-honey-white",
+          "qty": 0.20588,
+          "waste": 1
+        },
+        {
+          "id": "raw-thyme",
+          "qty": 0.0049,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.00392,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-sundried-tomato-pesto-pa": {
+      "ings": [
+        {
+          "id": "raw-fresh-basil",
+          "qty": 0.19118,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-olive-box-12-btl-1-lit",
+          "qty": 0.41176,
+          "waste": 1
+        },
+        {
+          "id": "raw-parmesan-cheese",
+          "qty": 0.13824,
+          "waste": 1
+        },
+        {
+          "id": "raw-garlic-chinese",
+          "qty": 0.01471,
+          "waste": 1
+        },
+        {
+          "id": "raw-nutes-pinenut",
+          "qty": 0.06471,
+          "waste": 1
+        },
+        {
+          "id": "raw-sundried-tomato",
+          "qty": 0.17647,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.00294,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.00882,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-coleslow-dressing-pa": {
+      "ings": [
+        {
+          "id": "raw-mayonnaisec-hellmanns-3-4-kg",
+          "qty": 0.14865,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-rayeb-plain",
+          "qty": 0.14865,
+          "waste": 1
+        },
+        {
+          "id": "raw-vinegar-white",
+          "qty": 0.14865,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-pkt-1kg",
+          "qty": 0.54054,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.00541,
+          "waste": 1
+        },
+        {
+          "id": "raw-white-onion",
+          "qty": 0.02703,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-pesto-sauce-pa": {
+      "ings": [
+        {
+          "id": "raw-fresh-basil",
+          "qty": 0.15998,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-olive-box-12-btl-1-lit",
+          "qty": 0.15,
+          "waste": 1
+        },
+        {
+          "id": "raw-parmesan-cheese",
+          "qty": 0.065,
+          "waste": 1
+        },
+        {
+          "id": "raw-garlic-chinese",
+          "qty": 0.007,
+          "waste": 1
+        },
+        {
+          "id": "raw-nutes-pinenut",
+          "qty": 0.03,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.004,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.00025,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-honey-srirache-sauce-pa": {
+      "ings": [
+        {
+          "id": "raw-honey-white",
+          "qty": 0.1,
+          "waste": 1
+        },
+        {
+          "id": "raw-sauce-hot-sriracha",
+          "qty": 0.1,
+          "waste": 1
+        },
+        {
+          "id": "raw-sauce-worcester",
+          "qty": 0.005,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-chives-cream-cheese-pa": {
+      "ings": [
+        {
+          "id": "raw-kiri-creamy-spread",
+          "qty": 0.19493,
+          "waste": 1
+        },
+        {
+          "id": "raw-cream-cooking-1-lit",
+          "qty": 0.04873,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.00097,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.00049,
+          "waste": 1
+        },
+        {
+          "id": "raw-chives",
+          "qty": 0.00487,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-caesar-sauce-pa": {
+      "ings": [
+        {
+          "id": "raw-garlic-chinese",
+          "qty": 0.108,
+          "waste": 1
+        },
+        {
+          "id": "raw-anchovies",
+          "qty": 0.108,
+          "waste": 1
+        },
+        {
+          "id": "raw-lemon-juice-adalia-pa",
+          "qty": 0.1512,
+          "waste": 1
+        },
+        {
+          "id": "raw-mustard-dijon",
+          "qty": 0.108,
+          "waste": 1
+        },
+        {
+          "id": "raw-sauce-worcester",
+          "qty": 0.108,
+          "waste": 1
+        },
+        {
+          "id": "raw-mayonnaisec-hellmanns-3-4-kg",
+          "qty": 4.4928,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.0216,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.0216,
+          "waste": 1
+        },
+        {
+          "id": "raw-parmesan-cheese",
+          "qty": 1.08,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-pancake-dough-pa": {
+      "ings": [
+        {
+          "id": "raw-flour-white-box-10-bag-1-kg",
+          "qty": 0.39132,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-lamar-full-fat-box-12-pkt-1-lit",
+          "qty": 0.39132,
+          "waste": 1
+        },
+        {
+          "id": "raw-butter-fern-10-pkt-1-kg",
+          "qty": 0.09783,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-pkt-1kg",
+          "qty": 0.09783,
+          "waste": 1
+        },
+        {
+          "id": "raw-baking-powder-kg",
+          "qty": 0.00613,
+          "waste": 1
+        },
+        {
+          "id": "raw-vanillia-powder-kings-crown-1-gr",
+          "qty": 0.00098,
+          "waste": 1
+        },
+        {
+          "id": "raw-vanilla-liquid",
+          "qty": 0.00098,
+          "waste": 1
+        },
+        {
+          "id": "raw-red-egg",
+          "qty": 0.16436,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-smokey-mayo-sauce-pa-pa": {
+      "ings": [
+        {
+          "id": "raw-mayonnaisec-hellmanns-3-4-kg",
+          "qty": 0.1,
+          "waste": 1
+        },
+        {
+          "id": "raw-mustard-heinz-gal-5l",
+          "qty": 0.005,
+          "waste": 1
+        },
+        {
+          "id": "raw-puidor-bbq-hickorey",
+          "qty": 0.015,
+          "waste": 1
+        },
+        {
+          "id": "raw-honey-white",
+          "qty": 0.012,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.0005,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.00025,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-sweet-chili-mayo-sauce-pa": {
+      "ings": [
+        {
+          "id": "raw-mayonnaise-box-4-gal-3-290-kg",
+          "qty": 0.405,
+          "waste": 1
+        },
+        {
+          "id": "raw-sweet-chile",
+          "qty": 0.6,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.001,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.00025,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-toast-bread-pa": {
+      "ings": [
+        {
+          "id": "raw-toast-white-rich-bake",
+          "qty": 0.24534,
+          "waste": 1
+        },
+        {
+          "id": "raw-butter-fern-10-pkt-1-kg",
+          "qty": 0.09353,
+          "waste": 1
+        },
+        {
+          "id": "raw-garlic-chinese",
+          "qty": 0.0094,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-dry-thyme",
+          "qty": 0.00188,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-frosting-sauce-basic-pa": {
+      "ings": [
+        {
+          "id": "raw-kiri-creamy-spread",
+          "qty": 0.10789,
+          "waste": 1
+        },
+        {
+          "id": "raw-butter-flechard",
+          "qty": 0.05442,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-powder",
+          "qty": 0.11457,
+          "waste": 1
+        },
+        {
+          "id": "raw-vanilla-paste",
+          "qty": 0.00191,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.00048,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-lamar-full-fat-box-12-pkt-1-lit",
+          "qty": 0.00573,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-tomato-pizza-sauce-split-pa": {
+      "ings": [
+        {
+          "id": "raw-tomato-peeled-mirella",
+          "qty": 2.63725,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.03165,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-pkt-1kg",
+          "qty": 0.03165,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-oregano-dry",
+          "qty": 0.00422,
+          "waste": 1
+        },
+        {
+          "id": "raw-basil-powder",
+          "qty": 0.00422,
+          "waste": 1
+        },
+        {
+          "id": "raw-olive-oil-nuri",
+          "qty": 0.10549,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-classic-frosting-pa": {
+      "ings": [
+        {
+          "id": "raw-kiri-creamy-spread",
+          "qty": 0.18677,
+          "waste": 1
+        },
+        {
+          "id": "raw-butter-flechard",
+          "qty": 0.05323,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-powder",
+          "qty": 0.11206,
+          "waste": 1
+        },
+        {
+          "id": "raw-vanilla-paste",
+          "qty": 0.00187,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.00047,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-lamar-full-fat-box-12-pkt-1-lit",
+          "qty": 0.0056,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-mustard-mayonnaise-sauce-pa": {
+      "ings": [
+        {
+          "id": "raw-mayonnaisec-hellmanns-3-4-kg",
+          "qty": 0.07692,
+          "waste": 1
+        },
+        {
+          "id": "raw-mustard-dijon",
+          "qty": 0.02308,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-lemon-curd-pa": {
+      "ings": [
+        {
+          "id": "raw-red-egg",
+          "qty": 4.0,
+          "waste": 1
+        },
+        {
+          "id": "raw-egg-yolk",
+          "qty": 2.0,
+          "waste": 1
+        },
+        {
+          "id": "raw-butter-flechard",
+          "qty": 0.16,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-pkt-1kg",
+          "qty": 0.32,
+          "waste": 1
+        },
+        {
+          "id": "raw-",
+          "qty": 0.022,
+          "waste": 1
+        },
+        {
+          "id": "raw-lemon-juice-adalia-pa",
+          "qty": 0.26,
+          "waste": 1
+        },
+        {
+          "id": "raw-vanilla-paste",
+          "qty": 0.004,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-sour-cream-mix-pa": {
+      "ings": [
+        {
+          "id": "raw-cream-sour",
+          "qty": 0.50662,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-rayeb-plain",
+          "qty": 0.0304,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-blue-berry-sauce-pa": {
+      "ings": [
+        {
+          "id": "raw-blue-berry-fresh",
+          "qty": 0.83333,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-pkt-1kg",
+          "qty": 0.2,
+          "waste": 1
+        },
+        {
+          "id": "raw-lemon-juice-adalia-pa",
+          "qty": 0.04,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-hot-chocolate-sauce-pa": {
+      "ings": [
+        {
+          "id": "raw-milk-chocolate-chips",
+          "qty": 0.14698,
+          "waste": 1
+        },
+        {
+          "id": "raw-chocolate-dark",
+          "qty": 0.14698,
+          "waste": 1
+        },
+        {
+          "id": "raw-cream-whipping-kg",
+          "qty": 0.05919,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-lamar-full-fat-box-12-pkt-1-lit",
+          "qty": 0.11739,
+          "waste": 1
+        },
+        {
+          "id": "raw-vanilla-frappe",
+          "qty": 0.03946,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-roasted-pepper-mushroom-pa": {
+      "ings": [
+        {
+          "id": "raw-mushroom",
+          "qty": 0.52778,
+          "waste": 1
+        },
+        {
+          "id": "raw-green-papper-fresh",
+          "qty": 0.15833,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-olive-box-12-btl-1-lit",
+          "qty": 0.05278,
+          "waste": 1
+        },
+        {
+          "id": "raw-garlic-chinese",
+          "qty": 0.01847,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-kosher",
+          "qty": 0.00528,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.00132,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-taztaziki-sauce-pa": {
+      "ings": [
+        {
+          "id": "raw-greek-yogurt-juhaina",
+          "qty": 2.772,
+          "waste": 1
+        },
+        {
+          "id": "raw-cucumber",
+          "qty": 0.3696,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-olive-box-12-btl-1-lit",
+          "qty": 0.1386,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.01848,
+          "waste": 1
+        },
+        {
+          "id": "raw-garlic-chinese",
+          "qty": 0.01848,
+          "waste": 1
+        },
+        {
+          "id": "raw-dry-mint",
+          "qty": 0.00462,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-dill-tuna-mix-pa": {
+      "ings": [
+        {
+          "id": "raw-tuna",
+          "qty": 0.75736,
+          "waste": 1
+        },
+        {
+          "id": "raw-mayonnaisec-hellmanns-3-4-kg",
+          "qty": 0.1122,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.00561,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-black-pepper-pkt-250-gr",
+          "qty": 0.0014,
+          "waste": 1
+        },
+        {
+          "id": "raw-lemon-juice-adalia-pa",
+          "qty": 0.04488,
+          "waste": 1
+        },
+        {
+          "id": "raw-dill-fresh",
+          "qty": 0.00842,
+          "waste": 1
+        },
+        {
+          "id": "raw-cucumber-pickle-imported",
+          "qty": 0.07013,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-hot-mustard-sauce-pa": {
+      "ings": [
+        {
+          "id": "raw-mustard-dixe",
+          "qty": 0.0,
+          "waste": 1
+        },
+        {
+          "id": "raw-mustard-dijon",
+          "qty": 0.0,
+          "waste": 1
+        },
+        {
+          "id": "raw-honey-white",
+          "qty": 0.0,
+          "waste": 1
+        },
+        {
+          "id": "raw-chili-flakes",
+          "qty": 0.0,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-round-pretzel-bread-pa": {
+      "ings": [
+        {
+          "id": "raw-flour-white-50-kg-five-star",
+          "qty": 0.02068,
+          "waste": 1
+        },
+        {
+          "id": "raw-water-gallon-19-lit",
+          "qty": 0.00062,
+          "waste": 1
+        },
+        {
+          "id": "raw-yeast-500-gr-dcl",
+          "qty": 0.00741,
+          "waste": 1
+        },
+        {
+          "id": "raw-butter-fern-10-pkt-1-kg",
+          "qty": 0.00031,
+          "waste": 1
+        },
+        {
+          "id": "raw-bread-improver",
+          "qty": 0.00093,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.00926,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-croissant-plain-pa": {
+      "ings": [
+        {
+          "id": "raw-flour-t45",
+          "qty": 0.00095,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.02857,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-50-kg",
+          "qty": 0.0019,
+          "waste": 1
+        },
+        {
+          "id": "raw-dry-yeast-forno",
+          "qty": 0.00238,
+          "waste": 1
+        },
+        {
+          "id": "raw-butter-flechard",
+          "qty": 0.00119,
+          "waste": 1
+        },
+        {
+          "id": "raw-honey-white",
+          "qty": 0.00238,
+          "waste": 1
+        },
+        {
+          "id": "raw-red-egg",
+          "qty": 0.00476,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-lamar-full-fat-box-12-pkt-1-lit",
+          "qty": 0.0131,
+          "waste": 1
+        },
+        {
+          "id": "raw-water-gallon-19-lit",
+          "qty": 0.02857,
+          "waste": 1
+        },
+        {
+          "id": "raw-butter-flechard",
+          "qty": 1.2,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-ciabatta-bread-pa": {
+      "ings": [
+        {
+          "id": "raw-flour-white-50-kg-five-star",
+          "qty": 0.04409,
+          "waste": 1
+        },
+        {
+          "id": "raw-water-gallon-19-lit",
+          "qty": 0.00101,
+          "waste": 1
+        },
+        {
+          "id": "raw-yeast-500-gr-dcl",
+          "qty": 0.00504,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-olive-box-12-btl-1-lit",
+          "qty": 0.00063,
+          "waste": 1
+        },
+        {
+          "id": "raw-bread-improver",
+          "qty": 0.00126,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.0126,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-brown-ciabatta-bread-pa-pa": {
+      "ings": [
+        {
+          "id": "raw-flour-white-50-kg-five-star",
+          "qty": 0.04349,
+          "waste": 1
+        },
+        {
+          "id": "raw-water-gallon-19-lit",
+          "qty": 0.00099,
+          "waste": 1
+        },
+        {
+          "id": "raw-yeast-500-gr-dcl",
+          "qty": 0.00497,
+          "waste": 1
+        },
+        {
+          "id": "raw-oil-olive-box-12-btl-1-lit",
+          "qty": 0.00062,
+          "waste": 1
+        },
+        {
+          "id": "raw-bread-improver",
+          "qty": 0.00155,
+          "waste": 1
+        },
+        {
+          "id": "raw-bread-darker",
+          "qty": 0.00124,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.115,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-large-pizza-dough-pa": {
+      "ings": [
+        {
+          "id": "raw-flour-dallagiovanna-00",
+          "qty": 0.22,
+          "waste": 1
+        },
+        {
+          "id": "raw-flour-t55",
+          "qty": 0.08,
+          "waste": 1
+        },
+        {
+          "id": "raw-ice-cups",
+          "qty": 0.16,
+          "waste": 1
+        },
+        {
+          "id": "raw-water-gallon-19-lit",
+          "qty": 0.012,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.008,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-pkt-1kg",
+          "qty": 0.0008,
+          "waste": 1
+        },
+        {
+          "id": "raw-dry-yeast-forno",
+          "qty": 0.006,
+          "waste": 1
+        },
+        {
+          "id": "raw-olive-oil-nuri",
+          "qty": 0.6,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-pizza-dough-pa": {
+      "ings": [
+        {
+          "id": "raw-flour-dallagiovanna-00",
+          "qty": 0.13,
+          "waste": 1
+        },
+        {
+          "id": "raw-water-gallon-19-lit",
+          "qty": 0.005,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.005,
+          "waste": 1
+        },
+        {
+          "id": "raw-olive-oil-nuri",
+          "qty": 0.0002,
+          "waste": 1
+        },
+        {
+          "id": "raw-dry-yeast-forno",
+          "qty": 0.008,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-french-baghette-pa": {
+      "ings": [
+        {
+          "id": "raw-flour-white-50-kg-five-star",
+          "qty": 0.05743,
+          "waste": 1
+        },
+        {
+          "id": "raw-water-gallon-19-lit",
+          "qty": 0.00053,
+          "waste": 1
+        },
+        {
+          "id": "raw-yeast-500-gr-dcl",
+          "qty": 0.00136,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.01511,
+          "waste": 1
+        },
+        {
+          "id": "raw-lovan-dough-pa",
+          "qty": 0.01511,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-lovan-dough-pa": {
+      "ings": [
+        {
+          "id": "raw-flour-white-50-kg-five-star",
+          "qty": 0.04329,
+          "waste": 1
+        },
+        {
+          "id": "raw-water-gallon-19-lit",
+          "qty": 0.00054,
+          "waste": 1
+        },
+        {
+          "id": "raw-flour-t30",
+          "qty": 0.0,
+          "waste": 1
+        }
+      ]
+    },
+    "prod-cookies-can-pa": {
+      "ings": [
+        {
+          "id": "raw-brown-sugar",
+          "qty": 0.00073,
+          "waste": 1
+        },
+        {
+          "id": "raw-sugar-white-50-kg",
+          "qty": 0.00293,
+          "waste": 1
+        },
+        {
+          "id": "raw-butter-newzealand-local",
+          "qty": 0.00135,
+          "waste": 1
+        },
+        {
+          "id": "raw-red-egg",
+          "qty": 0.00611,
+          "waste": 1
+        },
+        {
+          "id": "raw-flour-50-kg",
+          "qty": 7e-05,
+          "waste": 1
+        },
+        {
+          "id": "raw-baking-powder-kg",
+          "qty": 0.00017,
+          "waste": 1
+        },
+        {
+          "id": "raw-baking-soda",
+          "qty": 2e-05,
+          "waste": 1
+        },
+        {
+          "id": "raw-dark-cocoa",
+          "qty": 3e-05,
+          "waste": 1
+        },
+        {
+          "id": "raw-spices-salt-cox",
+          "qty": 0.00293,
+          "waste": 1
+        },
+        {
+          "id": "raw-milk-chocolate-chips",
+          "qty": 0.14674,
+          "waste": 1
+        }
+      ]
+    }
+  },
+  "raw_ings": {
+    "raw-mayonnaise-mazola": {
+      "ar": "Mayonnaise Mazola",
+      "en": "Mayonnaise Mazola",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-mustard-dijon": {
+      "ar": "Mustard Dijon",
+      "en": "Mustard Dijon",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-ketchup-gal": {
+      "ar": "Ketchup Gal",
+      "en": "Ketchup Gal",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-cucmber-pickeld-water": {
+      "ar": "Cucmber pickeld Water",
+      "en": "Cucmber pickeld Water",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-spices-red-pepper-pow-500gr": {
+      "ar": "Spices Red pepper Pow 500Gr",
+      "en": "Spices Red pepper Pow 500Gr",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-cream-whipping-kg": {
+      "ar": "Cream Whipping Kg.",
+      "en": "Cream Whipping Kg.",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-cheddar-cheese-kg": {
+      "ar": "Cheddar Cheese  Kg",
+      "en": "Cheddar Cheese  Kg",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-cheddar-american-cheese": {
+      "ar": "Cheddar American Cheese",
+      "en": "Cheddar American Cheese",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-la-vache-quirit-cheese": {
+      "ar": "la vache Quirit Cheese",
+      "en": "la vache Quirit Cheese",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-sauce-hot-kg": {
+      "ar": "Sauce Hot KG",
+      "en": "Sauce Hot KG",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-flour-50-kg": {
+      "ar": "Flour 50 Kg",
+      "en": "Flour 50 Kg",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-milk-ole-powder": {
+      "ar": "Milk Ole Powder",
+      "en": "Milk Ole Powder",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-spices-black-pepper-pkt-250-gr": {
+      "ar": "Spices Black pepper Pkt 250 Gr",
+      "en": "Spices Black pepper Pkt 250 Gr",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-spices-cayani-box-16": {
+      "ar": "Spices Cayani Box 16",
+      "en": "Spices Cayani Box 16",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-spices-salt-cox": {
+      "ar": "Spices Salt Cox",
+      "en": "Spices Salt Cox",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-spices-salt-chinese": {
+      "ar": "Spices Salt Chinese",
+      "en": "Spices Salt Chinese",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-baking-powder-kg": {
+      "ar": "Baking Powder kg",
+      "en": "Baking Powder kg",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-vinegar-white": {
+      "ar": "Vinegar White",
+      "en": "Vinegar White",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-cucumber": {
+      "ar": "Cucumber",
+      "en": "Cucumber",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-sugar-white-50-kg": {
+      "ar": "Sugar White 50 Kg",
+      "en": "Sugar White 50 Kg",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-truffle-paste": {
+      "ar": "truffle paste",
+      "en": "truffle paste",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-mayonnaisec-hellmanns-3-4-kg": {
+      "ar": "Mayonnaisec Hellmanns 3.4 Kg",
+      "en": "Mayonnaisec Hellmanns 3.4 Kg",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-ajwa-medjool": {
+      "ar": "Ajwa Medjool",
+      "en": "Ajwa Medjool",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-honey-white": {
+      "ar": "Honey White",
+      "en": "Honey White",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-spice-cinnamon-powder": {
+      "ar": "Spice Cinnamon powder",
+      "en": "Spice Cinnamon powder",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-hibiscus-dry": {
+      "ar": "Hibiscus Dry",
+      "en": "Hibiscus Dry",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-water-gallon-19-lit": {
+      "ar": "Water Gallon 19 lit",
+      "en": "Water Gallon 19 lit",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-sugar-white-pkt-1kg": {
+      "ar": "Sugar White Pkt 1kg",
+      "en": "Sugar White Pkt 1kg",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-condensed-milk-nestle": {
+      "ar": "Condensed Milk Nestle",
+      "en": "Condensed Milk Nestle",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-frensh-vanilla": {
+      "ar": "Frensh Vanilla",
+      "en": "Frensh Vanilla",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-sea-salt": {
+      "ar": "Sea Salt",
+      "en": "Sea Salt",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-italian-roasted-hazelnut": {
+      "ar": "Italian Roasted Hazelnut",
+      "en": "Italian Roasted Hazelnut",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-potato": {
+      "ar": "Potato",
+      "en": "Potato",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-olive-oil-wadi-food": {
+      "ar": "Olive Oil Wadi food",
+      "en": "Olive Oil Wadi food",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-thyme": {
+      "ar": "Thyme",
+      "en": "Thyme",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-red-onion": {
+      "ar": "Red Onion",
+      "en": "Red Onion",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-red-chili": {
+      "ar": "Red Chili",
+      "en": "Red Chili",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-oil-olive-box-12-btl-1-lit": {
+      "ar": "Oil Olive Box 12 Btl 1 lit",
+      "en": "Oil Olive Box 12 Btl 1 lit",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-garlic-chinese": {
+      "ar": "Garlic Chinese",
+      "en": "Garlic Chinese",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-parsley": {
+      "ar": "Parsley",
+      "en": "Parsley",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-vinegar-apple": {
+      "ar": "Vinegar Apple",
+      "en": "Vinegar Apple",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-chili-flakes": {
+      "ar": "Chili Flakes",
+      "en": "Chili Flakes",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-sauce-hot-sriracha": {
+      "ar": "Sauce Hot Sriracha",
+      "en": "Sauce Hot Sriracha",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-vinegar-balsamic": {
+      "ar": "Vinegar Balsamic",
+      "en": "Vinegar Balsamic",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-tomato": {
+      "ar": "Tomato",
+      "en": "Tomato",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-tomato-peeled-mirella": {
+      "ar": "Tomato Peeled Mirella",
+      "en": "Tomato Peeled Mirella",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-white-onion": {
+      "ar": "White Onion",
+      "en": "White Onion",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-fresh-basil": {
+      "ar": "Fresh Basil",
+      "en": "Fresh Basil",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-tomato-paste-heinz": {
+      "ar": "Tomato Paste Heinz",
+      "en": "Tomato Paste Heinz",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-spices-oregano-dry": {
+      "ar": "Spices Oregano dry",
+      "en": "Spices Oregano dry",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-brown-sugar": {
+      "ar": "Brown Sugar",
+      "en": "Brown Sugar",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-milk-rayeb-plain": {
+      "ar": "Milk Rayeb Plain",
+      "en": "Milk Rayeb Plain",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-spices-onion-powder": {
+      "ar": "Spices Onion Powder",
+      "en": "Spices Onion Powder",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-chicken-breast": {
+      "ar": "Chicken Breast",
+      "en": "Chicken Breast",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-oil-sunflower-gal-20-l": {
+      "ar": "Oil Sunflower Gal 20 L",
+      "en": "Oil Sunflower Gal 20 L",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-yogurt": {
+      "ar": "Yogurt",
+      "en": "Yogurt",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-mustard-heinz-gal-5l": {
+      "ar": "Mustard Heinz Gal 5L",
+      "en": "Mustard Heinz Gal 5L",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-mint": {
+      "ar": "Mint",
+      "en": "Mint",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-lemon-adalia": {
+      "ar": "Lemon (Adalia)",
+      "en": "Lemon (Adalia)",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-red-egg": {
+      "ar": "Red Egg",
+      "en": "Red Egg",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-spices-garlic-powder-500-gr": {
+      "ar": "Spices Garlic powder 500 Gr",
+      "en": "Spices Garlic powder 500 Gr",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-total-chicken-breast": {
+      "ar": "Total chicken breast",
+      "en": "Total chicken breast",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-spices-salt-kosher": {
+      "ar": "Spices Salt Kosher",
+      "en": "Spices Salt Kosher",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-knorr-demiglace-suces": {
+      "ar": "Knorr Demiglace Suces",
+      "en": "Knorr Demiglace Suces",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-fresh-rosemary": {
+      "ar": "Fresh Rosemary",
+      "en": "Fresh Rosemary",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-butter-fern-10-pkt-1-kg": {
+      "ar": "Butter Fern 10 Pkt 1 Kg",
+      "en": "Butter Fern 10 Pkt 1 Kg",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-flour-white-box-10-bag-1-kg": {
+      "ar": "Flour White Box 10 bag 1 Kg",
+      "en": "Flour White Box 10 bag 1 Kg",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-milk-lamar-full-fat-box-12-pkt-1-lit": {
+      "ar": "Milk Lamar full fat Box 12 Pkt 1 lit",
+      "en": "Milk Lamar full fat Box 12 Pkt 1 lit",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-corn-starch": {
+      "ar": "Corn Starch",
+      "en": "Corn Starch",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-soda-schweppes": {
+      "ar": "Soda Schweppes",
+      "en": "Soda Schweppes",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-ice-cream-powder": {
+      "ar": "Ice Cream Powder.",
+      "en": "Ice Cream Powder.",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-cucumber-pickle-kg-pa": {
+      "ar": "Cucumber Pickle - Kg (PA)",
+      "en": "Cucumber Pickle - Kg (PA)",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-red-pepper-fresh": {
+      "ar": "Red pepper Fresh",
+      "en": "Red pepper Fresh",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-green-papper-fresh": {
+      "ar": "Green papper fresh",
+      "en": "Green papper fresh",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-chili-green-papper": {
+      "ar": "Chili Green papper",
+      "en": "Chili Green papper",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-spices-turmeric-powder": {
+      "ar": "Spices Turmeric Powder",
+      "en": "Spices Turmeric Powder",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-sweet-chile": {
+      "ar": "Sweet chile",
+      "en": "Sweet chile",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-strawberry-frozen": {
+      "ar": "Strawberry frozen",
+      "en": "Strawberry frozen",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-dvg-syrup-strawberry": {
+      "ar": "Dvg Syrup Strawberry",
+      "en": "Dvg Syrup Strawberry",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-spices-salt-lemon": {
+      "ar": "Spices Salt Lemon",
+      "en": "Spices Salt Lemon",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-sauce-worcester": {
+      "ar": "Sauce Worcester",
+      "en": "Sauce Worcester",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-spices-smoked-paprika": {
+      "ar": "Spices Smoked Paprika",
+      "en": "Spices Smoked Paprika",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-tuna": {
+      "ar": "Tuna",
+      "en": "Tuna",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-kiri-creamy-spread": {
+      "ar": "kiri creamy spread",
+      "en": "kiri creamy spread",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-sweet-corn": {
+      "ar": "Sweet Corn",
+      "en": "Sweet Corn",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-mayonnaise-box-4-gal-3-290-kg": {
+      "ar": "Mayonnaise Box 4 Gal 3.290 Kg",
+      "en": "Mayonnaise Box 4 Gal 3.290 Kg",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-spices-dill-powder-500-gr": {
+      "ar": "Spices Dill powder 500 Gr",
+      "en": "Spices Dill powder 500 Gr",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-spices-parsley-pow-500-gr": {
+      "ar": "Spices Parsley Pow 500 Gr",
+      "en": "Spices Parsley Pow 500 Gr",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-sauce-texas": {
+      "ar": "Sauce Texas",
+      "en": "Sauce Texas",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-sauce-bbq": {
+      "ar": "Sauce BBQ",
+      "en": "Sauce BBQ",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-blue-cheese": {
+      "ar": "Blue Cheese",
+      "en": "Blue Cheese",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-fresh-orange-juice-pa": {
+      "ar": "Fresh orange juice (PA)",
+      "en": "Fresh orange juice (PA)",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-mustard-wholegrain": {
+      "ar": "Mustard wholegrain",
+      "en": "Mustard wholegrain",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-rasberry-frozen": {
+      "ar": "Rasberry Frozen",
+      "en": "Rasberry Frozen",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-parmesan-cheese": {
+      "ar": "Parmesan Cheese",
+      "en": "Parmesan Cheese",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-nutes-pinenut": {
+      "ar": "Nutes Pinenut",
+      "en": "Nutes Pinenut",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-pistachio-whole": {
+      "ar": "Pistachio whole",
+      "en": "Pistachio whole",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-sundried-tomato": {
+      "ar": "Sundried tomato",
+      "en": "Sundried tomato",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-cream-cooking-1-lit": {
+      "ar": "Cream Cooking 1 lit",
+      "en": "Cream Cooking 1 lit",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-chives": {
+      "ar": "Chives",
+      "en": "Chives",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-anchovies": {
+      "ar": "Anchovies",
+      "en": "Anchovies",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-lemon-juice-adalia-pa": {
+      "ar": "Lemon juice (Adalia) (PA)",
+      "en": "Lemon juice (Adalia) (PA)",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-vanillia-powder-kings-crown-1-gr": {
+      "ar": "Vanillia Powder Kings Crown 1 GR",
+      "en": "Vanillia Powder Kings Crown 1 GR",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-vanilla-liquid": {
+      "ar": "Vanilla - Liquid",
+      "en": "Vanilla - Liquid",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-puidor-bbq-hickorey": {
+      "ar": "Puidor BBQ Hickorey",
+      "en": "Puidor BBQ Hickorey",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-toast-white-rich-bake": {
+      "ar": "Toast White Rich Bake",
+      "en": "Toast White Rich Bake",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-spices-dry-thyme": {
+      "ar": "Spices Dry thyme",
+      "en": "Spices Dry thyme",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-butter-flechard": {
+      "ar": "Butter Flechard",
+      "en": "Butter Flechard",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-sugar-white-powder": {
+      "ar": "Sugar White Powder",
+      "en": "Sugar White Powder",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-vanilla-paste": {
+      "ar": "Vanilla Paste",
+      "en": "Vanilla Paste",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-basil-powder": {
+      "ar": "Basil Powder",
+      "en": "Basil Powder",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-olive-oil-nuri": {
+      "ar": "Olive Oil Nuri",
+      "en": "Olive Oil Nuri",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-egg-yolk": {
+      "ar": "egg yolk",
+      "en": "egg yolk",
+      "uom": "pcs",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-": {
+      "ar": "قشر ليمون",
+      "en": "قشر ليمون",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-cream-sour": {
+      "ar": "Cream Sour",
+      "en": "Cream Sour",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-blue-berry-fresh": {
+      "ar": "Blue berry Fresh",
+      "en": "Blue berry Fresh",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-milk-chocolate-chips": {
+      "ar": "Milk chocolate chips",
+      "en": "Milk chocolate chips",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-chocolate-dark": {
+      "ar": "Chocolate Dark",
+      "en": "Chocolate Dark",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-vanilla-frappe": {
+      "ar": "Vanilla Frappe",
+      "en": "Vanilla Frappe",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-mushroom": {
+      "ar": "Mushroom",
+      "en": "Mushroom",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-greek-yogurt-juhaina": {
+      "ar": "Greek Yogurt Juhaina",
+      "en": "Greek Yogurt Juhaina",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-dry-mint": {
+      "ar": "Dry Mint",
+      "en": "Dry Mint",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-dill-fresh": {
+      "ar": "Dill Fresh",
+      "en": "Dill Fresh",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-cucumber-pickle-imported": {
+      "ar": "Cucumber Pickle (imported)",
+      "en": "Cucumber Pickle (imported)",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-mustard-dixe": {
+      "ar": "Mustard Dixe",
+      "en": "Mustard Dixe",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-flour-white-50-kg-five-star": {
+      "ar": "Flour White 50 kg Five-Star",
+      "en": "Flour White 50 kg Five-Star",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-yeast-500-gr-dcl": {
+      "ar": "Yeast 500 Gr Dcl",
+      "en": "Yeast 500 Gr Dcl",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-bread-improver": {
+      "ar": "Bread improver",
+      "en": "Bread improver",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-flour-t45": {
+      "ar": "Flour T45",
+      "en": "Flour T45",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-dry-yeast-forno": {
+      "ar": "Dry yeast forno",
+      "en": "Dry yeast forno",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-bread-darker": {
+      "ar": "Bread Darker",
+      "en": "Bread Darker",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-flour-dallagiovanna-00": {
+      "ar": "Flour Dallagiovanna 00",
+      "en": "Flour Dallagiovanna 00",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-flour-t55": {
+      "ar": "Flour T55",
+      "en": "Flour T55",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-ice-cups": {
+      "ar": "ice cups",
+      "en": "ice cups",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-lovan-dough-pa": {
+      "ar": "Lovan Dough (PA)",
+      "en": "Lovan Dough (PA)",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-flour-t30": {
+      "ar": "flour T30",
+      "en": "flour T30",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-butter-newzealand-local": {
+      "ar": "Butter Newzealand (local)",
+      "en": "Butter Newzealand (local)",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-baking-soda": {
+      "ar": "Baking soda",
+      "en": "Baking soda",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    },
+    "raw-dark-cocoa": {
+      "ar": "Dark cocoa",
+      "en": "Dark cocoa",
+      "uom": "kg",
+      "price": 45.0,
+      "stock": 100,
+      "safety": 20,
+      "sup": "المورد المعتمد"
+    }
+  }
+}

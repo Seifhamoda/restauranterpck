@@ -1,0 +1,8 @@
+node_modules/
+database.db*
+*.db
+*.db-shm
+*.db-wal
+.vscode/
+scratch/
+Untitled-1.ipynb

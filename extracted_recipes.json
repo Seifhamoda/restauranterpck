@@ -1,0 +1,3457 @@
+{
+  "recipes": [
+    {
+      "name": "Amirecan Sauce - Kg",
+      "ingredients": [
+        {
+          "name": "Mayonnaise Mazola",
+          "unit": "جم",
+          "qty": 0.83143
+        },
+        {
+          "name": "Mustard Dijon",
+          "unit": "جم",
+          "qty": 0.1084
+        },
+        {
+          "name": "Ketchup Gal",
+          "unit": "جم",
+          "qty": 0.0547
+        },
+        {
+          "name": "Cucmber pickeld Water",
+          "unit": "جم",
+          "qty": 0.00348
+        },
+        {
+          "name": "Spices Red pepper Pow 500Gr",
+          "unit": "جم",
+          "qty": 0.00199
+        }
+      ],
+      "row_start": 1,
+      "total_weight": 1
+    },
+    {
+      "name": "CHEESE SAUCE",
+      "ingredients": [
+        {
+          "name": "Cream Whipping Kg.",
+          "unit": "جم",
+          "qty": 0.54241701019744
+        },
+        {
+          "name": "Cheddar Cheese  Kg",
+          "unit": "جم",
+          "qty": 0.216966804078976
+        },
+        {
+          "name": "Cheddar American Cheese",
+          "unit": "جم",
+          "qty": 0.108483402039488
+        },
+        {
+          "name": "la vache Quirit Cheese",
+          "unit": "جم",
+          "qty": 0.131807333477978
+        },
+        {
+          "name": "Sauce Hot KG",
+          "unit": "جم",
+          "qty": 0.000325450206118464
+        }
+      ],
+      "row_start": 10,
+      "total_weight": 1
+    },
+    {
+      "name": "Dry Powder - Kg",
+      "ingredients": [
+        {
+          "name": "Flour 50 Kg",
+          "unit": "جم",
+          "qty": 0.693833483981119
+        },
+        {
+          "name": "Milk Ole Powder",
+          "unit": "جم",
+          "qty": 0.208145023601486
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.0104047403836497
+        },
+        {
+          "name": "Spices Cayani Box 16",
+          "unit": "جم",
+          "qty": 0.00346489906598373
+        },
+        {
+          "name": "Spices Red pepper Pow 500Gr",
+          "unit": "جم",
+          "qty": 0.00520237019182485
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.0325228482474641
+        },
+        {
+          "name": "Spices Salt Chinese",
+          "unit": "جم",
+          "qty": 0.0325228482474641
+        },
+        {
+          "name": "Baking Powder kg",
+          "unit": "جم",
+          "qty": 0.0138796826353319
+        }
+      ],
+      "row_start": 20,
+      "total_weight": 1
+    },
+    {
+      "name": "Cucumber Pickle - Kg",
+      "ingredients": [
+        {
+          "name": "Vinegar White",
+          "unit": "kg",
+          "qty": 0.5079333333333333
+        },
+        {
+          "name": "Cucumber",
+          "unit": "ك",
+          "qty": 1.2698412380952382
+        },
+        {
+          "name": "Sugar White 50 Kg",
+          "unit": "kg",
+          "qty": 0.5079361904761904
+        }
+      ],
+      "row_start": 31,
+      "total_weight": 1
+    },
+    {
+      "name": "truffle mayo",
+      "ingredients": [
+        {
+          "name": "truffle paste",
+          "unit": "جم",
+          "qty": 0.0909090909090909
+        },
+        {
+          "name": "Mayonnaisec Hellmanns 3.4 Kg",
+          "unit": "جم",
+          "qty": 0.909090909090909
+        }
+      ],
+      "row_start": 36,
+      "total_weight": 1
+    },
+    {
+      "name": "Medjool Honey Sauce",
+      "ingredients": [
+        {
+          "name": "Ajwa Medjool",
+          "unit": "جم",
+          "qty": 0.427960057061341
+        },
+        {
+          "name": "Cream Whipping Kg.",
+          "unit": "جم",
+          "qty": 0.14265335235378
+        },
+        {
+          "name": "Honey White",
+          "unit": "جم",
+          "qty": 0.427960057061341
+        },
+        {
+          "name": "Spice Cinnamon powder",
+          "unit": "جم",
+          "qty": 0.0014265335235378
+        }
+      ],
+      "row_start": 41,
+      "total_weight": 1
+    },
+    {
+      "name": "Dry Mix",
+      "ingredients": [
+        {
+          "name": "Flour 50 Kg",
+          "unit": "جم",
+          "qty": 0.693833483981119
+        },
+        {
+          "name": "Milk Ole Powder",
+          "unit": "جم",
+          "qty": 0.208145023601486
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.0104047403836497
+        },
+        {
+          "name": "Spices Cayani Box 16",
+          "unit": "جم",
+          "qty": 0.00346489906598373
+        },
+        {
+          "name": "Spices Red pepper Pow 500Gr",
+          "unit": "جم",
+          "qty": 0.0055
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.0325228482474641
+        },
+        {
+          "name": "Spices Salt Chinese",
+          "unit": "جم",
+          "qty": 0.0325228482474641
+        },
+        {
+          "name": "Baking Powder kg",
+          "unit": "جم",
+          "qty": 0.0138796826353319
+        }
+      ],
+      "row_start": 48,
+      "total_weight": 1
+    },
+    {
+      "name": "Karkade Syrup",
+      "ingredients": [
+        {
+          "name": "Hibiscus Dry",
+          "unit": "جم",
+          "qty": 0.13999999999999999
+        },
+        {
+          "name": "Water Gallon 19 lit",
+          "unit": "جم",
+          "qty": 0.39969999999999994
+        },
+        {
+          "name": "Sugar White Pkt 1kg",
+          "unit": "جم",
+          "qty": 0.49979999999999997
+        }
+      ],
+      "row_start": 61,
+      "total_weight": 0.7
+    },
+    {
+      "name": "Salted Vanilla Bean",
+      "ingredients": [
+        {
+          "name": "Condensed Milk Nestle",
+          "unit": "جم",
+          "qty": 0.72
+        },
+        {
+          "name": "Frensh Vanilla",
+          "unit": "جم",
+          "qty": 0.28
+        },
+        {
+          "name": "Sea Salt",
+          "unit": "جم",
+          "qty": 0.00826446280991736
+        },
+        {
+          "name": "Salted hazelnut Sauce",
+          "unit": "kg",
+          "qty": 0.891891891891892
+        },
+        {
+          "name": "Condensed Milk Nestle",
+          "unit": "ك",
+          "qty": 0.891891891891892
+        },
+        {
+          "name": "Sea Salt",
+          "unit": "ك",
+          "qty": 0.00720720720720721
+        },
+        {
+          "name": "Italian Roasted Hazelnut",
+          "unit": "ك",
+          "qty": 0.113513513513514
+        }
+      ],
+      "row_start": 67,
+      "total_weight": 1
+    },
+    {
+      "name": "Roasted Potato",
+      "ingredients": [
+        {
+          "name": "Potato",
+          "unit": "ك",
+          "qty": 1.0
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "ك",
+          "qty": 0.005
+        },
+        {
+          "name": "Olive Oil Wadi food",
+          "unit": "ك",
+          "qty": 0.04
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "ك",
+          "qty": 0.001
+        },
+        {
+          "name": "Thyme",
+          "unit": "ك",
+          "qty": 0.005
+        }
+      ],
+      "row_start": 81,
+      "total_weight": 1
+    },
+    {
+      "name": "Marination Mushroom Roasted",
+      "ingredients": [
+        {
+          "name": "Red Onion",
+          "unit": "كيلو",
+          "qty": 2.0689655172413794
+        },
+        {
+          "name": "Red Chili",
+          "unit": "كيلو",
+          "qty": 0.20689655172413796
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "كيلو",
+          "qty": 0.06896551724137932
+        },
+        {
+          "name": "Oil Olive Box 12 Btl 1 lit",
+          "unit": "كيلو",
+          "qty": 2.0689655172413794
+        },
+        {
+          "name": "Garlic Chinese",
+          "unit": "كيلو",
+          "qty": 0.20689655172413796
+        },
+        {
+          "name": "Parsley",
+          "unit": "كيلو",
+          "qty": 0.6896551724137931
+        },
+        {
+          "name": "Vinegar Apple",
+          "unit": "كيلو",
+          "qty": 0.6896551724137931
+        }
+      ],
+      "row_start": 89,
+      "total_weight": 6
+    },
+    {
+      "name": "Hot Honey",
+      "ingredients": [
+        {
+          "name": "Honey White",
+          "unit": "ك",
+          "qty": 0.968523002421308
+        },
+        {
+          "name": "Chili Flakes",
+          "unit": "ك",
+          "qty": 0.008
+        },
+        {
+          "name": "Vinegar Apple",
+          "unit": "ك",
+          "qty": 0.00968523002421308
+        },
+        {
+          "name": "Sauce Hot Sriracha",
+          "unit": "ك",
+          "qty": 0.00968523002421308
+        }
+      ],
+      "row_start": 99,
+      "total_weight": 1
+    },
+    {
+      "name": "Balsamic Galze",
+      "ingredients": [
+        {
+          "name": "Vinegar Balsamic",
+          "unit": "جم",
+          "qty": 1.0504
+        },
+        {
+          "name": "Honey White",
+          "unit": "جم",
+          "qty": 0.0352
+        }
+      ],
+      "row_start": 108,
+      "total_weight": 0.2
+    },
+    {
+      "name": "Sauce Marinara",
+      "ingredients": [
+        {
+          "name": "Tomato",
+          "unit": "جم",
+          "qty": 0.16847354461265998
+        },
+        {
+          "name": "Tomato Peeled Mirella",
+          "unit": "جم",
+          "qty": 0.16848
+        },
+        {
+          "name": "Oil Olive Box 12 Btl 1 lit",
+          "unit": "جم",
+          "qty": 0.0
+        },
+        {
+          "name": "White Onion",
+          "unit": "جم",
+          "qty": 0.04492631270736
+        },
+        {
+          "name": "Garlic Chinese",
+          "unit": "جم",
+          "qty": 0.0058403284632
+        },
+        {
+          "name": "Fresh Basil",
+          "unit": "جم",
+          "qty": 0.0035939957558399995
+        },
+        {
+          "name": "Tomato Paste Heinz",
+          "unit": "جم",
+          "qty": 0.015724328951519997
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.005399999999999999
+        },
+        {
+          "name": "Spices Oregano dry",
+          "unit": "جم",
+          "qty": 0.00044933482944
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.00022466741472
+        }
+      ],
+      "row_start": 114,
+      "total_weight": 0.36
+    },
+    {
+      "name": "Pickled Onion",
+      "ingredients": [
+        {
+          "name": "Water Gallon 19 lit",
+          "unit": "مل",
+          "qty": 0.23985282125
+        },
+        {
+          "name": "Vinegar White",
+          "unit": "جم",
+          "qty": 0.47970605025
+        },
+        {
+          "name": "Brown Sugar",
+          "unit": "جم",
+          "qty": 0.03597782125
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.011992743
+        },
+        {
+          "name": "Garlic Chinese",
+          "unit": "جم",
+          "qty": 0.011992743
+        },
+        {
+          "name": "Red Onion",
+          "unit": "جم",
+          "qty": 0.497694757
+        }
+      ],
+      "row_start": 128,
+      "total_weight": 0.5
+    },
+    {
+      "name": "Chicken Fillet liquid",
+      "ingredients": [
+        {
+          "name": "Milk Rayeb Plain",
+          "unit": "جم",
+          "qty": 1.0465
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.020900000000000002
+        },
+        {
+          "name": "Spices Red pepper Pow 500Gr",
+          "unit": "جم",
+          "qty": 0.0073
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.0052
+        },
+        {
+          "name": "Spices Onion Powder",
+          "unit": "جم",
+          "qty": 0.0052
+        },
+        {
+          "name": "Sugar White 50 Kg",
+          "unit": "جم",
+          "qty": 0.0576
+        },
+        {
+          "name": "Garlic Chinese",
+          "unit": "جم",
+          "qty": 0.0084
+        },
+        {
+          "name": "Thyme",
+          "unit": "جم",
+          "qty": 0.020900000000000002
+        }
+      ],
+      "row_start": 139,
+      "total_weight": 100
+    },
+    {
+      "name": "Lemon chicken",
+      "ingredients": [
+        {
+          "name": "Chicken Breast",
+          "unit": "جم",
+          "qty": 4.5
+        },
+        {
+          "name": "Oil Sunflower Gal 20 L",
+          "unit": "جم",
+          "qty": 0.2
+        },
+        {
+          "name": "Yogurt",
+          "unit": "جم",
+          "qty": 0.15
+        },
+        {
+          "name": "Mustard Heinz Gal 5L",
+          "unit": "جم",
+          "qty": 0.05
+        },
+        {
+          "name": "Garlic Chinese",
+          "unit": "جم",
+          "qty": 0.03
+        },
+        {
+          "name": "Mint",
+          "unit": "جم",
+          "qty": 0.015
+        },
+        {
+          "name": "Lemon (Adalia)",
+          "unit": "جم",
+          "qty": 0.08
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.034999999999999996
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.005
+        },
+        {
+          "name": "Spices Red pepper Pow 500Gr",
+          "unit": "جم",
+          "qty": 0.005
+        },
+        {
+          "name": "Spices Onion Powder",
+          "unit": "جم",
+          "qty": 0.005
+        }
+      ],
+      "row_start": 150,
+      "total_weight": 50
+    },
+    {
+      "name": "Chicken Bites",
+      "ingredients": [
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.023083999999999997
+        },
+        {
+          "name": "Milk Rayeb Plain",
+          "unit": "جم",
+          "qty": 1.552996
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.0049352
+        },
+        {
+          "name": "Garlic Chinese",
+          "unit": "جم",
+          "qty": 0.0159996
+        },
+        {
+          "name": "Red Onion",
+          "unit": "جم",
+          "qty": 0.1199572
+        }
+      ],
+      "row_start": 165,
+      "total_weight": 7.96
+    },
+    {
+      "name": "Chicken Breaded",
+      "ingredients": [
+        {
+          "name": "Red Egg",
+          "unit": "جم",
+          "qty": 0.12095568
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.00378108
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.00027216
+        },
+        {
+          "name": "Flour 50 Kg",
+          "unit": "جم",
+          "qty": 0.05400432
+        },
+        {
+          "name": "Spices Red pepper Pow 500Gr",
+          "unit": "جم",
+          "qty": 0.00215784
+        },
+        {
+          "name": "Spices Onion Powder",
+          "unit": "جم",
+          "qty": 0.00323676
+        },
+        {
+          "name": "Spices Garlic powder 500 Gr",
+          "unit": "جم",
+          "qty": 0.00323676
+        },
+        {
+          "name": "Milk Rayeb Plain",
+          "unit": "جم",
+          "qty": 0.01620324
+        },
+        {
+          "name": "Yogurt",
+          "unit": "جم",
+          "qty": 0.12959676
+        },
+        {
+          "name": "Total chicken breast",
+          "unit": "قطعة 55 جم",
+          "qty": 27.0
+        }
+      ],
+      "row_start": 175
+    },
+    {
+      "name": "Roast Beef",
+      "ingredients": [
+        {
+          "name": "Oil Olive Box 12 Btl 1 lit",
+          "unit": "جم",
+          "qty": 0.054119061936259795
+        },
+        {
+          "name": "Spices Salt Kosher",
+          "unit": "جم",
+          "qty": 0.01803968731208658
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.013529765484064949
+        },
+        {
+          "name": "Knorr Demiglace Suces",
+          "unit": "جم",
+          "qty": 0.0405892964521947
+        },
+        {
+          "name": "Fresh Rosemary",
+          "unit": "جم",
+          "qty": 0.00901984365604329
+        }
+      ],
+      "row_start": 188,
+      "total_weight": 3
+    },
+    {
+      "name": "Pancake Paste",
+      "ingredients": [
+        {
+          "name": "Butter Fern 10 Pkt 1 Kg",
+          "unit": "جم",
+          "qty": 0.908
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.091
+        },
+        {
+          "name": "Flour White Box 10 bag 1 Kg",
+          "unit": "جم",
+          "qty": 5.449000000000001
+        },
+        {
+          "name": "Sugar White Pkt 1kg",
+          "unit": "جم",
+          "qty": 1.816
+        },
+        {
+          "name": "Baking Powder kg",
+          "unit": "جم",
+          "qty": 0.581
+        },
+        {
+          "name": "Milk Lamar full fat Box 12 Pkt 1 lit",
+          "unit": "جم",
+          "qty": 9.082
+        },
+        {
+          "name": "Red Egg",
+          "unit": "جم",
+          "qty": 2.576
+        }
+      ],
+      "row_start": 197,
+      "total_weight": 20
+    },
+    {
+      "name": "Chicken liquid",
+      "ingredients": [
+        {
+          "name": "Corn Starch",
+          "unit": "جم",
+          "qty": 12.0
+        },
+        {
+          "name": "Flour 50 Kg",
+          "unit": "جم",
+          "qty": 5.0
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.75
+        },
+        {
+          "name": "Spices Onion Powder",
+          "unit": "جم",
+          "qty": 0.35000000000000003
+        },
+        {
+          "name": "Spices Garlic powder 500 Gr",
+          "unit": "جم",
+          "qty": 0.35000000000000003
+        },
+        {
+          "name": "Milk Rayeb Plain",
+          "unit": "جم",
+          "qty": 5.0
+        },
+        {
+          "name": "Red Egg",
+          "unit": "جم",
+          "qty": 4.050000000000001
+        },
+        {
+          "name": "Soda Schweppes",
+          "unit": "جم",
+          "qty": 12.5
+        }
+      ],
+      "row_start": 207,
+      "total_weight": 1.0
+    },
+    {
+      "name": "Caramalized Onion",
+      "ingredients": [
+        {
+          "name": "White Onion",
+          "unit": "جم",
+          "qty": 12.6
+        },
+        {
+          "name": "Butter Fern 10 Pkt 1 Kg",
+          "unit": "جم",
+          "qty": 0.34999999999999964
+        },
+        {
+          "name": "Brown Sugar",
+          "unit": "جم",
+          "qty": 0.2999999999999999
+        },
+        {
+          "name": "Garlic Chinese",
+          "unit": "جم",
+          "qty": 0.029999999999999985
+        }
+      ],
+      "row_start": 220,
+      "total_weight": 6.3
+    },
+    {
+      "name": "Ice Cream",
+      "ingredients": [
+        {
+          "name": "Ice Cream Powder.",
+          "unit": "جم",
+          "qty": 9.999999999999984
+        },
+        {
+          "name": "Milk Lamar full fat Box 12 Pkt 1 lit",
+          "unit": "لتر",
+          "qty": 23.999999999999986
+        },
+        {
+          "name": "Cream Whipping Kg.",
+          "unit": "جم",
+          "qty": 2.000000000000001
+        },
+        {
+          "name": "Water Gallon 19 lit",
+          "unit": "جم",
+          "qty": 2.999999999999999
+        }
+      ],
+      "row_start": 229,
+      "total_weight": 39
+    },
+    {
+      "name": "Sweet Relish",
+      "ingredients": [
+        {
+          "name": "Cucumber",
+          "unit": "جم",
+          "qty": 0.522
+        },
+        {
+          "name": "Cucumber Pickle - Kg (PA)",
+          "unit": "جم",
+          "qty": 0.23
+        },
+        {
+          "name": "Red Onion",
+          "unit": "جم",
+          "qty": 0.131
+        },
+        {
+          "name": "Red pepper Fresh",
+          "unit": "جم",
+          "qty": 0.122
+        },
+        {
+          "name": "Green papper fresh",
+          "unit": "جم",
+          "qty": 0.091
+        },
+        {
+          "name": "Chili Green papper",
+          "unit": "جم",
+          "qty": 0.018
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.016
+        },
+        {
+          "name": "Spice Cinnamon powder",
+          "unit": "جم",
+          "qty": 0.004
+        },
+        {
+          "name": "Spices Turmeric Powder",
+          "unit": "جم",
+          "qty": 0.004
+        },
+        {
+          "name": "Vinegar Apple",
+          "unit": "جم",
+          "qty": 0.084
+        },
+        {
+          "name": "Vinegar Balsamic",
+          "unit": "جم",
+          "qty": 0.03
+        },
+        {
+          "name": "Sugar White Pkt 1kg",
+          "unit": "جم",
+          "qty": 0.084
+        },
+        {
+          "name": "Corn Starch",
+          "unit": "جم",
+          "qty": 0.028
+        },
+        {
+          "name": "Water Gallon 19 lit",
+          "unit": "جم",
+          "qty": 0.095
+        },
+        {
+          "name": "Mustard Heinz Gal 5L",
+          "unit": "جم",
+          "qty": 0.016
+        },
+        {
+          "name": "Sweet chile",
+          "unit": "جم",
+          "qty": 0.017
+        }
+      ],
+      "row_start": 238,
+      "total_weight": 1
+    },
+    {
+      "name": "Onion Jam",
+      "ingredients": [
+        {
+          "name": "White Onion",
+          "unit": "جم",
+          "qty": 0.714705
+        },
+        {
+          "name": "Oil Olive Box 12 Btl 1 lit",
+          "unit": "جم",
+          "qty": 0.019530000000000002
+        },
+        {
+          "name": "Oil Sunflower Gal 20 L",
+          "unit": "جم",
+          "qty": 0.019530000000000002
+        },
+        {
+          "name": "Sugar White Pkt 1kg",
+          "unit": "جم",
+          "qty": 0.03999
+        },
+        {
+          "name": "Honey White",
+          "unit": "جم",
+          "qty": 0.01023
+        },
+        {
+          "name": "Vinegar Balsamic",
+          "unit": "جم",
+          "qty": 0.01023
+        },
+        {
+          "name": "Vinegar Apple",
+          "unit": "جم",
+          "qty": 0.00093
+        }
+      ],
+      "row_start": 258,
+      "total_weight": 0.465
+    },
+    {
+      "name": "Strawberry Sauce",
+      "ingredients": [
+        {
+          "name": "Strawberry frozen",
+          "unit": "جم",
+          "qty": 0.378
+        },
+        {
+          "name": "Water Gallon 19 lit",
+          "unit": "لتر",
+          "qty": 0.378
+        },
+        {
+          "name": "Sugar White Pkt 1kg",
+          "unit": "جم",
+          "qty": 0.2268
+        },
+        {
+          "name": "Dvg Syrup Strawberry",
+          "unit": "جم",
+          "qty": 0.1134
+        },
+        {
+          "name": "Spices Salt Lemon",
+          "unit": "جم",
+          "qty": 0.00047226386806596715
+        },
+        {
+          "name": "SPLIT sauce",
+          "unit": "kg",
+          "qty": 0.685714
+        },
+        {
+          "name": "Mayonnaisec Hellmanns 3.4 Kg",
+          "unit": "جم",
+          "qty": 0.2399999
+        },
+        {
+          "name": "Ketchup Gal",
+          "unit": "جم",
+          "qty": 0.06999999999999999
+        },
+        {
+          "name": "Mustard Heinz Gal 5L",
+          "unit": "جم",
+          "qty": 0.007999949999999999
+        },
+        {
+          "name": "Lemon (Adalia)",
+          "unit": "جم",
+          "qty": 0.007999949999999999
+        },
+        {
+          "name": "Sauce Hot Sriracha",
+          "unit": "جم",
+          "qty": 0.007999949999999999
+        },
+        {
+          "name": "Sauce Worcester",
+          "unit": "جم",
+          "qty": 0.007999949999999999
+        },
+        {
+          "name": "Spices Onion Powder",
+          "unit": "جم",
+          "qty": 0.00400015
+        },
+        {
+          "name": "Spices Garlic powder 500 Gr",
+          "unit": "جم",
+          "qty": 0.0019999
+        },
+        {
+          "name": "Spices Smoked Paprika",
+          "unit": "جم",
+          "qty": 0.00299985
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.0002499
+        }
+      ],
+      "row_start": 270,
+      "total_weight": 0.35
+    },
+    {
+      "name": "Tuna Mix",
+      "ingredients": [
+        {
+          "name": "Tuna",
+          "unit": "كيلو",
+          "qty": 0.24324324324324345
+        },
+        {
+          "name": "kiri creamy spread",
+          "unit": "كيلو",
+          "qty": 0.11675675675675655
+        },
+        {
+          "name": "Mayonnaisec Hellmanns 3.4 Kg",
+          "unit": "كيلو",
+          "qty": 0.048648648648648596
+        },
+        {
+          "name": "Sweet Corn",
+          "unit": "كيلو",
+          "qty": 0.12648648648648644
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "كيلو",
+          "qty": 0.000972972972972972
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "كيلو",
+          "qty": 0.000972972972972972
+        },
+        {
+          "name": "Lemon (Adalia)",
+          "unit": "كيلو",
+          "qty": 0.00972972972972972
+        }
+      ],
+      "row_start": 293,
+      "total_weight": 4.5
+    },
+    {
+      "name": "Ranch Sauce",
+      "ingredients": [
+        {
+          "name": "Yogurt",
+          "unit": "جم",
+          "qty": 1.98597
+        },
+        {
+          "name": "Mayonnaise Box 4 Gal 3.290 Kg",
+          "unit": "جم",
+          "qty": 3.8110800000000005
+        },
+        {
+          "name": "Sauce Hot KG",
+          "unit": "جم",
+          "qty": 0.049999600000000005
+        },
+        {
+          "name": "Vinegar White",
+          "unit": "جم",
+          "qty": 0.11159400000000001
+        },
+        {
+          "name": "Sauce Worcester",
+          "unit": "جم",
+          "qty": 0.062496
+        },
+        {
+          "name": "Milk Rayeb Plain",
+          "unit": "جم",
+          "qty": 0.9926
+        },
+        {
+          "name": "Spices Dill powder 500 Gr",
+          "unit": "جم",
+          "qty": 0.013881
+        },
+        {
+          "name": "Spices Parsley Pow 500 Gr",
+          "unit": "جم",
+          "qty": 0.006937
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.014868
+        }
+      ],
+      "row_start": 303,
+      "total_weight": 7
+    },
+    {
+      "name": "Chicken Sauce",
+      "ingredients": [
+        {
+          "name": "Yogurt",
+          "unit": "جم",
+          "qty": 1.86904
+        },
+        {
+          "name": "Mayonnaise Box 4 Gal 3.290 Kg",
+          "unit": "جم",
+          "qty": 1.65704
+        },
+        {
+          "name": "Spices Onion Powder",
+          "unit": "جم",
+          "qty": 0.0212
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.0212
+        },
+        {
+          "name": "Milk Rayeb Plain",
+          "unit": "جم",
+          "qty": 0.21552
+        },
+        {
+          "name": "Garlic Chinese",
+          "unit": "جم",
+          "qty": 0.01412
+        },
+        {
+          "name": "Parsley",
+          "unit": "جم",
+          "qty": 0.14484
+        },
+        {
+          "name": "Vinegar White",
+          "unit": "جم",
+          "qty": 0.05608
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.00092
+        }
+      ],
+      "row_start": 316,
+      "total_weight": 4
+    },
+    {
+      "name": "Atomic Sauce",
+      "ingredients": [
+        {
+          "name": "Sauce Texas",
+          "unit": "جم",
+          "qty": 2.5090519999999996
+        },
+        {
+          "name": "Mayonnaise Box 4 Gal 3.290 Kg",
+          "unit": "جم",
+          "qty": 4.140212999999999
+        },
+        {
+          "name": "Mustard Dijon",
+          "unit": "جم",
+          "qty": 0.250628
+        },
+        {
+          "name": "Lemon (Adalia)",
+          "unit": "جم",
+          "qty": 0.100107
+        }
+      ],
+      "row_start": 329,
+      "total_weight": 7
+    },
+    {
+      "name": "BBQ Sauce",
+      "ingredients": [
+        {
+          "name": "Sauce BBQ",
+          "unit": "جم",
+          "qty": 0.807
+        },
+        {
+          "name": "Mayonnaise Box 4 Gal 3.290 Kg",
+          "unit": "جم",
+          "qty": 1.0499999999999998
+        },
+        {
+          "name": "Mustard Heinz Gal 5L",
+          "unit": "جم",
+          "qty": 0.24
+        },
+        {
+          "name": "Mustard Dijon",
+          "unit": "جم",
+          "qty": 0.24
+        },
+        {
+          "name": "Lemon (Adalia)",
+          "unit": "جم",
+          "qty": 0.066
+        },
+        {
+          "name": "Honey White",
+          "unit": "جم",
+          "qty": 0.597
+        }
+      ],
+      "row_start": 337,
+      "total_weight": 3
+    },
+    {
+      "name": "Blue Cheese Dressing",
+      "ingredients": [
+        {
+          "name": "Mayonnaise Box 4 Gal 3.290 Kg",
+          "unit": "جم",
+          "qty": 0.24889732465654388
+        },
+        {
+          "name": "Milk Rayeb Plain",
+          "unit": "جم",
+          "qty": 0.11957700650759198
+        },
+        {
+          "name": "Lemon (Adalia)",
+          "unit": "جم",
+          "qty": 0.005314533622559644
+        },
+        {
+          "name": "Vinegar White",
+          "unit": "جم",
+          "qty": 0.002657266811279827
+        },
+        {
+          "name": "Sauce Worcester",
+          "unit": "جم",
+          "qty": 0.0017715112075198847
+        },
+        {
+          "name": "Honey White",
+          "unit": "جم",
+          "qty": 0.00974331164135938
+        },
+        {
+          "name": "Spices Garlic powder 500 Gr",
+          "unit": "جم",
+          "qty": 0.0005314533622559644
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.0005314533622559644
+        },
+        {
+          "name": "Parsley",
+          "unit": "جم",
+          "qty": 0.0017715112075198847
+        },
+        {
+          "name": "Blue Cheese",
+          "unit": "جم",
+          "qty": 0.09920462762111341
+        }
+      ],
+      "row_start": 346,
+      "total_weight": 0.49
+    },
+    {
+      "name": "Sauce Sriracha Mayo",
+      "ingredients": [
+        {
+          "name": "Mayonnaise Box 4 Gal 3.290 Kg",
+          "unit": "جم",
+          "qty": 1.8459998999999998
+        },
+        {
+          "name": "Sauce Hot Sriracha",
+          "unit": "جم",
+          "qty": 0.691998
+        },
+        {
+          "name": "Honey White",
+          "unit": "جم",
+          "qty": 0.460998
+        }
+      ],
+      "row_start": 359,
+      "total_weight": 3
+    },
+    {
+      "name": "Dressing queen's salad",
+      "ingredients": [
+        {
+          "name": "Vinegar Balsamic",
+          "unit": "جم",
+          "qty": 0.48118
+        },
+        {
+          "name": "Oil Olive Box 12 Btl 1 lit",
+          "unit": "جم",
+          "qty": 1.11
+        },
+        {
+          "name": "Sugar White 50 Kg",
+          "unit": "جم",
+          "qty": 0.22376
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.02376
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.00396
+        },
+        {
+          "name": "Mustard Dijon",
+          "unit": "جم",
+          "qty": 0.149
+        },
+        {
+          "name": "Garlic Chinese",
+          "unit": "جم",
+          "qty": 0.008
+        }
+      ],
+      "row_start": 365,
+      "total_weight": 2
+    },
+    {
+      "name": "Citrus dressing",
+      "ingredients": [
+        {
+          "name": "Fresh orange juice (PA)",
+          "unit": "ك",
+          "qty": 0.11726384364820847
+        },
+        {
+          "name": "Vinegar Apple",
+          "unit": "ك",
+          "qty": 0.05863192182410423
+        },
+        {
+          "name": "Honey White",
+          "unit": "ك",
+          "qty": 0.011726384364820847
+        },
+        {
+          "name": "Mustard Dijon",
+          "unit": "ك",
+          "qty": 0.023452768729641693
+        },
+        {
+          "name": "Mustard wholegrain",
+          "unit": "ك",
+          "qty": 0.03517915309446254
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "ك",
+          "qty": 0.0019543973941368075
+        },
+        {
+          "name": "Oil Olive Box 12 Btl 1 lit",
+          "unit": "ك",
+          "qty": 0.1758957654723127
+        },
+        {
+          "name": "Oil Sunflower Gal 20 L",
+          "unit": "ك",
+          "qty": 0.1758957654723127
+        }
+      ],
+      "row_start": 375,
+      "total_weight": 0.6
+    },
+    {
+      "name": "Dressing Moroccan salad",
+      "ingredients": [
+        {
+          "name": "Rasberry Frozen",
+          "unit": "جم",
+          "qty": 0.419406
+        },
+        {
+          "name": "Vinegar Balsamic",
+          "unit": "جم",
+          "qty": 0.5868135
+        },
+        {
+          "name": "Oil Olive Box 12 Btl 1 lit",
+          "unit": "جم",
+          "qty": 0.3994185
+        },
+        {
+          "name": "Oil Sunflower Gal 20 L",
+          "unit": "جم",
+          "qty": 0.3994185
+        },
+        {
+          "name": "Sugar White 50 Kg",
+          "unit": "جم",
+          "qty": 0.0586755
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.023478
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.0039195
+        },
+        {
+          "name": "Honey White",
+          "unit": "جم",
+          "qty": 0.0586755
+        }
+      ],
+      "row_start": 386,
+      "total_weight": 1.95
+    },
+    {
+      "name": "Balsamic Vinaigrette dressing",
+      "ingredients": [
+        {
+          "name": "Mustard Dijon",
+          "unit": "ك",
+          "qty": 0.0436046511627907
+        },
+        {
+          "name": "Vinegar Balsamic",
+          "unit": "ك",
+          "qty": 0.04651162790697675
+        },
+        {
+          "name": "Honey White",
+          "unit": "ك",
+          "qty": 0.05232558139534884
+        },
+        {
+          "name": "Oil Olive Box 12 Btl 1 lit",
+          "unit": "ك",
+          "qty": 0.07267441860465115
+        },
+        {
+          "name": "Oil Sunflower Gal 20 L",
+          "unit": "ك",
+          "qty": 0.1453488372093023
+        },
+        {
+          "name": "Lemon (Adalia)",
+          "unit": "ك",
+          "qty": 0.014534883720930232
+        }
+      ],
+      "row_start": 397,
+      "total_weight": 0.375
+    },
+    {
+      "name": "BRGR House Dressing",
+      "ingredients": [
+        {
+          "name": "Lemon (Adalia)",
+          "unit": "جم",
+          "qty": 0.3710318
+        },
+        {
+          "name": "Vinegar Apple",
+          "unit": "جم",
+          "qty": 0.2460318
+        },
+        {
+          "name": "Oil Olive Box 12 Btl 1 lit",
+          "unit": "جم",
+          "qty": 0.49108
+        },
+        {
+          "name": "Oil Sunflower Gal 20 L",
+          "unit": "جم",
+          "qty": 0.49108
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.0257936
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.0039682
+        },
+        {
+          "name": "Honey White",
+          "unit": "جم",
+          "qty": 0.37104
+        }
+      ],
+      "row_start": 406,
+      "total_weight": 2
+    },
+    {
+      "name": "بيستو بستاشيو",
+      "ingredients": [
+        {
+          "name": "Fresh Basil",
+          "unit": "جم",
+          "qty": 0.06500000000000015
+        },
+        {
+          "name": "Oil Olive Box 12 Btl 1 lit",
+          "unit": "جم",
+          "qty": 0.20000000000000015
+        },
+        {
+          "name": "Parmesan Cheese",
+          "unit": "جم",
+          "qty": 0.04700000000000016
+        },
+        {
+          "name": "Garlic Chinese",
+          "unit": "جم",
+          "qty": 0.005000000000000004
+        },
+        {
+          "name": "Nutes Pinenut",
+          "unit": "جم",
+          "qty": 0.021999999999999995
+        },
+        {
+          "name": "Pistachio whole",
+          "unit": "جم",
+          "qty": 0.020000000000000014
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.0029999999999999988
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.0010000000000000009
+        }
+      ],
+      "row_start": 417,
+      "total_weight": 0.36
+    },
+    {
+      "name": "Thyme Balsamic Vinaigrette",
+      "ingredients": [
+        {
+          "name": "Vinegar Balsamic",
+          "unit": "ك",
+          "qty": 0.24509803921568626
+        },
+        {
+          "name": "Oil Sunflower Gal 20 L",
+          "unit": "ك",
+          "qty": 0.49019607843137253
+        },
+        {
+          "name": "Honey White",
+          "unit": "ك",
+          "qty": 0.20588235294117646
+        },
+        {
+          "name": "Thyme",
+          "unit": "ك",
+          "qty": 0.004901960784313725
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "ك",
+          "qty": 0.00392156862745098
+        }
+      ],
+      "row_start": 428,
+      "total_weight": 0.95
+    },
+    {
+      "name": "SUNDRIED TOMATO PESTO",
+      "ingredients": [
+        {
+          "name": "Fresh Basil",
+          "unit": "جم",
+          "qty": 0.191176470588235
+        },
+        {
+          "name": "Oil Olive Box 12 Btl 1 lit",
+          "unit": "جم",
+          "qty": 0.411764705882353
+        },
+        {
+          "name": "Parmesan Cheese",
+          "unit": "جم",
+          "qty": 0.138235294117647
+        },
+        {
+          "name": "Garlic Chinese",
+          "unit": "جم",
+          "qty": 0.0147058823529412
+        },
+        {
+          "name": "Nutes Pinenut",
+          "unit": "جم",
+          "qty": 0.0647058823529412
+        },
+        {
+          "name": "Sundried tomato",
+          "unit": "جم",
+          "qty": 0.176470588235294
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.00294117647058824
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.00882352941176471
+        }
+      ],
+      "row_start": 436,
+      "total_weight": 1
+    },
+    {
+      "name": "Coleslow Dressing",
+      "ingredients": [
+        {
+          "name": "Mayonnaisec Hellmanns 3.4 Kg",
+          "unit": "جم",
+          "qty": 0.148649
+        },
+        {
+          "name": "Milk Rayeb Plain",
+          "unit": "جم",
+          "qty": 0.148649
+        },
+        {
+          "name": "Vinegar White",
+          "unit": "جم",
+          "qty": 0.148649
+        },
+        {
+          "name": "Sugar White Pkt 1kg",
+          "unit": "جم",
+          "qty": 0.540541
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.005405
+        },
+        {
+          "name": "White Onion",
+          "unit": "جم",
+          "qty": 0.027027
+        }
+      ],
+      "row_start": 447,
+      "total_weight": 1
+    },
+    {
+      "name": "صوص بيستو",
+      "ingredients": [
+        {
+          "name": "Fresh Basil",
+          "unit": "جم",
+          "qty": 0.1599765
+        },
+        {
+          "name": "Oil Olive Box 12 Btl 1 lit",
+          "unit": "جم",
+          "qty": 0.15000013499999998
+        },
+        {
+          "name": "Parmesan Cheese",
+          "unit": "جم",
+          "qty": 0.06500007
+        },
+        {
+          "name": "Garlic Chinese",
+          "unit": "جم",
+          "qty": 0.007000049999999999
+        },
+        {
+          "name": "Nutes Pinenut",
+          "unit": "جم",
+          "qty": 0.030000165
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.00399993
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.00025012499999999997
+        }
+      ],
+      "row_start": 456,
+      "total_weight": 0.345
+    },
+    {
+      "name": "Honey Srirache Sauce",
+      "ingredients": [
+        {
+          "name": "Honey White",
+          "unit": "جم",
+          "qty": 0.1
+        },
+        {
+          "name": "Sauce Hot Sriracha",
+          "unit": "جم",
+          "qty": 0.1
+        },
+        {
+          "name": "Sauce Worcester",
+          "unit": "جم",
+          "qty": 0.005000000000000001
+        }
+      ],
+      "row_start": 466,
+      "total_weight": 0.2
+    },
+    {
+      "name": "Chives Cream Cheese",
+      "ingredients": [
+        {
+          "name": "kiri creamy spread",
+          "unit": "ك",
+          "qty": 0.19493177387914232
+        },
+        {
+          "name": "Cream Cooking 1 lit",
+          "unit": "ك",
+          "qty": 0.04873294346978558
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "ك",
+          "qty": 0.0009746588693957114
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "ك",
+          "qty": 0.0004873294346978557
+        },
+        {
+          "name": "Chives",
+          "unit": "ك",
+          "qty": 0.004873294346978557
+        }
+      ],
+      "row_start": 472,
+      "total_weight": 0.25
+    },
+    {
+      "name": "CAESAR SAUCE",
+      "ingredients": [
+        {
+          "name": "Garlic Chinese",
+          "unit": "كيلو",
+          "qty": 0.10799999999999998
+        },
+        {
+          "name": "Anchovies",
+          "unit": "كيلو",
+          "qty": 0.10799999999999998
+        },
+        {
+          "name": "Lemon juice (Adalia) (PA)",
+          "unit": "كيلو",
+          "qty": 0.1512
+        },
+        {
+          "name": "Mustard Dijon",
+          "unit": "كيلو",
+          "qty": 0.10799999999999998
+        },
+        {
+          "name": "Sauce Worcester",
+          "unit": "كيلو",
+          "qty": 0.10799999999999998
+        },
+        {
+          "name": "Mayonnaisec Hellmanns 3.4 Kg",
+          "unit": "كيلو",
+          "qty": 4.4928
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "كيلو",
+          "qty": 0.0216
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "كيلو",
+          "qty": 0.0216
+        },
+        {
+          "name": "Parmesan Cheese",
+          "unit": "كيلو",
+          "qty": 1.08
+        }
+      ],
+      "row_start": 480,
+      "total_weight": 6
+    },
+    {
+      "name": "Pancake Dough",
+      "ingredients": [
+        {
+          "name": "Flour White Box 10 bag 1 Kg",
+          "unit": "ك",
+          "qty": 0.3913228413441089
+        },
+        {
+          "name": "Milk Lamar full fat Box 12 Pkt 1 lit",
+          "unit": "ك",
+          "qty": 0.3913228413441089
+        },
+        {
+          "name": "Butter Fern 10 Pkt 1 Kg",
+          "unit": "ك",
+          "qty": 0.09783071033602718
+        },
+        {
+          "name": "Sugar White Pkt 1kg",
+          "unit": "ك",
+          "qty": 0.09783071033602718
+        },
+        {
+          "name": "Baking Powder kg",
+          "unit": "ك",
+          "qty": 0.0061333295
+        },
+        {
+          "name": "Vanillia Powder Kings Crown 1 GR",
+          "unit": "ك",
+          "qty": 0.0009783071033602716
+        },
+        {
+          "name": "Vanilla - Liquid",
+          "unit": "ك",
+          "qty": 0.0009783071033602716
+        },
+        {
+          "name": "Red Egg",
+          "unit": "ك",
+          "qty": 0.16435559336452615
+        }
+      ],
+      "row_start": 492,
+      "total_weight": 1.15
+    },
+    {
+      "name": "Smokey Mayo Sauce",
+      "ingredients": [
+        {
+          "name": "Mayonnaisec Hellmanns 3.4 Kg",
+          "unit": "كيلو",
+          "qty": 0.09999999999999998
+        },
+        {
+          "name": "Mustard Heinz Gal 5L",
+          "unit": "كيلو",
+          "qty": 0.005000000000000005
+        },
+        {
+          "name": "Puidor BBQ Hickorey",
+          "unit": "كيلو",
+          "qty": 0.014999999999999951
+        },
+        {
+          "name": "Honey White",
+          "unit": "كيلو",
+          "qty": 0.011999999999999999
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "كيلو",
+          "qty": 0.0005000000000000004
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "كيلو",
+          "qty": 0.0002499999999999996
+        }
+      ],
+      "row_start": 503,
+      "total_weight": 0.13
+    },
+    {
+      "name": "سويت شيلي صوص",
+      "ingredients": [
+        {
+          "name": "Mayonnaise Box 4 Gal 3.290 Kg",
+          "unit": "ك",
+          "qty": 0.405
+        },
+        {
+          "name": "Sweet chile",
+          "unit": "ك",
+          "qty": 0.6
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "ك",
+          "qty": 0.001
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "ك",
+          "qty": 0.00025
+        }
+      ],
+      "row_start": 512,
+      "total_weight": 1
+    },
+    {
+      "name": "Toast Bread",
+      "ingredients": [
+        {
+          "name": "Toast White Rich Bake",
+          "unit": "كيلو",
+          "qty": 0.24534
+        },
+        {
+          "name": "Butter Fern 10 Pkt 1 Kg",
+          "unit": "كيلو",
+          "qty": 0.09353
+        },
+        {
+          "name": "Garlic Chinese",
+          "unit": "كيلو",
+          "qty": 0.0094
+        },
+        {
+          "name": "Spices Dry thyme",
+          "unit": "كيلو",
+          "qty": 0.00188
+        }
+      ],
+      "row_start": 519,
+      "total_weight": 0.235
+    },
+    {
+      "name": "frosting sauce basic",
+      "ingredients": [
+        {
+          "name": "kiri creamy spread",
+          "unit": "جم",
+          "qty": 0.10788944723618099
+        },
+        {
+          "name": "Butter Flechard",
+          "unit": "جم",
+          "qty": 0.05442211055276389
+        },
+        {
+          "name": "Sugar White Powder",
+          "unit": "جم",
+          "qty": 0.11457286432160796
+        },
+        {
+          "name": "Vanilla Paste",
+          "unit": "جم",
+          "qty": 0.0019095477386934657
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.0004773869346733664
+        },
+        {
+          "name": "Milk Lamar full fat Box 12 Pkt 1 lit",
+          "unit": "جم",
+          "qty": 0.005728643216080398
+        }
+      ],
+      "row_start": 526,
+      "total_weight": 0.285
+    },
+    {
+      "name": "Tomato Pizza Sauce Split",
+      "ingredients": [
+        {
+          "name": "Tomato Peeled Mirella",
+          "unit": "جم",
+          "qty": 2.637254901960784
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.0316470588235293
+        },
+        {
+          "name": "Sugar White Pkt 1kg",
+          "unit": "جم",
+          "qty": 0.0316470588235293
+        },
+        {
+          "name": "Spices Oregano dry",
+          "unit": "جم",
+          "qty": 0.004219607843137249
+        },
+        {
+          "name": "Basil Powder",
+          "unit": "جم",
+          "qty": 0.004219607843137249
+        },
+        {
+          "name": "Olive Oil Nuri",
+          "unit": "جم",
+          "qty": 0.10549019607843137
+        }
+      ],
+      "row_start": 535,
+      "total_weight": 2.69
+    },
+    {
+      "name": "classic frosting",
+      "ingredients": [
+        {
+          "name": "kiri creamy spread",
+          "unit": "جم",
+          "qty": 0.1867704280155641
+        },
+        {
+          "name": "Butter Flechard",
+          "unit": "جم",
+          "qty": 0.053229571984435675
+        },
+        {
+          "name": "Sugar White Powder",
+          "unit": "جم",
+          "qty": 0.11206225680933853
+        },
+        {
+          "name": "Vanilla Paste",
+          "unit": "جم",
+          "qty": 0.0018677042801556406
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.00046692607003891195
+        },
+        {
+          "name": "Milk Lamar full fat Box 12 Pkt 1 lit",
+          "unit": "جم",
+          "qty": 0.005603112840466944
+        }
+      ],
+      "row_start": 544,
+      "total_weight": 0.36
+    },
+    {
+      "name": "Mustard Mayonnaise Sauce",
+      "ingredients": [
+        {
+          "name": "Mayonnaisec Hellmanns 3.4 Kg",
+          "unit": "جم",
+          "qty": 0.07692307692307691
+        },
+        {
+          "name": "Mustard Dijon",
+          "unit": "جم",
+          "qty": 0.023076923076923102
+        }
+      ],
+      "row_start": 553,
+      "total_weight": 0.1
+    },
+    {
+      "name": "lemon curd",
+      "ingredients": [
+        {
+          "name": "Red Egg",
+          "unit": "عدد",
+          "qty": 4.000000000000003
+        },
+        {
+          "name": "egg yolk",
+          "unit": "عدد",
+          "qty": 2.0000000000000013
+        },
+        {
+          "name": "Butter Flechard",
+          "unit": "جم",
+          "qty": 0.15999999999999995
+        },
+        {
+          "name": "Sugar White Pkt 1kg",
+          "unit": "جم",
+          "qty": 0.3199999999999999
+        },
+        {
+          "name": "قشر ليمون",
+          "unit": "جم",
+          "qty": 0.022000000000000023
+        },
+        {
+          "name": "Lemon juice (Adalia) (PA)",
+          "unit": "جم",
+          "qty": 0.25999999999999956
+        },
+        {
+          "name": "Vanilla Paste",
+          "unit": "جم",
+          "qty": 0.0040000000000000036
+        }
+      ],
+      "row_start": 558,
+      "total_weight": 0.85
+    },
+    {
+      "name": "Sour Cream Mix",
+      "ingredients": [
+        {
+          "name": "Cream Sour",
+          "unit": "جم",
+          "qty": 0.5066174600000001
+        },
+        {
+          "name": "Milk Rayeb Plain",
+          "unit": "جم",
+          "qty": 0.03039709
+        }
+      ],
+      "row_start": 568,
+      "total_weight": 0.53
+    },
+    {
+      "name": "blue berry sauce",
+      "ingredients": [
+        {
+          "name": "Blue berry Fresh",
+          "unit": "جم",
+          "qty": 0.833333333333333
+        },
+        {
+          "name": "Sugar White Pkt 1kg",
+          "unit": "جم",
+          "qty": 0.2
+        },
+        {
+          "name": "Lemon juice (Adalia) (PA)",
+          "unit": "جم",
+          "qty": 0.04
+        }
+      ],
+      "row_start": 573,
+      "total_weight": 1
+    },
+    {
+      "name": "Hot Chocolate Sauce",
+      "ingredients": [
+        {
+          "name": "Milk chocolate chips",
+          "unit": "كيلو",
+          "qty": 0.14698259187620888
+        },
+        {
+          "name": "Chocolate Dark",
+          "unit": "كيلو",
+          "qty": 0.14698259187620888
+        },
+        {
+          "name": "Cream Whipping Kg.",
+          "unit": "كيلو",
+          "qty": 0.0591876208897485
+        },
+        {
+          "name": "Milk Lamar full fat Box 12 Pkt 1 lit",
+          "unit": "كيلو",
+          "qty": 0.11738878143133462
+        },
+        {
+          "name": "Vanilla Frappe",
+          "unit": "كيلو",
+          "qty": 0.039458413926499014
+        }
+      ],
+      "row_start": 579,
+      "total_weight": 0.51
+    },
+    {
+      "name": "Roasted Pepper Mushroom",
+      "ingredients": [
+        {
+          "name": "Mushroom",
+          "unit": "جم",
+          "qty": 0.527777725
+        },
+        {
+          "name": "Green papper fresh",
+          "unit": "جم",
+          "qty": 0.158333175
+        },
+        {
+          "name": "Oil Olive Box 12 Btl 1 lit",
+          "unit": "جم",
+          "qty": 0.052777725
+        },
+        {
+          "name": "Garlic Chinese",
+          "unit": "جم",
+          "qty": 0.018472275
+        },
+        {
+          "name": "Spices Salt Kosher",
+          "unit": "جم",
+          "qty": 0.005277725
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.00131955
+        }
+      ],
+      "row_start": 587,
+      "total_weight": 0.5
+    },
+    {
+      "name": "Taztaziki Sauce",
+      "ingredients": [
+        {
+          "name": "Greek Yogurt Juhaina",
+          "unit": "جم",
+          "qty": 2.7720000000000002
+        },
+        {
+          "name": "Cucumber",
+          "unit": "جم",
+          "qty": 0.36960000000000004
+        },
+        {
+          "name": "Oil Olive Box 12 Btl 1 lit",
+          "unit": "جم",
+          "qty": 0.1386
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.01848
+        },
+        {
+          "name": "Garlic Chinese",
+          "unit": "جم",
+          "qty": 0.01848
+        },
+        {
+          "name": "Dry Mint",
+          "unit": "جم",
+          "qty": 0.00462
+        }
+      ],
+      "row_start": 596,
+      "total_weight": 3
+    },
+    {
+      "name": "Dill Tuna Mix",
+      "ingredients": [
+        {
+          "name": "Tuna",
+          "unit": "جم",
+          "qty": 0.7573632538569425
+        },
+        {
+          "name": "Mayonnaisec Hellmanns 3.4 Kg",
+          "unit": "جم",
+          "qty": 0.11220196353436185
+        },
+        {
+          "name": "Spices Salt Cox",
+          "unit": "جم",
+          "qty": 0.005610098176718092
+        },
+        {
+          "name": "Spices Black pepper Pkt 250 Gr",
+          "unit": "جم",
+          "qty": 0.001402524544179523
+        },
+        {
+          "name": "Lemon juice (Adalia) (PA)",
+          "unit": "جم",
+          "qty": 0.04488078541374474
+        },
+        {
+          "name": "Dill Fresh",
+          "unit": "جم",
+          "qty": 0.008415147265077137
+        },
+        {
+          "name": "Cucumber Pickle (imported)",
+          "unit": "جم",
+          "qty": 0.07012622720897616
+        }
+      ],
+      "row_start": 605,
+      "total_weight": 10
+    },
+    {
+      "name": "Hot Mustard",
+      "ingredients": [
+        {
+          "name": "Mustard Dixe",
+          "unit": "جم",
+          "qty": 0.0
+        },
+        {
+          "name": "Mustard Dijon",
+          "unit": "جم",
+          "qty": 0.0
+        },
+        {
+          "name": "Honey White",
+          "unit": "جم",
+          "qty": 0.0
+        },
+        {
+          "name": "Chili Flakes",
+          "unit": "جم",
+          "qty": 0.0
+        }
+      ],
+      "row_start": 615,
+      "total_weight": 1.0
+    },
+    {
+      "name": "Pretzel Bread",
+      "ingredients": [
+        {
+          "name": "الوزن",
+          "unit": "الوحدة",
+          "qty": 0.05006172839506174
+        },
+        {
+          "name": "0.5006172839506174",
+          "unit": "جم",
+          "qty": 0.020679012345679013
+        },
+        {
+          "name": "0.20679012345679013",
+          "unit": "جم",
+          "qty": 0.000617283950617284
+        },
+        {
+          "name": "0.006172839506172841",
+          "unit": "جم",
+          "qty": 0.0074074074074074086
+        },
+        {
+          "name": "0.07407407407407408",
+          "unit": "جم",
+          "qty": 0.000308641975308642
+        },
+        {
+          "name": "0.006",
+          "unit": "جم",
+          "qty": 0.0009259259259259261
+        }
+      ],
+      "row_start": 622
+    },
+    {
+      "name": "كرواسون ساده",
+      "ingredients": [
+        {
+          "name": "الكمية",
+          "unit": "الوحدة",
+          "qty": 0.047619047619047616
+        },
+        {
+          "name": "2",
+          "unit": "ك",
+          "qty": 0.0009523809523809524
+        },
+        {
+          "name": "0.04",
+          "unit": "ك",
+          "qty": 0.02857142857142857
+        },
+        {
+          "name": "1.2",
+          "unit": "ك",
+          "qty": 0.0019047619047619048
+        },
+        {
+          "name": "0.08",
+          "unit": "ك",
+          "qty": 0.002380952380952381
+        },
+        {
+          "name": "0.1",
+          "unit": "ك",
+          "qty": 0.0011904761904761906
+        },
+        {
+          "name": "0.05",
+          "unit": "ك",
+          "qty": 0.002380952380952381
+        },
+        {
+          "name": "0.1",
+          "unit": "ك",
+          "qty": 0.004761904761904762
+        },
+        {
+          "name": "0.2",
+          "unit": "ك",
+          "qty": 0.013095238095238096
+        },
+        {
+          "name": "0.55",
+          "unit": "لتر",
+          "qty": 0.02857142857142857
+        }
+      ],
+      "row_start": 632
+    },
+    {
+      "name": "شاباتا  20 سم",
+      "ingredients": [
+        {
+          "name": "الوزن",
+          "unit": "الوحدة",
+          "qty": 0.06297920523480133
+        },
+        {
+          "name": "0.6297920523480133",
+          "unit": "جم",
+          "qty": 0.04408544364136091
+        },
+        {
+          "name": "0.4408544364136091",
+          "unit": "جم",
+          "qty": 0.0010076672819168203
+        },
+        {
+          "name": "0.010076672819168202",
+          "unit": "جم",
+          "qty": 0.005038336409584103
+        },
+        {
+          "name": "0.05038336409584103",
+          "unit": "جم",
+          "qty": 0.0006297920224480056
+        },
+        {
+          "name": "0.006297920224480056",
+          "unit": "جم",
+          "qty": 0.00125958415989604
+        }
+      ],
+      "row_start": 645
+    },
+    {
+      "name": "شاباتا براون 20 سم",
+      "ingredients": [
+        {
+          "name": "الوزن",
+          "unit": "الوحدة",
+          "qty": 0.062128586818924546
+        },
+        {
+          "name": "0.6212858681892455",
+          "unit": "جم",
+          "qty": 0.04349001075055782
+        },
+        {
+          "name": "0.43490010750557817",
+          "unit": "جم",
+          "qty": 0.000994057387287644
+        },
+        {
+          "name": "0.00994057387287644",
+          "unit": "جم",
+          "qty": 0.004970286936438221
+        },
+        {
+          "name": "0.049702869364382216",
+          "unit": "جم",
+          "qty": 0.0006212858386930775
+        },
+        {
+          "name": "0.0062128583869307755",
+          "unit": "جم",
+          "qty": 0.0015532001322657548
+        },
+        {
+          "name": "0.015532001322657548",
+          "unit": "جم",
+          "qty": 0.0012425717908329547
+        },
+        {
+          "name": "0.012425717908329546",
+          "unit": "جم",
+          "qty": 0.114999999655
+        }
+      ],
+      "row_start": 655
+    },
+    {
+      "name": "Large Pizza dough",
+      "ingredients": [
+        {
+          "name": "الكمية",
+          "unit": "الوحدة",
+          "qty": 0.22000000000000003
+        },
+        {
+          "name": "22.000000000000004",
+          "unit": "ك",
+          "qty": 0.22000000000000003
+        },
+        {
+          "name": "22.000000000000004",
+          "unit": "ك",
+          "qty": 0.08
+        },
+        {
+          "name": "8",
+          "unit": "ك",
+          "qty": 0.16
+        },
+        {
+          "name": "16",
+          "unit": "ك",
+          "qty": 0.012
+        },
+        {
+          "name": "1.2",
+          "unit": "ك",
+          "qty": 0.008
+        },
+        {
+          "name": "0.8",
+          "unit": "ك",
+          "qty": 0.0008
+        },
+        {
+          "name": "0.08",
+          "unit": "ك",
+          "qty": 0.006
+        }
+      ],
+      "row_start": 666
+    },
+    {
+      "name": "Pizza Dough",
+      "ingredients": [
+        {
+          "name": "الكمية",
+          "unit": "الوحدة",
+          "qty": 0.2
+        },
+        {
+          "name": "8",
+          "unit": "ك",
+          "qty": 0.13
+        },
+        {
+          "name": "5.2",
+          "unit": "ك",
+          "qty": 0.005
+        },
+        {
+          "name": "0.2",
+          "unit": "ك",
+          "qty": 0.005
+        },
+        {
+          "name": "0.2",
+          "unit": "ك",
+          "qty": 0.0002
+        }
+      ],
+      "row_start": 677
+    },
+    {
+      "name": "French Baghette",
+      "ingredients": [
+        {
+          "name": "الوزن",
+          "unit": "الوحدة",
+          "qty": 0.07556675062972291
+        },
+        {
+          "name": "0.07556675062972291",
+          "unit": "جم",
+          "qty": 0.05743073047858942
+        },
+        {
+          "name": "0.05743073047858942",
+          "unit": "جم",
+          "qty": 0.0005289672544080605
+        },
+        {
+          "name": "0.0005289672544080605",
+          "unit": "جم",
+          "qty": 0.0013602015113350122
+        },
+        {
+          "name": "0.0013602015113350122",
+          "unit": "جم",
+          "qty": 0.015113350125944584
+        }
+      ],
+      "row_start": 685
+    },
+    {
+      "name": "رسبي كوكيز",
+      "ingredients": [
+        {
+          "name": "الوزن",
+          "unit": "الوحدة",
+          "qty": 0.003668478260869565
+        },
+        {
+          "name": "0.18342391304347824",
+          "unit": "ك",
+          "qty": 0.000733695652173913
+        },
+        {
+          "name": "0.03668478260869565",
+          "unit": "ك",
+          "qty": 0.002934782608695652
+        },
+        {
+          "name": "0.1467391304347826",
+          "unit": "ك",
+          "qty": 0.0013451086956521737
+        },
+        {
+          "name": "0.06725543478260869",
+          "unit": "ك",
+          "qty": 0.006114130434782608
+        },
+        {
+          "name": "0.3057065217391304",
+          "unit": "ك",
+          "qty": 7.336956521739129e-05
+        },
+        {
+          "name": "0.0036684782608695644",
+          "unit": "ك",
+          "qty": 0.00017119565217391304
+        },
+        {
+          "name": "0.008559782608695651",
+          "unit": "ك",
+          "qty": 2.4456521739130433e-05
+        },
+        {
+          "name": "0.0012228260869565216",
+          "unit": "ك",
+          "qty": 2.5e-05
+        },
+        {
+          "name": "0.00125",
+          "unit": "ك",
+          "qty": 0.002934782608695652
+        }
+      ],
+      "row_start": 701
+    }
+  ],
+  "raw_ingredients": [
+    {
+      "name": "Mayonnaise Mazola",
+      "unit": "جم"
+    },
+    {
+      "name": "Mustard Dijon",
+      "unit": "جم"
+    },
+    {
+      "name": "Ketchup Gal",
+      "unit": "جم"
+    },
+    {
+      "name": "Cucmber pickeld Water",
+      "unit": "جم"
+    },
+    {
+      "name": "Spices Red pepper Pow 500Gr",
+      "unit": "جم"
+    },
+    {
+      "name": "Cream Whipping Kg.",
+      "unit": "جم"
+    },
+    {
+      "name": "Cheddar Cheese  Kg",
+      "unit": "جم"
+    },
+    {
+      "name": "Cheddar American Cheese",
+      "unit": "جم"
+    },
+    {
+      "name": "la vache Quirit Cheese",
+      "unit": "جم"
+    },
+    {
+      "name": "Sauce Hot KG",
+      "unit": "جم"
+    },
+    {
+      "name": "Flour 50 Kg",
+      "unit": "جم"
+    },
+    {
+      "name": "Milk Ole Powder",
+      "unit": "جم"
+    },
+    {
+      "name": "Spices Black pepper Pkt 250 Gr",
+      "unit": "جم"
+    },
+    {
+      "name": "Spices Cayani Box 16",
+      "unit": "جم"
+    },
+    {
+      "name": "Spices Salt Cox",
+      "unit": "جم"
+    },
+    {
+      "name": "Spices Salt Chinese",
+      "unit": "جم"
+    },
+    {
+      "name": "Baking Powder kg",
+      "unit": "جم"
+    },
+    {
+      "name": "Vinegar White",
+      "unit": "kg"
+    },
+    {
+      "name": "Cucumber",
+      "unit": "ك"
+    },
+    {
+      "name": "Sugar White 50 Kg",
+      "unit": "kg"
+    },
+    {
+      "name": "truffle paste",
+      "unit": "جم"
+    },
+    {
+      "name": "Mayonnaisec Hellmanns 3.4 Kg",
+      "unit": "جم"
+    },
+    {
+      "name": "Ajwa Medjool",
+      "unit": "جم"
+    },
+    {
+      "name": "Honey White",
+      "unit": "جم"
+    },
+    {
+      "name": "Spice Cinnamon powder",
+      "unit": "جم"
+    },
+    {
+      "name": "Hibiscus Dry",
+      "unit": "جم"
+    },
+    {
+      "name": "Water Gallon 19 lit",
+      "unit": "جم"
+    },
+    {
+      "name": "Sugar White Pkt 1kg",
+      "unit": "جم"
+    },
+    {
+      "name": "Condensed Milk Nestle",
+      "unit": "جم"
+    },
+    {
+      "name": "Frensh Vanilla",
+      "unit": "جم"
+    },
+    {
+      "name": "Sea Salt",
+      "unit": "جم"
+    },
+    {
+      "name": "Salted hazelnut Sauce",
+      "unit": "kg"
+    },
+    {
+      "name": "Italian Roasted Hazelnut",
+      "unit": "ك"
+    },
+    {
+      "name": "Potato",
+      "unit": "ك"
+    },
+    {
+      "name": "Olive Oil Wadi food",
+      "unit": "ك"
+    },
+    {
+      "name": "Thyme",
+      "unit": "ك"
+    },
+    {
+      "name": "Red Onion",
+      "unit": "كيلو"
+    },
+    {
+      "name": "Red Chili",
+      "unit": "كيلو"
+    },
+    {
+      "name": "Oil Olive Box 12 Btl 1 lit",
+      "unit": "كيلو"
+    },
+    {
+      "name": "Garlic Chinese",
+      "unit": "كيلو"
+    },
+    {
+      "name": "Parsley",
+      "unit": "كيلو"
+    },
+    {
+      "name": "Vinegar Apple",
+      "unit": "كيلو"
+    },
+    {
+      "name": "Chili Flakes",
+      "unit": "ك"
+    },
+    {
+      "name": "Sauce Hot Sriracha",
+      "unit": "ك"
+    },
+    {
+      "name": "Vinegar Balsamic",
+      "unit": "جم"
+    },
+    {
+      "name": "Tomato",
+      "unit": "جم"
+    },
+    {
+      "name": "Tomato Peeled Mirella",
+      "unit": "جم"
+    },
+    {
+      "name": "White Onion",
+      "unit": "جم"
+    },
+    {
+      "name": "Fresh Basil",
+      "unit": "جم"
+    },
+    {
+      "name": "Tomato Paste Heinz",
+      "unit": "جم"
+    },
+    {
+      "name": "Spices Oregano dry",
+      "unit": "جم"
+    },
+    {
+      "name": "Brown Sugar",
+      "unit": "جم"
+    },
+    {
+      "name": "Milk Rayeb Plain",
+      "unit": "جم"
+    },
+    {
+      "name": "Spices Onion Powder",
+      "unit": "جم"
+    },
+    {
+      "name": "Chicken Breast",
+      "unit": "جم"
+    },
+    {
+      "name": "Oil Sunflower Gal 20 L",
+      "unit": "جم"
+    },
+    {
+      "name": "Yogurt",
+      "unit": "جم"
+    },
+    {
+      "name": "Mustard Heinz Gal 5L",
+      "unit": "جم"
+    },
+    {
+      "name": "Mint",
+      "unit": "جم"
+    },
+    {
+      "name": "Lemon (Adalia)",
+      "unit": "جم"
+    },
+    {
+      "name": "Red Egg",
+      "unit": "جم"
+    },
+    {
+      "name": "Spices Garlic powder 500 Gr",
+      "unit": "جم"
+    },
+    {
+      "name": "Total chicken breast",
+      "unit": "قطعة 55 جم"
+    },
+    {
+      "name": "Spices Salt Kosher",
+      "unit": "جم"
+    },
+    {
+      "name": "Knorr Demiglace Suces",
+      "unit": "جم"
+    },
+    {
+      "name": "Fresh Rosemary",
+      "unit": "جم"
+    },
+    {
+      "name": "Butter Fern 10 Pkt 1 Kg",
+      "unit": "جم"
+    },
+    {
+      "name": "Flour White Box 10 bag 1 Kg",
+      "unit": "جم"
+    },
+    {
+      "name": "Milk Lamar full fat Box 12 Pkt 1 lit",
+      "unit": "جم"
+    },
+    {
+      "name": "Corn Starch",
+      "unit": "جم"
+    },
+    {
+      "name": "Soda Schweppes",
+      "unit": "جم"
+    },
+    {
+      "name": "Ice Cream Powder.",
+      "unit": "جم"
+    },
+    {
+      "name": "Cucumber Pickle - Kg (PA)",
+      "unit": "جم"
+    },
+    {
+      "name": "Red pepper Fresh",
+      "unit": "جم"
+    },
+    {
+      "name": "Green papper fresh",
+      "unit": "جم"
+    },
+    {
+      "name": "Chili Green papper",
+      "unit": "جم"
+    },
+    {
+      "name": "Spices Turmeric Powder",
+      "unit": "جم"
+    },
+    {
+      "name": "Sweet chile",
+      "unit": "جم"
+    },
+    {
+      "name": "Strawberry frozen",
+      "unit": "جم"
+    },
+    {
+      "name": "Dvg Syrup Strawberry",
+      "unit": "جم"
+    },
+    {
+      "name": "Spices Salt Lemon",
+      "unit": "جم"
+    },
+    {
+      "name": "SPLIT sauce",
+      "unit": "kg"
+    },
+    {
+      "name": "Sauce Worcester",
+      "unit": "جم"
+    },
+    {
+      "name": "Spices Smoked Paprika",
+      "unit": "جم"
+    },
+    {
+      "name": "Tuna",
+      "unit": "كيلو"
+    },
+    {
+      "name": "kiri creamy spread",
+      "unit": "كيلو"
+    },
+    {
+      "name": "Sweet Corn",
+      "unit": "كيلو"
+    },
+    {
+      "name": "Mayonnaise Box 4 Gal 3.290 Kg",
+      "unit": "جم"
+    },
+    {
+      "name": "Spices Dill powder 500 Gr",
+      "unit": "جم"
+    },
+    {
+      "name": "Spices Parsley Pow 500 Gr",
+      "unit": "جم"
+    },
+    {
+      "name": "Sauce Texas",
+      "unit": "جم"
+    },
+    {
+      "name": "Sauce BBQ",
+      "unit": "جم"
+    },
+    {
+      "name": "Blue Cheese",
+      "unit": "جم"
+    },
+    {
+      "name": "Fresh orange juice (PA)",
+      "unit": "ك"
+    },
+    {
+      "name": "Mustard wholegrain",
+      "unit": "ك"
+    },
+    {
+      "name": "Rasberry Frozen",
+      "unit": "جم"
+    },
+    {
+      "name": "Parmesan Cheese",
+      "unit": "جم"
+    },
+    {
+      "name": "Nutes Pinenut",
+      "unit": "جم"
+    },
+    {
+      "name": "Pistachio whole",
+      "unit": "جم"
+    },
+    {
+      "name": "Sundried tomato",
+      "unit": "جم"
+    },
+    {
+      "name": "Cream Cooking 1 lit",
+      "unit": "ك"
+    },
+    {
+      "name": "Chives",
+      "unit": "ك"
+    },
+    {
+      "name": "Anchovies",
+      "unit": "كيلو"
+    },
+    {
+      "name": "Lemon juice (Adalia) (PA)",
+      "unit": "كيلو"
+    },
+    {
+      "name": "Vanillia Powder Kings Crown 1 GR",
+      "unit": "ك"
+    },
+    {
+      "name": "Vanilla - Liquid",
+      "unit": "ك"
+    },
+    {
+      "name": "Puidor BBQ Hickorey",
+      "unit": "كيلو"
+    },
+    {
+      "name": "Toast White Rich Bake",
+      "unit": "كيلو"
+    },
+    {
+      "name": "Spices Dry thyme",
+      "unit": "كيلو"
+    },
+    {
+      "name": "Butter Flechard",
+      "unit": "جم"
+    },
+    {
+      "name": "Sugar White Powder",
+      "unit": "جم"
+    },
+    {
+      "name": "Vanilla Paste",
+      "unit": "جم"
+    },
+    {
+      "name": "Basil Powder",
+      "unit": "جم"
+    },
+    {
+      "name": "Olive Oil Nuri",
+      "unit": "جم"
+    },
+    {
+      "name": "egg yolk",
+      "unit": "عدد"
+    },
+    {
+      "name": "قشر ليمون",
+      "unit": "جم"
+    },
+    {
+      "name": "Cream Sour",
+      "unit": "جم"
+    },
+    {
+      "name": "Blue berry Fresh",
+      "unit": "جم"
+    },
+    {
+      "name": "Milk chocolate chips",
+      "unit": "كيلو"
+    },
+    {
+      "name": "Chocolate Dark",
+      "unit": "كيلو"
+    },
+    {
+      "name": "Vanilla Frappe",
+      "unit": "كيلو"
+    },
+    {
+      "name": "Mushroom",
+      "unit": "جم"
+    },
+    {
+      "name": "Greek Yogurt Juhaina",
+      "unit": "جم"
+    },
+    {
+      "name": "Dry Mint",
+      "unit": "جم"
+    },
+    {
+      "name": "Dill Fresh",
+      "unit": "جم"
+    },
+    {
+      "name": "Cucumber Pickle (imported)",
+      "unit": "جم"
+    },
+    {
+      "name": "Mustard Dixe",
+      "unit": "جم"
+    },
+    {
+      "name": "الوزن",
+      "unit": "الوحدة"
+    },
+    {
+      "name": "0.5006172839506174",
+      "unit": "جم"
+    },
+    {
+      "name": "0.20679012345679013",
+      "unit": "جم"
+    },
+    {
+      "name": "0.006172839506172841",
+      "unit": "جم"
+    },
+    {
+      "name": "0.07407407407407408",
+      "unit": "جم"
+    },
+    {
+      "name": "0.006",
+      "unit": "جم"
+    },
+    {
+      "name": "الكمية",
+      "unit": "الوحدة"
+    },
+    {
+      "name": "2",
+      "unit": "ك"
+    },
+    {
+      "name": "0.04",
+      "unit": "ك"
+    },
+    {
+      "name": "1.2",
+      "unit": "ك"
+    },
+    {
+      "name": "0.08",
+      "unit": "ك"
+    },
+    {
+      "name": "0.1",
+      "unit": "ك"
+    },
+    {
+      "name": "0.05",
+      "unit": "ك"
+    },
+    {
+      "name": "0.2",
+      "unit": "ك"
+    },
+    {
+      "name": "0.55",
+      "unit": "لتر"
+    },
+    {
+      "name": "0.6297920523480133",
+      "unit": "جم"
+    },
+    {
+      "name": "0.4408544364136091",
+      "unit": "جم"
+    },
+    {
+      "name": "0.010076672819168202",
+      "unit": "جم"
+    },
+    {
+      "name": "0.05038336409584103",
+      "unit": "جم"
+    },
+    {
+      "name": "0.006297920224480056",
+      "unit": "جم"
+    },
+    {
+      "name": "0.6212858681892455",
+      "unit": "جم"
+    },
+    {
+      "name": "0.43490010750557817",
+      "unit": "جم"
+    },
+    {
+      "name": "0.00994057387287644",
+      "unit": "جم"
+    },
+    {
+      "name": "0.049702869364382216",
+      "unit": "جم"
+    },
+    {
+      "name": "0.0062128583869307755",
+      "unit": "جم"
+    },
+    {
+      "name": "0.015532001322657548",
+      "unit": "جم"
+    },
+    {
+      "name": "0.012425717908329546",
+      "unit": "جم"
+    },
+    {
+      "name": "22.000000000000004",
+      "unit": "ك"
+    },
+    {
+      "name": "8",
+      "unit": "ك"
+    },
+    {
+      "name": "16",
+      "unit": "ك"
+    },
+    {
+      "name": "0.8",
+      "unit": "ك"
+    },
+    {
+      "name": "5.2",
+      "unit": "ك"
+    },
+    {
+      "name": "0.07556675062972291",
+      "unit": "جم"
+    },
+    {
+      "name": "0.05743073047858942",
+      "unit": "جم"
+    },
+    {
+      "name": "0.0005289672544080605",
+      "unit": "جم"
+    },
+    {
+      "name": "0.0013602015113350122",
+      "unit": "جم"
+    },
+    {
+      "name": "0.18342391304347824",
+      "unit": "ك"
+    },
+    {
+      "name": "0.03668478260869565",
+      "unit": "ك"
+    },
+    {
+      "name": "0.1467391304347826",
+      "unit": "ك"
+    },
+    {
+      "name": "0.06725543478260869",
+      "unit": "ك"
+    },
+    {
+      "name": "0.3057065217391304",
+      "unit": "ك"
+    },
+    {
+      "name": "0.0036684782608695644",
+      "unit": "ك"
+    },
+    {
+      "name": "0.008559782608695651",
+      "unit": "ك"
+    },
+    {
+      "name": "0.0012228260869565216",
+      "unit": "ك"
+    },
+    {
+      "name": "0.00125",
+      "unit": "ك"
+    }
+  ]
+}
