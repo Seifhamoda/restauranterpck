@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-02T17:26:29.369Z",
+  "timestamp": "2026-09-02T17:42:37.795Z",
   "branches": [
     {
       "id": "br-1",
@@ -133,6 +133,26 @@
     }
   ],
   "products": [
+    {
+      "id": "prod-cheese-cake-large-pa",
+      "ar": "Cheese Cake - Large (PA",
+      "en": "Cheese Cake - Large (PA",
+      "unit": "pcs",
+      "cat": "bakery",
+      "cost": 248.34,
+      "color": "#f59e0b",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-cheese-cake-small-pa",
+      "ar": "Cheese Cake - Small (PA)",
+      "en": "Cheese Cake - Small (PA)",
+      "unit": "pcs",
+      "cat": "bakery",
+      "cost": 124.88,
+      "color": "#f59e0b",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
     {
       "id": "prod-100061",
       "ar": "Shamy Bread",
@@ -344,6 +364,26 @@
       "created_at": "2026-08-30T12:54:32.705057+00:00"
     },
     {
+      "id": "prod-buffalo-mix-pa",
+      "ar": "Buffalo Mix (PA)",
+      "en": "Buffalo Mix (PA)",
+      "unit": "kg",
+      "cat": "sauces",
+      "cost": 133.29,
+      "color": "#f97316",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-lemon-chicken-saints-pa",
+      "ar": "Lemon chicken (Saints) (PA)",
+      "en": "Lemon chicken (Saints) (PA)",
+      "unit": "pcs",
+      "cat": "chicken",
+      "cost": 33.37,
+      "color": "#22c55e",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
       "id": "prod-bread-sour-dough-pa",
       "ar": "Bread Sour dough (PA)",
       "en": "Bread Sour dough (PA)",
@@ -371,16 +411,6 @@
       "cat": "bakery",
       "cost": 5.61,
       "color": "#f59e0b",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-buffalo-mix-pa",
-      "ar": "Buffalo Mix (PA)",
-      "en": "Buffalo Mix (PA)",
-      "unit": "kg",
-      "cat": "sauces",
-      "cost": 133.29,
-      "color": "#f97316",
       "created_at": "2026-08-30T12:54:32.705057+00:00"
     },
     {
@@ -421,26 +451,6 @@
       "cat": "chicken",
       "cost": 263.25,
       "color": "#22c55e",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-cheese-cake-large-pa",
-      "ar": "Cheese Cake - Large (PA",
-      "en": "Cheese Cake - Large (PA",
-      "unit": "pcs",
-      "cat": "bakery",
-      "cost": 248.34,
-      "color": "#f59e0b",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-cheese-cake-small-pa",
-      "ar": "Cheese Cake - Small (PA)",
-      "en": "Cheese Cake - Small (PA)",
-      "unit": "pcs",
-      "cat": "bakery",
-      "cost": 124.88,
-      "color": "#f59e0b",
       "created_at": "2026-08-30T12:54:32.705057+00:00"
     },
     {
@@ -504,16 +514,6 @@
       "created_at": "2026-08-30T12:54:32.705057+00:00"
     },
     {
-      "id": "prod-chicken-liquid-sauce-kg-pa",
-      "ar": "Chicken liquid sauce - Kg (PA)",
-      "en": "Chicken liquid sauce - Kg (PA)",
-      "unit": "kg",
-      "cat": "sauces",
-      "cost": 45.04,
-      "color": "#f97316",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
       "id": "prod-chicken-breaded-pa",
       "ar": "Chicken Breaded (PA)",
       "en": "Chicken Breaded (PA)",
@@ -541,6 +541,16 @@
       "cat": "chicken",
       "cost": 27.9,
       "color": "#22c55e",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-chicken-liquid-sauce-kg-pa",
+      "ar": "Chicken liquid sauce - Kg (PA)",
+      "en": "Chicken liquid sauce - Kg (PA)",
+      "unit": "kg",
+      "cat": "sauces",
+      "cost": 45.04,
+      "color": "#f97316",
       "created_at": "2026-08-30T12:54:32.705057+00:00"
     },
     {
@@ -674,16 +684,6 @@
       "created_at": "2026-08-30T12:54:32.705057+00:00"
     },
     {
-      "id": "prod-lemon-chicken-saints-pa",
-      "ar": "Lemon chicken (Saints) (PA)",
-      "en": "Lemon chicken (Saints) (PA)",
-      "unit": "pcs",
-      "cat": "chicken",
-      "cost": 33.37,
-      "color": "#22c55e",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
       "id": "prod-lemon-chicken-pa",
       "ar": "Lemon chicken (PA)",
       "en": "Lemon chicken (PA)",
@@ -714,6 +714,36 @@
       "created_at": "2026-08-30T12:54:32.705057+00:00"
     },
     {
+      "id": "prod-sweet-chili-mayo-sauce-pa",
+      "ar": "Sweet Chili Mayo Sauce (PA)",
+      "en": "Sweet Chili Mayo Sauce (PA)",
+      "unit": "kg",
+      "cat": "sauces",
+      "cost": 127.54,
+      "color": "#f97316",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-sweet-relish-pa",
+      "ar": "Sweet Relish (PA)",
+      "en": "Sweet Relish (PA)",
+      "unit": "kg",
+      "cat": "prep",
+      "cost": 83.37,
+      "color": "#06b6d4",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-taztaziki-sauce-pa",
+      "ar": "Taztaziki Sauce (PA)",
+      "en": "Taztaziki Sauce (PA)",
+      "unit": "kg",
+      "cat": "sauces",
+      "cost": 234.87,
+      "color": "#f97316",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
       "id": "prod-1",
       "ar": "Sauce Brgr",
       "en": "Sauce Brgr",
@@ -722,6 +752,126 @@
       "cost": 50,
       "color": "#f97316",
       "created_at": "2026-09-02T16:55:20.397575+00:00"
+    },
+    {
+      "id": "prod-citrus-dressing-pa",
+      "ar": "Citrus dressing (PA)",
+      "en": "Citrus dressing (PA)",
+      "unit": "kg",
+      "cat": "sauces",
+      "cost": 281.48,
+      "color": "#f97316",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-classic-frosting-pa",
+      "ar": "Classic Frosting (PA)",
+      "en": "Classic Frosting (PA)",
+      "unit": "kg",
+      "cat": "sauces",
+      "cost": 505.84,
+      "color": "#f97316",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-coconut-cinnamon-sauce-pa",
+      "ar": "Coconut Cinnamon Sauce (PA)",
+      "en": "Coconut Cinnamon Sauce (PA)",
+      "unit": "kg",
+      "cat": "sauces",
+      "cost": 190.47,
+      "color": "#f97316",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-coleslow-dressing-pa",
+      "ar": "Coleslow Dressing (PA)",
+      "en": "Coleslow Dressing (PA)",
+      "unit": "kg",
+      "cat": "sauces",
+      "cost": 45.85,
+      "color": "#f97316",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-coleslow-salad-pa",
+      "ar": "Coleslow Salad (PA)",
+      "en": "Coleslow Salad (PA)",
+      "unit": "kg",
+      "cat": "veggies",
+      "cost": 31.19,
+      "color": "#06b6d4",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-cookies-can-pa",
+      "ar": "Cookies Can (PA)",
+      "en": "Cookies Can (PA)",
+      "unit": "Order 8 pieces",
+      "cat": "bakery",
+      "cost": 419.59,
+      "color": "#f59e0b",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-cookies-can-mini-pa",
+      "ar": "Cookies Can Mini (PA)",
+      "en": "Cookies Can Mini (PA)",
+      "unit": "Order 8 pieces",
+      "cat": "bakery",
+      "cost": 27.92,
+      "color": "#f59e0b",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-cream-almond-pa",
+      "ar": "Cream Almond (PA)",
+      "en": "Cream Almond (PA)",
+      "unit": "kg",
+      "cat": "prep",
+      "cost": 372.2,
+      "color": "#06b6d4",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-cream-mix-pa",
+      "ar": "Cream Mix (PA)",
+      "en": "Cream Mix (PA)",
+      "unit": "kg",
+      "cat": "sauces",
+      "cost": 0,
+      "color": "#f97316",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-cream-pistachio-pa",
+      "ar": "Cream Pistachio (PA)",
+      "en": "Cream Pistachio (PA)",
+      "unit": "kg",
+      "cat": "prep",
+      "cost": 774.52,
+      "color": "#06b6d4",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-creamy-mushroom-soup-pa",
+      "ar": "Creamy Mushroom Soup (PA)",
+      "en": "Creamy Mushroom Soup (PA)",
+      "unit": "kg",
+      "cat": "veggies",
+      "cost": 80.02,
+      "color": "#06b6d4",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-salted-hazelnut-sauce-pa",
+      "ar": "Salted hazelnut Sauce (PA)",
+      "en": "Salted hazelnut Sauce (PA)",
+      "unit": "kg",
+      "cat": "sauces",
+      "cost": 423.33,
+      "color": "#f97316",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
     },
     {
       "id": "prod-100001",
@@ -854,16 +1004,6 @@
       "created_at": "2026-08-30T12:54:32.705057+00:00"
     },
     {
-      "id": "prod-salted-hazelnut-sauce-pa",
-      "ar": "Salted hazelnut Sauce (PA)",
-      "en": "Salted hazelnut Sauce (PA)",
-      "unit": "kg",
-      "cat": "sauces",
-      "cost": 423.33,
-      "color": "#f97316",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
       "id": "prod-chives-cream-cheese-pa",
       "ar": "Chives Cream Cheese (PA)",
       "en": "Chives Cream Cheese (PA)",
@@ -881,116 +1021,6 @@
       "cat": "bakery",
       "cost": 5.21,
       "color": "#f59e0b",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-citrus-dressing-pa",
-      "ar": "Citrus dressing (PA)",
-      "en": "Citrus dressing (PA)",
-      "unit": "kg",
-      "cat": "sauces",
-      "cost": 281.48,
-      "color": "#f97316",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-classic-frosting-pa",
-      "ar": "Classic Frosting (PA)",
-      "en": "Classic Frosting (PA)",
-      "unit": "kg",
-      "cat": "sauces",
-      "cost": 505.84,
-      "color": "#f97316",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-coconut-cinnamon-sauce-pa",
-      "ar": "Coconut Cinnamon Sauce (PA)",
-      "en": "Coconut Cinnamon Sauce (PA)",
-      "unit": "kg",
-      "cat": "sauces",
-      "cost": 190.47,
-      "color": "#f97316",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-coleslow-dressing-pa",
-      "ar": "Coleslow Dressing (PA)",
-      "en": "Coleslow Dressing (PA)",
-      "unit": "kg",
-      "cat": "sauces",
-      "cost": 45.85,
-      "color": "#f97316",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-coleslow-salad-pa",
-      "ar": "Coleslow Salad (PA)",
-      "en": "Coleslow Salad (PA)",
-      "unit": "kg",
-      "cat": "veggies",
-      "cost": 31.19,
-      "color": "#06b6d4",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-cookies-can-pa",
-      "ar": "Cookies Can (PA)",
-      "en": "Cookies Can (PA)",
-      "unit": "Order 8 pieces",
-      "cat": "bakery",
-      "cost": 419.59,
-      "color": "#f59e0b",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-cookies-can-mini-pa",
-      "ar": "Cookies Can Mini (PA)",
-      "en": "Cookies Can Mini (PA)",
-      "unit": "Order 8 pieces",
-      "cat": "bakery",
-      "cost": 27.92,
-      "color": "#f59e0b",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-cream-almond-pa",
-      "ar": "Cream Almond (PA)",
-      "en": "Cream Almond (PA)",
-      "unit": "kg",
-      "cat": "prep",
-      "cost": 372.2,
-      "color": "#06b6d4",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-cream-mix-pa",
-      "ar": "Cream Mix (PA)",
-      "en": "Cream Mix (PA)",
-      "unit": "kg",
-      "cat": "sauces",
-      "cost": 0,
-      "color": "#f97316",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-cream-pistachio-pa",
-      "ar": "Cream Pistachio (PA)",
-      "en": "Cream Pistachio (PA)",
-      "unit": "kg",
-      "cat": "prep",
-      "cost": 774.52,
-      "color": "#06b6d4",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-creamy-mushroom-soup-pa",
-      "ar": "Creamy Mushroom Soup (PA)",
-      "en": "Creamy Mushroom Soup (PA)",
-      "unit": "kg",
-      "cat": "veggies",
-      "cost": 80.02,
-      "color": "#06b6d4",
       "created_at": "2026-08-30T12:54:32.705057+00:00"
     },
     {
@@ -1024,69 +1054,9 @@
       "created_at": "2026-08-30T12:54:32.705057+00:00"
     },
     {
-      "id": "prod-croissant-nutella-pa",
-      "ar": "Croissant Nutella (PA)",
-      "en": "Croissant Nutella (PA)",
-      "unit": "pcs",
-      "cat": "bakery",
-      "cost": 53.38,
-      "color": "#f59e0b",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-croissant-pistachio-pa",
-      "ar": "Croissant Pistachio (PA)",
-      "en": "Croissant Pistachio (PA)",
-      "unit": "pcs",
-      "cat": "bakery",
-      "cost": 92.12,
-      "color": "#f59e0b",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-110226",
-      "ar": "Gelato Pistachio",
-      "en": "Gelato Pistachio",
-      "unit": "kg",
-      "cat": "prep",
-      "cost": 50,
-      "color": "#ec4899",
-      "created_at": "2026-09-02T16:55:20.823198+00:00"
-    },
-    {
-      "id": "prod-110208",
-      "ar": "Gelato Salted Caramel & Almond Brittle",
-      "en": "Gelato Salted Caramel & Almond Brittle",
-      "unit": "kg",
-      "cat": "prep",
-      "cost": 50,
-      "color": "#ec4899",
-      "created_at": "2026-09-02T16:55:20.823198+00:00"
-    },
-    {
-      "id": "prod-110206",
-      "ar": "Gelato Tiramisu",
-      "en": "Gelato Tiramisu",
-      "unit": "kg",
-      "cat": "prep",
-      "cost": 50,
-      "color": "#ec4899",
-      "created_at": "2026-09-02T16:55:20.823198+00:00"
-    },
-    {
       "id": "prod-110223",
       "ar": "Gelato Vanilla",
       "en": "Gelato Vanilla",
-      "unit": "kg",
-      "cat": "prep",
-      "cost": 50,
-      "color": "#ec4899",
-      "created_at": "2026-09-02T16:55:20.823198+00:00"
-    },
-    {
-      "id": "prod-110225",
-      "ar": "Gelato Yogurt Pavlova",
-      "en": "Gelato Yogurt Pavlova",
       "unit": "kg",
       "cat": "prep",
       "cost": 50,
@@ -1161,6 +1131,26 @@
       "cat": "prep",
       "cost": 17.23,
       "color": "#06b6d4",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-croissant-nutella-pa",
+      "ar": "Croissant Nutella (PA)",
+      "en": "Croissant Nutella (PA)",
+      "unit": "pcs",
+      "cat": "bakery",
+      "cost": 53.38,
+      "color": "#f59e0b",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-croissant-pistachio-pa",
+      "ar": "Croissant Pistachio (PA)",
+      "en": "Croissant Pistachio (PA)",
+      "unit": "pcs",
+      "cat": "bakery",
+      "cost": 92.12,
+      "color": "#f59e0b",
       "created_at": "2026-08-30T12:54:32.705057+00:00"
     },
     {
@@ -1404,6 +1394,46 @@
       "created_at": "2026-09-02T16:55:20.823198+00:00"
     },
     {
+      "id": "prod-110226",
+      "ar": "Gelato Pistachio",
+      "en": "Gelato Pistachio",
+      "unit": "kg",
+      "cat": "prep",
+      "cost": 50,
+      "color": "#ec4899",
+      "created_at": "2026-09-02T16:55:20.823198+00:00"
+    },
+    {
+      "id": "prod-110208",
+      "ar": "Gelato Salted Caramel & Almond Brittle",
+      "en": "Gelato Salted Caramel & Almond Brittle",
+      "unit": "kg",
+      "cat": "prep",
+      "cost": 50,
+      "color": "#ec4899",
+      "created_at": "2026-09-02T16:55:20.823198+00:00"
+    },
+    {
+      "id": "prod-110206",
+      "ar": "Gelato Tiramisu",
+      "en": "Gelato Tiramisu",
+      "unit": "kg",
+      "cat": "prep",
+      "cost": 50,
+      "color": "#ec4899",
+      "created_at": "2026-09-02T16:55:20.823198+00:00"
+    },
+    {
+      "id": "prod-110225",
+      "ar": "Gelato Yogurt Pavlova",
+      "en": "Gelato Yogurt Pavlova",
+      "unit": "kg",
+      "cat": "prep",
+      "cost": 50,
+      "color": "#ec4899",
+      "created_at": "2026-09-02T16:55:20.823198+00:00"
+    },
+    {
       "id": "prod-lemon-juice-adalia-pa",
       "ar": "Lemon juice (Adalia) (PA)",
       "en": "Lemon juice (Adalia) (PA)",
@@ -1451,6 +1481,146 @@
       "cat": "drinks",
       "cost": 255,
       "color": "#06b6d4",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-pan-swiss-croissant-pa",
+      "ar": "Pan Swiss Croissant (PA)",
+      "en": "Pan Swiss Croissant (PA)",
+      "unit": "pcs",
+      "cat": "bakery",
+      "cost": 47.1,
+      "color": "#f59e0b",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-pancake-dough-pa",
+      "ar": "Pancake Dough (PA)",
+      "en": "Pancake Dough (PA)",
+      "unit": "kg",
+      "cat": "bakery",
+      "cost": 55.93,
+      "color": "#f59e0b",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-pancake-paste-kg-pa",
+      "ar": "Pancake Paste - Kg (PA)",
+      "en": "Pancake Paste - Kg (PA)",
+      "unit": "kg",
+      "cat": "sauces",
+      "cost": 53.86,
+      "color": "#f97316",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-pastry-cream-chocolate-pa",
+      "ar": "Pastry Cream Chocolate (PA)",
+      "en": "Pastry Cream Chocolate (PA)",
+      "unit": "kg",
+      "cat": "drinks",
+      "cost": 452.62,
+      "color": "#06b6d4",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-pastry-cream-nutella-pa",
+      "ar": "Pastry Cream Nutella (PA)",
+      "en": "Pastry Cream Nutella (PA)",
+      "unit": "kg",
+      "cat": "prep",
+      "cost": 115.41,
+      "color": "#06b6d4",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-pesto-mayo-sauce-pa",
+      "ar": "Pesto Mayo Sauce (PA)",
+      "en": "Pesto Mayo Sauce (PA)",
+      "unit": "kg",
+      "cat": "sauces",
+      "cost": 492.9,
+      "color": "#f97316",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-pesto-sauce-pa",
+      "ar": "Pesto Sauce (PA)",
+      "en": "Pesto Sauce (PA)",
+      "unit": "kg",
+      "cat": "sauces",
+      "cost": 848.52,
+      "color": "#f97316",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-pickled-onion-pa",
+      "ar": "Pickled Onion (PA)",
+      "en": "Pickled Onion (PA)",
+      "unit": "kg",
+      "cat": "veggies",
+      "cost": 62.32,
+      "color": "#06b6d4",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-pistachio-croissant-pa",
+      "ar": "Pistachio Croissant (PA)",
+      "en": "Pistachio Croissant (PA)",
+      "unit": "pcs",
+      "cat": "bakery",
+      "cost": 90.65,
+      "color": "#f59e0b",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-pistachio-pesto-pa",
+      "ar": "PISTACHIO PESTO (PA)",
+      "en": "PISTACHIO PESTO (PA)",
+      "unit": "kg",
+      "cat": "prep",
+      "cost": 771.79,
+      "color": "#06b6d4",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-pistachio-sugar-pa",
+      "ar": "Pistachio Sugar (PA)",
+      "en": "Pistachio Sugar (PA)",
+      "unit": "kg",
+      "cat": "prep",
+      "cost": 0,
+      "color": "#06b6d4",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-pizza-dough-pa",
+      "ar": "Pizza Dough (PA)",
+      "en": "Pizza Dough (PA)",
+      "unit": "pcs",
+      "cat": "bakery",
+      "cost": 18.9,
+      "color": "#f59e0b",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-pumpkin-pie-spice-pa",
+      "ar": "Pumpkin Pie Spice (PA)",
+      "en": "Pumpkin Pie Spice (PA)",
+      "unit": "kg",
+      "cat": "bakery",
+      "cost": 252.52,
+      "color": "#f59e0b",
+      "created_at": "2026-08-30T12:54:32.705057+00:00"
+    },
+    {
+      "id": "prod-pumpkin-sauce-pa",
+      "ar": "Pumpkin Sauce (PA)",
+      "en": "Pumpkin Sauce (PA)",
+      "unit": "kg",
+      "cat": "sauces",
+      "cost": 0.59,
+      "color": "#f97316",
       "created_at": "2026-08-30T12:54:32.705057+00:00"
     },
     {
@@ -1644,34 +1814,14 @@
       "created_at": "2026-08-30T12:54:32.705057+00:00"
     },
     {
-      "id": "prod-sweet-chili-mayo-sauce-pa",
-      "ar": "Sweet Chili Mayo Sauce (PA)",
-      "en": "Sweet Chili Mayo Sauce (PA)",
-      "unit": "kg",
-      "cat": "sauces",
-      "cost": 127.54,
-      "color": "#f97316",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-sweet-relish-pa",
-      "ar": "Sweet Relish (PA)",
-      "en": "Sweet Relish (PA)",
+      "id": "prod-6",
+      "ar": "of",
+      "en": "of",
       "unit": "kg",
       "cat": "prep",
-      "cost": 83.37,
-      "color": "#06b6d4",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-taztaziki-sauce-pa",
-      "ar": "Taztaziki Sauce (PA)",
-      "en": "Taztaziki Sauce (PA)",
-      "unit": "kg",
-      "cat": "sauces",
-      "cost": 234.87,
-      "color": "#f97316",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
+      "cost": 50,
+      "color": "#ec4899",
+      "created_at": "2026-09-02T16:55:21.189637+00:00"
     },
     {
       "id": "prod-marination-mushroom-roasted-pa",
@@ -1824,146 +1974,6 @@
       "created_at": "2026-08-30T12:54:32.705057+00:00"
     },
     {
-      "id": "prod-pan-swiss-croissant-pa",
-      "ar": "Pan Swiss Croissant (PA)",
-      "en": "Pan Swiss Croissant (PA)",
-      "unit": "pcs",
-      "cat": "bakery",
-      "cost": 47.1,
-      "color": "#f59e0b",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-pancake-dough-pa",
-      "ar": "Pancake Dough (PA)",
-      "en": "Pancake Dough (PA)",
-      "unit": "kg",
-      "cat": "bakery",
-      "cost": 55.93,
-      "color": "#f59e0b",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-pancake-paste-kg-pa",
-      "ar": "Pancake Paste - Kg (PA)",
-      "en": "Pancake Paste - Kg (PA)",
-      "unit": "kg",
-      "cat": "sauces",
-      "cost": 53.86,
-      "color": "#f97316",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-pastry-cream-chocolate-pa",
-      "ar": "Pastry Cream Chocolate (PA)",
-      "en": "Pastry Cream Chocolate (PA)",
-      "unit": "kg",
-      "cat": "drinks",
-      "cost": 452.62,
-      "color": "#06b6d4",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-pastry-cream-nutella-pa",
-      "ar": "Pastry Cream Nutella (PA)",
-      "en": "Pastry Cream Nutella (PA)",
-      "unit": "kg",
-      "cat": "prep",
-      "cost": 115.41,
-      "color": "#06b6d4",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-pesto-mayo-sauce-pa",
-      "ar": "Pesto Mayo Sauce (PA)",
-      "en": "Pesto Mayo Sauce (PA)",
-      "unit": "kg",
-      "cat": "sauces",
-      "cost": 492.9,
-      "color": "#f97316",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-pesto-sauce-pa",
-      "ar": "Pesto Sauce (PA)",
-      "en": "Pesto Sauce (PA)",
-      "unit": "kg",
-      "cat": "sauces",
-      "cost": 848.52,
-      "color": "#f97316",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-pickled-onion-pa",
-      "ar": "Pickled Onion (PA)",
-      "en": "Pickled Onion (PA)",
-      "unit": "kg",
-      "cat": "veggies",
-      "cost": 62.32,
-      "color": "#06b6d4",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-pistachio-croissant-pa",
-      "ar": "Pistachio Croissant (PA)",
-      "en": "Pistachio Croissant (PA)",
-      "unit": "pcs",
-      "cat": "bakery",
-      "cost": 90.65,
-      "color": "#f59e0b",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-pistachio-pesto-pa",
-      "ar": "PISTACHIO PESTO (PA)",
-      "en": "PISTACHIO PESTO (PA)",
-      "unit": "kg",
-      "cat": "prep",
-      "cost": 771.79,
-      "color": "#06b6d4",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-pistachio-sugar-pa",
-      "ar": "Pistachio Sugar (PA)",
-      "en": "Pistachio Sugar (PA)",
-      "unit": "kg",
-      "cat": "prep",
-      "cost": 0,
-      "color": "#06b6d4",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-pizza-dough-pa",
-      "ar": "Pizza Dough (PA)",
-      "en": "Pizza Dough (PA)",
-      "unit": "pcs",
-      "cat": "bakery",
-      "cost": 18.9,
-      "color": "#f59e0b",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-pumpkin-pie-spice-pa",
-      "ar": "Pumpkin Pie Spice (PA)",
-      "en": "Pumpkin Pie Spice (PA)",
-      "unit": "kg",
-      "cat": "bakery",
-      "cost": 252.52,
-      "color": "#f59e0b",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-pumpkin-sauce-pa",
-      "ar": "Pumpkin Sauce (PA)",
-      "en": "Pumpkin Sauce (PA)",
-      "unit": "kg",
-      "cat": "sauces",
-      "cost": 0.59,
-      "color": "#f97316",
-      "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
       "id": "prod-thyme-balsamic-vinaigrette-pa",
       "ar": "Thyme Balsamic Vinaigrette (PA)",
       "en": "Thyme Balsamic Vinaigrette (PA)",
@@ -2112,19 +2122,42 @@
       "cost": 222.15,
       "color": "#f97316",
       "created_at": "2026-08-30T12:54:32.705057+00:00"
-    },
-    {
-      "id": "prod-6",
-      "ar": "of",
-      "en": "of",
-      "unit": "kg",
-      "cat": "prep",
-      "cost": 50,
-      "color": "#ec4899",
-      "created_at": "2026-09-02T16:55:21.189637+00:00"
     }
   ],
   "raw_materials": [
+    {
+      "id": "raw-500031",
+      "ar": "Box Take- Away Medium",
+      "en": "Box Take- Away Medium",
+      "uom": "pcs",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Packing Items",
+      "created_at": "2026-09-02T16:55:22.794957+00:00"
+    },
+    {
+      "id": "raw-500030",
+      "ar": "Box Take-Away Large",
+      "en": "Box Take-Away Large",
+      "uom": "pcs",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Packing Items",
+      "created_at": "2026-09-02T16:55:22.794957+00:00"
+    },
+    {
+      "id": "raw-600154",
+      "ar": "Suma Force D3",
+      "en": "Suma Force D3",
+      "uom": "ltr",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Cleaning Supplies",
+      "created_at": "2026-09-02T17:42:25.284597+00:00"
+    },
     {
       "id": "raw-500418",
       "ar": "Bowl 3 ice cream (260) saints",
@@ -2280,28 +2313,6 @@
       "created_at": "2026-09-02T16:55:22.794957+00:00"
     },
     {
-      "id": "raw-500031",
-      "ar": "Box Take- Away Medium",
-      "en": "Box Take- Away Medium",
-      "uom": "pcs",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Packing Items",
-      "created_at": "2026-09-02T16:55:22.794957+00:00"
-    },
-    {
-      "id": "raw-500030",
-      "ar": "Box Take-Away Large",
-      "en": "Box Take-Away Large",
-      "uom": "pcs",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Packing Items",
-      "created_at": "2026-09-02T16:55:22.794957+00:00"
-    },
-    {
       "id": "raw-500264",
       "ar": "butter papper Split",
       "en": "butter papper Split",
@@ -2445,6 +2456,204 @@
       "created_at": "2026-09-02T16:55:22.794957+00:00"
     },
     {
+      "id": "raw-104423",
+      "ar": "Yolk Egg frozen",
+      "en": "Yolk Egg frozen",
+      "uom": "g",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Grocery",
+      "created_at": "2026-09-02T17:42:25.453115+00:00"
+    },
+    {
+      "id": "raw-102281",
+      "ar": "Crushed pistachio",
+      "en": "Crushed pistachio",
+      "uom": "g",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
+      "id": "raw-102159",
+      "ar": "Dry Mint",
+      "en": "Dry Mint",
+      "uom": "pcs",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
+      "id": "raw-102220",
+      "ar": "Dry yeast forno",
+      "en": "Dry yeast forno",
+      "uom": "g",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
+      "id": "raw-102031",
+      "ar": "Flour 50 Kg",
+      "en": "Flour 50 Kg",
+      "uom": "kg",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
+      "id": "raw-102218",
+      "ar": "Flour Dallagiovanna 00",
+      "en": "Flour Dallagiovanna 00",
+      "uom": "g",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
+      "id": "raw-102250",
+      "ar": "Flour T-150",
+      "en": "Flour T-150",
+      "uom": "g",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
+      "id": "raw-102285",
+      "ar": "Flour T55",
+      "en": "Flour T55",
+      "uom": "g",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
+      "id": "raw-102251",
+      "ar": "Flour T-65",
+      "en": "Flour T-65",
+      "uom": "g",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
+      "id": "raw-102018",
+      "ar": "Flour White  Box 10 bag 1 Kg",
+      "en": "Flour White  Box 10 bag 1 Kg",
+      "uom": "kg",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
+      "id": "raw-102185",
+      "ar": "Ginger Powder",
+      "en": "Ginger Powder",
+      "uom": "g",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
+      "id": "raw-102229",
+      "ar": "Gouda Cheese",
+      "en": "Gouda Cheese",
+      "uom": "g",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
+      "id": "raw-102154",
+      "ar": "Hibiscus Dry",
+      "en": "Hibiscus Dry",
+      "uom": "g",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
+      "id": "raw-102068",
+      "ar": "Ice Cream Powder.",
+      "en": "Ice Cream Powder.",
+      "uom": "kg",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
+      "id": "raw-102298",
+      "ar": "Knorr Chicken Stock Cubes",
+      "en": "Knorr Chicken Stock Cubes",
+      "uom": "pcs",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
+      "id": "raw-102296",
+      "ar": "Knorr Chicken Stock powder",
+      "en": "Knorr Chicken Stock powder",
+      "uom": "g",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
+      "id": "raw-102178",
+      "ar": "Knorr Demiglace Suces",
+      "en": "Knorr Demiglace Suces",
+      "uom": "g",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
+      "id": "raw-102279",
+      "ar": "Matcha MIYAH",
+      "en": "Matcha MIYAH",
+      "uom": "g",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
       "id": "raw-500505",
       "ar": "اكياس حلواني لارج",
       "en": "اكياس حلواني لارج",
@@ -2492,7 +2701,7 @@
       "id": "raw-200017",
       "ar": "Syrup Monin vanilla Box 6 btl 1 lit",
       "en": "Syrup Monin vanilla Box 6 btl 1 lit",
-      "uom": "kg",
+      "uom": "ltr",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -2514,7 +2723,7 @@
       "id": "raw-200012",
       "ar": "Water Gallon 19 lit",
       "en": "Water Gallon 19 lit",
-      "uom": "ltr",
+      "uom": "pcs",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -2611,8 +2820,8 @@
     },
     {
       "id": "raw-600011",
-      "ar": "F.R.S",
-      "en": "F.R.S",
+      "ar": "Item No.",
+      "en": "Item No.",
       "uom": "ltr",
       "price": 35,
       "stock": 100,
@@ -2789,7 +2998,7 @@
       "id": "raw-600006",
       "ar": "Hairnet White",
       "en": "Hairnet White",
-      "uom": "pcs",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -3026,6 +3235,17 @@
       "safety": 20,
       "sup": "Dairy",
       "created_at": "2026-09-02T16:55:21.541428+00:00"
+    },
+    {
+      "id": "raw-102050",
+      "ar": "Nutes Almond Rosted",
+      "en": "Nutes Almond Rosted",
+      "uom": "g",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dry",
+      "created_at": "2026-09-02T16:55:21.907433+00:00"
     },
     {
       "id": "raw-101031",
@@ -3336,202 +3556,26 @@
       "created_at": "2026-09-02T16:55:21.723175+00:00"
     },
     {
-      "id": "raw-102281",
-      "ar": "Crushed pistachio",
-      "en": "Crushed pistachio",
-      "uom": "g",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102159",
-      "ar": "Dry Mint",
-      "en": "Dry Mint",
-      "uom": "pcs",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102220",
-      "ar": "Dry yeast forno",
-      "en": "Dry yeast forno",
-      "uom": "g",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102031",
-      "ar": "Flour 50 Kg",
-      "en": "Flour 50 Kg",
+      "id": "raw-3",
+      "ar": "of",
+      "en": "of",
       "uom": "kg",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102218",
-      "ar": "Flour Dallagiovanna 00",
-      "en": "Flour Dallagiovanna 00",
-      "uom": "g",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102250",
-      "ar": "Flour T-150",
-      "en": "Flour T-150",
-      "uom": "g",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102285",
-      "ar": "Flour T55",
-      "en": "Flour T55",
-      "uom": "g",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102251",
-      "ar": "Flour T-65",
-      "en": "Flour T-65",
-      "uom": "g",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102018",
-      "ar": "Flour White  Box 10 bag 1 Kg",
-      "en": "Flour White  Box 10 bag 1 Kg",
-      "uom": "kg",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102185",
-      "ar": "Ginger Powder",
-      "en": "Ginger Powder",
-      "uom": "g",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102229",
-      "ar": "Gouda Cheese",
-      "en": "Gouda Cheese",
-      "uom": "g",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102154",
-      "ar": "Hibiscus Dry",
-      "en": "Hibiscus Dry",
-      "uom": "g",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102068",
-      "ar": "Ice Cream Powder.",
-      "en": "Ice Cream Powder.",
-      "uom": "kg",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102298",
-      "ar": "Knorr Chicken Stock Cubes",
-      "en": "Knorr Chicken Stock Cubes",
-      "uom": "pcs",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102296",
-      "ar": "Knorr Chicken Stock powder",
-      "en": "Knorr Chicken Stock powder",
-      "uom": "g",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102178",
-      "ar": "Knorr Demiglace Suces",
-      "en": "Knorr Demiglace Suces",
-      "uom": "g",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102279",
-      "ar": "Matcha MIYAH",
-      "en": "Matcha MIYAH",
-      "uom": "g",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
-      "id": "raw-102050",
-      "ar": "Nutes Almond Rosted",
-      "en": "Nutes Almond Rosted",
-      "uom": "g",
       "price": 35,
       "stock": 100,
       "safety": 20,
       "sup": "Dry",
       "created_at": "2026-09-02T16:55:21.907433+00:00"
+    },
+    {
+      "id": "raw-108165",
+      "ar": "Bionda lettuce",
+      "en": "Bionda lettuce",
+      "uom": "g",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Fruits & Veg",
+      "created_at": "2026-09-02T16:55:22.081499+00:00"
     },
     {
       "id": "raw-102033",
@@ -3548,7 +3592,7 @@
       "id": "raw-102175",
       "ar": "Spices Pepper Black Whole",
       "en": "Spices Pepper Black Whole",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -3581,7 +3625,7 @@
       "id": "raw-102039",
       "ar": "Spices Salt Cox",
       "en": "Spices Salt Cox",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -3603,7 +3647,7 @@
       "id": "raw-102246",
       "ar": "Spices Salt Lemon",
       "en": "Spices Salt Lemon",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -3776,17 +3820,6 @@
       "created_at": "2026-09-02T16:55:21.907433+00:00"
     },
     {
-      "id": "raw-3",
-      "ar": "of",
-      "en": "of",
-      "uom": "kg",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dry",
-      "created_at": "2026-09-02T16:55:21.907433+00:00"
-    },
-    {
       "id": "raw-108051",
       "ar": "Arugula",
       "en": "Arugula",
@@ -3853,21 +3886,10 @@
       "created_at": "2026-09-02T16:55:22.081499+00:00"
     },
     {
-      "id": "raw-108165",
-      "ar": "Bionda lettuce",
-      "en": "Bionda lettuce",
-      "uom": "g",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Fruits & Veg",
-      "created_at": "2026-09-02T16:55:22.081499+00:00"
-    },
-    {
       "id": "raw-108134",
       "ar": "Blue berry Fresh",
       "en": "Blue berry Fresh",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -3972,6 +3994,17 @@
       "safety": 20,
       "sup": "Fruits & Veg",
       "created_at": "2026-09-02T16:55:22.081499+00:00"
+    },
+    {
+      "id": "raw-4",
+      "ar": "of",
+      "en": "of",
+      "uom": "kg",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Fruits & Veg",
+      "created_at": "2026-09-02T16:55:22.263674+00:00"
     },
     {
       "id": "raw-108183",
@@ -4095,17 +4128,6 @@
       "created_at": "2026-09-02T16:55:22.263674+00:00"
     },
     {
-      "id": "raw-4",
-      "ar": "of",
-      "en": "of",
-      "uom": "kg",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Fruits & Veg",
-      "created_at": "2026-09-02T16:55:22.263674+00:00"
-    },
-    {
       "id": "raw-104282",
       "ar": "Ajwa Medjool",
       "en": "Ajwa Medjool",
@@ -4153,7 +4175,7 @@
       "id": "raw-104410",
       "ar": "Apricot Jam",
       "en": "Apricot Jam",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -4208,7 +4230,7 @@
       "id": "raw-104148",
       "ar": "Black Berry Jam",
       "en": "Black Berry Jam",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -4241,7 +4263,7 @@
       "id": "raw-104273",
       "ar": "Boosh Clover Honey",
       "en": "Boosh Clover Honey",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -4384,7 +4406,7 @@
       "id": "raw-104007",
       "ar": "Honey White",
       "en": "Honey White",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -4714,7 +4736,7 @@
       "id": "raw-104056",
       "ar": "Sauce Texas",
       "en": "Sauce Texas",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -4923,7 +4945,7 @@
       "id": "raw-200078",
       "ar": "Pistachio sauce",
       "en": "Pistachio sauce",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -4934,7 +4956,7 @@
       "id": "raw-200142",
       "ar": "Red food color",
       "en": "Red food color",
-      "uom": "ltr",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -4945,17 +4967,6 @@
       "id": "raw-200096",
       "ar": "Red Grape Juice Juihaina",
       "en": "Red Grape Juice Juihaina",
-      "uom": "kg",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Beverage",
-      "created_at": "2026-09-02T16:55:21.363222+00:00"
-    },
-    {
-      "id": "raw-200174",
-      "ar": "Salted hazelnut (PA)",
-      "en": "Salted hazelnut (PA)",
       "uom": "g",
       "price": 35,
       "stock": 100,
@@ -4967,7 +4978,7 @@
       "id": "raw-200013",
       "ar": "Soda Cans Cola 24 Can",
       "en": "Soda Cans Cola 24 Can",
-      "uom": "Can 330 Ml",
+      "uom": "Pkt 1 L",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -4989,7 +5000,7 @@
       "id": "raw-200095",
       "ar": "Syrup coconut Brix",
       "en": "Syrup coconut Brix",
-      "uom": "Pkt 1 L",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -5012,6 +5023,17 @@
       "ar": "Syrup Monin Mango puree Box 4 botl * 1 lit",
       "en": "Syrup Monin Mango puree Box 4 botl * 1 lit",
       "uom": "kg",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Beverage",
+      "created_at": "2026-09-02T16:55:21.363222+00:00"
+    },
+    {
+      "id": "raw-200174",
+      "ar": "Salted hazelnut (PA)",
+      "en": "Salted hazelnut (PA)",
+      "uom": "g",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -5284,8 +5306,8 @@
     },
     {
       "id": "raw-101142",
-      "ar": "Chia seeds",
-      "en": "Chia seeds",
+      "ar": "Item No.",
+      "en": "Item No.",
       "uom": "g",
       "price": 35,
       "stock": 100,
@@ -5393,17 +5415,6 @@
       "created_at": "2026-09-02T16:55:21.723175+00:00"
     },
     {
-      "id": "raw-2",
-      "ar": "of",
-      "en": "of",
-      "uom": "kg",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Dairy",
-      "created_at": "2026-09-02T16:55:21.723175+00:00"
-    },
-    {
       "id": "raw-102201",
       "ar": "Nutes Pecan",
       "en": "Nutes Pecan",
@@ -5427,8 +5438,8 @@
     },
     {
       "id": "raw-102047",
-      "ar": "Nutes Walnut Peeled",
-      "en": "Nutes Walnut Peeled",
+      "ar": "Item No.",
+      "en": "Item No.",
       "uom": "g",
       "price": 35,
       "stock": 100,
@@ -5561,7 +5572,7 @@
       "id": "raw-102017",
       "ar": "Spices Cayani Box 16",
       "en": "Spices Cayani Box 16",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -5624,6 +5635,17 @@
       "created_at": "2026-09-02T16:55:21.907433+00:00"
     },
     {
+      "id": "raw-2",
+      "ar": "of",
+      "en": "of",
+      "uom": "kg",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Dairy",
+      "created_at": "2026-09-02T16:55:21.723175+00:00"
+    },
+    {
       "id": "raw-102085",
       "ar": "Spices Salt",
       "en": "Spices Salt",
@@ -5660,7 +5682,7 @@
       "id": "raw-108109",
       "ar": "Fresh Baby Rocca",
       "en": "Fresh Baby Rocca",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -5921,6 +5943,17 @@
       "created_at": "2026-09-02T16:55:22.081499+00:00"
     },
     {
+      "id": "raw-108040",
+      "ar": "Raspberry Dry",
+      "en": "Raspberry Dry",
+      "uom": "g",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Fruits & Veg",
+      "created_at": "2026-09-02T16:55:22.081499+00:00"
+    },
+    {
       "id": "raw-108172",
       "ar": "Pineapple",
       "en": "Pineapple",
@@ -5979,18 +6012,7 @@
       "id": "raw-108039",
       "ar": "Raspberry",
       "en": "Raspberry",
-      "uom": "g",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Fruits & Veg",
-      "created_at": "2026-09-02T16:55:22.081499+00:00"
-    },
-    {
-      "id": "raw-108040",
-      "ar": "Raspberry Dry",
-      "en": "Raspberry Dry",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -6243,7 +6265,7 @@
       "id": "raw-104242",
       "ar": "CUCUMBER PICKLED (CHIPS)",
       "en": "CUCUMBER PICKLED (CHIPS)",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -6265,7 +6287,7 @@
       "id": "raw-104217",
       "ar": "EL MORDJENE Roasted Hazelenutes Cream",
       "en": "EL MORDJENE Roasted Hazelenutes Cream",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -6441,7 +6463,7 @@
       "id": "raw-104249",
       "ar": "Mustard seeds",
       "en": "Mustard seeds",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -6474,7 +6496,7 @@
       "id": "raw-104040",
       "ar": "Nutella Jar",
       "en": "Nutella Jar",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -6562,7 +6584,7 @@
       "id": "raw-104042",
       "ar": "Paste Lotus",
       "en": "Paste Lotus",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -6603,6 +6625,17 @@
       "created_at": "2026-09-02T16:55:22.439072+00:00"
     },
     {
+      "id": "raw-5",
+      "ar": "of",
+      "en": "of",
+      "uom": "kg",
+      "price": 35,
+      "stock": 100,
+      "safety": 20,
+      "sup": "Grocery",
+      "created_at": "2026-09-02T16:55:22.619608+00:00"
+    },
+    {
       "id": "raw-104008",
       "ar": "Sauce Worcester",
       "en": "Sauce Worcester",
@@ -6617,7 +6650,7 @@
       "id": "raw-104364",
       "ar": "spices basil",
       "en": "spices basil",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -6771,7 +6804,7 @@
       "id": "raw-104144",
       "ar": "Tomato Paste Heinz",
       "en": "Tomato Paste Heinz",
-      "uom": "g",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -6944,17 +6977,6 @@
       "created_at": "2026-09-02T16:55:22.619608+00:00"
     },
     {
-      "id": "raw-5",
-      "ar": "of",
-      "en": "of",
-      "uom": "kg",
-      "price": 35,
-      "stock": 100,
-      "safety": 20,
-      "sup": "Grocery",
-      "created_at": "2026-09-02T16:55:22.619608+00:00"
-    },
-    {
       "id": "raw-105006",
       "ar": "Chicken wings",
       "en": "Chicken wings",
@@ -7068,7 +7090,7 @@
       "id": "raw-105004",
       "ar": "Red Egg",
       "en": "Red Egg",
-      "uom": "pcs",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -7112,7 +7134,7 @@
       "id": "raw-105008",
       "ar": "White Egg",
       "en": "White Egg",
-      "uom": "pcs",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,
@@ -7376,7 +7398,7 @@
       "id": "raw-500246",
       "ar": "Vaccum Bag Diamond",
       "en": "Vaccum Bag Diamond",
-      "uom": "pcs",
+      "uom": "kg",
       "price": 35,
       "stock": 100,
       "safety": 20,

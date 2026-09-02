@@ -1,16 +1,5 @@
 [
   {
-    "id": "prod-1",
-    "code": "1",
-    "item_no": "1",
-    "ar": "Sauce Brgr",
-    "en": "Sauce Brgr",
-    "unit": "kg",
-    "cat": "sauces",
-    "cost": 50,
-    "color": "#f97316"
-  },
-  {
     "id": "prod-100001",
     "code": "100001",
     "item_no": "100001",
@@ -2132,16 +2121,5 @@
     "cat": "sauces",
     "cost": 222.15,
     "color": "#f97316"
-  },
-  {
-    "id": "prod-6",
-    "code": "6",
-    "item_no": "6",
-    "ar": "of",
-    "en": "of",
-    "unit": "kg",
-    "cat": "prep",
-    "cost": 50,
-    "color": "#ec4899"
   }
 ]
