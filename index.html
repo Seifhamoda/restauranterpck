@@ -6744,16 +6744,31 @@
           if (prRes.data && prRes.data.length) {
             const codeMap = {};
             S.products.forEach(p => { if (p.code || p.item_no) codeMap[p.id] = p.code || p.item_no; });
-            S.products = prRes.data.map(p => ({
-              ...p,
-              code: p.code || p.item_no || codeMap[p.id] || '',
-              item_no: p.item_no || p.code || codeMap[p.id] || ''
-            }));
+            const validProdIds = new Set(S.products.map(p => p.id));
+            const staleProdIds = prRes.data.filter(p => !validProdIds.has(p.id)).map(p => p.id);
+            if (staleProdIds.length > 0) {
+              client.from('products').delete().in('id', staleProdIds).then(() => {
+                console.log('🧹 Auto-cleaned', staleProdIds.length, 'stale product records');
+              });
+            }
+            prRes.data.forEach(p => {
+              const local = S.products.find(lp => lp.id === p.id);
+              if (local) {
+                if (p.stock !== null && p.stock !== undefined) local.stock = p.stock;
+                local.code = p.code || p.item_no || local.code || codeMap[p.id] || '';
+              }
+            });
           }
 
           if (rawRes.data && rawRes.data.length) {
             // Only sync stock/price/safety from cloud, never add or overwrite local catalog items
             const validIds = new Set(Object.keys(S.ings));
+            const staleRawIds = rawRes.data.filter(r => !validIds.has(r.id)).map(r => r.id);
+            if (staleRawIds.length > 0) {
+              client.from('raw_materials').delete().in('id', staleRawIds).then(() => {
+                console.log('🧹 Auto-cleaned', staleRawIds.length, 'stale raw_material records');
+              });
+            }
             rawRes.data.forEach(r => {
               if (validIds.has(r.id)) {
                 if (r.stock !== null && r.stock !== undefined) S.ings[r.id].stock = r.stock;
