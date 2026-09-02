@@ -5539,136 +5539,6 @@
 ],
       /* ── Raw Ingredients (الخامات الرئيسية) ── */
       ings: {
-        "beef-raw": {
-                "code": "RAW-BEEF",
-                "ar": "Raw Beef",
-                "en": "Raw Beef",
-                "uom": "kg",
-                "cat": "Meat & Poultry & Fish",
-                "price": 120,
-                "stock": 50,
-                "safety": 15,
-                "sup": "شركة لحوم القاهرة"
-        },
-        "chicken-raw": {
-                "code": "RAW-CHK",
-                "ar": "Raw Chicken",
-                "en": "Raw Chicken",
-                "uom": "kg",
-                "cat": "Meat & Poultry & Fish",
-                "price": 55,
-                "stock": 40,
-                "safety": 12,
-                "sup": "دواجن الفارس"
-        },
-        "mayo-raw": {
-                "code": "RAW-MAYO",
-                "ar": "Mayonnaise (Bulk)",
-                "en": "Mayonnaise (Bulk)",
-                "uom": "kg",
-                "cat": "Grocery",
-                "price": 35,
-                "stock": 20,
-                "safety": 5,
-                "sup": "ماسترز فليفر"
-        },
-        "mustard": {
-                "code": "RAW-MUST",
-                "ar": "Yellow Mustard",
-                "en": "Yellow Mustard",
-                "uom": "kg",
-                "cat": "Grocery",
-                "price": 28,
-                "stock": 8,
-                "safety": 2,
-                "sup": "ماسترز فليفر"
-        },
-        "chili-sauce": {
-                "code": "RAW-CHILI",
-                "ar": "Chili Sauce",
-                "en": "Chili Sauce",
-                "uom": "ltr",
-                "cat": "Grocery",
-                "price": 40,
-                "stock": 10,
-                "safety": 3,
-                "sup": "ماسترز فليفر"
-        },
-        "vinegar": {
-                "code": "RAW-VIN",
-                "ar": "White Vinegar",
-                "en": "White Vinegar",
-                "uom": "ltr",
-                "cat": "Grocery",
-                "price": 8,
-                "stock": 15,
-                "safety": 3,
-                "sup": "الموردون العامون"
-        },
-        "spice-mix": {
-                "code": "RAW-SPICE",
-                "ar": "Chef Spice Mix",
-                "en": "Chef Spice Mix",
-                "uom": "kg",
-                "cat": "Dry",
-                "price": 90,
-                "stock": 5,
-                "safety": 1,
-                "sup": "التوابل الذهبية"
-        },
-        "amer-spice": {
-                "code": "RAW-AMER",
-                "ar": "American Spices",
-                "en": "American Spices",
-                "uom": "kg",
-                "cat": "Dry",
-                "price": 110,
-                "stock": 3,
-                "safety": 1,
-                "sup": "التوابل الذهبية"
-        },
-        "garlic-paste": {
-                "code": "RAW-GARLIC",
-                "ar": "Garlic Paste",
-                "en": "Garlic Paste",
-                "uom": "kg",
-                "price": 45,
-                "stock": 6,
-                "safety": 2,
-                "sup": "مزارع النيل"
-        },
-        "tomato-paste": {
-                "code": "RAW-TOM",
-                "ar": "Tomato Paste",
-                "en": "Tomato Paste",
-                "uom": "kg",
-                "price": 22,
-                "stock": 12,
-                "safety": 3,
-                "sup": "مزارع النيل"
-        },
-        "packaging-ltr": {
-                "code": "RAW-BAG-LTR",
-                "ar": "Ltr Packaging Bags",
-                "en": "Ltr Packaging Bags",
-                "uom": "pcs",
-                "cat": "Packing Items",
-                "price": 1.5,
-                "stock": 500,
-                "safety": 100,
-                "sup": "مصنع التعبئة"
-        },
-        "packaging-kg": {
-                "code": "RAW-BAG-KG",
-                "ar": "Kg Packaging Bags",
-                "en": "Kg Packaging Bags",
-                "uom": "pcs",
-                "cat": "Packing Items",
-                "price": 1.2,
-                "stock": 400,
-                "safety": 100,
-                "sup": "مصنع التعبئة"
-        },
         "raw-100051": {
                 "code": "100051",
                 "ar": "Milk Powder Nido",
@@ -10974,6 +10844,7 @@
 },
 
 
+
       /* ── Central Kitchen BOM (وصفات التجهيز) ── */
       /* الكميات: per 1 ltr أو 1 kg من التجهيز المنتج */
       recipes: {
@@ -11161,7 +11032,7 @@
             rawRes.data.forEach(r => {
               const prev = S.ings[r.id] || {};
               S.ings[r.id] = {
-                code: r.code || prev.code || r.id.replace('raw-', ''),
+                code: r.code || prev.code || r.id.replace('raw-500509', ''),
                 ar: r.ar,
                 en: r.en,
                 uom: r.uom,
@@ -13050,7 +12921,7 @@
         const d = S.ings[r.id];
         if (!d) return '';
         const nameTitle = d.en || d.ar;
-        const itemCode = d.code || r.id.replace('raw-', '');
+        const itemCode = d.code || r.id.replace('raw-500509', '');
         const catBadge = d.cat || d.category || 'عام';
         return `
           <tr>
