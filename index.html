@@ -2507,8 +2507,8 @@
         <div class="card">
           <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
             <div>
-              <h3 class="text-white font-bold" data-ar="أرصدة المخزون ومقارنتها بالاحتياجات الفعلية (197 خامة ومستلزم)"
-                data-en="Real-Time Stock vs Production Needs (197 Materials)">أرصدة المخزون ومقارنتها بالاحتياجات الفعلية (197 خامة ومستلزم)</h3>
+              <h3 class="text-white font-bold" data-ar="أرصدة المخزون ومقارنتها بالاحتياجات الفعلية (200 خامة ومستلزم)"
+                data-en="Real-Time Stock vs Production Needs (200 Materials)">أرصدة المخزون ومقارنتها بالاحتياجات الفعلية (200 خامة ومستلزم)</h3>
               <p class="text-muted text-sm mt-1"
                 data-ar="يتم تحديد العجز والخصم التلقائي بناءً على طلبيات الفروع وتشغيلات الإنتاج"
                 data-en="Shortages and live deductions are automatically calculated from recipes">يتم تحديد العجز والخصم
@@ -2521,7 +2521,7 @@
                   <circle cx="11" cy="11" r="8" />
                   <line x1="21" y1="21" x2="16.65" y2="16.65" />
                 </svg>
-                <input type="text" id="inv-search-input" class="input" placeholder="بحث في الخامات الـ 197......"
+                <input type="text" id="inv-search-input" class="input" placeholder="بحث في الخامات الـ 200............"
                   style="padding-inline-start:32px" oninput="renderInv()" />
               </div>
             </div>
@@ -3388,7 +3388,7 @@
         'فرع CAC (CAC)',
         'فرع أورانج (Orange)'
       ],
-      /* ── Central Kitchen Manufactured Products Master (المنتجات المصنعة - 171 صنف) ── */
+      /* ── Central Kitchen Manufactured Products Master (المنتجات المصنعة PA - 88 صنف معتمد من ورقة العمل) ── */
       products: [
         {
                 "id": "prod-turkey-pastrame-pa",
@@ -3396,10 +3396,10 @@
                 "item_no": "110296",
                 "ar": "Turkey pastrame (PA)",
                 "en": "Turkey pastrame (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "chicken",
-                "cost": 50.35,
-                "color": "#22c55e"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-onion-rings-fried-pa",
@@ -3407,21 +3407,10 @@
                 "item_no": "110050",
                 "ar": "Onion Rings Fried . (PA)",
                 "en": "Onion Rings Fried . (PA)",
-                "unit": "portion",
+                "unit": "Portion",
                 "cat": "veggies",
-                "cost": 10.45,
-                "color": "#06b6d4"
-        },
-        {
-                "id": "prod-100037",
-                "code": "100037",
-                "item_no": "100037",
-                "ar": "Brownie can",
-                "en": "Brownie can",
-                "unit": "pcs",
-                "cat": "bakery",
-                "cost": 50,
-                "color": "#f59e0b"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-beef-burger-patty-pa",
@@ -3429,10 +3418,10 @@
                 "item_no": "110003",
                 "ar": "Beef Burger Patty . (PA)",
                 "en": "Beef Burger Patty . (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "beef",
-                "cost": 33.85,
-                "color": "#8b5cf6"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-cucumber-pickle-kg-pa",
@@ -3440,10 +3429,10 @@
                 "item_no": "110039",
                 "ar": "Cucumber Pickle - Kg (PA)",
                 "en": "Cucumber Pickle - Kg (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "veggies",
-                "cost": 64.1,
-                "color": "#06b6d4"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-cucumber-pickles-chips-pa",
@@ -3451,10 +3440,10 @@
                 "item_no": "110265",
                 "ar": "Cucumber pickles Chips (PA)",
                 "en": "Cucumber pickles Chips (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "veggies",
-                "cost": 59.29,
-                "color": "#06b6d4"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-batter-frizzle-onion-pa",
@@ -3462,10 +3451,10 @@
                 "item_no": "110126",
                 "ar": "Batter Frizzle Onion (PA)",
                 "en": "Batter Frizzle Onion (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "veggies",
-                "cost": 136.47,
-                "color": "#06b6d4"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-onion-jam-pa",
@@ -3473,10 +3462,10 @@
                 "item_no": "110227",
                 "ar": "Onion Jam (PA)",
                 "en": "Onion Jam (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 74.25,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-roasted-potato-pa",
@@ -3484,10 +3473,10 @@
                 "item_no": "110197",
                 "ar": "Roasted Potato (PA)",
                 "en": "Roasted Potato (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "veggies",
-                "cost": 43.31,
-                "color": "#06b6d4"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-ranch-sauce-kg-pa",
@@ -3495,10 +3484,10 @@
                 "item_no": "110031",
                 "ar": "Ranch Sauce - Kg (PA)",
                 "en": "Ranch Sauce - Kg (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 81.51,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-chicken-sauce-kg-pa",
@@ -3506,10 +3495,10 @@
                 "item_no": "110033",
                 "ar": "Chicken Sauce - Kg (PA)",
                 "en": "Chicken Sauce - Kg (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 82.52,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-honey-mustard-sauce-kg-pa",
@@ -3517,10 +3506,10 @@
                 "item_no": "110037",
                 "ar": "Honey Mustard Sauce - Kg (PA)",
                 "en": "Honey Mustard Sauce - Kg (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 98.24,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-sweet-relish-pa",
@@ -3528,10 +3517,10 @@
                 "item_no": "110128",
                 "ar": "Sweet Relish (PA)",
                 "en": "Sweet Relish (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "prep",
-                "cost": 83.37,
-                "color": "#06b6d4"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-amirecan-sauce-kg-pa",
@@ -3539,10 +3528,10 @@
                 "item_no": "110017",
                 "ar": "Amirecan Sauce - Kg (PA)",
                 "en": "Amirecan Sauce - Kg (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 136.66,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-atomic-sauce-kg-pa",
@@ -3550,10 +3539,10 @@
                 "item_no": "110046",
                 "ar": "Atomic Sauce Kg (PA)",
                 "en": "Atomic Sauce Kg (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 125.38,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-bbq-sauce-kg-pa",
@@ -3561,10 +3550,10 @@
                 "item_no": "110018",
                 "ar": "BBQ Sauce - Kg. (PA)",
                 "en": "BBQ Sauce - Kg. (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 120.07,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-sauce-sriracha-kg-pa",
@@ -3572,10 +3561,10 @@
                 "item_no": "110051",
                 "ar": "Sauce Sriracha Kg (PA)",
                 "en": "Sauce Sriracha Kg (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 162.95,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-blue-cheese-dressing-pa",
@@ -3583,10 +3572,10 @@
                 "item_no": "110159",
                 "ar": "Blue Cheese Dressing (PA)",
                 "en": "Blue Cheese Dressing (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 168.52,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-brgr-house-dressing-pa",
@@ -3594,10 +3583,10 @@
                 "item_no": "110045",
                 "ar": "BRGR House Dressing (PA)",
                 "en": "BRGR House Dressing (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 214.35,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-queen-s-salad-dressing-pa",
@@ -3605,10 +3594,10 @@
                 "item_no": "110043",
                 "ar": "queen's salad Dressing  (PA)",
                 "en": "queen's salad Dressing  (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 369.31,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-moroccan-salad-dressing-pa",
@@ -3616,10 +3605,10 @@
                 "item_no": "110044",
                 "ar": "Moroccan salad Dressing  (PA)",
                 "en": "Moroccan salad Dressing  (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 342.85,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-truffle-mayo-pa",
@@ -3627,10 +3616,10 @@
                 "item_no": "110237",
                 "ar": "truffle mayo (PA)",
                 "en": "truffle mayo (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 324.61,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-karkade-syrup-pa",
@@ -3638,10 +3627,10 @@
                 "item_no": "110352",
                 "ar": "Karkade Syrup (PA)",
                 "en": "Karkade Syrup (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 95.26,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-toast-bread-pa",
@@ -3649,10 +3638,10 @@
                 "item_no": "110324",
                 "ar": "Toast Bread (PA)",
                 "en": "Toast Bread (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "bakery",
-                "cost": 301.98,
-                "color": "#f59e0b"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-hot-mustard-sauce-pa",
@@ -3660,10 +3649,10 @@
                 "item_no": "110369",
                 "ar": "Hot Mustard Sauce . (PA)",
                 "en": "Hot Mustard Sauce . (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 133.75,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-raspberry-puree-pa",
@@ -3671,10 +3660,10 @@
                 "item_no": "110266",
                 "ar": "Raspberry Puree (PA)",
                 "en": "Raspberry Puree (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 815.4,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-split-sauce-pa",
@@ -3682,10 +3671,10 @@
                 "item_no": "110145",
                 "ar": "SPLIT Sauce (PA)",
                 "en": "SPLIT Sauce (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 123.91,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-balsamic-vinaigrette-dressing-pa",
@@ -3693,10 +3682,10 @@
                 "item_no": "110185",
                 "ar": "Balsamic Vinaigrette dressing (PA)",
                 "en": "Balsamic Vinaigrette dressing (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 232.95,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-thyme-balsamic-vinaigrette-pa",
@@ -3704,10 +3693,10 @@
                 "item_no": "110189",
                 "ar": "Thyme Balsamic Vinaigrette (PA)",
                 "en": "Thyme Balsamic Vinaigrette (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 122.1,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-caesar-dressing-pa-pa",
@@ -3715,10 +3704,10 @@
                 "item_no": "110163",
                 "ar": "Caesar Dressing (PA) (PA)",
                 "en": "Caesar Dressing (PA) (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 288.45,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-chives-cream-cheese-pa",
@@ -3726,10 +3715,10 @@
                 "item_no": "110194",
                 "ar": "Chives Cream Cheese (PA)",
                 "en": "Chives Cream Cheese (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "cheese",
-                "cost": 615.18,
-                "color": "#fde047"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-citrus-dressing-pa",
@@ -3737,10 +3726,10 @@
                 "item_no": "110198",
                 "ar": "Citrus dressing (PA)",
                 "en": "Citrus dressing (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 281.48,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-coleslow-dressing-pa",
@@ -3748,10 +3737,10 @@
                 "item_no": "110137",
                 "ar": "Coleslow Dressing (PA)",
                 "en": "Coleslow Dressing (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 45.85,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-honey-srirache-sauce-pa",
@@ -3759,10 +3748,10 @@
                 "item_no": "110142",
                 "ar": "Honey Srirache Sauce (PA)",
                 "en": "Honey Srirache Sauce (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 238.37,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-pesto-sauce-pa",
@@ -3770,10 +3759,10 @@
                 "item_no": "110141",
                 "ar": "Pesto Sauce (PA)",
                 "en": "Pesto Sauce (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 848.52,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-pistachio-pesto-pa",
@@ -3781,10 +3770,10 @@
                 "item_no": "110290",
                 "ar": "PISTACHIO PESTO (PA)",
                 "en": "PISTACHIO PESTO (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "prep",
-                "cost": 771.79,
-                "color": "#06b6d4"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-sundried-tomato-pesto-pa",
@@ -3792,10 +3781,10 @@
                 "item_no": "110295",
                 "ar": "SUNDRIED TOMATO PESTO (PA)",
                 "en": "SUNDRIED TOMATO PESTO (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "prep",
-                "cost": 732.91,
-                "color": "#06b6d4"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-smokey-mayo-sauce-pa-pa",
@@ -3803,10 +3792,10 @@
                 "item_no": "110165",
                 "ar": "Smokey Mayo Sauce (PA) (PA)",
                 "en": "Smokey Mayo Sauce (PA) (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 138.25,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-sweet-chili-mayo-sauce-pa",
@@ -3814,10 +3803,10 @@
                 "item_no": "110228",
                 "ar": "Sweet Chili Mayo Sauce (PA)",
                 "en": "Sweet Chili Mayo Sauce (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 127.54,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-balsamic-galze-pa",
@@ -3825,10 +3814,10 @@
                 "item_no": "110139",
                 "ar": "Balsamic Galze (PA)",
                 "en": "Balsamic Galze (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "prep",
-                "cost": 1054.77,
-                "color": "#06b6d4"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-coleslow-salad-pa",
@@ -3836,10 +3825,10 @@
                 "item_no": "110146",
                 "ar": "Coleslow Salad (PA)",
                 "en": "Coleslow Salad (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "veggies",
-                "cost": 31.19,
-                "color": "#06b6d4"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-hot-honey-pa",
@@ -3847,10 +3836,10 @@
                 "item_no": "110201",
                 "ar": "Hot Honey (PA)",
                 "en": "Hot Honey (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "prep",
-                "cost": 112.66,
-                "color": "#06b6d4"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-pickled-onion-pa",
@@ -3858,10 +3847,10 @@
                 "item_no": "110136",
                 "ar": "Pickled Onion (PA)",
                 "en": "Pickled Onion (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "veggies",
-                "cost": 62.32,
-                "color": "#06b6d4"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-sauce-marinara-pa",
@@ -3869,10 +3858,10 @@
                 "item_no": "110134",
                 "ar": "Sauce Marinara (PA)",
                 "en": "Sauce Marinara (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 113.91,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-short-ribs-pa",
@@ -3880,10 +3869,10 @@
                 "item_no": "110147",
                 "ar": "Short Ribs (PA)",
                 "en": "Short Ribs (PA)",
-                "unit": "portion",
+                "unit": "Portion",
                 "cat": "beef",
-                "cost": 89.79,
-                "color": "#8b5cf6"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-chicken-bites-kg-pa",
@@ -3891,10 +3880,10 @@
                 "item_no": "110036",
                 "ar": "Chicken Bites - Kg (PA)",
                 "en": "Chicken Bites - Kg (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "chicken",
-                "cost": 345.1,
-                "color": "#22c55e"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-lemon-chicken-pa",
@@ -3902,10 +3891,10 @@
                 "item_no": "110090",
                 "ar": "Lemon chicken (PA)",
                 "en": "Lemon chicken (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "chicken",
-                "cost": 25.1,
-                "color": "#22c55e"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-chicken-fillet-p-pa",
@@ -3913,10 +3902,10 @@
                 "item_no": "110006",
                 "ar": "Chicken Fillet P (PA)",
                 "en": "Chicken Fillet P (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "chicken",
-                "cost": 27.9,
-                "color": "#22c55e"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-chicken-breaded-pa",
@@ -3924,10 +3913,10 @@
                 "item_no": "110144",
                 "ar": "Chicken Breaded (PA)",
                 "en": "Chicken Breaded (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "bakery",
-                "cost": 17.87,
-                "color": "#f59e0b"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-chicken-tenders-pa",
@@ -3935,10 +3924,10 @@
                 "item_no": "110183",
                 "ar": "chicken tenders (PA)",
                 "en": "chicken tenders (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "chicken",
-                "cost": 11.74,
-                "color": "#22c55e"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-chicken-liquid-sauce-kg-pa",
@@ -3946,10 +3935,10 @@
                 "item_no": "110042",
                 "ar": "Chicken liquid sauce - Kg (PA)",
                 "en": "Chicken liquid sauce - Kg (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 45.04,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-emmental-cheese-pc-pa",
@@ -3957,10 +3946,10 @@
                 "item_no": "110086",
                 "ar": "Emmental  Cheese PC (PA",
                 "en": "Emmental  Cheese PC (PA",
-                "unit": "portion",
+                "unit": "Portion",
                 "cat": "cheese",
-                "cost": 7.07,
-                "color": "#fde047"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-cheese-sauce-kg-pa",
@@ -3968,10 +3957,10 @@
                 "item_no": "110041",
                 "ar": "Cheese Sauce. - Kg (PA)",
                 "en": "Cheese Sauce. - Kg (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 334.88,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-ice-cream-kg-pa",
@@ -3979,10 +3968,10 @@
                 "item_no": "110038",
                 "ar": "Ice Cream - Kg (PA)",
                 "en": "Ice Cream - Kg (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "drinks",
-                "cost": 75.1,
-                "color": "#06b6d4"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-pancake-paste-kg-pa",
@@ -3990,10 +3979,10 @@
                 "item_no": "110030",
                 "ar": "Pancake Paste - Kg (PA)",
                 "en": "Pancake Paste - Kg (PA)",
-                "unit": "kg",
-                "cat": "sauces",
-                "cost": 53.86,
-                "color": "#f97316"
+                "unit": "Kilogram",
+                "cat": "prep",
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-hot-chocolate-sauce-pa",
@@ -4001,10 +3990,10 @@
                 "item_no": "110173",
                 "ar": "Hot Chocolate Sauce (PA)",
                 "en": "Hot Chocolate Sauce (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 392.79,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-salted-caramel-sauce-pa",
@@ -4012,10 +4001,10 @@
                 "item_no": "110124",
                 "ar": "Salted Caramel Sauce (PA)",
                 "en": "Salted Caramel Sauce (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 122.81,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-rib-eye-pa",
@@ -4023,10 +4012,10 @@
                 "item_no": "110156",
                 "ar": "Rib Eye (PA)",
                 "en": "Rib Eye (PA)",
-                "unit": "portion",
+                "unit": "Portion",
                 "cat": "beef",
-                "cost": 50.95,
-                "color": "#8b5cf6"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-mozzarella-sticks-marina-pa",
@@ -4034,10 +4023,10 @@
                 "item_no": "110181",
                 "ar": "mozzarella sticks (marina) (PA)",
                 "en": "mozzarella sticks (marina) (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "cheese",
-                "cost": 10.42,
-                "color": "#fde047"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-dill-tuna-mix-pa",
@@ -4045,10 +4034,10 @@
                 "item_no": "110363",
                 "ar": "Dill Tuna Mix (PA)",
                 "en": "Dill Tuna Mix (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "sauces",
-                "cost": 35.7,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-lemon-curd-pa",
@@ -4056,10 +4045,10 @@
                 "item_no": "110303",
                 "ar": "Lemon Curd (PA)",
                 "en": "Lemon Curd (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 423.28,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-mushroom-roasted-pa",
@@ -4067,10 +4056,10 @@
                 "item_no": "110082",
                 "ar": "Mushroom Roasted (PA)",
                 "en": "Mushroom Roasted (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "veggies",
-                "cost": 215.44,
-                "color": "#06b6d4"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-blue-berry-sauce-pa",
@@ -4078,10 +4067,10 @@
                 "item_no": "110302",
                 "ar": "Blue Berry Sauce (PA)",
                 "en": "Blue Berry Sauce (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 1525.24,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-frosting-sauce-basic-pa",
@@ -4089,10 +4078,10 @@
                 "item_no": "110299",
                 "ar": "Frosting Sauce Basic (PA)",
                 "en": "Frosting Sauce Basic (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 435.9,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-taztaziki-sauce-pa",
@@ -4100,10 +4089,10 @@
                 "item_no": "110365",
                 "ar": "Taztaziki Sauce (PA)",
                 "en": "Taztaziki Sauce (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 234.87,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-marination-mushroom-roasted-pa",
@@ -4111,10 +4100,10 @@
                 "item_no": "110188",
                 "ar": "Marination Mushroom Roasted (PA)",
                 "en": "Marination Mushroom Roasted (PA)",
-                "unit": "kg",
-                "cat": "sauces",
-                "cost": 243.94,
-                "color": "#f97316"
+                "unit": "Kilogram",
+                "cat": "veggies",
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-classic-frosting-pa",
@@ -4122,10 +4111,10 @@
                 "item_no": "110300",
                 "ar": "Classic Frosting (PA)",
                 "en": "Classic Frosting (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 505.84,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-tuna-mix-pa",
@@ -4133,10 +4122,21 @@
                 "item_no": "110166",
                 "ar": "Tuna Mix (PA)",
                 "en": "Tuna Mix (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "sauces",
-                "cost": 42.82,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
+        },
+        {
+                "id": "prod-salted-hazelnut-pa",
+                "code": "200174",
+                "item_no": "200174",
+                "ar": "Salted hazelnut (PA)",
+                "en": "Salted hazelnut (PA)",
+                "unit": "Kilogram",
+                "cat": "prep",
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-strawberry-sauce-pa",
@@ -4144,10 +4144,10 @@
                 "item_no": "110264",
                 "ar": "Strawberry Sauce (PA)",
                 "en": "Strawberry Sauce (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "sauces",
-                "cost": 162.04,
-                "color": "#f97316"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-cheese-provolone-pa",
@@ -4155,10 +4155,10 @@
                 "item_no": "110157",
                 "ar": "Cheese Provolone (PA)",
                 "en": "Cheese Provolone (PA)",
-                "unit": "portion",
+                "unit": "Portion",
                 "cat": "cheese",
-                "cost": 15.6,
-                "color": "#fde047"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-rosted-turkey-pa",
@@ -4166,10 +4166,10 @@
                 "item_no": "110143",
                 "ar": "Rosted Turkey (PA)",
                 "en": "Rosted Turkey (PA)",
-                "unit": "portion",
+                "unit": "Portion",
                 "cat": "chicken",
-                "cost": 52.72,
-                "color": "#22c55e"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-roast-beef-pa-pa",
@@ -4177,10 +4177,10 @@
                 "item_no": "110149",
                 "ar": "Roast Beef (PA) (PA)",
                 "en": "Roast Beef (PA) (PA)",
-                "unit": "portion",
+                "unit": "Portion",
                 "cat": "beef",
-                "cost": 52.59,
-                "color": "#8b5cf6"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-watermelon-pa",
@@ -4188,21 +4188,10 @@
                 "item_no": "110229",
                 "ar": "Watermelon (PA)",
                 "en": "Watermelon (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "veggies",
-                "cost": 17.54,
-                "color": "#06b6d4"
-        },
-        {
-                "id": "prod-100005",
-                "code": "100005",
-                "item_no": "100005",
-                "ar": "Bread Crumbs",
-                "en": "Bread Crumbs",
-                "unit": "kg",
-                "cat": "bakery",
-                "cost": 50,
-                "color": "#f59e0b"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-dry-powder-kg-pa",
@@ -4210,10 +4199,10 @@
                 "item_no": "110035",
                 "ar": "Dry Powder - Kg (PA)",
                 "en": "Dry Powder - Kg (PA)",
-                "unit": "kg",
-                "cat": "sauces",
-                "cost": 115.83,
-                "color": "#f97316"
+                "unit": "Kilogram",
+                "cat": "prep",
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-dry-mix-pa",
@@ -4221,10 +4210,10 @@
                 "item_no": "110127",
                 "ar": "Dry Mix (PA)",
                 "en": "Dry Mix (PA)",
-                "unit": "kg",
-                "cat": "sauces",
-                "cost": 115.21,
-                "color": "#f97316"
+                "unit": "Kilogram",
+                "cat": "prep",
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-salted-vanilla-bean-pa",
@@ -4232,21 +4221,10 @@
                 "item_no": "110174",
                 "ar": "Salted Vanilla Bean (PA)",
                 "en": "Salted Vanilla Bean (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "prep",
-                "cost": 537.47,
-                "color": "#06b6d4"
-        },
-        {
-                "id": "prod-100021",
-                "code": "100021",
-                "item_no": "100021",
-                "ar": "Bread Darker",
-                "en": "Bread Darker",
-                "unit": "kg",
-                "cat": "bakery",
-                "cost": 50,
-                "color": "#f59e0b"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-cookies-can-mini-pa",
@@ -4256,8 +4234,8 @@
                 "en": "Cookies Can Mini (PA)",
                 "unit": "Order 8 pieces",
                 "cat": "bakery",
-                "cost": 27.92,
-                "color": "#f59e0b"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-ciabatta-bread-pa",
@@ -4265,10 +4243,10 @@
                 "item_no": "110148",
                 "ar": "Ciabatta Bread (PA)",
                 "en": "Ciabatta Bread (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "bakery",
-                "cost": 5.21,
-                "color": "#f59e0b"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-brown-ciabatta-bread-pa-pa",
@@ -4276,10 +4254,10 @@
                 "item_no": "110164",
                 "ar": "Brown Ciabatta Bread (PA) (PA)",
                 "en": "Brown Ciabatta Bread (PA) (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "bakery",
-                "cost": 5.61,
-                "color": "#f59e0b"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-french-baghette-pa",
@@ -4287,21 +4265,21 @@
                 "item_no": "110268",
                 "ar": "French Baghette (PA)",
                 "en": "French Baghette (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "bakery",
-                "cost": 3.4,
-                "color": "#f59e0b"
+                "cost": 0,
+                "stock": 0
         },
         {
-                "id": "prod-100017",
+                "id": "prod-pretzel-bread-pa",
                 "code": "100017",
                 "item_no": "100017",
                 "ar": "Pretzel Bread (PA)",
                 "en": "Pretzel Bread (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "bakery",
-                "cost": 50,
-                "color": "#f59e0b"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-bread-sour-dough-pa",
@@ -4309,10 +4287,10 @@
                 "item_no": "110288",
                 "ar": "Bread Sour dough (PA)",
                 "en": "Bread Sour dough (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "bakery",
-                "cost": 46.36,
-                "color": "#f59e0b"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-round-ciabatta-pa",
@@ -4320,10 +4298,10 @@
                 "item_no": "110193",
                 "ar": "Round Ciabatta (PA)",
                 "en": "Round Ciabatta (PA)",
-                "unit": "pcs",
-                "cat": "prep",
-                "cost": 2.71,
-                "color": "#06b6d4"
+                "unit": "Each",
+                "cat": "bakery",
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-croissant-plain-pa",
@@ -4331,10 +4309,10 @@
                 "item_no": "110316",
                 "ar": "Croissant Plain (PA)",
                 "en": "Croissant Plain (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "bakery",
-                "cost": 28.35,
-                "color": "#f59e0b"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-danash-pastrame-pa",
@@ -4342,10 +4320,10 @@
                 "item_no": "110312",
                 "ar": "Danash Pastrame (PA)",
                 "en": "Danash Pastrame (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "bakery",
-                "cost": 58.97,
-                "color": "#f59e0b"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-croissant-thyme-goat-pa",
@@ -4353,10 +4331,10 @@
                 "item_no": "110317",
                 "ar": "Croissant Thyme goat (PA)",
                 "en": "Croissant Thyme goat (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "bakery",
-                "cost": 37.72,
-                "color": "#f59e0b"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-pan-swiss-croissant-pa",
@@ -4364,10 +4342,10 @@
                 "item_no": "110319",
                 "ar": "Pan Swiss Croissant (PA)",
                 "en": "Pan Swiss Croissant (PA)",
-                "unit": "pcs",
+                "unit": "Each",
                 "cat": "bakery",
-                "cost": 47.1,
-                "color": "#f59e0b"
+                "cost": 0,
+                "stock": 0
         },
         {
                 "id": "prod-lovan-dough-pa",
@@ -4375,10 +4353,10 @@
                 "item_no": "110267",
                 "ar": "Lovan Dough (PA)",
                 "en": "Lovan Dough (PA)",
-                "unit": "kg",
+                "unit": "Kilogram",
                 "cat": "bakery",
-                "cost": 20.63,
-                "color": "#f59e0b"
+                "cost": 0,
+                "stock": 0
         }
 ],
       /* ── Raw Ingredients (الخامات الرئيسية) ── */
@@ -4387,9 +4365,9 @@
                 "code": "105049",
                 "ar": "Bresaola-SPLIT",
                 "en": "Bresaola-SPLIT",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Meat & Poultry & Fish",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Meat & Poultry & Fish"
@@ -4398,9 +4376,9 @@
                 "code": "105051",
                 "ar": "Beef Bacon (Core GYM)",
                 "en": "Beef Bacon (Core GYM)",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Meat & Poultry & Fish",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Meat & Poultry & Fish"
@@ -4409,9 +4387,9 @@
                 "code": "104349",
                 "ar": "Blueberry Frozen",
                 "en": "Blueberry Frozen",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -4420,20 +4398,31 @@
                 "code": "101119",
                 "ar": "mozzarella stikcks",
                 "en": "mozzarella stikcks",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
+        },
+        "raw-100037": {
+                "code": "100037",
+                "ar": "Brownie can",
+                "en": "Brownie can",
+                "uom": "Each",
+                "cat": "Bakery",
+                "price": 0,
+                "stock": 100,
+                "safety": 20,
+                "sup": "Bakery"
         },
         "raw-108133": {
                 "code": "108133",
                 "ar": "Rasberry Frozen",
                 "en": "Rasberry Frozen",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -4444,7 +4433,7 @@
                 "en": "Chicken Breast",
                 "uom": "Pkt 1 Kg",
                 "cat": "Meat & Poultry & Fish",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Meat & Poultry & Fish"
@@ -4453,9 +4442,9 @@
                 "code": "108163",
                 "ar": "Strawberry frozen",
                 "en": "Strawberry frozen",
-                "uom": "g",
+                "uom": "Pkt 400 Gr",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -4464,9 +4453,9 @@
                 "code": "108108",
                 "ar": "Fresh Celery",
                 "en": "Fresh Celery",
-                "uom": "g",
+                "uom": "Pkt 100 Gr",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -4475,9 +4464,9 @@
                 "code": "105026",
                 "ar": "Fresh Turkey",
                 "en": "Fresh Turkey",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Meat & Poultry & Fish",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Meat & Poultry & Fish"
@@ -4486,9 +4475,9 @@
                 "code": "500048",
                 "ar": "Bags White size 35 * 60",
                 "en": "Bags White size 35 * 60",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Packing Items",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Packing Items"
@@ -4497,9 +4486,9 @@
                 "code": "500013",
                 "ar": "Tissue Bags Plastic Burger",
                 "en": "Tissue Bags Plastic Burger",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Packing Items",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Packing Items"
@@ -4508,9 +4497,9 @@
                 "code": "500011",
                 "ar": "Plate Foam 1 Kg",
                 "en": "Plate Foam 1 Kg",
-                "uom": "pcs",
+                "uom": "Pkt 500 Pcs",
                 "cat": "Packing Items",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Packing Items"
@@ -4519,9 +4508,9 @@
                 "code": "500236",
                 "ar": "Aluminum foil",
                 "en": "Aluminum foil",
-                "uom": "pcs",
+                "uom": "Each",
                 "cat": "Packing Items",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Packing Items"
@@ -4530,9 +4519,9 @@
                 "code": "500002",
                 "ar": "Stickers expiry meat",
                 "en": "Stickers expiry meat",
-                "uom": "pcs",
+                "uom": "Pkt 500 Pcs",
                 "cat": "Packing Items",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Packing Items"
@@ -4541,9 +4530,9 @@
                 "code": "105001",
                 "ar": "Fresh meat",
                 "en": "Fresh meat",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Meat & Poultry & Fish",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Meat & Poultry & Fish"
@@ -4552,9 +4541,9 @@
                 "code": "104225",
                 "ar": "Green Olive Slices",
                 "en": "Green Olive Slices",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -4563,9 +4552,9 @@
                 "code": "108102",
                 "ar": "Green papper fresh",
                 "en": "Green papper fresh",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -4574,9 +4563,9 @@
                 "code": "104025",
                 "ar": "Vinegar White",
                 "en": "Vinegar White",
-                "uom": "kg",
+                "uom": "Btl 1 L",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -4585,9 +4574,9 @@
                 "code": "102039",
                 "ar": "Spices Salt Cox",
                 "en": "Spices Salt Cox",
-                "uom": "g",
+                "uom": "Jar 700 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -4596,9 +4585,9 @@
                 "code": "102029",
                 "ar": "Spices Red pepper Pow 500Gr",
                 "en": "Spices Red pepper Pow 500Gr",
-                "uom": "g",
+                "uom": "Pkt 500 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -4607,9 +4596,9 @@
                 "code": "102177",
                 "ar": "Spices Smoked Paprika",
                 "en": "Spices Smoked Paprika",
-                "uom": "g",
+                "uom": "Pkt 500 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -4618,9 +4607,9 @@
                 "code": "102009",
                 "ar": "Spices Garlic powder 500 Gr",
                 "en": "Spices Garlic powder 500 Gr",
-                "uom": "g",
+                "uom": "Pkt 500 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -4629,9 +4618,9 @@
                 "code": "102053",
                 "ar": "Spices Onion Powder",
                 "en": "Spices Onion Powder",
-                "uom": "g",
+                "uom": "Pkt 500 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -4640,9 +4629,9 @@
                 "code": "102011",
                 "ar": "Spices Black pepper envelope",
                 "en": "Spices Black pepper envelope",
-                "uom": "g",
+                "uom": "Pkt 250 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -4651,9 +4640,9 @@
                 "code": "102085",
                 "ar": "Spices Salt",
                 "en": "Spices Salt",
-                "uom": "g",
+                "uom": "Pkt 400 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -4662,9 +4651,9 @@
                 "code": "102171",
                 "ar": "Spices Salt Kosher",
                 "en": "Spices Salt Kosher",
-                "uom": "g",
+                "uom": "Pkt 400 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -4673,9 +4662,9 @@
                 "code": "500226",
                 "ar": "Transparent Vacuum Bag 20*25Cm",
                 "en": "Transparent Vacuum Bag 20*25Cm",
-                "uom": "pcs",
+                "uom": "Each",
                 "cat": "Packing Items",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Packing Items"
@@ -4684,9 +4673,9 @@
                 "code": "104012",
                 "ar": "Oil Sunflower Gal 20 L",
                 "en": "Oil Sunflower Gal 20 L",
-                "uom": "ltr",
+                "uom": "Gal 20 L",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -4695,9 +4684,9 @@
                 "code": "500336",
                 "ar": "Plate Foam 1.5 Kg",
                 "en": "Plate Foam 1.5 Kg",
-                "uom": "pcs",
+                "uom": "Each",
                 "cat": "Packing Items",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Packing Items"
@@ -4706,9 +4695,9 @@
                 "code": "101068",
                 "ar": "Yogurt",
                 "en": "Yogurt",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -4717,9 +4706,9 @@
                 "code": "100002",
                 "ar": "Toast White Rich Bake",
                 "en": "Toast White Rich Bake",
-                "uom": "g",
+                "uom": "Pkt 500 Gr",
                 "cat": "Bakery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Bakery"
@@ -4728,9 +4717,9 @@
                 "code": "104184",
                 "ar": "Burrata Cheese",
                 "en": "Burrata Cheese",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -4739,9 +4728,9 @@
                 "code": "101101",
                 "ar": "Cheese Mozzarella Buffalo",
                 "en": "Cheese Mozzarella Buffalo",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -4750,9 +4739,9 @@
                 "code": "104188",
                 "ar": "Greek Yogurt Juhaina",
                 "en": "Greek Yogurt Juhaina",
-                "uom": "g",
+                "uom": "Pkt 180 Gr",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -4761,9 +4750,9 @@
                 "code": "101069",
                 "ar": "kiri creamy spread",
                 "en": "kiri creamy spread",
-                "uom": "g",
+                "uom": "Pkt 500 Gr",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -4774,7 +4763,7 @@
                 "en": "Cream Cooking 1 lit",
                 "uom": "Pkt 1 L",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -4783,9 +4772,9 @@
                 "code": "104154",
                 "ar": "Anchovies",
                 "en": "Anchovies",
-                "uom": "g",
+                "uom": "Pkt 40 Gr",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -4794,9 +4783,9 @@
                 "code": "101025",
                 "ar": "Goat Cheese",
                 "en": "Goat Cheese",
-                "uom": "g",
+                "uom": "Pkt 150 Gr",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -4805,20 +4794,31 @@
                 "code": "101098",
                 "ar": "Cream Sour",
                 "en": "Cream Sour",
-                "uom": "g",
+                "uom": "Pkt 500 Gr",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
         },
-                "raw-104410": {
+        "raw-1": {
+                "code": "1",
+                "ar": "Sauce Brgr",
+                "en": "Sauce Brgr",
+                "uom": "Kilogram",
+                "cat": "Grocery",
+                "price": 0,
+                "stock": 100,
+                "safety": 20,
+                "sup": "Grocery"
+        },
+        "raw-104410": {
                 "code": "104410",
                 "ar": "Apricot Jam",
                 "en": "Apricot Jam",
-                "uom": "g",
+                "uom": "Jar 340 Gr",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -4827,9 +4827,9 @@
                 "code": "200096",
                 "ar": "Red Grape Juice Juihaina",
                 "en": "Red Grape Juice Juihaina",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Beverage",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Beverage"
@@ -4838,9 +4838,9 @@
                 "code": "101059",
                 "ar": "Blue Cheese",
                 "en": "Blue Cheese",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -4849,9 +4849,9 @@
                 "code": "101008",
                 "ar": "Cheddar American Cheese",
                 "en": "Cheddar American Cheese",
-                "uom": "pcs",
+                "uom": "Pkt 200 Pcs",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -4860,9 +4860,9 @@
                 "code": "101034",
                 "ar": "Cheddar Cheese  Kg",
                 "en": "Cheddar Cheese  Kg",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -4871,9 +4871,9 @@
                 "code": "104332",
                 "ar": "Parmigiano Reggiano",
                 "en": "Parmigiano Reggiano",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -4882,9 +4882,9 @@
                 "code": "101023",
                 "ar": "Parmesan Cheese",
                 "en": "Parmesan Cheese",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -4893,9 +4893,9 @@
                 "code": "105004",
                 "ar": "Red Egg",
                 "en": "Red Egg",
-                "uom": "pcs",
+                "uom": "Plate 30 Pcs",
                 "cat": "Meat & Poultry & Fish",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Meat & Poultry & Fish"
@@ -4904,9 +4904,9 @@
                 "code": "101072",
                 "ar": "la vache Quirit Cheese",
                 "en": "la vache Quirit Cheese",
-                "uom": "pcs",
+                "uom": "Pkt 12 Pcs",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -4915,9 +4915,9 @@
                 "code": "102204",
                 "ar": "Bresaola",
                 "en": "Bresaola",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -4926,9 +4926,9 @@
                 "code": "104261",
                 "ar": "Milk chocolate chips",
                 "en": "Milk chocolate chips",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -4939,7 +4939,7 @@
                 "en": "Chocolate Milk",
                 "uom": "Box 5 Kg",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -4948,9 +4948,9 @@
                 "code": "104207",
                 "ar": "Belgian White Chocolate",
                 "en": "Belgian White Chocolate",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -4961,7 +4961,7 @@
                 "en": "Butter Fern 10 Pkt 1 Kg",
                 "uom": "Pkt 1 Kg",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -4972,7 +4972,7 @@
                 "en": "Milk Rayeb Plain",
                 "uom": "Pkt 1 L",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -4981,9 +4981,9 @@
                 "code": "108020",
                 "ar": "Cucumber",
                 "en": "Cucumber",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -4992,9 +4992,9 @@
                 "code": "108117",
                 "ar": "Lemon (Adalia)",
                 "en": "Lemon (Adalia)",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5003,9 +5003,9 @@
                 "code": "108125",
                 "ar": "Baby Spanish",
                 "en": "Baby Spanish",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5014,9 +5014,9 @@
                 "code": "108105",
                 "ar": "Fresh Basil",
                 "en": "Fresh Basil",
-                "uom": "g",
+                "uom": "Pkt 250 Gr",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5025,9 +5025,9 @@
                 "code": "101010",
                 "ar": "Cream Whipping Kg.",
                 "en": "Cream Whipping Kg.",
-                "uom": "ltr",
+                "uom": "Gal 5 Kg",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -5036,9 +5036,9 @@
                 "code": "108123",
                 "ar": "Micro green",
                 "en": "Micro green",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5047,9 +5047,9 @@
                 "code": "108113",
                 "ar": "Dill Fresh",
                 "en": "Dill Fresh",
-                "uom": "g",
+                "uom": "Pkt 100 Gr",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5058,9 +5058,9 @@
                 "code": "108025",
                 "ar": "Parsley",
                 "en": "Parsley",
-                "uom": "g",
+                "uom": "Pkt 100 Gr",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5069,9 +5069,9 @@
                 "code": "108107",
                 "ar": "Fresh Rosemary",
                 "en": "Fresh Rosemary",
-                "uom": "g",
+                "uom": "Pkt 100 Gr",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5080,9 +5080,9 @@
                 "code": "108033",
                 "ar": "Thyme",
                 "en": "Thyme",
-                "uom": "g",
+                "uom": "Pkt 100 Gr",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5091,9 +5091,9 @@
                 "code": "108009",
                 "ar": "White Cabbage",
                 "en": "White Cabbage",
-                "uom": "pcs",
+                "uom": "Each",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5102,9 +5102,9 @@
                 "code": "108101",
                 "ar": "Red pepper Fresh",
                 "en": "Red pepper Fresh",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5113,9 +5113,9 @@
                 "code": "108103",
                 "ar": "Chili Green papper",
                 "en": "Chili Green papper",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5124,9 +5124,9 @@
                 "code": "108139",
                 "ar": "Red Chili",
                 "en": "Red Chili",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5135,9 +5135,9 @@
                 "code": "108106",
                 "ar": "Fresh Carrots",
                 "en": "Fresh Carrots",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5146,9 +5146,9 @@
                 "code": "108028",
                 "ar": "Mint",
                 "en": "Mint",
-                "uom": "g",
+                "uom": "Pkt 100 Gr",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5157,9 +5157,9 @@
                 "code": "108022",
                 "ar": "Tomato",
                 "en": "Tomato",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5168,9 +5168,9 @@
                 "code": "108024",
                 "ar": "Mushroom",
                 "en": "Mushroom",
-                "uom": "g",
+                "uom": "Pkt 200 Gr",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5179,9 +5179,9 @@
                 "code": "108043",
                 "ar": "Green Batavia Lettuce",
                 "en": "Green Batavia Lettuce",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5190,9 +5190,9 @@
                 "code": "108047",
                 "ar": "Oakleaf",
                 "en": "Oakleaf",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5201,9 +5201,9 @@
                 "code": "108017",
                 "ar": "White Onion",
                 "en": "White Onion",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5212,9 +5212,9 @@
                 "code": "108151",
                 "ar": "Watermelon",
                 "en": "Watermelon",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5223,9 +5223,9 @@
                 "code": "600021",
                 "ar": "Gloves White",
                 "en": "Gloves White",
-                "uom": "pcs",
+                "uom": "Box 100 Pcs",
                 "cat": "Cleaning Supplies",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
@@ -5234,9 +5234,9 @@
                 "code": "600014",
                 "ar": "Sponge Hard",
                 "en": "Sponge Hard",
-                "uom": "pcs",
+                "uom": "Pkt 10 Pcs",
                 "cat": "Cleaning Supplies",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
@@ -5245,9 +5245,9 @@
                 "code": "600046",
                 "ar": "Sponge Plastic",
                 "en": "Sponge Plastic",
-                "uom": "pcs",
+                "uom": "Each",
                 "cat": "Cleaning Supplies",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
@@ -5256,9 +5256,9 @@
                 "code": "108142",
                 "ar": "Potato",
                 "en": "Potato",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5267,9 +5267,9 @@
                 "code": "108018",
                 "ar": "Red Onion",
                 "en": "Red Onion",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5278,9 +5278,9 @@
                 "code": "500072",
                 "ar": "Roll Plastic",
                 "en": "Roll Plastic",
-                "uom": "pcs",
+                "uom": "Each",
                 "cat": "Packing Items",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Packing Items"
@@ -5289,9 +5289,9 @@
                 "code": "600111",
                 "ar": "Hairnet Black",
                 "en": "Hairnet Black",
-                "uom": "pcs",
+                "uom": "Pkt 100 Pcs",
                 "cat": "Cleaning Supplies",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
@@ -5300,9 +5300,9 @@
                 "code": "600068",
                 "ar": "Tissue Paper Roll Kitchen",
                 "en": "Tissue Paper Roll Kitchen",
-                "uom": "pcs",
+                "uom": "Each",
                 "cat": "Cleaning Supplies",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
@@ -5311,9 +5311,9 @@
                 "code": "500498",
                 "ar": "Bags White size 90*120",
                 "en": "Bags White size 90*120",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Packing Items",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Packing Items"
@@ -5322,9 +5322,9 @@
                 "code": "600017",
                 "ar": "Garbage bags 90 * 120",
                 "en": "Garbage bags 90 * 120",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Cleaning Supplies",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
@@ -5333,9 +5333,9 @@
                 "code": "600038",
                 "ar": "Glass Polishing",
                 "en": "Glass Polishing",
-                "uom": "kg",
+                "uom": "Btl 600 Ml",
                 "cat": "Cleaning Supplies",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
@@ -5344,9 +5344,9 @@
                 "code": "600155",
                 "ar": "SUMA GRILL D9",
                 "en": "SUMA GRILL D9",
-                "uom": "ltr",
+                "uom": "Liter",
                 "cat": "Cleaning Supplies",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
@@ -5355,9 +5355,9 @@
                 "code": "600157",
                 "ar": "DIVERCLEAN SU121",
                 "en": "DIVERCLEAN SU121",
-                "uom": "ltr",
+                "uom": "Liter",
                 "cat": "Cleaning Supplies",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
@@ -5366,9 +5366,9 @@
                 "code": "600044",
                 "ar": "Sewer line cleaner G TAC",
                 "en": "Sewer line cleaner G TAC",
-                "uom": "ltr",
+                "uom": "Gal 5 Kg",
                 "cat": "Cleaning Supplies",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
@@ -5377,9 +5377,9 @@
                 "code": "600154",
                 "ar": "Suma Force D3",
                 "en": "Suma Force D3",
-                "uom": "ltr",
+                "uom": "Liter",
                 "cat": "Cleaning Supplies",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
@@ -5388,9 +5388,9 @@
                 "code": "102222",
                 "ar": "Tomato Peeled Mirella",
                 "en": "Tomato Peeled Mirella",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5399,31 +5399,20 @@
                 "code": "104267",
                 "ar": "Butter Flechard",
                 "en": "Butter Flechard",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
-        },
-        "raw-200174": {
-                "code": "200174",
-                "ar": "Salted hazelnut (PA)",
-                "en": "Salted hazelnut (PA)",
-                "uom": "g",
-                "cat": "Beverage",
-                "price": 35,
-                "stock": 100,
-                "safety": 20,
-                "sup": "Beverage"
         },
         "raw-101099": {
                 "code": "101099",
                 "ar": "Cheese Provolone",
                 "en": "Cheese Provolone",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -5432,9 +5421,9 @@
                 "code": "104142",
                 "ar": "Mayonnaisec Hellmanns 3.4 Kg",
                 "en": "Mayonnaisec Hellmanns 3.4 Kg",
-                "uom": "ltr",
+                "uom": "Gal 3.4 Kg",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5443,9 +5432,9 @@
                 "code": "104004",
                 "ar": "Ketchup Gal",
                 "en": "Ketchup Gal",
-                "uom": "ltr",
+                "uom": "Gal 10 Kg",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5454,9 +5443,9 @@
                 "code": "104223",
                 "ar": "Mustard wholegrain",
                 "en": "Mustard wholegrain",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5465,9 +5454,9 @@
                 "code": "104226",
                 "ar": "Cucumber Pickle (imported)",
                 "en": "Cucumber Pickle (imported)",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5476,9 +5465,9 @@
                 "code": "104056",
                 "ar": "Sauce Texas",
                 "en": "Sauce Texas",
-                "uom": "g",
+                "uom": "BTL 900 GR",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5487,9 +5476,9 @@
                 "code": "104419",
                 "ar": "Mustard Dixe",
                 "en": "Mustard Dixe",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5498,9 +5487,9 @@
                 "code": "104003",
                 "ar": "Mayonnaise Box 4 Gal 3.290 Kg",
                 "en": "Mayonnaise Box 4 Gal 3.290 Kg",
-                "uom": "ltr",
+                "uom": "Gal 3.29 Kg",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5509,9 +5498,9 @@
                 "code": "104166",
                 "ar": "Frensh Vanilla",
                 "en": "Frensh Vanilla",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5522,7 +5511,7 @@
                 "en": "Italian Roasted Hazelnut",
                 "uom": "Box 5 Kg",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5531,9 +5520,9 @@
                 "code": "104136",
                 "ar": "Sweet chile",
                 "en": "Sweet chile",
-                "uom": "kg",
+                "uom": "Btl 600 Ml",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5542,9 +5531,9 @@
                 "code": "104412",
                 "ar": "Mastic paste",
                 "en": "Mastic paste",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5553,9 +5542,9 @@
                 "code": "104042",
                 "ar": "Paste Lotus",
                 "en": "Paste Lotus",
-                "uom": "g",
+                "uom": "Jar 400 Gr",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5564,9 +5553,9 @@
                 "code": "104008",
                 "ar": "Sauce Worcester",
                 "en": "Sauce Worcester",
-                "uom": "ltr",
+                "uom": "Gal 4 L",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5575,9 +5564,9 @@
                 "code": "104014",
                 "ar": "Sauce Hot Sriracha",
                 "en": "Sauce Hot Sriracha",
-                "uom": "kg",
+                "uom": "Btl 730 Ml",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5586,9 +5575,9 @@
                 "code": "104423",
                 "ar": "Yolk Egg frozen",
                 "en": "Yolk Egg frozen",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5597,9 +5586,9 @@
                 "code": "104149",
                 "ar": "Matcha japanese",
                 "en": "Matcha japanese",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5608,9 +5597,9 @@
                 "code": "500343",
                 "ar": "Small Bag Matcha",
                 "en": "Small Bag Matcha",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Packing Items",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Packing Items"
@@ -5619,9 +5608,9 @@
                 "code": "500010",
                 "ar": "Fridge Bag 5 Kg",
                 "en": "Fridge Bag 5 Kg",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Packing Items",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Packing Items"
@@ -5630,9 +5619,9 @@
                 "code": "500009",
                 "ar": "Fridge Bag 2 Kg",
                 "en": "Fridge Bag 2 Kg",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Packing Items",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Packing Items"
@@ -5643,7 +5632,7 @@
                 "en": "Milk Lamar full fat Box 12 Pkt 1 lit",
                 "uom": "Pkt 1 L",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -5652,9 +5641,9 @@
                 "code": "102068",
                 "ar": "Ice Cream Powder.",
                 "en": "Ice Cream Powder.",
-                "uom": "kg",
+                "uom": "Bag 10 Kg",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5663,9 +5652,9 @@
                 "code": "104088",
                 "ar": "Vanilla - Liquid",
                 "en": "Vanilla - Liquid",
-                "uom": "ltr",
+                "uom": "Liter",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5674,9 +5663,9 @@
                 "code": "108004",
                 "ar": "Cherry Tomatoes",
                 "en": "Cherry Tomatoes",
-                "uom": "g",
+                "uom": "Pkt 500 Gr",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5685,9 +5674,9 @@
                 "code": "108011",
                 "ar": "Captcha Lettuce",
                 "en": "Captcha Lettuce",
-                "uom": "pcs",
+                "uom": "Each",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5696,9 +5685,9 @@
                 "code": "108109",
                 "ar": "Fresh Baby Rocca",
                 "en": "Fresh Baby Rocca",
-                "uom": "g",
+                "uom": "PKT 125 Gr",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5707,9 +5696,9 @@
                 "code": "108144",
                 "ar": "Green Apple",
                 "en": "Green Apple",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5718,9 +5707,9 @@
                 "code": "108121",
                 "ar": "Avocado",
                 "en": "Avocado",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -5729,9 +5718,9 @@
                 "code": "102136",
                 "ar": "Sea Salt",
                 "en": "Sea Salt",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5740,9 +5729,9 @@
                 "code": "102170",
                 "ar": "Vanillia Powder Kings Crown 1 GR",
                 "en": "Vanillia Powder Kings Crown 1 GR",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5751,9 +5740,9 @@
                 "code": "102003",
                 "ar": "Baking powder - Box 50/16 Gr",
                 "en": "Baking powder - Box 50/16 Gr",
-                "uom": "g",
+                "uom": "Box 50Pkt -16Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5762,9 +5751,9 @@
                 "code": "104199",
                 "ar": "Chili Flakes",
                 "en": "Chili Flakes",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5773,9 +5762,9 @@
                 "code": "104137",
                 "ar": "Spices Turmeric Powder",
                 "en": "Spices Turmeric Powder",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5784,9 +5773,9 @@
                 "code": "102017",
                 "ar": "Spices Cayani Box 16",
                 "en": "Spices Cayani Box 16",
-                "uom": "g",
+                "uom": "Jar 300 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5797,7 +5786,7 @@
                 "en": "Knorr Meat stock",
                 "uom": "Pkt 1 Kg",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5806,9 +5795,9 @@
                 "code": "102178",
                 "ar": "Knorr Demiglace Suces",
                 "en": "Knorr Demiglace Suces",
-                "uom": "g",
+                "uom": "Pkt 750 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5817,9 +5806,9 @@
                 "code": "102030",
                 "ar": "Spices Black pepper Pkt 250 Gr",
                 "en": "Spices Black pepper Pkt 250 Gr",
-                "uom": "g",
+                "uom": "Pkt 250 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5828,9 +5817,9 @@
                 "code": "102175",
                 "ar": "Spices Pepper Black Whole",
                 "en": "Spices Pepper Black Whole",
-                "uom": "g",
+                "uom": "Jar 90 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5839,9 +5828,9 @@
                 "code": "102162",
                 "ar": "Spice Cinnamon powder",
                 "en": "Spice Cinnamon powder",
-                "uom": "g",
+                "uom": "Pkt 250 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5852,7 +5841,7 @@
                 "en": "Sugar White Powder",
                 "uom": "Pkt 1 Kg",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5863,7 +5852,7 @@
                 "en": "Brown Sugar",
                 "uom": "Pkt 1 Kg",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5874,7 +5863,7 @@
                 "en": "Sugar White Pkt 1kg",
                 "uom": "Pkt 1 Kg",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5883,9 +5872,9 @@
                 "code": "102018",
                 "ar": "Flour White  Box 10 bag 1 Kg",
                 "en": "Flour White  Box 10 bag 1 Kg",
-                "uom": "kg",
+                "uom": "Bag 1 Kg",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5894,9 +5883,9 @@
                 "code": "102174",
                 "ar": "Nutes Pinenut",
                 "en": "Nutes Pinenut",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5905,9 +5894,9 @@
                 "code": "104106",
                 "ar": "Pistachio whole",
                 "en": "Pistachio whole",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5916,9 +5905,9 @@
                 "code": "102020",
                 "ar": "Spices Dill powder 500 Gr",
                 "en": "Spices Dill powder 500 Gr",
-                "uom": "g",
+                "uom": "Pkt 500 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5927,9 +5916,9 @@
                 "code": "102033",
                 "ar": "Spices Parsley Pow 500 Gr",
                 "en": "Spices Parsley Pow 500 Gr",
-                "uom": "g",
+                "uom": "Pkt 500 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5938,9 +5927,9 @@
                 "code": "104364",
                 "ar": "spices basil",
                 "en": "spices basil",
-                "uom": "g",
+                "uom": "Jar 25 Gr",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5951,7 +5940,7 @@
                 "en": "Spices Oregano dry",
                 "uom": "Pkt 1 Kg",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -5960,9 +5949,9 @@
                 "code": "104087",
                 "ar": "Vanilla Frappe",
                 "en": "Vanilla Frappe",
-                "uom": "kg",
+                "uom": "Bag 10 Kg",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5971,20 +5960,31 @@
                 "code": "102154",
                 "ar": "Hibiscus Dry",
                 "en": "Hibiscus Dry",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
+        },
+        "raw-100005": {
+                "code": "100005",
+                "ar": "Bread Crumbs",
+                "en": "Bread Crumbs",
+                "uom": "Pkt 1 Kg",
+                "cat": "Bakery",
+                "price": 0,
+                "stock": 100,
+                "safety": 20,
+                "sup": "Bakery"
         },
         "raw-104018": {
                 "code": "104018",
                 "ar": "Sauce Hot KG",
                 "en": "Sauce Hot KG",
-                "uom": "ltr",
+                "uom": "Gal 5 Kg",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -5993,9 +5993,9 @@
                 "code": "104155",
                 "ar": "Tuna",
                 "en": "Tuna",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6004,9 +6004,9 @@
                 "code": "104153",
                 "ar": "Sweet Corn",
                 "en": "Sweet Corn",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6015,9 +6015,9 @@
                 "code": "104013",
                 "ar": "Oil Olive Box 12 Btl 1 lit",
                 "en": "Oil Olive Box 12 Btl 1 lit",
-                "uom": "kg",
+                "uom": "Btl 2 L",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6026,9 +6026,9 @@
                 "code": "104204",
                 "ar": "Olive Oil Wadi food",
                 "en": "Olive Oil Wadi food",
-                "uom": "ltr",
+                "uom": "Liter",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6037,9 +6037,9 @@
                 "code": "104007",
                 "ar": "Honey White",
                 "en": "Honey White",
-                "uom": "g",
+                "uom": "Jar 800 Gr",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6048,9 +6048,9 @@
                 "code": "104002",
                 "ar": "Mustard Heinz Gal 5L",
                 "en": "Mustard Heinz Gal 5L",
-                "uom": "ltr",
+                "uom": "Gal 5 L",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6059,9 +6059,9 @@
                 "code": "104026",
                 "ar": "Mustard Dijon",
                 "en": "Mustard Dijon",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6070,9 +6070,9 @@
                 "code": "102246",
                 "ar": "Spices Salt Lemon",
                 "en": "Spices Salt Lemon",
-                "uom": "g",
+                "uom": "Jar 185 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -6081,9 +6081,9 @@
                 "code": "104202",
                 "ar": "Sundried tomato",
                 "en": "Sundried tomato",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6092,9 +6092,9 @@
                 "code": "104144",
                 "ar": "Tomato Paste Heinz",
                 "en": "Tomato Paste Heinz",
-                "uom": "g",
+                "uom": "Jar 360 Gr",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6103,9 +6103,9 @@
                 "code": "104023",
                 "ar": "Vinegar Balsamic",
                 "en": "Vinegar Balsamic",
-                "uom": "kg",
+                "uom": "Jar 1 Kg",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6114,9 +6114,9 @@
                 "code": "104024",
                 "ar": "Vinegar Apple",
                 "en": "Vinegar Apple",
-                "uom": "g",
+                "uom": "Btl 500 Gr",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6125,9 +6125,9 @@
                 "code": "200101",
                 "ar": "Dvg Syrup Raspberry",
                 "en": "Dvg Syrup Raspberry",
-                "uom": "kg",
+                "uom": "Btl 750 Ml",
                 "cat": "Beverage",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Beverage"
@@ -6136,9 +6136,9 @@
                 "code": "200097",
                 "ar": "Dvg Syrup Strawberry",
                 "en": "Dvg Syrup Strawberry",
-                "uom": "kg",
+                "uom": "Btl 750 Ml",
                 "cat": "Beverage",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Beverage"
@@ -6147,9 +6147,9 @@
                 "code": "200006",
                 "ar": "Soda Schweppes",
                 "en": "Soda Schweppes",
-                "uom": "kg",
+                "uom": "Btl 1 L",
                 "cat": "Beverage",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Beverage"
@@ -6158,9 +6158,9 @@
                 "code": "102041",
                 "ar": "Corn Starch",
                 "en": "Corn Starch",
-                "uom": "kg",
+                "uom": "Bag 25 Kg",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -6169,9 +6169,9 @@
                 "code": "102031",
                 "ar": "Flour 50 Kg",
                 "en": "Flour 50 Kg",
-                "uom": "kg",
+                "uom": "Bag 50 Kg",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -6180,9 +6180,9 @@
                 "code": "102025",
                 "ar": "Sugar White 50 Kg",
                 "en": "Sugar White 50 Kg",
-                "uom": "kg",
+                "uom": "Bag 50 Kg",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -6191,9 +6191,9 @@
                 "code": "104123",
                 "ar": "Condensed Milk Nestle",
                 "en": "Condensed Milk Nestle",
-                "uom": "g",
+                "uom": "Btl 370 Gr",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6202,9 +6202,9 @@
                 "code": "102036",
                 "ar": "Spices Salt Chinese",
                 "en": "Spices Salt Chinese",
-                "uom": "kg",
+                "uom": "Bag 25 Kg",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -6213,9 +6213,9 @@
                 "code": "102021",
                 "ar": "Spices Dry thyme",
                 "en": "Spices Dry thyme",
-                "uom": "g",
+                "uom": "Pkt 500 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -6224,9 +6224,9 @@
                 "code": "104249",
                 "ar": "Mustard seeds",
                 "en": "Mustard seeds",
-                "uom": "g",
+                "uom": "Jar 500 Gr",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6235,9 +6235,9 @@
                 "code": "104389",
                 "ar": "Spices mint dry",
                 "en": "Spices mint dry",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6246,9 +6246,9 @@
                 "code": "102250",
                 "ar": "Flour T-150",
                 "en": "Flour T-150",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -6257,9 +6257,9 @@
                 "code": "102251",
                 "ar": "Flour T-65",
                 "en": "Flour T-65",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -6268,9 +6268,9 @@
                 "code": "102285",
                 "ar": "Flour T55",
                 "en": "Flour T55",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -6279,9 +6279,9 @@
                 "code": "104263",
                 "ar": "Flour T45",
                 "en": "Flour T45",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6290,9 +6290,9 @@
                 "code": "102218",
                 "ar": "Flour Dallagiovanna 00",
                 "en": "Flour Dallagiovanna 00",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -6301,9 +6301,9 @@
                 "code": "102165",
                 "ar": "Flour White 50 kg Five-Star",
                 "en": "Flour White 50 kg Five-Star",
-                "uom": "kg",
+                "uom": "Bag 50 Kg",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -6312,9 +6312,9 @@
                 "code": "104243",
                 "ar": "Olive Oil Nuri",
                 "en": "Olive Oil Nuri",
-                "uom": "ltr",
+                "uom": "Liter",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6323,9 +6323,9 @@
                 "code": "100016",
                 "ar": "Pretzel bread water",
                 "en": "Pretzel bread water",
-                "uom": "ltr",
+                "uom": "Gal 5 L",
                 "cat": "Bakery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Bakery"
@@ -6334,20 +6334,31 @@
                 "code": "102167",
                 "ar": "Bread improver",
                 "en": "Bread improver",
-                "uom": "kg",
+                "uom": "Bag 10 Kg",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
+        },
+        "raw-100021": {
+                "code": "100021",
+                "ar": "Bread Darker",
+                "en": "Bread Darker",
+                "uom": "Kilogram",
+                "cat": "Bakery",
+                "price": 0,
+                "stock": 100,
+                "safety": 20,
+                "sup": "Bakery"
         },
         "raw-200158": {
                 "code": "200158",
                 "ar": "Cubie Pistachio Sauce",
                 "en": "Cubie Pistachio Sauce",
-                "uom": "kg",
+                "uom": "Btl 1 L",
                 "cat": "Beverage",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Beverage"
@@ -6356,9 +6367,9 @@
                 "code": "101114",
                 "ar": "Baking soda",
                 "en": "Baking soda",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -6367,9 +6378,9 @@
                 "code": "104041",
                 "ar": "Nutella Gal 3 Kg",
                 "en": "Nutella Gal 3 Kg",
-                "uom": "ltr",
+                "uom": "Gal 3 Kg",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6378,9 +6389,9 @@
                 "code": "102166",
                 "ar": "Yeast 500 Gr Dcl",
                 "en": "Yeast 500 Gr Dcl",
-                "uom": "g",
+                "uom": "Pkt 500 Gr",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -6389,9 +6400,9 @@
                 "code": "102220",
                 "ar": "Dry yeast forno",
                 "en": "Dry yeast forno",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -6400,9 +6411,9 @@
                 "code": "102244",
                 "ar": "almond slices",
                 "en": "almond slices",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -6411,9 +6422,9 @@
                 "code": "102243",
                 "ar": "ALMOND POWDER",
                 "en": "ALMOND POWDER",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Dry",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dry"
@@ -6422,9 +6433,9 @@
                 "code": "104340",
                 "ar": "White Sesame",
                 "en": "White Sesame",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6433,9 +6444,9 @@
                 "code": "104255",
                 "ar": "Pastry cream",
                 "en": "Pastry cream",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6444,9 +6455,9 @@
                 "code": "104171",
                 "ar": "Dark cocoa",
                 "en": "Dark cocoa",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6455,9 +6466,9 @@
                 "code": "101139",
                 "ar": "Butter Newzealand (local)",
                 "en": "Butter Newzealand (local)",
-                "uom": "kg",
+                "uom": "Bag 25 Kg",
                 "cat": "Dairy",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Dairy"
@@ -6466,9 +6477,9 @@
                 "code": "500401",
                 "ar": "Butter pepper saints",
                 "en": "Butter pepper saints",
-                "uom": "pcs",
+                "uom": "Pkt 100 Pcs",
                 "cat": "Packing Items",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Packing Items"
@@ -6477,9 +6488,9 @@
                 "code": "500643",
                 "ar": "clips bag food storage 55*22",
                 "en": "clips bag food storage 55*22",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Packing Items",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Packing Items"
@@ -6488,9 +6499,9 @@
                 "code": "500642",
                 "ar": "Zip-lock Bags 30*40",
                 "en": "Zip-lock Bags 30*40",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Packing Items",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Packing Items"
@@ -6499,9 +6510,9 @@
                 "code": "500418",
                 "ar": "Bowl 3 ice cream (260) saints",
                 "en": "Bowl 3 ice cream (260) saints",
-                "uom": "pcs",
+                "uom": "Each",
                 "cat": "Packing Items",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Packing Items"
@@ -6510,9 +6521,9 @@
                 "code": "200012",
                 "ar": "Water Gallon 19 lit",
                 "en": "Water Gallon 19 lit",
-                "uom": "pcs",
+                "uom": "Each",
                 "cat": "Beverage",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Beverage"
@@ -6521,9 +6532,9 @@
                 "code": "108016",
                 "ar": "Garlic Chinese",
                 "en": "Garlic Chinese",
-                "uom": "g",
+                "uom": "Pkt 200 Gr",
                 "cat": "Fruits & Veg",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Fruits & Veg"
@@ -6532,9 +6543,9 @@
                 "code": "104147",
                 "ar": "Sauce Hickory BBQ",
                 "en": "Sauce Hickory BBQ",
-                "uom": "g",
+                "uom": "Pkt 350 Gr",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"
@@ -6543,9 +6554,9 @@
                 "code": "104408",
                 "ar": "Cherry Frozen",
                 "en": "Cherry Frozen",
-                "uom": "g",
+                "uom": "Kilogram",
                 "cat": "Grocery",
-                "price": 35,
+                "price": 0,
                 "stock": 100,
                 "safety": 20,
                 "sup": "Grocery"

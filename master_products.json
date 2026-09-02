@@ -5,10 +5,10 @@
     "item_no": "110296",
     "ar": "Turkey pastrame (PA)",
     "en": "Turkey pastrame (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "chicken",
-    "cost": 50.35,
-    "color": "#22c55e"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-onion-rings-fried-pa",
@@ -16,21 +16,10 @@
     "item_no": "110050",
     "ar": "Onion Rings Fried . (PA)",
     "en": "Onion Rings Fried . (PA)",
-    "unit": "portion",
+    "unit": "Portion",
     "cat": "veggies",
-    "cost": 10.45,
-    "color": "#06b6d4"
-  },
-  {
-    "id": "prod-100037",
-    "code": "100037",
-    "item_no": "100037",
-    "ar": "Brownie can",
-    "en": "Brownie can",
-    "unit": "pcs",
-    "cat": "bakery",
-    "cost": 50,
-    "color": "#f59e0b"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-beef-burger-patty-pa",
@@ -38,10 +27,10 @@
     "item_no": "110003",
     "ar": "Beef Burger Patty . (PA)",
     "en": "Beef Burger Patty . (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "beef",
-    "cost": 33.85,
-    "color": "#8b5cf6"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-cucumber-pickle-kg-pa",
@@ -49,10 +38,10 @@
     "item_no": "110039",
     "ar": "Cucumber Pickle - Kg (PA)",
     "en": "Cucumber Pickle - Kg (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "veggies",
-    "cost": 64.1,
-    "color": "#06b6d4"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-cucumber-pickles-chips-pa",
@@ -60,10 +49,10 @@
     "item_no": "110265",
     "ar": "Cucumber pickles Chips (PA)",
     "en": "Cucumber pickles Chips (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "veggies",
-    "cost": 59.29,
-    "color": "#06b6d4"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-batter-frizzle-onion-pa",
@@ -71,10 +60,10 @@
     "item_no": "110126",
     "ar": "Batter Frizzle Onion (PA)",
     "en": "Batter Frizzle Onion (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "veggies",
-    "cost": 136.47,
-    "color": "#06b6d4"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-onion-jam-pa",
@@ -82,10 +71,10 @@
     "item_no": "110227",
     "ar": "Onion Jam (PA)",
     "en": "Onion Jam (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 74.25,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-roasted-potato-pa",
@@ -93,10 +82,10 @@
     "item_no": "110197",
     "ar": "Roasted Potato (PA)",
     "en": "Roasted Potato (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "veggies",
-    "cost": 43.31,
-    "color": "#06b6d4"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-ranch-sauce-kg-pa",
@@ -104,10 +93,10 @@
     "item_no": "110031",
     "ar": "Ranch Sauce - Kg (PA)",
     "en": "Ranch Sauce - Kg (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 81.51,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-chicken-sauce-kg-pa",
@@ -115,10 +104,10 @@
     "item_no": "110033",
     "ar": "Chicken Sauce - Kg (PA)",
     "en": "Chicken Sauce - Kg (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 82.52,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-honey-mustard-sauce-kg-pa",
@@ -126,10 +115,10 @@
     "item_no": "110037",
     "ar": "Honey Mustard Sauce - Kg (PA)",
     "en": "Honey Mustard Sauce - Kg (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 98.24,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-sweet-relish-pa",
@@ -137,10 +126,10 @@
     "item_no": "110128",
     "ar": "Sweet Relish (PA)",
     "en": "Sweet Relish (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "prep",
-    "cost": 83.37,
-    "color": "#06b6d4"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-amirecan-sauce-kg-pa",
@@ -148,10 +137,10 @@
     "item_no": "110017",
     "ar": "Amirecan Sauce - Kg (PA)",
     "en": "Amirecan Sauce - Kg (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 136.66,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-atomic-sauce-kg-pa",
@@ -159,10 +148,10 @@
     "item_no": "110046",
     "ar": "Atomic Sauce Kg (PA)",
     "en": "Atomic Sauce Kg (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 125.38,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-bbq-sauce-kg-pa",
@@ -170,10 +159,10 @@
     "item_no": "110018",
     "ar": "BBQ Sauce - Kg. (PA)",
     "en": "BBQ Sauce - Kg. (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 120.07,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-sauce-sriracha-kg-pa",
@@ -181,10 +170,10 @@
     "item_no": "110051",
     "ar": "Sauce Sriracha Kg (PA)",
     "en": "Sauce Sriracha Kg (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 162.95,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-blue-cheese-dressing-pa",
@@ -192,10 +181,10 @@
     "item_no": "110159",
     "ar": "Blue Cheese Dressing (PA)",
     "en": "Blue Cheese Dressing (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 168.52,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-brgr-house-dressing-pa",
@@ -203,10 +192,10 @@
     "item_no": "110045",
     "ar": "BRGR House Dressing (PA)",
     "en": "BRGR House Dressing (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 214.35,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-queen-s-salad-dressing-pa",
@@ -214,10 +203,10 @@
     "item_no": "110043",
     "ar": "queen's salad Dressing  (PA)",
     "en": "queen's salad Dressing  (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 369.31,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-moroccan-salad-dressing-pa",
@@ -225,10 +214,10 @@
     "item_no": "110044",
     "ar": "Moroccan salad Dressing  (PA)",
     "en": "Moroccan salad Dressing  (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 342.85,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-truffle-mayo-pa",
@@ -236,10 +225,10 @@
     "item_no": "110237",
     "ar": "truffle mayo (PA)",
     "en": "truffle mayo (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 324.61,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-karkade-syrup-pa",
@@ -247,10 +236,10 @@
     "item_no": "110352",
     "ar": "Karkade Syrup (PA)",
     "en": "Karkade Syrup (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 95.26,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-toast-bread-pa",
@@ -258,10 +247,10 @@
     "item_no": "110324",
     "ar": "Toast Bread (PA)",
     "en": "Toast Bread (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "bakery",
-    "cost": 301.98,
-    "color": "#f59e0b"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-hot-mustard-sauce-pa",
@@ -269,10 +258,10 @@
     "item_no": "110369",
     "ar": "Hot Mustard Sauce . (PA)",
     "en": "Hot Mustard Sauce . (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 133.75,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-raspberry-puree-pa",
@@ -280,10 +269,10 @@
     "item_no": "110266",
     "ar": "Raspberry Puree (PA)",
     "en": "Raspberry Puree (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 815.4,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-split-sauce-pa",
@@ -291,10 +280,10 @@
     "item_no": "110145",
     "ar": "SPLIT Sauce (PA)",
     "en": "SPLIT Sauce (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 123.91,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-balsamic-vinaigrette-dressing-pa",
@@ -302,10 +291,10 @@
     "item_no": "110185",
     "ar": "Balsamic Vinaigrette dressing (PA)",
     "en": "Balsamic Vinaigrette dressing (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 232.95,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-thyme-balsamic-vinaigrette-pa",
@@ -313,10 +302,10 @@
     "item_no": "110189",
     "ar": "Thyme Balsamic Vinaigrette (PA)",
     "en": "Thyme Balsamic Vinaigrette (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 122.1,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-caesar-dressing-pa-pa",
@@ -324,10 +313,10 @@
     "item_no": "110163",
     "ar": "Caesar Dressing (PA) (PA)",
     "en": "Caesar Dressing (PA) (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 288.45,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-chives-cream-cheese-pa",
@@ -335,10 +324,10 @@
     "item_no": "110194",
     "ar": "Chives Cream Cheese (PA)",
     "en": "Chives Cream Cheese (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "cheese",
-    "cost": 615.18,
-    "color": "#fde047"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-citrus-dressing-pa",
@@ -346,10 +335,10 @@
     "item_no": "110198",
     "ar": "Citrus dressing (PA)",
     "en": "Citrus dressing (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 281.48,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-coleslow-dressing-pa",
@@ -357,10 +346,10 @@
     "item_no": "110137",
     "ar": "Coleslow Dressing (PA)",
     "en": "Coleslow Dressing (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 45.85,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-honey-srirache-sauce-pa",
@@ -368,10 +357,10 @@
     "item_no": "110142",
     "ar": "Honey Srirache Sauce (PA)",
     "en": "Honey Srirache Sauce (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 238.37,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-pesto-sauce-pa",
@@ -379,10 +368,10 @@
     "item_no": "110141",
     "ar": "Pesto Sauce (PA)",
     "en": "Pesto Sauce (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 848.52,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-pistachio-pesto-pa",
@@ -390,10 +379,10 @@
     "item_no": "110290",
     "ar": "PISTACHIO PESTO (PA)",
     "en": "PISTACHIO PESTO (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "prep",
-    "cost": 771.79,
-    "color": "#06b6d4"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-sundried-tomato-pesto-pa",
@@ -401,10 +390,10 @@
     "item_no": "110295",
     "ar": "SUNDRIED TOMATO PESTO (PA)",
     "en": "SUNDRIED TOMATO PESTO (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "prep",
-    "cost": 732.91,
-    "color": "#06b6d4"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-smokey-mayo-sauce-pa-pa",
@@ -412,10 +401,10 @@
     "item_no": "110165",
     "ar": "Smokey Mayo Sauce (PA) (PA)",
     "en": "Smokey Mayo Sauce (PA) (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 138.25,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-sweet-chili-mayo-sauce-pa",
@@ -423,10 +412,10 @@
     "item_no": "110228",
     "ar": "Sweet Chili Mayo Sauce (PA)",
     "en": "Sweet Chili Mayo Sauce (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 127.54,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-balsamic-galze-pa",
@@ -434,10 +423,10 @@
     "item_no": "110139",
     "ar": "Balsamic Galze (PA)",
     "en": "Balsamic Galze (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "prep",
-    "cost": 1054.77,
-    "color": "#06b6d4"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-coleslow-salad-pa",
@@ -445,10 +434,10 @@
     "item_no": "110146",
     "ar": "Coleslow Salad (PA)",
     "en": "Coleslow Salad (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "veggies",
-    "cost": 31.19,
-    "color": "#06b6d4"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-hot-honey-pa",
@@ -456,10 +445,10 @@
     "item_no": "110201",
     "ar": "Hot Honey (PA)",
     "en": "Hot Honey (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "prep",
-    "cost": 112.66,
-    "color": "#06b6d4"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-pickled-onion-pa",
@@ -467,10 +456,10 @@
     "item_no": "110136",
     "ar": "Pickled Onion (PA)",
     "en": "Pickled Onion (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "veggies",
-    "cost": 62.32,
-    "color": "#06b6d4"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-sauce-marinara-pa",
@@ -478,10 +467,10 @@
     "item_no": "110134",
     "ar": "Sauce Marinara (PA)",
     "en": "Sauce Marinara (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 113.91,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-short-ribs-pa",
@@ -489,10 +478,10 @@
     "item_no": "110147",
     "ar": "Short Ribs (PA)",
     "en": "Short Ribs (PA)",
-    "unit": "portion",
+    "unit": "Portion",
     "cat": "beef",
-    "cost": 89.79,
-    "color": "#8b5cf6"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-chicken-bites-kg-pa",
@@ -500,10 +489,10 @@
     "item_no": "110036",
     "ar": "Chicken Bites - Kg (PA)",
     "en": "Chicken Bites - Kg (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "chicken",
-    "cost": 345.1,
-    "color": "#22c55e"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-lemon-chicken-pa",
@@ -511,10 +500,10 @@
     "item_no": "110090",
     "ar": "Lemon chicken (PA)",
     "en": "Lemon chicken (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "chicken",
-    "cost": 25.1,
-    "color": "#22c55e"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-chicken-fillet-p-pa",
@@ -522,10 +511,10 @@
     "item_no": "110006",
     "ar": "Chicken Fillet P (PA)",
     "en": "Chicken Fillet P (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "chicken",
-    "cost": 27.9,
-    "color": "#22c55e"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-chicken-breaded-pa",
@@ -533,10 +522,10 @@
     "item_no": "110144",
     "ar": "Chicken Breaded (PA)",
     "en": "Chicken Breaded (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "bakery",
-    "cost": 17.87,
-    "color": "#f59e0b"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-chicken-tenders-pa",
@@ -544,10 +533,10 @@
     "item_no": "110183",
     "ar": "chicken tenders (PA)",
     "en": "chicken tenders (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "chicken",
-    "cost": 11.74,
-    "color": "#22c55e"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-chicken-liquid-sauce-kg-pa",
@@ -555,10 +544,10 @@
     "item_no": "110042",
     "ar": "Chicken liquid sauce - Kg (PA)",
     "en": "Chicken liquid sauce - Kg (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 45.04,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-emmental-cheese-pc-pa",
@@ -566,10 +555,10 @@
     "item_no": "110086",
     "ar": "Emmental  Cheese PC (PA",
     "en": "Emmental  Cheese PC (PA",
-    "unit": "portion",
+    "unit": "Portion",
     "cat": "cheese",
-    "cost": 7.07,
-    "color": "#fde047"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-cheese-sauce-kg-pa",
@@ -577,10 +566,10 @@
     "item_no": "110041",
     "ar": "Cheese Sauce. - Kg (PA)",
     "en": "Cheese Sauce. - Kg (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 334.88,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-ice-cream-kg-pa",
@@ -588,10 +577,10 @@
     "item_no": "110038",
     "ar": "Ice Cream - Kg (PA)",
     "en": "Ice Cream - Kg (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "drinks",
-    "cost": 75.1,
-    "color": "#06b6d4"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-pancake-paste-kg-pa",
@@ -599,10 +588,10 @@
     "item_no": "110030",
     "ar": "Pancake Paste - Kg (PA)",
     "en": "Pancake Paste - Kg (PA)",
-    "unit": "kg",
-    "cat": "sauces",
-    "cost": 53.86,
-    "color": "#f97316"
+    "unit": "Kilogram",
+    "cat": "prep",
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-hot-chocolate-sauce-pa",
@@ -610,10 +599,10 @@
     "item_no": "110173",
     "ar": "Hot Chocolate Sauce (PA)",
     "en": "Hot Chocolate Sauce (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 392.79,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-salted-caramel-sauce-pa",
@@ -621,10 +610,10 @@
     "item_no": "110124",
     "ar": "Salted Caramel Sauce (PA)",
     "en": "Salted Caramel Sauce (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 122.81,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-rib-eye-pa",
@@ -632,10 +621,10 @@
     "item_no": "110156",
     "ar": "Rib Eye (PA)",
     "en": "Rib Eye (PA)",
-    "unit": "portion",
+    "unit": "Portion",
     "cat": "beef",
-    "cost": 50.95,
-    "color": "#8b5cf6"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-mozzarella-sticks-marina-pa",
@@ -643,10 +632,10 @@
     "item_no": "110181",
     "ar": "mozzarella sticks (marina) (PA)",
     "en": "mozzarella sticks (marina) (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "cheese",
-    "cost": 10.42,
-    "color": "#fde047"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-dill-tuna-mix-pa",
@@ -654,10 +643,10 @@
     "item_no": "110363",
     "ar": "Dill Tuna Mix (PA)",
     "en": "Dill Tuna Mix (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "sauces",
-    "cost": 35.7,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-lemon-curd-pa",
@@ -665,10 +654,10 @@
     "item_no": "110303",
     "ar": "Lemon Curd (PA)",
     "en": "Lemon Curd (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 423.28,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-mushroom-roasted-pa",
@@ -676,10 +665,10 @@
     "item_no": "110082",
     "ar": "Mushroom Roasted (PA)",
     "en": "Mushroom Roasted (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "veggies",
-    "cost": 215.44,
-    "color": "#06b6d4"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-blue-berry-sauce-pa",
@@ -687,10 +676,10 @@
     "item_no": "110302",
     "ar": "Blue Berry Sauce (PA)",
     "en": "Blue Berry Sauce (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 1525.24,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-frosting-sauce-basic-pa",
@@ -698,10 +687,10 @@
     "item_no": "110299",
     "ar": "Frosting Sauce Basic (PA)",
     "en": "Frosting Sauce Basic (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 435.9,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-taztaziki-sauce-pa",
@@ -709,10 +698,10 @@
     "item_no": "110365",
     "ar": "Taztaziki Sauce (PA)",
     "en": "Taztaziki Sauce (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 234.87,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-marination-mushroom-roasted-pa",
@@ -720,10 +709,10 @@
     "item_no": "110188",
     "ar": "Marination Mushroom Roasted (PA)",
     "en": "Marination Mushroom Roasted (PA)",
-    "unit": "kg",
-    "cat": "sauces",
-    "cost": 243.94,
-    "color": "#f97316"
+    "unit": "Kilogram",
+    "cat": "veggies",
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-classic-frosting-pa",
@@ -731,10 +720,10 @@
     "item_no": "110300",
     "ar": "Classic Frosting (PA)",
     "en": "Classic Frosting (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 505.84,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-tuna-mix-pa",
@@ -742,10 +731,21 @@
     "item_no": "110166",
     "ar": "Tuna Mix (PA)",
     "en": "Tuna Mix (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "sauces",
-    "cost": 42.82,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
+  },
+  {
+    "id": "prod-salted-hazelnut-pa",
+    "code": "200174",
+    "item_no": "200174",
+    "ar": "Salted hazelnut (PA)",
+    "en": "Salted hazelnut (PA)",
+    "unit": "Kilogram",
+    "cat": "prep",
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-strawberry-sauce-pa",
@@ -753,10 +753,10 @@
     "item_no": "110264",
     "ar": "Strawberry Sauce (PA)",
     "en": "Strawberry Sauce (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "sauces",
-    "cost": 162.04,
-    "color": "#f97316"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-cheese-provolone-pa",
@@ -764,10 +764,10 @@
     "item_no": "110157",
     "ar": "Cheese Provolone (PA)",
     "en": "Cheese Provolone (PA)",
-    "unit": "portion",
+    "unit": "Portion",
     "cat": "cheese",
-    "cost": 15.6,
-    "color": "#fde047"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-rosted-turkey-pa",
@@ -775,10 +775,10 @@
     "item_no": "110143",
     "ar": "Rosted Turkey (PA)",
     "en": "Rosted Turkey (PA)",
-    "unit": "portion",
+    "unit": "Portion",
     "cat": "chicken",
-    "cost": 52.72,
-    "color": "#22c55e"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-roast-beef-pa-pa",
@@ -786,10 +786,10 @@
     "item_no": "110149",
     "ar": "Roast Beef (PA) (PA)",
     "en": "Roast Beef (PA) (PA)",
-    "unit": "portion",
+    "unit": "Portion",
     "cat": "beef",
-    "cost": 52.59,
-    "color": "#8b5cf6"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-watermelon-pa",
@@ -797,21 +797,10 @@
     "item_no": "110229",
     "ar": "Watermelon (PA)",
     "en": "Watermelon (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "veggies",
-    "cost": 17.54,
-    "color": "#06b6d4"
-  },
-  {
-    "id": "prod-100005",
-    "code": "100005",
-    "item_no": "100005",
-    "ar": "Bread Crumbs",
-    "en": "Bread Crumbs",
-    "unit": "kg",
-    "cat": "bakery",
-    "cost": 50,
-    "color": "#f59e0b"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-dry-powder-kg-pa",
@@ -819,10 +808,10 @@
     "item_no": "110035",
     "ar": "Dry Powder - Kg (PA)",
     "en": "Dry Powder - Kg (PA)",
-    "unit": "kg",
-    "cat": "sauces",
-    "cost": 115.83,
-    "color": "#f97316"
+    "unit": "Kilogram",
+    "cat": "prep",
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-dry-mix-pa",
@@ -830,10 +819,10 @@
     "item_no": "110127",
     "ar": "Dry Mix (PA)",
     "en": "Dry Mix (PA)",
-    "unit": "kg",
-    "cat": "sauces",
-    "cost": 115.21,
-    "color": "#f97316"
+    "unit": "Kilogram",
+    "cat": "prep",
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-salted-vanilla-bean-pa",
@@ -841,21 +830,10 @@
     "item_no": "110174",
     "ar": "Salted Vanilla Bean (PA)",
     "en": "Salted Vanilla Bean (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "prep",
-    "cost": 537.47,
-    "color": "#06b6d4"
-  },
-  {
-    "id": "prod-100021",
-    "code": "100021",
-    "item_no": "100021",
-    "ar": "Bread Darker",
-    "en": "Bread Darker",
-    "unit": "kg",
-    "cat": "bakery",
-    "cost": 50,
-    "color": "#f59e0b"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-cookies-can-mini-pa",
@@ -865,8 +843,8 @@
     "en": "Cookies Can Mini (PA)",
     "unit": "Order 8 pieces",
     "cat": "bakery",
-    "cost": 27.92,
-    "color": "#f59e0b"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-ciabatta-bread-pa",
@@ -874,10 +852,10 @@
     "item_no": "110148",
     "ar": "Ciabatta Bread (PA)",
     "en": "Ciabatta Bread (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "bakery",
-    "cost": 5.21,
-    "color": "#f59e0b"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-brown-ciabatta-bread-pa-pa",
@@ -885,10 +863,10 @@
     "item_no": "110164",
     "ar": "Brown Ciabatta Bread (PA) (PA)",
     "en": "Brown Ciabatta Bread (PA) (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "bakery",
-    "cost": 5.61,
-    "color": "#f59e0b"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-french-baghette-pa",
@@ -896,21 +874,21 @@
     "item_no": "110268",
     "ar": "French Baghette (PA)",
     "en": "French Baghette (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "bakery",
-    "cost": 3.4,
-    "color": "#f59e0b"
+    "cost": 0,
+    "stock": 0
   },
   {
-    "id": "prod-100017",
+    "id": "prod-pretzel-bread-pa",
     "code": "100017",
     "item_no": "100017",
     "ar": "Pretzel Bread (PA)",
     "en": "Pretzel Bread (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "bakery",
-    "cost": 50,
-    "color": "#f59e0b"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-bread-sour-dough-pa",
@@ -918,10 +896,10 @@
     "item_no": "110288",
     "ar": "Bread Sour dough (PA)",
     "en": "Bread Sour dough (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "bakery",
-    "cost": 46.36,
-    "color": "#f59e0b"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-round-ciabatta-pa",
@@ -929,10 +907,10 @@
     "item_no": "110193",
     "ar": "Round Ciabatta (PA)",
     "en": "Round Ciabatta (PA)",
-    "unit": "pcs",
-    "cat": "prep",
-    "cost": 2.71,
-    "color": "#06b6d4"
+    "unit": "Each",
+    "cat": "bakery",
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-croissant-plain-pa",
@@ -940,10 +918,10 @@
     "item_no": "110316",
     "ar": "Croissant Plain (PA)",
     "en": "Croissant Plain (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "bakery",
-    "cost": 28.35,
-    "color": "#f59e0b"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-danash-pastrame-pa",
@@ -951,10 +929,10 @@
     "item_no": "110312",
     "ar": "Danash Pastrame (PA)",
     "en": "Danash Pastrame (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "bakery",
-    "cost": 58.97,
-    "color": "#f59e0b"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-croissant-thyme-goat-pa",
@@ -962,10 +940,10 @@
     "item_no": "110317",
     "ar": "Croissant Thyme goat (PA)",
     "en": "Croissant Thyme goat (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "bakery",
-    "cost": 37.72,
-    "color": "#f59e0b"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-pan-swiss-croissant-pa",
@@ -973,10 +951,10 @@
     "item_no": "110319",
     "ar": "Pan Swiss Croissant (PA)",
     "en": "Pan Swiss Croissant (PA)",
-    "unit": "pcs",
+    "unit": "Each",
     "cat": "bakery",
-    "cost": 47.1,
-    "color": "#f59e0b"
+    "cost": 0,
+    "stock": 0
   },
   {
     "id": "prod-lovan-dough-pa",
@@ -984,9 +962,9 @@
     "item_no": "110267",
     "ar": "Lovan Dough (PA)",
     "en": "Lovan Dough (PA)",
-    "unit": "kg",
+    "unit": "Kilogram",
     "cat": "bakery",
-    "cost": 20.63,
-    "color": "#f59e0b"
+    "cost": 0,
+    "stock": 0
   }
 ]
