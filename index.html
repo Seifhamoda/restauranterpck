@@ -2551,14 +2551,15 @@
             <table class="tbl">
               <thead>
                 <tr>
+                  <th data-ar="كود الصنف" data-en="Code" style="width:100px">كود الصنف</th>
                   <th data-ar="المادة الخام" data-en="Ingredient">المادة الخام</th>
-                  <th data-ar="المخزون الحالي" data-en="Current Stock">المخزون الحالي</th>
-                  <th data-ar="حد الأمان" data-en="Safety Stock">حد الأمان</th>
-                  <th data-ar="المطلوب للإنتاج" data-en="Required Today">المطلوب للإنتاج</th>
-                  <th data-ar="الفارق / العجز" data-en="Shortage / Gap">الفارق / العجز</th>
-                  <th data-ar="حالة الرصيد" data-en="Status">حالة الرصيد</th>
-                  <th data-ar="مؤشر الكفاية" data-en="Stock Level">مؤشر الكفاية</th>
-                  <th data-ar="تعديل الرصيد" data-en="Edit">تعديل الرصيد</th>
+                  <th data-ar="القسم" data-en="Department" style="width:120px">القسم</th>
+                  <th data-ar="المخزون الحالي" data-en="Current Stock" style="min-width:140px">المخزون الحالي</th>
+                  <th data-ar="حد الأمان" data-en="Safety Stock" style="min-width:120px">حد الأمان</th>
+                  <th data-ar="المطلوب للإنتاج" data-en="Required Today" style="min-width:120px">المطلوب للإنتاج</th>
+                  <th data-ar="حالة الرصيد" data-en="Status" style="width:130px">حالة الرصيد</th>
+                  <th data-ar="مؤشر الكفاية" data-en="Stock Level" style="width:120px">مؤشر الكفاية</th>
+                  <th data-ar="تعديل" data-en="Edit" style="width:70px;text-align:center">تعديل</th>
                 </tr>
               </thead>
               <tbody id="inv-tbl"></tbody>
@@ -8621,6 +8622,59 @@
       renderInv();
     }
 
+    
+    /* ── Smart Unit of Measure (UOM) Intelligence ── */
+    function parseUOM(uom) {
+      const u = (uom || '').trim();
+      const lower = u.toLowerCase();
+
+      if (lower === 'kilogram' || lower === 'kg') {
+        return { type: 'weight', isCountable: false, tagAr: 'كيلو', tagEn: 'Kg', packAr: 'وزن بالكيلو', packEn: 'Bulk Weight', step: 0.05, raw: u };
+      }
+      if (lower === 'liter' || lower === 'ltr' || lower === 'l') {
+        return { type: 'volume', isCountable: false, tagAr: 'لتر', tagEn: 'L', packAr: 'حجم باللتر', packEn: 'Bulk Volume', step: 0.1, raw: u };
+      }
+      if (lower.startsWith('jar')) {
+        const size = u.replace(/^jar\s*/i, '');
+        return { type: 'jar', isCountable: true, tagAr: 'برطمان', tagEn: 'Jar', packAr: size ? ('عبوة ' + size) : 'برطمان', packEn: size ? ('Jar ' + size) : 'Jar', step: 1, raw: u };
+      }
+      if (lower.startsWith('btl')) {
+        const size = u.replace(/^btl\s*/i, '');
+        return { type: 'bottle', isCountable: true, tagAr: 'زجاجة', tagEn: 'Btl', packAr: size ? ('زجاجة ' + size) : 'زجاجة', packEn: size ? ('Btl ' + size) : 'Bottle', step: 1, raw: u };
+      }
+      if (lower.startsWith('gal')) {
+        const size = u.replace(/^gal\s*/i, '');
+        return { type: 'gallon', isCountable: true, tagAr: 'جالون', tagEn: 'Gal', packAr: size ? ('جالون ' + size) : 'جالون', packEn: size ? ('Gal ' + size) : 'Gallon', step: 1, raw: u };
+      }
+      if (lower.startsWith('bag')) {
+        const size = u.replace(/^bag\s*/i, '');
+        return { type: 'bag', isCountable: true, tagAr: 'شيكارة', tagEn: 'Bag', packAr: size ? ('شيكارة ' + size) : 'شيكارة', packEn: size ? ('Bag ' + size) : 'Bag', step: 1, raw: u };
+      }
+      if (lower.startsWith('box')) {
+        const size = u.replace(/^box\s*/i, '');
+        return { type: 'box', isCountable: true, tagAr: 'علبة', tagEn: 'Box', packAr: size ? ('علبة ' + size) : 'علبة', packEn: size ? ('Box ' + size) : 'Box', step: 1, raw: u };
+      }
+      if (lower.startsWith('pkt')) {
+        const size = u.replace(/^pkt\s*/i, '');
+        return { type: 'packet', isCountable: true, tagAr: 'باكت', tagEn: 'Pkt', packAr: size ? ('باكت ' + size) : 'باكت', packEn: size ? ('Pkt ' + size) : 'Packet', step: 1, raw: u };
+      }
+      if (lower.startsWith('plate')) {
+        return { type: 'plate', isCountable: true, tagAr: 'طبق', tagEn: 'Plate', packAr: 'طبق 30 بيضة', packEn: 'Plate (30 Pcs)', step: 1, raw: u };
+      }
+      return { type: 'piece', isCountable: true, tagAr: 'قطعة', tagEn: 'Pcs', packAr: 'بالواحدة', packEn: 'Per Piece', step: 1, raw: u };
+    }
+
+    function formatSmartStock(qty, uom, arabic = true) {
+      const info = parseUOM(uom);
+      const n = Number(qty) || 0;
+      const numStr = info.isCountable
+        ? (n % 1 === 0 ? String(n) : n.toFixed(1))
+        : (n % 1 === 0 ? String(n) : n.toFixed(2));
+      const tag = arabic ? info.tagAr : info.tagEn;
+      const pack = arabic ? info.packAr : info.packEn;
+      return { num: numStr, tag, pack, info };
+    }
+
     function renderInv() {
       const rm = computeRM();
       const rmap = {};
@@ -8700,42 +8754,74 @@
         const d = S.ings[r.id];
         if (!d) return '';
         const nameTitle = d.en || d.ar;
-        const itemCode = d.code || r.id.replace('raw-500509', '');
-        const catBadge = d.cat || d.category || 'عام';
+        const itemCode = d.code || r.id.replace('raw-', '');
+        const catBadge = d.cat || d.category || 'Grocery';
+
+        // Smart UOM calculation: Countable (بالواحدة / برطمان / زجاجة) vs Bulk Weight (كيلو)
+        const curStock = formatSmartStock(r.iv.stock, r.iv.uom, isAr());
+        const safStock = formatSmartStock(r.iv.safety, r.iv.uom, isAr());
+        const reqStock = formatSmartStock(r.req, r.iv.uom, isAr());
+
+        const stockColor = r.isShort ? '#f87171' : r.isLow ? '#fbbf24' : '#4ade80';
+
         return `
           <tr>
+            <!-- 1. كود الصنف -->
             <td>
               <span class="badge" style="background:rgba(168,85,247,0.15);border:1px solid rgba(168,85,247,0.35);color:#c084fc;font-family:monospace;font-weight:700;font-size:12px;letter-spacing:0.5px">
                 #${itemCode}
               </span>
             </td>
+
+            <!-- 2. اسم الخامة وتفاصيل العبوة -->
             <td>
-              <div style="font-weight:700;color:#fff">${nameTitle}</div>
-              <div style="font-size:11px;color:#64748b">القسم: ${d.cat || d.category || "General"}</div>
+              <div style="font-weight:700;color:#fff;font-size:14px">${nameTitle}</div>
+              <div style="font-size:11px;color:#94a3b8;margin-top:2px">${curStock.pack}</div>
             </td>
+
+            <!-- 3. القسم المعتمد -->
             <td>
-              <span class="badge badge-indigo" style="font-size:11px;white-space:nowrap">${catBadge}</span>
+              <span class="badge badge-indigo" style="font-size:11px;white-space:nowrap;padding:4px 8px">${catBadge}</span>
             </td>
-            <td><span style="font-weight:800;font-size:13.5px;color:${r.isShort ? '#f87171' : r.isLow ? '#fbbf24' : '#4ade80'}">${fmt(r.iv.stock, 2)} ${r.iv.uom}</span></td>
-            <td class="text-muted">${fmt(r.iv.safety, 2)} ${r.iv.uom}</td>
-            <td style="color:#60a5fa;font-weight:600">${f2(r.req)} ${r.iv.uom}</td>
+
+            <!-- 4. المخزون الحالي بالواحدة أو الكيلو -->
+            <td>
+              <div style="font-weight:800;font-size:14.5px;color:${stockColor}">
+                ${curStock.num} <span style="font-size:12px;font-weight:600">${curStock.tag}</span>
+              </div>
+            </td>
+
+            <!-- 5. حد الأمان -->
+            <td>
+              <div style="font-weight:600;font-size:13px;color:#cbd5e1">
+                ${safStock.num} <span style="font-size:11.5px;color:#94a3b8">${safStock.tag}</span>
+              </div>
+            </td>
+
+            <!-- 6. المطلوب للإنتاج اليوم -->
+            <td>
+              <div style="font-weight:700;font-size:13px;color:#60a5fa">
+                ${reqStock.num} <span style="font-size:11.5px;color:#93c5fd">${reqStock.tag}</span>
+              </div>
+            </td>
+
+            <!-- 7. حالة الرصيد -->
             <td>
               ${r.isShort
-            ? `<span class="badge badge-red badge-pulse">▼ عجز ${f2(r.gap)} ${r.iv.uom}</span>`
-            : `<span class="badge badge-green">✓ ${T('كافٍ للطلبيات', 'Sufficient')}</span>`}
+                ? `<span class="badge badge-red badge-pulse">${T('عجز حالي', 'Shortage')}</span>`
+                : r.isLow
+                  ? `<span class="badge badge-amber">${T('منخفض (أمان)', 'Low')}</span>`
+                  : `<span class="badge badge-green">✓ ${T('كافٍ ومستقر', 'Adequate')}</span>`}
             </td>
-            <td>
-              ${r.isShort
-            ? `<span class="badge badge-red">${T('عجز حرج', 'Shortage')}</span>`
-            : r.isLow
-              ? `<span class="badge badge-amber">${T('منخفض (أمان)', 'Low')}</span>`
-              : `<span class="badge badge-green">${T('كافٍ ومستقر', 'Adequate')}</span>`}
-            </td>
-            <td style="min-width:110px">
-              <div class="progress"><div class="progress-bar" style="width:${f2(r.pct)}%;background:${r.bc}"></div></div>
+
+            <!-- 8. مؤشر الكفاية -->
+            <td style="min-width:100px">
+              <div class="progress" style="height:6px"><div class="progress-bar" style="width:${f2(r.pct)}%;background:${r.bc}"></div></div>
               <div style="font-size:11px;color:#94a3b8;margin-top:3px">${Math.round(r.pct)}%</div>
             </td>
-            <td>
+
+            <!-- 9. تعديل الرصيد -->
+            <td style="text-align:center">
               <button class="btn btn-secondary btn-icon btn-sm" onclick="openEditStock('${r.id}')" title="تعديل الرصيد">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
               </button>
@@ -8747,9 +8833,21 @@
 
     function openEditStock(id) {
       const iv = S.ings[id];
+      const uInfo = parseUOM(iv.uom);
       document.getElementById('stock-ing-id').value = id;
       document.getElementById('stock-cur').value = iv.stock;
       document.getElementById('stock-safety').value = iv.safety;
+      
+      // Smart unit indication in edit modal
+      const titleEl = document.getElementById('stock-modal-title');
+      if (titleEl) {
+        titleEl.textContent = (iv.en || iv.ar) + ' (' + (isAr() ? uInfo.packAr : uInfo.packEn) + ')';
+      }
+      const curInput = document.getElementById('stock-cur');
+      const safInput = document.getElementById('stock-safety');
+      if (curInput) curInput.step = uInfo.step;
+      if (safInput) safInput.step = uInfo.step;
+      
       openModal('modal-stock');
     }
 
