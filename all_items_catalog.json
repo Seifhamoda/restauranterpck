@@ -1,0 +1,4064 @@
+[
+  {
+    "code": 1,
+    "name": "Sauce Brgr",
+    "unit": "Kilogram",
+    "category": "Bakery"
+  },
+  {
+    "code": 100001,
+    "name": "Bread",
+    "unit": "Each",
+    "category": "Bakery"
+  },
+  {
+    "code": 100005,
+    "name": "Bread Crumbs",
+    "unit": "Pkt 1 Kg",
+    "category": "Bakery"
+  },
+  {
+    "code": 100021,
+    "name": "Bread Darker",
+    "unit": "Kilogram",
+    "category": "Bakery"
+  },
+  {
+    "code": 100020,
+    "name": "Bread Sour Dough",
+    "unit": "Each",
+    "category": "Bakery"
+  },
+  {
+    "code": 100037,
+    "name": "Brownie can",
+    "unit": "Each",
+    "category": "Bakery"
+  },
+  {
+    "code": 100022,
+    "name": "Cookies (not use)",
+    "unit": "Each",
+    "category": "Bakery"
+  },
+  {
+    "code": 100026,
+    "name": "Cookies chocolate",
+    "unit": "Each",
+    "category": "Bakery"
+  },
+  {
+    "code": 100035,
+    "name": "Cookies not use",
+    "unit": "Order 8 pieces",
+    "category": "Bakery"
+  },
+  {
+    "code": 100032,
+    "name": "Frozen Pan Suisse Chocolate",
+    "unit": "Each",
+    "category": "Bakery"
+  },
+  {
+    "code": 100031,
+    "name": "Frozen Plain Croissant",
+    "unit": "Each",
+    "category": "Bakery"
+  },
+  {
+    "code": 100051,
+    "name": "Milk Powder Nido",
+    "unit": "Pkt 1.75 Kg",
+    "category": "Bakery"
+  },
+  {
+    "code": 100017,
+    "name": "Pretzel Bread (PA)",
+    "unit": "Each",
+    "category": "Bakery"
+  },
+  {
+    "code": 100016,
+    "name": "Pretzel bread water",
+    "unit": "Gal 5 L",
+    "category": "Bakery"
+  },
+  {
+    "code": 100010,
+    "name": "Sesame bread",
+    "unit": "Each",
+    "category": "Bakery"
+  },
+  {
+    "code": 100061,
+    "name": "Shamy Bread",
+    "unit": "Each",
+    "category": "Bakery"
+  },
+  {
+    "code": 100050,
+    "name": "Tea Twinings Red English Breakfast Pkt 25",
+    "unit": "Box 25 Pcs",
+    "category": "Bakery"
+  },
+  {
+    "code": 100002,
+    "name": "Toast White Rich Bake",
+    "unit": "Pkt 500 Gr",
+    "category": "Bakery"
+  },
+  {
+    "code": 100008,
+    "name": "Tortilla Bread",
+    "unit": "Each",
+    "category": "Bakery"
+  },
+  {
+    "code": 200158,
+    "name": "Cubie Pistachio Sauce",
+    "unit": "Btl 1 L",
+    "category": "Beverage"
+  },
+  {
+    "code": 200101,
+    "name": "Dvg Syrup Raspberry",
+    "unit": "Btl 750 Ml",
+    "category": "Beverage"
+  },
+  {
+    "code": 200097,
+    "name": "Dvg Syrup Strawberry",
+    "unit": "Btl 750 Ml",
+    "category": "Beverage"
+  },
+  {
+    "code": 200143,
+    "name": "Ice cube",
+    "unit": "Kilogram",
+    "category": "Beverage"
+  },
+  {
+    "code": 200218,
+    "name": "Juice Apple Juhayna",
+    "unit": "Liter",
+    "category": "Beverage"
+  },
+  {
+    "code": 200119,
+    "name": "Juice Pineapple Juhayna",
+    "unit": "Btl 1 L",
+    "category": "Beverage"
+  },
+  {
+    "code": 200172,
+    "name": "Keddy strawberry syrup",
+    "unit": "Liter",
+    "category": "Beverage"
+  },
+  {
+    "code": 200078,
+    "name": "Pistachio sauce",
+    "unit": "BTL 900 GR",
+    "category": "Beverage"
+  },
+  {
+    "code": 200142,
+    "name": "Red food color",
+    "unit": "Liter",
+    "category": "Beverage"
+  },
+  {
+    "code": 200096,
+    "name": "Red Grape Juice Juihaina",
+    "unit": "Btl 1 L",
+    "category": "Beverage"
+  },
+  {
+    "code": 200174,
+    "name": "Salted hazelnut (PA)",
+    "unit": "Kilogram",
+    "category": "Beverage"
+  },
+  {
+    "code": 200013,
+    "name": "Soda Cans Cola 24 Can",
+    "unit": "Can 330 Ml",
+    "category": "Beverage"
+  },
+  {
+    "code": 200006,
+    "name": "Soda Schweppes",
+    "unit": "Btl 1 L",
+    "category": "Beverage"
+  },
+  {
+    "code": 200095,
+    "name": "Syrup coconut Brix",
+    "unit": "Pkt 1 L",
+    "category": "Beverage"
+  },
+  {
+    "code": 200111,
+    "name": "Syrup Coconut Monin",
+    "unit": "Btl 1 L",
+    "category": "Beverage"
+  },
+  {
+    "code": 200016,
+    "name": "Syrup Monin Mango puree Box 4 botl * 1 lit",
+    "unit": "Btl 1 L",
+    "category": "Beverage"
+  },
+  {
+    "code": 200023,
+    "name": "Syrup Monin Raspberry puree",
+    "unit": "Btl 1 L",
+    "category": "Beverage"
+  },
+  {
+    "code": 200010,
+    "name": "Syrup Monin strawberry puree Box 4 btl  1 lit",
+    "unit": "Btl 1 L",
+    "category": "Beverage"
+  },
+  {
+    "code": 200017,
+    "name": "Syrup Monin vanilla Box 6 btl 1 lit",
+    "unit": "Btl 1 L",
+    "category": "Beverage"
+  },
+  {
+    "code": 200021,
+    "name": "Water 600 Ml Box 20 btl",
+    "unit": "Btl 600 Ml",
+    "category": "Beverage"
+  },
+  {
+    "code": 200012,
+    "name": "Water Gallon 19 lit",
+    "unit": "Gal 19 L",
+    "category": "Beverage"
+  },
+  {
+    "code": 600062,
+    "name": "Air Freshener Spray",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600015,
+    "name": "Bacteria Tablets",
+    "unit": "Box 200 Pcs",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600036,
+    "name": "Broom",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600041,
+    "name": "Clor",
+    "unit": "Btl 1 L",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600026,
+    "name": "Cotton Floor Cleaning Mop",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600104,
+    "name": "Cotton Floor Cleaning Mop - 1/2 Kg",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600157,
+    "name": "DIVERCLEAN SU121",
+    "unit": "Liter",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600043,
+    "name": "D-Klenz Anti-Bacterial Cleaner",
+    "unit": "Gal 4 L",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600011,
+    "name": "F.R.S",
+    "unit": "Gal 4 L",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600031,
+    "name": "Face Mask Black",
+    "unit": "Box 50 Pcs",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600032,
+    "name": "Face Mask Blue",
+    "unit": "Box 50 Pcs",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600055,
+    "name": "Floor Scrubbing Brush",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600034,
+    "name": "Floor Wiper Plastic",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600024,
+    "name": "G Cutter",
+    "unit": "Gal 4 L",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600016,
+    "name": "Garbage bags 70 * 90",
+    "unit": "Kilogram",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600017,
+    "name": "Garbage bags 90 * 120",
+    "unit": "Kilogram",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600063,
+    "name": "Garbage Basket 24 CM",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600109,
+    "name": "Garbage Basket 90 CM",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600038,
+    "name": "Glass Polishing",
+    "unit": "Btl 600 Ml",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600003,
+    "name": "Glass Wiper Cleaner",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600051,
+    "name": "Gloves Blue",
+    "unit": "Box 100 Pcs",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600023,
+    "name": "Gloves Plastic Transparent",
+    "unit": "Pkt 50 Pcs",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600021,
+    "name": "Gloves White",
+    "unit": "Box 100 Pcs",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600111,
+    "name": "Hairnet Black",
+    "unit": "Pkt 100 Pcs",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600006,
+    "name": "Hairnet White",
+    "unit": "Bag 100 Pcs",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600037,
+    "name": "Hand Sanitizer",
+    "unit": "Btl 1 L",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600012,
+    "name": "L-A WAY",
+    "unit": "Gal 4 L",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600013,
+    "name": "M.QUAT",
+    "unit": "Gal 4 L",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600053,
+    "name": "Metal Hand",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600137,
+    "name": "Plastic Apron",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600116,
+    "name": "Plastic wrist",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600025,
+    "name": "Raid Insecticide Spray",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600084,
+    "name": "Rines Dry",
+    "unit": "Gal 20 L",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600085,
+    "name": "S.Trump",
+    "unit": "Gal 20 L",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600151,
+    "name": "SANITISING TABLETS",
+    "unit": "Kilogram",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600044,
+    "name": "Sewer line cleaner G TAC",
+    "unit": "Gal 5 Kg",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600020,
+    "name": "Shovel Plastic",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600058,
+    "name": "Soap Dispenser 500 Ml",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600028,
+    "name": "Soap Hand",
+    "unit": "Gal 4 L",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600027,
+    "name": "Soap Liquid",
+    "unit": "Gal 20 L",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600159,
+    "name": "SOFTCARE PLUS H41",
+    "unit": "Gal 5 L",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600014,
+    "name": "Sponge Hard",
+    "unit": "Pkt 10 Pcs",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600046,
+    "name": "Sponge Plastic",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600066,
+    "name": "Sprayers",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600045,
+    "name": "Stainless Steel polish ECO",
+    "unit": "Btl 1 L",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600155,
+    "name": "SUMA GRILL D9",
+    "unit": "Liter",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600075,
+    "name": "Tissue Interfold",
+    "unit": "Pkt 150 Pcs",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600068,
+    "name": "Tissue Paper Roll Kitchen",
+    "unit": "Each",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 600067,
+    "name": "Towel Cleaning Colorful",
+    "unit": "Pkt 3 Pcs",
+    "category": "Cleaning Supplies"
+  },
+  {
+    "code": 101114,
+    "name": "Baking soda",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 101059,
+    "name": "Blue Cheese",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 101112,
+    "name": "Butter",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 101002,
+    "name": "Butter Fern 10 Pkt 1 Kg",
+    "unit": "Pkt 1 Kg",
+    "category": "Dairy"
+  },
+  {
+    "code": 101073,
+    "name": "butter Irish",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 101120,
+    "name": "Butter Newzealand",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 101139,
+    "name": "Butter Newzealand (local)",
+    "unit": "Bag 25 Kg",
+    "category": "Dairy"
+  },
+  {
+    "code": 101004,
+    "name": "Butter unsalted Anchor",
+    "unit": "Pkt 1 Kg",
+    "category": "Dairy"
+  },
+  {
+    "code": 101008,
+    "name": "Cheddar American Cheese",
+    "unit": "Pkt 200 Pcs",
+    "category": "Dairy"
+  },
+  {
+    "code": 101034,
+    "name": "Cheddar Cheese  Kg",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 101015,
+    "name": "Cheddar President Cheese",
+    "unit": "Pkt 184 Pcs",
+    "category": "Dairy"
+  },
+  {
+    "code": 101070,
+    "name": "Cheddar White American Cheese",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 101097,
+    "name": "Cheese Cheddar Puck",
+    "unit": "Pkt 10 Pcs",
+    "category": "Dairy"
+  },
+  {
+    "code": 101101,
+    "name": "Cheese Mozzarella Buffalo",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 101099,
+    "name": "Cheese Provolone",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 101142,
+    "name": "Chia seeds",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 101011,
+    "name": "Cream Cooking 1 lit",
+    "unit": "Pkt 1 L",
+    "category": "Dairy"
+  },
+  {
+    "code": 101098,
+    "name": "Cream Sour",
+    "unit": "Pkt 500 Gr",
+    "category": "Dairy"
+  },
+  {
+    "code": 101010,
+    "name": "Cream Whipping Kg.",
+    "unit": "Gal 5 Kg",
+    "category": "Dairy"
+  },
+  {
+    "code": 101056,
+    "name": "Emmental Cheese Swiss",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 101017,
+    "name": "Feta Cheese  Greece",
+    "unit": "Pkt 250 Gr",
+    "category": "Dairy"
+  },
+  {
+    "code": 101025,
+    "name": "Goat Cheese",
+    "unit": "Pkt 150 Gr",
+    "category": "Dairy"
+  },
+  {
+    "code": 101069,
+    "name": "kiri creamy spread",
+    "unit": "Pkt 500 Gr",
+    "category": "Dairy"
+  },
+  {
+    "code": 101072,
+    "name": "la vache Quirit Cheese",
+    "unit": "Pkt 12 Pcs",
+    "category": "Dairy"
+  },
+  {
+    "code": 101020,
+    "name": "Labneh Turkish",
+    "unit": "Pkt 370 Gr",
+    "category": "Dairy"
+  },
+  {
+    "code": 101031,
+    "name": "Milk Almond Light",
+    "unit": "Pkt 1 L",
+    "category": "Dairy"
+  },
+  {
+    "code": 101032,
+    "name": "Milk Coconut",
+    "unit": "Pkt 1 L",
+    "category": "Dairy"
+  },
+  {
+    "code": 101003,
+    "name": "Milk Lamar full fat Box 12 Pkt 1 lit",
+    "unit": "Pkt 1 L",
+    "category": "Dairy"
+  },
+  {
+    "code": 101005,
+    "name": "Milk Lamar Skimmed Box 12 Pkt 1 lit",
+    "unit": "Pkt 1 L",
+    "category": "Dairy"
+  },
+  {
+    "code": 101029,
+    "name": "Milk Oat",
+    "unit": "Pkt 1 L",
+    "category": "Dairy"
+  },
+  {
+    "code": 101095,
+    "name": "Milk Ole Powder",
+    "unit": "Pkt 1.75 Kg",
+    "category": "Dairy"
+  },
+  {
+    "code": 101013,
+    "name": "Milk Rayeb Plain",
+    "unit": "Pkt 1 L",
+    "category": "Dairy"
+  },
+  {
+    "code": 101119,
+    "name": "mozzarella stikcks",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 101023,
+    "name": "Parmesan Cheese",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 101110,
+    "name": "Peanut butter",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 101046,
+    "name": "President Cheese  Pcs",
+    "unit": "Pkt 48 Pcs",
+    "category": "Dairy"
+  },
+  {
+    "code": 101140,
+    "name": "Scamorza Smoked",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 101121,
+    "name": "Sumac",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 101107,
+    "name": "Whipping Cream Juhayna",
+    "unit": "Btl 1 L",
+    "category": "Dairy"
+  },
+  {
+    "code": 101068,
+    "name": "Yogurt",
+    "unit": "Kilogram",
+    "category": "Dairy"
+  },
+  {
+    "code": 2,
+    "name": "of",
+    "unit": "8",
+    "category": "Dairy"
+  },
+  {
+    "code": 102165,
+    "name": "Flour White 50 kg Five-Star",
+    "unit": "Bag 50 Kg",
+    "category": "Dry"
+  },
+  {
+    "code": 102282,
+    "name": "pistachio Powder",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102243,
+    "name": "ALMOND POWDER",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102244,
+    "name": "almond slices",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102133,
+    "name": "Anise Drink",
+    "unit": "Box 50 Pcs",
+    "category": "Dry"
+  },
+  {
+    "code": 102003,
+    "name": "Baking powder - Box 50/16 Gr",
+    "unit": "Box 50Pkt -16Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102157,
+    "name": "Baking Powder kg",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102293,
+    "name": "Basil Powder",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102300,
+    "name": "black seeds",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102167,
+    "name": "Bread improver",
+    "unit": "Bag 10 Kg",
+    "category": "Dry"
+  },
+  {
+    "code": 102204,
+    "name": "Bresaola",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102193,
+    "name": "Brown Sugar Dark",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102275,
+    "name": "Carbonato Sodium",
+    "unit": "Pkt 250 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102231,
+    "name": "Cheese Mozzarella Napoli Sole",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102194,
+    "name": "Cinnamon Sticks",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102190,
+    "name": "Cloves Powder",
+    "unit": "Pkt 500 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102041,
+    "name": "Corn Starch",
+    "unit": "Bag 25 Kg",
+    "category": "Dry"
+  },
+  {
+    "code": 102281,
+    "name": "Crushed pistachio",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102159,
+    "name": "Dry Mint",
+    "unit": "Box 25 Pcs",
+    "category": "Dry"
+  },
+  {
+    "code": 102220,
+    "name": "Dry yeast forno",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102031,
+    "name": "Flour 50 Kg",
+    "unit": "Bag 50 Kg",
+    "category": "Dry"
+  },
+  {
+    "code": 102218,
+    "name": "Flour Dallagiovanna 00",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102250,
+    "name": "Flour T-150",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102285,
+    "name": "Flour T55",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102251,
+    "name": "Flour T-65",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102018,
+    "name": "Flour White  Box 10 bag 1 Kg",
+    "unit": "Bag 1 Kg",
+    "category": "Dry"
+  },
+  {
+    "code": 102185,
+    "name": "Ginger Powder",
+    "unit": "Pkt 500 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102229,
+    "name": "Gouda Cheese",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102154,
+    "name": "Hibiscus Dry",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102068,
+    "name": "Ice Cream Powder.",
+    "unit": "Bag 10 Kg",
+    "category": "Dry"
+  },
+  {
+    "code": 102298,
+    "name": "Knorr Chicken Stock Cubes",
+    "unit": "Each",
+    "category": "Dry"
+  },
+  {
+    "code": 102296,
+    "name": "Knorr Chicken Stock powder",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102178,
+    "name": "Knorr Demiglace Suces",
+    "unit": "Pkt 750 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102279,
+    "name": "Matcha MIYAH",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102050,
+    "name": "Nutes Almond Rosted",
+    "unit": "Pkt 250 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102201,
+    "name": "Nutes Pecan",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102174,
+    "name": "Nutes Pinenut",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102047,
+    "name": "Nutes Walnut Peeled",
+    "unit": "Pkt 250 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102186,
+    "name": "Nutmeg powder",
+    "unit": "Pkt 500 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102208,
+    "name": "Nuts Hazelnut",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102184,
+    "name": "Peeled Tomato",
+    "unit": "Bag 2.5 Kg",
+    "category": "Dry"
+  },
+  {
+    "code": 102227,
+    "name": "Pepperoni",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102207,
+    "name": "Pistachio",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102136,
+    "name": "Sea Salt",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102225,
+    "name": "Semolina flour",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102162,
+    "name": "Spice Cinnamon powder",
+    "unit": "Pkt 250 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102011,
+    "name": "Spices Black pepper envelope",
+    "unit": "Pkt 250 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102030,
+    "name": "Spices Black pepper Pkt 250 Gr",
+    "unit": "Pkt 250 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102176,
+    "name": "Spices Byleaves",
+    "unit": "Pkt 1 Kg",
+    "category": "Dry"
+  },
+  {
+    "code": 102017,
+    "name": "Spices Cayani Box 16",
+    "unit": "Jar 300 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102020,
+    "name": "Spices Dill powder 500 Gr",
+    "unit": "Pkt 500 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102021,
+    "name": "Spices Dry thyme",
+    "unit": "Pkt 500 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102009,
+    "name": "Spices Garlic powder 500 Gr",
+    "unit": "Pkt 500 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102053,
+    "name": "Spices Onion Powder",
+    "unit": "Pkt 500 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102173,
+    "name": "Spices Oregano dry",
+    "unit": "Pkt 1 Kg",
+    "category": "Dry"
+  },
+  {
+    "code": 102033,
+    "name": "Spices Parsley Pow 500 Gr",
+    "unit": "Pkt 500 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102175,
+    "name": "Spices Pepper Black Whole",
+    "unit": "Jar 90 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102029,
+    "name": "Spices Red pepper Pow 500Gr",
+    "unit": "Pkt 500 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102085,
+    "name": "Spices Salt",
+    "unit": "Pkt 400 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102036,
+    "name": "Spices Salt Chinese",
+    "unit": "Bag 25 Kg",
+    "category": "Dry"
+  },
+  {
+    "code": 102039,
+    "name": "Spices Salt Cox",
+    "unit": "Jar 700 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102171,
+    "name": "Spices Salt Kosher",
+    "unit": "Pkt 400 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102246,
+    "name": "Spices Salt Lemon",
+    "unit": "Jar 185 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102067,
+    "name": "Spices Salt Portion Pkt 500 Gr",
+    "unit": "Pkt 500 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102177,
+    "name": "Spices Smoked Paprika",
+    "unit": "Pkt 500 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102019,
+    "name": "Sugar Brown Envelope",
+    "unit": "Pkt 1 Kg",
+    "category": "Dry"
+  },
+  {
+    "code": 102025,
+    "name": "Sugar White 50 Kg",
+    "unit": "Bag 50 Kg",
+    "category": "Dry"
+  },
+  {
+    "code": 102034,
+    "name": "Sugar White Pkt 1kg",
+    "unit": "Pkt 1 Kg",
+    "category": "Dry"
+  },
+  {
+    "code": 102169,
+    "name": "Sugar White Powder",
+    "unit": "Pkt 1 Kg",
+    "category": "Dry"
+  },
+  {
+    "code": 102126,
+    "name": "Tea Black Lipton",
+    "unit": "Pkt 500 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102131,
+    "name": "Tea Black Lipton - Pkt",
+    "unit": "Box 100 Pcs",
+    "category": "Dry"
+  },
+  {
+    "code": 102148,
+    "name": "Tea El Arosa pkt250g",
+    "unit": "Pkt 250 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102013,
+    "name": "Tea Engliss Ahmed 100 bags",
+    "unit": "Box 100 Pcs",
+    "category": "Dry"
+  },
+  {
+    "code": 102222,
+    "name": "Tomato Peeled Mirella",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102277,
+    "name": "Turkey Pastrame",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102129,
+    "name": "Turkish Coffee",
+    "unit": "Pkt 250 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 102170,
+    "name": "Vanillia Powder Kings Crown 1 GR",
+    "unit": "Kilogram",
+    "category": "Dry"
+  },
+  {
+    "code": 102166,
+    "name": "Yeast 500 Gr Dcl",
+    "unit": "Pkt 500 Gr",
+    "category": "Dry"
+  },
+  {
+    "code": 3,
+    "name": "of",
+    "unit": "8",
+    "category": "Dry"
+  },
+  {
+    "code": 108051,
+    "name": "Arugula",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108054,
+    "name": "Arugula Pcs",
+    "unit": "Each",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108121,
+    "name": "Avocado",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108125,
+    "name": "Baby Spanish",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108170,
+    "name": "Banana",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108147,
+    "name": "Beetroot",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108165,
+    "name": "Bionda lettuce",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108134,
+    "name": "Blue berry Fresh",
+    "unit": "PKT 125 Gr",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108180,
+    "name": "Broccoli",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108011,
+    "name": "Captcha Lettuce",
+    "unit": "Each",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108003,
+    "name": "Celery Stalk French",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108004,
+    "name": "Cherry Tomatoes",
+    "unit": "Pkt 500 Gr",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108103,
+    "name": "Chili Green papper",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108137,
+    "name": "Chives",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108038,
+    "name": "Cranberry Whole",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108020,
+    "name": "Cucumber",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108113,
+    "name": "Dill Fresh",
+    "unit": "Pkt 100 Gr",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108161,
+    "name": "eggplant",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108001,
+    "name": "French Fries Farm Frites",
+    "unit": "Pkt 2.5 Kg",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108109,
+    "name": "Fresh Baby Rocca",
+    "unit": "PKT 125 Gr",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108105,
+    "name": "Fresh Basil",
+    "unit": "Pkt 250 Gr",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108106,
+    "name": "Fresh Carrots",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108108,
+    "name": "Fresh Celery",
+    "unit": "Pkt 100 Gr",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108107,
+    "name": "Fresh Rosemary",
+    "unit": "Pkt 100 Gr",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108184,
+    "name": "Fresh Sweet Potato",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108016,
+    "name": "Garlic Chinese",
+    "unit": "Pkt 200 Gr",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108055,
+    "name": "Garlic Peeled",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108144,
+    "name": "Green Apple",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108043,
+    "name": "Green Batavia Lettuce",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108035,
+    "name": "Green Batavia Lettuce   Pcs",
+    "unit": "Each",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108177,
+    "name": "Green Beans",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108122,
+    "name": "Green Onion",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108102,
+    "name": "Green papper fresh",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108030,
+    "name": "lemon",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108117,
+    "name": "Lemon (Adalia)",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108155,
+    "name": "lettuce shredded",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108123,
+    "name": "Micro green",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108028,
+    "name": "Mint",
+    "unit": "Pkt 100 Gr",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108024,
+    "name": "Mushroom",
+    "unit": "Pkt 200 Gr",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108047,
+    "name": "Oakleaf",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108014,
+    "name": "Oakleaf. Pcs",
+    "unit": "Each",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108118,
+    "name": "Orange",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108025,
+    "name": "Parsley",
+    "unit": "Pkt 100 Gr",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108172,
+    "name": "Pineapple",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108182,
+    "name": "Pomegranate fresh",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108142,
+    "name": "Potato",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108115,
+    "name": "Pumpkin fresh",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108133,
+    "name": "Rasberry Frozen",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108039,
+    "name": "Raspberry",
+    "unit": "PKT 125 Gr",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108040,
+    "name": "Raspberry Dry",
+    "unit": "Pkt 500 Gr",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108041,
+    "name": "Red Berries",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108008,
+    "name": "Red Cabbage",
+    "unit": "Each",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108139,
+    "name": "Red Chili",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108018,
+    "name": "Red Onion",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108101,
+    "name": "Red pepper Fresh",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108183,
+    "name": "Red Raddish",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108031,
+    "name": "Rocca",
+    "unit": "Pkt 100 Gr",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108169,
+    "name": "Romaine lettuce",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108163,
+    "name": "Strawberry frozen",
+    "unit": "Pkt 400 Gr",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108033,
+    "name": "Thyme",
+    "unit": "Pkt 100 Gr",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108022,
+    "name": "Tomato",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108151,
+    "name": "Watermelon",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108009,
+    "name": "White Cabbage",
+    "unit": "Each",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108017,
+    "name": "White Onion",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108157,
+    "name": "Yellow pepper",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 108158,
+    "name": "zucchini",
+    "unit": "Kilogram",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 4,
+    "name": "of",
+    "unit": "8",
+    "category": "Fruits & Veg"
+  },
+  {
+    "code": 104282,
+    "name": "Ajwa Medjool",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104372,
+    "name": "Akawi Cheese",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104220,
+    "name": "Almond butter",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104154,
+    "name": "Anchovies",
+    "unit": "Pkt 40 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104410,
+    "name": "Apricot Jam",
+    "unit": "Jar 340 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104380,
+    "name": "Basmati Rice",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104397,
+    "name": "Beef Makanak",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104207,
+    "name": "Belgian White Chocolate",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104038,
+    "name": "Biscuit Oreo",
+    "unit": "Box 12 Pkt",
+    "category": "Grocery"
+  },
+  {
+    "code": 104148,
+    "name": "Black Berry Jam",
+    "unit": "Jar 340 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104197,
+    "name": "Black Olive Slices",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104349,
+    "name": "Blueberry Frozen",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104273,
+    "name": "Boosh Clover Honey",
+    "unit": "Jar 500 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104351,
+    "name": "Brie cheese",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104146,
+    "name": "Brown Sugar",
+    "unit": "Pkt 1 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104090,
+    "name": "Buffalo - GSF Box 4 Gal 3.4 Kg",
+    "unit": "Gal 3.4 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104181,
+    "name": "Buffalo Dixie",
+    "unit": "Btl 2 L",
+    "category": "Grocery"
+  },
+  {
+    "code": 104215,
+    "name": "Buffalo Puidor Smokey",
+    "unit": "2.2 kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104184,
+    "name": "Burrata Cheese",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104267,
+    "name": "Butter Flechard",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104156,
+    "name": "Capers",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104408,
+    "name": "Cherry Frozen",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104199,
+    "name": "Chili Flakes",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104160,
+    "name": "Chocolate Dark",
+    "unit": "Box 5 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104113,
+    "name": "Chocolate Frappe powder",
+    "unit": "Bag 1 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104161,
+    "name": "Chocolate Milk",
+    "unit": "Box 5 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104123,
+    "name": "Condensed Milk Nestle",
+    "unit": "Btl 370 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104196,
+    "name": "Cooking cream Juhaina",
+    "unit": "Pkt 200 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104274,
+    "name": "Creamy Medjool Honey",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104226,
+    "name": "Cucumber Pickle (imported)",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104242,
+    "name": "CUCUMBER PICKLED (CHIPS)",
+    "unit": "Jar 350 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104171,
+    "name": "Dark cocoa",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104217,
+    "name": "EL MORDJENE Roasted Hazelenutes Cream",
+    "unit": "Jar 700 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104399,
+    "name": "Falafel",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104392,
+    "name": "Feta Cheese Domty",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104263,
+    "name": "Flour T45",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104394,
+    "name": "Foul Amricana",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104166,
+    "name": "Frensh Vanilla",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104401,
+    "name": "Golash",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104183,
+    "name": "Greek Feta Cheese",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104188,
+    "name": "Greek Yogurt Juhaina",
+    "unit": "Pkt 180 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104200,
+    "name": "Green olive paste",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104225,
+    "name": "Green Olive Slices",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104186,
+    "name": "Gryier Cheese",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104268,
+    "name": "Hallomi cheese (freddys)",
+    "unit": "Pkt 250 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104167,
+    "name": "Halloumi cheese",
+    "unit": "Pkt 250 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104208,
+    "name": "Hazelnut Creame Morgan",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104135,
+    "name": "Hero honey",
+    "unit": "Pkt 450 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104209,
+    "name": "Homemade Granola",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104206,
+    "name": "Honey ( Zahret El Barseem )",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104007,
+    "name": "Honey White",
+    "unit": "Jar 800 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104235,
+    "name": "Italian Roasted Hazelnut",
+    "unit": "Box 5 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104047,
+    "name": "Ketchup  Heinz",
+    "unit": "Gal 4.25 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104004,
+    "name": "Ketchup Gal",
+    "unit": "Gal 10 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104145,
+    "name": "Knorr Meat stock",
+    "unit": "Pkt 1 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104400,
+    "name": "kunafa",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104412,
+    "name": "Mastic paste",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104132,
+    "name": "Matcha",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104149,
+    "name": "Matcha japanese",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104150,
+    "name": "Matcha Powder",
+    "unit": "Pkt 100 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104080,
+    "name": "Mayonnaise - GSF Box 4 Gal 3.4 Kg",
+    "unit": "Gal 3.4 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104003,
+    "name": "Mayonnaise Box 4 Gal 3.290 Kg",
+    "unit": "Gal 3.29 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104017,
+    "name": "Mayonnaise Mazola",
+    "unit": "Btl 946 Ml",
+    "category": "Grocery"
+  },
+  {
+    "code": 104142,
+    "name": "Mayonnaisec Hellmanns 3.4 Kg",
+    "unit": "Gal 3.4 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104261,
+    "name": "Milk chocolate chips",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104330,
+    "name": "Mini buffalo mozzarella fresh 12Gm",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104248,
+    "name": "Mini Mozzarella Buffalo",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104021,
+    "name": "Mustard American Box 12 btl",
+    "unit": "Btl 340 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104001,
+    "name": "Mustard American Box 12 btl 397 gr",
+    "unit": "Btl 397 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104026,
+    "name": "Mustard Dijon",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104419,
+    "name": "Mustard Dixe",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104044,
+    "name": "Mustard Heinz",
+    "unit": "Btl 235 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104002,
+    "name": "Mustard Heinz Gal 5L",
+    "unit": "Gal 5 L",
+    "category": "Grocery"
+  },
+  {
+    "code": 104249,
+    "name": "Mustard seeds",
+    "unit": "Jar 500 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104223,
+    "name": "Mustard wholegrain",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104041,
+    "name": "Nutella Gal 3 Kg",
+    "unit": "Gal 3 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104040,
+    "name": "Nutella Jar",
+    "unit": "Jar 350 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104006,
+    "name": "Oil Al-Aseel Box 12 Btl  750 Ml",
+    "unit": "Btl 750 Ml",
+    "category": "Grocery"
+  },
+  {
+    "code": 104013,
+    "name": "Oil Olive Box 12 Btl 1 lit",
+    "unit": "Btl 2 L",
+    "category": "Grocery"
+  },
+  {
+    "code": 104052,
+    "name": "Oil Sunflower",
+    "unit": "Gal 5 L",
+    "category": "Grocery"
+  },
+  {
+    "code": 104012,
+    "name": "Oil Sunflower Gal 20 L",
+    "unit": "Gal 20 L",
+    "category": "Grocery"
+  },
+  {
+    "code": 104243,
+    "name": "Olive Oil Nuri",
+    "unit": "Liter",
+    "category": "Grocery"
+  },
+  {
+    "code": 104204,
+    "name": "Olive Oil Wadi food",
+    "unit": "Liter",
+    "category": "Grocery"
+  },
+  {
+    "code": 104332,
+    "name": "Parmigiano Reggiano",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104042,
+    "name": "Paste Lotus",
+    "unit": "Jar 400 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104342,
+    "name": "Pastrame",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104255,
+    "name": "Pastry cream",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104189,
+    "name": "Peach Combut",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104106,
+    "name": "Pistachio whole",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104377,
+    "name": "Pomegranate Molasses",
+    "unit": "Btl 750 Ml",
+    "category": "Grocery"
+  },
+  {
+    "code": 104230,
+    "name": "Puidor BBQ Hickorey",
+    "unit": "Gal 2.4 kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104035,
+    "name": "Raisins",
+    "unit": "Pkt 500 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104378,
+    "name": "Red Grape Vinegar",
+    "unit": "Btl 500 Ml",
+    "category": "Grocery"
+  },
+  {
+    "code": 104384,
+    "name": "Rigatoni Pasta",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104176,
+    "name": "Rinsed tomato",
+    "unit": "Btl 325 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104374,
+    "name": "Sambosak sheet dough",
+    "unit": "Each",
+    "category": "Grocery"
+  },
+  {
+    "code": 104010,
+    "name": "Sauce BBQ",
+    "unit": "Gal 5 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104020,
+    "name": "Sauce Buffalo Box 6 Gal 1.890 Gr",
+    "unit": "Gal 1.89 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104077,
+    "name": "Sauce Buffalo Ml",
+    "unit": "Btl 355 Ml",
+    "category": "Grocery"
+  },
+  {
+    "code": 104009,
+    "name": "Sauce Caramel Pkt 1kg",
+    "unit": "Pkt 1 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104016,
+    "name": "Sauce Chili Hot 165 Gr",
+    "unit": "Btl 165 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104147,
+    "name": "Sauce Hickory BBQ",
+    "unit": "Pkt 350 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104018,
+    "name": "Sauce Hot KG",
+    "unit": "Gal 5 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104079,
+    "name": "Sauce Hot ML",
+    "unit": "Gal 5 L",
+    "category": "Grocery"
+  },
+  {
+    "code": 104014,
+    "name": "Sauce Hot Sriracha",
+    "unit": "Btl 730 Ml",
+    "category": "Grocery"
+  },
+  {
+    "code": 104056,
+    "name": "Sauce Texas",
+    "unit": "BTL 900 GR",
+    "category": "Grocery"
+  },
+  {
+    "code": 104008,
+    "name": "Sauce Worcester",
+    "unit": "Gal 4 L",
+    "category": "Grocery"
+  },
+  {
+    "code": 104364,
+    "name": "spices basil",
+    "unit": "Jar 25 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104388,
+    "name": "Spices Cumin",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104389,
+    "name": "Spices mint dry",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104137,
+    "name": "Spices Turmeric Powder",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104178,
+    "name": "Spices white pepper",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104381,
+    "name": "Spicies Coriander dry",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104054,
+    "name": "Sprig Roll",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104202,
+    "name": "Sundried tomato",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104136,
+    "name": "Sweet chile",
+    "unit": "Btl 600 Ml",
+    "category": "Grocery"
+  },
+  {
+    "code": 104153,
+    "name": "Sweet Corn",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104228,
+    "name": "Sweet Potato",
+    "unit": "Pkt 2.5 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104011,
+    "name": "Syrup Maple Btl 325 Gr.",
+    "unit": "Btl 325 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104180,
+    "name": "Tahina",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104395,
+    "name": "Tehina",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104144,
+    "name": "Tomato Paste Heinz",
+    "unit": "Jar 360 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104157,
+    "name": "Truffle Oil",
+    "unit": "Liter",
+    "category": "Grocery"
+  },
+  {
+    "code": 104179,
+    "name": "truffle paste",
+    "unit": "Liter",
+    "category": "Grocery"
+  },
+  {
+    "code": 104155,
+    "name": "Tuna",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104088,
+    "name": "Vanilla - Liquid",
+    "unit": "Liter",
+    "category": "Grocery"
+  },
+  {
+    "code": 104087,
+    "name": "Vanilla Frappe",
+    "unit": "Bag 10 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104335,
+    "name": "Vanilla Paste",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104126,
+    "name": "Vanillia Extract",
+    "unit": "Liter",
+    "category": "Grocery"
+  },
+  {
+    "code": 104386,
+    "name": "Vine leaves",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104024,
+    "name": "Vinegar Apple",
+    "unit": "Btl 500 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104023,
+    "name": "Vinegar Balsamic",
+    "unit": "Jar 1 Kg",
+    "category": "Grocery"
+  },
+  {
+    "code": 104025,
+    "name": "Vinegar White",
+    "unit": "Btl 1 L",
+    "category": "Grocery"
+  },
+  {
+    "code": 104033,
+    "name": "White Beans Quinoa",
+    "unit": "Pkt 400 Gr",
+    "category": "Grocery"
+  },
+  {
+    "code": 104133,
+    "name": "White chocolate drops",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104340,
+    "name": "White Sesame",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 104257,
+    "name": "Whole wheat flour (sonbola)",
+    "unit": "Kilogram",
+    "category": "Grocery"
+  },
+  {
+    "code": 5,
+    "name": "of",
+    "unit": "8",
+    "category": "Grocery"
+  },
+  {
+    "code": 105050,
+    "name": "Beef Bacon",
+    "unit": "Kilogram",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105051,
+    "name": "Beef Bacon (Core GYM)",
+    "unit": "Kilogram",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105041,
+    "name": "Beef Fillet",
+    "unit": "Kilogram",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105049,
+    "name": "Bresaola-SPLIT",
+    "unit": "Kilogram",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105003,
+    "name": "Chicken Breast",
+    "unit": "Pkt 1 Kg",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105007,
+    "name": "Chicken Breast Frz",
+    "unit": "Pkt 1 Kg",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105006,
+    "name": "Chicken wings",
+    "unit": "Kilogram",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105030,
+    "name": "Fresh Beef  Roast Meat",
+    "unit": "Kilogram",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105024,
+    "name": "Fresh Beef Rib Eye",
+    "unit": "Kilogram",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105001,
+    "name": "Fresh meat",
+    "unit": "Kilogram",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105027,
+    "name": "Fresh Meat Short Ribs",
+    "unit": "Kilogram",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105026,
+    "name": "Fresh Turkey",
+    "unit": "Kilogram",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105009,
+    "name": "frozen meat",
+    "unit": "Kilogram",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105023,
+    "name": "german Hot Dog",
+    "unit": "Each",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105005,
+    "name": "Hot Dog",
+    "unit": "Kilogram",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105046,
+    "name": "Kobeba Meat",
+    "unit": "Each",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105004,
+    "name": "Red Egg",
+    "unit": "Plate 30 Pcs",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105032,
+    "name": "Salmon",
+    "unit": "Kilogram",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105036,
+    "name": "smoked turky",
+    "unit": "Kilogram",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105044,
+    "name": "Veal Escaolpe",
+    "unit": "Kilogram",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 105008,
+    "name": "White Egg",
+    "unit": "Plate 30 Pcs",
+    "category": "Meat & Poultry & Fish"
+  },
+  {
+    "code": 110331,
+    "name": "Creamy Tomato Soup (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110234,
+    "name": "Adalia juice (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110248,
+    "name": "Almond Croissant (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110017,
+    "name": "Amirecan Sauce - Kg (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110318,
+    "name": "Apple Pie Croissant (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110307,
+    "name": "Apple Pie Mix (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110046,
+    "name": "Atomic Sauce Kg (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110360,
+    "name": "Baked Sweet Potato (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110359,
+    "name": "Baklava Pistachio (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110139,
+    "name": "Balsamic Galze (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110185,
+    "name": "Balsamic Vinaigrette dressing (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110126,
+    "name": "Batter Frizzle Onion (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110018,
+    "name": "BBQ Sauce - Kg. (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110003,
+    "name": "Beef Burger Patty . (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110335,
+    "name": "Beef Fillet Marinated (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110349,
+    "name": "Black Seeds Shamy Bread (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110302,
+    "name": "Blue Berry Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110159,
+    "name": "Blue Cheese Dressing (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110334,
+    "name": "Bread Garlic Butter (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110288,
+    "name": "Bread Sour dough (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110045,
+    "name": "BRGR House Dressing (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110164,
+    "name": "Brown Ciabatta Bread (PA) (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110202,
+    "name": "Buffalo Mix (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110040,
+    "name": "Buffalo Sauce - Kg (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110163,
+    "name": "Caesar Dressing (PA) (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110293,
+    "name": "CAESAR SAUCE (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110162,
+    "name": "Cancel Tuna",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110138,
+    "name": "Caramalized Onion (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110261,
+    "name": "Cheader Cheese Slices (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110238,
+    "name": "Cheese Emmental (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110157,
+    "name": "Cheese Provolone (PA)",
+    "unit": "Portion",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110041,
+    "name": "Cheese Sauce. - Kg (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110036,
+    "name": "Chicken Bites - Kg (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110144,
+    "name": "Chicken Breaded (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110275,
+    "name": "Chicken Fillet (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110006,
+    "name": "Chicken Fillet P (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110042,
+    "name": "Chicken liquid sauce - Kg (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110033,
+    "name": "Chicken Sauce - Kg (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110183,
+    "name": "chicken tenders (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110194,
+    "name": "Chives Cream Cheese (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110148,
+    "name": "Ciabatta Bread (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110198,
+    "name": "Citrus dressing (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110300,
+    "name": "Classic Frosting (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110130,
+    "name": "Coconut Cinnamon Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110137,
+    "name": "Coleslow Dressing (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110146,
+    "name": "Coleslow Salad (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110230,
+    "name": "Cookies Can (PA)",
+    "unit": "Order 8 pieces",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110269,
+    "name": "Cookies Can Mini (PA)",
+    "unit": "Order 8 pieces",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110249,
+    "name": "Cream Almond (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110357,
+    "name": "Cream Mix (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110247,
+    "name": "Cream Pistachio (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110330,
+    "name": "Creamy Mushroom Soup (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110129,
+    "name": "Creamy Pancake (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110313,
+    "name": "Croissant Almond (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110308,
+    "name": "Croissant Dough (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110314,
+    "name": "Croissant Nutella (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110315,
+    "name": "Croissant Pistachio (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110316,
+    "name": "Croissant Plain (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110317,
+    "name": "Croissant Thyme goat (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110039,
+    "name": "Cucumber Pickle - Kg (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110265,
+    "name": "Cucumber pickles Chips (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110312,
+    "name": "Danash Pastrame (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110342,
+    "name": "Demiglase Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110326,
+    "name": "Dijon mayo (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110363,
+    "name": "Dill Tuna Mix (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110127,
+    "name": "Dry Mix (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110035,
+    "name": "Dry Powder - Kg (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110086,
+    "name": "Emmental  Cheese PC (PA",
+    "unit": "Portion",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110333,
+    "name": "Fattoush Dressing (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110268,
+    "name": "French Baghette (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110178,
+    "name": "Fresh orange juice (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110301,
+    "name": "Frosting Lotus Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110299,
+    "name": "Frosting Sauce Basic (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110244,
+    "name": "Frozen Pan Suisse (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110243,
+    "name": "Frozen Plain Croissant (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110211,
+    "name": "Gelato Belgian Chocolate Chip",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110221,
+    "name": "Gelato Crame Brulee",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110216,
+    "name": "Gelato Gold Medal",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110214,
+    "name": "Gelato Honeycomb",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110204,
+    "name": "Gelato Mango",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110219,
+    "name": "Gelato Pink Lemonade",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110226,
+    "name": "Gelato Pistachio",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110208,
+    "name": "Gelato Salted Caramel & Almond Brittle",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110206,
+    "name": "Gelato Tiramisu",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110223,
+    "name": "Gelato Vanilla",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110225,
+    "name": "Gelato Yogurt Pavlova",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110336,
+    "name": "Grilled Chicken Marinated (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110092,
+    "name": "Hibiscis Glaze (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110037,
+    "name": "Honey Mustard Sauce - Kg (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110142,
+    "name": "Honey Srirache Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110173,
+    "name": "Hot Chocolate Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110201,
+    "name": "Hot Honey (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110369,
+    "name": "Hot Mustard Sauce . (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110038,
+    "name": "Ice Cream - Kg (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110160,
+    "name": "Japanese Matcha (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110352,
+    "name": "Karkade Syrup (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110358,
+    "name": "Konafa Pistachio Roll (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110353,
+    "name": "kunafa Crumbles (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110320,
+    "name": "Large Pizza dough (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110090,
+    "name": "Lemon chicken (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110303,
+    "name": "Lemon Curd (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110231,
+    "name": "Lemon juice (Adalia) (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110091,
+    "name": "Lemon Juice (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110245,
+    "name": "Lemon Syrup (New) (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110267,
+    "name": "Lovan Dough (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110340,
+    "name": "Marinara Sauce saints (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110188,
+    "name": "Marination Mushroom Roasted (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110337,
+    "name": "Mashed Potato (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110367,
+    "name": "Mastic Vanilla Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110354,
+    "name": "Matcha Tins",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110289,
+    "name": "MEATBALLS (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110280,
+    "name": "Medjool Honey Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110044,
+    "name": "Moroccan salad Dressing  (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110181,
+    "name": "mozzarella sticks (marina) (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110082,
+    "name": "Mushroom Roasted (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110343,
+    "name": "Mushroom White Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110366,
+    "name": "Mustard Mayonnaise Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110251,
+    "name": "Nutella Croissant (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110346,
+    "name": "Olive Dip (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110096,
+    "name": "Onion ( dobree) (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110227,
+    "name": "Onion Jam (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110050,
+    "name": "Onion Rings Fried . (PA)",
+    "unit": "Portion",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110319,
+    "name": "Pan Swiss Croissant (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110195,
+    "name": "Pancake Dough (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110030,
+    "name": "Pancake Paste - Kg (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110305,
+    "name": "Pastry Cream Chocolate (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110250,
+    "name": "Pastry Cream Nutella (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110158,
+    "name": "Pesto Mayo Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110141,
+    "name": "Pesto Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110136,
+    "name": "Pickled Onion (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110246,
+    "name": "Pistachio Croissant (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110290,
+    "name": "PISTACHIO PESTO (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110356,
+    "name": "Pistachio Sugar (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110252,
+    "name": "Pizza Dough (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110175,
+    "name": "Pumpkin Pie Spice (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110176,
+    "name": "Pumpkin Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110177,
+    "name": "Pumpkin Spice Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110043,
+    "name": "queen's salad Dressing  (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110084,
+    "name": "Quinoa Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110031,
+    "name": "Ranch Sauce - Kg (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110266,
+    "name": "Raspberry Puree (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110156,
+    "name": "Rib Eye (PA)",
+    "unit": "Portion",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110149,
+    "name": "Roast Beef (PA) (PA)",
+    "unit": "Portion",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110140,
+    "name": "Roasted Pepper Mushroom (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110197,
+    "name": "Roasted Potato (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110143,
+    "name": "Rosted Turkey (PA)",
+    "unit": "Portion",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110193,
+    "name": "Round Ciabatta (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110262,
+    "name": "Round Pretzel Bread (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110124,
+    "name": "Salted Caramel Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110174,
+    "name": "Salted Vanilla Bean (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110332,
+    "name": "Sambosak Cheese (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110134,
+    "name": "Sauce Marinara (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110051,
+    "name": "Sauce Sriracha Kg (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110347,
+    "name": "Shakshouka Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110348,
+    "name": "Shamy Bread (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110147,
+    "name": "Short Ribs (PA)",
+    "unit": "Portion",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110165,
+    "name": "Smokey Mayo Sauce (PA) (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110135,
+    "name": "Sour Cream Mix (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110145,
+    "name": "SPLIT Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110264,
+    "name": "Strawberry Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110295,
+    "name": "SUNDRIED TOMATO PESTO (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110228,
+    "name": "Sweet Chili Mayo Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110128,
+    "name": "Sweet Relish (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110365,
+    "name": "Taztaziki Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110189,
+    "name": "Thyme Balsamic Vinaigrette (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110306,
+    "name": "Thyme Goat Olive (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110324,
+    "name": "Toast Bread (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110253,
+    "name": "Tomato Pizza Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110321,
+    "name": "Tomato Pizza Sauce Split (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110304,
+    "name": "Tormaline (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110237,
+    "name": "truffle mayo (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110184,
+    "name": "truffle mayo test (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110166,
+    "name": "Tuna Mix (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110323,
+    "name": "Tuna Mustard (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110296,
+    "name": "Turkey pastrame (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110345,
+    "name": "Veal Escaolpe (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110350,
+    "name": "Vineleaves (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110229,
+    "name": "Watermelon (PA)",
+    "unit": "Each",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110123,
+    "name": "white chocolate sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 110341,
+    "name": "White Sauce (PA)",
+    "unit": "Kilogram",
+    "category": "Menu Items"
+  },
+  {
+    "code": 6,
+    "name": "of",
+    "unit": "8",
+    "category": "Menu Items"
+  },
+  {
+    "code": 500418,
+    "name": "Bowl 3 ice cream (260) saints",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500417,
+    "name": "Bowl ice cream (390) W cover saints",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500285,
+    "name": "Transparent Vacuum Bag 30*40Cm",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500299,
+    "name": "12 Oz Paper Cup (Saints)",
+    "unit": "Pkt 50 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500325,
+    "name": "16 Oz Plastic Ushape Cups (Saints)",
+    "unit": "Pkt 50 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500236,
+    "name": "Aluminum foil",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500291,
+    "name": "Bag Matcha",
+    "unit": "Kilogram",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500025,
+    "name": "Bag Take Away",
+    "unit": "Pkt 100 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500641,
+    "name": "bags Food storage 55*22",
+    "unit": "Kilogram",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500255,
+    "name": "bags Food storage size 25*38",
+    "unit": "Kilogram",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500048,
+    "name": "Bags White size 35 * 60",
+    "unit": "Kilogram",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500498,
+    "name": "Bags White size 90*120",
+    "unit": "Kilogram",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500341,
+    "name": "bottle blastek 900 ml",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500416,
+    "name": "Bowl 2  ice cream",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500031,
+    "name": "Box Take- Away Medium",
+    "unit": "Pkt 50 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500030,
+    "name": "Box Take-Away Large",
+    "unit": "Pkt 50 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500264,
+    "name": "butter papper Split",
+    "unit": "Pkt 1000 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500401,
+    "name": "Butter pepper saints",
+    "unit": "Pkt 100 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500643,
+    "name": "clips bag food storage 55*22",
+    "unit": "Kilogram",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500562,
+    "name": "Cookies Can Sticker",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500244,
+    "name": "Cup Cover Flat",
+    "unit": "Pkt 100 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500049,
+    "name": "Cup Transparent 10 Oz",
+    "unit": "Pkt 50 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500647,
+    "name": "Foil Bag BRGR",
+    "unit": "Pkt 50 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500258,
+    "name": "Foil Butter Paper Split",
+    "unit": "Pkt 1000 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500082,
+    "name": "Foil Paper",
+    "unit": "Pkt 50 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500103,
+    "name": "Forks Potato - Wooden",
+    "unit": "Box 1000 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500008,
+    "name": "Fridge Bag 1 Kg",
+    "unit": "Kilogram",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500009,
+    "name": "Fridge Bag 2 Kg",
+    "unit": "Kilogram",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500010,
+    "name": "Fridge Bag 5 Kg",
+    "unit": "Kilogram",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500342,
+    "name": "lid bottle blastek 900 ml",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500488,
+    "name": "meal spoon",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500015,
+    "name": "Packet Burger",
+    "unit": "Pkt 200 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500086,
+    "name": "Paper Bag Burger - Event",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500005,
+    "name": "Paper Roll Cashier",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500004,
+    "name": "Paper Roll CC",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500011,
+    "name": "Plate Foam 1 Kg",
+    "unit": "Pkt 500 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500336,
+    "name": "Plate Foam 1.5 Kg",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500084,
+    "name": "Plate French Fries - Event",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500072,
+    "name": "Roll Plastic",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500219,
+    "name": "Roll Plastic Big - 50 Cm",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500559,
+    "name": "Round transparent bottle 500ml",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500560,
+    "name": "Round transparent cap 500ml",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500052,
+    "name": "Salad bowl Sauce 4Oz",
+    "unit": "Pkt 100 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500343,
+    "name": "Small Bag Matcha",
+    "unit": "Kilogram",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500043,
+    "name": "Spoon Ice cream.",
+    "unit": "Pkt 50 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500194,
+    "name": "Sticker Kez (c.cake 10*10 Cm)",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500284,
+    "name": "Sticker Pretzel bread",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500002,
+    "name": "Stickers expiry meat",
+    "unit": "Pkt 500 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500003,
+    "name": "Stickers expiry products",
+    "unit": "Pkt 500 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500182,
+    "name": "Stickers expiry products - Atomic",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500013,
+    "name": "Tissue Bags Plastic Burger",
+    "unit": "Kilogram",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500225,
+    "name": "Transparent Vacuum Bag 15*20 Cm",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500243,
+    "name": "Transparent Vacuum Bag 18*30 cm",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500226,
+    "name": "Transparent Vacuum Bag 20*25Cm",
+    "unit": "Each",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500246,
+    "name": "Vaccum Bag Diamond",
+    "unit": "Bag 100 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500081,
+    "name": "Vacuum Bag Large",
+    "unit": "Pkt 100 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500080,
+    "name": "Vacuum Bag Small",
+    "unit": "Pkt 100 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500075,
+    "name": "Wipes Wet",
+    "unit": "Pkt 250 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500642,
+    "name": "Zip-lock Bags 30*40",
+    "unit": "Kilogram",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500505,
+    "name": "اكياس حلواني لارج",
+    "unit": "Pkt 100 Pcs",
+    "category": "Packing Items"
+  },
+  {
+    "code": 500509,
+    "name": "اكياس حلواني ميديم",
+    "unit": "Pkt 100 Pcs",
+    "category": "Packing Items"
+  }
+]
