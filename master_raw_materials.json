@@ -468,18 +468,6 @@
     "sup": "Dairy"
   },
   {
-    "id": "raw-1",
-    "code": "1",
-    "ar": "Sauce Brgr",
-    "en": "Sauce Brgr",
-    "uom": "g",
-    "category": "General",
-    "price": 35,
-    "stock": 100,
-    "safety": 20,
-    "sup": "General"
-  },
-  {
     "id": "raw-104410",
     "code": "104410",
     "ar": "Apricot Jam",
