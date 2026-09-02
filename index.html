@@ -6753,7 +6753,25 @@
             const staleProdIds = prRes.data.filter(p => !validProdIds.has(p.id)).map(p => p.id);
             if (staleProdIds.length > 0) {
               client.from('products').delete().in('id', staleProdIds).then(() => {
-                console.log('🧹 Auto-cleaned', staleProdIds.length, 'stale product records');
+                console.log('🧹 Auto-cleaned', staleProdIds.length, 'stale product records from Supabase');
+              });
+            }
+            // Auto-upsert any official products missing in Supabase Cloud
+            const cloudProdIds = new Set((prRes.data || []).map(p => p.id));
+            const prodsToUpsert = S.products.filter(p => !cloudProdIds.has(p.id)).map(p => ({
+              id: p.id,
+              code: p.code,
+              item_no: p.code,
+              ar: p.ar,
+              en: p.en,
+              unit: p.unit,
+              cat: p.cat,
+              cost: p.cost || 0,
+              stock: p.stock || 0
+            }));
+            if (prodsToUpsert.length > 0) {
+              client.from('products').upsert(prodsToUpsert, { onConflict: 'id' }).then(() => {
+                console.log('☁️ Auto-synced', prodsToUpsert.length, 'official products to Supabase Cloud');
               });
             }
             prRes.data.forEach(p => {
@@ -6776,6 +6794,26 @@
             if (staleRawIds.length > 0) {
               client.from('raw_materials').delete().in('id', staleRawIds).then(() => {
                 console.log('🧹 Auto-cleaned', staleRawIds.length, 'stale/invalid raw_material records from Supabase');
+              });
+            }
+            // Auto-upsert any official raw materials missing in Supabase Cloud
+            const cloudRawIds = new Set((rawRes.data || []).map(r => r.id));
+            const rawsToUpsert = Object.entries(S.ings)
+              .filter(([id]) => !cloudRawIds.has(id))
+              .map(([id, r]) => ({
+                id: id,
+                code: r.code,
+                ar: r.ar,
+                en: r.en,
+                uom: r.uom,
+                cat: r.cat,
+                price: r.price || 0,
+                stock: r.stock || 0,
+                safety: r.safety || 0
+              }));
+            if (rawsToUpsert.length > 0) {
+              client.from('raw_materials').upsert(rawsToUpsert, { onConflict: 'id' }).then(() => {
+                console.log('☁️ Auto-synced', rawsToUpsert.length, 'official raw materials to Supabase Cloud');
               });
             }
             rawRes.data.forEach(r => {
