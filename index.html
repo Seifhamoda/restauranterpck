@@ -6647,7 +6647,12 @@
     /* ============================================================
        LOCAL STORAGE — PERSISTENT DATA (V2 WITH ALL 74 BOM RECIPES)
     ============================================================ */
-    const LS_KEY = 'ck-erp-v2';
+    const LS_KEY = 'ck-erp-v3';
+    // Self-healing: purge legacy cache keys that contained duplicated or text-ID items
+    try {
+      ['ck-erp-v1', 'ck-erp-v2'].forEach(k => localStorage.removeItem(k));
+    } catch (e) {}
+
 
     /* ============================================================
    SUPABASE CLOUD SQL DATABASE SYNC & PERSISTENCE
@@ -6997,7 +7002,7 @@
 
     function loadState() {
       try {
-        const raw = localStorage.getItem(LS_KEY) || localStorage.getItem('ck-erp-v1');
+        const raw = localStorage.getItem(LS_KEY);
         if (!raw) return false;
         const data = JSON.parse(raw);
         if (data.orders !== undefined && Array.isArray(data.orders)) S.orders = data.orders;
@@ -7006,15 +7011,14 @@
         if (data.wastes !== undefined && Array.isArray(data.wastes)) S.wastes = data.wastes;
         if (data.taztikiRecords !== undefined && Array.isArray(data.taztikiRecords)) S.taztikiRecords = data.taztikiRecords;
 
-        // Smart merge for raw ingredients: keep all 139 master ings while adopting custom stock/price
+        // Smart merge for raw ingredients: adopt custom stock/price ONLY for official catalog items
         if (data.ings && typeof data.ings === 'object') {
           Object.entries(data.ings).forEach(([iid, idata]) => {
             if (S.ings[iid]) {
               if (idata.stock !== undefined) S.ings[iid].stock = idata.stock;
               if (idata.price !== undefined) S.ings[iid].price = idata.price;
-            } else {
-              S.ings[iid] = idata;
             }
+            // CRITICAL: NEVER resurrect old/deleted items into S.ings!
           });
         }
 
