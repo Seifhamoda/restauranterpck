@@ -3231,14 +3231,12 @@
       <div class="sy4">
         <input type="hidden" id="stock-ing-id" />
         <div>
-          <label class="field-label" data-ar="الرصيد الفعلي الحالي" data-en="Actual Stock Level">الرصيد الفعلي
-            الحالي</label>
-          <input class="input" type="number" min="0" step="0.01" id="stock-cur" />
+          <label class="field-label" id="stock-cur-lbl" data-ar="الرصيد الفعلي الحالي" data-en="Actual Stock Level">الرصيد الفعلي الحالي</label>
+          <input class="input" type="number" min="0" step="0.1" id="stock-cur" />
         </div>
         <div>
-          <label class="field-label" data-ar="حد الأمان (الحد الأدنى)" data-en="Safety Stock Level">حد الأمان (الحد
-            الأدنى)</label>
-          <input class="input" type="number" min="0" step="0.01" id="stock-safety" />
+          <label class="field-label" id="stock-safety-lbl" data-ar="حد الأمان (الحد الأدنى)" data-en="Safety Stock Level">حد الأمان (الحد الأدنى)</label>
+          <input class="input" type="number" min="0" step="0.1" id="stock-safety" />
         </div>
         <div class="flex gap-3" style="justify-content:flex-end">
           <button class="btn btn-secondary" onclick="closeModal('modal-stock')" data-ar="إلغاء"
@@ -8628,40 +8626,150 @@
       const u = (uom || '').trim();
       const lower = u.toLowerCase();
 
+      // 1. Bulk weight (Kilogram)
       if (lower === 'kilogram' || lower === 'kg') {
-        return { type: 'weight', isCountable: false, tagAr: 'كيلو', tagEn: 'Kg', packAr: 'وزن بالكيلو', packEn: 'Bulk Weight', step: 0.05, raw: u };
+        return {
+          type: 'weight',
+          isCountable: false,
+          tagAr: 'كجم',
+          tagEn: 'Kg',
+          unitTypeAr: 'وزن بالكيلو جرام',
+          unitTypeEn: 'Weight in Kg',
+          step: 0.1,
+          raw: u
+        };
       }
+
+      // 2. Bulk volume (Liter)
       if (lower === 'liter' || lower === 'ltr' || lower === 'l') {
-        return { type: 'volume', isCountable: false, tagAr: 'لتر', tagEn: 'L', packAr: 'حجم باللتر', packEn: 'Bulk Volume', step: 0.1, raw: u };
+        return {
+          type: 'volume',
+          isCountable: false,
+          tagAr: 'لتر',
+          tagEn: 'L',
+          unitTypeAr: 'حجم باللتر',
+          unitTypeEn: 'Volume in Liters',
+          step: 0.1,
+          raw: u
+        };
       }
-      if (lower.startsWith('jar')) {
-        const size = u.replace(/^jar\s*/i, '');
-        return { type: 'jar', isCountable: true, tagAr: 'برطمان', tagEn: 'Jar', packAr: size ? ('عبوة ' + size) : 'برطمان', packEn: size ? ('Jar ' + size) : 'Jar', step: 1, raw: u };
-      }
-      if (lower.startsWith('btl')) {
-        const size = u.replace(/^btl\s*/i, '');
-        return { type: 'bottle', isCountable: true, tagAr: 'زجاجة', tagEn: 'Btl', packAr: size ? ('زجاجة ' + size) : 'زجاجة', packEn: size ? ('Btl ' + size) : 'Bottle', step: 1, raw: u };
-      }
-      if (lower.startsWith('gal')) {
-        const size = u.replace(/^gal\s*/i, '');
-        return { type: 'gallon', isCountable: true, tagAr: 'جالون', tagEn: 'Gal', packAr: size ? ('جالون ' + size) : 'جالون', packEn: size ? ('Gal ' + size) : 'Gallon', step: 1, raw: u };
-      }
+
+      // 3. Sacks & Bags (Corn Starch 25kg, Flour 50kg, Sugar 50kg, Salt Chinese 25kg, etc.)
+      // MEASURED BY WEIGHT (Kg) because bags get opened, used partially, and weighed!
       if (lower.startsWith('bag')) {
-        const size = u.replace(/^bag\s*/i, '');
-        return { type: 'bag', isCountable: true, tagAr: 'شيكارة', tagEn: 'Bag', packAr: size ? ('شيكارة ' + size) : 'شيكارة', packEn: size ? ('Bag ' + size) : 'Bag', step: 1, raw: u };
+        const size = u.replace(/^bag\s*/i, '').trim();
+        return {
+          type: 'sack_weight',
+          isCountable: false,
+          tagAr: 'كجم',
+          tagEn: 'Kg',
+          unitTypeAr: size ? ('وزن بالكيلو (شيكارة ' + size + ')') : 'وزن بالكيلو (شيكارة)',
+          unitTypeEn: size ? ('Weight in Kg (Bag ' + size + ')') : 'Weight in Kg (Bag)',
+          step: 0.1,
+          raw: u
+        };
       }
+
+      // 4. Jars (Apricot Jam, Lotus, Honey, Cox Salt, etc.) -> COUNTABLE (بالعدد)
+      if (lower.startsWith('jar')) {
+        const size = u.replace(/^jar\s*/i, '').trim();
+        return {
+          type: 'jar',
+          isCountable: true,
+          tagAr: 'برطمان',
+          tagEn: 'Jar',
+          unitTypeAr: size ? ('بالعدد (برطمان ' + size + ')') : 'بالعدد (برطمان)',
+          unitTypeEn: size ? ('Countable Jars (' + size + ')') : 'Countable Jars',
+          step: 1,
+          raw: u
+        };
+      }
+
+      // 5. Bottles (Vinegar, Sriracha, Syrups, etc.) -> COUNTABLE (بالعدد)
+      if (lower.startsWith('btl')) {
+        const size = u.replace(/^btl\s*/i, '').trim();
+        return {
+          type: 'bottle',
+          isCountable: true,
+          tagAr: 'زجاجة',
+          tagEn: 'Btl',
+          unitTypeAr: size ? ('بالعدد (زجاجة ' + size + ')') : 'بالعدد (زجاجة)',
+          unitTypeEn: size ? ('Countable Bottles (' + size + ')') : 'Countable Bottles',
+          step: 1,
+          raw: u
+        };
+      }
+
+      // 6. Gallons (Oil 20L, Ketchup 10kg, Mayonnaise 3.29kg, etc.) -> COUNTABLE (بالعدد)
+      if (lower.startsWith('gal')) {
+        const size = u.replace(/^gal\s*/i, '').trim();
+        return {
+          type: 'gallon',
+          isCountable: true,
+          tagAr: 'جالون',
+          tagEn: 'Gal',
+          unitTypeAr: size ? ('بالعدد (جالون ' + size + ')') : 'بالعدد (جالون)',
+          unitTypeEn: size ? ('Countable Gallons (' + size + ')') : 'Countable Gallons',
+          step: 1,
+          raw: u
+        };
+      }
+
+      // 7. Boxes (Cartons, Baking powder box, Gloves box) -> COUNTABLE (بالعدد)
       if (lower.startsWith('box')) {
-        const size = u.replace(/^box\s*/i, '');
-        return { type: 'box', isCountable: true, tagAr: 'علبة', tagEn: 'Box', packAr: size ? ('علبة ' + size) : 'علبة', packEn: size ? ('Box ' + size) : 'Box', step: 1, raw: u };
+        const size = u.replace(/^box\s*/i, '').trim();
+        return {
+          type: 'box',
+          isCountable: true,
+          tagAr: 'علبة',
+          tagEn: 'Box',
+          unitTypeAr: size ? ('بالعدد (علبة ' + size + ')') : 'بالعدد (علبة)',
+          unitTypeEn: size ? ('Countable Boxes (' + size + ')') : 'Countable Boxes',
+          step: 1,
+          raw: u
+        };
       }
-      if (lower.startsWith('pkt')) {
-        const size = u.replace(/^pkt\s*/i, '');
-        return { type: 'packet', isCountable: true, tagAr: 'باكت', tagEn: 'Pkt', packAr: size ? ('باكت ' + size) : 'باكت', packEn: size ? ('Pkt ' + size) : 'Packet', step: 1, raw: u };
-      }
+
+      // 8. Plates (Egg plates) -> COUNTABLE (بالعدد)
       if (lower.startsWith('plate')) {
-        return { type: 'plate', isCountable: true, tagAr: 'طبق', tagEn: 'Plate', packAr: 'طبق 30 بيضة', packEn: 'Plate (30 Pcs)', step: 1, raw: u };
+        return {
+          type: 'plate',
+          isCountable: true,
+          tagAr: 'طبق',
+          tagEn: 'Plate',
+          unitTypeAr: 'بالعدد (طبق 30 بيضة)',
+          unitTypeEn: 'Countable Plates (30 Pcs)',
+          step: 1,
+          raw: u
+        };
       }
-      return { type: 'piece', isCountable: true, tagAr: 'قطعة', tagEn: 'Pcs', packAr: 'بالواحدة', packEn: 'Per Piece', step: 1, raw: u };
+
+      // 9. Packets (Pkt) -> COUNTABLE (بالعدد)
+      if (lower.startsWith('pkt')) {
+        const size = u.replace(/^pkt\s*/i, '').trim();
+        return {
+          type: 'packet',
+          isCountable: true,
+          tagAr: 'باكت',
+          tagEn: 'Pkt',
+          unitTypeAr: size ? ('بالعدد (باكت ' + size + ')') : 'بالعدد (باكت)',
+          unitTypeEn: size ? ('Countable Packets (' + size + ')') : 'Countable Packets',
+          step: 1,
+          raw: u
+        };
+      }
+
+      // 10. Each / Pcs -> COUNTABLE (بالواحدة)
+      return {
+        type: 'piece',
+        isCountable: true,
+        tagAr: 'قطعة',
+        tagEn: 'Pcs',
+        unitTypeAr: 'بالواحدة (قطعة)',
+        unitTypeEn: 'Per Piece',
+        step: 1,
+        raw: u
+      };
     }
 
     function formatSmartStock(qty, uom, arabic = true) {
@@ -8671,8 +8779,8 @@
         ? (n % 1 === 0 ? String(n) : n.toFixed(1))
         : (n % 1 === 0 ? String(n) : n.toFixed(2));
       const tag = arabic ? info.tagAr : info.tagEn;
-      const pack = arabic ? info.packAr : info.packEn;
-      return { num: numStr, tag, pack, info };
+      const unitType = arabic ? info.unitTypeAr : info.unitTypeEn;
+      return { num: numStr, tag, unitType, info };
     }
 
     function renderInv() {
@@ -8773,10 +8881,13 @@
               </span>
             </td>
 
-            <!-- 2. اسم الخامة وتفاصيل العبوة -->
+            <!-- 2. اسم الخامة وتكت الوحدة المعتمدة -->
             <td>
-              <div style="font-weight:700;color:#fff;font-size:14px">${nameTitle}</div>
-              <div style="font-size:11px;color:#94a3b8;margin-top:2px">${curStock.pack}</div>
+              <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap">
+                <span style="font-weight:700;color:#fff;font-size:14px">${nameTitle}</span>
+                <span class="badge" style="background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.35);color:#38bdf8;font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;font-family:inherit" title="الوحدة المعتمدة في الشيت">${d.uom}</span>
+              </div>
+              <div style="font-size:11px;color:#94a3b8;margin-top:3px">${curStock.unitType}</div>
             </td>
 
             <!-- 3. القسم المعتمد -->
@@ -8841,7 +8952,19 @@
       // Smart unit indication in edit modal
       const titleEl = document.getElementById('stock-modal-title');
       if (titleEl) {
-        titleEl.textContent = (iv.en || iv.ar) + ' (' + (isAr() ? uInfo.packAr : uInfo.packEn) + ')';
+        titleEl.innerHTML = `<span style="color:#fff">${iv.en || iv.ar}</span> <span class="badge" style="background:rgba(56,189,248,0.15);border:1px solid rgba(56,189,248,0.35);color:#38bdf8;font-size:11.5px;margin-inline-start:6px">${iv.uom}</span>`;
+      }
+      const curLbl = document.getElementById('stock-cur-lbl');
+      const safLbl = document.getElementById('stock-safety-lbl');
+      if (curLbl) {
+        curLbl.textContent = isAr()
+          ? ('الرصيد الفعلي الحالي (' + uInfo.unitTypeAr + ')')
+          : ('Actual Stock Level (' + uInfo.unitTypeEn + ')');
+      }
+      if (safLbl) {
+        safLbl.textContent = isAr()
+          ? ('حد الأمان (' + uInfo.unitTypeAr + ')')
+          : ('Safety Level (' + uInfo.unitTypeEn + ')');
       }
       const curInput = document.getElementById('stock-cur');
       const safInput = document.getElementById('stock-safety');
