@@ -2551,14 +2551,15 @@
             <table class="tbl">
               <thead>
                 <tr>
+                  <th data-ar="كود الصنف" data-en="Code" style="width:100px">كود الصنف</th>
                   <th data-ar="المادة الخام" data-en="Ingredient">المادة الخام</th>
-                  <th data-ar="المخزون الحالي" data-en="Current Stock">المخزون الحالي</th>
-                  <th data-ar="حد الأمان" data-en="Safety Stock">حد الأمان</th>
-                  <th data-ar="المطلوب للإنتاج" data-en="Required Today">المطلوب للإنتاج</th>
-                  <th data-ar="الفارق / العجز" data-en="Shortage / Gap">الفارق / العجز</th>
-                  <th data-ar="حالة الرصيد" data-en="Status">حالة الرصيد</th>
-                  <th data-ar="مؤشر الكفاية" data-en="Stock Level">مؤشر الكفاية</th>
-                  <th data-ar="تعديل الرصيد" data-en="Edit">تعديل الرصيد</th>
+                  <th data-ar="القسم" data-en="Department" style="width:120px">القسم</th>
+                  <th data-ar="المخزون الحالي" data-en="Current Stock" style="min-width:140px">المخزون الحالي</th>
+                  <th data-ar="حد الأمان" data-en="Safety Stock" style="min-width:120px">حد الأمان</th>
+                  <th data-ar="المطلوب للإنتاج" data-en="Required Today" style="min-width:120px">المطلوب للإنتاج</th>
+                  <th data-ar="حالة الرصيد" data-en="Status" style="width:130px">حالة الرصيد</th>
+                  <th data-ar="مؤشر الكفاية" data-en="Stock Level" style="width:120px">مؤشر الكفاية</th>
+                  <th data-ar="تعديل" data-en="Edit" style="width:70px;text-align:center">تعديل</th>
                 </tr>
               </thead>
               <tbody id="inv-tbl"></tbody>
@@ -3230,14 +3231,12 @@
       <div class="sy4">
         <input type="hidden" id="stock-ing-id" />
         <div>
-          <label class="field-label" data-ar="الرصيد الفعلي الحالي" data-en="Actual Stock Level">الرصيد الفعلي
-            الحالي</label>
-          <input class="input" type="number" min="0" step="0.01" id="stock-cur" />
+          <label class="field-label" id="stock-cur-lbl" data-ar="الرصيد الفعلي الحالي" data-en="Actual Stock Level">الرصيد الفعلي الحالي</label>
+          <input class="input" type="number" min="0" step="0.1" id="stock-cur" />
         </div>
         <div>
-          <label class="field-label" data-ar="حد الأمان (الحد الأدنى)" data-en="Safety Stock Level">حد الأمان (الحد
-            الأدنى)</label>
-          <input class="input" type="number" min="0" step="0.01" id="stock-safety" />
+          <label class="field-label" id="stock-safety-lbl" data-ar="حد الأمان (الحد الأدنى)" data-en="Safety Stock Level">حد الأمان (الحد الأدنى)</label>
+          <input class="input" type="number" min="0" step="0.1" id="stock-safety" />
         </div>
         <div class="flex gap-3" style="justify-content:flex-end">
           <button class="btn btn-secondary" onclick="closeModal('modal-stock')" data-ar="إلغاء"
@@ -6568,57 +6567,2300 @@
 
 
 
-      /* ── Central Kitchen BOM (وصفات التجهيز) ── */
-      /* الكميات: per 1 ltr أو 1 kg من التجهيز المنتج */
+      /* ── Central Kitchen BOM (وصفات التجهيز المعتمدة) ── */
+      /* الكميات: per 1 ltr أو 1 kg من التجهيز المنتج (مرتبطة بـ 65 وصفة معتمدة) */
       recipes: {
-        'amer-sauce': {
-          ings: [
-            { id: 'mayo-raw', qty: 0.60, waste: 2 },
-            { id: 'mustard', qty: 0.15, waste: 1 },
-            { id: 'amer-spice', qty: 0.08, waste: 0 },
-            { id: 'vinegar', qty: 0.05, waste: 0 },
-            { id: 'garlic-paste', qty: 0.03, waste: 2 },
-            { id: 'packaging-ltr', qty: 1, waste: 0 }
-          ]
+        "prod-amirecan-sauce-kg-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104003",
+                                "qty": 0.83143,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104026",
+                                "qty": 0.1084,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104004",
+                                "qty": 0.0547,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104226",
+                                "qty": 0.00348,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102029",
+                                "qty": 0.00199,
+                                "waste": 1
+                        }
+                ]
         },
-        'atomic-sauce': {
-          ings: [
-            { id: 'mayo-raw', qty: 0.50, waste: 2 },
-            { id: 'chili-sauce', qty: 0.25, waste: 1 },
-            { id: 'tomato-paste', qty: 0.10, waste: 2 },
-            { id: 'spice-mix', qty: 0.05, waste: 0 },
-            { id: 'vinegar', qty: 0.04, waste: 0 },
-            { id: 'packaging-ltr', qty: 1, waste: 0 }
-          ]
+        "prod-cheese-sauce-kg-pa": {
+                "ings": [
+                        {
+                                "id": "raw-101010",
+                                "qty": 0.54242,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101034",
+                                "qty": 0.21697,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101008",
+                                "qty": 0.10848,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101072",
+                                "qty": 0.13181,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104018",
+                                "qty": 0.00033,
+                                "waste": 1
+                        }
+                ]
         },
-        'chicken-sauce': {
-          ings: [
-            { id: 'mayo-raw', qty: 0.55, waste: 2 },
-            { id: 'mustard', qty: 0.10, waste: 1 },
-            { id: 'spice-mix', qty: 0.06, waste: 0 },
-            { id: 'garlic-paste', qty: 0.04, waste: 2 },
-            { id: 'vinegar', qty: 0.03, waste: 0 },
-            { id: 'packaging-ltr', qty: 1, waste: 0 }
-          ]
+        "prod-dry-powder-kg-pa": {
+                "ings": [
+                        {
+                                "id": "raw-102031",
+                                "qty": 0.69383,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102068",
+                                "qty": 0.20815,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.0104,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102017",
+                                "qty": 0.00346,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102029",
+                                "qty": 0.0052,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.03252,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102036",
+                                "qty": 0.03252,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102003",
+                                "qty": 0.01388,
+                                "waste": 1
+                        }
+                ]
         },
-        'beef-patty-prep': {
-          ings: [
-            { id: 'beef-raw', qty: 1.10, waste: 8 },
-            { id: 'spice-mix', qty: 0.03, waste: 0 },
-            { id: 'garlic-paste', qty: 0.02, waste: 2 },
-            { id: 'packaging-kg', qty: 1, waste: 0 }
-          ]
+        "prod-cucumber-pickle-kg-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104025",
+                                "qty": 0.50793,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108020",
+                                "qty": 1.26984,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102025",
+                                "qty": 0.50794,
+                                "waste": 1
+                        }
+                ]
         },
-        'chicken-marinated': {
-          ings: [
-            { id: 'chicken-raw', qty: 1.12, waste: 10 },
-            { id: 'spice-mix', qty: 0.04, waste: 0 },
-            { id: 'garlic-paste', qty: 0.03, waste: 2 },
-            { id: 'chili-sauce', qty: 0.02, waste: 0 },
-            { id: 'packaging-kg', qty: 1, waste: 0 }
-          ]
+        "prod-truffle-mayo-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104142",
+                                "qty": 0.90909,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-dry-mix-pa": {
+                "ings": [
+                        {
+                                "id": "raw-102031",
+                                "qty": 0.69383,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102068",
+                                "qty": 0.20815,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.0104,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102017",
+                                "qty": 0.00346,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102029",
+                                "qty": 0.0055,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.03252,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102036",
+                                "qty": 0.03252,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102003",
+                                "qty": 0.01388,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-karkade-syrup-pa": {
+                "ings": [
+                        {
+                                "id": "raw-102154",
+                                "qty": 0.14,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-200012",
+                                "qty": 0.3997,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102034",
+                                "qty": 0.4998,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-salted-vanilla-bean-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104123",
+                                "qty": 0.72,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104166",
+                                "qty": 0.28,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102136",
+                                "qty": 0.00826,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-salted-hazelnut-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104123",
+                                "qty": 0.89189,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102136",
+                                "qty": 0.00721,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104235",
+                                "qty": 0.11351,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-roasted-potato-pa": {
+                "ings": [
+                        {
+                                "id": "raw-108142",
+                                "qty": 1,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.005,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104204",
+                                "qty": 0.04,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.001,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108033",
+                                "qty": 0.005,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-marination-mushroom-roasted-pa": {
+                "ings": [
+                        {
+                                "id": "raw-108018",
+                                "qty": 2.06897,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108139",
+                                "qty": 0.2069,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.06897,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104013",
+                                "qty": 2.06897,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108016",
+                                "qty": 0.2069,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108025",
+                                "qty": 0.68966,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104024",
+                                "qty": 0.68966,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-hot-honey-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104007",
+                                "qty": 0.96852,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104199",
+                                "qty": 0.008,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104024",
+                                "qty": 0.00969,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104014",
+                                "qty": 0.00969,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-balsamic-galze-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104023",
+                                "qty": 1.0504,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104007",
+                                "qty": 0.0352,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-sauce-marinara-pa": {
+                "ings": [
+                        {
+                                "id": "raw-108022",
+                                "qty": 0.16847,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102222",
+                                "qty": 0.16848,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104013",
+                                "qty": 0,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108017",
+                                "qty": 0.04493,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108016",
+                                "qty": 0.00584,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108105",
+                                "qty": 0.00359,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104144",
+                                "qty": 0.01572,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.0054,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102173",
+                                "qty": 0.00045,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.00022,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-pickled-onion-pa": {
+                "ings": [
+                        {
+                                "id": "raw-200012",
+                                "qty": 0.23985,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104025",
+                                "qty": 0.47971,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104146",
+                                "qty": 0.03598,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.01199,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108016",
+                                "qty": 0.01199,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108018",
+                                "qty": 0.49769,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-chicken-fillet-p-pa": {
+                "ings": [
+                        {
+                                "id": "raw-101013",
+                                "qty": 1.0465,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.0209,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102029",
+                                "qty": 0.0073,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.0052,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102053",
+                                "qty": 0.0052,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102025",
+                                "qty": 0.0576,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108016",
+                                "qty": 0.0084,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108033",
+                                "qty": 0.0209,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-lemon-chicken-pa": {
+                "ings": [
+                        {
+                                "id": "raw-105003",
+                                "qty": 4.5,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104012",
+                                "qty": 0.2,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101068",
+                                "qty": 0.15,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104002",
+                                "qty": 0.05,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108016",
+                                "qty": 0.03,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108028",
+                                "qty": 0.015,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108117",
+                                "qty": 0.08,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.035,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.005,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102029",
+                                "qty": 0.005,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102053",
+                                "qty": 0.005,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-chicken-bites-kg-pa": {
+                "ings": [
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.02308,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101013",
+                                "qty": 1.553,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.00494,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108016",
+                                "qty": 0.016,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108018",
+                                "qty": 0.11996,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-chicken-breaded-pa": {
+                "ings": [
+                        {
+                                "id": "raw-105004",
+                                "qty": 0.12096,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.00378,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.00027,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102031",
+                                "qty": 0.054,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102029",
+                                "qty": 0.00216,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102053",
+                                "qty": 0.00324,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102009",
+                                "qty": 0.00324,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101013",
+                                "qty": 0.0162,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101068",
+                                "qty": 0.1296,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-105003",
+                                "qty": 27,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-roast-beef-pa-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104013",
+                                "qty": 0.05412,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102171",
+                                "qty": 0.01804,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.01353,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102178",
+                                "qty": 0.04059,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108107",
+                                "qty": 0.00902,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-pancake-paste-kg-pa": {
+                "ings": [
+                        {
+                                "id": "raw-101002",
+                                "qty": 1.00583,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.091,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102018",
+                                "qty": 5.84032,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102034",
+                                "qty": 1.9138300000000001,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102003",
+                                "qty": 0.5871299999999999,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101003",
+                                "qty": 9.473320000000001,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-105004",
+                                "qty": 2.74036,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102170",
+                                "qty": 0.00098,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104088",
+                                "qty": 0.00098,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-chicken-liquid-sauce-kg-pa": {
+                "ings": [
+                        {
+                                "id": "raw-102041",
+                                "qty": 12,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102031",
+                                "qty": 5,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.75,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102053",
+                                "qty": 0.35,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102009",
+                                "qty": 0.35,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101013",
+                                "qty": 5,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-105004",
+                                "qty": 4.05,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-200006",
+                                "qty": 12.5,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-onion-jam-pa": {
+                "ings": [
+                        {
+                                "id": "raw-108017",
+                                "qty": 13.31471,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101002",
+                                "qty": 0.35,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104146",
+                                "qty": 0.3,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108016",
+                                "qty": 0.03,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104013",
+                                "qty": 0.01953,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104012",
+                                "qty": 0.01953,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102034",
+                                "qty": 0.03999,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104007",
+                                "qty": 0.01023,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104023",
+                                "qty": 0.01023,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104024",
+                                "qty": 0.00093,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-ice-cream-kg-pa": {
+                "ings": [
+                        {
+                                "id": "raw-102068",
+                                "qty": 10,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101003",
+                                "qty": 24,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101010",
+                                "qty": 2,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-200012",
+                                "qty": 3,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-sweet-relish-pa": {
+                "ings": [
+                        {
+                                "id": "raw-108020",
+                                "qty": 0.752,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108018",
+                                "qty": 0.131,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108101",
+                                "qty": 0.122,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108102",
+                                "qty": 0.091,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108103",
+                                "qty": 0.018,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.016,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102162",
+                                "qty": 0.004,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104137",
+                                "qty": 0.004,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104024",
+                                "qty": 0.084,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104023",
+                                "qty": 0.03,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102034",
+                                "qty": 0.084,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102041",
+                                "qty": 0.028,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-200012",
+                                "qty": 0.095,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104002",
+                                "qty": 0.016,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104136",
+                                "qty": 0.017,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-strawberry-sauce-pa": {
+                "ings": [
+                        {
+                                "id": "raw-108163",
+                                "qty": 0.378,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-200012",
+                                "qty": 0.378,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102034",
+                                "qty": 0.2268,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-200097",
+                                "qty": 0.1134,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102246",
+                                "qty": 0.00047,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-split-sauce-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104142",
+                                "qty": 0.24,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104004",
+                                "qty": 0.07,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104002",
+                                "qty": 0.008,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108117",
+                                "qty": 0.008,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104014",
+                                "qty": 0.008,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104008",
+                                "qty": 0.008,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102053",
+                                "qty": 0.004,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102009",
+                                "qty": 0.002,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102177",
+                                "qty": 0.003,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.00025,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-tuna-mix-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104155",
+                                "qty": 0.24324,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101069",
+                                "qty": 0.11676,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104142",
+                                "qty": 0.04865,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104153",
+                                "qty": 0.12649,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.00097,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.00097,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108117",
+                                "qty": 0.00973,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-ranch-sauce-kg-pa": {
+                "ings": [
+                        {
+                                "id": "raw-101068",
+                                "qty": 1.98597,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104003",
+                                "qty": 3.81108,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104018",
+                                "qty": 0.05,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104025",
+                                "qty": 0.11159,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104008",
+                                "qty": 0.0625,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101013",
+                                "qty": 0.9926,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102020",
+                                "qty": 0.01388,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102033",
+                                "qty": 0.00694,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.01487,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-chicken-sauce-kg-pa": {
+                "ings": [
+                        {
+                                "id": "raw-101068",
+                                "qty": 1.86904,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104003",
+                                "qty": 1.65704,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102053",
+                                "qty": 0.0212,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.0212,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101013",
+                                "qty": 0.21552,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108016",
+                                "qty": 0.01412,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108025",
+                                "qty": 0.14484,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104025",
+                                "qty": 0.05608,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.00092,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-atomic-sauce-kg-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104056",
+                                "qty": 2.50905,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104003",
+                                "qty": 4.14021,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104026",
+                                "qty": 0.25063,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108117",
+                                "qty": 0.10011,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-bbq-sauce-kg-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104147",
+                                "qty": 0.807,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104003",
+                                "qty": 1.05,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104002",
+                                "qty": 0.24,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104026",
+                                "qty": 0.24,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108117",
+                                "qty": 0.066,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104007",
+                                "qty": 0.597,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-blue-cheese-dressing-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104003",
+                                "qty": 0.2489,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101013",
+                                "qty": 0.11958,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108117",
+                                "qty": 0.00531,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104025",
+                                "qty": 0.00266,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104008",
+                                "qty": 0.00177,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104007",
+                                "qty": 0.00974,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102009",
+                                "qty": 0.00053,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.00053,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108025",
+                                "qty": 0.00177,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101059",
+                                "qty": 0.0992,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-sauce-sriracha-kg-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104003",
+                                "qty": 1.846,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104014",
+                                "qty": 0.692,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104007",
+                                "qty": 0.461,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-queen-s-salad-dressing-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104023",
+                                "qty": 0.48118,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104013",
+                                "qty": 1.11,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102025",
+                                "qty": 0.22376,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.02376,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.00396,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104026",
+                                "qty": 0.149,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108016",
+                                "qty": 0.008,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-citrus-dressing-pa": {
+                "ings": [
+                        {
+                                "id": "raw-200096",
+                                "qty": 0.11726,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104024",
+                                "qty": 0.05863,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104007",
+                                "qty": 0.01173,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104026",
+                                "qty": 0.02345,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104223",
+                                "qty": 0.03518,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.00195,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104013",
+                                "qty": 0.1759,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104012",
+                                "qty": 0.1759,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-moroccan-salad-dressing-pa": {
+                "ings": [
+                        {
+                                "id": "raw-108133",
+                                "qty": 0.41941,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104023",
+                                "qty": 0.58681,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104013",
+                                "qty": 0.39942,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104012",
+                                "qty": 0.39942,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102025",
+                                "qty": 0.05868,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.02348,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.00392,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104007",
+                                "qty": 0.05868,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-balsamic-vinaigrette-dressing-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104026",
+                                "qty": 0.0436,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104023",
+                                "qty": 0.04651,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104007",
+                                "qty": 0.05233,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104013",
+                                "qty": 0.07267,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104012",
+                                "qty": 0.14535,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108117",
+                                "qty": 0.01453,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-brgr-house-dressing-pa": {
+                "ings": [
+                        {
+                                "id": "raw-108117",
+                                "qty": 0.37103,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104024",
+                                "qty": 0.24603,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104013",
+                                "qty": 0.49108,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104012",
+                                "qty": 0.49108,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.02579,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.00397,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104007",
+                                "qty": 0.37104,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-pistachio-pesto-pa": {
+                "ings": [
+                        {
+                                "id": "raw-108105",
+                                "qty": 0.065,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104013",
+                                "qty": 0.2,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101023",
+                                "qty": 0.047,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108016",
+                                "qty": 0.005,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102174",
+                                "qty": 0.022,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104106",
+                                "qty": 0.02,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.003,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.001,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-thyme-balsamic-vinaigrette-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104023",
+                                "qty": 0.2451,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104012",
+                                "qty": 0.4902,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104007",
+                                "qty": 0.20588,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108033",
+                                "qty": 0.0049,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.00392,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-sundried-tomato-pesto-pa": {
+                "ings": [
+                        {
+                                "id": "raw-108105",
+                                "qty": 0.19118,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104013",
+                                "qty": 0.41176,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101023",
+                                "qty": 0.13824,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108016",
+                                "qty": 0.01471,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102174",
+                                "qty": 0.06471,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104202",
+                                "qty": 0.17647,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.00294,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.00882,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-coleslow-dressing-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104142",
+                                "qty": 0.14865,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101013",
+                                "qty": 0.14865,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104025",
+                                "qty": 0.14865,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102034",
+                                "qty": 0.54054,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.00541,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108017",
+                                "qty": 0.02703,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-pesto-sauce-pa": {
+                "ings": [
+                        {
+                                "id": "raw-108105",
+                                "qty": 0.15998,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104013",
+                                "qty": 0.15,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101023",
+                                "qty": 0.065,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108016",
+                                "qty": 0.007,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102174",
+                                "qty": 0.03,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.004,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.00025,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-honey-srirache-sauce-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104007",
+                                "qty": 0.1,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104014",
+                                "qty": 0.1,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104008",
+                                "qty": 0.005,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-chives-cream-cheese-pa": {
+                "ings": [
+                        {
+                                "id": "raw-101069",
+                                "qty": 0.19493,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101011",
+                                "qty": 0.04873,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.00097,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.00049,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101113",
+                                "qty": 0.00487,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-caesar-dressing-pa-pa": {
+                "ings": [
+                        {
+                                "id": "raw-108016",
+                                "qty": 0.108,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104154",
+                                "qty": 0.108,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104026",
+                                "qty": 0.108,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104008",
+                                "qty": 0.108,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104142",
+                                "qty": 4.4928,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.0216,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.0216,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101023",
+                                "qty": 1.08,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-smokey-mayo-sauce-pa-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104142",
+                                "qty": 0.1,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104002",
+                                "qty": 0.005,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104147",
+                                "qty": 0.015,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104007",
+                                "qty": 0.012,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.0005,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.00025,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-sweet-chili-mayo-sauce-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104003",
+                                "qty": 0.405,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104136",
+                                "qty": 0.6,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.001,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.00025,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-toast-bread-pa": {
+                "ings": [
+                        {
+                                "id": "raw-100002",
+                                "qty": 0.24534,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101002",
+                                "qty": 0.09353,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108016",
+                                "qty": 0.0094,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102021",
+                                "qty": 0.00188,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-frosting-sauce-basic-pa": {
+                "ings": [
+                        {
+                                "id": "raw-101069",
+                                "qty": 0.10789,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104267",
+                                "qty": 0.05442,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102169",
+                                "qty": 0.11457,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104088",
+                                "qty": 0.00191,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.00048,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101003",
+                                "qty": 0.00573,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-classic-frosting-pa": {
+                "ings": [
+                        {
+                                "id": "raw-101069",
+                                "qty": 0.18677,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104267",
+                                "qty": 0.05323,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102169",
+                                "qty": 0.11206,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104088",
+                                "qty": 0.00187,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.00047,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101003",
+                                "qty": 0.0056,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-lemon-curd-pa": {
+                "ings": [
+                        {
+                                "id": "raw-105004",
+                                "qty": 4,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104423",
+                                "qty": 2,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104267",
+                                "qty": 0.16,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102034",
+                                "qty": 0.32,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108117",
+                                "qty": 0.022,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104088",
+                                "qty": 0.004,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-blue-berry-sauce-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104349",
+                                "qty": 0.83333,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102034",
+                                "qty": 0.2,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-hot-chocolate-sauce-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104261",
+                                "qty": 0.14698,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101010",
+                                "qty": 0.05919,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101003",
+                                "qty": 0.11739,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104087",
+                                "qty": 0.03946,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-taztaziki-sauce-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104188",
+                                "qty": 2.772,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108020",
+                                "qty": 0.3696,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104013",
+                                "qty": 0.1386,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.01848,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108016",
+                                "qty": 0.01848,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108028",
+                                "qty": 0.00462,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-dill-tuna-mix-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104155",
+                                "qty": 0.75736,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104142",
+                                "qty": 0.1122,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.00561,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102030",
+                                "qty": 0.0014,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-108113",
+                                "qty": 0.00842,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104226",
+                                "qty": 0.07013,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-hot-mustard-sauce-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104419",
+                                "qty": 0,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104026",
+                                "qty": 0,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104007",
+                                "qty": 0,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104199",
+                                "qty": 0,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-pretzel-bread-pa": {
+                "ings": [
+                        {
+                                "id": "raw-102165",
+                                "qty": 0.02068,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-200012",
+                                "qty": 0.00062,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102166",
+                                "qty": 0.00741,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101002",
+                                "qty": 0.00031,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102167",
+                                "qty": 0.00093,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.00926,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-croissant-plain-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104263",
+                                "qty": 0.00095,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.02857,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102025",
+                                "qty": 0.0019,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102220",
+                                "qty": 0.00238,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104267",
+                                "qty": 1.20119,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104007",
+                                "qty": 0.00238,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-105004",
+                                "qty": 0.00476,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101003",
+                                "qty": 0.0131,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-200012",
+                                "qty": 0.02857,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-ciabatta-bread-pa": {
+                "ings": [
+                        {
+                                "id": "raw-102165",
+                                "qty": 0.04409,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-200012",
+                                "qty": 0.00101,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102166",
+                                "qty": 0.00504,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104013",
+                                "qty": 0.00063,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102167",
+                                "qty": 0.00126,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.0126,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-brown-ciabatta-bread-pa-pa": {
+                "ings": [
+                        {
+                                "id": "raw-102165",
+                                "qty": 0.04349,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-200012",
+                                "qty": 0.00099,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102166",
+                                "qty": 0.00497,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104013",
+                                "qty": 0.00062,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102167",
+                                "qty": 0.00155,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-100021",
+                                "qty": 0.00124,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.115,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-french-baghette-pa": {
+                "ings": [
+                        {
+                                "id": "raw-102165",
+                                "qty": 0.05743,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-200012",
+                                "qty": 0.00053,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102166",
+                                "qty": 0.00136,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.01511,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-lovan-dough-pa": {
+                "ings": [
+                        {
+                                "id": "raw-102165",
+                                "qty": 0.04329,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-200012",
+                                "qty": 0.00054,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102285",
+                                "qty": 0,
+                                "waste": 1
+                        }
+                ]
+        },
+        "prod-cookies-can-mini-pa": {
+                "ings": [
+                        {
+                                "id": "raw-104146",
+                                "qty": 0.00073,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102025",
+                                "qty": 0.00293,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101139",
+                                "qty": 0.00135,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-105004",
+                                "qty": 0.00611,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102031",
+                                "qty": 0.00007,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102003",
+                                "qty": 0.00017,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-101114",
+                                "qty": 0.00002,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104171",
+                                "qty": 0.00003,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-102039",
+                                "qty": 0.00293,
+                                "waste": 1
+                        },
+                        {
+                                "id": "raw-104261",
+                                "qty": 0.14674,
+                                "waste": 1
+                        }
+                ]
         }
-      },
+},
       orders: []
     };
 
@@ -7814,13 +10056,21 @@
       S.orders.unshift(newOrder);
       apiSaveOrders([newOrder]);
 
+      // ⚡ Auto-deduct stock for manual order
+      const manualDeductRes = deductStockForOrders([newOrder]);
+
       _manualOrderItems = {};
       renderManualSelectedTable();
       document.getElementById('o-notes').value = '';
 
       saveState();
-      toast(T('✅ تم بنجاح تسجيل ومزامنة الطلبية سحابياً!', '✅ Order recorded and synced to cloud!'));
+      if (manualDeductRes.deductedRawCount > 0) {
+        toast(T(`✅ تم تسجيل الطلبية وسحب ${manualDeductRes.deductedRawCount} خامة من المخزن تلقائياً!`, `✅ Order saved & auto-deducted stock!`));
+      } else {
+        toast(T('✅ تم بنجاح تسجيل ومزامنة الطلبية سحابياً!', '✅ Order recorded and synced to cloud!'));
+      }
       renderOrders();
+      if (typeof renderInv === 'function') renderInv();
       if (typeof renderProd === 'function') renderProd();
     }
 
@@ -8621,6 +10871,169 @@
       renderInv();
     }
 
+    
+    /* ── Smart Unit of Measure (UOM) Intelligence ── */
+    function parseUOM(uom) {
+      const u = (uom || '').trim();
+      const lower = u.toLowerCase();
+
+      // 1. Bulk weight (Kilogram)
+      if (lower === 'kilogram' || lower === 'kg') {
+        return {
+          type: 'weight',
+          isCountable: false,
+          tagAr: 'كجم',
+          tagEn: 'Kg',
+          unitTypeAr: 'وزن بالكيلو جرام',
+          unitTypeEn: 'Weight in Kg',
+          step: 0.1,
+          raw: u
+        };
+      }
+
+      // 2. Bulk volume (Liter)
+      if (lower === 'liter' || lower === 'ltr' || lower === 'l') {
+        return {
+          type: 'volume',
+          isCountable: false,
+          tagAr: 'لتر',
+          tagEn: 'L',
+          unitTypeAr: 'حجم باللتر',
+          unitTypeEn: 'Volume in Liters',
+          step: 0.1,
+          raw: u
+        };
+      }
+
+      // 3. Sacks & Bags (Corn Starch 25kg, Flour 50kg, Sugar 50kg, Salt Chinese 25kg, etc.)
+      // MEASURED BY WEIGHT (Kg) because bags get opened, used partially, and weighed!
+      if (lower.startsWith('bag')) {
+        const size = u.replace(/^bag\s*/i, '').trim();
+        return {
+          type: 'sack_weight',
+          isCountable: false,
+          tagAr: 'كجم',
+          tagEn: 'Kg',
+          unitTypeAr: size ? ('وزن بالكيلو (شيكارة ' + size + ')') : 'وزن بالكيلو (شيكارة)',
+          unitTypeEn: size ? ('Weight in Kg (Bag ' + size + ')') : 'Weight in Kg (Bag)',
+          step: 0.1,
+          raw: u
+        };
+      }
+
+      // 4. Jars (Apricot Jam, Lotus, Honey, Cox Salt, etc.) -> COUNTABLE (بالعدد)
+      if (lower.startsWith('jar')) {
+        const size = u.replace(/^jar\s*/i, '').trim();
+        return {
+          type: 'jar',
+          isCountable: true,
+          tagAr: 'برطمان',
+          tagEn: 'Jar',
+          unitTypeAr: size ? ('بالعدد (برطمان ' + size + ')') : 'بالعدد (برطمان)',
+          unitTypeEn: size ? ('Countable Jars (' + size + ')') : 'Countable Jars',
+          step: 1,
+          raw: u
+        };
+      }
+
+      // 5. Bottles (Vinegar, Sriracha, Syrups, etc.) -> COUNTABLE (بالعدد)
+      if (lower.startsWith('btl')) {
+        const size = u.replace(/^btl\s*/i, '').trim();
+        return {
+          type: 'bottle',
+          isCountable: true,
+          tagAr: 'زجاجة',
+          tagEn: 'Btl',
+          unitTypeAr: size ? ('بالعدد (زجاجة ' + size + ')') : 'بالعدد (زجاجة)',
+          unitTypeEn: size ? ('Countable Bottles (' + size + ')') : 'Countable Bottles',
+          step: 1,
+          raw: u
+        };
+      }
+
+      // 6. Gallons (Oil 20L, Ketchup 10kg, Mayonnaise 3.29kg, etc.) -> COUNTABLE (بالعدد)
+      if (lower.startsWith('gal')) {
+        const size = u.replace(/^gal\s*/i, '').trim();
+        return {
+          type: 'gallon',
+          isCountable: true,
+          tagAr: 'جالون',
+          tagEn: 'Gal',
+          unitTypeAr: size ? ('بالعدد (جالون ' + size + ')') : 'بالعدد (جالون)',
+          unitTypeEn: size ? ('Countable Gallons (' + size + ')') : 'Countable Gallons',
+          step: 1,
+          raw: u
+        };
+      }
+
+      // 7. Boxes (Cartons, Baking powder box, Gloves box) -> COUNTABLE (بالعدد)
+      if (lower.startsWith('box')) {
+        const size = u.replace(/^box\s*/i, '').trim();
+        return {
+          type: 'box',
+          isCountable: true,
+          tagAr: 'علبة',
+          tagEn: 'Box',
+          unitTypeAr: size ? ('بالعدد (علبة ' + size + ')') : 'بالعدد (علبة)',
+          unitTypeEn: size ? ('Countable Boxes (' + size + ')') : 'Countable Boxes',
+          step: 1,
+          raw: u
+        };
+      }
+
+      // 8. Plates (Egg plates) -> COUNTABLE (بالعدد)
+      if (lower.startsWith('plate')) {
+        return {
+          type: 'plate',
+          isCountable: true,
+          tagAr: 'طبق',
+          tagEn: 'Plate',
+          unitTypeAr: 'بالعدد (طبق 30 بيضة)',
+          unitTypeEn: 'Countable Plates (30 Pcs)',
+          step: 1,
+          raw: u
+        };
+      }
+
+      // 9. Packets (Pkt) -> COUNTABLE (بالعدد)
+      if (lower.startsWith('pkt')) {
+        const size = u.replace(/^pkt\s*/i, '').trim();
+        return {
+          type: 'packet',
+          isCountable: true,
+          tagAr: 'باكت',
+          tagEn: 'Pkt',
+          unitTypeAr: size ? ('بالعدد (باكت ' + size + ')') : 'بالعدد (باكت)',
+          unitTypeEn: size ? ('Countable Packets (' + size + ')') : 'Countable Packets',
+          step: 1,
+          raw: u
+        };
+      }
+
+      // 10. Each / Pcs -> COUNTABLE (بالواحدة)
+      return {
+        type: 'piece',
+        isCountable: true,
+        tagAr: 'قطعة',
+        tagEn: 'Pcs',
+        unitTypeAr: 'بالواحدة (قطعة)',
+        unitTypeEn: 'Per Piece',
+        step: 1,
+        raw: u
+      };
+    }
+
+    function formatSmartStock(qty, uom, arabic = true) {
+      const info = parseUOM(uom);
+      const n = Number(qty) || 0;
+      const numStr = info.isCountable
+        ? (n % 1 === 0 ? String(n) : n.toFixed(1))
+        : (n % 1 === 0 ? String(n) : n.toFixed(2));
+      const tag = arabic ? info.tagAr : info.tagEn;
+      const unitType = arabic ? info.unitTypeAr : info.unitTypeEn;
+      return { num: numStr, tag, unitType, info };
+    }
+
     function renderInv() {
       const rm = computeRM();
       const rmap = {};
@@ -8700,42 +11113,77 @@
         const d = S.ings[r.id];
         if (!d) return '';
         const nameTitle = d.en || d.ar;
-        const itemCode = d.code || r.id.replace('raw-500509', '');
-        const catBadge = d.cat || d.category || 'عام';
+        const itemCode = d.code || r.id.replace('raw-', '');
+        const catBadge = d.cat || d.category || 'Grocery';
+
+        // Smart UOM calculation: Countable (بالواحدة / برطمان / زجاجة) vs Bulk Weight (كيلو)
+        const curStock = formatSmartStock(r.iv.stock, r.iv.uom, isAr());
+        const safStock = formatSmartStock(r.iv.safety, r.iv.uom, isAr());
+        const reqStock = formatSmartStock(r.req, r.iv.uom, isAr());
+
+        const stockColor = r.isShort ? '#f87171' : r.isLow ? '#fbbf24' : '#4ade80';
+
         return `
           <tr>
+            <!-- 1. كود الصنف -->
             <td>
               <span class="badge" style="background:rgba(168,85,247,0.15);border:1px solid rgba(168,85,247,0.35);color:#c084fc;font-family:monospace;font-weight:700;font-size:12px;letter-spacing:0.5px">
                 #${itemCode}
               </span>
             </td>
+
+            <!-- 2. اسم الخامة وتكت الوحدة المعتمدة -->
             <td>
-              <div style="font-weight:700;color:#fff">${nameTitle}</div>
-              <div style="font-size:11px;color:#64748b">القسم: ${d.cat || d.category || "General"}</div>
+              <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap">
+                <span style="font-weight:700;color:#fff;font-size:14px">${nameTitle}</span>
+                <span class="badge" style="background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.35);color:#38bdf8;font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;font-family:inherit" title="الوحدة المعتمدة في الشيت">${d.uom}</span>
+              </div>
+              <div style="font-size:11px;color:#94a3b8;margin-top:3px">${curStock.unitType}</div>
             </td>
+
+            <!-- 3. القسم المعتمد -->
             <td>
-              <span class="badge badge-indigo" style="font-size:11px;white-space:nowrap">${catBadge}</span>
+              <span class="badge badge-indigo" style="font-size:11px;white-space:nowrap;padding:4px 8px">${catBadge}</span>
             </td>
-            <td><span style="font-weight:800;font-size:13.5px;color:${r.isShort ? '#f87171' : r.isLow ? '#fbbf24' : '#4ade80'}">${fmt(r.iv.stock, 2)} ${r.iv.uom}</span></td>
-            <td class="text-muted">${fmt(r.iv.safety, 2)} ${r.iv.uom}</td>
-            <td style="color:#60a5fa;font-weight:600">${f2(r.req)} ${r.iv.uom}</td>
+
+            <!-- 4. المخزون الحالي بالواحدة أو الكيلو -->
+            <td>
+              <div style="font-weight:800;font-size:14.5px;color:${stockColor}">
+                ${curStock.num} <span style="font-size:12px;font-weight:600">${curStock.tag}</span>
+              </div>
+            </td>
+
+            <!-- 5. حد الأمان -->
+            <td>
+              <div style="font-weight:600;font-size:13px;color:#cbd5e1">
+                ${safStock.num} <span style="font-size:11.5px;color:#94a3b8">${safStock.tag}</span>
+              </div>
+            </td>
+
+            <!-- 6. المطلوب للإنتاج اليوم -->
+            <td>
+              <div style="font-weight:700;font-size:13px;color:#60a5fa">
+                ${reqStock.num} <span style="font-size:11.5px;color:#93c5fd">${reqStock.tag}</span>
+              </div>
+            </td>
+
+            <!-- 7. حالة الرصيد -->
             <td>
               ${r.isShort
-            ? `<span class="badge badge-red badge-pulse">▼ عجز ${f2(r.gap)} ${r.iv.uom}</span>`
-            : `<span class="badge badge-green">✓ ${T('كافٍ للطلبيات', 'Sufficient')}</span>`}
+                ? `<span class="badge badge-red badge-pulse">${T('عجز حالي', 'Shortage')}</span>`
+                : r.isLow
+                  ? `<span class="badge badge-amber">${T('منخفض (أمان)', 'Low')}</span>`
+                  : `<span class="badge badge-green">✓ ${T('كافٍ ومستقر', 'Adequate')}</span>`}
             </td>
-            <td>
-              ${r.isShort
-            ? `<span class="badge badge-red">${T('عجز حرج', 'Shortage')}</span>`
-            : r.isLow
-              ? `<span class="badge badge-amber">${T('منخفض (أمان)', 'Low')}</span>`
-              : `<span class="badge badge-green">${T('كافٍ ومستقر', 'Adequate')}</span>`}
-            </td>
-            <td style="min-width:110px">
-              <div class="progress"><div class="progress-bar" style="width:${f2(r.pct)}%;background:${r.bc}"></div></div>
+
+            <!-- 8. مؤشر الكفاية -->
+            <td style="min-width:100px">
+              <div class="progress" style="height:6px"><div class="progress-bar" style="width:${f2(r.pct)}%;background:${r.bc}"></div></div>
               <div style="font-size:11px;color:#94a3b8;margin-top:3px">${Math.round(r.pct)}%</div>
             </td>
-            <td>
+
+            <!-- 9. تعديل الرصيد -->
+            <td style="text-align:center">
               <button class="btn btn-secondary btn-icon btn-sm" onclick="openEditStock('${r.id}')" title="تعديل الرصيد">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
               </button>
@@ -8747,9 +11195,33 @@
 
     function openEditStock(id) {
       const iv = S.ings[id];
+      const uInfo = parseUOM(iv.uom);
       document.getElementById('stock-ing-id').value = id;
       document.getElementById('stock-cur').value = iv.stock;
       document.getElementById('stock-safety').value = iv.safety;
+      
+      // Smart unit indication in edit modal
+      const titleEl = document.getElementById('stock-modal-title');
+      if (titleEl) {
+        titleEl.innerHTML = `<span style="color:#fff">${iv.en || iv.ar}</span> <span class="badge" style="background:rgba(56,189,248,0.15);border:1px solid rgba(56,189,248,0.35);color:#38bdf8;font-size:11.5px;margin-inline-start:6px">${iv.uom}</span>`;
+      }
+      const curLbl = document.getElementById('stock-cur-lbl');
+      const safLbl = document.getElementById('stock-safety-lbl');
+      if (curLbl) {
+        curLbl.textContent = isAr()
+          ? ('الرصيد الفعلي الحالي (' + uInfo.unitTypeAr + ')')
+          : ('Actual Stock Level (' + uInfo.unitTypeEn + ')');
+      }
+      if (safLbl) {
+        safLbl.textContent = isAr()
+          ? ('حد الأمان (' + uInfo.unitTypeAr + ')')
+          : ('Safety Level (' + uInfo.unitTypeEn + ')');
+      }
+      const curInput = document.getElementById('stock-cur');
+      const safInput = document.getElementById('stock-safety');
+      if (curInput) curInput.step = uInfo.step;
+      if (safInput) safInput.step = uInfo.step;
+      
       openModal('modal-stock');
     }
 
@@ -10216,6 +12688,73 @@
       if (finput) finput.value = '';
     }
 
+    
+    /* ── ⚡ Automated Inventory Deduction Engine (محرك الخصم التلقائي للمخزون) ── */
+    function deductStockForOrders(ordersList) {
+      if (!ordersList || !ordersList.length) return { deductedRawCount: 0, summary: {} };
+
+      const deductedSummary = {};
+      let totalDeductionsCount = 0;
+
+      ordersList.forEach(ord => {
+        if (!ord.items) return;
+        Object.entries(ord.items).forEach(([pid, orderedQty]) => {
+          const numQty = Number(orderedQty) || 0;
+          if (numQty <= 0) return;
+
+          // 1. Resolve product recipe
+          let recipe = S.recipes[pid];
+          if (!recipe) {
+            const prod = S.products.find(p => p.id === pid || p.code === pid || String(p.item_no) === String(pid));
+            if (prod && S.recipes[prod.id]) {
+              recipe = S.recipes[prod.id];
+            }
+          }
+
+          // 2. If recipe exists, deduct all raw materials in BOM
+          if (recipe && recipe.ings && Array.isArray(recipe.ings) && recipe.ings.length > 0) {
+            recipe.ings.forEach(ing => {
+              if (S.ings[ing.id]) {
+                const wasteFactor = 1 + (Number(ing.waste) || 0) / 100;
+                const deductAmount = (Number(ing.qty) || 0) * wasteFactor * numQty;
+                if (deductAmount > 0) {
+                  const curStock = S.ings[ing.id].stock || 0;
+                  S.ings[ing.id].stock = Math.max(0, curStock - deductAmount);
+                  S.ings[ing.id].stock = Math.round(S.ings[ing.id].stock * 1000) / 1000;
+                  deductedSummary[ing.id] = (deductedSummary[ing.id] || 0) + deductAmount;
+                  totalDeductionsCount++;
+                }
+              }
+            });
+          } else if (S.ings[pid]) {
+            // 3. Direct raw material order
+            const curStock = S.ings[pid].stock || 0;
+            S.ings[pid].stock = Math.max(0, curStock - numQty);
+            S.ings[pid].stock = Math.round(S.ings[pid].stock * 1000) / 1000;
+            deductedSummary[pid] = (deductedSummary[pid] || 0) + numQty;
+            totalDeductionsCount++;
+          }
+        });
+      });
+
+      // 4. Sync affected raw materials to Supabase Cloud
+      const uniqueIngs = Object.keys(deductedSummary);
+      if (uniqueIngs.length > 0) {
+        uniqueIngs.forEach(ingId => {
+          const iv = S.ings[ingId];
+          if (iv && typeof apiUpdateRawStock === 'function') {
+            apiUpdateRawStock(ingId, iv.stock, iv.safety, iv.price || 0);
+          }
+        });
+        console.log(`⚡ [Auto-Deduct] Successfully deducted ${uniqueIngs.length} raw materials for ${ordersList.length} orders!`);
+      }
+
+      return {
+        deductedRawCount: uniqueIngs.length,
+        summary: deductedSummary
+      };
+    }
+
     function confirmExcelImport() {
       if (!_excelPendingOrders || !_excelPendingOrders.length) return;
       const isReplaceMode = document.getElementById('excel-replace-mode')?.checked ?? true;
@@ -10267,6 +12806,9 @@
         apiSaveOrders(newlyImportedOrders, isReplaceMode ? Array.from(importedDates) : []);
       }
 
+      // ⚡ AUTO-DEDUCT: Deduct raw materials from inventory based on BOM recipes
+      const deductRes = deductStockForOrders(newlyImportedOrders);
+
       // Also set the filter date to the imported date automatically so the user sees it immediately
       const firstDate = Array.from(importedDates)[0];
       if (firstDate) {
@@ -10277,10 +12819,15 @@
       saveState();
       cancelExcelImport();
       renderOrders();
+      if (typeof renderInv === 'function') renderInv();
       if (typeof renderProd === 'function') renderProd();
       if (typeof renderProduction === 'function') renderProduction();
 
-      toast(T(`📥 تم بنجاح حفظ ومزامنة ${importedCount} طلبية للفروع سحابياً`, `📥 Successfully saved & synced ${importedCount} orders to cloud!`));
+      if (deductRes.deductedRawCount > 0) {
+        toast(T(`📥 تم حفظ ${importedCount} طلبية وسحب ${deductRes.deductedRawCount} خامة من المخزن تلقائياً طبقاً للوصفات!`, `📥 Saved ${importedCount} orders & auto-deducted ${deductRes.deductedRawCount} raw materials from inventory!`));
+      } else {
+        toast(T(`📥 تم بنجاح حفظ ومزامنة ${importedCount} طلبية للفروع سحابياً`, `📥 Successfully saved & synced ${importedCount} orders to cloud!`));
+      }
       _excelPendingOrders = null;
     }
 
