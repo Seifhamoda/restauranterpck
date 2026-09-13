@@ -1097,7 +1097,7 @@
             <div>
               <h3 style="font-size:14px;font-weight:800;color:#fff;margin:0;display:flex;align-items:center;gap:8px;">
                 📋 <span data-ar="أصناف المركز المصنعة المعتمدة (88 صنف PA)" data-en="Supply Info — Center Finished Goods Master (88 PA Products)">أصناف المركز المصنعة المعتمدة (88 صنف PA)</span>
-                <span class="badge badge-orange">88 PA</span>
+                <span class="badge badge-slate" id="fg-table-count-badge" style="font-size:11px;font-weight:700;">0 مطلوب للتشغيل</span>
               </h3>
               <p style="color:#64748B;font-size:11px;margin-top:2px;" data-ar="مطابقة المخزون الجاهز مع طلبات الفروع مع تشغيل فوري للدفعات" data-en="Real-time stock vs branch demand with one-click production trigger">
                 مطابقة المخزون الجاهز مع طلبات الفروع مع تشغيل فوري للدفعات
@@ -1134,50 +1134,12 @@
                 </tr>
               </thead>
               <tbody id="fg-table-body">
-                <tr data-cat="Sauces">
-                  <td style="color:#8B5CF6;font-weight:700;font-family:monospace;">110017</td>
-                  <td style="font-weight:700;color:#fff;">Amirecan Sauce - Kg (PA)</td>
-                  <td><span class="badge badge-orange" data-ar="صوصات" data-en="Sauces">صوصات</span></td>
-                  <td style="font-weight:700;color:#fff;">45.00 Kg</td>
-                  <td style="font-weight:700;color:#06B6D4;">42.50 Kg</td>
-                  <td><span class="badge badge-green" data-ar="مغطى بالكامل ✓" data-en="Fully Covered ✓">مغطى بالكامل ✓</span></td>
-                  <td style="text-align:center;"><button class="btn btn-sm btn-primary" onclick="nav('production')">⚡ <span data-ar="طبخ" data-en="Cook">طبخ</span></button></td>
-                </tr>
-                <tr data-cat="Cheese">
-                  <td style="color:#8B5CF6;font-weight:700;font-family:monospace;">110041</td>
-                  <td style="font-weight:700;color:#fff;">Cheese Sauce - Kg (PA)</td>
-                  <td><span class="badge badge-blue" data-ar="جبن" data-en="Cheese">جبن</span></td>
-                  <td style="font-weight:700;color:#fff;">28.50 Kg</td>
-                  <td style="font-weight:700;color:#F87171;">35.00 Kg</td>
-                  <td><span class="badge badge-red" data-ar="عجز: -6.5 كجم ⚠️" data-en="Shortage: -6.5 Kg ⚠️">عجز: -6.5 كجم ⚠️</span></td>
-                  <td style="text-align:center;"><button class="btn btn-sm btn-primary" onclick="nav('production')">⚡ <span data-ar="طبخ" data-en="Cook">طبخ</span></button></td>
-                </tr>
-                <tr data-cat="Beef">
-                  <td style="color:#8B5CF6;font-weight:700;font-family:monospace;">110083</td>
-                  <td style="font-weight:700;color:#fff;">Beef Burger Patty (PA)</td>
-                  <td><span class="badge badge-slate" data-ar="لحوم" data-en="Beef">لحوم</span></td>
-                  <td style="font-weight:700;color:#fff;">320 Pcs</td>
-                  <td style="font-weight:700;color:#06B6D4;">280 Pcs</td>
-                  <td><span class="badge badge-green" data-ar="مغطى بالكامل ✓" data-en="Fully Covered ✓">مغطى بالكامل ✓</span></td>
-                  <td style="text-align:center;"><button class="btn btn-sm btn-primary" onclick="nav('production')">⚡ <span data-ar="تجهيز" data-en="Prep">تجهيز</span></button></td>
-                </tr>
-                <tr data-cat="Bakery">
-                  <td style="color:#8B5CF6;font-weight:700;font-family:monospace;">110148</td>
-                  <td style="font-weight:700;color:#fff;">Ciabatta Bread (PA)</td>
-                  <td><span class="badge badge-slate" data-ar="مخبوزات" data-en="Bakery">مخبوزات</span></td>
-                  <td style="font-weight:700;color:#fff;">150 Pcs</td>
-                  <td style="font-weight:700;color:#06B6D4;">140 Pcs</td>
-                  <td><span class="badge badge-green" data-ar="مغطى بالكامل ✓" data-en="Fully Covered ✓">مغطى بالكامل ✓</span></td>
-                  <td style="text-align:center;"><button class="btn btn-sm btn-primary" onclick="nav('production')">⚡ <span data-ar="خبز" data-en="Bake">خبز</span></button></td>
-                </tr>
-                <tr data-cat="Special">
-                  <td style="color:#8B5CF6;font-weight:700;font-family:monospace;">110365</td>
-                  <td style="font-weight:700;color:#fff;">Taztaziki Sauce (PA)</td>
-                  <td><span class="badge badge-orange" data-ar="مميز" data-en="Special">مميز</span></td>
-                  <td style="font-weight:700;color:#fff;">18.00 Kg</td>
-                  <td style="font-weight:700;color:#06B6D4;">15.00 Kg</td>
-                  <td><span class="badge badge-green" data-ar="مغطى بالكامل ✓" data-en="Fully Covered ✓">مغطى بالكامل ✓</span></td>
-                  <td style="text-align:center;"><button class="btn btn-sm btn-primary" onclick="nav('production')">⚡ <span data-ar="طبخ" data-en="Cook">طبخ</span></button></td>
+                <tr class="empty-state-row">
+                  <td colspan="7" style="text-align:center;padding:40px 20px;color:#94a3b8;">
+                    <div style="width:48px;height:48px;margin:0 auto 12px;border-radius:14px;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.25);display:flex;align-items:center;justify-content:center;color:#A78BFA;font-size:1.5rem">📋</div>
+                    <div style="font-weight:700;color:#f1f5f9;font-size:14px;margin-bottom:6px;" data-ar="لا توجد أصناف مطلوبة للتشغيل حالياً" data-en="No Production Demand Required Currently">لا توجد أصناف مطلوبة للتشغيل حالياً</div>
+                    <div style="font-size:12px;color:#64748b;max-width:420px;margin:0 auto;line-height:1.5;" data-ar="تظهر الأصناف هنا تلقائياً فور تسجيل طلبات الفروع واحتياجها للإنتاج" data-en="Products will appear here automatically when requested by branches">تظهر الأصناف هنا تلقائياً فور تسجيل طلبات الفروع واحتياجها للإنتاج</div>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -9078,6 +9040,10 @@
       }
       const q = (query || document.getElementById('fg-search-input')?.value || '').toLowerCase().trim();
       document.querySelectorAll('#fg-table-body tr').forEach(tr => {
+        if (tr.classList.contains('empty-state-row')) {
+          tr.style.display = '';
+          return;
+        }
         const text = tr.innerText.toLowerCase();
         const rowCat = tr.getAttribute('data-cat') || '';
         tr.style.display = ((!q || text.includes(q)) && (!activeFGCat || activeFGCat === 'all' || rowCat === activeFGCat)) ? '' : 'none';
@@ -9265,34 +9231,92 @@
       const prods = (S.products && S.products.length) ? S.products : [];
       if (!prods.length) return;
 
+      // Calculate total demand per product from active branch orders
       const demandMap = {};
       (S.orders || []).forEach(o => {
-        Object.entries(o.items || {}).forEach(([pid, qty]) => {
-          demandMap[pid] = (demandMap[pid] || 0) + Number(qty || 0);
-        });
+        if (o && o.status !== 'cancelled' && o.items) {
+          Object.entries(o.items).forEach(([pid, qty]) => {
+            demandMap[pid] = (demandMap[pid] || 0) + Number(qty || 0);
+          });
+        }
       });
 
-      tbody.innerHTML = prods.slice(0, 15).map(p => {
-        const ready = Number((S.centerStock && S.centerStock[p.id]) || 0);
+      // Filter: ONLY include products that have active demand from branch orders!
+      const demandedProds = prods.filter(p => {
+        const demand = Number(demandMap[p.id] || 0);
+        return demand > 0;
+      });
+
+      // Update badge count in header
+      const badgeEl = document.getElementById('fg-table-count-badge');
+      if (badgeEl) {
+        if (demandedProds.length > 0) {
+          badgeEl.textContent = demandedProds.length + ' ' + (isAr() ? 'صنف مطلوب' : 'Demanded');
+          badgeEl.className = 'badge badge-purple';
+          badgeEl.style.background = 'rgba(124,58,237,0.2)';
+          badgeEl.style.color = '#A78BFA';
+          badgeEl.style.borderColor = 'rgba(124,58,237,0.4)';
+        } else {
+          badgeEl.textContent = isAr() ? '0 مطلوب للتشغيل' : '0 Demanded';
+          badgeEl.className = 'badge badge-slate';
+          badgeEl.style.background = 'rgba(30,35,64,0.8)';
+          badgeEl.style.color = '#64748B';
+          badgeEl.style.borderColor = '#1E2340';
+        }
+      }
+
+      // If no products have demand, display clean informative empty state
+      if (!demandedProds.length) {
+        tbody.innerHTML = '<tr class="empty-state-row">' +
+          '<td colspan="7" style="text-align:center;padding:40px 20px;color:#94a3b8;">' +
+            '<div style="width:48px;height:48px;margin:0 auto 12px;border-radius:14px;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.25);display:flex;align-items:center;justify-content:center;color:#A78BFA;font-size:1.5rem">📋</div>' +
+            '<div style="font-weight:700;color:#f1f5f9;font-size:14px;margin-bottom:6px;">' + (isAr() ? 'لا توجد أصناف مطلوبة للتشغيل حالياً' : 'No Production Demand Required Currently') + '</div>' +
+            '<div style="font-size:12px;color:#64748b;max-width:420px;margin:0 auto;line-height:1.5;">' + (isAr() ? 'تظهر الأصناف هنا تلقائياً فور وجود طلبات فعلية من الفروع تحتاج لتشغيل' : 'Products will appear here automatically when requested by branches') + '</div>' +
+          '</td>' +
+        '</tr>';
+        return;
+      }
+
+      // Sort: items with shortage first (highest deficit at the top)
+      demandedProds.sort((a, b) => {
+        const csA = S.centerStock && S.centerStock[a.id];
+        const readyA = typeof csA === 'object' && csA !== null ? Number(csA.qty || 0) : Number(csA || 0);
+        const demandA = Number(demandMap[a.id] || 0);
+        const diffA = readyA - demandA;
+
+        const csB = S.centerStock && S.centerStock[b.id];
+        const readyB = typeof csB === 'object' && csB !== null ? Number(csB.qty || 0) : Number(csB || 0);
+        const demandB = Number(demandMap[b.id] || 0);
+        const diffB = readyB - demandB;
+
+        return diffA - diffB;
+      });
+
+      // Render rows
+      tbody.innerHTML = demandedProds.map(p => {
+        const csVal = S.centerStock && S.centerStock[p.id];
+        const ready = typeof csVal === 'object' && csVal !== null ? Number(csVal.qty || 0) : Number(csVal || 0);
         const demand = Number(demandMap[p.id] || 0);
         const diff = ready - demand;
-        let badge = '<span class="badge badge-slate">' + (isAr() ? 'جاهز للتشغيل' : 'Ready to Cook') + '</span>';
-        if (demand > 0) {
-          badge = diff >= 0 
-            ? '<span class="badge badge-green">' + (isAr() ? 'مغطى بالكامل ✓' : 'Fully Covered ✓') + '</span>'
-            : '<span class="badge badge-red">' + (isAr() ? 'عجز: ' + diff.toFixed(1) + ' ' + (p.unit || 'Kg') : 'Short: ' + diff.toFixed(1)) + '</span>';
+        const uom = p.unit || 'Kg';
+
+        let badge = '';
+        if (diff >= 0) {
+          badge = '<span class="badge badge-green">' + (isAr() ? 'مغطى بالكامل ✓' : 'Fully Covered ✓') + '</span>';
+        } else {
+          badge = '<span class="badge badge-red">' + (isAr() ? ('عجز: ' + Math.abs(diff).toFixed(1) + ' ' + uom + ' ⚠️') : ('Short: ' + Math.abs(diff).toFixed(1) + ' ' + uom + ' ⚠️')) + '</span>';
         }
 
-        const catBadgeClass = p.cat === 'Sauces' ? 'badge-orange' : (p.cat === 'Cheese' ? 'badge-blue' : 'badge-slate');
+        const catBadgeClass = (p.cat === 'Sauces' || p.cat === 'sauces') ? 'badge-orange' : ((p.cat === 'Cheese' || p.cat === 'cheese') ? 'badge-blue' : 'badge-slate');
 
-        return '<tr data-cat="' + (p.cat || 'Sauces') + '">' +
-          '<td style="color:#8B5CF6;font-weight:700;font-family:monospace;">' + (p.id || '—') + '</td>' +
-          '<td style="font-weight:700;color:#fff;">' + (pname(p) || p.id) + '</td>' +
+        return '<tr data-cat="' + (p.cat || 'other') + '">' +
+          '<td style="color:#8B5CF6;font-weight:700;font-family:monospace;font-size:12px;">' + (p.id || '—') + '</td>' +
+          '<td style="font-weight:700;color:#fff;font-size:13px;">' + (pname(p) || p.id) + '</td>' +
           '<td><span class="badge ' + catBadgeClass + '">' + (p.cat || '—') + '</span></td>' +
-          '<td style="font-weight:700;color:#fff;">' + ready.toFixed(2) + ' ' + (p.unit || 'Kg') + '</td>' +
-          '<td style="font-weight:700;color:' + (demand > 0 ? '#06B6D4' : '#64748B') + ';">' + demand.toFixed(2) + ' ' + (p.unit || 'Kg') + '</td>' +
+          '<td style="font-weight:700;color:#fff;">' + (ready % 1 === 0 ? ready : ready.toFixed(2)) + ' ' + uom + '</td>' +
+          '<td style="font-weight:800;color:#06B6D4;">' + (demand % 1 === 0 ? demand : demand.toFixed(2)) + ' ' + uom + '</td>' +
           '<td>' + badge + '</td>' +
-          '<td style="text-align:center;"><button class="btn btn-sm btn-primary" onclick="nav(\'production\')">⚡ <span>' + (isAr() ? 'تشغيل' : 'Cook') + '</span></button></td>' +
+          '<td style="text-align:center;"><button class="btn btn-sm btn-primary" style="background:linear-gradient(135deg,#7C3AED,#6D28D9);border:none;box-shadow:0 0 10px rgba(124,58,237,0.3);padding:4px 12px;" onclick="nav(\'production\')">⚡ <span>' + (isAr() ? 'تشغيل' : 'Cook') + '</span></button></td>' +
         '</tr>';
       }).join('');
     }
@@ -9392,12 +9416,21 @@
     function renderSupplyBarsChart() {
       const ctx = document.getElementById('ch-supply-bars');
       if (!ctx) return;
+      const chartWrap = ctx.parentElement;
+      const hasOrders = (S.orders || []).some(o => o && o.status !== 'cancelled' && o.items && Object.keys(o.items).length > 0);
+
+      if (!hasOrders) {
+        if (chSupplyBars) { chSupplyBars.destroy(); chSupplyBars = null; }
+        if (chartWrap) chartWrap.style.display = 'none';
+        return;
+      }
+
+      if (chartWrap) chartWrap.style.display = 'block';
       if (chSupplyBars) { chSupplyBars.destroy(); chSupplyBars = null; }
 
       const labels = Array.from({length: 40}, (_, i) => '');
-      const hasOrders = (S.orders || []).length > 0;
-      const data1 = Array.from({length: 40}, () => hasOrders ? (Math.random() * 0.008 + 0.003) : 0);
-      const data2 = Array.from({length: 40}, () => hasOrders ? (Math.random() * 0.006 + 0.002) : 0);
+      const data1 = Array.from({length: 40}, () => (Math.random() * 0.008 + 0.003));
+      const data2 = Array.from({length: 40}, () => (Math.random() * 0.006 + 0.002));
 
       chSupplyBars = new Chart(ctx, {
         type: 'bar',
@@ -9437,8 +9470,7 @@
             y: {
               display: true,
               grid: { color: 'rgba(30,35,64,0.4)', drawBorder: false },
-              ticks: { color: '#64748B', font: { size: 9 }, maxTicksLimit: 4 },
-              suggestedMax: hasOrders ? undefined : 0.01
+              ticks: { color: '#64748B', font: { size: 9 }, maxTicksLimit: 4 }
             }
           }
         }
