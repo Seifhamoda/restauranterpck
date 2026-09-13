@@ -1,0 +1,6943 @@
+{
+  "timestamp": "2026-09-02T17:47:45.446Z",
+  "branches": [
+    {
+      "id": "br-1",
+      "name": "فرع واتر واي (Water Way)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-2",
+      "name": "فرع أب تاون (Uptown)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-3",
+      "name": "فرع O1 (O1)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-4",
+      "name": "فرع المعادي (The Field)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-5",
+      "name": "فرع ميفيدا (Mivida)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-6",
+      "name": "فرع سوديك (Sodic)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-7",
+      "name": "فرع نيو جيزة (New Giza)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-8",
+      "name": "فرع نادي نيو جيزة (New Giza Club)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-9",
+      "name": "فرع بارك ستريت (Park St)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-10",
+      "name": "فرع مول العرب (Mall of Arabia)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-11",
+      "name": "فرع بالم هيلز (Palm Hills)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-12",
+      "name": "فرع كود (Kode)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-13",
+      "name": "فرع دهشور (Dahshour)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-14",
+      "name": "فرع مدينتي (Madinty)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-15",
+      "name": "فرع ديستريكت 5 (District 5)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-16",
+      "name": "فرع إل بوسكو (IL Bosco)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-17",
+      "name": "فرع D2 (Drive 02)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-18",
+      "name": "فرع قطامية (Katameya)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-19",
+      "name": "فرع الجولف (NGG Golf)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-20",
+      "name": "فرع Core WOC",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-21",
+      "name": "فرع Core PH",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-22",
+      "name": "فرع اسبليت واتر واي (Split Water Way)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-23",
+      "name": "فرع اسبليت O1 (Split O1)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-24",
+      "name": "فرع اسبليت نيو جيزة (Split New Giza)",
+      "created_at": "2026-08-30T12:54:32.116823+00:00"
+    },
+    {
+      "id": "br-25",
+      "name": "فرع CAC (CAC)",
+      "created_at": "2026-08-30T15:11:34.142996+00:00"
+    },
+    {
+      "id": "br-26",
+      "name": "فرع أورانج (Orange)",
+      "created_at": "2026-08-30T15:11:34.142996+00:00"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-turkey-pastrame-pa",
+      "code": "110296",
+      "item_no": "110296",
+      "ar": "Turkey pastrame (PA)",
+      "en": "Turkey pastrame (PA)",
+      "unit": "Each",
+      "cat": "chicken",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-onion-rings-fried-pa",
+      "code": "110050",
+      "item_no": "110050",
+      "ar": "Onion Rings Fried . (PA)",
+      "en": "Onion Rings Fried . (PA)",
+      "unit": "Portion",
+      "cat": "veggies",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-beef-burger-patty-pa",
+      "code": "110003",
+      "item_no": "110003",
+      "ar": "Beef Burger Patty . (PA)",
+      "en": "Beef Burger Patty . (PA)",
+      "unit": "Each",
+      "cat": "beef",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-cucumber-pickle-kg-pa",
+      "code": "110039",
+      "item_no": "110039",
+      "ar": "Cucumber Pickle - Kg (PA)",
+      "en": "Cucumber Pickle - Kg (PA)",
+      "unit": "Kilogram",
+      "cat": "veggies",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-cucumber-pickles-chips-pa",
+      "code": "110265",
+      "item_no": "110265",
+      "ar": "Cucumber pickles Chips (PA)",
+      "en": "Cucumber pickles Chips (PA)",
+      "unit": "Kilogram",
+      "cat": "veggies",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-batter-frizzle-onion-pa",
+      "code": "110126",
+      "item_no": "110126",
+      "ar": "Batter Frizzle Onion (PA)",
+      "en": "Batter Frizzle Onion (PA)",
+      "unit": "Kilogram",
+      "cat": "veggies",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-onion-jam-pa",
+      "code": "110227",
+      "item_no": "110227",
+      "ar": "Onion Jam (PA)",
+      "en": "Onion Jam (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-roasted-potato-pa",
+      "code": "110197",
+      "item_no": "110197",
+      "ar": "Roasted Potato (PA)",
+      "en": "Roasted Potato (PA)",
+      "unit": "Kilogram",
+      "cat": "veggies",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-ranch-sauce-kg-pa",
+      "code": "110031",
+      "item_no": "110031",
+      "ar": "Ranch Sauce - Kg (PA)",
+      "en": "Ranch Sauce - Kg (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-chicken-sauce-kg-pa",
+      "code": "110033",
+      "item_no": "110033",
+      "ar": "Chicken Sauce - Kg (PA)",
+      "en": "Chicken Sauce - Kg (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-honey-mustard-sauce-kg-pa",
+      "code": "110037",
+      "item_no": "110037",
+      "ar": "Honey Mustard Sauce - Kg (PA)",
+      "en": "Honey Mustard Sauce - Kg (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-sweet-relish-pa",
+      "code": "110128",
+      "item_no": "110128",
+      "ar": "Sweet Relish (PA)",
+      "en": "Sweet Relish (PA)",
+      "unit": "Kilogram",
+      "cat": "prep",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-amirecan-sauce-kg-pa",
+      "code": "110017",
+      "item_no": "110017",
+      "ar": "Amirecan Sauce - Kg (PA)",
+      "en": "Amirecan Sauce - Kg (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-atomic-sauce-kg-pa",
+      "code": "110046",
+      "item_no": "110046",
+      "ar": "Atomic Sauce Kg (PA)",
+      "en": "Atomic Sauce Kg (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-bbq-sauce-kg-pa",
+      "code": "110018",
+      "item_no": "110018",
+      "ar": "BBQ Sauce - Kg. (PA)",
+      "en": "BBQ Sauce - Kg. (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-sauce-sriracha-kg-pa",
+      "code": "110051",
+      "item_no": "110051",
+      "ar": "Sauce Sriracha Kg (PA)",
+      "en": "Sauce Sriracha Kg (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-blue-cheese-dressing-pa",
+      "code": "110159",
+      "item_no": "110159",
+      "ar": "Blue Cheese Dressing (PA)",
+      "en": "Blue Cheese Dressing (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-brgr-house-dressing-pa",
+      "code": "110045",
+      "item_no": "110045",
+      "ar": "BRGR House Dressing (PA)",
+      "en": "BRGR House Dressing (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-queen-s-salad-dressing-pa",
+      "code": "110043",
+      "item_no": "110043",
+      "ar": "queen's salad Dressing  (PA)",
+      "en": "queen's salad Dressing  (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-moroccan-salad-dressing-pa",
+      "code": "110044",
+      "item_no": "110044",
+      "ar": "Moroccan salad Dressing  (PA)",
+      "en": "Moroccan salad Dressing  (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-truffle-mayo-pa",
+      "code": "110237",
+      "item_no": "110237",
+      "ar": "truffle mayo (PA)",
+      "en": "truffle mayo (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-karkade-syrup-pa",
+      "code": "110352",
+      "item_no": "110352",
+      "ar": "Karkade Syrup (PA)",
+      "en": "Karkade Syrup (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-toast-bread-pa",
+      "code": "110324",
+      "item_no": "110324",
+      "ar": "Toast Bread (PA)",
+      "en": "Toast Bread (PA)",
+      "unit": "Kilogram",
+      "cat": "bakery",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-hot-mustard-sauce-pa",
+      "code": "110369",
+      "item_no": "110369",
+      "ar": "Hot Mustard Sauce . (PA)",
+      "en": "Hot Mustard Sauce . (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-raspberry-puree-pa",
+      "code": "110266",
+      "item_no": "110266",
+      "ar": "Raspberry Puree (PA)",
+      "en": "Raspberry Puree (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-split-sauce-pa",
+      "code": "110145",
+      "item_no": "110145",
+      "ar": "SPLIT Sauce (PA)",
+      "en": "SPLIT Sauce (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-balsamic-vinaigrette-dressing-pa",
+      "code": "110185",
+      "item_no": "110185",
+      "ar": "Balsamic Vinaigrette dressing (PA)",
+      "en": "Balsamic Vinaigrette dressing (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-thyme-balsamic-vinaigrette-pa",
+      "code": "110189",
+      "item_no": "110189",
+      "ar": "Thyme Balsamic Vinaigrette (PA)",
+      "en": "Thyme Balsamic Vinaigrette (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-caesar-dressing-pa-pa",
+      "code": "110163",
+      "item_no": "110163",
+      "ar": "Caesar Dressing (PA) (PA)",
+      "en": "Caesar Dressing (PA) (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-chives-cream-cheese-pa",
+      "code": "110194",
+      "item_no": "110194",
+      "ar": "Chives Cream Cheese (PA)",
+      "en": "Chives Cream Cheese (PA)",
+      "unit": "Kilogram",
+      "cat": "cheese",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-citrus-dressing-pa",
+      "code": "110198",
+      "item_no": "110198",
+      "ar": "Citrus dressing (PA)",
+      "en": "Citrus dressing (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-coleslow-dressing-pa",
+      "code": "110137",
+      "item_no": "110137",
+      "ar": "Coleslow Dressing (PA)",
+      "en": "Coleslow Dressing (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-honey-srirache-sauce-pa",
+      "code": "110142",
+      "item_no": "110142",
+      "ar": "Honey Srirache Sauce (PA)",
+      "en": "Honey Srirache Sauce (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-pesto-sauce-pa",
+      "code": "110141",
+      "item_no": "110141",
+      "ar": "Pesto Sauce (PA)",
+      "en": "Pesto Sauce (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-pistachio-pesto-pa",
+      "code": "110290",
+      "item_no": "110290",
+      "ar": "PISTACHIO PESTO (PA)",
+      "en": "PISTACHIO PESTO (PA)",
+      "unit": "Kilogram",
+      "cat": "prep",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-sundried-tomato-pesto-pa",
+      "code": "110295",
+      "item_no": "110295",
+      "ar": "SUNDRIED TOMATO PESTO (PA)",
+      "en": "SUNDRIED TOMATO PESTO (PA)",
+      "unit": "Kilogram",
+      "cat": "prep",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-smokey-mayo-sauce-pa-pa",
+      "code": "110165",
+      "item_no": "110165",
+      "ar": "Smokey Mayo Sauce (PA) (PA)",
+      "en": "Smokey Mayo Sauce (PA) (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-sweet-chili-mayo-sauce-pa",
+      "code": "110228",
+      "item_no": "110228",
+      "ar": "Sweet Chili Mayo Sauce (PA)",
+      "en": "Sweet Chili Mayo Sauce (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-balsamic-galze-pa",
+      "code": "110139",
+      "item_no": "110139",
+      "ar": "Balsamic Galze (PA)",
+      "en": "Balsamic Galze (PA)",
+      "unit": "Kilogram",
+      "cat": "prep",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-coleslow-salad-pa",
+      "code": "110146",
+      "item_no": "110146",
+      "ar": "Coleslow Salad (PA)",
+      "en": "Coleslow Salad (PA)",
+      "unit": "Kilogram",
+      "cat": "veggies",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-hot-honey-pa",
+      "code": "110201",
+      "item_no": "110201",
+      "ar": "Hot Honey (PA)",
+      "en": "Hot Honey (PA)",
+      "unit": "Kilogram",
+      "cat": "prep",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-pickled-onion-pa",
+      "code": "110136",
+      "item_no": "110136",
+      "ar": "Pickled Onion (PA)",
+      "en": "Pickled Onion (PA)",
+      "unit": "Kilogram",
+      "cat": "veggies",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-sauce-marinara-pa",
+      "code": "110134",
+      "item_no": "110134",
+      "ar": "Sauce Marinara (PA)",
+      "en": "Sauce Marinara (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-short-ribs-pa",
+      "code": "110147",
+      "item_no": "110147",
+      "ar": "Short Ribs (PA)",
+      "en": "Short Ribs (PA)",
+      "unit": "Portion",
+      "cat": "beef",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-chicken-bites-kg-pa",
+      "code": "110036",
+      "item_no": "110036",
+      "ar": "Chicken Bites - Kg (PA)",
+      "en": "Chicken Bites - Kg (PA)",
+      "unit": "Kilogram",
+      "cat": "chicken",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-lemon-chicken-pa",
+      "code": "110090",
+      "item_no": "110090",
+      "ar": "Lemon chicken (PA)",
+      "en": "Lemon chicken (PA)",
+      "unit": "Each",
+      "cat": "chicken",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-chicken-fillet-p-pa",
+      "code": "110006",
+      "item_no": "110006",
+      "ar": "Chicken Fillet P (PA)",
+      "en": "Chicken Fillet P (PA)",
+      "unit": "Each",
+      "cat": "chicken",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-chicken-breaded-pa",
+      "code": "110144",
+      "item_no": "110144",
+      "ar": "Chicken Breaded (PA)",
+      "en": "Chicken Breaded (PA)",
+      "unit": "Each",
+      "cat": "bakery",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-chicken-tenders-pa",
+      "code": "110183",
+      "item_no": "110183",
+      "ar": "chicken tenders (PA)",
+      "en": "chicken tenders (PA)",
+      "unit": "Each",
+      "cat": "chicken",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-chicken-liquid-sauce-kg-pa",
+      "code": "110042",
+      "item_no": "110042",
+      "ar": "Chicken liquid sauce - Kg (PA)",
+      "en": "Chicken liquid sauce - Kg (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-emmental-cheese-pc-pa",
+      "code": "110086",
+      "item_no": "110086",
+      "ar": "Emmental  Cheese PC (PA",
+      "en": "Emmental  Cheese PC (PA",
+      "unit": "Portion",
+      "cat": "cheese",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-cheese-sauce-kg-pa",
+      "code": "110041",
+      "item_no": "110041",
+      "ar": "Cheese Sauce. - Kg (PA)",
+      "en": "Cheese Sauce. - Kg (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-ice-cream-kg-pa",
+      "code": "110038",
+      "item_no": "110038",
+      "ar": "Ice Cream - Kg (PA)",
+      "en": "Ice Cream - Kg (PA)",
+      "unit": "Kilogram",
+      "cat": "drinks",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-pancake-paste-kg-pa",
+      "code": "110030",
+      "item_no": "110030",
+      "ar": "Pancake Paste - Kg (PA)",
+      "en": "Pancake Paste - Kg (PA)",
+      "unit": "Kilogram",
+      "cat": "prep",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-hot-chocolate-sauce-pa",
+      "code": "110173",
+      "item_no": "110173",
+      "ar": "Hot Chocolate Sauce (PA)",
+      "en": "Hot Chocolate Sauce (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-salted-caramel-sauce-pa",
+      "code": "110124",
+      "item_no": "110124",
+      "ar": "Salted Caramel Sauce (PA)",
+      "en": "Salted Caramel Sauce (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-rib-eye-pa",
+      "code": "110156",
+      "item_no": "110156",
+      "ar": "Rib Eye (PA)",
+      "en": "Rib Eye (PA)",
+      "unit": "Portion",
+      "cat": "beef",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-mozzarella-sticks-marina-pa",
+      "code": "110181",
+      "item_no": "110181",
+      "ar": "mozzarella sticks (marina) (PA)",
+      "en": "mozzarella sticks (marina) (PA)",
+      "unit": "Each",
+      "cat": "cheese",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-dill-tuna-mix-pa",
+      "code": "110363",
+      "item_no": "110363",
+      "ar": "Dill Tuna Mix (PA)",
+      "en": "Dill Tuna Mix (PA)",
+      "unit": "Each",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-lemon-curd-pa",
+      "code": "110303",
+      "item_no": "110303",
+      "ar": "Lemon Curd (PA)",
+      "en": "Lemon Curd (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-mushroom-roasted-pa",
+      "code": "110082",
+      "item_no": "110082",
+      "ar": "Mushroom Roasted (PA)",
+      "en": "Mushroom Roasted (PA)",
+      "unit": "Kilogram",
+      "cat": "veggies",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-blue-berry-sauce-pa",
+      "code": "110302",
+      "item_no": "110302",
+      "ar": "Blue Berry Sauce (PA)",
+      "en": "Blue Berry Sauce (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-frosting-sauce-basic-pa",
+      "code": "110299",
+      "item_no": "110299",
+      "ar": "Frosting Sauce Basic (PA)",
+      "en": "Frosting Sauce Basic (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-taztaziki-sauce-pa",
+      "code": "110365",
+      "item_no": "110365",
+      "ar": "Taztaziki Sauce (PA)",
+      "en": "Taztaziki Sauce (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-marination-mushroom-roasted-pa",
+      "code": "110188",
+      "item_no": "110188",
+      "ar": "Marination Mushroom Roasted (PA)",
+      "en": "Marination Mushroom Roasted (PA)",
+      "unit": "Kilogram",
+      "cat": "veggies",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-classic-frosting-pa",
+      "code": "110300",
+      "item_no": "110300",
+      "ar": "Classic Frosting (PA)",
+      "en": "Classic Frosting (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-tuna-mix-pa",
+      "code": "110166",
+      "item_no": "110166",
+      "ar": "Tuna Mix (PA)",
+      "en": "Tuna Mix (PA)",
+      "unit": "Each",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-salted-hazelnut-pa",
+      "code": "200174",
+      "item_no": "200174",
+      "ar": "Salted hazelnut (PA)",
+      "en": "Salted hazelnut (PA)",
+      "unit": "Kilogram",
+      "cat": "prep",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-strawberry-sauce-pa",
+      "code": "110264",
+      "item_no": "110264",
+      "ar": "Strawberry Sauce (PA)",
+      "en": "Strawberry Sauce (PA)",
+      "unit": "Kilogram",
+      "cat": "sauces",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-cheese-provolone-pa",
+      "code": "110157",
+      "item_no": "110157",
+      "ar": "Cheese Provolone (PA)",
+      "en": "Cheese Provolone (PA)",
+      "unit": "Portion",
+      "cat": "cheese",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-rosted-turkey-pa",
+      "code": "110143",
+      "item_no": "110143",
+      "ar": "Rosted Turkey (PA)",
+      "en": "Rosted Turkey (PA)",
+      "unit": "Portion",
+      "cat": "chicken",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-roast-beef-pa-pa",
+      "code": "110149",
+      "item_no": "110149",
+      "ar": "Roast Beef (PA) (PA)",
+      "en": "Roast Beef (PA) (PA)",
+      "unit": "Portion",
+      "cat": "beef",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-watermelon-pa",
+      "code": "110229",
+      "item_no": "110229",
+      "ar": "Watermelon (PA)",
+      "en": "Watermelon (PA)",
+      "unit": "Each",
+      "cat": "veggies",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-dry-powder-kg-pa",
+      "code": "110035",
+      "item_no": "110035",
+      "ar": "Dry Powder - Kg (PA)",
+      "en": "Dry Powder - Kg (PA)",
+      "unit": "Kilogram",
+      "cat": "prep",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-dry-mix-pa",
+      "code": "110127",
+      "item_no": "110127",
+      "ar": "Dry Mix (PA)",
+      "en": "Dry Mix (PA)",
+      "unit": "Kilogram",
+      "cat": "prep",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-salted-vanilla-bean-pa",
+      "code": "110174",
+      "item_no": "110174",
+      "ar": "Salted Vanilla Bean (PA)",
+      "en": "Salted Vanilla Bean (PA)",
+      "unit": "Kilogram",
+      "cat": "prep",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-cookies-can-mini-pa",
+      "code": "110269",
+      "item_no": "110269",
+      "ar": "Cookies Can Mini (PA)",
+      "en": "Cookies Can Mini (PA)",
+      "unit": "Order 8 pieces",
+      "cat": "bakery",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-ciabatta-bread-pa",
+      "code": "110148",
+      "item_no": "110148",
+      "ar": "Ciabatta Bread (PA)",
+      "en": "Ciabatta Bread (PA)",
+      "unit": "Each",
+      "cat": "bakery",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-brown-ciabatta-bread-pa-pa",
+      "code": "110164",
+      "item_no": "110164",
+      "ar": "Brown Ciabatta Bread (PA) (PA)",
+      "en": "Brown Ciabatta Bread (PA) (PA)",
+      "unit": "Each",
+      "cat": "bakery",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-french-baghette-pa",
+      "code": "110268",
+      "item_no": "110268",
+      "ar": "French Baghette (PA)",
+      "en": "French Baghette (PA)",
+      "unit": "Each",
+      "cat": "bakery",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-pretzel-bread-pa",
+      "code": "100017",
+      "item_no": "100017",
+      "ar": "Pretzel Bread (PA)",
+      "en": "Pretzel Bread (PA)",
+      "unit": "Each",
+      "cat": "bakery",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-bread-sour-dough-pa",
+      "code": "110288",
+      "item_no": "110288",
+      "ar": "Bread Sour dough (PA)",
+      "en": "Bread Sour dough (PA)",
+      "unit": "Each",
+      "cat": "bakery",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-round-ciabatta-pa",
+      "code": "110193",
+      "item_no": "110193",
+      "ar": "Round Ciabatta (PA)",
+      "en": "Round Ciabatta (PA)",
+      "unit": "Each",
+      "cat": "bakery",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-croissant-plain-pa",
+      "code": "110316",
+      "item_no": "110316",
+      "ar": "Croissant Plain (PA)",
+      "en": "Croissant Plain (PA)",
+      "unit": "Each",
+      "cat": "bakery",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-danash-pastrame-pa",
+      "code": "110312",
+      "item_no": "110312",
+      "ar": "Danash Pastrame (PA)",
+      "en": "Danash Pastrame (PA)",
+      "unit": "Each",
+      "cat": "bakery",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-croissant-thyme-goat-pa",
+      "code": "110317",
+      "item_no": "110317",
+      "ar": "Croissant Thyme goat (PA)",
+      "en": "Croissant Thyme goat (PA)",
+      "unit": "Each",
+      "cat": "bakery",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-pan-swiss-croissant-pa",
+      "code": "110319",
+      "item_no": "110319",
+      "ar": "Pan Swiss Croissant (PA)",
+      "en": "Pan Swiss Croissant (PA)",
+      "unit": "Each",
+      "cat": "bakery",
+      "cost": 0,
+      "stock": 0
+    },
+    {
+      "id": "prod-lovan-dough-pa",
+      "code": "110267",
+      "item_no": "110267",
+      "ar": "Lovan Dough (PA)",
+      "en": "Lovan Dough (PA)",
+      "unit": "Kilogram",
+      "cat": "bakery",
+      "cost": 0,
+      "stock": 0
+    }
+  ],
+  "raw_materials": [
+    {
+      "id": "raw-105049",
+      "code": "105049",
+      "ar": "Bresaola-SPLIT",
+      "en": "Bresaola-SPLIT",
+      "uom": "Kilogram",
+      "category": "Meat & Poultry & Fish",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-105051",
+      "code": "105051",
+      "ar": "Beef Bacon (Core GYM)",
+      "en": "Beef Bacon (Core GYM)",
+      "uom": "Kilogram",
+      "category": "Meat & Poultry & Fish",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104349",
+      "code": "104349",
+      "ar": "Blueberry Frozen",
+      "en": "Blueberry Frozen",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101119",
+      "code": "101119",
+      "ar": "mozzarella stikcks",
+      "en": "mozzarella stikcks",
+      "uom": "Kilogram",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-100037",
+      "code": "100037",
+      "ar": "Brownie can",
+      "en": "Brownie can",
+      "uom": "Each",
+      "category": "Bakery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108133",
+      "code": "108133",
+      "ar": "Rasberry Frozen",
+      "en": "Rasberry Frozen",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-105003",
+      "code": "105003",
+      "ar": "Chicken Breast",
+      "en": "Chicken Breast",
+      "uom": "Pkt 1 Kg",
+      "category": "Meat & Poultry & Fish",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108163",
+      "code": "108163",
+      "ar": "Strawberry frozen",
+      "en": "Strawberry frozen",
+      "uom": "Pkt 400 Gr",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108108",
+      "code": "108108",
+      "ar": "Fresh Celery",
+      "en": "Fresh Celery",
+      "uom": "Pkt 100 Gr",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-105026",
+      "code": "105026",
+      "ar": "Fresh Turkey",
+      "en": "Fresh Turkey",
+      "uom": "Kilogram",
+      "category": "Meat & Poultry & Fish",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-500048",
+      "code": "500048",
+      "ar": "Bags White size 35 * 60",
+      "en": "Bags White size 35 * 60",
+      "uom": "Kilogram",
+      "category": "Packing Items",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-500013",
+      "code": "500013",
+      "ar": "Tissue Bags Plastic Burger",
+      "en": "Tissue Bags Plastic Burger",
+      "uom": "Kilogram",
+      "category": "Packing Items",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-500011",
+      "code": "500011",
+      "ar": "Plate Foam 1 Kg",
+      "en": "Plate Foam 1 Kg",
+      "uom": "Pkt 500 Pcs",
+      "category": "Packing Items",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-500236",
+      "code": "500236",
+      "ar": "Aluminum foil",
+      "en": "Aluminum foil",
+      "uom": "Each",
+      "category": "Packing Items",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-500002",
+      "code": "500002",
+      "ar": "Stickers expiry meat",
+      "en": "Stickers expiry meat",
+      "uom": "Pkt 500 Pcs",
+      "category": "Packing Items",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-105001",
+      "code": "105001",
+      "ar": "Fresh meat",
+      "en": "Fresh meat",
+      "uom": "Kilogram",
+      "category": "Meat & Poultry & Fish",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104225",
+      "code": "104225",
+      "ar": "Green Olive Slices",
+      "en": "Green Olive Slices",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108102",
+      "code": "108102",
+      "ar": "Green papper fresh",
+      "en": "Green papper fresh",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104025",
+      "code": "104025",
+      "ar": "Vinegar White",
+      "en": "Vinegar White",
+      "uom": "Btl 1 L",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102039",
+      "code": "102039",
+      "ar": "Spices Salt Cox",
+      "en": "Spices Salt Cox",
+      "uom": "Jar 700 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102029",
+      "code": "102029",
+      "ar": "Spices Red pepper Pow 500Gr",
+      "en": "Spices Red pepper Pow 500Gr",
+      "uom": "Pkt 500 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102177",
+      "code": "102177",
+      "ar": "Spices Smoked Paprika",
+      "en": "Spices Smoked Paprika",
+      "uom": "Pkt 500 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102009",
+      "code": "102009",
+      "ar": "Spices Garlic powder 500 Gr",
+      "en": "Spices Garlic powder 500 Gr",
+      "uom": "Pkt 500 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102053",
+      "code": "102053",
+      "ar": "Spices Onion Powder",
+      "en": "Spices Onion Powder",
+      "uom": "Pkt 500 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102011",
+      "code": "102011",
+      "ar": "Spices Black pepper envelope",
+      "en": "Spices Black pepper envelope",
+      "uom": "Pkt 250 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102085",
+      "code": "102085",
+      "ar": "Spices Salt",
+      "en": "Spices Salt",
+      "uom": "Pkt 400 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102171",
+      "code": "102171",
+      "ar": "Spices Salt Kosher",
+      "en": "Spices Salt Kosher",
+      "uom": "Pkt 400 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-500226",
+      "code": "500226",
+      "ar": "Transparent Vacuum Bag 20*25Cm",
+      "en": "Transparent Vacuum Bag 20*25Cm",
+      "uom": "Each",
+      "category": "Packing Items",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104012",
+      "code": "104012",
+      "ar": "Oil Sunflower Gal 20 L",
+      "en": "Oil Sunflower Gal 20 L",
+      "uom": "Gal 20 L",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-500336",
+      "code": "500336",
+      "ar": "Plate Foam 1.5 Kg",
+      "en": "Plate Foam 1.5 Kg",
+      "uom": "Each",
+      "category": "Packing Items",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101068",
+      "code": "101068",
+      "ar": "Yogurt",
+      "en": "Yogurt",
+      "uom": "Kilogram",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-100002",
+      "code": "100002",
+      "ar": "Toast White Rich Bake",
+      "en": "Toast White Rich Bake",
+      "uom": "Pkt 500 Gr",
+      "category": "Bakery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104184",
+      "code": "104184",
+      "ar": "Burrata Cheese",
+      "en": "Burrata Cheese",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101101",
+      "code": "101101",
+      "ar": "Cheese Mozzarella Buffalo",
+      "en": "Cheese Mozzarella Buffalo",
+      "uom": "Kilogram",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104188",
+      "code": "104188",
+      "ar": "Greek Yogurt Juhaina",
+      "en": "Greek Yogurt Juhaina",
+      "uom": "Pkt 180 Gr",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101069",
+      "code": "101069",
+      "ar": "kiri creamy spread",
+      "en": "kiri creamy spread",
+      "uom": "Pkt 500 Gr",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101011",
+      "code": "101011",
+      "ar": "Cream Cooking 1 lit",
+      "en": "Cream Cooking 1 lit",
+      "uom": "Pkt 1 L",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104154",
+      "code": "104154",
+      "ar": "Anchovies",
+      "en": "Anchovies",
+      "uom": "Pkt 40 Gr",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101025",
+      "code": "101025",
+      "ar": "Goat Cheese",
+      "en": "Goat Cheese",
+      "uom": "Pkt 150 Gr",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101098",
+      "code": "101098",
+      "ar": "Cream Sour",
+      "en": "Cream Sour",
+      "uom": "Pkt 500 Gr",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-1",
+      "code": "1",
+      "ar": "Sauce Brgr",
+      "en": "Sauce Brgr",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104410",
+      "code": "104410",
+      "ar": "Apricot Jam",
+      "en": "Apricot Jam",
+      "uom": "Jar 340 Gr",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-200096",
+      "code": "200096",
+      "ar": "Red Grape Juice Juihaina",
+      "en": "Red Grape Juice Juihaina",
+      "uom": "Kilogram",
+      "category": "Beverage",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101059",
+      "code": "101059",
+      "ar": "Blue Cheese",
+      "en": "Blue Cheese",
+      "uom": "Kilogram",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101008",
+      "code": "101008",
+      "ar": "Cheddar American Cheese",
+      "en": "Cheddar American Cheese",
+      "uom": "Pkt 200 Pcs",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101034",
+      "code": "101034",
+      "ar": "Cheddar Cheese  Kg",
+      "en": "Cheddar Cheese  Kg",
+      "uom": "Kilogram",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104332",
+      "code": "104332",
+      "ar": "Parmigiano Reggiano",
+      "en": "Parmigiano Reggiano",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101023",
+      "code": "101023",
+      "ar": "Parmesan Cheese",
+      "en": "Parmesan Cheese",
+      "uom": "Kilogram",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-105004",
+      "code": "105004",
+      "ar": "Red Egg",
+      "en": "Red Egg",
+      "uom": "Plate 30 Pcs",
+      "category": "Meat & Poultry & Fish",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101072",
+      "code": "101072",
+      "ar": "la vache Quirit Cheese",
+      "en": "la vache Quirit Cheese",
+      "uom": "Pkt 12 Pcs",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102204",
+      "code": "102204",
+      "ar": "Bresaola",
+      "en": "Bresaola",
+      "uom": "Kilogram",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104261",
+      "code": "104261",
+      "ar": "Milk chocolate chips",
+      "en": "Milk chocolate chips",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104161",
+      "code": "104161",
+      "ar": "Chocolate Milk",
+      "en": "Chocolate Milk",
+      "uom": "Box 5 Kg",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104207",
+      "code": "104207",
+      "ar": "Belgian White Chocolate",
+      "en": "Belgian White Chocolate",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101002",
+      "code": "101002",
+      "ar": "Butter Fern 10 Pkt 1 Kg",
+      "en": "Butter Fern 10 Pkt 1 Kg",
+      "uom": "Pkt 1 Kg",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101013",
+      "code": "101013",
+      "ar": "Milk Rayeb Plain",
+      "en": "Milk Rayeb Plain",
+      "uom": "Pkt 1 L",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108020",
+      "code": "108020",
+      "ar": "Cucumber",
+      "en": "Cucumber",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108117",
+      "code": "108117",
+      "ar": "Lemon (Adalia)",
+      "en": "Lemon (Adalia)",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108125",
+      "code": "108125",
+      "ar": "Baby Spanish",
+      "en": "Baby Spanish",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108105",
+      "code": "108105",
+      "ar": "Fresh Basil",
+      "en": "Fresh Basil",
+      "uom": "Pkt 250 Gr",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101010",
+      "code": "101010",
+      "ar": "Cream Whipping Kg.",
+      "en": "Cream Whipping Kg.",
+      "uom": "Gal 5 Kg",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108123",
+      "code": "108123",
+      "ar": "Micro green",
+      "en": "Micro green",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108113",
+      "code": "108113",
+      "ar": "Dill Fresh",
+      "en": "Dill Fresh",
+      "uom": "Pkt 100 Gr",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108025",
+      "code": "108025",
+      "ar": "Parsley",
+      "en": "Parsley",
+      "uom": "Pkt 100 Gr",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108107",
+      "code": "108107",
+      "ar": "Fresh Rosemary",
+      "en": "Fresh Rosemary",
+      "uom": "Pkt 100 Gr",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108033",
+      "code": "108033",
+      "ar": "Thyme",
+      "en": "Thyme",
+      "uom": "Pkt 100 Gr",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108009",
+      "code": "108009",
+      "ar": "White Cabbage",
+      "en": "White Cabbage",
+      "uom": "Each",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108101",
+      "code": "108101",
+      "ar": "Red pepper Fresh",
+      "en": "Red pepper Fresh",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108103",
+      "code": "108103",
+      "ar": "Chili Green papper",
+      "en": "Chili Green papper",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108139",
+      "code": "108139",
+      "ar": "Red Chili",
+      "en": "Red Chili",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108106",
+      "code": "108106",
+      "ar": "Fresh Carrots",
+      "en": "Fresh Carrots",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108028",
+      "code": "108028",
+      "ar": "Mint",
+      "en": "Mint",
+      "uom": "Pkt 100 Gr",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108022",
+      "code": "108022",
+      "ar": "Tomato",
+      "en": "Tomato",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108024",
+      "code": "108024",
+      "ar": "Mushroom",
+      "en": "Mushroom",
+      "uom": "Pkt 200 Gr",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108043",
+      "code": "108043",
+      "ar": "Green Batavia Lettuce",
+      "en": "Green Batavia Lettuce",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108047",
+      "code": "108047",
+      "ar": "Oakleaf",
+      "en": "Oakleaf",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108017",
+      "code": "108017",
+      "ar": "White Onion",
+      "en": "White Onion",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108151",
+      "code": "108151",
+      "ar": "Watermelon",
+      "en": "Watermelon",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-600021",
+      "code": "600021",
+      "ar": "Gloves White",
+      "en": "Gloves White",
+      "uom": "Box 100 Pcs",
+      "category": "Cleaning Supplies",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-600014",
+      "code": "600014",
+      "ar": "Sponge Hard",
+      "en": "Sponge Hard",
+      "uom": "Pkt 10 Pcs",
+      "category": "Cleaning Supplies",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-600046",
+      "code": "600046",
+      "ar": "Sponge Plastic",
+      "en": "Sponge Plastic",
+      "uom": "Each",
+      "category": "Cleaning Supplies",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108142",
+      "code": "108142",
+      "ar": "Potato",
+      "en": "Potato",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108018",
+      "code": "108018",
+      "ar": "Red Onion",
+      "en": "Red Onion",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-500072",
+      "code": "500072",
+      "ar": "Roll Plastic",
+      "en": "Roll Plastic",
+      "uom": "Each",
+      "category": "Packing Items",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-600111",
+      "code": "600111",
+      "ar": "Hairnet Black",
+      "en": "Hairnet Black",
+      "uom": "Pkt 100 Pcs",
+      "category": "Cleaning Supplies",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-600068",
+      "code": "600068",
+      "ar": "Tissue Paper Roll Kitchen",
+      "en": "Tissue Paper Roll Kitchen",
+      "uom": "Each",
+      "category": "Cleaning Supplies",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-500498",
+      "code": "500498",
+      "ar": "Bags White size 90*120",
+      "en": "Bags White size 90*120",
+      "uom": "Kilogram",
+      "category": "Packing Items",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-600017",
+      "code": "600017",
+      "ar": "Garbage bags 90 * 120",
+      "en": "Garbage bags 90 * 120",
+      "uom": "Kilogram",
+      "category": "Cleaning Supplies",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-600038",
+      "code": "600038",
+      "ar": "Glass Polishing",
+      "en": "Glass Polishing",
+      "uom": "Btl 600 Ml",
+      "category": "Cleaning Supplies",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-600155",
+      "code": "600155",
+      "ar": "SUMA GRILL D9",
+      "en": "SUMA GRILL D9",
+      "uom": "Liter",
+      "category": "Cleaning Supplies",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-600157",
+      "code": "600157",
+      "ar": "DIVERCLEAN SU121",
+      "en": "DIVERCLEAN SU121",
+      "uom": "Liter",
+      "category": "Cleaning Supplies",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-600044",
+      "code": "600044",
+      "ar": "Sewer line cleaner G TAC",
+      "en": "Sewer line cleaner G TAC",
+      "uom": "Gal 5 Kg",
+      "category": "Cleaning Supplies",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-600154",
+      "code": "600154",
+      "ar": "Suma Force D3",
+      "en": "Suma Force D3",
+      "uom": "Liter",
+      "category": "Cleaning Supplies",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102222",
+      "code": "102222",
+      "ar": "Tomato Peeled Mirella",
+      "en": "Tomato Peeled Mirella",
+      "uom": "Kilogram",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104267",
+      "code": "104267",
+      "ar": "Butter Flechard",
+      "en": "Butter Flechard",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101099",
+      "code": "101099",
+      "ar": "Cheese Provolone",
+      "en": "Cheese Provolone",
+      "uom": "Kilogram",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104142",
+      "code": "104142",
+      "ar": "Mayonnaisec Hellmanns 3.4 Kg",
+      "en": "Mayonnaisec Hellmanns 3.4 Kg",
+      "uom": "Gal 3.4 Kg",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104004",
+      "code": "104004",
+      "ar": "Ketchup Gal",
+      "en": "Ketchup Gal",
+      "uom": "Gal 10 Kg",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104223",
+      "code": "104223",
+      "ar": "Mustard wholegrain",
+      "en": "Mustard wholegrain",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104226",
+      "code": "104226",
+      "ar": "Cucumber Pickle (imported)",
+      "en": "Cucumber Pickle (imported)",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104056",
+      "code": "104056",
+      "ar": "Sauce Texas",
+      "en": "Sauce Texas",
+      "uom": "BTL 900 GR",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104419",
+      "code": "104419",
+      "ar": "Mustard Dixe",
+      "en": "Mustard Dixe",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104003",
+      "code": "104003",
+      "ar": "Mayonnaise Box 4 Gal 3.290 Kg",
+      "en": "Mayonnaise Box 4 Gal 3.290 Kg",
+      "uom": "Gal 3.29 Kg",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104166",
+      "code": "104166",
+      "ar": "Frensh Vanilla",
+      "en": "Frensh Vanilla",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104235",
+      "code": "104235",
+      "ar": "Italian Roasted Hazelnut",
+      "en": "Italian Roasted Hazelnut",
+      "uom": "Box 5 Kg",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104136",
+      "code": "104136",
+      "ar": "Sweet chile",
+      "en": "Sweet chile",
+      "uom": "Btl 600 Ml",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104412",
+      "code": "104412",
+      "ar": "Mastic paste",
+      "en": "Mastic paste",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104042",
+      "code": "104042",
+      "ar": "Paste Lotus",
+      "en": "Paste Lotus",
+      "uom": "Jar 400 Gr",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104008",
+      "code": "104008",
+      "ar": "Sauce Worcester",
+      "en": "Sauce Worcester",
+      "uom": "Gal 4 L",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104014",
+      "code": "104014",
+      "ar": "Sauce Hot Sriracha",
+      "en": "Sauce Hot Sriracha",
+      "uom": "Btl 730 Ml",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104423",
+      "code": "104423",
+      "ar": "Yolk Egg frozen",
+      "en": "Yolk Egg frozen",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104149",
+      "code": "104149",
+      "ar": "Matcha japanese",
+      "en": "Matcha japanese",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-500343",
+      "code": "500343",
+      "ar": "Small Bag Matcha",
+      "en": "Small Bag Matcha",
+      "uom": "Kilogram",
+      "category": "Packing Items",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-500010",
+      "code": "500010",
+      "ar": "Fridge Bag 5 Kg",
+      "en": "Fridge Bag 5 Kg",
+      "uom": "Kilogram",
+      "category": "Packing Items",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-500009",
+      "code": "500009",
+      "ar": "Fridge Bag 2 Kg",
+      "en": "Fridge Bag 2 Kg",
+      "uom": "Kilogram",
+      "category": "Packing Items",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101003",
+      "code": "101003",
+      "ar": "Milk Lamar full fat Box 12 Pkt 1 lit",
+      "en": "Milk Lamar full fat Box 12 Pkt 1 lit",
+      "uom": "Pkt 1 L",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102068",
+      "code": "102068",
+      "ar": "Ice Cream Powder.",
+      "en": "Ice Cream Powder.",
+      "uom": "Bag 10 Kg",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104088",
+      "code": "104088",
+      "ar": "Vanilla - Liquid",
+      "en": "Vanilla - Liquid",
+      "uom": "Liter",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108004",
+      "code": "108004",
+      "ar": "Cherry Tomatoes",
+      "en": "Cherry Tomatoes",
+      "uom": "Pkt 500 Gr",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108011",
+      "code": "108011",
+      "ar": "Captcha Lettuce",
+      "en": "Captcha Lettuce",
+      "uom": "Each",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108109",
+      "code": "108109",
+      "ar": "Fresh Baby Rocca",
+      "en": "Fresh Baby Rocca",
+      "uom": "PKT 125 Gr",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108144",
+      "code": "108144",
+      "ar": "Green Apple",
+      "en": "Green Apple",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108121",
+      "code": "108121",
+      "ar": "Avocado",
+      "en": "Avocado",
+      "uom": "Kilogram",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102136",
+      "code": "102136",
+      "ar": "Sea Salt",
+      "en": "Sea Salt",
+      "uom": "Kilogram",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102170",
+      "code": "102170",
+      "ar": "Vanillia Powder Kings Crown 1 GR",
+      "en": "Vanillia Powder Kings Crown 1 GR",
+      "uom": "Kilogram",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102003",
+      "code": "102003",
+      "ar": "Baking powder - Box 50/16 Gr",
+      "en": "Baking powder - Box 50/16 Gr",
+      "uom": "Box 50Pkt -16Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104199",
+      "code": "104199",
+      "ar": "Chili Flakes",
+      "en": "Chili Flakes",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104137",
+      "code": "104137",
+      "ar": "Spices Turmeric Powder",
+      "en": "Spices Turmeric Powder",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102017",
+      "code": "102017",
+      "ar": "Spices Cayani Box 16",
+      "en": "Spices Cayani Box 16",
+      "uom": "Jar 300 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104145",
+      "code": "104145",
+      "ar": "Knorr Meat stock",
+      "en": "Knorr Meat stock",
+      "uom": "Pkt 1 Kg",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102178",
+      "code": "102178",
+      "ar": "Knorr Demiglace Suces",
+      "en": "Knorr Demiglace Suces",
+      "uom": "Pkt 750 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102030",
+      "code": "102030",
+      "ar": "Spices Black pepper Pkt 250 Gr",
+      "en": "Spices Black pepper Pkt 250 Gr",
+      "uom": "Pkt 250 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102175",
+      "code": "102175",
+      "ar": "Spices Pepper Black Whole",
+      "en": "Spices Pepper Black Whole",
+      "uom": "Jar 90 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102162",
+      "code": "102162",
+      "ar": "Spice Cinnamon powder",
+      "en": "Spice Cinnamon powder",
+      "uom": "Pkt 250 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102169",
+      "code": "102169",
+      "ar": "Sugar White Powder",
+      "en": "Sugar White Powder",
+      "uom": "Pkt 1 Kg",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104146",
+      "code": "104146",
+      "ar": "Brown Sugar",
+      "en": "Brown Sugar",
+      "uom": "Pkt 1 Kg",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102034",
+      "code": "102034",
+      "ar": "Sugar White Pkt 1kg",
+      "en": "Sugar White Pkt 1kg",
+      "uom": "Pkt 1 Kg",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102018",
+      "code": "102018",
+      "ar": "Flour White  Box 10 bag 1 Kg",
+      "en": "Flour White  Box 10 bag 1 Kg",
+      "uom": "Bag 1 Kg",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102174",
+      "code": "102174",
+      "ar": "Nutes Pinenut",
+      "en": "Nutes Pinenut",
+      "uom": "Kilogram",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104106",
+      "code": "104106",
+      "ar": "Pistachio whole",
+      "en": "Pistachio whole",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102020",
+      "code": "102020",
+      "ar": "Spices Dill powder 500 Gr",
+      "en": "Spices Dill powder 500 Gr",
+      "uom": "Pkt 500 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102033",
+      "code": "102033",
+      "ar": "Spices Parsley Pow 500 Gr",
+      "en": "Spices Parsley Pow 500 Gr",
+      "uom": "Pkt 500 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104364",
+      "code": "104364",
+      "ar": "spices basil",
+      "en": "spices basil",
+      "uom": "Jar 25 Gr",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102173",
+      "code": "102173",
+      "ar": "Spices Oregano dry",
+      "en": "Spices Oregano dry",
+      "uom": "Pkt 1 Kg",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104087",
+      "code": "104087",
+      "ar": "Vanilla Frappe",
+      "en": "Vanilla Frappe",
+      "uom": "Bag 10 Kg",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102154",
+      "code": "102154",
+      "ar": "Hibiscus Dry",
+      "en": "Hibiscus Dry",
+      "uom": "Kilogram",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-100005",
+      "code": "100005",
+      "ar": "Bread Crumbs",
+      "en": "Bread Crumbs",
+      "uom": "Pkt 1 Kg",
+      "category": "Bakery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104018",
+      "code": "104018",
+      "ar": "Sauce Hot KG",
+      "en": "Sauce Hot KG",
+      "uom": "Gal 5 Kg",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104155",
+      "code": "104155",
+      "ar": "Tuna",
+      "en": "Tuna",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104153",
+      "code": "104153",
+      "ar": "Sweet Corn",
+      "en": "Sweet Corn",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104013",
+      "code": "104013",
+      "ar": "Oil Olive Box 12 Btl 1 lit",
+      "en": "Oil Olive Box 12 Btl 1 lit",
+      "uom": "Btl 2 L",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104204",
+      "code": "104204",
+      "ar": "Olive Oil Wadi food",
+      "en": "Olive Oil Wadi food",
+      "uom": "Liter",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104007",
+      "code": "104007",
+      "ar": "Honey White",
+      "en": "Honey White",
+      "uom": "Jar 800 Gr",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104002",
+      "code": "104002",
+      "ar": "Mustard Heinz Gal 5L",
+      "en": "Mustard Heinz Gal 5L",
+      "uom": "Gal 5 L",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104026",
+      "code": "104026",
+      "ar": "Mustard Dijon",
+      "en": "Mustard Dijon",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102246",
+      "code": "102246",
+      "ar": "Spices Salt Lemon",
+      "en": "Spices Salt Lemon",
+      "uom": "Jar 185 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104202",
+      "code": "104202",
+      "ar": "Sundried tomato",
+      "en": "Sundried tomato",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104144",
+      "code": "104144",
+      "ar": "Tomato Paste Heinz",
+      "en": "Tomato Paste Heinz",
+      "uom": "Jar 360 Gr",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104023",
+      "code": "104023",
+      "ar": "Vinegar Balsamic",
+      "en": "Vinegar Balsamic",
+      "uom": "Jar 1 Kg",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104024",
+      "code": "104024",
+      "ar": "Vinegar Apple",
+      "en": "Vinegar Apple",
+      "uom": "Btl 500 Gr",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-200101",
+      "code": "200101",
+      "ar": "Dvg Syrup Raspberry",
+      "en": "Dvg Syrup Raspberry",
+      "uom": "Btl 750 Ml",
+      "category": "Beverage",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-200097",
+      "code": "200097",
+      "ar": "Dvg Syrup Strawberry",
+      "en": "Dvg Syrup Strawberry",
+      "uom": "Btl 750 Ml",
+      "category": "Beverage",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-200006",
+      "code": "200006",
+      "ar": "Soda Schweppes",
+      "en": "Soda Schweppes",
+      "uom": "Btl 1 L",
+      "category": "Beverage",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102041",
+      "code": "102041",
+      "ar": "Corn Starch",
+      "en": "Corn Starch",
+      "uom": "Bag 25 Kg",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102031",
+      "code": "102031",
+      "ar": "Flour 50 Kg",
+      "en": "Flour 50 Kg",
+      "uom": "Bag 50 Kg",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102025",
+      "code": "102025",
+      "ar": "Sugar White 50 Kg",
+      "en": "Sugar White 50 Kg",
+      "uom": "Bag 50 Kg",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104123",
+      "code": "104123",
+      "ar": "Condensed Milk Nestle",
+      "en": "Condensed Milk Nestle",
+      "uom": "Btl 370 Gr",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102036",
+      "code": "102036",
+      "ar": "Spices Salt Chinese",
+      "en": "Spices Salt Chinese",
+      "uom": "Bag 25 Kg",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102021",
+      "code": "102021",
+      "ar": "Spices Dry thyme",
+      "en": "Spices Dry thyme",
+      "uom": "Pkt 500 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104249",
+      "code": "104249",
+      "ar": "Mustard seeds",
+      "en": "Mustard seeds",
+      "uom": "Jar 500 Gr",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104389",
+      "code": "104389",
+      "ar": "Spices mint dry",
+      "en": "Spices mint dry",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102250",
+      "code": "102250",
+      "ar": "Flour T-150",
+      "en": "Flour T-150",
+      "uom": "Kilogram",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102251",
+      "code": "102251",
+      "ar": "Flour T-65",
+      "en": "Flour T-65",
+      "uom": "Kilogram",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102285",
+      "code": "102285",
+      "ar": "Flour T55",
+      "en": "Flour T55",
+      "uom": "Kilogram",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104263",
+      "code": "104263",
+      "ar": "Flour T45",
+      "en": "Flour T45",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102218",
+      "code": "102218",
+      "ar": "Flour Dallagiovanna 00",
+      "en": "Flour Dallagiovanna 00",
+      "uom": "Kilogram",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102165",
+      "code": "102165",
+      "ar": "Flour White 50 kg Five-Star",
+      "en": "Flour White 50 kg Five-Star",
+      "uom": "Bag 50 Kg",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104243",
+      "code": "104243",
+      "ar": "Olive Oil Nuri",
+      "en": "Olive Oil Nuri",
+      "uom": "Liter",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-100016",
+      "code": "100016",
+      "ar": "Pretzel bread water",
+      "en": "Pretzel bread water",
+      "uom": "Gal 5 L",
+      "category": "Bakery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102167",
+      "code": "102167",
+      "ar": "Bread improver",
+      "en": "Bread improver",
+      "uom": "Bag 10 Kg",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-100021",
+      "code": "100021",
+      "ar": "Bread Darker",
+      "en": "Bread Darker",
+      "uom": "Kilogram",
+      "category": "Bakery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-200158",
+      "code": "200158",
+      "ar": "Cubie Pistachio Sauce",
+      "en": "Cubie Pistachio Sauce",
+      "uom": "Btl 1 L",
+      "category": "Beverage",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101114",
+      "code": "101114",
+      "ar": "Baking soda",
+      "en": "Baking soda",
+      "uom": "Kilogram",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104041",
+      "code": "104041",
+      "ar": "Nutella Gal 3 Kg",
+      "en": "Nutella Gal 3 Kg",
+      "uom": "Gal 3 Kg",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102166",
+      "code": "102166",
+      "ar": "Yeast 500 Gr Dcl",
+      "en": "Yeast 500 Gr Dcl",
+      "uom": "Pkt 500 Gr",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102220",
+      "code": "102220",
+      "ar": "Dry yeast forno",
+      "en": "Dry yeast forno",
+      "uom": "Kilogram",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102244",
+      "code": "102244",
+      "ar": "almond slices",
+      "en": "almond slices",
+      "uom": "Kilogram",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-102243",
+      "code": "102243",
+      "ar": "ALMOND POWDER",
+      "en": "ALMOND POWDER",
+      "uom": "Kilogram",
+      "category": "Dry",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104340",
+      "code": "104340",
+      "ar": "White Sesame",
+      "en": "White Sesame",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104255",
+      "code": "104255",
+      "ar": "Pastry cream",
+      "en": "Pastry cream",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104171",
+      "code": "104171",
+      "ar": "Dark cocoa",
+      "en": "Dark cocoa",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-101139",
+      "code": "101139",
+      "ar": "Butter Newzealand (local)",
+      "en": "Butter Newzealand (local)",
+      "uom": "Bag 25 Kg",
+      "category": "Dairy",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-500401",
+      "code": "500401",
+      "ar": "Butter pepper saints",
+      "en": "Butter pepper saints",
+      "uom": "Pkt 100 Pcs",
+      "category": "Packing Items",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-500643",
+      "code": "500643",
+      "ar": "clips bag food storage 55*22",
+      "en": "clips bag food storage 55*22",
+      "uom": "Kilogram",
+      "category": "Packing Items",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-500642",
+      "code": "500642",
+      "ar": "Zip-lock Bags 30*40",
+      "en": "Zip-lock Bags 30*40",
+      "uom": "Kilogram",
+      "category": "Packing Items",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-500418",
+      "code": "500418",
+      "ar": "Bowl 3 ice cream (260) saints",
+      "en": "Bowl 3 ice cream (260) saints",
+      "uom": "Each",
+      "category": "Packing Items",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-200012",
+      "code": "200012",
+      "ar": "Water Gallon 19 lit",
+      "en": "Water Gallon 19 lit",
+      "uom": "Each",
+      "category": "Beverage",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-108016",
+      "code": "108016",
+      "ar": "Garlic Chinese",
+      "en": "Garlic Chinese",
+      "uom": "Pkt 200 Gr",
+      "category": "Fruits & Veg",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104147",
+      "code": "104147",
+      "ar": "Sauce Hickory BBQ",
+      "en": "Sauce Hickory BBQ",
+      "uom": "Pkt 350 Gr",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    },
+    {
+      "id": "raw-104408",
+      "code": "104408",
+      "ar": "Cherry Frozen",
+      "en": "Cherry Frozen",
+      "uom": "Kilogram",
+      "category": "Grocery",
+      "price": 0,
+      "stock": 100,
+      "safety": 20
+    }
+  ],
+  "recipes": [
+    {
+      "id": "rec-prod-amirecan-sauce-kg-pa",
+      "product_id": "prod-amirecan-sauce-kg-pa",
+      "title": "prod-amirecan-sauce-kg-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-cheese-sauce-kg-pa",
+      "product_id": "prod-cheese-sauce-kg-pa",
+      "title": "prod-cheese-sauce-kg-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-dry-powder-kg-pa",
+      "product_id": "prod-dry-powder-kg-pa",
+      "title": "prod-dry-powder-kg-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-cucumber-pickle-kg-pa",
+      "product_id": "prod-cucumber-pickle-kg-pa",
+      "title": "prod-cucumber-pickle-kg-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-truffle-mayo-pa",
+      "product_id": "prod-truffle-mayo-pa",
+      "title": "prod-truffle-mayo-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-medjool-honey-sauce-pa",
+      "product_id": "prod-medjool-honey-sauce-pa",
+      "title": "prod-medjool-honey-sauce-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-dry-mix-pa",
+      "product_id": "prod-dry-mix-pa",
+      "title": "prod-dry-mix-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-karkade-syrup-pa",
+      "product_id": "prod-karkade-syrup-pa",
+      "title": "prod-karkade-syrup-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-salted-vanilla-bean-pa",
+      "product_id": "prod-salted-vanilla-bean-pa",
+      "title": "prod-salted-vanilla-bean-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-salted-hazelnut-sauce-pa",
+      "product_id": "prod-salted-hazelnut-sauce-pa",
+      "title": "prod-salted-hazelnut-sauce-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-roasted-potato-pa",
+      "product_id": "prod-roasted-potato-pa",
+      "title": "prod-roasted-potato-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-marination-mushroom-roasted-pa",
+      "product_id": "prod-marination-mushroom-roasted-pa",
+      "title": "prod-marination-mushroom-roasted-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-hot-honey-pa",
+      "product_id": "prod-hot-honey-pa",
+      "title": "prod-hot-honey-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-balsamic-galze-pa",
+      "product_id": "prod-balsamic-galze-pa",
+      "title": "prod-balsamic-galze-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-sauce-marinara-pa",
+      "product_id": "prod-sauce-marinara-pa",
+      "title": "prod-sauce-marinara-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-pickled-onion-pa",
+      "product_id": "prod-pickled-onion-pa",
+      "title": "prod-pickled-onion-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-chicken-fillet-pa",
+      "product_id": "prod-chicken-fillet-pa",
+      "title": "prod-chicken-fillet-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-lemon-chicken-pa",
+      "product_id": "prod-lemon-chicken-pa",
+      "title": "prod-lemon-chicken-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-chicken-bites-kg-pa",
+      "product_id": "prod-chicken-bites-kg-pa",
+      "title": "prod-chicken-bites-kg-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-chicken-breaded-pa",
+      "product_id": "prod-chicken-breaded-pa",
+      "title": "prod-chicken-breaded-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-roast-beef-pa-pa",
+      "product_id": "prod-roast-beef-pa-pa",
+      "title": "prod-roast-beef-pa-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-pancake-paste-kg-pa",
+      "product_id": "prod-pancake-paste-kg-pa",
+      "title": "prod-pancake-paste-kg-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-chicken-liquid-sauce-kg-pa",
+      "product_id": "prod-chicken-liquid-sauce-kg-pa",
+      "title": "prod-chicken-liquid-sauce-kg-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-caramalized-onion-pa",
+      "product_id": "prod-caramalized-onion-pa",
+      "title": "prod-caramalized-onion-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-ice-cream-kg-pa",
+      "product_id": "prod-ice-cream-kg-pa",
+      "title": "prod-ice-cream-kg-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-sweet-relish-pa",
+      "product_id": "prod-sweet-relish-pa",
+      "title": "prod-sweet-relish-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-onion-jam-pa",
+      "product_id": "prod-onion-jam-pa",
+      "title": "prod-onion-jam-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-strawberry-sauce-pa",
+      "product_id": "prod-strawberry-sauce-pa",
+      "title": "prod-strawberry-sauce-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-split-sauce-pa",
+      "product_id": "prod-split-sauce-pa",
+      "title": "prod-split-sauce-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-tuna-mix-pa",
+      "product_id": "prod-tuna-mix-pa",
+      "title": "prod-tuna-mix-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-ranch-sauce-kg-pa",
+      "product_id": "prod-ranch-sauce-kg-pa",
+      "title": "prod-ranch-sauce-kg-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-chicken-sauce-kg-pa",
+      "product_id": "prod-chicken-sauce-kg-pa",
+      "title": "prod-chicken-sauce-kg-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-atomic-sauce-kg-pa",
+      "product_id": "prod-atomic-sauce-kg-pa",
+      "title": "prod-atomic-sauce-kg-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-bbq-sauce-kg-pa",
+      "product_id": "prod-bbq-sauce-kg-pa",
+      "title": "prod-bbq-sauce-kg-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-blue-cheese-dressing-pa",
+      "product_id": "prod-blue-cheese-dressing-pa",
+      "title": "prod-blue-cheese-dressing-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-sauce-sriracha-kg-pa",
+      "product_id": "prod-sauce-sriracha-kg-pa",
+      "title": "prod-sauce-sriracha-kg-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-queen-s-salad-dressing-pa",
+      "product_id": "prod-queen-s-salad-dressing-pa",
+      "title": "prod-queen-s-salad-dressing-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-citrus-dressing-pa",
+      "product_id": "prod-citrus-dressing-pa",
+      "title": "prod-citrus-dressing-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-moroccan-salad-dressing-pa",
+      "product_id": "prod-moroccan-salad-dressing-pa",
+      "title": "prod-moroccan-salad-dressing-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-balsamic-vinaigrette-dressing-pa",
+      "product_id": "prod-balsamic-vinaigrette-dressing-pa",
+      "title": "prod-balsamic-vinaigrette-dressing-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-brgr-house-dressing-pa",
+      "product_id": "prod-brgr-house-dressing-pa",
+      "title": "prod-brgr-house-dressing-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-pistachio-pesto-pa",
+      "product_id": "prod-pistachio-pesto-pa",
+      "title": "prod-pistachio-pesto-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-thyme-balsamic-vinaigrette-pa",
+      "product_id": "prod-thyme-balsamic-vinaigrette-pa",
+      "title": "prod-thyme-balsamic-vinaigrette-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-sundried-tomato-pesto-pa",
+      "product_id": "prod-sundried-tomato-pesto-pa",
+      "title": "prod-sundried-tomato-pesto-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-coleslow-dressing-pa",
+      "product_id": "prod-coleslow-dressing-pa",
+      "title": "prod-coleslow-dressing-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-pesto-sauce-pa",
+      "product_id": "prod-pesto-sauce-pa",
+      "title": "prod-pesto-sauce-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-honey-srirache-sauce-pa",
+      "product_id": "prod-honey-srirache-sauce-pa",
+      "title": "prod-honey-srirache-sauce-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-chives-cream-cheese-pa",
+      "product_id": "prod-chives-cream-cheese-pa",
+      "title": "prod-chives-cream-cheese-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-caesar-sauce-pa",
+      "product_id": "prod-caesar-sauce-pa",
+      "title": "prod-caesar-sauce-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-pancake-dough-pa",
+      "product_id": "prod-pancake-dough-pa",
+      "title": "prod-pancake-dough-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-smokey-mayo-sauce-pa-pa",
+      "product_id": "prod-smokey-mayo-sauce-pa-pa",
+      "title": "prod-smokey-mayo-sauce-pa-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-sweet-chili-mayo-sauce-pa",
+      "product_id": "prod-sweet-chili-mayo-sauce-pa",
+      "title": "prod-sweet-chili-mayo-sauce-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-toast-bread-pa",
+      "product_id": "prod-toast-bread-pa",
+      "title": "prod-toast-bread-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-frosting-sauce-basic-pa",
+      "product_id": "prod-frosting-sauce-basic-pa",
+      "title": "prod-frosting-sauce-basic-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-tomato-pizza-sauce-split-pa",
+      "product_id": "prod-tomato-pizza-sauce-split-pa",
+      "title": "prod-tomato-pizza-sauce-split-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-classic-frosting-pa",
+      "product_id": "prod-classic-frosting-pa",
+      "title": "prod-classic-frosting-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-mustard-mayonnaise-sauce-pa",
+      "product_id": "prod-mustard-mayonnaise-sauce-pa",
+      "title": "prod-mustard-mayonnaise-sauce-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-lemon-curd-pa",
+      "product_id": "prod-lemon-curd-pa",
+      "title": "prod-lemon-curd-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-sour-cream-mix-pa",
+      "product_id": "prod-sour-cream-mix-pa",
+      "title": "prod-sour-cream-mix-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-blue-berry-sauce-pa",
+      "product_id": "prod-blue-berry-sauce-pa",
+      "title": "prod-blue-berry-sauce-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-hot-chocolate-sauce-pa",
+      "product_id": "prod-hot-chocolate-sauce-pa",
+      "title": "prod-hot-chocolate-sauce-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-roasted-pepper-mushroom-pa",
+      "product_id": "prod-roasted-pepper-mushroom-pa",
+      "title": "prod-roasted-pepper-mushroom-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-taztaziki-sauce-pa",
+      "product_id": "prod-taztaziki-sauce-pa",
+      "title": "prod-taztaziki-sauce-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-dill-tuna-mix-pa",
+      "product_id": "prod-dill-tuna-mix-pa",
+      "title": "prod-dill-tuna-mix-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-hot-mustard-sauce-pa",
+      "product_id": "prod-hot-mustard-sauce-pa",
+      "title": "prod-hot-mustard-sauce-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-round-pretzel-bread-pa",
+      "product_id": "prod-round-pretzel-bread-pa",
+      "title": "prod-round-pretzel-bread-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-croissant-plain-pa",
+      "product_id": "prod-croissant-plain-pa",
+      "title": "prod-croissant-plain-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-ciabatta-bread-pa",
+      "product_id": "prod-ciabatta-bread-pa",
+      "title": "prod-ciabatta-bread-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-brown-ciabatta-bread-pa-pa",
+      "product_id": "prod-brown-ciabatta-bread-pa-pa",
+      "title": "prod-brown-ciabatta-bread-pa-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-large-pizza-dough-pa",
+      "product_id": "prod-large-pizza-dough-pa",
+      "title": "prod-large-pizza-dough-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-pizza-dough-pa",
+      "product_id": "prod-pizza-dough-pa",
+      "title": "prod-pizza-dough-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-french-baghette-pa",
+      "product_id": "prod-french-baghette-pa",
+      "title": "prod-french-baghette-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-lovan-dough-pa",
+      "product_id": "prod-lovan-dough-pa",
+      "title": "prod-lovan-dough-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    },
+    {
+      "id": "rec-prod-cookies-can-pa",
+      "product_id": "prod-cookies-can-pa",
+      "title": "prod-cookies-can-pa",
+      "created_at": "2026-08-30T12:54:33.151372+00:00"
+    }
+  ],
+  "recipe_items": [
+    {
+      "id": 101,
+      "product_id": "prod-chicken-bites-kg-pa",
+      "raw_id": "raw-108016",
+      "qty": 0.016,
+      "waste": 1
+    },
+    {
+      "id": 102,
+      "product_id": "prod-chicken-bites-kg-pa",
+      "raw_id": "raw-108018",
+      "qty": 0.11996,
+      "waste": 1
+    },
+    {
+      "id": 103,
+      "product_id": "prod-chicken-breaded-pa",
+      "raw_id": "raw-105004",
+      "qty": 0.12096,
+      "waste": 1
+    },
+    {
+      "id": 104,
+      "product_id": "prod-chicken-breaded-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.00378,
+      "waste": 1
+    },
+    {
+      "id": 105,
+      "product_id": "prod-chicken-breaded-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.00027,
+      "waste": 1
+    },
+    {
+      "id": 106,
+      "product_id": "prod-chicken-breaded-pa",
+      "raw_id": "raw-102031",
+      "qty": 0.054,
+      "waste": 1
+    },
+    {
+      "id": 107,
+      "product_id": "prod-chicken-breaded-pa",
+      "raw_id": "raw-102029",
+      "qty": 0.00216,
+      "waste": 1
+    },
+    {
+      "id": 108,
+      "product_id": "prod-chicken-breaded-pa",
+      "raw_id": "raw-102053",
+      "qty": 0.00324,
+      "waste": 1
+    },
+    {
+      "id": 109,
+      "product_id": "prod-chicken-breaded-pa",
+      "raw_id": "raw-102009",
+      "qty": 0.00324,
+      "waste": 1
+    },
+    {
+      "id": 110,
+      "product_id": "prod-chicken-breaded-pa",
+      "raw_id": "raw-101013",
+      "qty": 0.0162,
+      "waste": 1
+    },
+    {
+      "id": 111,
+      "product_id": "prod-chicken-breaded-pa",
+      "raw_id": "raw-101068",
+      "qty": 0.1296,
+      "waste": 1
+    },
+    {
+      "id": 112,
+      "product_id": "prod-chicken-breaded-pa",
+      "raw_id": "raw-105003",
+      "qty": 27,
+      "waste": 1
+    },
+    {
+      "id": 113,
+      "product_id": "prod-roast-beef-pa-pa",
+      "raw_id": "raw-104013",
+      "qty": 0.05412,
+      "waste": 1
+    },
+    {
+      "id": 114,
+      "product_id": "prod-roast-beef-pa-pa",
+      "raw_id": "raw-102171",
+      "qty": 0.01804,
+      "waste": 1
+    },
+    {
+      "id": 115,
+      "product_id": "prod-roast-beef-pa-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.01353,
+      "waste": 1
+    },
+    {
+      "id": 116,
+      "product_id": "prod-roast-beef-pa-pa",
+      "raw_id": "raw-102178",
+      "qty": 0.04059,
+      "waste": 1
+    },
+    {
+      "id": 117,
+      "product_id": "prod-roast-beef-pa-pa",
+      "raw_id": "raw-108107",
+      "qty": 0.00902,
+      "waste": 1
+    },
+    {
+      "id": 170,
+      "product_id": "prod-split-sauce-pa",
+      "raw_id": "raw-104004",
+      "qty": 0.07,
+      "waste": 1
+    },
+    {
+      "id": 201,
+      "product_id": "prod-chicken-sauce-kg-pa",
+      "raw_id": "raw-108025",
+      "qty": 0.14484,
+      "waste": 1
+    },
+    {
+      "id": 202,
+      "product_id": "prod-chicken-sauce-kg-pa",
+      "raw_id": "raw-104025",
+      "qty": 0.05608,
+      "waste": 1
+    },
+    {
+      "id": 203,
+      "product_id": "prod-chicken-sauce-kg-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.00092,
+      "waste": 1
+    },
+    {
+      "id": 204,
+      "product_id": "prod-atomic-sauce-kg-pa",
+      "raw_id": "raw-104056",
+      "qty": 2.50905,
+      "waste": 1
+    },
+    {
+      "id": 205,
+      "product_id": "prod-atomic-sauce-kg-pa",
+      "raw_id": "raw-104003",
+      "qty": 4.14021,
+      "waste": 1
+    },
+    {
+      "id": 206,
+      "product_id": "prod-atomic-sauce-kg-pa",
+      "raw_id": "raw-104026",
+      "qty": 0.25063,
+      "waste": 1
+    },
+    {
+      "id": 207,
+      "product_id": "prod-atomic-sauce-kg-pa",
+      "raw_id": "raw-108117",
+      "qty": 0.10011,
+      "waste": 1
+    },
+    {
+      "id": 208,
+      "product_id": "prod-bbq-sauce-kg-pa",
+      "raw_id": "raw-104010",
+      "qty": 0.807,
+      "waste": 1
+    },
+    {
+      "id": 209,
+      "product_id": "prod-bbq-sauce-kg-pa",
+      "raw_id": "raw-104003",
+      "qty": 1.05,
+      "waste": 1
+    },
+    {
+      "id": 210,
+      "product_id": "prod-bbq-sauce-kg-pa",
+      "raw_id": "raw-104002",
+      "qty": 0.24,
+      "waste": 1
+    },
+    {
+      "id": 211,
+      "product_id": "prod-bbq-sauce-kg-pa",
+      "raw_id": "raw-104026",
+      "qty": 0.24,
+      "waste": 1
+    },
+    {
+      "id": 212,
+      "product_id": "prod-bbq-sauce-kg-pa",
+      "raw_id": "raw-108117",
+      "qty": 0.066,
+      "waste": 1
+    },
+    {
+      "id": 213,
+      "product_id": "prod-bbq-sauce-kg-pa",
+      "raw_id": "raw-104007",
+      "qty": 0.597,
+      "waste": 1
+    },
+    {
+      "id": 214,
+      "product_id": "prod-blue-cheese-dressing-pa",
+      "raw_id": "raw-104003",
+      "qty": 0.2489,
+      "waste": 1
+    },
+    {
+      "id": 215,
+      "product_id": "prod-blue-cheese-dressing-pa",
+      "raw_id": "raw-101013",
+      "qty": 0.11958,
+      "waste": 1
+    },
+    {
+      "id": 216,
+      "product_id": "prod-blue-cheese-dressing-pa",
+      "raw_id": "raw-108117",
+      "qty": 0.00531,
+      "waste": 1
+    },
+    {
+      "id": 217,
+      "product_id": "prod-blue-cheese-dressing-pa",
+      "raw_id": "raw-104025",
+      "qty": 0.00266,
+      "waste": 1
+    },
+    {
+      "id": 218,
+      "product_id": "prod-blue-cheese-dressing-pa",
+      "raw_id": "raw-104008",
+      "qty": 0.00177,
+      "waste": 1
+    },
+    {
+      "id": 219,
+      "product_id": "prod-blue-cheese-dressing-pa",
+      "raw_id": "raw-104007",
+      "qty": 0.00974,
+      "waste": 1
+    },
+    {
+      "id": 220,
+      "product_id": "prod-blue-cheese-dressing-pa",
+      "raw_id": "raw-102009",
+      "qty": 0.00053,
+      "waste": 1
+    },
+    {
+      "id": 221,
+      "product_id": "prod-blue-cheese-dressing-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.00053,
+      "waste": 1
+    },
+    {
+      "id": 222,
+      "product_id": "prod-blue-cheese-dressing-pa",
+      "raw_id": "raw-108025",
+      "qty": 0.00177,
+      "waste": 1
+    },
+    {
+      "id": 223,
+      "product_id": "prod-blue-cheese-dressing-pa",
+      "raw_id": "raw-101059",
+      "qty": 0.0992,
+      "waste": 1
+    },
+    {
+      "id": 224,
+      "product_id": "prod-sauce-sriracha-kg-pa",
+      "raw_id": "raw-104003",
+      "qty": 1.846,
+      "waste": 1
+    },
+    {
+      "id": 225,
+      "product_id": "prod-sauce-sriracha-kg-pa",
+      "raw_id": "raw-104014",
+      "qty": 0.692,
+      "waste": 1
+    },
+    {
+      "id": 226,
+      "product_id": "prod-sauce-sriracha-kg-pa",
+      "raw_id": "raw-104007",
+      "qty": 0.461,
+      "waste": 1
+    },
+    {
+      "id": 227,
+      "product_id": "prod-queen-s-salad-dressing-pa",
+      "raw_id": "raw-104023",
+      "qty": 0.48118,
+      "waste": 1
+    },
+    {
+      "id": 228,
+      "product_id": "prod-queen-s-salad-dressing-pa",
+      "raw_id": "raw-104013",
+      "qty": 1.11,
+      "waste": 1
+    },
+    {
+      "id": 229,
+      "product_id": "prod-queen-s-salad-dressing-pa",
+      "raw_id": "raw-102025",
+      "qty": 0.22376,
+      "waste": 1
+    },
+    {
+      "id": 230,
+      "product_id": "prod-queen-s-salad-dressing-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.02376,
+      "waste": 1
+    },
+    {
+      "id": 231,
+      "product_id": "prod-queen-s-salad-dressing-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.00396,
+      "waste": 1
+    },
+    {
+      "id": 301,
+      "product_id": "prod-chives-cream-cheese-pa",
+      "raw_id": "raw-101011",
+      "qty": 0.04873,
+      "waste": 1
+    },
+    {
+      "id": 302,
+      "product_id": "prod-chives-cream-cheese-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.00097,
+      "waste": 1
+    },
+    {
+      "id": 303,
+      "product_id": "prod-chives-cream-cheese-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.00049,
+      "waste": 1
+    },
+    {
+      "id": 304,
+      "product_id": "prod-chives-cream-cheese-pa",
+      "raw_id": "raw-108137",
+      "qty": 0.00487,
+      "waste": 1
+    },
+    {
+      "id": 305,
+      "product_id": "prod-caesar-sauce-pa",
+      "raw_id": "raw-108016",
+      "qty": 0.108,
+      "waste": 1
+    },
+    {
+      "id": 306,
+      "product_id": "prod-caesar-sauce-pa",
+      "raw_id": "raw-104154",
+      "qty": 0.108,
+      "waste": 1
+    },
+    {
+      "id": 307,
+      "product_id": "prod-caesar-sauce-pa",
+      "raw_id": "raw-108030",
+      "qty": 0.1512,
+      "waste": 1
+    },
+    {
+      "id": 308,
+      "product_id": "prod-caesar-sauce-pa",
+      "raw_id": "raw-104026",
+      "qty": 0.108,
+      "waste": 1
+    },
+    {
+      "id": 309,
+      "product_id": "prod-caesar-sauce-pa",
+      "raw_id": "raw-104008",
+      "qty": 0.108,
+      "waste": 1
+    },
+    {
+      "id": 310,
+      "product_id": "prod-caesar-sauce-pa",
+      "raw_id": "raw-104142",
+      "qty": 4.4928,
+      "waste": 1
+    },
+    {
+      "id": 311,
+      "product_id": "prod-caesar-sauce-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.0216,
+      "waste": 1
+    },
+    {
+      "id": 312,
+      "product_id": "prod-caesar-sauce-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.0216,
+      "waste": 1
+    },
+    {
+      "id": 313,
+      "product_id": "prod-caesar-sauce-pa",
+      "raw_id": "raw-101023",
+      "qty": 1.08,
+      "waste": 1
+    },
+    {
+      "id": 314,
+      "product_id": "prod-pancake-dough-pa",
+      "raw_id": "raw-102018",
+      "qty": 0.39132,
+      "waste": 1
+    },
+    {
+      "id": 315,
+      "product_id": "prod-pancake-dough-pa",
+      "raw_id": "raw-101003",
+      "qty": 0.39132,
+      "waste": 1
+    },
+    {
+      "id": 316,
+      "product_id": "prod-pancake-dough-pa",
+      "raw_id": "raw-101002",
+      "qty": 0.09783,
+      "waste": 1
+    },
+    {
+      "id": 317,
+      "product_id": "prod-pancake-dough-pa",
+      "raw_id": "raw-102034",
+      "qty": 0.09783,
+      "waste": 1
+    },
+    {
+      "id": 318,
+      "product_id": "prod-pancake-dough-pa",
+      "raw_id": "raw-102157",
+      "qty": 0.00613,
+      "waste": 1
+    },
+    {
+      "id": 319,
+      "product_id": "prod-pancake-dough-pa",
+      "raw_id": "raw-102170",
+      "qty": 0.00098,
+      "waste": 1
+    },
+    {
+      "id": 320,
+      "product_id": "prod-pancake-dough-pa",
+      "raw_id": "raw-104088",
+      "qty": 0.00098,
+      "waste": 1
+    },
+    {
+      "id": 321,
+      "product_id": "prod-pancake-dough-pa",
+      "raw_id": "raw-105004",
+      "qty": 0.16436,
+      "waste": 1
+    },
+    {
+      "id": 322,
+      "product_id": "prod-smokey-mayo-sauce-pa-pa",
+      "raw_id": "raw-104142",
+      "qty": 0.1,
+      "waste": 1
+    },
+    {
+      "id": 323,
+      "product_id": "prod-smokey-mayo-sauce-pa-pa",
+      "raw_id": "raw-104002",
+      "qty": 0.005,
+      "waste": 1
+    },
+    {
+      "id": 324,
+      "product_id": "prod-smokey-mayo-sauce-pa-pa",
+      "raw_id": "raw-104230",
+      "qty": 0.015,
+      "waste": 1
+    },
+    {
+      "id": 325,
+      "product_id": "prod-smokey-mayo-sauce-pa-pa",
+      "raw_id": "raw-104007",
+      "qty": 0.012,
+      "waste": 1
+    },
+    {
+      "id": 326,
+      "product_id": "prod-smokey-mayo-sauce-pa-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.0005,
+      "waste": 1
+    },
+    {
+      "id": 327,
+      "product_id": "prod-smokey-mayo-sauce-pa-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.00025,
+      "waste": 1
+    },
+    {
+      "id": 328,
+      "product_id": "prod-sweet-chili-mayo-sauce-pa",
+      "raw_id": "raw-104003",
+      "qty": 0.405,
+      "waste": 1
+    },
+    {
+      "id": 329,
+      "product_id": "prod-sweet-chili-mayo-sauce-pa",
+      "raw_id": "raw-104136",
+      "qty": 0.6,
+      "waste": 1
+    },
+    {
+      "id": 330,
+      "product_id": "prod-sweet-chili-mayo-sauce-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.001,
+      "waste": 1
+    },
+    {
+      "id": 331,
+      "product_id": "prod-sweet-chili-mayo-sauce-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.00025,
+      "waste": 1
+    },
+    {
+      "id": 332,
+      "product_id": "prod-toast-bread-pa",
+      "raw_id": "raw-100002",
+      "qty": 0.24534,
+      "waste": 1
+    },
+    {
+      "id": 401,
+      "product_id": "prod-round-pretzel-bread-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.00926,
+      "waste": 1
+    },
+    {
+      "id": 402,
+      "product_id": "prod-croissant-plain-pa",
+      "raw_id": "raw-104263",
+      "qty": 0.00095,
+      "waste": 1
+    },
+    {
+      "id": 403,
+      "product_id": "prod-croissant-plain-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.02857,
+      "waste": 1
+    },
+    {
+      "id": 404,
+      "product_id": "prod-croissant-plain-pa",
+      "raw_id": "raw-102025",
+      "qty": 0.0019,
+      "waste": 1
+    },
+    {
+      "id": 405,
+      "product_id": "prod-croissant-plain-pa",
+      "raw_id": "raw-102220",
+      "qty": 0.00238,
+      "waste": 1
+    },
+    {
+      "id": 406,
+      "product_id": "prod-croissant-plain-pa",
+      "raw_id": "raw-104267",
+      "qty": 0.00119,
+      "waste": 1
+    },
+    {
+      "id": 407,
+      "product_id": "prod-croissant-plain-pa",
+      "raw_id": "raw-104007",
+      "qty": 0.00238,
+      "waste": 1
+    },
+    {
+      "id": 408,
+      "product_id": "prod-croissant-plain-pa",
+      "raw_id": "raw-105004",
+      "qty": 0.00476,
+      "waste": 1
+    },
+    {
+      "id": 409,
+      "product_id": "prod-croissant-plain-pa",
+      "raw_id": "raw-101003",
+      "qty": 0.0131,
+      "waste": 1
+    },
+    {
+      "id": 410,
+      "product_id": "prod-croissant-plain-pa",
+      "raw_id": "raw-200012",
+      "qty": 0.02857,
+      "waste": 1
+    },
+    {
+      "id": 411,
+      "product_id": "prod-croissant-plain-pa",
+      "raw_id": "raw-104267",
+      "qty": 1.2,
+      "waste": 1
+    },
+    {
+      "id": 412,
+      "product_id": "prod-ciabatta-bread-pa",
+      "raw_id": "raw-102165",
+      "qty": 0.04409,
+      "waste": 1
+    },
+    {
+      "id": 413,
+      "product_id": "prod-ciabatta-bread-pa",
+      "raw_id": "raw-200012",
+      "qty": 0.00101,
+      "waste": 1
+    },
+    {
+      "id": 414,
+      "product_id": "prod-ciabatta-bread-pa",
+      "raw_id": "raw-102166",
+      "qty": 0.00504,
+      "waste": 1
+    },
+    {
+      "id": 1,
+      "product_id": "prod-amirecan-sauce-kg-pa",
+      "raw_id": "raw-104017",
+      "qty": 0.83143,
+      "waste": 1
+    },
+    {
+      "id": 2,
+      "product_id": "prod-amirecan-sauce-kg-pa",
+      "raw_id": "raw-104026",
+      "qty": 0.1084,
+      "waste": 1
+    },
+    {
+      "id": 3,
+      "product_id": "prod-amirecan-sauce-kg-pa",
+      "raw_id": "raw-104004",
+      "qty": 0.0547,
+      "waste": 1
+    },
+    {
+      "id": 4,
+      "product_id": "prod-amirecan-sauce-kg-pa",
+      "raw_id": "raw-500505",
+      "qty": 0.00348,
+      "waste": 1
+    },
+    {
+      "id": 5,
+      "product_id": "prod-amirecan-sauce-kg-pa",
+      "raw_id": "raw-102029",
+      "qty": 0.00199,
+      "waste": 1
+    },
+    {
+      "id": 6,
+      "product_id": "prod-cheese-sauce-kg-pa",
+      "raw_id": "raw-101010",
+      "qty": 0.54242,
+      "waste": 1
+    },
+    {
+      "id": 7,
+      "product_id": "prod-cheese-sauce-kg-pa",
+      "raw_id": "raw-101034",
+      "qty": 0.21697,
+      "waste": 1
+    },
+    {
+      "id": 8,
+      "product_id": "prod-cheese-sauce-kg-pa",
+      "raw_id": "raw-101008",
+      "qty": 0.10848,
+      "waste": 1
+    },
+    {
+      "id": 9,
+      "product_id": "prod-cheese-sauce-kg-pa",
+      "raw_id": "raw-101072",
+      "qty": 0.13181,
+      "waste": 1
+    },
+    {
+      "id": 10,
+      "product_id": "prod-cheese-sauce-kg-pa",
+      "raw_id": "raw-104018",
+      "qty": 0.00033,
+      "waste": 1
+    },
+    {
+      "id": 11,
+      "product_id": "prod-dry-powder-kg-pa",
+      "raw_id": "raw-102031",
+      "qty": 0.69383,
+      "waste": 1
+    },
+    {
+      "id": 12,
+      "product_id": "prod-dry-powder-kg-pa",
+      "raw_id": "raw-101095",
+      "qty": 0.20815,
+      "waste": 1
+    },
+    {
+      "id": 13,
+      "product_id": "prod-dry-powder-kg-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.0104,
+      "waste": 1
+    },
+    {
+      "id": 14,
+      "product_id": "prod-dry-powder-kg-pa",
+      "raw_id": "raw-102017",
+      "qty": 0.00346,
+      "waste": 1
+    },
+    {
+      "id": 15,
+      "product_id": "prod-dry-powder-kg-pa",
+      "raw_id": "raw-102029",
+      "qty": 0.0052,
+      "waste": 1
+    },
+    {
+      "id": 16,
+      "product_id": "prod-dry-powder-kg-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.03252,
+      "waste": 1
+    },
+    {
+      "id": 17,
+      "product_id": "prod-dry-powder-kg-pa",
+      "raw_id": "raw-102036",
+      "qty": 0.03252,
+      "waste": 1
+    },
+    {
+      "id": 18,
+      "product_id": "prod-dry-powder-kg-pa",
+      "raw_id": "raw-102157",
+      "qty": 0.01388,
+      "waste": 1
+    },
+    {
+      "id": 19,
+      "product_id": "prod-cucumber-pickle-kg-pa",
+      "raw_id": "raw-104025",
+      "qty": 0.50793,
+      "waste": 1
+    },
+    {
+      "id": 20,
+      "product_id": "prod-cucumber-pickle-kg-pa",
+      "raw_id": "raw-108020",
+      "qty": 1.26984,
+      "waste": 1
+    },
+    {
+      "id": 21,
+      "product_id": "prod-cucumber-pickle-kg-pa",
+      "raw_id": "raw-102025",
+      "qty": 0.50794,
+      "waste": 1
+    },
+    {
+      "id": 22,
+      "product_id": "prod-truffle-mayo-pa",
+      "raw_id": "raw-104179",
+      "qty": 0.09091,
+      "waste": 1
+    },
+    {
+      "id": 23,
+      "product_id": "prod-truffle-mayo-pa",
+      "raw_id": "raw-104142",
+      "qty": 0.90909,
+      "waste": 1
+    },
+    {
+      "id": 24,
+      "product_id": "prod-medjool-honey-sauce-pa",
+      "raw_id": "raw-104282",
+      "qty": 0.42796,
+      "waste": 1
+    },
+    {
+      "id": 25,
+      "product_id": "prod-medjool-honey-sauce-pa",
+      "raw_id": "raw-101010",
+      "qty": 0.14265,
+      "waste": 1
+    },
+    {
+      "id": 26,
+      "product_id": "prod-medjool-honey-sauce-pa",
+      "raw_id": "raw-104007",
+      "qty": 0.42796,
+      "waste": 1
+    },
+    {
+      "id": 27,
+      "product_id": "prod-medjool-honey-sauce-pa",
+      "raw_id": "raw-102162",
+      "qty": 0.00143,
+      "waste": 1
+    },
+    {
+      "id": 28,
+      "product_id": "prod-dry-mix-pa",
+      "raw_id": "raw-102031",
+      "qty": 0.69383,
+      "waste": 1
+    },
+    {
+      "id": 29,
+      "product_id": "prod-dry-mix-pa",
+      "raw_id": "raw-101095",
+      "qty": 0.20815,
+      "waste": 1
+    },
+    {
+      "id": 30,
+      "product_id": "prod-dry-mix-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.0104,
+      "waste": 1
+    },
+    {
+      "id": 31,
+      "product_id": "prod-dry-mix-pa",
+      "raw_id": "raw-102017",
+      "qty": 0.00346,
+      "waste": 1
+    },
+    {
+      "id": 32,
+      "product_id": "prod-dry-mix-pa",
+      "raw_id": "raw-102029",
+      "qty": 0.0055,
+      "waste": 1
+    },
+    {
+      "id": 33,
+      "product_id": "prod-dry-mix-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.03252,
+      "waste": 1
+    },
+    {
+      "id": 34,
+      "product_id": "prod-dry-mix-pa",
+      "raw_id": "raw-102036",
+      "qty": 0.03252,
+      "waste": 1
+    },
+    {
+      "id": 35,
+      "product_id": "prod-dry-mix-pa",
+      "raw_id": "raw-102157",
+      "qty": 0.01388,
+      "waste": 1
+    },
+    {
+      "id": 36,
+      "product_id": "prod-karkade-syrup-pa",
+      "raw_id": "raw-102154",
+      "qty": 0.14,
+      "waste": 1
+    },
+    {
+      "id": 37,
+      "product_id": "prod-karkade-syrup-pa",
+      "raw_id": "raw-200012",
+      "qty": 0.3997,
+      "waste": 1
+    },
+    {
+      "id": 38,
+      "product_id": "prod-karkade-syrup-pa",
+      "raw_id": "raw-102034",
+      "qty": 0.4998,
+      "waste": 1
+    },
+    {
+      "id": 39,
+      "product_id": "prod-salted-vanilla-bean-pa",
+      "raw_id": "raw-104123",
+      "qty": 0.72,
+      "waste": 1
+    },
+    {
+      "id": 40,
+      "product_id": "prod-salted-vanilla-bean-pa",
+      "raw_id": "raw-104166",
+      "qty": 0.28,
+      "waste": 1
+    },
+    {
+      "id": 41,
+      "product_id": "prod-salted-vanilla-bean-pa",
+      "raw_id": "raw-102136",
+      "qty": 0.00826,
+      "waste": 1
+    },
+    {
+      "id": 42,
+      "product_id": "prod-salted-hazelnut-sauce-pa",
+      "raw_id": "raw-104123",
+      "qty": 0.89189,
+      "waste": 1
+    },
+    {
+      "id": 43,
+      "product_id": "prod-salted-hazelnut-sauce-pa",
+      "raw_id": "raw-102136",
+      "qty": 0.00721,
+      "waste": 1
+    },
+    {
+      "id": 44,
+      "product_id": "prod-salted-hazelnut-sauce-pa",
+      "raw_id": "raw-104235",
+      "qty": 0.11351,
+      "waste": 1
+    },
+    {
+      "id": 45,
+      "product_id": "prod-roasted-potato-pa",
+      "raw_id": "raw-108142",
+      "qty": 1,
+      "waste": 1
+    },
+    {
+      "id": 46,
+      "product_id": "prod-roasted-potato-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.005,
+      "waste": 1
+    },
+    {
+      "id": 47,
+      "product_id": "prod-roasted-potato-pa",
+      "raw_id": "raw-104204",
+      "qty": 0.04,
+      "waste": 1
+    },
+    {
+      "id": 48,
+      "product_id": "prod-roasted-potato-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.001,
+      "waste": 1
+    },
+    {
+      "id": 49,
+      "product_id": "prod-roasted-potato-pa",
+      "raw_id": "raw-108033",
+      "qty": 0.005,
+      "waste": 1
+    },
+    {
+      "id": 50,
+      "product_id": "prod-marination-mushroom-roasted-pa",
+      "raw_id": "raw-108018",
+      "qty": 2.06897,
+      "waste": 1
+    },
+    {
+      "id": 51,
+      "product_id": "prod-marination-mushroom-roasted-pa",
+      "raw_id": "raw-108139",
+      "qty": 0.2069,
+      "waste": 1
+    },
+    {
+      "id": 52,
+      "product_id": "prod-marination-mushroom-roasted-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.06897,
+      "waste": 1
+    },
+    {
+      "id": 53,
+      "product_id": "prod-marination-mushroom-roasted-pa",
+      "raw_id": "raw-104013",
+      "qty": 2.06897,
+      "waste": 1
+    },
+    {
+      "id": 54,
+      "product_id": "prod-marination-mushroom-roasted-pa",
+      "raw_id": "raw-108016",
+      "qty": 0.2069,
+      "waste": 1
+    },
+    {
+      "id": 55,
+      "product_id": "prod-marination-mushroom-roasted-pa",
+      "raw_id": "raw-108025",
+      "qty": 0.68966,
+      "waste": 1
+    },
+    {
+      "id": 56,
+      "product_id": "prod-marination-mushroom-roasted-pa",
+      "raw_id": "raw-104024",
+      "qty": 0.68966,
+      "waste": 1
+    },
+    {
+      "id": 57,
+      "product_id": "prod-hot-honey-pa",
+      "raw_id": "raw-104007",
+      "qty": 0.96852,
+      "waste": 1
+    },
+    {
+      "id": 58,
+      "product_id": "prod-hot-honey-pa",
+      "raw_id": "raw-104199",
+      "qty": 0.008,
+      "waste": 1
+    },
+    {
+      "id": 59,
+      "product_id": "prod-hot-honey-pa",
+      "raw_id": "raw-104024",
+      "qty": 0.00969,
+      "waste": 1
+    },
+    {
+      "id": 60,
+      "product_id": "prod-hot-honey-pa",
+      "raw_id": "raw-104014",
+      "qty": 0.00969,
+      "waste": 1
+    },
+    {
+      "id": 61,
+      "product_id": "prod-balsamic-galze-pa",
+      "raw_id": "raw-104023",
+      "qty": 1.0504,
+      "waste": 1
+    },
+    {
+      "id": 62,
+      "product_id": "prod-balsamic-galze-pa",
+      "raw_id": "raw-104007",
+      "qty": 0.0352,
+      "waste": 1
+    },
+    {
+      "id": 63,
+      "product_id": "prod-sauce-marinara-pa",
+      "raw_id": "raw-108022",
+      "qty": 0.16847,
+      "waste": 1
+    },
+    {
+      "id": 64,
+      "product_id": "prod-sauce-marinara-pa",
+      "raw_id": "raw-102222",
+      "qty": 0.16848,
+      "waste": 1
+    },
+    {
+      "id": 65,
+      "product_id": "prod-sauce-marinara-pa",
+      "raw_id": "raw-104013",
+      "qty": 0,
+      "waste": 1
+    },
+    {
+      "id": 66,
+      "product_id": "prod-sauce-marinara-pa",
+      "raw_id": "raw-108017",
+      "qty": 0.04493,
+      "waste": 1
+    },
+    {
+      "id": 67,
+      "product_id": "prod-sauce-marinara-pa",
+      "raw_id": "raw-108016",
+      "qty": 0.00584,
+      "waste": 1
+    },
+    {
+      "id": 68,
+      "product_id": "prod-sauce-marinara-pa",
+      "raw_id": "raw-108105",
+      "qty": 0.00359,
+      "waste": 1
+    },
+    {
+      "id": 69,
+      "product_id": "prod-sauce-marinara-pa",
+      "raw_id": "raw-104144",
+      "qty": 0.01572,
+      "waste": 1
+    },
+    {
+      "id": 70,
+      "product_id": "prod-sauce-marinara-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.0054,
+      "waste": 1
+    },
+    {
+      "id": 71,
+      "product_id": "prod-sauce-marinara-pa",
+      "raw_id": "raw-102173",
+      "qty": 0.00045,
+      "waste": 1
+    },
+    {
+      "id": 72,
+      "product_id": "prod-sauce-marinara-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.00022,
+      "waste": 1
+    },
+    {
+      "id": 73,
+      "product_id": "prod-pickled-onion-pa",
+      "raw_id": "raw-200012",
+      "qty": 0.23985,
+      "waste": 1
+    },
+    {
+      "id": 74,
+      "product_id": "prod-pickled-onion-pa",
+      "raw_id": "raw-104025",
+      "qty": 0.47971,
+      "waste": 1
+    },
+    {
+      "id": 75,
+      "product_id": "prod-pickled-onion-pa",
+      "raw_id": "raw-104146",
+      "qty": 0.03598,
+      "waste": 1
+    },
+    {
+      "id": 76,
+      "product_id": "prod-pickled-onion-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.01199,
+      "waste": 1
+    },
+    {
+      "id": 77,
+      "product_id": "prod-pickled-onion-pa",
+      "raw_id": "raw-108016",
+      "qty": 0.01199,
+      "waste": 1
+    },
+    {
+      "id": 78,
+      "product_id": "prod-pickled-onion-pa",
+      "raw_id": "raw-108018",
+      "qty": 0.49769,
+      "waste": 1
+    },
+    {
+      "id": 79,
+      "product_id": "prod-chicken-fillet-pa",
+      "raw_id": "raw-101013",
+      "qty": 1.0465,
+      "waste": 1
+    },
+    {
+      "id": 80,
+      "product_id": "prod-chicken-fillet-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.0209,
+      "waste": 1
+    },
+    {
+      "id": 81,
+      "product_id": "prod-chicken-fillet-pa",
+      "raw_id": "raw-102029",
+      "qty": 0.0073,
+      "waste": 1
+    },
+    {
+      "id": 82,
+      "product_id": "prod-chicken-fillet-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.0052,
+      "waste": 1
+    },
+    {
+      "id": 83,
+      "product_id": "prod-chicken-fillet-pa",
+      "raw_id": "raw-102053",
+      "qty": 0.0052,
+      "waste": 1
+    },
+    {
+      "id": 84,
+      "product_id": "prod-chicken-fillet-pa",
+      "raw_id": "raw-102025",
+      "qty": 0.0576,
+      "waste": 1
+    },
+    {
+      "id": 85,
+      "product_id": "prod-chicken-fillet-pa",
+      "raw_id": "raw-108016",
+      "qty": 0.0084,
+      "waste": 1
+    },
+    {
+      "id": 86,
+      "product_id": "prod-chicken-fillet-pa",
+      "raw_id": "raw-108033",
+      "qty": 0.0209,
+      "waste": 1
+    },
+    {
+      "id": 87,
+      "product_id": "prod-lemon-chicken-pa",
+      "raw_id": "raw-105003",
+      "qty": 4.5,
+      "waste": 1
+    },
+    {
+      "id": 88,
+      "product_id": "prod-lemon-chicken-pa",
+      "raw_id": "raw-104012",
+      "qty": 0.2,
+      "waste": 1
+    },
+    {
+      "id": 89,
+      "product_id": "prod-lemon-chicken-pa",
+      "raw_id": "raw-101068",
+      "qty": 0.15,
+      "waste": 1
+    },
+    {
+      "id": 90,
+      "product_id": "prod-lemon-chicken-pa",
+      "raw_id": "raw-104002",
+      "qty": 0.05,
+      "waste": 1
+    },
+    {
+      "id": 91,
+      "product_id": "prod-lemon-chicken-pa",
+      "raw_id": "raw-108016",
+      "qty": 0.03,
+      "waste": 1
+    },
+    {
+      "id": 92,
+      "product_id": "prod-lemon-chicken-pa",
+      "raw_id": "raw-108028",
+      "qty": 0.015,
+      "waste": 1
+    },
+    {
+      "id": 93,
+      "product_id": "prod-lemon-chicken-pa",
+      "raw_id": "raw-108117",
+      "qty": 0.08,
+      "waste": 1
+    },
+    {
+      "id": 94,
+      "product_id": "prod-lemon-chicken-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.035,
+      "waste": 1
+    },
+    {
+      "id": 95,
+      "product_id": "prod-lemon-chicken-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.005,
+      "waste": 1
+    },
+    {
+      "id": 96,
+      "product_id": "prod-lemon-chicken-pa",
+      "raw_id": "raw-102029",
+      "qty": 0.005,
+      "waste": 1
+    },
+    {
+      "id": 97,
+      "product_id": "prod-lemon-chicken-pa",
+      "raw_id": "raw-102053",
+      "qty": 0.005,
+      "waste": 1
+    },
+    {
+      "id": 98,
+      "product_id": "prod-chicken-bites-kg-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.02308,
+      "waste": 1
+    },
+    {
+      "id": 99,
+      "product_id": "prod-chicken-bites-kg-pa",
+      "raw_id": "raw-101013",
+      "qty": 1.553,
+      "waste": 1
+    },
+    {
+      "id": 100,
+      "product_id": "prod-chicken-bites-kg-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.00494,
+      "waste": 1
+    },
+    {
+      "id": 118,
+      "product_id": "prod-pancake-paste-kg-pa",
+      "raw_id": "raw-101002",
+      "qty": 0.908,
+      "waste": 1
+    },
+    {
+      "id": 119,
+      "product_id": "prod-pancake-paste-kg-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.091,
+      "waste": 1
+    },
+    {
+      "id": 120,
+      "product_id": "prod-pancake-paste-kg-pa",
+      "raw_id": "raw-102018",
+      "qty": 5.449,
+      "waste": 1
+    },
+    {
+      "id": 121,
+      "product_id": "prod-pancake-paste-kg-pa",
+      "raw_id": "raw-102034",
+      "qty": 1.816,
+      "waste": 1
+    },
+    {
+      "id": 122,
+      "product_id": "prod-pancake-paste-kg-pa",
+      "raw_id": "raw-102157",
+      "qty": 0.581,
+      "waste": 1
+    },
+    {
+      "id": 123,
+      "product_id": "prod-pancake-paste-kg-pa",
+      "raw_id": "raw-101003",
+      "qty": 9.082,
+      "waste": 1
+    },
+    {
+      "id": 124,
+      "product_id": "prod-pancake-paste-kg-pa",
+      "raw_id": "raw-105004",
+      "qty": 2.576,
+      "waste": 1
+    },
+    {
+      "id": 125,
+      "product_id": "prod-chicken-liquid-sauce-kg-pa",
+      "raw_id": "raw-102041",
+      "qty": 12,
+      "waste": 1
+    },
+    {
+      "id": 126,
+      "product_id": "prod-chicken-liquid-sauce-kg-pa",
+      "raw_id": "raw-102031",
+      "qty": 5,
+      "waste": 1
+    },
+    {
+      "id": 127,
+      "product_id": "prod-chicken-liquid-sauce-kg-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.75,
+      "waste": 1
+    },
+    {
+      "id": 128,
+      "product_id": "prod-chicken-liquid-sauce-kg-pa",
+      "raw_id": "raw-102053",
+      "qty": 0.35,
+      "waste": 1
+    },
+    {
+      "id": 129,
+      "product_id": "prod-chicken-liquid-sauce-kg-pa",
+      "raw_id": "raw-102009",
+      "qty": 0.35,
+      "waste": 1
+    },
+    {
+      "id": 130,
+      "product_id": "prod-chicken-liquid-sauce-kg-pa",
+      "raw_id": "raw-101013",
+      "qty": 5,
+      "waste": 1
+    },
+    {
+      "id": 131,
+      "product_id": "prod-chicken-liquid-sauce-kg-pa",
+      "raw_id": "raw-105004",
+      "qty": 4.05,
+      "waste": 1
+    },
+    {
+      "id": 132,
+      "product_id": "prod-chicken-liquid-sauce-kg-pa",
+      "raw_id": "raw-200006",
+      "qty": 12.5,
+      "waste": 1
+    },
+    {
+      "id": 133,
+      "product_id": "prod-caramalized-onion-pa",
+      "raw_id": "raw-108017",
+      "qty": 12.6,
+      "waste": 1
+    },
+    {
+      "id": 134,
+      "product_id": "prod-caramalized-onion-pa",
+      "raw_id": "raw-101002",
+      "qty": 0.35,
+      "waste": 1
+    },
+    {
+      "id": 135,
+      "product_id": "prod-caramalized-onion-pa",
+      "raw_id": "raw-104146",
+      "qty": 0.3,
+      "waste": 1
+    },
+    {
+      "id": 136,
+      "product_id": "prod-caramalized-onion-pa",
+      "raw_id": "raw-108016",
+      "qty": 0.03,
+      "waste": 1
+    },
+    {
+      "id": 137,
+      "product_id": "prod-ice-cream-kg-pa",
+      "raw_id": "raw-102068",
+      "qty": 10,
+      "waste": 1
+    },
+    {
+      "id": 138,
+      "product_id": "prod-ice-cream-kg-pa",
+      "raw_id": "raw-101003",
+      "qty": 24,
+      "waste": 1
+    },
+    {
+      "id": 139,
+      "product_id": "prod-ice-cream-kg-pa",
+      "raw_id": "raw-101010",
+      "qty": 2,
+      "waste": 1
+    },
+    {
+      "id": 140,
+      "product_id": "prod-ice-cream-kg-pa",
+      "raw_id": "raw-200012",
+      "qty": 3,
+      "waste": 1
+    },
+    {
+      "id": 141,
+      "product_id": "prod-sweet-relish-pa",
+      "raw_id": "raw-108020",
+      "qty": 0.522,
+      "waste": 1
+    },
+    {
+      "id": 142,
+      "product_id": "prod-sweet-relish-pa",
+      "raw_id": "raw-108020",
+      "qty": 0.23,
+      "waste": 1
+    },
+    {
+      "id": 143,
+      "product_id": "prod-sweet-relish-pa",
+      "raw_id": "raw-108018",
+      "qty": 0.131,
+      "waste": 1
+    },
+    {
+      "id": 144,
+      "product_id": "prod-sweet-relish-pa",
+      "raw_id": "raw-108101",
+      "qty": 0.122,
+      "waste": 1
+    },
+    {
+      "id": 145,
+      "product_id": "prod-sweet-relish-pa",
+      "raw_id": "raw-108102",
+      "qty": 0.091,
+      "waste": 1
+    },
+    {
+      "id": 146,
+      "product_id": "prod-sweet-relish-pa",
+      "raw_id": "raw-108103",
+      "qty": 0.018,
+      "waste": 1
+    },
+    {
+      "id": 147,
+      "product_id": "prod-sweet-relish-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.016,
+      "waste": 1
+    },
+    {
+      "id": 148,
+      "product_id": "prod-sweet-relish-pa",
+      "raw_id": "raw-102162",
+      "qty": 0.004,
+      "waste": 1
+    },
+    {
+      "id": 149,
+      "product_id": "prod-sweet-relish-pa",
+      "raw_id": "raw-104137",
+      "qty": 0.004,
+      "waste": 1
+    },
+    {
+      "id": 150,
+      "product_id": "prod-sweet-relish-pa",
+      "raw_id": "raw-104024",
+      "qty": 0.084,
+      "waste": 1
+    },
+    {
+      "id": 151,
+      "product_id": "prod-sweet-relish-pa",
+      "raw_id": "raw-104023",
+      "qty": 0.03,
+      "waste": 1
+    },
+    {
+      "id": 152,
+      "product_id": "prod-sweet-relish-pa",
+      "raw_id": "raw-102034",
+      "qty": 0.084,
+      "waste": 1
+    },
+    {
+      "id": 153,
+      "product_id": "prod-sweet-relish-pa",
+      "raw_id": "raw-102041",
+      "qty": 0.028,
+      "waste": 1
+    },
+    {
+      "id": 154,
+      "product_id": "prod-sweet-relish-pa",
+      "raw_id": "raw-200012",
+      "qty": 0.095,
+      "waste": 1
+    },
+    {
+      "id": 155,
+      "product_id": "prod-sweet-relish-pa",
+      "raw_id": "raw-104002",
+      "qty": 0.016,
+      "waste": 1
+    },
+    {
+      "id": 156,
+      "product_id": "prod-sweet-relish-pa",
+      "raw_id": "raw-104136",
+      "qty": 0.017,
+      "waste": 1
+    },
+    {
+      "id": 157,
+      "product_id": "prod-onion-jam-pa",
+      "raw_id": "raw-108017",
+      "qty": 0.71471,
+      "waste": 1
+    },
+    {
+      "id": 158,
+      "product_id": "prod-onion-jam-pa",
+      "raw_id": "raw-104013",
+      "qty": 0.01953,
+      "waste": 1
+    },
+    {
+      "id": 159,
+      "product_id": "prod-onion-jam-pa",
+      "raw_id": "raw-104012",
+      "qty": 0.01953,
+      "waste": 1
+    },
+    {
+      "id": 160,
+      "product_id": "prod-onion-jam-pa",
+      "raw_id": "raw-102034",
+      "qty": 0.03999,
+      "waste": 1
+    },
+    {
+      "id": 161,
+      "product_id": "prod-onion-jam-pa",
+      "raw_id": "raw-104007",
+      "qty": 0.01023,
+      "waste": 1
+    },
+    {
+      "id": 162,
+      "product_id": "prod-onion-jam-pa",
+      "raw_id": "raw-104023",
+      "qty": 0.01023,
+      "waste": 1
+    },
+    {
+      "id": 163,
+      "product_id": "prod-onion-jam-pa",
+      "raw_id": "raw-104024",
+      "qty": 0.00093,
+      "waste": 1
+    },
+    {
+      "id": 164,
+      "product_id": "prod-strawberry-sauce-pa",
+      "raw_id": "raw-108163",
+      "qty": 0.378,
+      "waste": 1
+    },
+    {
+      "id": 165,
+      "product_id": "prod-strawberry-sauce-pa",
+      "raw_id": "raw-200012",
+      "qty": 0.378,
+      "waste": 1
+    },
+    {
+      "id": 166,
+      "product_id": "prod-strawberry-sauce-pa",
+      "raw_id": "raw-102034",
+      "qty": 0.2268,
+      "waste": 1
+    },
+    {
+      "id": 167,
+      "product_id": "prod-strawberry-sauce-pa",
+      "raw_id": "raw-200097",
+      "qty": 0.1134,
+      "waste": 1
+    },
+    {
+      "id": 168,
+      "product_id": "prod-strawberry-sauce-pa",
+      "raw_id": "raw-102246",
+      "qty": 0.00047,
+      "waste": 1
+    },
+    {
+      "id": 169,
+      "product_id": "prod-split-sauce-pa",
+      "raw_id": "raw-104142",
+      "qty": 0.24,
+      "waste": 1
+    },
+    {
+      "id": 171,
+      "product_id": "prod-split-sauce-pa",
+      "raw_id": "raw-104002",
+      "qty": 0.008,
+      "waste": 1
+    },
+    {
+      "id": 172,
+      "product_id": "prod-split-sauce-pa",
+      "raw_id": "raw-108117",
+      "qty": 0.008,
+      "waste": 1
+    },
+    {
+      "id": 173,
+      "product_id": "prod-split-sauce-pa",
+      "raw_id": "raw-104014",
+      "qty": 0.008,
+      "waste": 1
+    },
+    {
+      "id": 174,
+      "product_id": "prod-split-sauce-pa",
+      "raw_id": "raw-104008",
+      "qty": 0.008,
+      "waste": 1
+    },
+    {
+      "id": 175,
+      "product_id": "prod-split-sauce-pa",
+      "raw_id": "raw-102053",
+      "qty": 0.004,
+      "waste": 1
+    },
+    {
+      "id": 176,
+      "product_id": "prod-split-sauce-pa",
+      "raw_id": "raw-102009",
+      "qty": 0.002,
+      "waste": 1
+    },
+    {
+      "id": 177,
+      "product_id": "prod-split-sauce-pa",
+      "raw_id": "raw-102177",
+      "qty": 0.003,
+      "waste": 1
+    },
+    {
+      "id": 178,
+      "product_id": "prod-split-sauce-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.00025,
+      "waste": 1
+    },
+    {
+      "id": 179,
+      "product_id": "prod-tuna-mix-pa",
+      "raw_id": "raw-104155",
+      "qty": 0.24324,
+      "waste": 1
+    },
+    {
+      "id": 180,
+      "product_id": "prod-tuna-mix-pa",
+      "raw_id": "raw-101069",
+      "qty": 0.11676,
+      "waste": 1
+    },
+    {
+      "id": 181,
+      "product_id": "prod-tuna-mix-pa",
+      "raw_id": "raw-104142",
+      "qty": 0.04865,
+      "waste": 1
+    },
+    {
+      "id": 182,
+      "product_id": "prod-tuna-mix-pa",
+      "raw_id": "raw-104153",
+      "qty": 0.12649,
+      "waste": 1
+    },
+    {
+      "id": 183,
+      "product_id": "prod-tuna-mix-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.00097,
+      "waste": 1
+    },
+    {
+      "id": 184,
+      "product_id": "prod-tuna-mix-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.00097,
+      "waste": 1
+    },
+    {
+      "id": 185,
+      "product_id": "prod-tuna-mix-pa",
+      "raw_id": "raw-108117",
+      "qty": 0.00973,
+      "waste": 1
+    },
+    {
+      "id": 186,
+      "product_id": "prod-ranch-sauce-kg-pa",
+      "raw_id": "raw-101068",
+      "qty": 1.98597,
+      "waste": 1
+    },
+    {
+      "id": 187,
+      "product_id": "prod-ranch-sauce-kg-pa",
+      "raw_id": "raw-104003",
+      "qty": 3.81108,
+      "waste": 1
+    },
+    {
+      "id": 188,
+      "product_id": "prod-ranch-sauce-kg-pa",
+      "raw_id": "raw-104018",
+      "qty": 0.05,
+      "waste": 1
+    },
+    {
+      "id": 189,
+      "product_id": "prod-ranch-sauce-kg-pa",
+      "raw_id": "raw-104025",
+      "qty": 0.11159,
+      "waste": 1
+    },
+    {
+      "id": 190,
+      "product_id": "prod-ranch-sauce-kg-pa",
+      "raw_id": "raw-104008",
+      "qty": 0.0625,
+      "waste": 1
+    },
+    {
+      "id": 191,
+      "product_id": "prod-ranch-sauce-kg-pa",
+      "raw_id": "raw-101013",
+      "qty": 0.9926,
+      "waste": 1
+    },
+    {
+      "id": 192,
+      "product_id": "prod-ranch-sauce-kg-pa",
+      "raw_id": "raw-102020",
+      "qty": 0.01388,
+      "waste": 1
+    },
+    {
+      "id": 193,
+      "product_id": "prod-ranch-sauce-kg-pa",
+      "raw_id": "raw-102033",
+      "qty": 0.00694,
+      "waste": 1
+    },
+    {
+      "id": 194,
+      "product_id": "prod-ranch-sauce-kg-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.01487,
+      "waste": 1
+    },
+    {
+      "id": 195,
+      "product_id": "prod-chicken-sauce-kg-pa",
+      "raw_id": "raw-101068",
+      "qty": 1.86904,
+      "waste": 1
+    },
+    {
+      "id": 196,
+      "product_id": "prod-chicken-sauce-kg-pa",
+      "raw_id": "raw-104003",
+      "qty": 1.65704,
+      "waste": 1
+    },
+    {
+      "id": 197,
+      "product_id": "prod-chicken-sauce-kg-pa",
+      "raw_id": "raw-102053",
+      "qty": 0.0212,
+      "waste": 1
+    },
+    {
+      "id": 198,
+      "product_id": "prod-chicken-sauce-kg-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.0212,
+      "waste": 1
+    },
+    {
+      "id": 199,
+      "product_id": "prod-chicken-sauce-kg-pa",
+      "raw_id": "raw-101013",
+      "qty": 0.21552,
+      "waste": 1
+    },
+    {
+      "id": 200,
+      "product_id": "prod-chicken-sauce-kg-pa",
+      "raw_id": "raw-108016",
+      "qty": 0.01412,
+      "waste": 1
+    },
+    {
+      "id": 232,
+      "product_id": "prod-queen-s-salad-dressing-pa",
+      "raw_id": "raw-104026",
+      "qty": 0.149,
+      "waste": 1
+    },
+    {
+      "id": 233,
+      "product_id": "prod-queen-s-salad-dressing-pa",
+      "raw_id": "raw-108016",
+      "qty": 0.008,
+      "waste": 1
+    },
+    {
+      "id": 234,
+      "product_id": "prod-citrus-dressing-pa",
+      "raw_id": "raw-108118",
+      "qty": 0.11726,
+      "waste": 1
+    },
+    {
+      "id": 235,
+      "product_id": "prod-citrus-dressing-pa",
+      "raw_id": "raw-104024",
+      "qty": 0.05863,
+      "waste": 1
+    },
+    {
+      "id": 236,
+      "product_id": "prod-citrus-dressing-pa",
+      "raw_id": "raw-104007",
+      "qty": 0.01173,
+      "waste": 1
+    },
+    {
+      "id": 237,
+      "product_id": "prod-citrus-dressing-pa",
+      "raw_id": "raw-104026",
+      "qty": 0.02345,
+      "waste": 1
+    },
+    {
+      "id": 238,
+      "product_id": "prod-citrus-dressing-pa",
+      "raw_id": "raw-104223",
+      "qty": 0.03518,
+      "waste": 1
+    },
+    {
+      "id": 239,
+      "product_id": "prod-citrus-dressing-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.00195,
+      "waste": 1
+    },
+    {
+      "id": 240,
+      "product_id": "prod-citrus-dressing-pa",
+      "raw_id": "raw-104013",
+      "qty": 0.1759,
+      "waste": 1
+    },
+    {
+      "id": 241,
+      "product_id": "prod-citrus-dressing-pa",
+      "raw_id": "raw-104012",
+      "qty": 0.1759,
+      "waste": 1
+    },
+    {
+      "id": 242,
+      "product_id": "prod-moroccan-salad-dressing-pa",
+      "raw_id": "raw-108133",
+      "qty": 0.41941,
+      "waste": 1
+    },
+    {
+      "id": 243,
+      "product_id": "prod-moroccan-salad-dressing-pa",
+      "raw_id": "raw-104023",
+      "qty": 0.58681,
+      "waste": 1
+    },
+    {
+      "id": 244,
+      "product_id": "prod-moroccan-salad-dressing-pa",
+      "raw_id": "raw-104013",
+      "qty": 0.39942,
+      "waste": 1
+    },
+    {
+      "id": 245,
+      "product_id": "prod-moroccan-salad-dressing-pa",
+      "raw_id": "raw-104012",
+      "qty": 0.39942,
+      "waste": 1
+    },
+    {
+      "id": 246,
+      "product_id": "prod-moroccan-salad-dressing-pa",
+      "raw_id": "raw-102025",
+      "qty": 0.05868,
+      "waste": 1
+    },
+    {
+      "id": 247,
+      "product_id": "prod-moroccan-salad-dressing-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.02348,
+      "waste": 1
+    },
+    {
+      "id": 248,
+      "product_id": "prod-moroccan-salad-dressing-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.00392,
+      "waste": 1
+    },
+    {
+      "id": 249,
+      "product_id": "prod-moroccan-salad-dressing-pa",
+      "raw_id": "raw-104007",
+      "qty": 0.05868,
+      "waste": 1
+    },
+    {
+      "id": 250,
+      "product_id": "prod-balsamic-vinaigrette-dressing-pa",
+      "raw_id": "raw-104026",
+      "qty": 0.0436,
+      "waste": 1
+    },
+    {
+      "id": 251,
+      "product_id": "prod-balsamic-vinaigrette-dressing-pa",
+      "raw_id": "raw-104023",
+      "qty": 0.04651,
+      "waste": 1
+    },
+    {
+      "id": 252,
+      "product_id": "prod-balsamic-vinaigrette-dressing-pa",
+      "raw_id": "raw-104007",
+      "qty": 0.05233,
+      "waste": 1
+    },
+    {
+      "id": 253,
+      "product_id": "prod-balsamic-vinaigrette-dressing-pa",
+      "raw_id": "raw-104013",
+      "qty": 0.07267,
+      "waste": 1
+    },
+    {
+      "id": 254,
+      "product_id": "prod-balsamic-vinaigrette-dressing-pa",
+      "raw_id": "raw-104012",
+      "qty": 0.14535,
+      "waste": 1
+    },
+    {
+      "id": 255,
+      "product_id": "prod-balsamic-vinaigrette-dressing-pa",
+      "raw_id": "raw-108117",
+      "qty": 0.01453,
+      "waste": 1
+    },
+    {
+      "id": 256,
+      "product_id": "prod-brgr-house-dressing-pa",
+      "raw_id": "raw-108117",
+      "qty": 0.37103,
+      "waste": 1
+    },
+    {
+      "id": 257,
+      "product_id": "prod-brgr-house-dressing-pa",
+      "raw_id": "raw-104024",
+      "qty": 0.24603,
+      "waste": 1
+    },
+    {
+      "id": 258,
+      "product_id": "prod-brgr-house-dressing-pa",
+      "raw_id": "raw-104013",
+      "qty": 0.49108,
+      "waste": 1
+    },
+    {
+      "id": 259,
+      "product_id": "prod-brgr-house-dressing-pa",
+      "raw_id": "raw-104012",
+      "qty": 0.49108,
+      "waste": 1
+    },
+    {
+      "id": 260,
+      "product_id": "prod-brgr-house-dressing-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.02579,
+      "waste": 1
+    },
+    {
+      "id": 261,
+      "product_id": "prod-brgr-house-dressing-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.00397,
+      "waste": 1
+    },
+    {
+      "id": 262,
+      "product_id": "prod-brgr-house-dressing-pa",
+      "raw_id": "raw-104007",
+      "qty": 0.37104,
+      "waste": 1
+    },
+    {
+      "id": 263,
+      "product_id": "prod-pistachio-pesto-pa",
+      "raw_id": "raw-108105",
+      "qty": 0.065,
+      "waste": 1
+    },
+    {
+      "id": 264,
+      "product_id": "prod-pistachio-pesto-pa",
+      "raw_id": "raw-104013",
+      "qty": 0.2,
+      "waste": 1
+    },
+    {
+      "id": 265,
+      "product_id": "prod-pistachio-pesto-pa",
+      "raw_id": "raw-101023",
+      "qty": 0.047,
+      "waste": 1
+    },
+    {
+      "id": 266,
+      "product_id": "prod-pistachio-pesto-pa",
+      "raw_id": "raw-108016",
+      "qty": 0.005,
+      "waste": 1
+    },
+    {
+      "id": 267,
+      "product_id": "prod-pistachio-pesto-pa",
+      "raw_id": "raw-102174",
+      "qty": 0.022,
+      "waste": 1
+    },
+    {
+      "id": 268,
+      "product_id": "prod-pistachio-pesto-pa",
+      "raw_id": "raw-104106",
+      "qty": 0.02,
+      "waste": 1
+    },
+    {
+      "id": 269,
+      "product_id": "prod-pistachio-pesto-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.003,
+      "waste": 1
+    },
+    {
+      "id": 270,
+      "product_id": "prod-pistachio-pesto-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.001,
+      "waste": 1
+    },
+    {
+      "id": 271,
+      "product_id": "prod-thyme-balsamic-vinaigrette-pa",
+      "raw_id": "raw-104023",
+      "qty": 0.2451,
+      "waste": 1
+    },
+    {
+      "id": 272,
+      "product_id": "prod-thyme-balsamic-vinaigrette-pa",
+      "raw_id": "raw-104012",
+      "qty": 0.4902,
+      "waste": 1
+    },
+    {
+      "id": 273,
+      "product_id": "prod-thyme-balsamic-vinaigrette-pa",
+      "raw_id": "raw-104007",
+      "qty": 0.20588,
+      "waste": 1
+    },
+    {
+      "id": 274,
+      "product_id": "prod-thyme-balsamic-vinaigrette-pa",
+      "raw_id": "raw-108033",
+      "qty": 0.0049,
+      "waste": 1
+    },
+    {
+      "id": 275,
+      "product_id": "prod-thyme-balsamic-vinaigrette-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.00392,
+      "waste": 1
+    },
+    {
+      "id": 276,
+      "product_id": "prod-sundried-tomato-pesto-pa",
+      "raw_id": "raw-108105",
+      "qty": 0.19118,
+      "waste": 1
+    },
+    {
+      "id": 277,
+      "product_id": "prod-sundried-tomato-pesto-pa",
+      "raw_id": "raw-104013",
+      "qty": 0.41176,
+      "waste": 1
+    },
+    {
+      "id": 278,
+      "product_id": "prod-sundried-tomato-pesto-pa",
+      "raw_id": "raw-101023",
+      "qty": 0.13824,
+      "waste": 1
+    },
+    {
+      "id": 279,
+      "product_id": "prod-sundried-tomato-pesto-pa",
+      "raw_id": "raw-108016",
+      "qty": 0.01471,
+      "waste": 1
+    },
+    {
+      "id": 280,
+      "product_id": "prod-sundried-tomato-pesto-pa",
+      "raw_id": "raw-102174",
+      "qty": 0.06471,
+      "waste": 1
+    },
+    {
+      "id": 281,
+      "product_id": "prod-sundried-tomato-pesto-pa",
+      "raw_id": "raw-104202",
+      "qty": 0.17647,
+      "waste": 1
+    },
+    {
+      "id": 282,
+      "product_id": "prod-sundried-tomato-pesto-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.00294,
+      "waste": 1
+    },
+    {
+      "id": 283,
+      "product_id": "prod-sundried-tomato-pesto-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.00882,
+      "waste": 1
+    },
+    {
+      "id": 284,
+      "product_id": "prod-coleslow-dressing-pa",
+      "raw_id": "raw-104142",
+      "qty": 0.14865,
+      "waste": 1
+    },
+    {
+      "id": 285,
+      "product_id": "prod-coleslow-dressing-pa",
+      "raw_id": "raw-101013",
+      "qty": 0.14865,
+      "waste": 1
+    },
+    {
+      "id": 286,
+      "product_id": "prod-coleslow-dressing-pa",
+      "raw_id": "raw-104025",
+      "qty": 0.14865,
+      "waste": 1
+    },
+    {
+      "id": 287,
+      "product_id": "prod-coleslow-dressing-pa",
+      "raw_id": "raw-102034",
+      "qty": 0.54054,
+      "waste": 1
+    },
+    {
+      "id": 288,
+      "product_id": "prod-coleslow-dressing-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.00541,
+      "waste": 1
+    },
+    {
+      "id": 289,
+      "product_id": "prod-coleslow-dressing-pa",
+      "raw_id": "raw-108017",
+      "qty": 0.02703,
+      "waste": 1
+    },
+    {
+      "id": 290,
+      "product_id": "prod-pesto-sauce-pa",
+      "raw_id": "raw-108105",
+      "qty": 0.15998,
+      "waste": 1
+    },
+    {
+      "id": 291,
+      "product_id": "prod-pesto-sauce-pa",
+      "raw_id": "raw-104013",
+      "qty": 0.15,
+      "waste": 1
+    },
+    {
+      "id": 292,
+      "product_id": "prod-pesto-sauce-pa",
+      "raw_id": "raw-101023",
+      "qty": 0.065,
+      "waste": 1
+    },
+    {
+      "id": 293,
+      "product_id": "prod-pesto-sauce-pa",
+      "raw_id": "raw-108016",
+      "qty": 0.007,
+      "waste": 1
+    },
+    {
+      "id": 294,
+      "product_id": "prod-pesto-sauce-pa",
+      "raw_id": "raw-102174",
+      "qty": 0.03,
+      "waste": 1
+    },
+    {
+      "id": 295,
+      "product_id": "prod-pesto-sauce-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.004,
+      "waste": 1
+    },
+    {
+      "id": 296,
+      "product_id": "prod-pesto-sauce-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.00025,
+      "waste": 1
+    },
+    {
+      "id": 297,
+      "product_id": "prod-honey-srirache-sauce-pa",
+      "raw_id": "raw-104007",
+      "qty": 0.1,
+      "waste": 1
+    },
+    {
+      "id": 298,
+      "product_id": "prod-honey-srirache-sauce-pa",
+      "raw_id": "raw-104014",
+      "qty": 0.1,
+      "waste": 1
+    },
+    {
+      "id": 299,
+      "product_id": "prod-honey-srirache-sauce-pa",
+      "raw_id": "raw-104008",
+      "qty": 0.005,
+      "waste": 1
+    },
+    {
+      "id": 300,
+      "product_id": "prod-chives-cream-cheese-pa",
+      "raw_id": "raw-101069",
+      "qty": 0.19493,
+      "waste": 1
+    },
+    {
+      "id": 333,
+      "product_id": "prod-toast-bread-pa",
+      "raw_id": "raw-101002",
+      "qty": 0.09353,
+      "waste": 1
+    },
+    {
+      "id": 334,
+      "product_id": "prod-toast-bread-pa",
+      "raw_id": "raw-108016",
+      "qty": 0.0094,
+      "waste": 1
+    },
+    {
+      "id": 335,
+      "product_id": "prod-toast-bread-pa",
+      "raw_id": "raw-102021",
+      "qty": 0.00188,
+      "waste": 1
+    },
+    {
+      "id": 336,
+      "product_id": "prod-frosting-sauce-basic-pa",
+      "raw_id": "raw-101069",
+      "qty": 0.10789,
+      "waste": 1
+    },
+    {
+      "id": 337,
+      "product_id": "prod-frosting-sauce-basic-pa",
+      "raw_id": "raw-104267",
+      "qty": 0.05442,
+      "waste": 1
+    },
+    {
+      "id": 338,
+      "product_id": "prod-frosting-sauce-basic-pa",
+      "raw_id": "raw-102169",
+      "qty": 0.11457,
+      "waste": 1
+    },
+    {
+      "id": 339,
+      "product_id": "prod-frosting-sauce-basic-pa",
+      "raw_id": "raw-104335",
+      "qty": 0.00191,
+      "waste": 1
+    },
+    {
+      "id": 340,
+      "product_id": "prod-frosting-sauce-basic-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.00048,
+      "waste": 1
+    },
+    {
+      "id": 341,
+      "product_id": "prod-frosting-sauce-basic-pa",
+      "raw_id": "raw-101003",
+      "qty": 0.00573,
+      "waste": 1
+    },
+    {
+      "id": 342,
+      "product_id": "prod-tomato-pizza-sauce-split-pa",
+      "raw_id": "raw-102222",
+      "qty": 2.63725,
+      "waste": 1
+    },
+    {
+      "id": 343,
+      "product_id": "prod-tomato-pizza-sauce-split-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.03165,
+      "waste": 1
+    },
+    {
+      "id": 344,
+      "product_id": "prod-tomato-pizza-sauce-split-pa",
+      "raw_id": "raw-102034",
+      "qty": 0.03165,
+      "waste": 1
+    },
+    {
+      "id": 345,
+      "product_id": "prod-tomato-pizza-sauce-split-pa",
+      "raw_id": "raw-102173",
+      "qty": 0.00422,
+      "waste": 1
+    },
+    {
+      "id": 346,
+      "product_id": "prod-tomato-pizza-sauce-split-pa",
+      "raw_id": "raw-102293",
+      "qty": 0.00422,
+      "waste": 1
+    },
+    {
+      "id": 347,
+      "product_id": "prod-tomato-pizza-sauce-split-pa",
+      "raw_id": "raw-104243",
+      "qty": 0.10549,
+      "waste": 1
+    },
+    {
+      "id": 348,
+      "product_id": "prod-classic-frosting-pa",
+      "raw_id": "raw-101069",
+      "qty": 0.18677,
+      "waste": 1
+    },
+    {
+      "id": 349,
+      "product_id": "prod-classic-frosting-pa",
+      "raw_id": "raw-104267",
+      "qty": 0.05323,
+      "waste": 1
+    },
+    {
+      "id": 350,
+      "product_id": "prod-classic-frosting-pa",
+      "raw_id": "raw-102169",
+      "qty": 0.11206,
+      "waste": 1
+    },
+    {
+      "id": 351,
+      "product_id": "prod-classic-frosting-pa",
+      "raw_id": "raw-104335",
+      "qty": 0.00187,
+      "waste": 1
+    },
+    {
+      "id": 352,
+      "product_id": "prod-classic-frosting-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.00047,
+      "waste": 1
+    },
+    {
+      "id": 353,
+      "product_id": "prod-classic-frosting-pa",
+      "raw_id": "raw-101003",
+      "qty": 0.0056,
+      "waste": 1
+    },
+    {
+      "id": 354,
+      "product_id": "prod-mustard-mayonnaise-sauce-pa",
+      "raw_id": "raw-104142",
+      "qty": 0.07692,
+      "waste": 1
+    },
+    {
+      "id": 355,
+      "product_id": "prod-mustard-mayonnaise-sauce-pa",
+      "raw_id": "raw-104026",
+      "qty": 0.02308,
+      "waste": 1
+    },
+    {
+      "id": 356,
+      "product_id": "prod-lemon-curd-pa",
+      "raw_id": "raw-105004",
+      "qty": 4,
+      "waste": 1
+    },
+    {
+      "id": 357,
+      "product_id": "prod-lemon-curd-pa",
+      "raw_id": "raw-500505",
+      "qty": 2,
+      "waste": 1
+    },
+    {
+      "id": 358,
+      "product_id": "prod-lemon-curd-pa",
+      "raw_id": "raw-104267",
+      "qty": 0.16,
+      "waste": 1
+    },
+    {
+      "id": 359,
+      "product_id": "prod-lemon-curd-pa",
+      "raw_id": "raw-102034",
+      "qty": 0.32,
+      "waste": 1
+    },
+    {
+      "id": 360,
+      "product_id": "prod-lemon-curd-pa",
+      "raw_id": "raw-500509",
+      "qty": 0.022,
+      "waste": 1
+    },
+    {
+      "id": 361,
+      "product_id": "prod-lemon-curd-pa",
+      "raw_id": "raw-108030",
+      "qty": 0.26,
+      "waste": 1
+    },
+    {
+      "id": 362,
+      "product_id": "prod-lemon-curd-pa",
+      "raw_id": "raw-104335",
+      "qty": 0.004,
+      "waste": 1
+    },
+    {
+      "id": 363,
+      "product_id": "prod-sour-cream-mix-pa",
+      "raw_id": "raw-101098",
+      "qty": 0.50662,
+      "waste": 1
+    },
+    {
+      "id": 364,
+      "product_id": "prod-sour-cream-mix-pa",
+      "raw_id": "raw-101013",
+      "qty": 0.0304,
+      "waste": 1
+    },
+    {
+      "id": 365,
+      "product_id": "prod-blue-berry-sauce-pa",
+      "raw_id": "raw-108134",
+      "qty": 0.83333,
+      "waste": 1
+    },
+    {
+      "id": 366,
+      "product_id": "prod-blue-berry-sauce-pa",
+      "raw_id": "raw-102034",
+      "qty": 0.2,
+      "waste": 1
+    },
+    {
+      "id": 367,
+      "product_id": "prod-blue-berry-sauce-pa",
+      "raw_id": "raw-108030",
+      "qty": 0.04,
+      "waste": 1
+    },
+    {
+      "id": 368,
+      "product_id": "prod-hot-chocolate-sauce-pa",
+      "raw_id": "raw-104261",
+      "qty": 0.14698,
+      "waste": 1
+    },
+    {
+      "id": 369,
+      "product_id": "prod-hot-chocolate-sauce-pa",
+      "raw_id": "raw-104160",
+      "qty": 0.14698,
+      "waste": 1
+    },
+    {
+      "id": 370,
+      "product_id": "prod-hot-chocolate-sauce-pa",
+      "raw_id": "raw-101010",
+      "qty": 0.05919,
+      "waste": 1
+    },
+    {
+      "id": 371,
+      "product_id": "prod-hot-chocolate-sauce-pa",
+      "raw_id": "raw-101003",
+      "qty": 0.11739,
+      "waste": 1
+    },
+    {
+      "id": 372,
+      "product_id": "prod-hot-chocolate-sauce-pa",
+      "raw_id": "raw-104087",
+      "qty": 0.03946,
+      "waste": 1
+    },
+    {
+      "id": 373,
+      "product_id": "prod-roasted-pepper-mushroom-pa",
+      "raw_id": "raw-108024",
+      "qty": 0.52778,
+      "waste": 1
+    },
+    {
+      "id": 374,
+      "product_id": "prod-roasted-pepper-mushroom-pa",
+      "raw_id": "raw-108102",
+      "qty": 0.15833,
+      "waste": 1
+    },
+    {
+      "id": 375,
+      "product_id": "prod-roasted-pepper-mushroom-pa",
+      "raw_id": "raw-104013",
+      "qty": 0.05278,
+      "waste": 1
+    },
+    {
+      "id": 376,
+      "product_id": "prod-roasted-pepper-mushroom-pa",
+      "raw_id": "raw-108016",
+      "qty": 0.01847,
+      "waste": 1
+    },
+    {
+      "id": 377,
+      "product_id": "prod-roasted-pepper-mushroom-pa",
+      "raw_id": "raw-102171",
+      "qty": 0.00528,
+      "waste": 1
+    },
+    {
+      "id": 378,
+      "product_id": "prod-roasted-pepper-mushroom-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.00132,
+      "waste": 1
+    },
+    {
+      "id": 379,
+      "product_id": "prod-taztaziki-sauce-pa",
+      "raw_id": "raw-104188",
+      "qty": 2.772,
+      "waste": 1
+    },
+    {
+      "id": 380,
+      "product_id": "prod-taztaziki-sauce-pa",
+      "raw_id": "raw-108020",
+      "qty": 0.3696,
+      "waste": 1
+    },
+    {
+      "id": 381,
+      "product_id": "prod-taztaziki-sauce-pa",
+      "raw_id": "raw-104013",
+      "qty": 0.1386,
+      "waste": 1
+    },
+    {
+      "id": 382,
+      "product_id": "prod-taztaziki-sauce-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.01848,
+      "waste": 1
+    },
+    {
+      "id": 383,
+      "product_id": "prod-taztaziki-sauce-pa",
+      "raw_id": "raw-108016",
+      "qty": 0.01848,
+      "waste": 1
+    },
+    {
+      "id": 384,
+      "product_id": "prod-taztaziki-sauce-pa",
+      "raw_id": "raw-102159",
+      "qty": 0.00462,
+      "waste": 1
+    },
+    {
+      "id": 385,
+      "product_id": "prod-dill-tuna-mix-pa",
+      "raw_id": "raw-104155",
+      "qty": 0.75736,
+      "waste": 1
+    },
+    {
+      "id": 386,
+      "product_id": "prod-dill-tuna-mix-pa",
+      "raw_id": "raw-104142",
+      "qty": 0.1122,
+      "waste": 1
+    },
+    {
+      "id": 387,
+      "product_id": "prod-dill-tuna-mix-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.00561,
+      "waste": 1
+    },
+    {
+      "id": 388,
+      "product_id": "prod-dill-tuna-mix-pa",
+      "raw_id": "raw-102030",
+      "qty": 0.0014,
+      "waste": 1
+    },
+    {
+      "id": 389,
+      "product_id": "prod-dill-tuna-mix-pa",
+      "raw_id": "raw-108030",
+      "qty": 0.04488,
+      "waste": 1
+    },
+    {
+      "id": 390,
+      "product_id": "prod-dill-tuna-mix-pa",
+      "raw_id": "raw-108113",
+      "qty": 0.00842,
+      "waste": 1
+    },
+    {
+      "id": 391,
+      "product_id": "prod-dill-tuna-mix-pa",
+      "raw_id": "raw-104226",
+      "qty": 0.07013,
+      "waste": 1
+    },
+    {
+      "id": 392,
+      "product_id": "prod-hot-mustard-sauce-pa",
+      "raw_id": "raw-104419",
+      "qty": 0,
+      "waste": 1
+    },
+    {
+      "id": 393,
+      "product_id": "prod-hot-mustard-sauce-pa",
+      "raw_id": "raw-104026",
+      "qty": 0,
+      "waste": 1
+    },
+    {
+      "id": 394,
+      "product_id": "prod-hot-mustard-sauce-pa",
+      "raw_id": "raw-104007",
+      "qty": 0,
+      "waste": 1
+    },
+    {
+      "id": 395,
+      "product_id": "prod-hot-mustard-sauce-pa",
+      "raw_id": "raw-104199",
+      "qty": 0,
+      "waste": 1
+    },
+    {
+      "id": 396,
+      "product_id": "prod-round-pretzel-bread-pa",
+      "raw_id": "raw-102165",
+      "qty": 0.02068,
+      "waste": 1
+    },
+    {
+      "id": 397,
+      "product_id": "prod-round-pretzel-bread-pa",
+      "raw_id": "raw-200012",
+      "qty": 0.00062,
+      "waste": 1
+    },
+    {
+      "id": 398,
+      "product_id": "prod-round-pretzel-bread-pa",
+      "raw_id": "raw-102166",
+      "qty": 0.00741,
+      "waste": 1
+    },
+    {
+      "id": 399,
+      "product_id": "prod-round-pretzel-bread-pa",
+      "raw_id": "raw-101002",
+      "qty": 0.00031,
+      "waste": 1
+    },
+    {
+      "id": 400,
+      "product_id": "prod-round-pretzel-bread-pa",
+      "raw_id": "raw-102167",
+      "qty": 0.00093,
+      "waste": 1
+    },
+    {
+      "id": 415,
+      "product_id": "prod-ciabatta-bread-pa",
+      "raw_id": "raw-104013",
+      "qty": 0.00063,
+      "waste": 1
+    },
+    {
+      "id": 416,
+      "product_id": "prod-ciabatta-bread-pa",
+      "raw_id": "raw-102167",
+      "qty": 0.00126,
+      "waste": 1
+    },
+    {
+      "id": 417,
+      "product_id": "prod-ciabatta-bread-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.0126,
+      "waste": 1
+    },
+    {
+      "id": 418,
+      "product_id": "prod-brown-ciabatta-bread-pa-pa",
+      "raw_id": "raw-102165",
+      "qty": 0.04349,
+      "waste": 1
+    },
+    {
+      "id": 419,
+      "product_id": "prod-brown-ciabatta-bread-pa-pa",
+      "raw_id": "raw-200012",
+      "qty": 0.00099,
+      "waste": 1
+    },
+    {
+      "id": 420,
+      "product_id": "prod-brown-ciabatta-bread-pa-pa",
+      "raw_id": "raw-102166",
+      "qty": 0.00497,
+      "waste": 1
+    },
+    {
+      "id": 421,
+      "product_id": "prod-brown-ciabatta-bread-pa-pa",
+      "raw_id": "raw-104013",
+      "qty": 0.00062,
+      "waste": 1
+    },
+    {
+      "id": 422,
+      "product_id": "prod-brown-ciabatta-bread-pa-pa",
+      "raw_id": "raw-102167",
+      "qty": 0.00155,
+      "waste": 1
+    },
+    {
+      "id": 423,
+      "product_id": "prod-brown-ciabatta-bread-pa-pa",
+      "raw_id": "raw-500505",
+      "qty": 0.00124,
+      "waste": 1
+    },
+    {
+      "id": 424,
+      "product_id": "prod-brown-ciabatta-bread-pa-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.115,
+      "waste": 1
+    },
+    {
+      "id": 425,
+      "product_id": "prod-large-pizza-dough-pa",
+      "raw_id": "raw-102218",
+      "qty": 0.22,
+      "waste": 1
+    },
+    {
+      "id": 426,
+      "product_id": "prod-large-pizza-dough-pa",
+      "raw_id": "raw-102285",
+      "qty": 0.08,
+      "waste": 1
+    },
+    {
+      "id": 427,
+      "product_id": "prod-large-pizza-dough-pa",
+      "raw_id": "raw-500505",
+      "qty": 0.16,
+      "waste": 1
+    },
+    {
+      "id": 428,
+      "product_id": "prod-large-pizza-dough-pa",
+      "raw_id": "raw-200012",
+      "qty": 0.012,
+      "waste": 1
+    },
+    {
+      "id": 429,
+      "product_id": "prod-large-pizza-dough-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.008,
+      "waste": 1
+    },
+    {
+      "id": 430,
+      "product_id": "prod-large-pizza-dough-pa",
+      "raw_id": "raw-102034",
+      "qty": 0.0008,
+      "waste": 1
+    },
+    {
+      "id": 431,
+      "product_id": "prod-large-pizza-dough-pa",
+      "raw_id": "raw-102220",
+      "qty": 0.006,
+      "waste": 1
+    },
+    {
+      "id": 432,
+      "product_id": "prod-large-pizza-dough-pa",
+      "raw_id": "raw-104243",
+      "qty": 0.6,
+      "waste": 1
+    },
+    {
+      "id": 433,
+      "product_id": "prod-pizza-dough-pa",
+      "raw_id": "raw-102218",
+      "qty": 0.13,
+      "waste": 1
+    },
+    {
+      "id": 434,
+      "product_id": "prod-pizza-dough-pa",
+      "raw_id": "raw-200012",
+      "qty": 0.005,
+      "waste": 1
+    },
+    {
+      "id": 435,
+      "product_id": "prod-pizza-dough-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.005,
+      "waste": 1
+    },
+    {
+      "id": 436,
+      "product_id": "prod-pizza-dough-pa",
+      "raw_id": "raw-104243",
+      "qty": 0.0002,
+      "waste": 1
+    },
+    {
+      "id": 437,
+      "product_id": "prod-pizza-dough-pa",
+      "raw_id": "raw-102220",
+      "qty": 0.008,
+      "waste": 1
+    },
+    {
+      "id": 438,
+      "product_id": "prod-french-baghette-pa",
+      "raw_id": "raw-102165",
+      "qty": 0.05743,
+      "waste": 1
+    },
+    {
+      "id": 439,
+      "product_id": "prod-french-baghette-pa",
+      "raw_id": "raw-200012",
+      "qty": 0.00053,
+      "waste": 1
+    },
+    {
+      "id": 440,
+      "product_id": "prod-french-baghette-pa",
+      "raw_id": "raw-102166",
+      "qty": 0.00136,
+      "waste": 1
+    },
+    {
+      "id": 441,
+      "product_id": "prod-french-baghette-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.01511,
+      "waste": 1
+    },
+    {
+      "id": 442,
+      "product_id": "prod-french-baghette-pa",
+      "raw_id": "raw-500505",
+      "qty": 0.01511,
+      "waste": 1
+    },
+    {
+      "id": 443,
+      "product_id": "prod-lovan-dough-pa",
+      "raw_id": "raw-102165",
+      "qty": 0.04329,
+      "waste": 1
+    },
+    {
+      "id": 444,
+      "product_id": "prod-lovan-dough-pa",
+      "raw_id": "raw-200012",
+      "qty": 0.00054,
+      "waste": 1
+    },
+    {
+      "id": 445,
+      "product_id": "prod-lovan-dough-pa",
+      "raw_id": "raw-500505",
+      "qty": 0,
+      "waste": 1
+    },
+    {
+      "id": 446,
+      "product_id": "prod-cookies-can-pa",
+      "raw_id": "raw-104146",
+      "qty": 0.00073,
+      "waste": 1
+    },
+    {
+      "id": 447,
+      "product_id": "prod-cookies-can-pa",
+      "raw_id": "raw-102025",
+      "qty": 0.00293,
+      "waste": 1
+    },
+    {
+      "id": 448,
+      "product_id": "prod-cookies-can-pa",
+      "raw_id": "raw-101139",
+      "qty": 0.00135,
+      "waste": 1
+    },
+    {
+      "id": 449,
+      "product_id": "prod-cookies-can-pa",
+      "raw_id": "raw-105004",
+      "qty": 0.00611,
+      "waste": 1
+    },
+    {
+      "id": 450,
+      "product_id": "prod-cookies-can-pa",
+      "raw_id": "raw-102031",
+      "qty": 0.00007,
+      "waste": 1
+    },
+    {
+      "id": 451,
+      "product_id": "prod-cookies-can-pa",
+      "raw_id": "raw-102157",
+      "qty": 0.00017,
+      "waste": 1
+    },
+    {
+      "id": 452,
+      "product_id": "prod-cookies-can-pa",
+      "raw_id": "raw-101114",
+      "qty": 0.00002,
+      "waste": 1
+    },
+    {
+      "id": 453,
+      "product_id": "prod-cookies-can-pa",
+      "raw_id": "raw-104171",
+      "qty": 0.00003,
+      "waste": 1
+    },
+    {
+      "id": 454,
+      "product_id": "prod-cookies-can-pa",
+      "raw_id": "raw-102039",
+      "qty": 0.00293,
+      "waste": 1
+    },
+    {
+      "id": 455,
+      "product_id": "prod-cookies-can-pa",
+      "raw_id": "raw-104261",
+      "qty": 0.14674,
+      "waste": 1
+    }
+  ],
+  "orders": [],
+  "order_items": [],
+  "taztiki_records": []
+}
