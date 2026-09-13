@@ -705,6 +705,64 @@
       transition: width 0.3s ease;
     }
 
+  
+
+    /* ========== REDESIGNED ORDERS WORKBENCH ========== */
+    .orders-kpi-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+      gap: 14px !important;
+      margin-bottom: 18px !important;
+    }
+    .orders-nav-tabs {
+      display: flex !important;
+      gap: 8px !important;
+      background: rgba(15, 23, 42, 0.7) !important;
+      padding: 6px !important;
+      border-radius: 14px !important;
+      border: 1px solid rgba(255, 255, 255, 0.06) !important;
+      width: fit-content !important;
+      margin-bottom: 18px !important;
+      flex-wrap: wrap !important;
+    }
+    .orders-tab-btn {
+      padding: 8px 18px !important;
+      border-radius: 10px !important;
+      font-weight: 700 !important;
+      font-size: 13px !important;
+      color: #94a3b8 !important;
+      background: transparent !important;
+      border: none !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+    .orders-tab-btn:hover {
+      color: #f1f5f9 !important;
+      background: rgba(255, 255, 255, 0.04) !important;
+    }
+    .orders-tab-btn.active {
+      color: #fff !important;
+      background: linear-gradient(135deg, #7C3AED, #6D28D9) !important;
+      box-shadow: 0 0 16px rgba(124, 58, 237, 0.4) !important;
+    }
+    .excel-dropzone {
+      border: 2px dashed rgba(139, 92, 246, 0.45) !important;
+      background: rgba(124, 58, 237, 0.04) !important;
+      border-radius: 14px !important;
+      padding: 36px 20px !important;
+      text-align: center !important;
+      cursor: pointer !important;
+      transition: all 0.25s ease !important;
+    }
+    .excel-dropzone:hover {
+      border-color: rgba(139, 92, 246, 0.9) !important;
+      background: rgba(124, 58, 237, 0.09) !important;
+      box-shadow: 0 0 25px rgba(124, 58, 237, 0.25) !important;
+    }
+
   </style>
 </head>
 
@@ -1254,286 +1312,319 @@
 
 
 
+      <!-- ====================================================
+           BRANCH ORDERS & EXCEL IMPORT WORKBENCH (طلبات الفروع والاستيراد)
+           ==================================================== -->
       <section class="page" id="page-orders">
-        <div style="display:grid;grid-template-columns:340px 1fr;gap:20px" class="orders-layout">
-          <div class="sy3">
+        <!-- Top Executive KPI Summary Row -->
+        <div class="orders-kpi-grid">
+          <div class="kpi-card" style="padding:16px 18px;border-radius:16px;">
+            <div class="flex items-center justify-between mb-1">
+              <span class="kpi-label" data-ar="إجمالي الطلبيات" data-en="Total Orders">إجمالي الطلبيات</span>
+              <span style="font-size:1.3rem">📋</span>
+            </div>
+            <div class="kpi-value" id="orders-kpi-total" style="color:#f1f5f9;font-size:1.8rem;font-weight:800">0</div>
+            <div class="text-muted text-xs" data-ar="طلبية مسجلة بالنظام" data-en="Recorded in system">طلبية مسجلة بالنظام</div>
+          </div>
 
-            <!-- Excel Import Card -->
-            <div class="card sy3" style="border:1.5px dashed rgba(249,115,22,0.4);background:rgba(249,115,22,0.04)">
-              <h3 class="text-white font-bold flex items-center gap-2">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-                  <polyline points="14 2 14 8 20 8" />
-                  <line x1="16" y1="13" x2="8" y2="13" />
-                </svg>
-                <span data-ar="📥 استيراد وتجميع شيت إكسيل الفروع" data-en="📥 Import & Aggregate Branch Excel">📥
-                  استيراد وتجميع شيت إكسيل الفروع</span>
-              </h3>
-              <p class="text-muted text-sm"
-                data-ar="قراءة عمود K (الكميات)، وتجميع قوالب المطبخ والبار لكل فرع تلقائياً، واستخراج صوص البرجر منفصلاً"
-                data-en="Reads column K (Qty), auto-aggregates Kitchen & Bar templates per branch, and extracts burger sauce separately">
-                قراءة عمود K (الكميات)، وتجميع قوالب المطبخ والبار لكل فرع تلقائياً، واستخراج صوص البرجر منفصلاً</p>
+          <div class="kpi-card" style="padding:16px 18px;border-radius:16px;">
+            <div class="flex items-center justify-between mb-1">
+              <span class="kpi-label" data-ar="الفروع الطالبة" data-en="Active Branches">الفروع الطالبة</span>
+              <span style="font-size:1.3rem">🏢</span>
+            </div>
+            <div class="kpi-value" id="orders-kpi-branches" style="color:#A78BFA;font-size:1.8rem;font-weight:800">0</div>
+            <div class="text-muted text-xs" data-ar="فرع نشط لديه طلبات" data-en="Active branches with demand">فرع نشط لديه طلبات</div>
+          </div>
 
-              <div
-                style="border:2px dashed rgba(74,222,128,0.3);border-radius:12px;padding:18px;text-align:center;cursor:pointer;transition:all 0.2s"
-                id="excel-drop-zone" onclick="document.getElementById('excel-file-input').click()"
-                ondragover="event.preventDefault();this.style.borderColor='#4ade80'"
-                ondragleave="this.style.borderColor='rgba(74,222,128,0.3)'" ondrop="handleExcelDrop(event)">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.5"
-                  style="margin:0 auto 6px" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-                  <polyline points="17 8 12 3 7 8" />
-                  <line x1="12" y1="3" x2="12" y2="15" />
-                </svg>
-                <div style="color:#4ade80;font-weight:700;font-size:13.5px"
-                  data-ar="اسحب وأفلت ملف الفروع هنا أو اضغط للاختيار"
-                  data-en="Drag & drop branches file here or click to browse">
-                  اسحب وأفلت ملف الفروع هنا أو اضغط للاختيار</div>
-                <div class="text-muted text-sm mt-1">.xlsx / .xls / .csv</div>
+          <div class="kpi-card" style="padding:16px 18px;border-radius:16px;">
+            <div class="flex items-center justify-between mb-1">
+              <span class="kpi-label" data-ar="إجمالي وحدات الطلب" data-en="Total Units Demanded">إجمالي وحدات الطلب</span>
+              <span style="font-size:1.3rem">📦</span>
+            </div>
+            <div class="kpi-value" id="orders-kpi-units" style="color:#38BDF8;font-size:1.8rem;font-weight:800">0</div>
+            <div class="text-muted text-xs" data-ar="وحدة مطلوبة للتشغيل" data-en="Units to prepare">وحدة مطلوبة للتشغيل</div>
+          </div>
+
+          <div class="kpi-card" style="padding:16px 18px;border-radius:16px;">
+            <div class="flex items-center justify-between mb-1">
+              <span class="kpi-label" data-ar="إجمالي القيمة التقديرية" data-en="Est. Total Value">إجمالي القيمة التقديرية</span>
+              <span style="font-size:1.3rem">💰</span>
+            </div>
+            <div class="kpi-value" id="orders-kpi-val" style="color:#34D399;font-size:1.8rem;font-weight:800">0 ج.م</div>
+            <div class="text-muted text-xs" data-ar="تكلفة المنتجات المطلوبة" data-en="Total recipe cost">تكلفة المنتجات المطلوبة</div>
+          </div>
+        </div>
+
+        <!-- Segmented Tab Navigation Bar -->
+        <div class="orders-nav-tabs">
+          <button class="orders-tab-btn active" id="orders-tab-log" onclick="switchOrdersTab('log')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span data-ar="سجل وتجميع الطلبيات" data-en="Orders Log & Demand">سجل وتجميع الطلبيات</span>
+          </button>
+          <button class="orders-tab-btn" id="orders-tab-manual" onclick="switchOrdersTab('manual')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span data-ar="تسجيل طلبية يدوية" data-en="Manual Order Entry">تسجيل طلبية يدوية</span>
+          </button>
+          <button class="orders-tab-btn" id="orders-tab-excel" onclick="switchOrdersTab('excel')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <span data-ar="استيراد شيت إكسيل" data-en="Excel Batch Importer">استيراد شيت إكسيل</span>
+          </button>
+        </div>
+
+        <!-- ================= PANE 1: ORDERS LOG & DEMAND MATRIX ================= -->
+        <div class="orders-tab-pane" id="orders-pane-log" style="display:block;">
+          <!-- Filter & Action Toolbar -->
+          <div class="card" style="padding:14px 18px;border-radius:16px;margin-bottom:16px;">
+            <div class="flex items-center justify-between gap-3 flex-wrap">
+              <!-- Filter Controls -->
+              <div class="flex items-center gap-2.5 flex-wrap" style="flex:1;min-width:280px">
+                <div style="position:relative;min-width:220px;flex:1">
+                  <select class="select" id="f-branch" style="width:100%;height:40px;padding-right:34px;box-sizing:border-box" onchange="renderOrders()">
+                    <option value="" data-ar="🏢 جميع الفروع (بحث وتصفية)" data-en="🏢 All Branches">🏢 جميع الفروع (بحث وتصفية)</option>
+                  </select>
+                  <span style="position:absolute;right:10px;top:11px;pointer-events:none;color:#8B5CF6">🏢</span>
+                </div>
+
+                <div style="position:relative;width:170px">
+                  <input type="date" class="input" id="f-date" style="width:100%;height:40px;box-sizing:border-box" onchange="renderOrders()" title="تصفية بتاريخ الطلب" />
+                </div>
+
+                <button class="btn btn-secondary btn-sm" style="height:40px;padding:0 14px;border-radius:10px;" onclick="clearFilters()" data-ar="إلغاء الفلتر" data-en="Clear Filter">
+                  🔄 إلغاء الفلتر
+                </button>
               </div>
-              <input type="file" id="excel-file-input" accept=".xlsx,.xls,.csv" style="display:none"
-                onchange="handleExcelFile(this.files[0])" />
 
-              <button type="button" class="btn btn-sm w-full mt-2.5"
-                style="background:linear-gradient(135deg,rgba(34,197,94,0.18),rgba(16,185,129,0.25));border:1px solid rgba(34,197,94,0.45);color:#4ade80;font-weight:800;justify-content:center;padding:9px 14px;border-radius:10px;display:flex;align-items:center;gap:7px;transition:all 0.2s;cursor:pointer"
-                onclick="loadDefaultBranchesFile()">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                </svg>
-                <span data-ar="⚡ قراءة ملف الفروع المرفق (الفروع.xlsx) فوراً"
-                  data-en="⚡ Auto-Load Attached File (الفروع.xlsx)">⚡ قراءة ملف الفروع المرفق (الفروع.xlsx) فوراً</span>
-              </button>
-
-              <div id="excel-preview" style="display:none">
-                <div class="divider"></div>
-                <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:8px" id="excel-preview-title"></div>
-                <div class="tbl-wrap" style="max-height:220px">
-                  <table class="tbl" id="excel-preview-table">
-                    <thead></thead>
-                    <tbody></tbody>
-                  </table>
-                </div>
-                <div
-                  style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px 14px;margin-top:12px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
-                  <label class="flex items-center gap-2" style="font-size:13px;color:#e2e8f0;cursor:pointer">
-                    <input type="checkbox" id="excel-replace-mode" checked
-                      style="width:16px;height:16px;accent-color:#22c55e" />
-                    <span style="font-weight:700;color:#4ade80"
-                      data-ar="🔄 استبدال طلبات نفس التاريخ بالكامل (منع التكرار)"
-                      data-en="🔄 Replace existing orders of same date">🔄 استبدال طلبات نفس التاريخ بالكامل (منع
-                      التكرار)</span>
-                  </label>
-                  <span class="text-muted" style="font-size:11.5px"
-                    data-ar="يحذف النسخ السابقة لتاريخ الشيت لتجنب مضاعفة الأرقام"
-                    data-en="Removes previous entries for sheet date to prevent duplicate totals">يحذف النسخ السابقة
-                    لتاريخ الشيت لتجنب مضاعفة الأرقام</span>
-                </div>
-                <div class="flex gap-3 mt-3">
-                  <button class="btn btn-secondary btn-sm" onclick="cancelExcelImport()" data-ar="إلغاء"
-                    data-en="Cancel">إلغاء</button>
-                  <button class="btn btn-primary btn-sm" onclick="confirmExcelImport()">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    <span data-ar="تأكيد وحفظ الطلبيات المجمعة" data-en="Confirm & Save Aggregated Orders">تأكيد وحفظ
-                      الطلبيات المجمعة</span>
-                  </button>
-                </div>
+              <!-- Quick Action & Clear Buttons -->
+              <div class="flex items-center gap-2 flex-wrap">
+                <button class="btn btn-sm" style="height:40px;padding:0 14px;background:linear-gradient(135deg,#7C3AED,#6D28D9);color:#fff;border:none;border-radius:10px;font-weight:700;box-shadow:0 0 12px rgba(124,58,237,0.35)" onclick="switchOrdersTab('manual')">
+                  ➕ طلبية يدوية
+                </button>
+                <button class="btn btn-secondary btn-sm" style="height:40px;padding:0 14px;border-radius:10px;" onclick="switchOrdersTab('excel')">
+                  📥 استيراد إكسيل
+                </button>
+                <button class="btn btn-sm" style="height:40px;padding:0 12px;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);color:#f87171;border-radius:10px;font-weight:700;display:none" onclick="clearOrdersForDate()" id="btn-clear-date" title="مسح طلبات التاريخ المحدد">
+                  🗑️ مسح طلبات اليوم
+                </button>
+                <button class="btn btn-sm" style="height:40px;padding:0 12px;background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.35);color:#ef4444;border-radius:10px;font-weight:800" onclick="clearAllOrders()" title="مسح كل الطلبيات المسجلة">
+                  ⚠️ مسح كل الطلبيات
+                </button>
               </div>
             </div>
+          </div>
 
-            <!-- Sleek & Compact Dynamic Manual Order Card -->
-            <div class="card sy4"
-              style="border:1px solid rgba(249,115,22,0.25);background:linear-gradient(145deg,rgba(15,23,42,0.85),rgba(30,41,59,0.5))">
-              <div class="flex items-center justify-between">
-                <h3 class="text-white font-bold flex items-center gap-2">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="12" y1="8" x2="12" y2="16" />
-                    <line x1="8" y1="12" x2="16" y2="12" />
-                  </svg>
-                  <span data-ar="تسجيل طلبية يدوية للفرع" data-en="Manual Branch Order">تسجيل طلبية يدوية للفرع</span>
-                </h3>
-                <span class="badge badge-orange" style="font-size:11px" data-ar="إضافة سريعة" data-en="Quick Add">إضافة
-                  سريعة</span>
-              </div>
-
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <!-- Aggregated Demand Table Card -->
+          <div class="card" style="padding:18px 20px;border-radius:16px;margin-bottom:16px;">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <div style="width:32px;height:32px;border-radius:8px;background:rgba(124,58,237,0.2);display:flex;align-items:center;justify-content:center;color:#C4B5FD">
+                  📈
+                </div>
                 <div>
-                  <label class="field-label" data-ar="الفرع" data-en="Branch">الفرع</label>
-                  <select class="select" id="o-branch">
+                  <h3 class="text-white font-bold" style="font-size:15px;margin:0" data-ar="إجمالي الطلبات مجمّع بالمنتج" data-en="Aggregated Demand by Product">إجمالي الطلبات مجمّع بالمنتج</h3>
+                  <div class="text-muted text-xs" data-ar="الكميات الكلية المطلوبة لجميع الفروع المحسوبة آلياً" data-en="Total aggregated demand across branches">الكميات الكلية المطلوبة لجميع الفروع المحسوبة آلياً</div>
+                </div>
+              </div>
+              <span class="badge badge-purple" id="orders-count-badge" style="font-size:11.5px;padding:4px 10px;border-radius:8px">0 طلبات</span>
+            </div>
+
+            <div class="tbl-wrap" style="max-height:380px;border-radius:10px;">
+              <table class="tbl">
+                <thead>
+                  <tr>
+                    <th data-ar="المنتج" data-en="Product">المنتج</th>
+                    <th data-ar="إجمالي الوحدات" data-en="Total Units" style="text-align:center">إجمالي الوحدات</th>
+                    <th data-ar="الفروع الطالبة" data-en="Branches" style="text-align:center">الفروع الطالبة</th>
+                    <th data-ar="تكلفة الوحدة" data-en="Unit Cost" style="text-align:center">تكلفة الوحدة</th>
+                    <th data-ar="إجمالي التكلفة" data-en="Total Cost" style="text-align:center">إجمالي التكلفة</th>
+                  </tr>
+                </thead>
+                <tbody id="agg-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Detailed Individual Orders Log Card -->
+          <div class="card" style="padding:18px 20px;border-radius:16px;">
+            <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+              <div class="flex items-center gap-2">
+                <div style="width:32px;height:32px;border-radius:8px;background:rgba(56,189,248,0.15);display:flex;align-items:center;justify-content:center;color:#38bdf8">
+                  📜
+                </div>
+                <div>
+                  <h3 class="text-white font-bold" style="font-size:15px;margin:0" data-ar="سجل طلبيات الفروع الفردية" data-en="Individual Branch Orders Log">سجل طلبيات الفروع الفردية</h3>
+                  <div class="text-muted text-xs" data-ar="تفاصيل كل طلبية مرسلة من كل فرع مع إمكانية عرض واستعراض الأصناف" data-en="Breakdown of individual orders per branch">تفاصيل كل طلبية مرسلة من كل فرع مع إمكانية عرض واستعراض الأصناف</div>
+                </div>
+                <span class="chip" id="indiv-orders-count-badge" style="font-size:11.5px;margin-right:6px">0 طلبية</span>
+              </div>
+              <button class="btn btn-secondary btn-sm" onclick="toggleOrdersListCollapse()" id="btn-toggle-orders-log" style="font-size:11.5px;padding:5px 12px;border-radius:8px">
+                <span id="toggle-orders-log-text">👁️ إخفاء السجل الفردي</span>
+              </button>
+            </div>
+
+            <div id="orders-log-container">
+              <div class="tbl-wrap" style="max-height:460px;border-radius:10px;">
+                <table class="tbl" id="indiv-orders-table">
+                  <thead>
+                    <tr>
+                      <th style="width:45px;text-align:center">#</th>
+                      <th data-ar="الفرع" data-en="Branch">الفرع</th>
+                      <th style="width:115px;text-align:center" data-ar="التاريخ" data-en="Date">التاريخ</th>
+                      <th style="width:125px;text-align:center" data-ar="صوص البرجر" data-en="Burger Sauce">صوص البرجر</th>
+                      <th style="text-align:center" data-ar="الأصناف المطلوبة" data-en="Items Ordered">الأصناف المطلوبة</th>
+                      <th style="width:125px;text-align:center" data-ar="القيمة التقديرية" data-en="Est. Value">القيمة التقديرية</th>
+                      <th style="width:130px;text-align:center" data-ar="إجراءات" data-en="Actions">إجراءات</th>
+                    </tr>
+                  </thead>
+                  <tbody id="orders-tbl-body"></tbody>
+                </table>
+              </div>
+              <div id="orders-list-empty" class="empty-state" style="display:none;padding:32px;text-align:center">
+                <p data-ar="لا توجد طلبيات تطابق معايير الفلترة الحالية" data-en="No branch orders found matching criteria">لا توجد طلبيات تطابق معايير الفلترة الحالية</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= PANE 2: MANUAL ORDER ENTRY ================= -->
+        <div class="orders-tab-pane" id="orders-pane-manual" style="display:none;">
+          <div class="card" style="max-width:850px;margin:0 auto;padding:24px 28px;border-radius:18px;border:1px solid rgba(124,58,237,0.35);background:linear-gradient(135deg,rgba(124,58,237,0.06),rgba(15,23,42,0.95));box-shadow:0 10px 35px rgba(0,0,0,0.5)">
+            <div class="flex items-center justify-between mb-4 pb-3" style="border-bottom:1px solid rgba(255,255,255,0.08)">
+              <div class="flex items-center gap-3">
+                <div style="width:40px;height:40px;border-radius:12px;background:rgba(124,58,237,0.25);border:1px solid rgba(139,92,246,0.4);display:flex;align-items:center;justify-content:center;color:#C4B5FD;font-size:1.2rem">
+                  ✍️
+                </div>
+                <div>
+                  <h3 class="text-white font-bold" style="font-size:17px;margin:0" data-ar="تسجيل طلبية يدوية للفرع" data-en="Manual Branch Order Entry">تسجيل طلبية يدوية للفرع</h3>
+                  <div class="text-muted" style="font-size:11.5px" data-ar="إدخال طلبية مخصصة مباشرة وتحديد الكميات وخصم الخامات آلياً" data-en="Create customized branch order with auto stock deduction">إدخال طلبية مخصصة مباشرة وتحديد الكميات وخصم الخامات آلياً</div>
+                </div>
+              </div>
+              <button class="btn btn-secondary btn-sm" onclick="switchOrdersTab('log')" style="border-radius:8px">✕ إغلاق والعودة</button>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:16px">
+              <!-- Branch & Date 2-col row -->
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+                <div>
+                  <label class="field-label" style="font-size:12px;font-weight:700;color:#cbd5e1;margin-bottom:6px;display:block" data-ar="🏢 الفرع المستهدف" data-en="Branch">🏢 الفرع المستهدف</label>
+                  <select class="select" id="o-branch" style="width:100%;height:42px;box-sizing:border-box">
                     <option value="" data-ar="-- اختر الفرع --" data-en="-- Select Branch --">-- اختر الفرع --</option>
                   </select>
                 </div>
                 <div>
-                  <label class="field-label" data-ar="تاريخ الطلبية" data-en="Order Date">تاريخ الطلبية</label>
-                  <input type="date" class="input" id="o-date" />
+                  <label class="field-label" style="font-size:12px;font-weight:700;color:#cbd5e1;margin-bottom:6px;display:block" data-ar="📅 تاريخ الطلبية" data-en="Order Date">📅 تاريخ الطلبية</label>
+                  <input type="date" class="input" id="o-date" style="width:100%;height:42px;box-sizing:border-box" />
                 </div>
               </div>
 
-              <!-- Item Picker Bar -->
-              <div
-                style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px">
-                <label class="field-label mb-1.5" data-ar="➕ اختيار الصنف وإضافته للطلبية"
-                  data-en="➕ Add Product to Order">➕ اختيار الصنف وإضافته للطلبية</label>
-                <div class="flex gap-2 items-center flex-wrap">
-                  <select class="select" id="o-item-select" style="flex:1;min-width:180px;font-size:13px">
+              <!-- Item Selector & Adder Sub-card -->
+              <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(124,58,237,0.25);border-radius:14px;padding:16px 18px;">
+                <label class="field-label" style="font-size:12px;font-weight:700;color:#C4B5FD;margin-bottom:8px;display:block" data-ar="➕ اختيار الصنف وإضافته للطلبية" data-en="Add Products to Order">➕ اختيار الصنف وإضافته للطلبية</label>
+                <div style="display:grid;grid-template-columns:1fr 110px auto;gap:10px;align-items:center;">
+                  <select class="select" id="o-item-select" style="width:100%;height:42px;box-sizing:border-box">
                     <option value="">-- ابحث أو اختر الصنف (171 صنف) --</option>
                   </select>
-                  <input type="number" step="any" min="0.01" value="1" class="input" id="o-item-qty"
-                    placeholder="الكمية" style="width:85px;text-align:center;font-weight:700" />
-                  <button type="button" class="btn btn-primary btn-sm" onclick="addManualOrderItem()"
-                    style="padding:8px 14px">
-                    <span>➕ إضافة</span>
+                  <input type="number" step="any" min="0.01" class="input" id="o-item-qty" value="1" placeholder="الكمية" style="width:100%;height:42px;text-align:center;font-weight:700;box-sizing:border-box" />
+                  <button type="button" class="btn" style="height:42px;padding:0 18px;background:linear-gradient(135deg,#7C3AED,#6D28D9);color:#fff;border:none;border-radius:10px;font-weight:700;box-shadow:0 0 12px rgba(124,58,237,0.3)" onclick="addManualOrderItem()">
+                    ➕ إضافة
                   </button>
                 </div>
+
+                <!-- Selected items live preview table -->
+                <div id="o-selected-wrap" style="display:none;margin-top:14px;border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;">
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="text-xs font-bold text-white flex items-center gap-1">
+                      <span>📋</span> <span data-ar="الأصناف المضافة للطلبية الحالية:" data-en="Added items:">الأصناف المضافة للطلبية الحالية:</span>
+                    </span>
+                    <button type="button" onclick="clearManualOrderItems()" class="btn btn-sm" style="font-size:10.5px;padding:2px 8px;background:rgba(239,68,68,0.15);color:#f87171;border:none;border-radius:6px">مسح الكل</button>
+                  </div>
+                  <div class="tbl-wrap" style="max-height:190px;border-radius:8px">
+                    <table class="tbl" id="o-selected-table" style="font-size:11.5px">
+                      <thead>
+                        <tr>
+                          <th style="text-align:right;padding:6px 10px" data-ar="الصنف" data-en="Item">الصنف</th>
+                          <th style="width:80px;text-align:center;padding:6px 6px" data-ar="الكمية" data-en="Qty">الكمية</th>
+                          <th style="width:55px;text-align:center;padding:6px 6px" data-ar="الوحدة" data-en="Unit">الوحدة</th>
+                          <th style="width:85px;text-align:center;padding:6px 8px" data-ar="الإجمالي" data-en="Total">الإجمالي</th>
+                          <th style="width:35px;text-align:center;padding:6px 4px">✕</th>
+                        </tr>
+                      </thead>
+                      <tbody id="o-selected-tbody"></tbody>
+                    </table>
+                  </div>
+                  <div class="flex justify-between items-center mt-3 px-2 text-sm font-bold" style="background:rgba(124,58,237,0.12);border-radius:8px;padding:8px 12px">
+                    <span class="text-muted" data-ar="إجمالي قيمة الطلبية:" data-en="Order Total:">إجمالي قيمة الطلبية:</span>
+                    <span id="o-manual-total-cost" style="color:#4ade80;font-size:15px;font-weight:800">0 ج.م</span>
+                  </div>
+                </div>
               </div>
 
-              <!-- Selected Items Table -->
-              <div id="o-selected-wrap" style="display:none">
-                <div class="flex items-center justify-between mb-1.5">
-                  <label class="field-label m-0" data-ar="📋 قائمة الأصناف المضافة للطلبية"
-                    data-en="📋 Added Items List">📋 قائمة الأصناف المضافة للطلبية</label>
-                  <button type="button" onclick="clearManualOrderItems()"
-                    style="background:none;border:none;color:#f87171;font-size:11.5px;cursor:pointer;font-weight:700">مسح
-                    الكل</button>
-                </div>
-                <div class="tbl-wrap" style="max-height:160px">
-                  <table class="tbl" style="font-size:12px">
-                    <thead>
-                      <tr>
-                        <th style="padding:6px 8px">${T('الصنف', 'Item')}</th>
-                        <th style="width:75px;text-align:center;padding:6px 8px">${T('الكمية', 'Qty')}</th>
-                        <th style="width:60px;text-align:center;padding:6px 8px">${T('الوحدة', 'Unit')}</th>
-                        <th style="width:75px;text-align:center;padding:6px 8px">${T('الإجمالي', 'Total')}</th>
-                        <th style="width:35px;text-align:center;padding:6px 4px">✕</th>
-                      </tr>
-                    </thead>
-                    <tbody id="o-selected-tbody"></tbody>
-                  </table>
-                </div>
-                <div class="flex justify-between items-center mt-2 px-1 text-sm font-bold">
-                  <span class="text-muted" data-ar="إجمالي قيمة الطلبية:" data-en="Order Total:">إجمالي قيمة
-                    الطلبية:</span>
-                  <span class="text-gradient" id="o-manual-total-cost">0 EGP</span>
-                </div>
-              </div>
-
+              <!-- Order Notes -->
               <div>
-                <label class="field-label" data-ar="ملاحظات الطلبية" data-en="Notes">ملاحظات الطلبية</label>
-                <input type="text" class="input" id="o-notes" placeholder="ملاحظات إضافية أو تشغيلية..." />
+                <label class="field-label" style="font-size:12px;font-weight:700;color:#cbd5e1;margin-bottom:6px;display:block" data-ar="📝 ملاحظات الطلبية (اختياري)" data-en="Notes">📝 ملاحظات الطلبية (اختياري)</label>
+                <input type="text" class="input" id="o-notes" placeholder="ملاحظات إضافية، الوردية، أو تفاصيل تشغيلية..." style="width:100%;height:40px;box-sizing:border-box" />
               </div>
 
-              <button class="btn btn-primary w-full" style="justify-content:center;padding:10px"
-                onclick="submitOrder()">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <span data-ar="حفظ واعتماد الطلبية في النظام" data-en="Save & Record Order">حفظ واعتماد الطلبية في
-                  النظام</span>
-              </button>
+              <!-- Submit Button -->
+              <div style="display:flex;gap:10px;margin-top:6px">
+                <button class="btn btn-primary" style="flex:1;height:44px;font-size:14px;font-weight:800;justify-content:center;background:linear-gradient(135deg,#7C3AED,#6D28D9);border:none;border-radius:12px;box-shadow:0 0 18px rgba(124,58,237,0.4)" onclick="submitOrder()">
+                  ✨ <span data-ar="حفظ واعتماد الطلبية في النظام" data-en="Save & Record Order">حفظ واعتماد الطلبية في النظام</span>
+                </button>
+                <button class="btn btn-secondary" style="height:44px;padding:0 20px;border-radius:12px;" onclick="switchOrdersTab('log')">
+                  إلغاء
+                </button>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div class="sy3">
-            <!-- Filter & Bulk Management Bar -->
-            <div class="card">
-              <div class="flex items-center justify-between gap-3 flex-wrap">
-                <div class="flex items-center gap-2.5 flex-wrap">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
-                  </svg>
-                  <select class="select" id="f-branch" style="min-width:210px" onchange="renderOrders()">
-                    <option value="" data-ar="🏢 جميع الفروع (بحث وتصفية)" data-en="🏢 All Branches">🏢 جميع الفروع (بحث
-                      وتصفية)</option>
-                  </select>
-                  <input type="date" class="input" id="f-date" style="width:160px" onchange="renderOrders()"
-                    title="تصفية بتاريخ الطلب" />
-                  <button class="btn btn-secondary btn-sm" onclick="clearFilters()" data-ar="إلغاء الفلتر"
-                    data-en="Clear Filter">إلغاء الفلتر</button>
+        <!-- ================= PANE 3: EXCEL BATCH IMPORTER ================= -->
+        <div class="orders-tab-pane" id="orders-pane-excel" style="display:none;">
+          <div class="card" style="max-width:850px;margin:0 auto;padding:24px 28px;border-radius:18px;border:1px solid rgba(139,92,246,0.35);background:linear-gradient(135deg,rgba(124,58,237,0.06),rgba(15,23,42,0.95));box-shadow:0 10px 35px rgba(0,0,0,0.5)">
+            <div class="flex items-center justify-between mb-4 pb-3" style="border-bottom:1px solid rgba(255,255,255,0.08)">
+              <div class="flex items-center gap-3">
+                <div style="width:40px;height:40px;border-radius:12px;background:rgba(124,58,237,0.25);border:1px solid rgba(139,92,246,0.4);display:flex;align-items:center;justify-content:center;color:#C4B5FD;font-size:1.2rem">
+                  📊
                 </div>
-                <div class="flex items-center gap-2 flex-wrap">
-                  <button class="btn btn-sm"
-                    style="background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);color:#f87171;font-weight:700"
-                    onclick="clearOrdersForDate()" id="btn-clear-date" title="مسح طلبات التاريخ المحدد">
-                    🗑️ <span data-ar="مسح طلبات اليوم المحدد" data-en="Delete Date Orders">مسح طلبات اليوم
-                      المحدد</span>
-                  </button>
-                  <button class="btn btn-sm"
-                    style="background:rgba(239,68,68,0.2);border:1px solid rgba(239,68,68,0.45);color:#ef4444;font-weight:800"
-                    onclick="clearAllOrders()" title="مسح كل الطلبيات المسجلة">
-                    ⚠️ <span data-ar="مسح كل الطلبيات" data-en="Delete All Orders">مسح كل الطلبيات</span>
-                  </button>
+                <div>
+                  <h3 class="text-white font-bold" style="font-size:17px;margin:0" data-ar="استيراد وتجميع شيت إكسيل الفروع" data-en="Import & Aggregate Branch Excel">استيراد وتجميع شيت إكسيل الفروع</h3>
+                  <div class="text-muted" style="font-size:11.5px" data-ar="قراءة كميات الأصناف، تجميع الفروع آلياً، واستخراج صوص البرجر منفصلاً" data-en="Auto parses Column K, groups branches, extracts burger sauce">قراءة كميات الأصناف، تجميع الفروع آلياً، واستخراج صوص البرجر منفصلاً</div>
                 </div>
               </div>
+              <button class="btn btn-secondary btn-sm" onclick="switchOrdersTab('log')" style="border-radius:8px">✕ إغلاق والعودة</button>
             </div>
 
-            <!-- Aggregated table -->
-            <div class="card">
-              <div class="flex items-center justify-between mb-3">
-                <h3 class="text-white font-bold" data-ar="إجمالي الطلبات مجمّع بالمنتج"
-                  data-en="Aggregated Demand by Product">إجمالي الطلبات مجمّع بالمنتج</h3>
-                <span class="badge badge-orange" id="orders-count-badge">0 طلبات</span>
+            <!-- Drag & Drop Zone -->
+            <div class="excel-dropzone" id="excel-drop-zone" onclick="document.getElementById('excel-file-input').click()">
+              <input type="file" id="excel-file-input" accept=".xlsx,.xls,.csv" style="display:none" onchange="handleExcelFile(this.files[0])" />
+              <div style="width:52px;height:52px;margin:0 auto 12px;border-radius:16px;background:rgba(124,58,237,0.2);display:flex;align-items:center;justify-content:center;color:#A78BFA">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
               </div>
-              <div class="tbl-wrap">
-                <table class="tbl">
-                  <thead>
-                    <tr>
-                      <th data-ar="المنتج" data-en="Product">المنتج</th>
-                      <th data-ar="إجمالي الوحدات" data-en="Total Units">إجمالي الوحدات</th>
-                      <th data-ar="الفروع الطالبة" data-en="Branches">الفروع الطالبة</th>
-                      <th data-ar="تكلفة الوحدة" data-en="Unit Cost">تكلفة الوحدة</th>
-                      <th data-ar="إجمالي التكلفة" data-en="Total Cost">إجمالي التكلفة</th>
-                    </tr>
-                  </thead>
-                  <tbody id="agg-body"></tbody>
-                </table>
+              <div style="font-size:14px;font-weight:700;color:#f1f5f9;margin-bottom:4px" data-ar="اسحب وأفلت ملف الفروع هنا أو اضغط للاختيار" data-en="Drop Branch Excel file here or click to browse">
+                اسحب وأفلت ملف الفروع هنا أو اضغط للاختيار
               </div>
+              <div class="text-muted" style="font-size:11.5px">يدعم ملفات .xlsx / .xls / .csv التابعة للفروع</div>
             </div>
 
-            <!-- Individual orders (Sleek & Collapsible Table) -->
-            <div class="card" style="border:1px solid rgba(255,255,255,0.08)">
-              <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                <div class="flex items-center gap-2">
-                  <h3 class="text-white font-bold" data-ar="سجل طلبيات الفروع الفردية"
-                    data-en="Individual Branch Orders Log">سجل طلبيات الفروع الفردية</h3>
-                  <span class="chip" id="indiv-orders-count-badge" style="font-size:11.5px">0 طلبية</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <button class="btn btn-secondary btn-sm" onclick="toggleOrdersListCollapse()"
-                    id="btn-toggle-orders-log" style="font-size:11.5px;padding:4px 10px">
-                    <span id="toggle-orders-log-text">👁️ إخفاء السجل الفردي</span>
-                  </button>
-                </div>
-              </div>
+            <!-- Direct Instant Load Button -->
+            <button class="btn w-full mt-3" style="height:44px;justify-content:center;background:rgba(124,58,237,0.2);border:1px solid rgba(139,92,246,0.4);color:#C4B5FD;font-weight:700;font-size:13px;border-radius:12px;transition:all 0.2s ease;" onclick="loadDefaultBranchesFile()">
+              ⚡ <span data-ar="قراءة ملف الفروع المرفق (الفروع.xlsx) فوراً" data-en="Load Attached (الفروع.xlsx) Instantly">قراءة ملف الفروع المرفق (الفروع.xlsx) فوراً</span>
+            </button>
 
-              <div id="orders-log-container">
-                <div class="tbl-wrap" style="max-height:420px">
-                  <table class="tbl" id="indiv-orders-table">
-                    <thead>
-                      <tr>
-                        <th style="width:40px;text-align:center">#</th>
-                        <th>${T('الفرع', 'Branch')}</th>
-                        <th style="width:110px;text-align:center">${T('التاريخ', 'Date')}</th>
-                        <th style="width:120px;text-align:center">${T('صوص البرجر', 'Burger Sauce')}</th>
-                        <th style="text-align:center">${T('الأصناف المطلوبة', 'Items Ordered')}</th>
-                        <th style="width:110px;text-align:center">${T('القيمة التقديرية', 'Est. Value')}</th>
-                        <th style="width:140px;text-align:center">${T('إجراءات', 'Actions')}</th>
-                      </tr>
-                    </thead>
-                    <tbody id="orders-tbl-body"></tbody>
-                  </table>
-                </div>
-                <div id="orders-list-empty" class="empty-state" style="display:none;padding:24px">
-                  <p data-ar="لا توجد طلبيات تطابق معايير الفلترة الحالية"
-                    data-en="No branch orders found matching criteria">لا توجد طلبيات تطابق معايير الفلترة الحالية</p>
-                </div>
+            <!-- Excel Preview & Approval Box -->
+            <div id="excel-preview" style="display:none;margin-top:18px;background:rgba(15,23,42,0.9);border:1px solid rgba(139,92,246,0.3);border-radius:14px;padding:16px 18px;">
+              <div class="flex justify-between items-center mb-3">
+                <span class="font-bold text-sm text-white" id="excel-preview-title">معاينة الشيت المستورد</span>
+                <label class="flex items-center gap-2 text-xs" style="color:#cbd5e1;cursor:pointer">
+                  <input type="checkbox" id="excel-replace-mode" checked style="accent-color:#7C3AED" />
+                  <span data-ar="استبدال طلبات نفس اليوم وتفادي التكرار" data-en="Replace same date orders">استبدال طلبات نفس اليوم وتفادي التكرار</span>
+                </label>
+              </div>
+              <div class="tbl-wrap" style="max-height:220px;margin-bottom:14px;border-radius:8px">
+                <table class="tbl" id="excel-preview-table" style="font-size:11.5px"></table>
+              </div>
+              <div class="flex gap-2">
+                <button class="btn btn-secondary flex-1" style="height:38px;justify-content:center;border-radius:10px" onclick="cancelExcelImport()" data-ar="إلغاء" data-en="Cancel">إلغاء</button>
+                <button class="btn btn-primary flex-1" style="height:38px;justify-content:center;background:linear-gradient(135deg,#7C3AED,#6D28D9);border:none;border-radius:10px;font-weight:700" onclick="confirmExcelImport()" data-ar="اعتماد واستيراد الشيت" data-en="Confirm & Import">اعتماد واستيراد الشيت</button>
               </div>
             </div>
           </div>
@@ -10059,6 +10150,24 @@
       }
     }
 
+    
+    function switchOrdersTab(tabId) {
+      document.querySelectorAll('.orders-tab-pane').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.orders-tab-btn').forEach(el => el.classList.remove('active'));
+
+      const targetPane = document.getElementById('orders-pane-' + tabId);
+      const targetBtn = document.getElementById('orders-tab-' + tabId);
+      if (targetPane) targetPane.style.display = 'block';
+      if (targetBtn) targetBtn.classList.add('active');
+
+      if (tabId === 'manual') {
+        initManualItemPicker();
+        syncBranchDropdowns();
+        const oDateEl = document.getElementById('o-date');
+        if (oDateEl && !oDateEl.value) oDateEl.value = todayStr();
+      }
+    }
+
     function renderOrders() {
       syncBranchDropdowns();
       initManualItemPicker();
@@ -10081,6 +10190,28 @@
         if (fd && orderDate !== fd) return false;
         return true;
       });
+
+      // Update Executive KPI Summary
+      const kpiTotalOrders = filtered.length;
+      const kpiActiveBranches = new Set(filtered.map(o => o.branch)).size;
+      let kpiTotalUnits = 0;
+      let kpiTotalValue = 0;
+      filtered.forEach(o => {
+        Object.entries(o.items || {}).forEach(([pid, q]) => {
+          kpiTotalUnits += q;
+          const p = S.products.find(x => x.id === pid);
+          if (p) kpiTotalValue += q * (p.cost || 0);
+        });
+      });
+
+      const elTotal = document.getElementById('orders-kpi-total');
+      if (elTotal) elTotal.textContent = kpiTotalOrders;
+      const elBranches = document.getElementById('orders-kpi-branches');
+      if (elBranches) elBranches.textContent = kpiActiveBranches;
+      const elUnits = document.getElementById('orders-kpi-units');
+      if (elUnits) elUnits.textContent = fmt(kpiTotalUnits);
+      const elVal = document.getElementById('orders-kpi-val');
+      if (elVal) elVal.textContent = fmt(Math.round(kpiTotalValue)) + ' ' + cur();
 
       // ── Aggregated Table ──
       const agg = {};
