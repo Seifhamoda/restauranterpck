@@ -5,6 +5,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>نظام إدارة مطعم متكامل — Restaurant ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#0B0E14',
+            sidebar: '#0E111A',
+            card: '#13172A',
+            card2: '#1A1E35',
+            violet: { DEFAULT: '#7C3AED', light: '#8B5CF6', glow: 'rgba(124,58,237,0.25)' },
+            cyan: { DEFAULT: '#06B6D4', glow: 'rgba(6,182,212,0.2)' },
+            rose: '#F43F5E',
+            emerald: '#10B981',
+            amber: '#F59E0B',
+            border: '#1E2340',
+            muted: '#94A3B8',
+          },
+          fontFamily: { sans: ['Inter', 'Cairo', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -15,1583 +38,618 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     /* ===================================================
-   RESET & ROOT STYLES — COMMUNITY RESTAURANTS ERP
-=================================================== */
+       WEB3 / CRYPTO DASHBOARD — COMMUNITY KITCHEN OS
+       Violet Neon + Cyan + Glassmorphism Executive ERP
+    =================================================== */
     :root {
-      --accent: #f97316;
-      --accent2: #a855f7;
-      --accent3: #06b6d4;
-      --neon-green: #22c55e;
-      --card-bg: rgba(255, 255, 255, 0.035);
-      --border: rgba(255, 255, 255, 0.09);
-      --surface: #0b111f;
-      --surface2: #0f1928;
+      --canvas:     #0B0E14;
+      --sidebar:    #0E111A;
+      --card:       #13172A;
+      --card2:      #1A1E35;
+      --border:     #1E2340;
+      --border2:    rgba(124, 58, 237, 0.25);
+      
+      --violet:     #7C3AED;
+      --violet-l:   #8B5CF6;
+      --violet-ll:  #A78BFA;
+      --violet-glow:rgba(124, 58, 237, 0.3);
+      --violet-bg:  rgba(124, 58, 237, 0.08);
+      
+      --cyan:       #06B6D4;
+      --cyan-glow:  rgba(6, 182, 212, 0.25);
+      --cyan-bg:    rgba(6, 182, 212, 0.08);
+      
+      --emerald:    #10B981;
+      --rose:       #F43F5E;
+      --amber:      #F59E0B;
+      
+      --text:       #E2E8F0;
+      --text2:      #C4CDD8;
+      --muted:      #94A3B8;
+      --dim:        #64748B;
+      
+      --radius:     14px;
+      --shadow:     0 8px 32px rgba(0,0,0,0.5);
+      --glow-v:     0 0 40px rgba(124,58,237,0.2), 0 8px 24px rgba(0,0,0,0.5);
     }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *, *::before, *::after {
+      box-sizing: border-box; margin: 0; padding: 0;
       font-variant-numeric: lining-nums tabular-nums;
-      -webkit-font-feature-settings: "lnum" 1, "tnum" 1;
-      -moz-font-feature-settings: "lnum" 1, "tnum" 1;
-      font-feature-settings: "lnum" 1, "tnum" 1;
     }
 
-    html,
+    html, body { height: 100vh; overflow: hidden; }
     body {
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    body {
-      font-family: 'Cairo', 'Inter', sans-serif;
-      background: #060c18;
-      color: #e2e8f0;
-      display: flex;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-    }
-
-    /* ===== HIGH-PERFORMANCE GALAXY ATMOSPHERE ===== */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(ellipse 80% 60% at 10% 20%, rgba(168, 85, 247, 0.14) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 40% at 90% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 55%),
-        radial-gradient(ellipse 50% 70% at 50% 50%, rgba(249, 115, 22, 0.06) 0%, transparent 65%),
-        linear-gradient(135deg, #060c18 0%, #080f1e 50%, #060c18 100%);
-      transform: translateZ(0);
-    }
-
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background-image:
-        radial-gradient(1.5px 1.5px at 20% 30%, rgba(255, 255, 255, 0.45) 0%, transparent 100%),
-        radial-gradient(1px 1px at 80% 10%, rgba(255, 255, 255, 0.35) 0%, transparent 100%),
-        radial-gradient(1px 1px at 50% 60%, rgba(255, 255, 255, 0.3) 0%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 70% 80%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
-        radial-gradient(1px 1px at 10% 90%, rgba(255, 255, 255, 0.35) 0%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 35% 15%, rgba(255, 255, 255, 0.35) 0%, transparent 100%),
-        radial-gradient(1px 1px at 65% 45%, rgba(255, 255, 255, 0.25) 0%, transparent 100%),
-        radial-gradient(1px 1px at 88% 55%, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
-      opacity: 0.55;
-      transform: translateZ(0);
-    }
-
-    /* All main layout elements need z-index above the bg */
-    .sidebar,
-    .main {
-      position: relative;
-      z-index: 1;
-    }
-
-    [dir="ltr"] {
       font-family: 'Inter', 'Cairo', sans-serif;
-    }
-
-    /* Custom Scrollbars */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: rgba(6, 12, 24, 0.5);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, #a855f7, #f97316);
-      border-radius: 99px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #f97316;
-    }
-
-    /* ===================================================
-   SIDEBAR
-=================================================== */
-    .sidebar {
-      width: 260px;
-      min-width: 260px;
-      height: 100vh;
-      background: linear-gradient(180deg,
-          rgba(11, 17, 31, 0.98) 0%,
-          rgba(8, 13, 26, 0.97) 60%,
-          rgba(10, 7, 20, 0.98) 100%);
-      border-inline-end: 1px solid rgba(168, 85, 247, 0.15);
+      background: var(--canvas) !important;
+      color: var(--text);
       display: flex;
-      flex-direction: column;
-      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), min-width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      height: 100vh;
       overflow: hidden;
-      position: relative;
-      z-index: 100;
-      flex-shrink: 0;
-      box-shadow: 2px 0 40px rgba(168, 85, 247, 0.07);
     }
+    [dir="rtl"] body { font-family: 'Cairo', 'Inter', sans-serif; direction: rtl; }
 
-    .sidebar.collapsed {
-      width: 72px;
-      min-width: 72px;
-    }
+    body::before, body::after { display: none !important; }
 
-    .sidebar.collapsed .nav-label,
-    .sidebar.collapsed .brand-text,
-    .sidebar.collapsed .nav-section-label,
-    .sidebar.collapsed .footer-text {
-      display: none !important;
-    }
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: #0E111A; }
+    ::-webkit-scrollbar-thumb { background: var(--violet); border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--violet-l); }
 
-    .sidebar.collapsed .nav-item {
-      justify-content: center;
-      padding: 12px;
+    /* ========== SIDEBAR ========== */
+    .sidebar {
+      width: 220px !important; min-width: 220px !important; height: 100vh !important;
+      background: var(--sidebar) !important;
+      border-inline-end: 1px solid var(--border) !important;
+      display: flex !important; flex-direction: column !important;
+      transition: width 0.25s ease !important;
+      overflow: hidden !important; position: relative !important;
+      z-index: 100 !important; flex-shrink: 0 !important;
     }
-
-    .sidebar.collapsed .brand-area {
-      justify-content: center;
-      padding: 18px 10px;
-    }
+    .sidebar.collapsed { width: 68px !important; min-width: 68px !important; }
 
     .brand-area {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 18px 16px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex !important; flex-direction: column !important;
+      padding: 22px 18px 18px !important;
+      border-bottom: 1px solid var(--border) !important;
+      flex-shrink: 0 !important; cursor: pointer !important;
+      position: relative !important;
+    }
+    .brand-area::after {
+      content: ''; position: absolute; bottom: -1px; left: 18px; right: 18px;
+      height: 1px; background: linear-gradient(90deg, transparent, var(--violet), transparent);
+    }
+    .brand-name {
+      font-size: 17px !important; font-weight: 900 !important; color: #ffffff !important;
+      letter-spacing: 1px !important;
+    }
+    .brand-sub {
+      font-size: 10px !important; font-weight: 800 !important; color: var(--violet-l) !important;
+      letter-spacing: 1.5px !important; margin-top: 2px !important;
     }
 
-    .brand-logo-wrap {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: #ffffff;
-      padding: 3px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), 0 0 16px rgba(249, 115, 22, 0.25);
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      overflow: hidden;
-    }
-
-    .brand-logo-wrap:hover {
-      transform: scale(1.08) rotate(-2deg);
-      box-shadow: 0 6px 24px rgba(249, 115, 22, 0.45);
-    }
-
-    .brand-logo-img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 8px;
-    }
-
-    .brand-text h2 {
-      font-size: 15px;
-      font-weight: 900;
-      color: #ffffff;
-      white-space: nowrap;
-      letter-spacing: -0.01em;
-    }
-
-    .brand-text p {
-      font-size: 11px;
-      color: #f97316;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    nav {
-      flex: 1;
-      overflow-y: auto;
-      padding: 12px 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .nav-section-label {
-      font-size: 10px;
-      font-weight: 700;
-      color: #475569;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 12px 8px 4px;
-      white-space: nowrap;
+    .nav-scroll {
+      flex: 1 !important; overflow-y: auto !important; overflow-x: hidden !important;
+      padding: 14px 10px !important;
     }
 
     .nav-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 11px 14px;
-      border-radius: 12px;
-      cursor: pointer;
-      color: #64748b;
-      transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
-      white-space: nowrap;
-      border: 1px solid transparent;
-      position: relative;
-      overflow: hidden;
+      display: flex !important; align-items: center !important; gap: 10px !important;
+      padding: 9px 12px !important;
+      border-radius: 9px !important; cursor: pointer !important;
+      transition: all 0.18s ease !important;
+      color: var(--muted) !important; font-size: 13px !important; font-weight: 600 !important;
+      margin-bottom: 2px !important; white-space: nowrap !important; overflow: hidden !important;
     }
-
-    .nav-item::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(168, 85, 247, 0.12), rgba(249, 115, 22, 0.07));
-      opacity: 0;
-      transition: opacity 0.2s ease;
-      border-radius: 12px;
-    }
-
-    .nav-item:hover::before {
-      opacity: 1;
-    }
-
     .nav-item:hover {
-      color: #d8b4fe;
-      border-color: rgba(168, 85, 247, 0.2);
-      transform: translateX(-3px);
+      background: var(--violet-bg) !important;
+      color: var(--violet-ll) !important;
     }
-
     .nav-item.active {
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.22), rgba(249, 115, 22, 0.14));
-      color: #e9d5ff;
-      border-color: rgba(168, 85, 247, 0.4);
-      box-shadow: 0 4px 20px rgba(168, 85, 247, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      background: linear-gradient(135deg, rgba(124,58,237,0.18), rgba(139,92,246,0.1)) !important;
+      color: #ffffff !important; font-weight: 800 !important;
+      border: 1px solid rgba(124,58,237,0.35) !important;
+      box-shadow: 0 0 20px rgba(124,58,237,0.15), inset 0 1px 0 rgba(255,255,255,0.06) !important;
     }
-
-    .nav-item.active::after {
-      content: '';
-      position: absolute;
-      inset-inline-start: 0;
-      top: 30%;
-      bottom: 30%;
-      width: 3px;
-      background: linear-gradient(180deg, #a855f7, #f97316);
-      border-radius: 99px;
-      box-shadow: 0 0 10px #a855f7;
-    }
+    .nav-item.active .nav-icon { color: var(--violet-l) !important; }
 
     .nav-icon {
-      width: 19px;
-      height: 19px;
-      flex-shrink: 0;
+      font-size: 15px !important; width: 18px !important; text-align: center !important;
+      flex-shrink: 0 !important; color: var(--muted);
     }
+    .nav-label { flex: 1 !important; overflow: hidden !important; text-overflow: ellipsis !important; }
 
-    .nav-label {
-      font-size: 13.5px;
-      font-weight: 600;
+    .sidebar.collapsed .brand-area { padding: 16px 8px !important; text-align: center !important; }
+    .sidebar.collapsed .brand-name { font-size: 12px !important; }
+    .sidebar.collapsed .brand-sub { display: none !important; }
+    .sidebar.collapsed .nav-label { display: none !important; }
+    .sidebar.collapsed .nav-item { justify-content: center !important; padding: 10px !important; }
+    .sidebar.collapsed .sidebar-server-box { display: none !important; }
+
+    /* MOBILE OVERLAY */
+    .mob-overlay {
+      position: fixed !important; inset: 0 !important;
+      background: rgba(0,0,0,0.8) !important; backdrop-filter: blur(4px) !important;
+      z-index: 999 !important; display: none;
     }
+    .mob-overlay.open { display: block !important; }
 
-    .sidebar-footer {
-      padding: 12px 10px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    /* ===================================================
-   MAIN WRAPPER & TOPBAR
-=================================================== */
+    /* ========== TOPBAR ========== */
     .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      max-height: 100vh;
-      overflow: hidden;
-      min-width: 0;
+      flex: 1 1 0% !important; min-width: 0 !important; display: flex !important;
+      flex-direction: column !important; height: 100vh !important;
+      overflow: hidden !important; background: var(--canvas) !important;
     }
-
     .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 24px;
-      height: 64px;
-      background: linear-gradient(90deg,
-          rgba(7, 10, 20, 0.92) 0%,
-          rgba(10, 14, 28, 0.88) 50%,
-          rgba(7, 10, 20, 0.92) 100%);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-bottom: 1px solid rgba(168, 85, 247, 0.12);
-      flex-shrink: 0;
-      gap: 12px;
-      box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5), 0 0 0 0.5px rgba(255, 255, 255, 0.06);
+      height: 56px !important; min-height: 56px !important;
+      background: var(--sidebar) !important;
+      border-bottom: 1px solid var(--border) !important;
+      display: flex !important; align-items: center !important;
+      justify-content: space-between !important;
+      padding: 0 20px !important; gap: 14px !important; flex-shrink: 0 !important;
+      z-index: 50 !important;
     }
+    .topbar-left { display: flex !important; align-items: center !important; gap: 12px !important; min-width: 0 !important; }
+    .topbar-right { display: flex !important; align-items: center !important; gap: 10px !important; flex-shrink: 0 !important; }
 
-    .topbar-left {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+    #mob-btn {
+      display: none; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 8px;
+      background: rgba(124,58,237,0.1); border: 1px solid var(--border2);
+      color: var(--violet-l); cursor: pointer; flex-shrink: 0;
     }
+    #mob-btn:hover { background: rgba(124,58,237,0.2); }
 
-    #page-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: #ffffff;
-    }
-
-    .live-ticker {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 5px 12px;
-      border-radius: 20px;
-      background: rgba(34, 197, 94, 0.08);
-      border: 1px solid rgba(34, 197, 94, 0.25);
-      color: #4ade80;
-      font-size: 11.5px;
-      font-weight: 700;
-    }
-
-    .live-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #22c55e;
-      position: relative;
-      box-shadow: 0 0 8px #22c55e;
-      flex-shrink: 0;
-    }
-
-    .live-dot::after {
-      content: '';
-      position: absolute;
-      inset: -3px;
-      border-radius: 50%;
-      border: 1.5px solid #22c55e;
-      animation: pulseRing 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
-    }
-
-    @keyframes pulseRing {
-      0% {
-        transform: scale(0.6);
-        opacity: 1;
-      }
-
-      100% {
-        transform: scale(2.2);
-        opacity: 0;
-      }
-    }
-
-    .topbar-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .cmd-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #94a3b8;
-      font-size: 12px;
-      font-family: inherit;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .cmd-btn:hover {
-      background: rgba(249, 115, 22, 0.1);
-      border-color: rgba(249, 115, 22, 0.3);
-      color: #fb923c;
-    }
-
-    .cmd-btn kbd {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 4px;
-      padding: 1px 5px;
-      font-size: 10px;
-      font-family: inherit;
-      color: #cbd5e1;
-    }
-
-    .topbar-brand-badge {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: #ffffff;
-      padding: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 10px rgba(249, 115, 22, 0.2);
-      flex-shrink: 0;
-      overflow: hidden;
-    }
-
-    .topbar-brand-badge img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 8px;
-    }
-
-    /* ===================================================
-   CONTENT & PAGES
-============================================================ */
-    /* ===================================================
-   CONTENT & PAGES — ULTRA SMOOTH 60-120 FPS
-============================================================ */
+    /* ========== CONTENT & CARDS ========== */
     .content {
-      flex: 1;
-      min-height: 0;
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 26px;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-      transform: translateZ(0);
-      will-change: scroll-position;
+      width: 100% !important; max-width: 100% !important; flex: 1 1 0% !important;
+      min-height: 0 !important; height: 100% !important;
+      overflow-y: auto !important; overflow-x: hidden !important;
+      padding: 18px 22px 48px !important; box-sizing: border-box !important;
+      background: var(--canvas) !important;
+    }
+    .page { display: none !important; width: 100% !important; box-sizing: border-box !important; }
+    .page.active { display: block !important; animation: pageFadeIn 0.25s ease; }
+    @keyframes pageFadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    .page {
-      display: none;
+    /* Glassmorphism Cards */
+    .card, .stat-card {
+      background: linear-gradient(135deg, var(--card), var(--card2)) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: var(--radius) !important;
+      box-shadow: var(--shadow) !important;
+      padding: 18px 20px !important;
+      transform: none !important;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+      color: var(--text) !important;
+      position: relative !important; overflow: hidden !important;
+    }
+    .card::before, .stat-card::before {
+      content: '' !important; position: absolute !important;
+      top: 0 !important; left: 0 !important; right: 0 !important; height: 1px !important;
+      background: linear-gradient(90deg, transparent, rgba(139,92,246,0.5), transparent) !important;
+    }
+    .card::after, .stat-card::after { display: none !important; }
+    .card:hover, .stat-card:hover {
+      border-color: rgba(124,58,237,0.4) !important;
+      box-shadow: var(--glow-v) !important;
     }
 
-    .page.active {
-      display: block;
-      animation: snappyFadeIn 0.16s ease-out;
+    .card h3, .stat-card h3, .card h4, .stat-card h4 {
+      color: var(--text) !important; font-weight: 800 !important;
+    }
+    .card p, .stat-card p, .card .text-muted, .stat-card .text-muted {
+      color: var(--muted) !important;
     }
 
-    @keyframes snappyFadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(5px);
-      }
+    /* ========== KPI GRID ========== */
+    .kpi-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 12px !important; margin-bottom: 14px !important;
+    }
+    .kpi-card {
+      background: linear-gradient(135deg, var(--card), var(--card2)) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: var(--radius) !important;
+      padding: 16px 18px !important;
+      box-shadow: var(--shadow) !important;
+      position: relative !important; overflow: hidden !important;
+      transition: all 0.2s ease !important;
+    }
+    .kpi-card:hover { box-shadow: var(--glow-v) !important; }
+    .kpi-card::before {
+      content: '' !important; position: absolute !important;
+      top: 0 !important; left: 0 !important; right: 0 !important; height: 1px !important;
+      background: linear-gradient(90deg, transparent, rgba(139,92,246,0.6), transparent) !important;
+    }
+    .kpi-title {
+      color: var(--muted); font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.5px; text-transform: uppercase;
+    }
+    .kpi-num {
+      font-size: 22px; font-weight: 800; margin: 6px 0 2px;
+      font-variant-numeric: tabular-nums; line-height: 1.2;
+    }
+    .kpi-sub { color: var(--dim); font-size: 11px; font-weight: 600; }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .middle-grid {
+      display: grid !important;
+      grid-template-columns: 1.5fr 1fr !important;
+      gap: 14px !important; margin-bottom: 14px !important;
     }
 
-    /* ===================================================
-   CARDS & GRIDS — OPTIMIZED HIGH-PERFORMANCE GLASS
-=================================================== */
-    .card {
-      background: linear-gradient(145deg,
-          rgba(17, 24, 39, 0.85) 0%,
-          rgba(13, 19, 33, 0.90) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 22px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
-      transform: translateZ(0);
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      border-color: rgba(168, 85, 247, 0.25);
-      box-shadow:
-        0 12px 40px rgba(0, 0, 0, 0.45),
-        0 0 20px rgba(168, 85, 247, 0.08);
-    }
-
-    .stat-card {
-      background: linear-gradient(145deg,
-          rgba(22, 30, 50, 0.88) 0%,
-          rgba(14, 20, 36, 0.92) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 20px;
-      padding: 22px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-      transform: translateZ(0);
-      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-3px);
-      box-shadow:
-        0 16px 36px rgba(0, 0, 0, 0.45),
-        0 0 24px rgba(168, 85, 247, 0.12);
-      border-color: rgba(168, 85, 247, 0.3);
-    }
-
-    .g4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .g3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .g2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    @media (max-width: 1024px) {
-      .g4 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .g3 {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-
-      .g4,
-      .g2 {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ===================================================
-   BADGES, BUTTONS & FORM INPUTS
-=================================================== */
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 3px 10px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .badge-blue {
-      background: rgba(59, 130, 246, 0.16);
-      color: #60a5fa;
-      border: 1px solid rgba(59, 130, 246, 0.25);
-    }
-
-    .badge-green {
-      background: rgba(34, 197, 94, 0.16);
-      color: #4ade80;
-      border: 1px solid rgba(34, 197, 94, 0.25);
-    }
-
-    .badge-red {
-      background: rgba(239, 68, 68, 0.16);
-      color: #f87171;
-      border: 1px solid rgba(239, 68, 68, 0.25);
-    }
-
-    .badge-amber {
-      background: rgba(234, 179, 8, 0.16);
-      color: #facc15;
-      border: 1px solid rgba(234, 179, 8, 0.25);
-    }
-
-    .badge-orange {
-      background: rgba(249, 115, 22, 0.16);
-      color: #fb923c;
-      border: 1px solid rgba(249, 115, 22, 0.25);
-    }
-
-    .badge-slate {
-      background: rgba(100, 116, 139, 0.16);
-      color: #94a3b8;
-      border: 1px solid rgba(100, 116, 139, 0.25);
-    }
-
-    .badge-pulse {
-      animation: pulse-anim 2s infinite;
-    }
-
-    @keyframes pulse-anim {
-
-      0%,
-      100% {
-        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
-      }
-
-      50% {
-        box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
-      }
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
-      transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
-      font-family: inherit;
-      user-select: none;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-
-    .btn:hover::before {
-      opacity: 1;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #f97316 0%, #dc2626 60%, #a855f7 120%);
-      background-size: 200% 200%;
-      color: #ffffff;
-      box-shadow:
-        0 4px 18px rgba(249, 115, 22, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      animation: gradShift 4s ease infinite;
-    }
-
-    @keyframes gradShift {
-
-      0%,
-      100% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 8px 28px rgba(249, 115, 22, 0.5), 0 0 20px rgba(168, 85, 247, 0.25);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.06);
-      color: #cbd5e1;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(8px);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(168, 85, 247, 0.1);
-      border-color: rgba(168, 85, 247, 0.3);
-      color: #d8b4fe;
-      transform: translateY(-1px);
-    }
-
-    .btn-danger {
-      background: rgba(239, 68, 68, 0.1);
-      color: #fca5a5;
-      border: 1px solid rgba(239, 68, 68, 0.25);
-    }
-
-    .btn-danger:hover {
-      background: rgba(239, 68, 68, 0.22);
-      box-shadow: 0 4px 16px rgba(239, 68, 68, 0.25);
-      transform: translateY(-1px);
-    }
-
-    .btn-sm {
-      padding: 6px 14px;
-      font-size: 12px;
-      border-radius: 9px;
-    }
-
-    .btn-icon {
-      padding: 8px;
-    }
-
-    .input,
-    .select,
-    .textarea {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 10px;
-      padding: 10px 14px;
-      color: #ffffff;
-      font-size: 13.5px;
-      font-family: inherit;
-      outline: none;
-      width: 100%;
-      transition: all 0.2s ease;
-    }
-
-    .input:focus,
-    .select:focus,
-    .textarea:focus {
-      border-color: #f97316;
-      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .select option {
-      background: #0f172a;
-      color: #e2e8f0;
-    }
-
-    .input::placeholder {
-      color: #475569;
-    }
-
-    .field-label {
-      font-size: 12.5px;
-      color: #94a3b8;
-      margin-bottom: 6px;
-      display: block;
-      font-weight: 600;
-    }
-
-    /* ===================================================
-   TABLES — NEON ROW HOVER
-=================================================== */
+    /* ========== TABLES ========== */
     .tbl-wrap {
-      overflow-x: auto;
-      border-radius: 16px;
-      border: 1px solid rgba(168, 85, 247, 0.1);
+      background: transparent !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 10px !important; overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
     }
-
-    table.tbl {
-      width: 100%;
-      border-collapse: collapse;
+    table.tbl, .data-table { border-collapse: collapse !important; width: 100% !important; }
+    table.tbl thead, .data-table thead {
+      background: rgba(14,17,26,0.9) !important;
+      position: sticky !important; top: 0 !important; z-index: 10 !important;
     }
-
-    table.tbl thead {
-      background: linear-gradient(90deg,
-          rgba(168, 85, 247, 0.12) 0%,
-          rgba(6, 182, 212, 0.07) 100%);
+    table.tbl th, .data-table th {
+      background: rgba(14,17,26,0.95) !important; color: var(--muted) !important;
+      font-size: 11px !important; font-weight: 800 !important; text-transform: uppercase !important;
+      letter-spacing: 0.06em !important; border-bottom: 1px solid var(--border) !important;
+      padding: 11px 14px !important; text-align: start !important; white-space: nowrap !important;
     }
-
-    table.tbl th {
-      color: #a78bfa;
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      padding: 14px 16px;
-      text-align: start;
-      white-space: nowrap;
-      border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+    table.tbl td, .data-table td {
+      border-bottom: 1px solid rgba(30,35,64,0.6) !important; padding: 11px 14px !important;
+      color: var(--text) !important; font-size: 12.5px !important; font-weight: 500 !important;
+      background: transparent !important;
     }
-
-    table.tbl td {
-      padding: 13px 16px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      font-size: 13.5px;
-      vertical-align: middle;
-      color: #cbd5e1;
-      transition: background 0.15s ease, color 0.15s ease;
+    table.tbl tbody tr:hover td, .data-table tbody tr:hover td {
+      background: var(--violet-bg) !important;
     }
+    table.tbl tbody tr:last-child td { border-bottom: none !important; }
 
-    table.tbl tr:last-child td {
-      border-bottom: none;
+    /* ========== BUTTONS ========== */
+    .btn {
+      border-radius: 8px !important; font-weight: 800 !important; font-size: 12.5px !important;
+      transition: all 0.18s ease !important; cursor: pointer !important;
+      border: none !important; padding: 8px 16px !important;
+      display: inline-flex !important; align-items: center !important; gap: 6px !important;
     }
-
-    table.tbl tbody tr {
-      transition: all 0.15s ease;
+    .btn-primary, .btn-orange {
+      background: linear-gradient(135deg, var(--violet), var(--violet-l)) !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 16px var(--violet-glow) !important;
     }
-
-    table.tbl tbody tr:hover td {
-      background: linear-gradient(90deg,
-          rgba(168, 85, 247, 0.07) 0%,
-          rgba(249, 115, 22, 0.04) 100%);
-      color: #e2e8f0;
+    .btn-primary:hover, .btn-orange:hover {
+      background: linear-gradient(135deg, #6D28D9, var(--violet)) !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 6px 20px rgba(124,58,237,0.45) !important;
     }
-
-    .td-mono {
-      font-family: 'Courier New', monospace;
-      color: #a78bfa;
-      font-size: 12px;
-      font-weight: 700;
+    .btn-secondary {
+      background: rgba(124,58,237,0.08) !important;
+      border: 1px solid var(--border2) !important;
+      color: var(--text2) !important;
     }
+    .btn-secondary:hover { background: rgba(124,58,237,0.15) !important; color: #ffffff !important; }
+    .btn-sm { padding: 5px 10px !important; font-size: 11.5px !important; border-radius: 6px !important; }
 
-    /* Progress bar */
-    .progress {
-      height: 6px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 4px;
-      overflow: hidden;
+    /* ========== BADGES ========== */
+    .badge {
+      display: inline-flex !important; align-items: center !important; gap: 4px !important;
+      padding: 3px 9px !important; border-radius: 9999px !important; font-size: 10.5px !important;
+      font-weight: 700 !important; white-space: nowrap !important;
     }
+    .badge-green  { background: rgba(16,185,129,0.1) !important; color: #34D399 !important; border: 1px solid rgba(16,185,129,0.3) !important; }
+    .badge-red    { background: rgba(244,63,94,0.1) !important; color: #F87171 !important; border: 1px solid rgba(244,63,94,0.3) !important; }
+    .badge-orange { background: var(--violet-bg) !important; color: var(--violet-l) !important; border: 1px solid var(--border2) !important; }
+    .badge-blue, .badge-sky { background: var(--cyan-bg) !important; color: var(--cyan) !important; border: 1px solid rgba(6,182,212,0.3) !important; }
+    .badge-slate  { background: rgba(30,35,64,0.8) !important; color: var(--muted) !important; border: 1px solid var(--border) !important; }
 
-    .progress-bar {
-      height: 100%;
-      border-radius: 4px;
-      transition: width 0.4s ease;
+    /* ========== FILTER CHIPS ========== */
+    .filter-chip {
+      background: rgba(30,35,64,0.6); border: 1px solid var(--border);
+      color: var(--muted); padding: 4px 10px; border-radius: 6px;
+      font-size: 11px; font-weight: 700; cursor: pointer; transition: all 0.15s;
     }
+    .filter-chip:hover { color: var(--violet-l); border-color: var(--border2); }
+    .filter-chip.active { background: var(--violet); color: #fff; border-color: var(--violet); box-shadow: 0 0 12px var(--violet-glow); }
 
-    /* Utilities */
-    .flex {
-      display: flex;
-    }
-
-    .items-center {
-      align-items: center;
-    }
-
-    .justify-between {
-      justify-content: space-between;
-    }
-
-    .flex-wrap {
-      flex-wrap: wrap;
-    }
-
-    .gap-2 {
-      gap: 8px;
-    }
-
-    .gap-3 {
-      gap: 12px;
-    }
-
-    .w-full {
-      width: 100%;
-    }
-
-    .text-white {
-      color: #ffffff;
-    }
-
-    .text-muted {
-      color: #94a3b8;
-    }
-
-    .text-sm {
-      font-size: 13px;
-    }
-
-    .font-bold {
-      font-weight: 800;
-    }
-
-    .font-semibold {
-      font-weight: 600;
-    }
-
-    .mt-1 {
-      margin-top: 4px;
-    }
-
-    .mt-2 {
-      margin-top: 8px;
-    }
-
-    .mt-3 {
-      margin-top: 12px;
-    }
-
-    .mt-4 {
-      margin-top: 16px;
-    }
-
-    .mb-3 {
-      margin-bottom: 12px;
-    }
-
-    .mb-4 {
-      margin-bottom: 16px;
-    }
-
-    .sy3>*+* {
-      margin-top: 12px;
-    }
-
-    .sy4>*+* {
-      margin-top: 16px;
-    }
-
-    .text-gradient {
-      background: linear-gradient(135deg, #f97316 0%, #fbbf24 50%, #a855f7 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 800;
-    }
-
-    .divider {
-      height: 1px;
-      background: rgba(255, 255, 255, 0.08);
-      margin: 16px 0;
-    }
-
-    .empty-state {
-      text-align: center;
-      padding: 48px 20px;
-      color: #64748b;
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 4px 12px;
-      font-size: 12.5px;
-      color: #cbd5e1;
-    }
-
-    /* Toast — Premium Neon */
-    #toast {
-      position: fixed;
-      bottom: 28px;
-      inset-inline-end: 28px;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 22px;
-      border-radius: 16px;
-      background: linear-gradient(135deg,
-          rgba(15, 23, 42, 0.96) 0%,
-          rgba(30, 20, 50, 0.96) 100%);
-      border: 1px solid rgba(168, 85, 247, 0.35);
-      min-width: 270px;
-      box-shadow:
-        0 24px 64px rgba(0, 0, 0, 0.7),
-        0 0 20px rgba(168, 85, 247, 0.15);
-      transform: translateY(100px) scale(0.9);
-      opacity: 0;
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      pointer-events: none;
-      backdrop-filter: blur(20px);
-    }
-
-    #toast.show {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-    }
-
-    /* Modals — Glassmorphism Dark Premium */
+    /* ========== MODALS ========== */
     .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      z-index: 500;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      animation: modalFadeIn 0.2s ease;
+      position: fixed !important; inset: 0 !important;
+      background: rgba(0,0,0,0.85) !important; backdrop-filter: blur(8px) !important;
+      z-index: 2000 !important; display: none !important;
+      align-items: center !important; justify-content: center !important; padding: 16px !important;
     }
-
-    @keyframes modalFadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    .modal-overlay.open {
-      display: flex;
-    }
+    .modal-overlay.open { display: flex !important; animation: modalFadeIn 0.2s ease; }
+    @keyframes modalFadeIn { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
 
     .modal {
-      background: linear-gradient(145deg,
-          rgba(13, 20, 40, 0.97) 0%,
-          rgba(18, 12, 35, 0.97) 100%);
-      border: 1px solid rgba(168, 85, 247, 0.25);
-      border-radius: 24px;
-      padding: 30px;
-      width: 100%;
-      max-width: 540px;
-      max-height: 85vh;
-      overflow-y: auto;
-      box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.7),
-        0 0 0 0.5px rgba(168, 85, 247, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      animation: modalSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      background: linear-gradient(145deg, #13172A, #1A1E35) !important;
+      border: 1px solid rgba(124,58,237,0.3) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.7), 0 0 40px rgba(124,58,237,0.1) !important;
+      max-width: 520px !important; width: 100% !important;
+      max-height: 90vh !important; overflow-y: auto !important;
+      padding: 22px 24px !important; color: var(--text) !important; position: relative !important;
     }
-
-    @keyframes modalSlideUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px) scale(0.95);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
     .modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 22px;
+      display: flex !important; justify-content: space-between !important; align-items: center !important;
+      margin-bottom: 18px !important; padding-bottom: 12px !important;
+      border-bottom: 1px solid rgba(124,58,237,0.2) !important;
+    }
+    .modal-title { font-size: 15px !important; font-weight: 800 !important; color: #fff !important; margin: 0 !important; }
+    .modal-footer {
+      display: flex !important; justify-content: flex-end !important; gap: 10px !important;
+      margin-top: 18px !important; padding-top: 14px !important;
+      border-top: 1px solid rgba(124,58,237,0.15) !important;
     }
 
-    .modal-title {
-      font-size: 18px;
-      font-weight: 800;
-      background: linear-gradient(135deg, #e9d5ff, #fb923c);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    /* ========== FORMS ========== */
+    .form-control, .inp, select,
+    input[type="text"], input[type="number"], input[type="search"], input[type="date"], textarea {
+      background: rgba(11,14,20,0.9) !important; border: 1px solid var(--border) !important;
+      border-radius: 8px !important; color: var(--text) !important;
+      font-size: 13px !important; padding: 9px 13px !important; outline: none !important;
+      transition: all 0.15s ease !important; font-family: inherit !important;
+    }
+    .form-control:focus, .inp:focus, select:focus,
+    input[type="text"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="date"]:focus {
+      border-color: var(--violet) !important;
+      box-shadow: 0 0 0 3px var(--violet-glow) !important;
     }
 
-    /* Command Palette Modal */
-    .cmd-palette {
-      background: #0f172a;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 18px;
-      width: 100%;
-      max-width: 580px;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 30px rgba(249, 115, 22, 0.15);
-      overflow: hidden;
+    /* Orders Tab */
+    #orders-tab-btns {
+      background: rgba(14,17,26,0.9) !important; padding: 5px !important;
+      border-radius: 10px !important; display: inline-flex !important; gap: 4px !important;
+      border: 1px solid var(--border) !important;
+    }
+    .orders-tab-btn {
+      background: transparent !important; border: none !important; color: var(--muted) !important;
+      box-shadow: none !important; font-weight: 700 !important; font-size: 13px !important;
+      padding: 8px 18px !important; border-radius: 7px !important; transition: all 0.2s ease !important;
+      display: flex !important; align-items: center !important; gap: 7px !important; cursor: pointer !important;
+    }
+    .orders-tab-btn:hover { color: var(--violet-ll) !important; background: var(--violet-bg) !important; }
+    .orders-tab-btn.active, .orders-tab-btn.btn-primary {
+      background: linear-gradient(135deg, var(--violet), var(--violet-l)) !important;
+      color: #ffffff !important; box-shadow: 0 4px 14px var(--violet-glow) !important;
     }
 
-    .cmd-input-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 18px 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* ========== MISC ========== */
+    .sidebar-server-box {
+      border: 1px solid rgba(124,58,237,0.3) !important;
+      border-radius: 10px !important;
+      background: rgba(124,58,237,0.05) !important;
     }
 
-    .cmd-input {
-      background: transparent;
-      border: none;
-      color: #ffffff;
-      font-size: 15px;
-      font-weight: 600;
-      font-family: inherit;
-      width: 100%;
-      outline: none;
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1024px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .middle-grid { grid-template-columns: 1fr !important; }
     }
 
-    .cmd-results {
-      max-height: 360px;
-      overflow-y: auto;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .cmd-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 14px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-
-    .cmd-item:hover,
-    .cmd-item.selected {
-      background: rgba(249, 115, 22, 0.14);
-    }
-
-    .cmd-item-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .cmd-item-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #f97316;
-      flex-shrink: 0;
-    }
-
-    .cmd-item-title {
-      font-weight: 700;
-      font-size: 13.5px;
-      color: #ffffff;
-    }
-
-    .cmd-item-sub {
-      font-size: 11.5px;
-      color: #94a3b8;
-      margin-top: 2px;
-    }
-
-    /* Printable Voucher & Official Header */
-    .voucher-sheet {
-      background: #ffffff;
-      color: #0f172a;
-      padding: 28px;
-      border-radius: 12px;
-      max-width: 680px;
-      margin: 0 auto;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-      font-family: 'Cairo', sans-serif;
-    }
-
-    .voucher-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid #0f172a;
-      padding-bottom: 16px;
-      margin-bottom: 20px;
-    }
-
-    @media print {
-      body * {
-        visibility: hidden;
-      }
-
-      #printable-area,
-      #printable-area * {
-        visibility: visible;
-      }
-
-      #printable-area {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        background: white !important;
-        color: black !important;
-        padding: 20px;
-      }
-    }
-
-    /* ===================================================
-   EXTRA PREMIUM STYLING — GLOW NUMBERS & SECTION HEADERS
-=================================================== */
-
-    /* Section / page headers */
-    .page-header {
-      margin-bottom: 24px;
-    }
-
-    .page-header h1 {
-      font-size: 26px;
-      font-weight: 900;
-      background: linear-gradient(135deg, #ffffff 0%, #d8b4fe 60%, #fb923c 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.02em;
-    }
-
-    .page-header .sub {
-      font-size: 13px;
-      color: #64748b;
-      margin-top: 4px;
-    }
-
-    /* Big glowing KPI numbers */
-    .kpi-number {
-      font-size: 32px;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      line-height: 1;
-    }
-
-    .kpi-green {
-      color: #4ade80;
-      text-shadow: 0 0 20px rgba(74, 222, 128, 0.45);
-    }
-
-    .kpi-purple {
-      color: #c084fc;
-      text-shadow: 0 0 20px rgba(192, 132, 252, 0.45);
-    }
-
-    .kpi-orange {
-      color: #fb923c;
-      text-shadow: 0 0 20px rgba(249, 115, 22, 0.45);
-    }
-
-    .kpi-red {
-      color: #f87171;
-      text-shadow: 0 0 20px rgba(248, 113, 113, 0.45);
-    }
-
-    .kpi-cyan {
-      color: #22d3ee;
-      text-shadow: 0 0 20px rgba(34, 211, 238, 0.45);
-    }
-
-    .kpi-amber {
-      color: #fbbf24;
-      text-shadow: 0 0 20px rgba(251, 191, 36, 0.45);
-    }
-
-    /* Input premium */
-    .input:focus,
-    .select:focus,
-    .textarea:focus {
-      border-color: #a855f7;
-      box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.18), 0 0 12px rgba(168, 85, 247, 0.1);
-      background: rgba(255, 255, 255, 0.07);
-    }
-
-    /* Nav section label vivid */
-    .nav-section-label {
-      font-size: 9.5px;
-      font-weight: 800;
-      background: linear-gradient(90deg, #a855f7, #06b6d4);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 14px 8px 4px;
-      white-space: nowrap;
-    }
-
-    /* Command palette aurora glow */
-    .cmd-palette {
-      background: linear-gradient(145deg,
-          rgba(11, 17, 35, 0.98) 0%,
-          rgba(16, 10, 30, 0.98) 100%);
-      border: 1px solid rgba(168, 85, 247, 0.3);
-      border-radius: 20px;
-      width: 100%;
-      max-width: 600px;
-      box-shadow:
-        0 40px 100px rgba(0, 0, 0, 0.9),
-        0 0 40px rgba(168, 85, 247, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      overflow: hidden;
-    }
-
-    .cmd-item:hover,
-    .cmd-item.selected {
-      background: linear-gradient(90deg,
-          rgba(168, 85, 247, 0.18) 0%,
-          rgba(249, 115, 22, 0.1) 100%);
-    }
-
-    .cmd-item-icon {
-      background: linear-gradient(135deg,
-          rgba(168, 85, 247, 0.15),
-          rgba(249, 115, 22, 0.1));
-      border: 1px solid rgba(168, 85, 247, 0.2);
-    }
-
-    /* Ambient Glow Orbs — High Performance Static Compositing */
-    .aurora-orb {
-      position: fixed;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-      contain: strict;
-      transform: translateZ(0);
-    }
-
-    .orb-1 {
-      width: 520px;
-      height: 520px;
-      background: radial-gradient(circle, rgba(168, 85, 247, 0.09) 0%, transparent 70%);
-      top: -120px;
-      right: 8%;
-    }
-
-    .orb-2 {
-      width: 420px;
-      height: 420px;
-      background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 70%);
-      bottom: -90px;
-      left: 4%;
-    }
-
-    .orb-3 {
-      width: 320px;
-      height: 320px;
-      background: radial-gradient(circle, rgba(249, 115, 22, 0.07) 0%, transparent 70%);
-      top: 35%;
-      left: 38%;
-    }
-
-    /* Progress bars — gradient neon */
-    .progress {
-      height: 8px;
-      background: rgba(255, 255, 255, 0.06);
-      border-radius: 99px;
-      overflow: hidden;
-    }
-
-    .progress-bar {
-      height: 100%;
-      border-radius: 99px;
-      transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-      box-shadow: 0 0 8px rgba(168, 85, 247, 0.4);
-    }
-
-    /* Section divider vivid */
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg,
-          transparent 0%,
-          rgba(168, 85, 247, 0.3) 30%,
-          rgba(249, 115, 22, 0.2) 70%,
-          transparent 100%);
-      margin: 20px 0;
-    }
-
-    /* Chip glowing */
-    .chip {
-      background: rgba(168, 85, 247, 0.08);
-      border: 1px solid rgba(168, 85, 247, 0.2);
-      color: #c084fc;
-    }
-
-    /* Card subtle glow on active page title area */
-    #page-title {
-      font-size: 18px;
-      font-weight: 900;
-      background: linear-gradient(135deg, #ffffff 0%, #d8b4fe 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* ===================================================
-   MOBILE RESPONSIVENESS SUITE (SMARTPHONES & TABLETS)
-=================================================== */
-    .mob-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 1050;
-      transition: opacity 0.3s ease;
-    }
-
-    @media (max-width: 768px) {
-
-      html,
-      body {
-        height: 100vh;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .main {
-        height: 100vh;
-        max-height: 100vh;
-        overflow: hidden;
-        width: 100%;
-      }
-
-      .content {
-        padding: 14px 12px 60px 12px !important;
-        overflow-x: hidden;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      /* Mobile Sidebar Drawer */
+    @media (max-width: 900px) {
+      #mob-btn { display: inline-flex !important; }
       .sidebar {
-        position: fixed !important;
-        top: 0 !important;
-        bottom: 0 !important;
-        height: 100vh !important;
-        width: 280px !important;
-        max-width: 82vw !important;
-        z-index: 1100 !important;
-        box-shadow: 0 0 50px rgba(0, 0, 0, 0.9) !important;
-        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+        position: fixed !important; top: 0 !important; bottom: 0 !important;
+        z-index: 1000 !important; width: 230px !important; min-width: 230px !important;
+        box-shadow: 0 0 60px rgba(0,0,0,0.9) !important;
       }
-
-      [dir="rtl"] .sidebar {
-        right: 0 !important;
-        left: auto !important;
-        transform: translateX(105%) !important;
-      }
-
-      [dir="ltr"] .sidebar {
-        left: 0 !important;
-        right: auto !important;
-        transform: translateX(-105%) !important;
-      }
-
-      .sidebar.mob-open {
-        transform: translateX(0) !important;
-      }
-
-      .mob-overlay.open {
-        display: block !important;
-      }
-
-      /* Compact Mobile Topbar */
-      .topbar {
-        padding: 0 12px !important;
-        height: 56px !important;
-        gap: 8px !important;
-      }
-
-      .topbar-left {
-        gap: 8px !important;
-        overflow: hidden;
-        flex: 1;
-      }
-
-      #page-title {
-        font-size: 15px !important;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .live-ticker {
-        display: none !important;
-      }
-
-      .topbar-right {
-        gap: 6px !important;
-        flex-shrink: 0;
-      }
-
-      .cmd-btn {
-        padding: 7px 10px !important;
-        font-size: 12px !important;
-      }
-
-      .cmd-btn span,
-      .cmd-btn kbd {
-        display: none !important;
-      }
-
-      .topbar .chip {
-        display: none !important;
-      }
-
-      .topbar-brand-badge {
-        width: 32px !important;
-        height: 32px !important;
-      }
-
-      #mob-btn {
-        display: flex !important;
-        padding: 8px !important;
-        min-width: 36px;
-        justify-content: center;
-      }
-
-      /* Stack all grids & 2-column layouts vertically */
-      .g4,
-      .g3,
-      .g2,
-      .orders-layout,
-      .recipes-layout {
-        grid-template-columns: 1fr !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 14px !important;
-      }
-
-      .card {
-        padding: 16px 14px !important;
-        border-radius: 16px !important;
-      }
-
-      .stat-card {
-        padding: 16px 14px !important;
-        border-radius: 16px !important;
-      }
-
-      .kpi-number {
-        font-size: 26px !important;
-      }
-
-      /* Tables: smooth horizontal scroll without crushing columns */
-      .tbl-wrap {
-        width: 100% !important;
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        display: block !important;
-        border-radius: 12px !important;
-        margin-bottom: 8px;
-      }
-
-      table.tbl {
-        min-width: 560px !important;
-        font-size: 12.5px !important;
-      }
-
-      table.tbl th,
-      table.tbl td {
-        padding: 9px 11px !important;
-        white-space: nowrap !important;
-      }
-
-      /* Touch-friendly inputs & buttons */
-      .input,
-      .select,
-      .textarea {
-        font-size: 15px !important;
-        padding: 10px 12px !important;
-      }
-
-      .btn {
-        padding: 9px 14px !important;
-        font-size: 12.5px !important;
-      }
-
-      /* Modals: bottom-sheet or full screen fit on mobile */
-      .modal-overlay {
-        padding: 12px 8px !important;
-        align-items: center !important;
-      }
-
-      .modal {
-        padding: 20px 14px !important;
-        border-radius: 18px !important;
-        max-height: 88vh !important;
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-
-      .cmd-palette {
-        max-width: 96vw !important;
-        border-radius: 16px !important;
-      }
-
-      .voucher-sheet {
-        padding: 16px 12px !important;
-        overflow-x: auto !important;
-      }
+      [dir="ltr"] .sidebar { left: 0 !important; right: auto !important; transform: translateX(-100%) !important; }
+      [dir="rtl"] .sidebar { right: 0 !important; left: auto !important; transform: translateX(100%) !important; }
+      .sidebar.mob-open { transform: translateX(0) !important; }
+      .content { padding: 12px 14px 40px !important; }
     }
+
+    @media (max-width: 560px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+      .kpi-card { padding: 10px 12px !important; }
+      .kpi-num { font-size: 18px !important; }
+    }
+
+  
+
+    /* ========== TOAST NOTIFICATION (FLOATING PILL) ========== */
+    #toast {
+      position: fixed !important;
+      bottom: 28px !important;
+      left: 50% !important;
+      transform: translateX(-50%) translateY(25px) !important;
+      background: rgba(19, 23, 42, 0.95) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      border: 1px solid rgba(124, 58, 237, 0.45) !important;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(124, 58, 237, 0.25) !important;
+      border-radius: 9999px !important;
+      padding: 11px 24px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      z-index: 999999 !important;
+      pointer-events: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s ease !important;
+      max-width: min(650px, calc(100vw - 32px)) !important;
+      width: max-content !important;
+      box-sizing: border-box !important;
+      margin: 0 !important;
+    }
+    #toast.show {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      transform: translateX(-50%) translateY(0) !important;
+    }
+    #toast #t-icon {
+      flex-shrink: 0 !important;
+      display: block !important;
+    }
+    #toast #t-msg {
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      color: #F8FAFC !important;
+      line-height: 1.4 !important;
+      white-space: normal !important;
+    }
+
+  
+
+    /* ========== COMMAND PALETTE (SEARCH BAR MODAL) ========== */
+    #modal-cmd.modal-overlay {
+      align-items: flex-start !important;
+      padding-top: 10vh !important;
+      background: rgba(5, 7, 12, 0.8) !important;
+      backdrop-filter: blur(14px) !important;
+      -webkit-backdrop-filter: blur(14px) !important;
+    }
+    .cmd-palette {
+      width: 100% !important;
+      max-width: 620px !important;
+      background: linear-gradient(145deg, #13172A 0%, #1A1E35 100%) !important;
+      border: 1px solid rgba(124, 58, 237, 0.45) !important;
+      border-radius: 18px !important;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.85), 0 0 45px rgba(124, 58, 237, 0.25) !important;
+      overflow: hidden !important;
+      animation: cmdScaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    @keyframes cmdScaleIn {
+      from { opacity: 0; transform: scale(0.95) translateY(-10px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .cmd-input-wrap {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      padding: 16px 20px !important;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.25) !important;
+      background: rgba(11, 14, 20, 0.8) !important;
+    }
+    .cmd-input-wrap svg {
+      flex-shrink: 0 !important;
+    }
+    .cmd-input {
+      flex: 1 !important;
+      background: transparent !important;
+      border: none !important;
+      outline: none !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      color: #FFFFFF !important;
+      font-family: inherit !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+    }
+    .cmd-input:focus {
+      box-shadow: none !important;
+      border-color: transparent !important;
+    }
+    .cmd-input::placeholder {
+      color: #64748B !important;
+      font-size: 13.5px !important;
+    }
+    .cmd-close-btn {
+      width: 28px !important;
+      height: 28px !important;
+      border-radius: 8px !important;
+      background: rgba(124, 58, 237, 0.12) !important;
+      border: 1px solid rgba(124, 58, 237, 0.25) !important;
+      color: #A78BFA !important;
+      font-size: 12px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      transition: all 0.15s ease !important;
+    }
+    .cmd-close-btn:hover {
+      background: rgba(124, 58, 237, 0.25) !important;
+      color: #FFFFFF !important;
+    }
+    .cmd-results {
+      max-height: 380px !important;
+      overflow-y: auto !important;
+      padding: 10px !important;
+    }
+    .cmd-item {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 10px 14px !important;
+      border-radius: 12px !important;
+      cursor: pointer !important;
+      transition: all 0.15s ease !important;
+      margin-bottom: 4px !important;
+      border: 1px solid transparent !important;
+    }
+    .cmd-item:hover {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.18), rgba(139, 92, 246, 0.08)) !important;
+      border-color: rgba(124, 58, 237, 0.35) !important;
+      box-shadow: 0 4px 16px rgba(124, 58, 237, 0.15) !important;
+      transform: translateX(-2px) !important;
+    }
+    [dir="ltr"] .cmd-item:hover {
+      transform: translateX(2px) !important;
+    }
+    .cmd-item-left {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      min-width: 0 !important;
+      flex: 1 !important;
+    }
+    .cmd-item-icon {
+      width: 38px !important;
+      height: 38px !important;
+      border-radius: 10px !important;
+      background: rgba(124, 58, 237, 0.12) !important;
+      border: 1px solid rgba(124, 58, 237, 0.25) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 17px !important;
+      flex-shrink: 0 !important;
+    }
+    .cmd-item-title {
+      font-size: 13.5px !important;
+      font-weight: 700 !important;
+      color: #FFFFFF !important;
+      margin-bottom: 2px !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+    }
+    .cmd-item-sub {
+      font-size: 11px !important;
+      font-weight: 500 !important;
+      color: #94A3B8 !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+    }
+    .cmd-kbd {
+      background: rgba(124, 58, 237, 0.12) !important;
+      border: 1px solid rgba(124, 58, 237, 0.28) !important;
+      border-radius: 6px !important;
+      padding: 3px 8px !important;
+      font-size: 10.5px !important;
+      font-weight: 700 !important;
+      color: #A78BFA !important;
+      font-family: inherit !important;
+      flex-shrink: 0 !important;
+    }
+    .cmd-empty {
+      text-align: center !important;
+      padding: 32px 20px !important;
+      color: #94A3B8 !important;
+      font-size: 13.5px !important;
+      font-weight: 600 !important;
+    }
+
   </style>
 </head>
 
@@ -1606,122 +664,72 @@
 
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
-    <div class="brand-area">
-      <div class="brand-logo-wrap">
-        <img src="images.png" alt="Community Restaurants" class="brand-logo-img" />
-      </div>
-      <div class="brand-text">
-        <h2>Community</h2>
-        <p data-ar="المطبخ المركزي — ERP" data-en="Central Kitchen ERP">المطبخ المركزي — ERP</p>
+    <!-- BRAND HEADER (Auro-style) -->
+    <div class="brand-area" onclick="nav('dashboard')" title="Community Central Kitchen OS">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:2px;">
+        <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#A78BFA);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 16px rgba(124,58,237,0.4);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 0 0 6.99 3.34"/><path d="M4 6h.01M20 12a8 8 0 0 1-8 8"/><path d="M6 17.66a10 10 0 0 0 13.07.41"/></svg>
+        </div>
+        <div>
+          <div class="brand-name">COMMUNITY</div>
+          <div class="brand-sub">CENTRAL KITCHEN OS</div>
+        </div>
       </div>
     </div>
 
-    <nav>
-      <span class="nav-section-label" data-ar="الرئيسية" data-en="MAIN">الرئيسية</span>
+    <nav class="nav-scroll">
       <div class="nav-item active" data-page="dashboard" onclick="nav('dashboard')">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="7" height="7" />
-          <rect x="14" y="3" width="7" height="7" />
-          <rect x="14" y="14" width="7" height="7" />
-          <rect x="3" y="14" width="7" height="7" />
-        </svg>
-        <span class="nav-label" data-ar="لوحة التحكم" data-en="Dashboard">لوحة التحكم</span>
+        <span class="nav-icon">🟣</span>
+        <span class="nav-label" data-ar="لوحة المؤشرات العامة" data-en="Dashboard">لوحة المؤشرات</span>
       </div>
-      <div class="nav-item" data-page="reports" onclick="nav('reports')">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="20" x2="18" y2="10" />
-          <line x1="12" y1="20" x2="12" y2="4" />
-          <line x1="6" y1="20" x2="6" y2="14" />
-        </svg>
-        <span class="nav-label" data-ar="التقارير والتحليلات" data-en="Reports & Analytics">التقارير والتحليلات</span>
+      <div class="nav-item" data-page="centerstock" onclick="nav('centerstock')">
+        <span class="nav-icon">📦</span>
+        <span class="nav-label" data-ar="مخزون المركز والدفعات" data-en="Center Stock">مخزون المركز والدفعات</span>
       </div>
-
-      <span class="nav-section-label" data-ar="العمليات" data-en="OPERATIONS">العمليات</span>
       <div class="nav-item" data-page="orders" onclick="nav('orders')">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
-          <rect x="9" y="3" width="6" height="4" rx="2" />
-          <path d="M9 12h6M9 16h4" />
-        </svg>
-        <span class="nav-label" data-ar="طلبات الفروع" data-en="Branch Orders">طلبات الفروع</span>
-      </div>
-      <div class="nav-item" data-page="recipes" onclick="nav('recipes')">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
-          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
-        </svg>
-        <span class="nav-label" data-ar="الوصفات (BOM)" data-en="Recipes (BOM)">الوصفات (BOM)</span>
+        <span class="nav-icon">📋</span>
+        <span class="nav-label" data-ar="طلبات الفروع والاستيراد" data-en="Branch Orders">طلبات الفروع</span>
       </div>
       <div class="nav-item" data-page="production" onclick="nav('production')">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2 20a2 2 0 002 2h16a2 2 0 002-2V8l-7-6H4a2 2 0 00-2 2v8" />
-          <path d="M14 2v6h6" />
-        </svg>
-        <span class="nav-label" data-ar="مصفوفة الإنتاج والتوريد" data-en="Production & Dispatch">مصفوفة الإنتاج
-          والتوريد</span>
+        <span class="nav-icon">🍳</span>
+        <span class="nav-label" data-ar="خطة التشغيل والوصفات (BOM)" data-en="Daily Plan & BOM">خطة التشغيل والوصفات</span>
       </div>
       <div class="nav-item" data-page="inventory" onclick="nav('inventory')">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-        </svg>
-        <span class="nav-label" data-ar="المخزون" data-en="Inventory">المخزون</span>
+        <span class="nav-icon">🥫</span>
+        <span class="nav-label" data-ar="أرصدة الخامات (200 خامة)" data-en="Raw Inventory">أرصدة الخامات (200)</span>
       </div>
       <div class="nav-item" data-page="purchase" onclick="nav('purchase')">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="9" cy="21" r="1" />
-          <circle cx="20" cy="21" r="1" />
-          <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" />
-        </svg>
-        <span class="nav-label" data-ar="طلبات الشراء" data-en="Purchase Requests">طلبات الشراء</span>
-      </div>
-      <div class="nav-item" data-page="invoices" onclick="nav('invoices')">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-          <polyline points="14 2 14 8 20 8" />
-          <line x1="16" y1="13" x2="8" y2="13" />
-          <line x1="16" y1="17" x2="8" y2="17" />
-          <polyline points="10 9 9 9 8 9" />
-        </svg>
-        <span class="nav-label" data-ar="سجل الفواتير" data-en="Invoices">سجل الفواتير</span>
+        <span class="nav-icon">🛒</span>
+        <span class="nav-label" data-ar="أوامر الشراء للموردين" data-en="Purchase Orders">أوامر الشراء</span>
       </div>
       <div class="nav-item" data-page="waste" onclick="nav('waste')">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="3 6 5 6 21 6" />
-          <path d="M19 6l-1 14H6L5 6" />
-          <path d="M10 11v6" />
-          <path d="M14 11v6" />
-          <path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2" />
-        </svg>
-        <span class="nav-label" data-ar="سجل الهدر والتالف" data-en="Waste & Spoilage">سجل الهدر والتالف</span>
+        <span class="nav-icon">🗑️</span>
+        <span class="nav-label" data-ar="سجل الهدر والتالف" data-en="Waste Ledger">سجل الهدر والتالف</span>
+      </div>
+      <div class="nav-item" data-page="reports" onclick="nav('reports')">
+        <span class="nav-icon">📈</span>
+        <span class="nav-label" data-ar="المصفوفة والتقارير التنفيذية" data-en="Reports & Analytics">التقارير التنفيذية</span>
+      </div>
+
+      <!-- DIVIDER + LANGUAGE TOGGLE -->
+      <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(124,58,237,0.25),transparent);margin:10px 0;"></div>
+      <div class="nav-item" onclick="toggleLang()">
+        <span class="nav-icon">🌐</span>
+        <span class="nav-label" id="sidebar-lang-lbl">اللغة: English</span>
       </div>
     </nav>
 
-    <div class="sidebar-footer">
-      <div class="nav-item" onclick="toggleLang()" id="lang-btn">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10" />
-          <line x1="2" y1="12" x2="22" y2="12" />
-          <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
-        </svg>
-        <span class="nav-label" id="lang-lbl">English</span>
+    <!-- SERVER STATUS BOX (Auro-style with Violet glow) -->
+    <div class="sidebar-server-box" style="margin:auto 12px 14px;padding:12px 14px;">
+      <div style="color:#8B5CF6;font-size:10.5px;font-weight:800;display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#7C3AED;display:inline-block;box-shadow:0 0 8px #7C3AED;"></span>
+        <span data-ar="⚡ خادم أوبونتو 10 جيجا" data-en="⚡ UBUNTU SERVER 10GB">⚡ خادم أوبونتو 10 جيجا</span>
       </div>
-      <div class="nav-item" onclick="toggleSidebar()">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="2" />
-          <line x1="9" y1="3" x2="9" y2="21" />
-        </svg>
-        <span class="nav-label" data-ar="طي القائمة" data-en="Collapse">طي القائمة</span>
+      <div style="color:#64748B;font-size:10px;" data-ar="استضافة داخلية • مزامنة سحابية" data-en="Internal Host • Cloud Sync">استضافة داخلية • مزامنة سحابية</div>
+      <div style="color:#4B5563;font-size:9.5px;margin-top:2px;" data-ar="نسخ احتياطي يومي (00:00)" data-en="Auto Daily DB Backup (00:00)">نسخ احتياطي يومي تلقائي</div>
+      <div style="color:#10B981;font-size:10px;font-weight:700;margin-top:8px;display:flex;align-items:center;gap:5px;">
+        <span style="width:5px;height:5px;border-radius:50%;background:#10B981;display:inline-block;box-shadow:0 0 6px #10B981;"></span>
+        <span data-ar="جميع الأنظمة تعمل بكفاءة" data-en="ALL SYSTEMS OPERATIONAL">جميع الأنظمة تعمل بكفاءة</span>
       </div>
     </div>
   </aside>
@@ -1730,48 +738,43 @@
   <div class="main">
     <header class="topbar">
       <div class="topbar-left">
-        <button class="btn btn-secondary btn-icon" id="mob-btn" onclick="openMob()" style="display:none">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
+        <button id="mob-btn" onclick="openMob()" title="Menu" style="display:none;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.25);color:#8B5CF6;cursor:pointer;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
-        <h1 id="page-title" class="text-white">لوحة التحكم</h1>
-        <div class="live-ticker" id="live-pulse-ticker">
-          <span class="live-dot"></span>
-          <span class="live-text" id="live-ticker-text">المطبخ المركزي: تشغيل مباشر | تلبية الطلبات: 100%</span>
+
+        <!-- EXPLORE LABEL (matching Auro design) -->
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <span style="font-size:15px;font-weight:800;color:#fff;" data-ar="المطبخ المركزي" data-en="Explore">المطبخ المركزي</span>
+        </div>
+
+        <!-- GLOBAL SEARCH (Web3 pill style) -->
+        <div onclick="openCmdBar()" title="بحث سريع (Ctrl+K)" style="background:rgba(11,14,20,0.9);border:1px solid #1E2340;border-radius:9999px;padding:7px 16px;width:340px;max-width:100%;display:flex;align-items:center;gap:9px;cursor:pointer;transition:border-color 0.15s;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span style="color:#64748B;font-size:12px;flex:1;" data-ar="بحث في الـ 88 منتج، 200 خامة، وأوامر الشراء... (Ctrl+K)" data-en="Search 88 Products, 200 Raw Materials, POs... (Ctrl+K)">بحث في الـ 88 منتج، 200 خامة... (Ctrl+K)</span>
+          <kbd style="background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.3);border-radius:5px;padding:2px 7px;font-size:10px;color:#8B5CF6;font-family:monospace;">K</kbd>
         </div>
       </div>
+
       <div class="topbar-right">
-        <button class="cmd-btn" onclick="openCmdBar()" title="بحث سريع (Ctrl + K)">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
-          <span data-ar="بحث سريع..." data-en="Quick Search...">بحث سريع...</span>
-          <kbd>Ctrl K</kbd>
+        <!-- SPACE PILL (matching Auro design) -->
+        <div id="sql-sync-badge" onclick="toggleSqlSync()" style="background:rgba(11,14,20,0.9);border:1px solid #1E2340;border-radius:9999px;padding:6px 14px;color:#94A3B8;font-size:12px;font-weight:600;display:flex;align-items:center;gap:7px;cursor:pointer;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 7 13 17 8 12 1 19"/><polyline points="17 7 23 7 23 13"/></svg>
+          <span data-ar="⚡ السيرفر متصل" data-en="⚡ Cloud SQL Active">⚡ السيرفر متصل</span>
+        </div>
+
+        <!-- LANGUAGE TOGGLE -->
+        <button onclick="toggleLang()" style="background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.25);border-radius:8px;padding:6px 12px;color:#A78BFA;font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:5px;cursor:pointer;transition:all 0.15s;">
+          🌐 <span id="topbar-lang-text">English</span>
         </button>
-        <div id="sql-sync-badge" class="badge badge-green" onclick="toggleSqlSync()"
-          style="cursor:pointer;font-size:11.5px;padding:4px 10px;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;user-select:none"
-          title="اضغط للتبديل بين وضع التجربة والمزامنة السحابية">
-          <span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block"></span> ⚡ السيرفر
-          السحابي متصل ومحدّث
-        </div>
-        <div class="chip">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="4" width="18" height="18" rx="2" />
-            <line x1="16" y1="2" x2="16" y2="6" />
-            <line x1="8" y1="2" x2="8" y2="6" />
-            <line x1="3" y1="10" x2="21" y2="10" />
-          </svg>
-          <span id="hdr-date"></span>
-        </div>
-        <div class="topbar-brand-badge" title="Community Restaurants">
-          <img src="images.png" alt="CR" />
-        </div>
+
+        <!-- CONNECT BUTTON (white pill — Auro style) -->
+        <button style="background:#ffffff;color:#0B0E14;font-size:12.5px;font-weight:800;padding:7px 18px;border-radius:9999px;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all 0.15s;box-shadow:0 0 20px rgba(255,255,255,0.1);" onclick="openCmdBar()">
+          <span>👤</span> Ahmed Fawzy
+        </button>
+
+        <span id="hdr-date" style="display:none"></span>
+        <span id="page-title" style="display:none"></span>
       </div>
     </header>
 
@@ -1779,41 +782,254 @@
 
       <!-- DASHBOARD -->
       <section class="page active" id="page-dashboard">
-        <div class="g4 mb-4" id="dash-stats"></div>
-        <div class="g2 mb-4">
-          <div class="card">
-            <div class="flex items-center justify-between mb-4">
-              <div>
-                <h3 class="text-white font-bold" data-ar="أعلى المكونات استهلاكاً" data-en="Top Consumed Ingredients">
-                  أعلى المكونات استهلاكاً</h3>
-                <p class="text-muted text-sm mt-1" data-ar="الاستهلاك اليومي للمواد الخام"
-                  data-en="Daily raw material usage">الاستهلاك اليومي للمواد الخام</p>
-              </div>
-              <span class="chip" data-ar="يومي" data-en="Daily">يومي</span>
+
+        <!-- ═══════════════════════════════════════════
+             WELCOME BANNER (Web3 Hero Card)
+        ═══════════════════════════════════════════ -->
+        <div style="background:linear-gradient(135deg,#13172A 0%,#1A1E35 50%,#1E1240 100%);border:1px solid rgba(124,58,237,0.3);border-radius:16px;padding:24px 28px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;overflow:hidden;position:relative;box-shadow:0 0 60px rgba(124,58,237,0.1),0 8px 32px rgba(0,0,0,0.5);">
+          <!-- Violet glow orb background -->
+          <div style="position:absolute;top:-40px;right:200px;width:300px;height:300px;background:radial-gradient(circle,rgba(124,58,237,0.15) 0%,transparent 70%);pointer-events:none;"></div>
+
+          <!-- LEFT: Welcome Text + CTA -->
+          <div style="flex:1;z-index:1;">
+            <div style="color:#8B5CF6;font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">
+              <span data-ar="استمتع بـ 100% كفاءة إنتاجية" data-en="Enjoy 100% Production Efficiency">استمتع بـ 100% كفاءة إنتاجية</span>
             </div>
-            <div style="height:220px;position:relative"><canvas id="ch-ing"></canvas></div>
+            <h1 style="font-size:32px;font-weight:900;color:#ffffff;line-height:1.15;margin-bottom:16px;">
+              <span data-ar="مرحباً بك في" data-en="Welcome to">مرحباً بك في</span><br>
+              <span data-ar="مطبخنا المركزي!" data-en="Kitchen OS!">مطبخنا المركزي!</span>
+            </h1>
+            <button onclick="nav('production')" style="background:#ffffff;color:#0B0E14;font-size:13px;font-weight:800;padding:10px 24px;border-radius:9999px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:0 0 20px rgba(255,255,255,0.15);transition:all 0.2s;">
+              ⚡ <span data-ar="ابدأ التشغيل" data-en="Start Production">ابدأ التشغيل</span>
+            </button>
           </div>
-          <div class="card">
-            <div class="flex items-center justify-between mb-4">
-              <div>
-                <h3 class="text-white font-bold" data-ar="مقارنة طلبات الفروع" data-en="Branch Orders Comparison">مقارنة
-                  طلبات الفروع</h3>
-                <p class="text-muted text-sm mt-1" data-ar="إجمالي الوحدات المطلوبة لكل فرع"
-                  data-en="Total units requested per branch">إجمالي الوحدات المطلوبة لكل فرع</p>
-              </div>
-              <span class="chip" data-ar="اليوم" data-en="Today">اليوم</span>
-            </div>
-            <div style="height:220px;position:relative"><canvas id="ch-br"></canvas></div>
+
+          <!-- RIGHT: 3D Hero Image -->
+          <div style="flex-shrink:0;width:220px;height:180px;display:flex;align-items:center;justify-content:center;position:relative;">
+            <img src="web3_hero_3d.jpg" alt="3D Kitchen ERP" style="width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 30px rgba(124,58,237,0.5));animation:float3d 4s ease-in-out infinite;" />
           </div>
         </div>
-        <div class="card">
-          <h3 class="text-white font-bold mb-3">⚠️ <span data-ar="التنبيهات النشطة ونقص المخزون"
-              data-en="Active Alerts & Shortages">التنبيهات النشطة ونقص المخزون</span></h3>
-          <div id="dash-alerts"></div>
+        <style>
+          @keyframes float3d {
+            0%,100% { transform: translateY(0px) rotate(0deg); }
+            50%      { transform: translateY(-8px) rotate(1deg); }
+          }
+        </style>
+
+        <!-- ═══════════════════════════════════════════
+             KPI CARDS ROW (4 Glassmorphism Cards)
+        ═══════════════════════════════════════════ -->
+        <div class="kpi-grid">
+          <div class="kpi-card" style="border-top:2px solid #06B6D4;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+              <div class="kpi-title" data-ar="إجمالي طلبات الفروع اليوم" data-en="TOTAL BRANCH DEMAND TODAY">إجمالي طلبات الفروع اليوم</div>
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;">📊</div>
+            </div>
+            <div id="kpi-total-demand" class="kpi-num" style="color:#06B6D4;">0.00 Kg</div>
+            <div id="kpi-branches-sub" class="kpi-sub" data-ar="0 فروع طلبت اليوم" data-en="0 Branches ordered today">0 فروع طلبت اليوم</div>
+          </div>
+
+          <div class="kpi-card" style="border-top:2px solid #7C3AED;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+              <div class="kpi-title" data-ar="تشغيلات المركز النشطة" data-en="ACTIVE FLOOR BATCHES">تشغيلات المركز النشطة</div>
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;">🍳</div>
+            </div>
+            <div id="kpi-active-batches" class="kpi-num" style="color:#A78BFA;">0 دفعة</div>
+            <div id="kpi-batches-sub" class="kpi-sub" data-ar="لا توجد تشغيلات اليوم" data-en="No active batches today">لا توجد تشغيلات اليوم</div>
+          </div>
+
+          <div class="kpi-card" style="border-top:2px solid #10B981;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+              <div class="kpi-title" data-ar="الخامات المتوفرة بالمخزن" data-en="RAW MATERIALS IN STOCK">الخامات المتوفرة بالمخزن</div>
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;">🥫</div>
+            </div>
+            <div id="kpi-raw-stock" class="kpi-num" style="color:#fff;"><span style="color:#10B981;">0</span> / 200</div>
+            <div id="kpi-stock-sub" class="kpi-sub" data-ar="بانتظار تسجيل أول توريد خامات" data-en="Awaiting raw stock arrivals">بانتظار تسجيل أول توريد خامات</div>
+          </div>
+
+          <div class="kpi-card" style="border-top:2px solid #F43F5E;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+              <div class="kpi-title" data-ar="تنبيهات نقص الخامات" data-en="RE-ORDER SHORTAGES">تنبيهات نقص الخامات</div>
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;">⚠️</div>
+            </div>
+            <div id="kpi-shortages-alert" class="kpi-num" style="color:#10B981;">0 نواقص ✓</div>
+            <div id="kpi-shortages-sub" class="kpi-sub" data-ar="المخزون متوازن ولا توجد طلبات معلقة" data-en="No shortage alerts pending">المخزون متوازن ولا توجد طلبات معلقة</div>
+          </div>
         </div>
+
+        <!-- ═══════════════════════════════════════════
+             MIDDLE ROW: Interest Rate Mode Style Chart + BOM Simulator
+        ═══════════════════════════════════════════ -->
+        <div class="middle-grid">
+          <!-- LEFT: VELOCITY CHART (Cyan + Violet, Auro style) -->
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+              <div>
+                <h3 style="font-size:14px;font-weight:800;color:#fff;margin:0;" data-ar="معدل سحب طلبات الفروع والإنتاج التراكمي" data-en="Interest Rate Mode — Branch Demand Velocity">
+                  معدل سحب طلبات الفروع والإنتاج التراكمي
+                </h3>
+                <p style="color:#64748B;font-size:11px;margin-top:2px;" data-ar="سحب الاستهلاك المباشر عبر جميع الفروع الـ 26" data-en="Live demand consumption across all 26 branches">
+                  سحب الاستهلاك المباشر عبر جميع الفروع الـ 26
+                </p>
+              </div>
+              <div style="display:flex;gap:6px;">
+                <button class="filter-chip active" style="font-size:10.5px;padding:3px 8px;">1M</button>
+                <button class="filter-chip" style="font-size:10.5px;padding:3px 8px;">1Y</button>
+                <button class="filter-chip" style="font-size:10.5px;padding:3px 8px;" data-ar="الكل" data-en="ALL">الكل</button>
+              </div>
+            </div>
+            <div style="height:210px;position:relative;">
+              <canvas id="ch-demand-velocity"></canvas>
+            </div>
+            <!-- Utilization Bar (matching Auro) -->
+            <div style="margin-top:10px;padding:6px 10px;background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.2);border-radius:8px;display:flex;align-items:center;justify-content:space-between;">
+              <div style="font-size:11px;color:#06B6D4;font-weight:700;">
+                <span data-ar="الاستهلاك الحالي للطاقة الإنتاجية" data-en="Current Utilization">الاستهلاك الحالي للطاقة الإنتاجية</span>
+                <span style="background:#06B6D4;color:#0B0E14;padding:2px 8px;border-radius:9999px;font-size:10.5px;font-weight:800;margin-inline-start:8px;">83.4%</span>
+              </div>
+              <div style="font-size:10.5px;color:#64748B;" data-ar="الذروة: 142.5 كجم" data-en="Peak: 142.5 Kg">الذروة: 142.5 كجم</div>
+            </div>
+          </div>
+
+          <!-- RIGHT: BORROW INFO Style — Live BOM Simulator -->
+          <div class="card" style="border:1px solid rgba(124,58,237,0.35);box-shadow:0 0 30px rgba(124,58,237,0.1);">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <h3 style="font-size:14px;font-weight:800;color:#fff;margin:0;" data-ar="محاكي تفكيك الوصفة والتشغيل الحي" data-en="Live BOM Batch Simulator">
+                محاكي تفكيك الوصفة والتشغيل الحي
+              </h3>
+              <span class="badge badge-orange" data-ar="حي وتفاعلي" data-en="Interactive">حي وتفاعلي</span>
+            </div>
+            <p style="color:#64748B;font-size:11px;margin-bottom:10px;" data-ar="اختر صنفاً مصنّعاً لحساب استهلاك الخامات فورياً" data-en="Select a manufactured item to simulate BOM deduction">
+              اختر صنفاً مصنّعاً لحساب استهلاك الخامات فورياً
+            </p>
+
+            <!-- Product Selector -->
+            <div style="background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.2);border-radius:8px;padding:10px 12px;margin-bottom:10px;">
+              <label style="color:#8B5CF6;font-size:10.5px;font-weight:700;display:block;margin-bottom:4px;" data-ar="الصنف المصنّع المراد تشغيله:" data-en="Item to produce:">الصنف المصنّع المراد تشغيله:</label>
+              <select id="bom-sim-select" onchange="updateBomSimPreview()" style="width:100%;background:rgba(11,14,20,0.9);border:1px solid #1E2340;border-radius:6px;color:#fff;font-size:12px;padding:6px 10px;outline:none;">
+                <option value="">-- اختر صنفاً للتشغيل --</option>
+              </select>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+                <span style="color:#94A3B8;font-size:11px;" data-ar="حجم الدفعة المطلوبة:" data-en="Batch Quantity:">حجم الدفعة المطلوبة:</span>
+                <input type="number" id="bom-sim-qty" value="10" min="1" oninput="updateBomSimPreview()" style="width:80px;background:rgba(11,14,20,0.9);border:1px solid #1E2340;border-radius:6px;color:#06B6D4;font-size:12px;font-weight:700;padding:4px 8px;text-align:center;outline:none;" />
+              </div>
+            </div>
+
+            <!-- Ingredients List container -->
+            <div id="bom-sim-ings-list" style="display:flex;flex-direction:column;gap:6px;font-size:11.5px;margin-bottom:12px;min-height:90px;max-height:130px;overflow-y:auto;">
+              <div style="text-align:center;padding:25px 10px;color:#64748B;font-size:12px;">
+                👈 اختر صنفاً من القائمة أعلاه لعرض مكونات الوصفة ورصيد خاماتها
+              </div>
+            </div>
+
+            <button type="button" onclick="executeSelectedBatch()" style="width:100%;background:linear-gradient(135deg,#7C3AED,#8B5CF6);color:#fff;font-size:12.5px;font-weight:800;padding:11px;border-radius:9999px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;box-shadow:0 4px 20px rgba(124,58,237,0.4);transition:all 0.2s;">
+              ⚡ <span data-ar="اعتماد وتشغيل الدفعة وخصم الخامات" data-en="EXECUTE BATCH & DEDUCT RAW STOCK">اعتماد وتشغيل الدفعة وخصم الخامات</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════
+             SUPPLY INFO Section — Finished Goods Table (Auro equalizer style)
+        ═══════════════════════════════════════════ -->
+        <div class="card" style="padding:18px 20px;">
+          <div class="table-filter-bar" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:10px;">
+            <div>
+              <h3 style="font-size:14px;font-weight:800;color:#fff;margin:0;display:flex;align-items:center;gap:8px;">
+                📋 <span data-ar="أصناف المركز المصنعة المعتمدة (88 صنف PA)" data-en="Supply Info — Center Finished Goods Master (88 PA Products)">أصناف المركز المصنعة المعتمدة (88 صنف PA)</span>
+                <span class="badge badge-orange">88 PA</span>
+              </h3>
+              <p style="color:#64748B;font-size:11px;margin-top:2px;" data-ar="مطابقة المخزون الجاهز مع طلبات الفروع مع تشغيل فوري للدفعات" data-en="Real-time stock vs branch demand with one-click production trigger">
+                مطابقة المخزون الجاهز مع طلبات الفروع مع تشغيل فوري للدفعات
+              </p>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+              <div style="display:flex;gap:4px;">
+                <button class="filter-chip active" onclick="filterFG('', 'all', this)" data-ar="الكل" data-en="All">الكل</button>
+                <button class="filter-chip" onclick="filterFG('', 'Sauces', this)" data-ar="الصوصات" data-en="Sauces">الصوصات</button>
+                <button class="filter-chip" onclick="filterFG('', 'Cheese', this)" data-ar="الجبن" data-en="Cheese">الجبن</button>
+                <button class="filter-chip" onclick="filterFG('', 'Beef', this)" data-ar="اللحوم" data-en="Beef">اللحوم</button>
+                <button class="filter-chip" onclick="filterFG('', 'Bakery', this)" data-ar="المخبوزات" data-en="Bakery">المخبوزات</button>
+              </div>
+              <input type="text" id="fg-search-input" oninput="filterFG(this.value, activeFGCat)" placeholder="بحث سريع..." data-ar-ph="بحث سريع بالأصناف..." data-en-ph="Quick search..." style="background:rgba(11,14,20,0.9);border:1px solid #1E2340;border-radius:6px;color:#fff;font-size:11.5px;padding:4px 10px;width:150px;outline:none;" />
+            </div>
+          </div>
+
+          <!-- Supply Info Bar Chart (Auro Volume Equalizer style) -->
+          <div style="height:80px;margin-bottom:12px;position:relative;">
+            <canvas id="ch-supply-bars"></canvas>
+          </div>
+
+          <div class="tbl-wrap" style="max-height:280px;overflow-y:auto;">
+            <table class="tbl" id="fg-master-table">
+              <thead>
+                <tr>
+                  <th style="width:80px;" data-ar="الكود" data-en="Code">الكود</th>
+                  <th data-ar="الصنف المصنع (PA)" data-en="Manufactured Product (PA)">الصنف المصنع (PA)</th>
+                  <th style="width:100px;" data-ar="القسم" data-en="Category">القسم</th>
+                  <th style="width:110px;" data-ar="جاهز بالمركز" data-en="Center Ready">جاهز بالمركز</th>
+                  <th style="width:110px;" data-ar="طلبات الفروع" data-en="Branch Demand">طلبات الفروع</th>
+                  <th style="width:140px;" data-ar="حالة التغطية" data-en="Coverage Status">حالة التغطية</th>
+                  <th style="width:100px;text-align:center;" data-ar="تشغيل سريع" data-en="Action">تشغيل سريع</th>
+                </tr>
+              </thead>
+              <tbody id="fg-table-body">
+                <tr data-cat="Sauces">
+                  <td style="color:#8B5CF6;font-weight:700;font-family:monospace;">110017</td>
+                  <td style="font-weight:700;color:#fff;">Amirecan Sauce - Kg (PA)</td>
+                  <td><span class="badge badge-orange" data-ar="صوصات" data-en="Sauces">صوصات</span></td>
+                  <td style="font-weight:700;color:#fff;">45.00 Kg</td>
+                  <td style="font-weight:700;color:#06B6D4;">42.50 Kg</td>
+                  <td><span class="badge badge-green" data-ar="مغطى بالكامل ✓" data-en="Fully Covered ✓">مغطى بالكامل ✓</span></td>
+                  <td style="text-align:center;"><button class="btn btn-sm btn-primary" onclick="nav('production')">⚡ <span data-ar="طبخ" data-en="Cook">طبخ</span></button></td>
+                </tr>
+                <tr data-cat="Cheese">
+                  <td style="color:#8B5CF6;font-weight:700;font-family:monospace;">110041</td>
+                  <td style="font-weight:700;color:#fff;">Cheese Sauce - Kg (PA)</td>
+                  <td><span class="badge badge-blue" data-ar="جبن" data-en="Cheese">جبن</span></td>
+                  <td style="font-weight:700;color:#fff;">28.50 Kg</td>
+                  <td style="font-weight:700;color:#F87171;">35.00 Kg</td>
+                  <td><span class="badge badge-red" data-ar="عجز: -6.5 كجم ⚠️" data-en="Shortage: -6.5 Kg ⚠️">عجز: -6.5 كجم ⚠️</span></td>
+                  <td style="text-align:center;"><button class="btn btn-sm btn-primary" onclick="nav('production')">⚡ <span data-ar="طبخ" data-en="Cook">طبخ</span></button></td>
+                </tr>
+                <tr data-cat="Beef">
+                  <td style="color:#8B5CF6;font-weight:700;font-family:monospace;">110083</td>
+                  <td style="font-weight:700;color:#fff;">Beef Burger Patty (PA)</td>
+                  <td><span class="badge badge-slate" data-ar="لحوم" data-en="Beef">لحوم</span></td>
+                  <td style="font-weight:700;color:#fff;">320 Pcs</td>
+                  <td style="font-weight:700;color:#06B6D4;">280 Pcs</td>
+                  <td><span class="badge badge-green" data-ar="مغطى بالكامل ✓" data-en="Fully Covered ✓">مغطى بالكامل ✓</span></td>
+                  <td style="text-align:center;"><button class="btn btn-sm btn-primary" onclick="nav('production')">⚡ <span data-ar="تجهيز" data-en="Prep">تجهيز</span></button></td>
+                </tr>
+                <tr data-cat="Bakery">
+                  <td style="color:#8B5CF6;font-weight:700;font-family:monospace;">110148</td>
+                  <td style="font-weight:700;color:#fff;">Ciabatta Bread (PA)</td>
+                  <td><span class="badge badge-slate" data-ar="مخبوزات" data-en="Bakery">مخبوزات</span></td>
+                  <td style="font-weight:700;color:#fff;">150 Pcs</td>
+                  <td style="font-weight:700;color:#06B6D4;">140 Pcs</td>
+                  <td><span class="badge badge-green" data-ar="مغطى بالكامل ✓" data-en="Fully Covered ✓">مغطى بالكامل ✓</span></td>
+                  <td style="text-align:center;"><button class="btn btn-sm btn-primary" onclick="nav('production')">⚡ <span data-ar="خبز" data-en="Bake">خبز</span></button></td>
+                </tr>
+                <tr data-cat="Special">
+                  <td style="color:#8B5CF6;font-weight:700;font-family:monospace;">110365</td>
+                  <td style="font-weight:700;color:#fff;">Taztaziki Sauce (PA)</td>
+                  <td><span class="badge badge-orange" data-ar="مميز" data-en="Special">مميز</span></td>
+                  <td style="font-weight:700;color:#fff;">18.00 Kg</td>
+                  <td style="font-weight:700;color:#06B6D4;">15.00 Kg</td>
+                  <td><span class="badge badge-green" data-ar="مغطى بالكامل ✓" data-en="Fully Covered ✓">مغطى بالكامل ✓</span></td>
+                  <td style="text-align:center;"><button class="btn btn-sm btn-primary" onclick="nav('production')">⚡ <span data-ar="طبخ" data-en="Cook">طبخ</span></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Hidden elements for code integrity -->
+        <div id="dash-stats" style="display:none"></div>
+        <div id="dash-alerts" style="display:none"></div>
+        <canvas id="ch-ing" style="display:none"></canvas>
+        <canvas id="ch-br" style="display:none"></canvas>
       </section>
 
-      <!-- BRANCH ORDERS -->
       <section class="page" id="page-orders">
         <div style="display:grid;grid-template-columns:340px 1fr;gap:20px" class="orders-layout">
           <div class="sy3">
@@ -1910,7 +1126,7 @@
               style="border:1px solid rgba(249,115,22,0.25);background:linear-gradient(145deg,rgba(15,23,42,0.85),rgba(30,41,59,0.5))">
               <div class="flex items-center justify-between">
                 <h3 class="text-white font-bold flex items-center gap-2">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5"
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5"
                     stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10" />
                     <line x1="12" y1="8" x2="12" y2="16" />
@@ -3258,7 +2474,7 @@
         </svg>
         <input class="cmd-input" id="cmd-search-input" placeholder="ابحث عن خامة، وجبة، مورد، أو تنقل سريع..."
           oninput="handleCmdSearch(this.value)" />
-        <button class="btn btn-secondary btn-icon btn-sm" onclick="closeCmdBar()" style="padding:3px 8px">✕</button>
+        <button class="cmd-close-btn" onclick="closeCmdBar()" title="إغلاق (Esc)">✕</button>
       </div>
       <div class="cmd-results" id="cmd-results"></div>
     </div>
@@ -4367,7 +3583,7 @@
                 "uom": "Kilogram",
                 "cat": "Meat & Poultry & Fish",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Meat & Poultry & Fish"
         },
@@ -4378,7 +3594,7 @@
                 "uom": "Kilogram",
                 "cat": "Meat & Poultry & Fish",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Meat & Poultry & Fish"
         },
@@ -4389,7 +3605,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -4400,7 +3616,7 @@
                 "uom": "Kilogram",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -4411,7 +3627,7 @@
                 "uom": "Each",
                 "cat": "Bakery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Bakery"
         },
@@ -4422,7 +3638,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -4433,7 +3649,7 @@
                 "uom": "Pkt 1 Kg",
                 "cat": "Meat & Poultry & Fish",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Meat & Poultry & Fish"
         },
@@ -4444,7 +3660,7 @@
                 "uom": "Pkt 400 Gr",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -4455,7 +3671,7 @@
                 "uom": "Pkt 100 Gr",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -4466,7 +3682,7 @@
                 "uom": "Kilogram",
                 "cat": "Meat & Poultry & Fish",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Meat & Poultry & Fish"
         },
@@ -4477,7 +3693,7 @@
                 "uom": "Kilogram",
                 "cat": "Packing Items",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Packing Items"
         },
@@ -4488,7 +3704,7 @@
                 "uom": "Kilogram",
                 "cat": "Packing Items",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Packing Items"
         },
@@ -4499,7 +3715,7 @@
                 "uom": "Pkt 500 Pcs",
                 "cat": "Packing Items",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Packing Items"
         },
@@ -4510,7 +3726,7 @@
                 "uom": "Each",
                 "cat": "Packing Items",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Packing Items"
         },
@@ -4521,7 +3737,7 @@
                 "uom": "Pkt 500 Pcs",
                 "cat": "Packing Items",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Packing Items"
         },
@@ -4532,7 +3748,7 @@
                 "uom": "Kilogram",
                 "cat": "Meat & Poultry & Fish",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Meat & Poultry & Fish"
         },
@@ -4543,7 +3759,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -4554,7 +3770,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -4565,7 +3781,7 @@
                 "uom": "Btl 1 L",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -4576,7 +3792,7 @@
                 "uom": "Jar 700 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -4587,7 +3803,7 @@
                 "uom": "Pkt 500 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -4598,7 +3814,7 @@
                 "uom": "Pkt 500 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -4609,7 +3825,7 @@
                 "uom": "Pkt 500 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -4620,7 +3836,7 @@
                 "uom": "Pkt 500 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -4631,7 +3847,7 @@
                 "uom": "Pkt 250 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -4642,7 +3858,7 @@
                 "uom": "Pkt 400 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -4653,7 +3869,7 @@
                 "uom": "Pkt 400 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -4664,7 +3880,7 @@
                 "uom": "Each",
                 "cat": "Packing Items",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Packing Items"
         },
@@ -4675,7 +3891,7 @@
                 "uom": "Gal 20 L",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -4686,7 +3902,7 @@
                 "uom": "Each",
                 "cat": "Packing Items",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Packing Items"
         },
@@ -4697,7 +3913,7 @@
                 "uom": "Kilogram",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -4708,7 +3924,7 @@
                 "uom": "Pkt 500 Gr",
                 "cat": "Bakery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Bakery"
         },
@@ -4719,7 +3935,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -4730,7 +3946,7 @@
                 "uom": "Kilogram",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -4741,7 +3957,7 @@
                 "uom": "Pkt 180 Gr",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -4752,7 +3968,7 @@
                 "uom": "Pkt 500 Gr",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -4763,7 +3979,7 @@
                 "uom": "Pkt 1 L",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -4774,7 +3990,7 @@
                 "uom": "Pkt 40 Gr",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -4785,7 +4001,7 @@
                 "uom": "Pkt 150 Gr",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -4796,7 +4012,7 @@
                 "uom": "Pkt 500 Gr",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -4807,7 +4023,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -4818,7 +4034,7 @@
                 "uom": "Jar 340 Gr",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -4829,7 +4045,7 @@
                 "uom": "Kilogram",
                 "cat": "Beverage",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Beverage"
         },
@@ -4840,7 +4056,7 @@
                 "uom": "Kilogram",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -4851,7 +4067,7 @@
                 "uom": "Pkt 200 Pcs",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -4862,7 +4078,7 @@
                 "uom": "Kilogram",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -4873,7 +4089,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -4884,7 +4100,7 @@
                 "uom": "Kilogram",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -4895,7 +4111,7 @@
                 "uom": "Plate 30 Pcs",
                 "cat": "Meat & Poultry & Fish",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Meat & Poultry & Fish"
         },
@@ -4906,7 +4122,7 @@
                 "uom": "Pkt 12 Pcs",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -4917,7 +4133,7 @@
                 "uom": "Kilogram",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -4928,7 +4144,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -4939,7 +4155,7 @@
                 "uom": "Box 5 Kg",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -4950,7 +4166,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -4961,7 +4177,7 @@
                 "uom": "Pkt 1 Kg",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -4972,7 +4188,7 @@
                 "uom": "Pkt 1 L",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -4983,7 +4199,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -4994,7 +4210,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5005,7 +4221,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5016,7 +4232,7 @@
                 "uom": "Pkt 250 Gr",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5027,7 +4243,7 @@
                 "uom": "Gal 5 Kg",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -5038,7 +4254,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5049,7 +4265,7 @@
                 "uom": "Pkt 100 Gr",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5060,7 +4276,7 @@
                 "uom": "Pkt 100 Gr",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5071,7 +4287,7 @@
                 "uom": "Pkt 100 Gr",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5082,7 +4298,7 @@
                 "uom": "Pkt 100 Gr",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5093,7 +4309,7 @@
                 "uom": "Each",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5104,7 +4320,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5115,7 +4331,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5126,7 +4342,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5137,7 +4353,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5148,7 +4364,7 @@
                 "uom": "Pkt 100 Gr",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5159,7 +4375,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5170,7 +4386,7 @@
                 "uom": "Pkt 200 Gr",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5181,7 +4397,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5192,7 +4408,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5203,7 +4419,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5214,7 +4430,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5225,7 +4441,7 @@
                 "uom": "Box 100 Pcs",
                 "cat": "Cleaning Supplies",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
         },
@@ -5236,7 +4452,7 @@
                 "uom": "Pkt 10 Pcs",
                 "cat": "Cleaning Supplies",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
         },
@@ -5247,7 +4463,7 @@
                 "uom": "Each",
                 "cat": "Cleaning Supplies",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
         },
@@ -5258,7 +4474,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5269,7 +4485,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5280,7 +4496,7 @@
                 "uom": "Each",
                 "cat": "Packing Items",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Packing Items"
         },
@@ -5291,7 +4507,7 @@
                 "uom": "Pkt 100 Pcs",
                 "cat": "Cleaning Supplies",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
         },
@@ -5302,7 +4518,7 @@
                 "uom": "Each",
                 "cat": "Cleaning Supplies",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
         },
@@ -5313,7 +4529,7 @@
                 "uom": "Kilogram",
                 "cat": "Packing Items",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Packing Items"
         },
@@ -5324,7 +4540,7 @@
                 "uom": "Kilogram",
                 "cat": "Cleaning Supplies",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
         },
@@ -5335,7 +4551,7 @@
                 "uom": "Btl 600 Ml",
                 "cat": "Cleaning Supplies",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
         },
@@ -5346,7 +4562,7 @@
                 "uom": "Liter",
                 "cat": "Cleaning Supplies",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
         },
@@ -5357,7 +4573,7 @@
                 "uom": "Liter",
                 "cat": "Cleaning Supplies",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
         },
@@ -5368,7 +4584,7 @@
                 "uom": "Gal 5 Kg",
                 "cat": "Cleaning Supplies",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
         },
@@ -5379,7 +4595,7 @@
                 "uom": "Liter",
                 "cat": "Cleaning Supplies",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Cleaning Supplies"
         },
@@ -5390,7 +4606,7 @@
                 "uom": "Kilogram",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5401,7 +4617,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5412,7 +4628,7 @@
                 "uom": "Kilogram",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -5423,7 +4639,7 @@
                 "uom": "Gal 3.4 Kg",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5434,7 +4650,7 @@
                 "uom": "Gal 10 Kg",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5445,7 +4661,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5456,7 +4672,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5467,7 +4683,7 @@
                 "uom": "BTL 900 GR",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5478,7 +4694,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5489,7 +4705,7 @@
                 "uom": "Gal 3.29 Kg",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5500,7 +4716,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5511,7 +4727,7 @@
                 "uom": "Box 5 Kg",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5522,7 +4738,7 @@
                 "uom": "Btl 600 Ml",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5533,7 +4749,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5544,7 +4760,7 @@
                 "uom": "Jar 400 Gr",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5555,7 +4771,7 @@
                 "uom": "Gal 4 L",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5566,7 +4782,7 @@
                 "uom": "Btl 730 Ml",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5577,7 +4793,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5588,7 +4804,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5599,7 +4815,7 @@
                 "uom": "Kilogram",
                 "cat": "Packing Items",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Packing Items"
         },
@@ -5610,7 +4826,7 @@
                 "uom": "Kilogram",
                 "cat": "Packing Items",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Packing Items"
         },
@@ -5621,7 +4837,7 @@
                 "uom": "Kilogram",
                 "cat": "Packing Items",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Packing Items"
         },
@@ -5632,7 +4848,7 @@
                 "uom": "Pkt 1 L",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -5643,7 +4859,7 @@
                 "uom": "Bag 10 Kg",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5654,7 +4870,7 @@
                 "uom": "Liter",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5665,7 +4881,7 @@
                 "uom": "Pkt 500 Gr",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5676,7 +4892,7 @@
                 "uom": "Each",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5687,7 +4903,7 @@
                 "uom": "PKT 125 Gr",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5698,7 +4914,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5709,7 +4925,7 @@
                 "uom": "Kilogram",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -5720,7 +4936,7 @@
                 "uom": "Kilogram",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5731,7 +4947,7 @@
                 "uom": "Kilogram",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5742,7 +4958,7 @@
                 "uom": "Box 50Pkt -16Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5753,7 +4969,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5764,7 +4980,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5775,7 +4991,7 @@
                 "uom": "Jar 300 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5786,7 +5002,7 @@
                 "uom": "Pkt 1 Kg",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5797,7 +5013,7 @@
                 "uom": "Pkt 750 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5808,7 +5024,7 @@
                 "uom": "Pkt 250 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5819,7 +5035,7 @@
                 "uom": "Jar 90 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5830,7 +5046,7 @@
                 "uom": "Pkt 250 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5841,7 +5057,7 @@
                 "uom": "Pkt 1 Kg",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5852,7 +5068,7 @@
                 "uom": "Pkt 1 Kg",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5863,7 +5079,7 @@
                 "uom": "Pkt 1 Kg",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5874,7 +5090,7 @@
                 "uom": "Bag 1 Kg",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5885,7 +5101,7 @@
                 "uom": "Kilogram",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5896,7 +5112,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5907,7 +5123,7 @@
                 "uom": "Pkt 500 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5918,7 +5134,7 @@
                 "uom": "Pkt 500 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5929,7 +5145,7 @@
                 "uom": "Jar 25 Gr",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5940,7 +5156,7 @@
                 "uom": "Pkt 1 Kg",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5951,7 +5167,7 @@
                 "uom": "Bag 10 Kg",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5962,7 +5178,7 @@
                 "uom": "Kilogram",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -5973,7 +5189,7 @@
                 "uom": "Pkt 1 Kg",
                 "cat": "Bakery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Bakery"
         },
@@ -5984,7 +5200,7 @@
                 "uom": "Gal 5 Kg",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -5995,7 +5211,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6006,7 +5222,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6017,7 +5233,7 @@
                 "uom": "Btl 2 L",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6028,7 +5244,7 @@
                 "uom": "Liter",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6039,7 +5255,7 @@
                 "uom": "Jar 800 Gr",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6050,7 +5266,7 @@
                 "uom": "Gal 5 L",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6061,7 +5277,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6072,7 +5288,7 @@
                 "uom": "Jar 185 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -6083,7 +5299,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6094,7 +5310,7 @@
                 "uom": "Jar 360 Gr",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6105,7 +5321,7 @@
                 "uom": "Jar 1 Kg",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6116,7 +5332,7 @@
                 "uom": "Btl 500 Gr",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6127,7 +5343,7 @@
                 "uom": "Btl 750 Ml",
                 "cat": "Beverage",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Beverage"
         },
@@ -6138,7 +5354,7 @@
                 "uom": "Btl 750 Ml",
                 "cat": "Beverage",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Beverage"
         },
@@ -6149,7 +5365,7 @@
                 "uom": "Btl 1 L",
                 "cat": "Beverage",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Beverage"
         },
@@ -6160,7 +5376,7 @@
                 "uom": "Bag 25 Kg",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -6171,7 +5387,7 @@
                 "uom": "Bag 50 Kg",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -6182,7 +5398,7 @@
                 "uom": "Bag 50 Kg",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -6193,7 +5409,7 @@
                 "uom": "Btl 370 Gr",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6204,7 +5420,7 @@
                 "uom": "Bag 25 Kg",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -6215,7 +5431,7 @@
                 "uom": "Pkt 500 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -6226,7 +5442,7 @@
                 "uom": "Jar 500 Gr",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6237,7 +5453,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6248,7 +5464,7 @@
                 "uom": "Kilogram",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -6259,7 +5475,7 @@
                 "uom": "Kilogram",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -6270,7 +5486,7 @@
                 "uom": "Kilogram",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -6281,7 +5497,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6292,7 +5508,7 @@
                 "uom": "Kilogram",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -6303,7 +5519,7 @@
                 "uom": "Bag 50 Kg",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -6314,7 +5530,7 @@
                 "uom": "Liter",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6325,7 +5541,7 @@
                 "uom": "Gal 5 L",
                 "cat": "Bakery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Bakery"
         },
@@ -6336,7 +5552,7 @@
                 "uom": "Bag 10 Kg",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -6347,7 +5563,7 @@
                 "uom": "Kilogram",
                 "cat": "Bakery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Bakery"
         },
@@ -6358,7 +5574,7 @@
                 "uom": "Btl 1 L",
                 "cat": "Beverage",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Beverage"
         },
@@ -6369,7 +5585,7 @@
                 "uom": "Kilogram",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -6380,7 +5596,7 @@
                 "uom": "Gal 3 Kg",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6391,7 +5607,7 @@
                 "uom": "Pkt 500 Gr",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -6402,7 +5618,7 @@
                 "uom": "Kilogram",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -6413,7 +5629,7 @@
                 "uom": "Kilogram",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -6424,7 +5640,7 @@
                 "uom": "Kilogram",
                 "cat": "Dry",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dry"
         },
@@ -6435,7 +5651,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6446,7 +5662,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6457,7 +5673,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6468,7 +5684,7 @@
                 "uom": "Bag 25 Kg",
                 "cat": "Dairy",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Dairy"
         },
@@ -6479,7 +5695,7 @@
                 "uom": "Pkt 100 Pcs",
                 "cat": "Packing Items",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Packing Items"
         },
@@ -6490,7 +5706,7 @@
                 "uom": "Kilogram",
                 "cat": "Packing Items",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Packing Items"
         },
@@ -6501,7 +5717,7 @@
                 "uom": "Kilogram",
                 "cat": "Packing Items",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Packing Items"
         },
@@ -6512,7 +5728,7 @@
                 "uom": "Each",
                 "cat": "Packing Items",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Packing Items"
         },
@@ -6523,7 +5739,7 @@
                 "uom": "Each",
                 "cat": "Beverage",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Beverage"
         },
@@ -6534,7 +5750,7 @@
                 "uom": "Pkt 200 Gr",
                 "cat": "Fruits & Veg",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Fruits & Veg"
         },
@@ -6545,7 +5761,7 @@
                 "uom": "Pkt 350 Gr",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         },
@@ -6556,7 +5772,7 @@
                 "uom": "Kilogram",
                 "cat": "Grocery",
                 "price": 0,
-                "stock": 100,
+                "stock": 0,
                 "safety": 20,
                 "sup": "Grocery"
         }
@@ -8900,10 +8116,10 @@
     /* ============================================================
        LOCAL STORAGE — PERSISTENT DATA (V2 WITH ALL 74 BOM RECIPES)
     ============================================================ */
-    const LS_KEY = 'ck-erp-v3';
+    const LS_KEY = 'ck-erp-v4';
     // Self-healing: purge legacy cache keys that contained duplicated or text-ID items
     try {
-      ['ck-erp-v1', 'ck-erp-v2'].forEach(k => localStorage.removeItem(k));
+      ['ck-erp-v1', 'ck-erp-v2', 'ck-erp-v3'].forEach(k => localStorage.removeItem(k));
     } catch (e) {}
 
 
@@ -9365,29 +8581,31 @@
       const root = document.getElementById('html-root');
       root.setAttribute('lang', S.lang);
       root.setAttribute('dir', isAr() ? 'rtl' : 'ltr');
-
       document.querySelectorAll('[data-ar]').forEach(el => {
         el.textContent = isAr() ? el.getAttribute('data-ar') : el.getAttribute('data-en');
       });
-
-      const langLbl = document.getElementById('lang-lbl');
-      if (langLbl) {
-        langLbl.textContent = isAr() ? 'English' : 'عربي';
-      }
-
+      document.querySelectorAll('[data-ar-ph]').forEach(el => {
+        el.setAttribute('placeholder', isAr() ? el.getAttribute('data-ar-ph') : el.getAttribute('data-en-ph'));
+      });
+      const topLangText = document.getElementById('topbar-lang-text');
+      if (topLangText) topLangText.textContent = isAr() ? 'English' : 'عربي';
+      const sideLangLbl = document.getElementById('sidebar-lang-lbl');
+      if (sideLangLbl) sideLangLbl.textContent = isAr() ? 'اللغة: English' : 'Language: العربية';
       const hdrDate = document.getElementById('hdr-date');
-      if (hdrDate) {
-        hdrDate.textContent = new Date().toLocaleDateString(
-          'en-GB',
-          { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' }
-        );
-      }
-
-      const ni = document.querySelector('.nav-item[data-page="' + S.curPage + '"]');
-      if (ni) {
-        const pt = document.getElementById('page-title');
-        if (pt) pt.textContent = ni.querySelector('.nav-label')?.textContent || '';
-      }
+      if (hdrDate) hdrDate.textContent = new Date().toLocaleDateString(isAr() ? 'ar-EG' : 'en-GB', { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' });
+      const titles = {
+        dashboard: isAr() ? 'لوحة التحكم' : 'Executive Dashboard',
+        centerstock: isAr() ? 'مخزون المركز والدفعات' : 'Center Stock & Batches',
+        orders: isAr() ? 'طلبات الفروع' : 'Branch Orders',
+        production: isAr() ? 'خطة التشغيل والوصفات' : 'Daily Plan & BOM',
+        inventory: isAr() ? 'أرصدة الخامات' : 'Raw Inventory',
+        purchase: isAr() ? 'أوامر الشراء' : 'Purchase Orders',
+        waste: isAr() ? 'سجل الهدر' : 'Waste Ledger',
+        reports: isAr() ? 'التقارير التنفيذية' : 'Reports & Analytics'
+      };
+      const pt = document.getElementById('page-title');
+      if (pt && S.curPage) pt.textContent = titles[S.curPage] || S.curPage;
+      if (typeof renderPage === 'function' && S.curPage) renderPage(S.curPage);
     }
 
     function toggleLang() {
@@ -9559,46 +8777,383 @@
     /* ============================================================
        DASHBOARD
     ============================================================ */
-    let chIng = null;
-    let chBr = null;
+    let chVelocity = null;
+    let chSupplyBars = null;
+    // activeFGCat reused
+
+    function filterFG(query, cat, btnEl) {
+      if (cat !== undefined && cat !== null) activeFGCat = cat;
+      if (btnEl) {
+        document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+        btnEl.classList.add('active');
+      }
+      const q = (query || document.getElementById('fg-search-input')?.value || '').toLowerCase().trim();
+      document.querySelectorAll('#fg-table-body tr').forEach(tr => {
+        const text = tr.innerText.toLowerCase();
+        const rowCat = tr.getAttribute('data-cat') || '';
+        tr.style.display = ((!q || text.includes(q)) && (!activeFGCat || activeFGCat === 'all' || rowCat === activeFGCat)) ? '' : 'none';
+      });
+    }
+
+    function initBomSimSelect() {
+      const sel = document.getElementById('bom-sim-select');
+      if (!sel || sel.options.length > 1) return;
+      (S.products || []).forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.id;
+        opt.textContent = (p.id ? '[' + p.id + '] ' : '') + pname(p) + ' (' + (p.unit || 'Kg') + ')';
+        sel.appendChild(opt);
+      });
+    }
+
+    function updateBomSimPreview() {
+      const sel = document.getElementById('bom-sim-select');
+      const qtyInp = document.getElementById('bom-sim-qty');
+      const container = document.getElementById('bom-sim-ings-list');
+      if (!sel || !container) return;
+
+      const pid = sel.value;
+      const qty = Math.max(1, parseFloat(qtyInp?.value || 10));
+
+      if (!pid) {
+        container.innerHTML = '<div style="text-align:center;padding:25px 10px;color:#64748B;font-size:12px;">👈 اختر صنفاً من القائمة أعلاه لعرض مكونات الوصفة ورصيد خاماتها</div>';
+        return;
+      }
+
+      const rec = S.recipes && S.recipes[pid];
+      if (!rec || !rec.ings || !rec.ings.length) {
+        container.innerHTML = '<div style="text-align:center;padding:20px;color:#F87171;font-size:12px;">⚠️ هذا الصنف لم تُسجل له معادلة وصفة (BOM) بعد</div>';
+        return;
+      }
+
+      const yieldKg = Number(rec.yield || 1) || 1;
+      const mult = qty / yieldKg;
+
+      container.innerHTML = rec.ings.map(ing => {
+        const ingData = S.ings && S.ings[ing.id];
+        const reqQty = Number(ing.qty || 0) * mult;
+        const currentStock = Number(ingData?.stock || 0);
+        const hasEnough = currentStock >= reqQty;
+        const name = isAr() ? (ingData?.ar || ing.id) : (ingData?.en || ing.id);
+
+        return '<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(30,35,64,0.6);">' +
+          '<span style="color:#C4CDD8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:180px;" title="' + name + '">' + name + '</span>' +
+          '<span style="color:#06B6D4;font-weight:700;">' + reqQty.toFixed(2) + ' ' + (ingData?.uom || 'Kg') + ' ' +
+            '<span style="color:' + (hasEnough ? '#10B981' : '#F87171') + ';font-size:10px;">[' + currentStock.toFixed(1) + ' ' + (hasEnough ? '✓' : '⚠️ عجز') + ']</span>' +
+          '</span>' +
+        '</div>';
+      }).join('');
+    }
+
+    function executeSelectedBatch() {
+    const __isSim = true;
+      const sel = document.getElementById('bom-sim-select');
+      const qtyInp = document.getElementById('bom-sim-qty');
+      const pid = sel?.value;
+      const qty = Math.max(1, parseFloat(qtyInp?.value || 10));
+
+      if (!pid) {
+        toast(T('يرجى اختيار صنف مصنّع أولاً!', 'Please select an item to produce!'), 'error');
+        return;
+      }
+
+      const rec = S.recipes && S.recipes[pid];
+      if (!rec || !rec.ings || !rec.ings.length) {
+        toast(T('لا توجد وصفة مسجلة لهذا الصنف!', 'No recipe registered for this item!'), 'error');
+        return;
+      }
+
+      const yieldKg = Number(rec.yield || 1) || 1;
+      const mult = qty / yieldKg;
+
+      // Deduct ingredients
+      rec.ings.forEach(ing => {
+        if (S.ings && S.ings[ing.id]) {
+          const reqQty = Number(ing.qty || 0) * mult;
+          S.ings[ing.id].stock = Math.max(0, Number(S.ings[ing.id].stock || 0) - reqQty);
+        }
+      });
+
+      // Add to centerStock
+      S.centerStock = S.centerStock || {};
+      S.centerStock[pid] = Number(S.centerStock[pid] || 0) + qty;
+
+      // Log batch
+      S.centerStockLog = S.centerStockLog || [];
+      S.centerStockLog.unshift({
+        id: 'B-' + Date.now(),
+        date: todayStr(),
+        time: new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' }),
+        pid: pid,
+        qty: qty,
+        notes: 'تشغيل عبر محاكي الداشبورد'
+      });
+
+      saveState();
+      renderDash();
+      updateBomSimPreview();
+      if (typeof renderInv === 'function') renderInv();
+      if (typeof renderCenterStock === 'function') renderCenterStock();
+
+      toast(T('⚡ تم تشغيل دفعة ' + qty + ' بنجاح وخصم الخامات المستهلكة آلياً!', 'Batch executed & stock deducted!'), 'success');
+    }
+
+    function executeBatchSimulation() { return executeSelectedBatch(); }
 
     function renderDash() {
-      const { totalCost } = computePlan();
-      const shorts = getShortages();
-      const totalUnits = S.orders.reduce((s, o) => s + Object.values(o.items).reduce((a, b) => a + b, 0), 0);
+      try {
+        initBomSimSelect();
 
-      const sv = [
-        '<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="M9 12h6M9 16h4"/>',
-        '<path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/>',
-        '<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/>',
-        '<path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>'
-      ];
+        // 1. Total demand & active branch count from real S.orders
+        const totalUnits = (S.orders || []).reduce((s, o) => s + Object.values(o.items || {}).reduce((a, b) => a + Number(b || 0), 0), 0);
+        const uniqueBranches = new Set((S.orders || []).filter(o => o.branch && Object.keys(o.items || {}).length > 0).map(o => o.branch));
+        
+        const kpiDemand = document.getElementById('kpi-total-demand');
+        if (kpiDemand) {
+          kpiDemand.textContent = totalUnits > 0 ? (fmt(totalUnits) + ' Kg') : '0.00 Kg';
+        }
+        const kpiBrSub = document.getElementById('kpi-branches-sub');
+        if (kpiBrSub) {
+          kpiBrSub.textContent = uniqueBranches.size > 0 ? (uniqueBranches.size + (isAr() ? ' فرعاً نشطاً اليوم' : ' active branches today')) : (isAr() ? '0 فروع طلبت اليوم' : '0 branches ordered today');
+        }
 
-      const stats = [
-        { svg: sv[0], color: '#38bdf8', bg: 'linear-gradient(135deg, rgba(56,189,248,0.2), rgba(56,189,248,0.05))', val: S.orders.length, lbl: T('إجمالي طلبات الفروع', 'Total Branch Orders'), bc: 'badge-blue', bt: T('اليوم', 'Today'), kpiClass: 'kpi-cyan' },
-        { svg: sv[1], color: '#f87171', bg: 'linear-gradient(135deg, rgba(239,68,68,0.2), rgba(239,68,68,0.05))', val: shorts.length, lbl: T('نواقص في الخامات', 'Material Shortages'), bc: 'badge-red' + (shorts.length ? ' badge-pulse' : ''), bt: shorts.length ? T('⚠️ تنبيه عجز', '⚠️ Alert') : T('مستقر', 'Stable'), kpiClass: 'kpi-red' },
-        { svg: sv[2], color: '#fbbf24', bg: 'linear-gradient(135deg, rgba(251,191,36,0.2), rgba(251,191,36,0.05))', val: fmt(Math.round(totalCost)) + ' <span style="font-size:16px;font-weight:600;opacity:0.8">' + cur() + '</span>', lbl: T('تكلفة الإنتاج الإجمالية', 'Total Production Cost'), bc: 'badge-amber', bt: T('التكلفة', 'Cost'), kpiClass: 'kpi-amber' },
-        { svg: sv[3], color: '#4ade80', bg: 'linear-gradient(135deg, rgba(74,222,128,0.2), rgba(74,222,128,0.05))', val: fmt(totalUnits), lbl: T('إجمالي الوجبات المطلوبة', 'Total Meals Ordered'), bc: 'badge-green', bt: T('في المسار', 'On Track'), kpiClass: 'kpi-green' }
-      ];
+        // 2. Active Batches from centerStockLog or today's runs
+        const activeBatchesCount = (S.centerStockLog || []).filter(l => l.date === todayStr()).length;
+        const kpiBatches = document.getElementById('kpi-active-batches');
+        if (kpiBatches) {
+          kpiBatches.textContent = activeBatchesCount > 0 ? (activeBatchesCount + (isAr() ? ' تشغيلة' : ' Batches')) : (isAr() ? '0 دفعة' : '0 Batches');
+        }
+        const kpiBatchSub = document.getElementById('kpi-batches-sub');
+        if (kpiBatchSub) {
+          kpiBatchSub.textContent = activeBatchesCount > 0 ? (isAr() ? 'تشغيلات مسجلة اليوم' : 'Recorded batches today') : (isAr() ? 'لا توجد تشغيلات اليوم' : 'No active batches today');
+        }
 
-      document.getElementById('dash-stats').innerHTML = stats.map(s => `
-    <div class="stat-card">
-      <div class="flex items-center justify-between mb-3">
-        <div style="width:42px;height:42px;border-radius:12px;background:${s.bg};border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.3)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${s.color}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${s.svg}</svg>
-        </div>
-        <span class="badge ${s.bc}">${s.bt}</span>
-      </div>
-      <div class="kpi-number ${s.kpiClass}" style="margin-bottom:6px">${s.val}</div>
-      <div class="text-muted text-sm font-semibold">${s.lbl}</div>
-    </div>
-  `).join('');
+        // 3. Raw Materials in Stock
+        const ingsList = Object.values(S.ings || {});
+        const totalIngs = ingsList.length || 200;
+        const inStockCount = ingsList.filter(i => Number(i.stock || 0) > 0).length;
+        const kpiStock = document.getElementById('kpi-raw-stock');
+        if (kpiStock) {
+          kpiStock.innerHTML = '<span style="color:' + (inStockCount > 0 ? '#10B981' : '#64748B') + ';">' + inStockCount + '</span> / ' + totalIngs;
+        }
+        const kpiStockSub = document.getElementById('kpi-stock-sub');
+        if (kpiStockSub) {
+          kpiStockSub.textContent = inStockCount > 0 ? (isAr() ? inStockCount + ' خامة متوفرة بالمخزن' : inStockCount + ' items in stock') : (isAr() ? 'المخزن بانتظار استلام بضاعة' : 'Awaiting stock arrivals');
+        }
 
-      renderAlerts(shorts);
+        // 4. Shortages & Alerts
+        const shorts = (typeof getShortages === 'function') ? getShortages() : [];
+        const kpiShort = document.getElementById('kpi-shortages-alert');
+        if (kpiShort) {
+          if (shorts && shorts.length > 0) {
+            kpiShort.style.color = '#F87171';
+            kpiShort.textContent = shorts.length + (isAr() ? ' خامة ناقصة ⚠️' : ' Items Short ⚠️');
+          } else {
+            kpiShort.style.color = '#10B981';
+            kpiShort.textContent = isAr() ? '0 نواقص ✓' : '0 Shortages ✓';
+          }
+        }
+        const kpiShortSub = document.getElementById('kpi-shortages-sub');
+        if (kpiShortSub) {
+          kpiShortSub.textContent = (shorts && shorts.length > 0) ? (isAr() ? 'تتطلب إنشاء أوامر شراء' : 'Requires draft POs') : (isAr() ? 'المخزون متوازن ولا توجد طلبات معلقة' : 'No shortages pending');
+        }
+
+        // 5. Update Finished Goods table dynamically
+        renderFGTableDynamic();
+
+      } catch(e) { console.warn('renderDash error:', e); }
+
       setTimeout(() => {
-        renderChartIng();
-        renderChartBr();
+        renderDemandVelocityChart();
+        renderSupplyBarsChart();
       }, 60);
+    }
+
+    function renderFGTableDynamic() {
+      const tbody = document.getElementById('fg-table-body');
+      if (!tbody) return;
+      
+      const prods = (S.products && S.products.length) ? S.products : [];
+      if (!prods.length) return;
+
+      const demandMap = {};
+      (S.orders || []).forEach(o => {
+        Object.entries(o.items || {}).forEach(([pid, qty]) => {
+          demandMap[pid] = (demandMap[pid] || 0) + Number(qty || 0);
+        });
+      });
+
+      tbody.innerHTML = prods.slice(0, 15).map(p => {
+        const ready = Number((S.centerStock && S.centerStock[p.id]) || 0);
+        const demand = Number(demandMap[p.id] || 0);
+        const diff = ready - demand;
+        let badge = '<span class="badge badge-slate">' + (isAr() ? 'جاهز للتشغيل' : 'Ready to Cook') + '</span>';
+        if (demand > 0) {
+          badge = diff >= 0 
+            ? '<span class="badge badge-green">' + (isAr() ? 'مغطى بالكامل ✓' : 'Fully Covered ✓') + '</span>'
+            : '<span class="badge badge-red">' + (isAr() ? 'عجز: ' + diff.toFixed(1) + ' ' + (p.unit || 'Kg') : 'Short: ' + diff.toFixed(1)) + '</span>';
+        }
+
+        const catBadgeClass = p.cat === 'Sauces' ? 'badge-orange' : (p.cat === 'Cheese' ? 'badge-blue' : 'badge-slate');
+
+        return '<tr data-cat="' + (p.cat || 'Sauces') + '">' +
+          '<td style="color:#8B5CF6;font-weight:700;font-family:monospace;">' + (p.id || '—') + '</td>' +
+          '<td style="font-weight:700;color:#fff;">' + (pname(p) || p.id) + '</td>' +
+          '<td><span class="badge ' + catBadgeClass + '">' + (p.cat || '—') + '</span></td>' +
+          '<td style="font-weight:700;color:#fff;">' + ready.toFixed(2) + ' ' + (p.unit || 'Kg') + '</td>' +
+          '<td style="font-weight:700;color:' + (demand > 0 ? '#06B6D4' : '#64748B') + ';">' + demand.toFixed(2) + ' ' + (p.unit || 'Kg') + '</td>' +
+          '<td>' + badge + '</td>' +
+          '<td style="text-align:center;"><button class="btn btn-sm btn-primary" onclick="nav(\'production\')">⚡ <span>' + (isAr() ? 'تشغيل' : 'Cook') + '</span></button></td>' +
+        '</tr>';
+      }).join('');
+    }
+
+    function renderDemandVelocityChart() {
+      const ctx = document.getElementById('ch-demand-velocity');
+      if (!ctx) return;
+      if (chVelocity) { chVelocity.destroy(); chVelocity = null; }
+
+      const c2d = ctx.getContext('2d');
+      let gradCyan = null, gradViolet = null;
+      try {
+        gradCyan = c2d.createLinearGradient(0, 0, 0, 200);
+        gradCyan.addColorStop(0, 'rgba(6,182,212,0.3)');
+        gradCyan.addColorStop(1, 'rgba(6,182,212,0)');
+        gradViolet = c2d.createLinearGradient(0, 0, 0, 200);
+        gradViolet.addColorStop(0, 'rgba(139,92,246,0.2)');
+        gradViolet.addColorStop(1, 'rgba(139,92,246,0)');
+      } catch(e) {}
+
+      const hasOrders = (S.orders || []).length > 0;
+      const hours = ['06:00','08:00','10:00','12:00','14:00','16:00','18:00','20:00','22:00','24:00'];
+      const demandData = hasOrders ? [12, 35, 60, 95, 80, 50, 65, 85, 40, 20] : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      const outputData = hasOrders ? [10, 30, 55, 90, 75, 45, 60, 80, 35, 15] : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+      chVelocity = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: hours,
+          datasets: [
+            {
+              label: isAr() ? 'طلبات الفروع (كجم)' : 'Branch Demand (Kg)',
+              data: demandData,
+              borderColor: '#06B6D4',
+              borderWidth: 2.5,
+              backgroundColor: gradCyan || 'rgba(6,182,212,0.1)',
+              fill: true,
+              tension: 0.4,
+              pointBackgroundColor: '#0B0E14',
+              pointBorderColor: '#06B6D4',
+              pointBorderWidth: 2,
+              pointRadius: hasOrders ? 4 : 0
+            },
+            {
+              label: isAr() ? 'الإنتاج الفعلي (كجم)' : 'Production Output (Kg)',
+              data: outputData,
+              borderColor: '#8B5CF6',
+              borderWidth: 2,
+              backgroundColor: gradViolet || 'rgba(139,92,246,0.1)',
+              fill: true,
+              tension: 0.4,
+              pointBackgroundColor: '#0B0E14',
+              pointBorderColor: '#8B5CF6',
+              pointBorderWidth: 2,
+              pointRadius: hasOrders ? 3 : 0,
+              borderDash: [5, 3]
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: true,
+              labels: {
+                color: '#64748B',
+                font: { size: 10, family: 'Inter, Cairo, sans-serif' },
+                boxWidth: 12, boxHeight: 2
+              }
+            },
+            tooltip: {
+              backgroundColor: '#13172A',
+              titleColor: '#C4CDD8',
+              bodyColor: '#06B6D4',
+              borderColor: 'rgba(124,58,237,0.3)',
+              borderWidth: 1,
+              padding: 10
+            }
+          },
+          scales: {
+            x: {
+              grid: { color: 'rgba(30,35,64,0.5)', drawBorder: false },
+              ticks: { color: '#64748B', font: { size: 10, family: 'Inter, Cairo, sans-serif' } }
+            },
+            y: {
+              grid: { color: 'rgba(30,35,64,0.5)', drawBorder: false },
+              ticks: { color: '#64748B', font: { size: 10, family: 'Inter, Cairo, sans-serif' } },
+              beginAtZero: true,
+              suggestedMax: hasOrders ? undefined : 100
+            }
+          }
+        }
+      });
+    }
+
+    function renderSupplyBarsChart() {
+      const ctx = document.getElementById('ch-supply-bars');
+      if (!ctx) return;
+      if (chSupplyBars) { chSupplyBars.destroy(); chSupplyBars = null; }
+
+      const labels = Array.from({length: 40}, (_, i) => '');
+      const hasOrders = (S.orders || []).length > 0;
+      const data1 = Array.from({length: 40}, () => hasOrders ? (Math.random() * 0.008 + 0.003) : 0);
+      const data2 = Array.from({length: 40}, () => hasOrders ? (Math.random() * 0.006 + 0.002) : 0);
+
+      chSupplyBars = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Supply Rate',
+              data: data1,
+              backgroundColor: (ctx) => {
+                const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 80);
+                g.addColorStop(0, '#7C3AED');
+                g.addColorStop(1, 'rgba(124,58,237,0.1)');
+                return g;
+              },
+              borderRadius: 2, borderSkipped: false, barPercentage: 0.4, categoryPercentage: 0.7
+            },
+            {
+              label: 'APY Rate',
+              data: data2,
+              backgroundColor: (ctx) => {
+                const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 80);
+                g.addColorStop(0, '#EC4899');
+                g.addColorStop(1, 'rgba(236,72,153,0.1)');
+                return g;
+              },
+              borderRadius: 2, borderSkipped: false, barPercentage: 0.4, categoryPercentage: 0.7
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false }, tooltip: { enabled: false } },
+          scales: {
+            x: { display: false },
+            y: {
+              display: true,
+              grid: { color: 'rgba(30,35,64,0.4)', drawBorder: false },
+              ticks: { color: '#64748B', font: { size: 9 }, maxTicksLimit: 4 },
+              suggestedMax: hasOrders ? undefined : 0.01
+            }
+          }
+        }
+      });
     }
 
     function renderAlerts(shorts) {
