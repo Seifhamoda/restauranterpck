@@ -650,6 +650,61 @@
       font-weight: 600 !important;
     }
 
+  
+
+    /* ========== CENTER STOCK DUAL PANE WORKBENCH ========== */
+    .dual-pane-workbench {
+      display: grid !important;
+      grid-template-columns: 1fr 400px !important;
+      gap: 18px !important;
+      align-items: start !important;
+    }
+    @media (max-width: 1150px) {
+      .dual-pane-workbench {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .pane-stream {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 14px !important;
+      min-width: 0 !important;
+    }
+    .pane-inspector {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 14px !important;
+      min-width: 0 !important;
+    }
+    .selected-stream-card {
+      border-color: rgba(139, 92, 246, 0.9) !important;
+      box-shadow: 0 0 25px rgba(124, 58, 237, 0.4) !important;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.22), rgba(15, 23, 42, 0.95)) !important;
+      transform: translateY(-2px);
+    }
+    .card-dept-meat {
+      border: 1px solid rgba(139, 92, 246, 0.3) !important;
+    }
+    .card-dept-stock {
+      border: 1px solid rgba(16, 185, 129, 0.3) !important;
+    }
+    .card-dept-recipes {
+      border: 1px solid rgba(245, 158, 11, 0.3) !important;
+    }
+    .stock-sufficiency-bar {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .stock-sufficiency-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
   </style>
 </head>
 
@@ -1029,6 +1084,175 @@
         <canvas id="ch-ing" style="display:none"></canvas>
         <canvas id="ch-br" style="display:none"></canvas>
       </section>
+
+      <!-- ====================================================
+           CENTER STOCK & BATCHES WORKBENCH (مخزون المركز والدفعات)
+           ==================================================== -->
+      <section class="page" id="page-centerstock">
+        <!-- Dual-Pane Mission Control Workbench -->
+        <div class="dual-pane-workbench">
+          <!-- LEFT PANE: LIVE PRODUCT STREAM -->
+          <div class="pane-stream">
+            <!-- Filter & Search Toolbar -->
+            <div class="card" style="padding: 14px 18px; border-radius: 16px;">
+              <div class="flex gap-3 items-center flex-wrap">
+                <div style="position:relative;flex:1;min-width:220px">
+                  <input type="text" class="input" id="cs-search" placeholder="ابحث بالاسم أو الكود... (Filter products)" data-ar-ph="ابحث بالاسم أو الكود..." data-en-ph="Filter manufactured items..." style="width:100%;height:40px;padding-right:38px;box-sizing:border-box" oninput="renderCenterStock()" />
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" style="position:absolute;right:12px;top:12px;pointer-events:none"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <select class="select" id="cs-cat-filter" style="width:170px;height:40px" onchange="renderCenterStock()">
+                  <option value="">جميع الأقسام (All Categories)</option>
+                  <option value="beef">🥩 لحوم وبرجر (Beef)</option>
+                  <option value="chicken">🍗 دجاج وتحضيرات (Chicken)</option>
+                  <option value="sauces">🫙 صوصات وتتبيلات (Sauces)</option>
+                  <option value="bakery">🍞 مخبوزات وعيش (Bakery)</option>
+                  <option value="cheese">🧀 أجبان (Cheeses)</option>
+                  <option value="veggies">🥦 خضروات (Veg)</option>
+                  <option value="drinks">🧃 مشروبات (Drinks)</option>
+                </select>
+                <select class="select" id="cs-status-filter" style="width:170px;height:40px" onchange="renderCenterStock()">
+                  <option value="">جميع الحالات (All Levels)</option>
+                  <option value="ok">🟢 متوفر بكفاية (Sufficient)</option>
+                  <option value="low">🟡 رصيد منخفض (Low)</option>
+                  <option value="empty">🔴 منتهي / نفد (Depleted)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- KPI Row Above Stream -->
+            <div class="g4" id="cs-stats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;"></div>
+
+            <!-- Product Cards Stream Grid -->
+            <div id="cs-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;"></div>
+          </div>
+
+          <!-- RIGHT PANE: COMMAND DECK / INSPECTOR -->
+          <div class="pane-inspector" id="cs-inspector-deck">
+            <!-- Inspected Product Hero -->
+            <div class="card card-dept-meat" id="cs-hero-card" style="padding:18px 20px;border-radius:16px;">
+              <div class="flex items-center justify-between mb-2">
+                <span class="badge badge-purple" id="cs-hero-cat" style="font-size:11px;font-weight:800;background:rgba(124,58,237,0.25);border:1px solid rgba(139,92,246,0.4);color:#C4B5FD">المطبخ المركزي</span>
+                <span class="badge badge-green" id="cs-hero-status" style="font-size:11px;font-weight:800">جاهز للتشغيل</span>
+              </div>
+              <h2 class="text-white font-bold" id="cs-hero-title" style="font-size:17px;margin:6px 0 10px;line-height:1.3">اختر منتجاً لفحصه والتحكم به</h2>
+              <div class="flex items-center justify-between" style="border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;margin-top:8px">
+                <div>
+                  <div class="text-muted text-xs font-semibold" data-ar="الرصيد الحالي بالمطبخ المركزي" data-en="CURRENT CENTER STOCK">الرصيد الحالي بالمطبخ المركزي</div>
+                  <div class="kpi-number" id="cs-hero-stock" style="font-size:1.8rem;color:#A78BFA;margin-top:2px;font-weight:800">0.00 <span style="font-size:12px;color:#94a3b8">Kg</span></div>
+                </div>
+                <div style="text-align:left;direction:ltr">
+                  <div class="text-muted text-xs font-semibold" style="direction:rtl">تكلفة الوصفة (Recipe Cost)</div>
+                  <div class="text-white font-bold" id="cs-hero-cost" style="font-size:1.3rem;color:#FBBF24;margin-top:2px">0.00 ج.م</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Production Batch Simulator & Execution Card -->
+            <div class="card" style="padding:18px 20px;border-radius:16px;border:1px solid rgba(124,58,237,0.35);background:linear-gradient(135deg,rgba(124,58,237,0.08),rgba(15,23,42,0.95))">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+                <div style="width:36px;height:36px;border-radius:10px;background:rgba(124,58,237,0.25);border:1px solid rgba(139,92,246,0.4);display:flex;align-items:center;justify-content:center;color:#C4B5FD;flex-shrink:0">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-white font-bold" style="font-size:14px;margin:0;color:#C4B5FD">محاكي ومسجل تشغيل الدفعات</h3>
+                  <div class="text-muted" style="font-size:11px">حساب واستهلاك الخامات تلقائياً عند الإنتاج</div>
+                </div>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <div>
+                  <label class="field-label" style="font-size:11.5px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block">المنتج المصنّع المستهدف</label>
+                  <select class="select" id="cs-prod-select" style="width:100%;height:38px;box-sizing:border-box" onchange="onCsProdChange()">
+                    <option value="">— اختر المنتج المصنع —</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="field-label" style="font-size:11.5px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block">كمية التشغيلة المراد إنتاجها</label>
+                  <div style="display:flex;gap:8px;align-items:center">
+                    <input type="number" id="cs-prod-qty" class="input" min="0.01" step="0.01" placeholder="الكمية..." style="flex:1;height:38px;font-size:14px;font-weight:700;box-sizing:border-box" oninput="onCsProdChange()" />
+                    <span id="cs-prod-uom" class="badge badge-purple" style="height:38px;display:flex;align-items:center;justify-content:center;padding:0 12px;font-size:12px;font-weight:700;min-width:54px;border-radius:8px;background:rgba(124,58,237,0.2);border:1px solid rgba(139,92,246,0.3);color:#C4B5FD">Kg</span>
+                  </div>
+                  <!-- Quick stepper pills -->
+                  <div style="display:flex;gap:6px;margin-top:6px">
+                    <button class="btn btn-sm" onclick="stepCsQty(1)" style="padding:2px 8px;font-size:11px;background:rgba(255,255,255,0.06);border-radius:6px">+1</button>
+                    <button class="btn btn-sm" onclick="stepCsQty(5)" style="padding:2px 8px;font-size:11px;background:rgba(255,255,255,0.06);border-radius:6px">+5</button>
+                    <button class="btn btn-sm" onclick="stepCsQty(10)" style="padding:2px 8px;font-size:11px;background:rgba(255,255,255,0.06);border-radius:6px">+10</button>
+                    <button class="btn btn-sm" onclick="stepCsQty(25)" style="padding:2px 8px;font-size:11px;background:rgba(255,255,255,0.06);border-radius:6px">+25</button>
+                  </div>
+                </div>
+
+                <!-- Raw Materials Preview -->
+                <div id="cs-raw-preview" style="display:none;background:rgba(15,23,42,0.85);border:1px solid rgba(124,58,237,0.35);border-radius:12px;padding:12px;box-sizing:border-box">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,0.06)">
+                    <span style="font-size:12px;font-weight:700;color:#C4B5FD;display:flex;align-items:center;gap:6px">
+                      <span>📉</span>
+                      <span>الخامات المطلوبة للدفعة (BOM)</span>
+                    </span>
+                    <span id="cs-raw-batch-badge" style="font-size:11px;color:#94a3b8;background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:6px"></span>
+                  </div>
+                  <div id="cs-raw-list" style="max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:6px"></div>
+                </div>
+
+                <div>
+                  <label class="field-label" style="font-size:11.5px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block">ملاحظات الدفعة (اختياري)</label>
+                  <input type="text" id="cs-prod-notes" class="input" placeholder="رقم الوجبة، الوردية، اسم الشيف..." style="width:100%;height:36px;box-sizing:border-box" />
+                </div>
+
+                <button class="btn btn-primary" onclick="logProductionBatch()" style="width:100%;height:42px;font-weight:800;font-size:13px;justify-content:center;margin-top:4px;background:linear-gradient(135deg,#7C3AED,#6D28D9);border:none;box-shadow:0 0 15px rgba(124,58,237,0.4);cursor:pointer">
+                  ⚡ تأكيد التشغيلة وخصم الخامات آلياً
+                </button>
+              </div>
+            </div>
+
+            <!-- Manual Adjustment Card -->
+            <div class="card" style="padding:16px 18px;border-radius:16px;border:1px solid rgba(6,182,212,0.3);background:rgba(15,23,42,0.7)">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+                <div style="width:28px;height:28px;border-radius:8px;background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.3);display:flex;align-items:center;justify-content:center;color:#06b6d4">
+                  ✏️
+                </div>
+                <div>
+                  <h4 class="text-white font-bold" style="color:#06b6d4;font-size:13px;margin:0">تسوية جردية لمخزون المركز</h4>
+                  <div class="text-muted" style="font-size:10.5px">إضافة رصيد افتتاح، عجز، أو ضبط الجرد الفعلي</div>
+                </div>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div>
+                  <select class="select" id="cs-adj-prod" style="width:100%;height:36px;font-size:12px;box-sizing:border-box"><option value="">— اختر المنتج —</option></select>
+                </div>
+                <div style="display:grid;grid-template-columns:110px 1fr;gap:8px">
+                  <select class="select" id="cs-adj-type" style="width:100%;height:36px;font-size:12px;box-sizing:border-box">
+                    <option value="add">➕ إضافة</option>
+                    <option value="sub">➖ خصم</option>
+                    <option value="set">📌 تحديد جرد</option>
+                  </select>
+                  <input type="number" id="cs-adj-qty" class="input" min="0" step="0.01" placeholder="الكمية..." style="width:100%;height:36px;box-sizing:border-box" />
+                </div>
+                <button class="btn btn-sm" onclick="adjustCenterStock()" style="width:100%;height:36px;background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.3);color:#06b6d4;font-weight:700;font-size:12px;justify-content:center;border-radius:8px">
+                  تطبيق التسوية
+                </button>
+              </div>
+            </div>
+
+            <!-- Movement Log Card -->
+            <div class="card" style="padding:16px 18px;border-radius:16px;">
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="text-white font-bold flex items-center gap-2" style="font-size:13px">
+                  <span>📜</span> سجل حركات مخزون المركز
+                </h4>
+                <button class="btn btn-sm" onclick="exportCenterStockLog()" style="background:rgba(168,85,247,0.15);border:1px solid rgba(168,85,247,0.3);color:#a855f7;font-size:11px;padding:3px 10px;border-radius:6px">تصدير CSV</button>
+              </div>
+              <div id="cs-log-table" style="max-height:240px;overflow-y:auto;overflow-x:auto"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
 
       <section class="page" id="page-orders">
         <div style="display:grid;grid-template-columns:340px 1fr;gap:20px" class="orders-layout">
@@ -2570,6 +2794,8 @@
        GLOBAL APPLICATION STATE
     ============================================================ */
     const S = {
+      centerStock: {},
+      centerStockLog: [],
       lang: 'ar',
       sbCol: false,
       curPage: 'dashboard',
@@ -8501,7 +8727,9 @@
           ings: S.ings,
           products: S.products,
           recipes: S.recipes,
-          taztikiRecords: S.taztikiRecords || []
+          taztikiRecords: S.taztikiRecords || [],
+          centerStock: S.centerStock || {},
+          centerStockLog: S.centerStockLog || []
         };
         localStorage.setItem(LS_KEY, JSON.stringify(data));
       } catch (e) { console.warn('saveState failed:', e); }
@@ -8516,6 +8744,12 @@
         if (data.POs !== undefined && Array.isArray(data.POs)) S.POs = data.POs;
         if (data.invoices !== undefined && Array.isArray(data.invoices)) S.invoices = data.invoices;
         if (data.wastes !== undefined && Array.isArray(data.wastes)) S.wastes = data.wastes;
+        if (data.centerStock && typeof data.centerStock === 'object') {
+          S.centerStock = data.centerStock;
+        }
+        if (data.centerStockLog && Array.isArray(data.centerStockLog)) {
+          S.centerStockLog = data.centerStockLog;
+        }
         if (data.taztikiRecords !== undefined && Array.isArray(data.taztikiRecords)) S.taztikiRecords = data.taztikiRecords;
 
         // Smart merge for raw ingredients: adopt custom stock/price ONLY for official catalog items
@@ -8658,6 +8892,7 @@
       else if (p === 'invoices') renderInvoices();
       else if (p === 'waste') renderWaste();
       else if (p === 'shipments') renderShipments();
+      else if (p === 'centerstock') renderCenterStock();
       else if (p === 'reports') renderReports();
     }
 
@@ -9155,6 +9390,400 @@
         }
       });
     }
+
+    
+
+    /* ============================================================
+       CENTER STOCK & FINISHED GOODS WORKBENCH ENGINE
+       ============================================================ */
+    let S_inspectedProdId = null;
+
+    function getCsStatus(qty) {
+      if (!qty || qty <= 0) return { label: isAr() ? 'نفد / صفر' : 'Depleted', badge: 'badge-red', key: 'empty' };
+      if (qty < 5) return { label: isAr() ? 'رصيد منخفض' : 'Low Stock', badge: 'badge-amber', key: 'low' };
+      return { label: isAr() ? 'متوفر بكفاية' : 'Sufficient', badge: 'badge-green', key: 'ok' };
+    }
+
+    function populateCsProductSelects() {
+      const selects = ['cs-prod-select', 'cs-adj-prod'];
+      selects.forEach(sid => {
+        const sel = document.getElementById(sid);
+        if (!sel) return;
+        const cur = sel.value;
+        sel.innerHTML = '<option value="">— ' + (isAr() ? 'اختر المنتج المصنّع' : 'Select Product') + ' —</option>';
+        if (Array.isArray(S.products)) {
+          S.products.forEach(p => {
+            const opt = document.createElement('option');
+            opt.value = p.id;
+            const cs = S.centerStock && S.centerStock[p.id];
+            const stockQty = cs ? (cs.qty || 0) : 0;
+            const uom = cs ? cs.uom : (p.unit || 'Kg');
+            opt.textContent = pname(p) + ' (' + (stockQty % 1 === 0 ? stockQty : stockQty.toFixed(2)) + ' ' + uom + ')';
+            sel.appendChild(opt);
+          });
+        }
+        if (cur) sel.value = cur;
+      });
+    }
+
+    function selectCenterStockItem(prodId) {
+      S_inspectedProdId = prodId;
+      const prod = S.products.find(p => p.id === prodId);
+      if (!prod) return;
+
+      const cs = S.centerStock && S.centerStock[prodId];
+      const qty = cs ? (cs.qty || 0) : 0;
+      const uom = cs ? cs.uom : (prod.unit || 'Kg');
+      const r = S.recipes && S.recipes[prodId];
+      const cost = r ? (typeof recipeCost === 'function' ? recipeCost(r) : 0) : (prod.cost || 0);
+      const status = getCsStatus(qty);
+
+      // Update Hero Card
+      const heroTitle = document.getElementById('cs-hero-title');
+      const heroCat = document.getElementById('cs-hero-cat');
+      const heroStatus = document.getElementById('cs-hero-status');
+      const heroStock = document.getElementById('cs-hero-stock');
+      const heroCost = document.getElementById('cs-hero-cost');
+
+      if (heroTitle) heroTitle.textContent = pname(prod);
+      if (heroCat) heroCat.textContent = (prod.cat || 'CK PREP').toUpperCase();
+      if (heroStatus) {
+        heroStatus.textContent = status.label.toUpperCase();
+        heroStatus.className = 'badge ' + status.badge;
+      }
+      if (heroStock) {
+        heroStock.innerHTML = (qty % 1 === 0 ? qty : qty.toFixed(2)) + ' <span style="font-size:12px;color:#94a3b8">' + uom + '</span>';
+      }
+      if (heroCost) {
+        heroCost.textContent = (typeof f2 === 'function' ? f2(cost) : cost.toFixed(2)) + ' ' + (typeof cur === 'function' ? cur() : 'ج.م');
+      }
+
+      // Preselect in batch simulator
+      const sel = document.getElementById('cs-prod-select');
+      if (sel) {
+        sel.value = prodId;
+        onCsProdChange();
+      }
+      const adjSel = document.getElementById('cs-adj-prod');
+      if (adjSel) adjSel.value = prodId;
+
+      // Update active card highlight
+      document.querySelectorAll('#cs-grid .card').forEach(c => {
+        c.classList.remove('selected-stream-card');
+      });
+      const targetCard = document.querySelector('#cs-grid .card[data-id="' + prodId + '"]');
+      if (targetCard) targetCard.classList.add('selected-stream-card');
+    }
+
+    function stepCsQty(delta) {
+      const inp = document.getElementById('cs-prod-qty');
+      if (!inp) return;
+      const cur = Number(inp.value) || 0;
+      inp.value = (cur + delta).toFixed(delta % 1 === 0 ? 0 : 2);
+      onCsProdChange();
+    }
+
+    function onCsProdChange() {
+      const pid = document.getElementById('cs-prod-select')?.value;
+      const previewDiv = document.getElementById('cs-raw-preview');
+      const listDiv = document.getElementById('cs-raw-list');
+      if (!pid) {
+        if (previewDiv) previewDiv.style.display = 'none';
+        return;
+      }
+      const prod = S.products.find(p => p.id === pid);
+      if (prod) {
+        const uomBadge = document.getElementById('cs-prod-uom');
+        if (uomBadge) uomBadge.textContent = prod.unit || 'Kg';
+      }
+
+      // Preview raw materials required
+      const recipe = S.recipes && S.recipes[pid];
+      if (recipe && recipe.ings && recipe.ings.length > 0) {
+        const rawQtyInput = document.getElementById('cs-prod-qty')?.value;
+        const enteredQty = parseFloat(rawQtyInput);
+        const qty = (!isNaN(enteredQty) && enteredQty > 0) ? enteredQty : 1;
+
+        const batchBadge = document.getElementById('cs-raw-batch-badge');
+        if (batchBadge) {
+          batchBadge.textContent = (!isNaN(enteredQty) && enteredQty > 0)
+            ? (isAr() ? ('تشغيلة: ' + qty + ' ' + (prod ? prod.unit : 'وحدة')) : ('Batch: ' + qty + ' ' + (prod ? prod.unit : 'unit')))
+            : (isAr() ? ('محسوبة لكل 1 ' + (prod ? prod.unit : 'وحدة')) : ('Calculated per 1 ' + (prod ? prod.unit : 'unit')));
+        }
+
+        let html = '';
+        recipe.ings.forEach(ing => {
+          const raw = S.ings && S.ings[ing.id];
+          if (!raw) return;
+          const wasteFactor = 1 + (Number(ing.waste) || 0) / 100;
+          const needed = (Number(ing.qty) || 0) * wasteFactor * qty;
+          const curStock = Number(raw.stock) || 0;
+          const isEnough = curStock >= needed;
+          const color = isEnough ? '#4ade80' : '#f87171';
+          const ingName = isAr() ? (raw.ar || raw.en) : (raw.en || raw.ar);
+          const uomText = raw.uom || '';
+
+          html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:rgba(255,255,255,0.03);border:1px solid ' + (isEnough ? 'rgba(16,185,129,0.25)' : 'rgba(239,68,68,0.3)') + ';border-radius:8px;">' +
+            '<div style="text-align:right">' +
+              '<div style="font-weight:700;font-size:12px;color:#f1f5f9">' + ingName + '</div>' +
+              '<div style="font-size:10px;color:#94a3b8">' + (isAr() ? 'المتوفر بالمخزن: ' : 'In stock: ') + '<strong style="color:' + (isEnough ? '#cbd5e1' : '#f87171') + '">' + (curStock % 1 === 0 ? curStock : curStock.toFixed(2)) + ' ' + uomText + '</strong></div>' +
+            '</div>' +
+            '<div style="text-align:left;direction:ltr">' +
+              '<div style="color:' + color + ';font-weight:800;font-size:13px">' + needed.toFixed(2) + ' <span style="font-size:10px;color:#94a3b8">' + uomText + '</span></div>' +
+              '<div style="color:' + color + ';font-size:10px;font-weight:700;direction:rtl">' + (isEnough ? (isAr() ? '✅ متوفر' : 'Available') : (isAr() ? ('⚠️ عجز ' + (needed - curStock).toFixed(2)) : ('Deficit ' + (needed - curStock).toFixed(2)))) + '</div>' +
+            '</div>' +
+          '</div>';
+        });
+
+        if (listDiv) listDiv.innerHTML = html;
+        if (previewDiv) previewDiv.style.display = 'block';
+      } else {
+        if (previewDiv) previewDiv.style.display = 'none';
+      }
+    }
+
+    function logProductionBatch() {
+      const pid = document.getElementById('cs-prod-select')?.value;
+      const qtyRaw = document.getElementById('cs-prod-qty')?.value;
+      const qty = parseFloat(qtyRaw);
+      if (!pid) { toast(T('اختر منتجاً أولاً', 'Please select a product first'), 'error'); return; }
+      if (!qty || qty <= 0) { toast(T('أدخل كمية صحيحة أكبر من صفر', 'Enter a valid positive quantity'), 'error'); return; }
+
+      const prod = S.products.find(p => p.id === pid);
+      const uom = prod ? (prod.unit || 'Kg') : 'Kg';
+      const notes = document.getElementById('cs-prod-notes')?.value || '';
+
+      // 1. Deduct raw materials from S.ings
+      const recipe = S.recipes && S.recipes[pid];
+      if (recipe && recipe.ings && recipe.ings.length > 0) {
+        recipe.ings.forEach(ing => {
+          if (S.ings && S.ings[ing.id]) {
+            const wasteFactor = 1 + (Number(ing.waste) || 0) / 100;
+            const deductAmount = (Number(ing.qty) || 0) * wasteFactor * qty;
+            S.ings[ing.id].stock = Math.max(0, (S.ings[ing.id].stock || 0) - deductAmount);
+            S.ings[ing.id].stock = Math.round(S.ings[ing.id].stock * 1000) / 1000;
+          }
+        });
+      }
+
+      // 2. Add to Center Stock
+      S.centerStock = S.centerStock || {};
+      if (!S.centerStock[pid]) S.centerStock[pid] = { qty: 0, uom: uom, updatedAt: new Date().toISOString() };
+      S.centerStock[pid].qty = Math.round(((S.centerStock[pid].qty || 0) + qty) * 1000) / 1000;
+      S.centerStock[pid].uom = uom;
+      S.centerStock[pid].updatedAt = new Date().toISOString();
+
+      // 3. Log movement
+      S.centerStockLog = S.centerStockLog || [];
+      S.centerStockLog.unshift({
+        productId: pid,
+        qtyChange: qty,
+        action: 'production',
+        branch: null,
+        refOrderId: null,
+        notes: notes,
+        createdAt: new Date().toISOString()
+      });
+
+      saveState();
+      document.getElementById('cs-prod-qty').value = '';
+      document.getElementById('cs-prod-notes').value = '';
+      if (document.getElementById('cs-raw-preview')) document.getElementById('cs-raw-preview').style.display = 'none';
+
+      toast(T('⚡ تم تأكيد التشغيلة وإضافة ' + qty + ' ' + uom + ' من ' + pname(prod) + ' للمخزون!', '⚡ Production logged: ' + qty + ' ' + uom + ' of ' + pname(prod)), 'success');
+      renderCenterStock();
+      if (typeof renderInv === 'function') renderInv();
+    }
+
+    function adjustCenterStock() {
+      const pid = document.getElementById('cs-adj-prod')?.value;
+      const type = document.getElementById('cs-adj-type')?.value;
+      const qty = parseFloat(document.getElementById('cs-adj-qty')?.value);
+      if (!pid) { toast(T('اختر منتجاً أولاً', 'Select a product first'), 'error'); return; }
+      if (isNaN(qty) || qty < 0) { toast(T('أدخل كمية صحيحة', 'Enter valid quantity'), 'error'); return; }
+
+      S.centerStock = S.centerStock || {};
+      if (!S.centerStock[pid]) {
+        const prod = S.products.find(p => p.id === pid);
+        S.centerStock[pid] = { qty: 0, uom: prod ? (prod.unit || 'Kg') : 'Kg', updatedAt: new Date().toISOString() };
+      }
+      const before = S.centerStock[pid].qty || 0;
+      let after;
+      if (type === 'add') after = before + qty;
+      else if (type === 'sub') after = Math.max(0, before - qty);
+      else after = qty;
+
+      const change = Math.round((after - before) * 1000) / 1000;
+      S.centerStock[pid].qty = Math.round(after * 1000) / 1000;
+      S.centerStock[pid].updatedAt = new Date().toISOString();
+
+      S.centerStockLog = S.centerStockLog || [];
+      S.centerStockLog.unshift({
+        productId: pid,
+        qtyChange: change,
+        action: 'adjustment',
+        branch: null,
+        refOrderId: null,
+        notes: 'تسوية يدوية ' + (type === 'set' ? 'ضبط رصيد' : (type === 'add' ? 'إضافة' : 'خصم')),
+        createdAt: new Date().toISOString()
+      });
+
+      saveState();
+      document.getElementById('cs-adj-qty').value = '';
+      toast(T('✏️ تم تعديل رصيد ' + pname(S.products.find(p => p.id === pid)) + ' إلى ' + after + ' بنجاح', 'Stock adjusted'), 'success');
+      renderCenterStock();
+    }
+
+    function exportCenterStockLog() {
+      if (!S.centerStockLog || !S.centerStockLog.length) {
+        toast(T('لا توجد حركات للتصدير بعد', 'No movements to export'), 'info');
+        return;
+      }
+      let csv = 'Date,Product,Change,Action,Branch,Notes\n';
+      S.centerStockLog.forEach(l => {
+        const prod = S.products.find(p => p.id === l.productId);
+        csv += [(l.createdAt || ''), (prod ? (prod.en || prod.ar) : l.productId), l.qtyChange, l.action, (l.branch || ''), (l.notes || '')].map(v => '"' + String(v).replace(/"/g, '""') + '"').join(',') + '\n';
+      });
+      const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'center_stock_log_' + new Date().toISOString().slice(0, 10) + '.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function renderCenterStock() {
+      S.centerStock = S.centerStock || {};
+      S.centerStockLog = S.centerStockLog || [];
+
+      populateCsProductSelects();
+
+      const search = (document.getElementById('cs-search')?.value || '').trim().toLowerCase();
+      const catF = document.getElementById('cs-cat-filter')?.value || '';
+      const statusF = document.getElementById('cs-status-filter')?.value || '';
+
+      // Compute KPIs
+      let totalItems = S.products ? S.products.length : 0;
+      let okCount = 0;
+      let lowCount = 0;
+      let emptyCount = 0;
+
+      if (Array.isArray(S.products)) {
+        S.products.forEach(p => {
+          const cs = S.centerStock[p.id];
+          const qty = cs ? (cs.qty || 0) : 0;
+          const status = getCsStatus(qty);
+          if (status.key === 'ok') okCount++;
+          else if (status.key === 'low') lowCount++;
+          else emptyCount++;
+        });
+      }
+
+      // Render KPIs
+      const statsEl = document.getElementById('cs-stats');
+      if (statsEl) {
+        statsEl.innerHTML = `
+          <div class="kpi-card" style="padding:14px 16px;">
+            <div class="kpi-label">${isAr() ? 'إجمالي المنتجات المصنعة' : 'Total Manufactured'}</div>
+            <div class="kpi-value" style="color:#f1f5f9;font-size:1.6rem;">${totalItems}</div>
+            <div class="text-muted text-xs" style="margin-top:2px;">${isAr() ? 'منتج معتمد بـ BOM' : 'Master catalog items'}</div>
+          </div>
+          <div class="kpi-card" style="padding:14px 16px;">
+            <div class="kpi-label">${isAr() ? 'متوفر بكفاية' : 'Sufficient Stock'}</div>
+            <div class="kpi-value" style="color:#4ade80;font-size:1.6rem;">${okCount}</div>
+            <div class="text-muted text-xs" style="margin-top:2px;">${isAr() ? 'جاهز للتوريد للفروع' : 'Ready for distribution'}</div>
+          </div>
+          <div class="kpi-card" style="padding:14px 16px;">
+            <div class="kpi-label">${isAr() ? 'أرصدة منخفضة' : 'Low Stock'}</div>
+            <div class="kpi-value" style="color:#fbbf24;font-size:1.6rem;">${lowCount}</div>
+            <div class="text-muted text-xs" style="margin-top:2px;">${isAr() ? 'تحت حد الأمان الموصى' : 'Near depletion'}</div>
+          </div>
+          <div class="kpi-card" style="padding:14px 16px;">
+            <div class="kpi-label">${isAr() ? 'منتهي / لم يُشغل' : 'Depleted / Pending'}</div>
+            <div class="kpi-value" style="color:#f87171;font-size:1.6rem;">${emptyCount}</div>
+            <div class="text-muted text-xs" style="margin-top:2px;">${isAr() ? 'يحتاج تشغيل دفعة' : 'Needs production batch'}</div>
+          </div>
+        `;
+      }
+
+      // Filter products
+      let prods = S.products || [];
+      if (catF) prods = prods.filter(p => p.cat === catF);
+      if (search) prods = prods.filter(p => (p.ar || '').toLowerCase().includes(search) || (p.en || '').toLowerCase().includes(search) || (p.id || '').toLowerCase().includes(search));
+
+      // Build product cards grid
+      const gridEl = document.getElementById('cs-grid');
+      if (gridEl) {
+        let html = '';
+        prods.forEach(p => {
+          const cs = S.centerStock[p.id];
+          const qty = cs ? (cs.qty || 0) : 0;
+          const uom = cs ? cs.uom : (p.unit || 'Kg');
+          const status = getCsStatus(qty);
+          if (statusF && status.key !== statusF) return;
+
+          const isSelected = S_inspectedProdId === p.id;
+          const deptCls = p.cat === 'beef' ? 'card-dept-meat' : (p.cat === 'sauces' ? 'card-dept-recipes' : 'card-dept-stock');
+          const targetStock = 10;
+          const suffRatio = Math.min(100, Math.round((qty / targetStock) * 100));
+          const suffColor = qty >= 5 ? '#10b981' : (qty > 0 ? '#fbbf24' : '#f43f5e');
+
+          html += '<div class="card ' + deptCls + ' ' + (isSelected ? 'selected-stream-card' : '') + '" data-id="' + p.id + '" onclick="selectCenterStockItem(\'' + p.id + '\')" style="padding:15px 16px;cursor:pointer;border-radius:14px;transition:all 0.2s ease;">' +
+            '<div class="flex items-center justify-between mb-2">' +
+              '<span class="badge ' + status.badge + '" style="font-size:10px;font-weight:800;border-radius:6px;">' + status.label + '</span>' +
+              '<span style="font-size:10.5px;color:#8B5CF6;font-weight:700;">' + (p.cat || 'CK') + '</span>' +
+            '</div>' +
+            '<div style="font-size:13.5px;font-weight:700;color:#f1f5f9;margin-bottom:6px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="' + pname(p) + '">' + pname(p) + '</div>' +
+            '<div class="kpi-number" style="font-size:1.7rem;color:' + (qty > 0 ? '#A78BFA' : '#64748b') + ';text-shadow:' + (qty > 0 ? '0 0 12px rgba(124,58,237,0.35)' : 'none') + '\">' + (qty % 1 === 0 ? qty : qty.toFixed(2)) + ' <span style="font-size:11.5px;color:#94a3b8;font-weight:600">' + uom + '</span></div>' +
+            '<div class="stock-sufficiency-bar" title="نسبة كفاية المخزون: ' + suffRatio + '%\">' +
+              '<div class="stock-sufficiency-fill" style="width:' + suffRatio + '%;background:' + suffColor + ';"></div>' +
+            '</div>' +
+            (cs ? '<div style="font-size:10px;color:#64748b;margin-top:6px;display:flex;justify-content:space-between"><span>' + (isAr() ? 'تحديث:' : 'Updated:') + '</span><span>' + (cs.updatedAt || '').split('T')[0] + '</span></div>' : '<div style="font-size:10px;color:#64748b;margin-top:6px">' + (isAr() ? 'لم يُرصد تشغيل بعد' : 'No batches logged') + '</div>') +
+          '</div>';
+        });
+
+        gridEl.innerHTML = html || ('<div class="text-muted text-center" style="grid-column:1/-1;padding:40px;border-radius:14px;background:rgba(255,255,255,0.02)">' + (isAr() ? 'لا توجد منتجات مطابقة لفلتر البحث' : 'No matching products') + '</div>');
+      }
+
+      // Render Movement Log Table
+      const logEl = document.getElementById('cs-log-table');
+      if (logEl) {
+        const log = (S.centerStockLog || []).slice(0, 50);
+        if (!log.length) {
+          logEl.innerHTML = '<div class="text-muted text-sm text-center" style="padding:24px">' + (isAr() ? 'لا توجد حركات مسجلة بعد' : 'No movements logged yet') + '</div>';
+        } else {
+          logEl.innerHTML = '<table class="data-table"><thead><tr>' +
+            '<th>' + (isAr() ? 'الوقت' : 'Date') + '</th>' +
+            '<th>' + (isAr() ? 'المنتج' : 'Product') + '</th>' +
+            '<th>' + (isAr() ? 'الكمية' : 'Change') + '</th>' +
+            '<th>' + (isAr() ? 'العملية' : 'Action') + '</th>' +
+            '<th>' + (isAr() ? 'الجهة / ملاحظات' : 'Notes') + '</th>' +
+          '</tr></thead><tbody>' + log.map(l => {
+            const prod = S.products.find(p => p.id === l.productId);
+            const actionMap = {
+              production: '<span class="badge badge-green" style="font-size:10px;font-weight:700">🏭 ' + (isAr() ? 'تشغيل دفعة' : 'Production') + '</span>',
+              branch_pull: '<span class="badge badge-amber" style="font-size:10px;font-weight:700">🚚 ' + (isAr() ? 'صرف فرع' : 'Branch Pull') + '</span>',
+              adjustment: '<span class="badge" style="font-size:10px;font-weight:700;background:rgba(6,182,212,0.2);color:#06b6d4">✏️ ' + (isAr() ? 'تسوية' : 'Adjustment') + '</span>'
+            };
+            const changeColor = l.qtyChange >= 0 ? '#4ade80' : '#f87171';
+            return '<tr>' +
+              '<td style="font-size:11px;color:#94a3b8">' + (l.createdAt ? l.createdAt.replace('T', ', ').slice(0, 16) : '') + '</td>' +
+              '<td style="font-weight:700">' + (prod ? pname(prod) : l.productId) + '</td>' +
+              '<td style="color:' + changeColor + ';font-weight:800;direction:ltr;text-align:center">' + (l.qtyChange >= 0 ? '+' : '') + l.qtyChange + '</td>' +
+              '<td>' + (actionMap[l.action] || l.action) + '</td>' +
+              '<td style="color:#94a3b8;font-size:11px">' + (l.branch || l.notes || '-') + '</td>' +
+            '</tr>';
+          }).join('') + '</tbody></table>';
+        }
+      }
+
+      // Auto inspect first product if none inspected
+      if (!S_inspectedProdId && S.products && S.products.length > 0) {
+        selectCenterStockItem(S.products[0].id);
+      }
+    }
+
 
     function renderAlerts(shorts) {
       const el = document.getElementById('dash-alerts');
