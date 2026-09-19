@@ -133,13 +133,14 @@
     }
     [dir="rtl"] body { font-family: 'Cairo', 'Inter', sans-serif; }
 
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 5px; height: 5px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 99px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(139,92,246,0.50); }
-    [data-theme="light"] ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); }
-    [data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: rgba(99,102,241,0.50); }
+    /* Custom Scrollbar — Wide, Accessible, Glowing Violet */
+    ::-webkit-scrollbar { width: 8px !important; height: 8px !important; }
+    ::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.03) !important; border-radius: 99px !important; }
+    ::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.40) !important; border-radius: 99px !important; border: 2px solid transparent !important; background-clip: padding-box !important; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(167, 139, 250, 0.85) !important; }
+    [data-theme="light"] ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.04) !important; }
+    [data-theme="light"] ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.45) !important; }
+    [data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: rgba(79, 70, 229, 0.85) !important; }
 
     /* Hide the old mob-bottom-nav completely across all viewports */
     .mob-bottom-nav { display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; }
@@ -361,8 +362,11 @@
        MAIN CONTENT WINDOW CONTAINER
     ══════════════════════════════════════════════════════════════════════════ */
     .main {
-      flex: 1;
-      height: 100%;
+      flex: 1 1 0% !important;
+      min-width: 0 !important;
+      min-height: 0 !important;
+      height: 100% !important;
+      max-height: 100% !important;
       background: var(--window-bg);
       backdrop-filter: blur(36px);
       -webkit-backdrop-filter: blur(36px);
@@ -633,10 +637,19 @@
        CONTENT SCROLL AREA
     ══════════════════════════════════════════════════════════════════════════ */
     .content {
-      flex: 1;
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 18px 22px 40px;
+      width: 100% !important;
+      max-width: 100% !important;
+      flex: 1 1 0% !important;
+      min-height: 0 !important;
+      height: 100% !important;
+      max-height: 100% !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      padding: 18px 22px 64px !important;
+      box-sizing: border-box !important;
+      -webkit-overflow-scrolling: touch !important;
+      overscroll-behavior-y: contain !important;
+      scrollbar-gutter: stable;
     }
 
     /* ══════════════════════════════════════════════════════════════════════════
@@ -882,16 +895,13 @@
       .dual-pane-workbench { grid-template-columns: 1fr !important; }
       .pane-inspector { position: static !important; max-height: none !important; }
     }
-    @media (max-width: 990px) {
-      .dual-pane-workbench { grid-template-columns: 1fr !important; }
-    }
     .pane-stream {
       background: var(--glass-card) !important;
       backdrop-filter: blur(20px) !important;
       border: 1px solid var(--border-glass) !important;
       border-radius: var(--r-xl) !important;
       padding: 20px !important;
-      overflow: hidden !important;
+      overflow: visible !important;
     }
     .pane-inspector {
       display: flex !important;
@@ -908,7 +918,7 @@
       background: transparent !important;
       border: none !important;
       box-shadow: none !important;
-      overscroll-behavior: contain !important;
+      overscroll-behavior: auto !important;
     }
     .pane-inspector::-webkit-scrollbar {
       width: 5px;
@@ -15396,6 +15406,58 @@
       }
     });
   }
+
+  // ── UNIVERSAL SECTION SCROLLER & KEYBOARD NAVIGATION ───────────────────
+  // Guarantees effortless mouse-wheel, trackpad, and keyboard navigation across all sections
+  (function initUniversalScroller() {
+    window.addEventListener('wheel', function(e) {
+      const cnt = document.querySelector('.content');
+      if (!cnt) return;
+      // Check if event occurred inside an active nested scroll container
+      let cur = e.target;
+      let handledByInner = false;
+      while (cur && cur !== cnt && cur !== document.body) {
+        if (cur.scrollHeight > cur.clientHeight + 2) {
+          const ov = window.getComputedStyle(cur).overflowY;
+          if (ov === 'auto' || ov === 'scroll') {
+            const atTop = cur.scrollTop <= 0 && e.deltaY < 0;
+            const atBottom = cur.scrollTop + cur.clientHeight >= cur.scrollHeight - 1 && e.deltaY > 0;
+            if (!atTop && !atBottom) {
+              handledByInner = true;
+              break;
+            }
+          }
+        }
+        cur = cur.parentElement;
+      }
+      if (!handledByInner) {
+        cnt.scrollTop += e.deltaY;
+      }
+    }, { passive: true });
+
+    window.addEventListener('keydown', function(e) {
+      const cnt = document.querySelector('.content');
+      if (!cnt) return;
+      const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+      if (['input', 'textarea', 'select'].includes(activeTag) || document.activeElement?.isContentEditable) return;
+      
+      if (e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey)) {
+        cnt.scrollTop += cnt.clientHeight * 0.8;
+        e.preventDefault();
+      } else if (e.key === 'PageUp' || (e.key === ' ' && e.shiftKey)) {
+        cnt.scrollTop -= cnt.clientHeight * 0.8;
+        e.preventDefault();
+      } else if (e.key === 'ArrowDown') {
+        cnt.scrollTop += 60;
+      } else if (e.key === 'ArrowUp') {
+        cnt.scrollTop -= 60;
+      } else if (e.key === 'Home') {
+        cnt.scrollTop = 0;
+      } else if (e.key === 'End') {
+        cnt.scrollTop = cnt.scrollHeight;
+      }
+    });
+  })();
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
