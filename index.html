@@ -1434,7 +1434,281 @@
       .topbar-segmented-tabs, .btn-pill-export { display: none !important; }
       .middle-grid { grid-template-columns: 1fr !important; }
     }
-  </style>
+  
+    /* ══════════════════════════════════════════════════════════════════════════
+       PAGE ISOLATION & ROUTING (Hides all inactive sections cleanly)
+    ══════════════════════════════════════════════════════════════════════════ */
+    .page {
+      display: none !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .page.active {
+      display: block !important;
+      animation: pageFadeIn 0.22s ease forwards !important;
+    }
+    @keyframes pageFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══════════════════════════════════════════════════════════════════════════
+       DEDICATED FULLSCREEN VIDEO WELCOME SECTION (Welcome Hub)
+    ══════════════════════════════════════════════════════════════════════════ */
+    .welcome-section-wrapper {
+      position: relative !important;
+      width: 100% !important;
+      min-height: calc(100vh - 120px) !important;
+      border-radius: var(--r-2xl) !important;
+      overflow: hidden !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      border: 1px solid var(--border-glass) !important;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.65) !important;
+      background: #06080e !important;
+      margin-bottom: 24px !important;
+    }
+    .welcome-video-fullscreen {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      z-index: 1 !important;
+      pointer-events: none !important;
+    }
+    .welcome-gradient-overlay {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 2 !important;
+      background: radial-gradient(circle at center, rgba(6, 8, 14, 0.55) 0%, rgba(6, 8, 14, 0.85) 75%, rgba(6, 8, 14, 0.96) 100%) !important;
+      pointer-events: none !important;
+    }
+    .welcome-inner-content {
+      position: relative !important;
+      z-index: 3 !important;
+      width: 100% !important;
+      max-width: 980px !important;
+      padding: 36px 24px !important;
+      display: flex !important;
+      justify-content: center !important;
+    }
+    .welcome-hero-card {
+      background: rgba(11, 15, 25, 0.82) !important;
+      backdrop-filter: blur(32px) !important;
+      -webkit-backdrop-filter: blur(32px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.14) !important;
+      border-radius: 26px !important;
+      padding: 38px 42px !important;
+      width: 100% !important;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.75), 0 0 40px rgba(124, 58, 237, 0.18) !important;
+      text-align: center !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+    .welcome-pill-tag {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 7px !important;
+      background: rgba(124, 58, 237, 0.20) !important;
+      border: 1px solid rgba(139, 92, 246, 0.40) !important;
+      border-radius: 9999px !important;
+      padding: 6px 18px !important;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      color: #c084fc !important;
+      letter-spacing: 0.5px !important;
+      margin-bottom: 18px !important;
+    }
+    .pulse-dot-green {
+      color: #10B981 !important;
+      font-size: 11px !important;
+    }
+    .welcome-main-heading {
+      font-size: 34px !important;
+      font-weight: 900 !important;
+      color: #ffffff !important;
+      line-height: 1.25 !important;
+      margin-bottom: 14px !important;
+      letter-spacing: -0.5px !important;
+    }
+    .welcome-desc-text {
+      font-size: 14.5px !important;
+      color: rgba(255, 255, 255, 0.82) !important;
+      line-height: 1.65 !important;
+      max-width: 760px !important;
+      margin-bottom: 30px !important;
+    }
+    .welcome-action-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 14px !important;
+      width: 100% !important;
+      margin-bottom: 30px !important;
+    }
+    @media (max-width: 820px) {
+      .welcome-action-grid { grid-template-columns: 1fr !important; }
+    }
+    .welcome-action-tile {
+      background: rgba(255, 255, 255, 0.04) !important;
+      border: 1px solid rgba(255, 255, 255, 0.09) !important;
+      border-radius: 16px !important;
+      padding: 16px 18px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      cursor: pointer !important;
+      transition: all 0.22s ease !important;
+      text-align: start !important;
+    }
+    .welcome-action-tile:hover {
+      background: rgba(124, 58, 237, 0.18) !important;
+      border-color: rgba(139, 92, 246, 0.55) !important;
+      transform: translateY(-3px) !important;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.35) !important;
+    }
+    .tile-icon {
+      font-size: 28px !important;
+      flex-shrink: 0 !important;
+    }
+    .tile-title {
+      font-size: 13.5px !important;
+      font-weight: 800 !important;
+      color: #ffffff !important;
+      margin-bottom: 3px !important;
+    }
+    .tile-hint {
+      font-size: 11px !important;
+      color: #94a3b8 !important;
+      line-height: 1.3 !important;
+    }
+    .welcome-cta-row {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+      padding-top: 20px !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+      flex-wrap: wrap !important;
+      gap: 14px !important;
+    }
+    .welcome-primary-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(139, 92, 246, 0.6) !important;
+      border-radius: 9999px !important;
+      padding: 12px 28px !important;
+      font-size: 13.5px !important;
+      font-weight: 800 !important;
+      cursor: pointer !important;
+      box-shadow: 0 6px 25px rgba(124, 58, 237, 0.45) !important;
+      transition: all 0.2s ease !important;
+    }
+    .welcome-primary-btn:hover {
+      transform: translateY(-2px) scale(1.02) !important;
+      box-shadow: 0 10px 32px rgba(124, 58, 237, 0.6) !important;
+    }
+    .welcome-status-capsule {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      color: #94a3b8 !important;
+      background: rgba(255, 255, 255, 0.04) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 9999px !important;
+      padding: 6px 16px !important;
+    }
+
+    [data-theme="light"] .welcome-hero-card {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border-color: rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15) !important;
+    }
+    [data-theme="light"] .welcome-main-heading { color: #0f172a !important; }
+    [data-theme="light"] .welcome-desc-text { color: #475569 !important; }
+    [data-theme="light"] .welcome-action-tile {
+      background: #f8fafc !important;
+      border-color: #e2e8f0 !important;
+    }
+    [data-theme="light"] .welcome-action-tile:hover {
+      background: #ede9fe !important;
+      border-color: #8b5cf6 !important;
+    }
+    [data-theme="light"] .tile-title { color: #0f172a !important; }
+    [data-theme="light"] .tile-hint { color: #64748b !important; }
+    [data-theme="light"] .welcome-status-capsule {
+      background: #f1f5f9 !important;
+      border-color: #e2e8f0 !important;
+      color: #475569 !important;
+    }
+
+
+    /* ══════════════════════════════════════════════════════════════════════════
+       SPACIOUS & EXPANSIVE CARD TOKENS (No cramped text, No overflow)
+    ══════════════════════════════════════════════════════════════════════════ */
+    .kpi-card, .stat-card {
+      min-height: 104px !important;
+      padding: 18px 20px !important;
+      box-sizing: border-box !important;
+    }
+    .kpi-title {
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      color: var(--text-muted) !important;
+      margin-bottom: 6px !important;
+      line-height: 1.3 !important;
+    }
+    .kpi-num, .kpi-number {
+      font-size: 24px !important;
+      font-weight: 900 !important;
+      line-height: 1.2 !important;
+      margin-bottom: 6px !important;
+      letter-spacing: -0.5px !important;
+    }
+    .kpi-sub {
+      font-size: 11.5px !important;
+      font-weight: 600 !important;
+      line-height: 1.3 !important;
+    }
+
+    .pipeline-step-item {
+      min-height: 96px !important;
+      padding: 14px 12px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      box-sizing: border-box !important;
+    }
+    .step-label {
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      line-height: 1.3 !important;
+      margin-bottom: 2px !important;
+    }
+    .step-status {
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      line-height: 1.2 !important;
+    }
+    .step-hint {
+      font-size: 10.5px !important;
+      line-height: 1.2 !important;
+    }
+
+    #recipe-list .nav-item {
+      min-height: 56px !important;
+      padding: 12px 16px !important;
+      box-sizing: border-box !important;
+    }
+
+</style>
 </head>
 
 <body>
@@ -1500,8 +1774,16 @@
 
       <!-- Core 9 Navigation Sections in Logical Supply Chain Order -->
       <nav class="nav-scroll">
+        <!-- 0. قسم الترحيب (Welcome Hub) -->
+        <div class="nav-item active" data-page="welcome" onclick="nav('welcome')" title="0. قسم الترحيب · Welcome Hub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          <span class="nav-label" style="display:none">قسم الترحيب</span>
+        </div>
+
         <!-- 1. لوحة المؤشرات (Dashboard) -->
-        <div class="nav-item active" data-page="dashboard" onclick="nav('dashboard')" title="1. لوحة المؤشرات · Dashboard">
+        <div class="nav-item" data-page="dashboard" onclick="nav('dashboard')" title="1. لوحة المؤشرات · Dashboard">
           <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/>
             <rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/>
@@ -1624,7 +1906,12 @@
         </div>
 
         <div class="topbar-segmented-tabs">
-        <button class="topbar-tab active" onclick="nav('dashboard')" id="tab-dash">
+        
+        <button class="topbar-tab active" onclick="nav('welcome')" id="tab-welc">
+          <span class="tab-amber-dot">●</span>
+          <span data-ar="قسم الترحيب" data-en="Welcome Hub">قسم الترحيب</span>
+        </button>
+        <button class="topbar-tab" onclick="nav('dashboard')" id="tab-dash">
           <span class="tab-amber-dot">●</span>
           <span data-ar="لوحة المؤشرات" data-en="Dashboard">Dashboard</span>
         </button>
@@ -1711,51 +1998,103 @@
       <!-- DASHBOARD -->
       
       <!-- DASHBOARD -->
-      <section class="page active" id="page-dashboard">
-
-        <!-- ═══════════════════════════════════════════
-             HERO VIDEO SECTION (Welcome Section)
-        ═══════════════════════════════════════════ -->
-        <div class="hero-section" id="hero-section">
-          <!-- Video element: Put hero_bg.mp4 in the folder to activate -->
-          <div class="hero-gradient-fallback"></div>
-          <video class="hero-video-bg" autoplay muted loop playsinline preload="auto" id="hero-video">
+      
+      <!-- ══════════════════════════════════════════════════════════
+           PAGE: WELCOME (Immersive Fullscreen Video Hub)
+           ══════════════════════════════════════════════════════════ -->
+      <section class="page active" id="page-welcome">
+        <div class="welcome-section-wrapper">
+          <video class="welcome-video-fullscreen" autoplay muted loop playsinline preload="auto" id="welcome-fullscreen-vid">
             <source src="A_premium_and_dynamic_animatio.mp4" type="video/mp4">
             <source src="hero_bg.mp4" type="video/mp4">
           </video>
-          <div class="hero-overlay"></div>
+          <div class="welcome-gradient-overlay"></div>
 
-          <!-- Top-right micro KPI pills -->
-          <div class="hero-stats-row" id="hero-stats-pills">
-            <div class="hero-stat-pill">
-              <span style="color:#34D399;">●</span>
-              <span data-ar="السيرفر متصل" data-en="Server Online">Server Online</span>
-            </div>
-            <div class="hero-stat-pill" id="hero-pill-date">
-              📅 <span id="hero-date-text">اليوم</span>
-            </div>
-          </div>
+          <div class="welcome-inner-content">
+            <div class="welcome-hero-card">
+              <div class="welcome-pill-tag">
+                <span class="pulse-dot-green">●</span>
+                <span data-ar="نظام إدارة سلاسل إمداد المطبخ المركزي" data-en="Central Kitchen Supply Chain OS">نظام إدارة سلاسل إمداد المطبخ المركزي</span>
+              </div>
+              
+              <h1 class="welcome-main-heading">
+                <span data-ar="مرحباً بك في المنصة التشغيلية الكبرى" data-en="Welcome to Executive Kitchen OS">مرحباً بك في المنصة التشغيلية الكبرى</span>
+              </h1>
+              
+              <p class="welcome-desc-text" data-ar="منظومة سحابية متكاملة لربط الفروع، حسابات الـ BOM الآلية لـ 88 صنف مصنع، مراقبة مستودع الـ 200 خامة، وأوامر الشراء وإدارة الهدر بدقة متناهية." data-en="Comprehensive ERP connecting branches, automated BOM calculations for 88 products, 200 raw items inventory, and purchase workflows.">
+                منظومة سحابية متكاملة لربط الفروع، حسابات الـ BOM الآلية لـ 88 صنف مصنع، مراقبة مستودع الـ 200 خامة، وأوامر الشراء وإدارة الهدر بدقة متناهية.
+              </p>
 
-          <!-- Hero Content -->
-          <div class="hero-content">
-            <div class="hero-badge">⚡ COMMUNITY CENTRAL KITCHEN OS</div>
-            <h1 class="hero-title" id="hero-title-el">
-              <span data-ar="مرحباً بك في" data-en="Welcome to">مرحباً بك في</span><br>
-              <span data-ar="مطبخنا المركزي 🍳" data-en="Kitchen OS 🍳">مطبخنا المركزي 🍳</span>
-            </h1>
-            <div class="hero-actions">
-              <button onclick="nav('production')" class="hero-btn-primary">
-                ⚡ <span data-ar="ابدأ التشغيل" data-en="Start Production">ابدأ التشغيل</span>
-              </button>
-              <button onclick="nav('orders')" class="hero-btn-ghost">
-                📋 <span data-ar="عرض الطلبات" data-en="View Orders">عرض الطلبات</span>
-              </button>
-              <button onclick="nav('inventory')" class="hero-btn-ghost">
-                🥫 <span data-ar="أرصدة الخامات" data-en="Raw Inventory">أرصدة الخامات</span>
-              </button>
+              <!-- Quick Navigation Grid to all ERP Sections -->
+              <div class="welcome-action-grid">
+                <div class="welcome-action-tile" onclick="nav('dashboard')">
+                  <div class="tile-icon">🎛️</div>
+                  <div class="tile-body">
+                    <div class="tile-title" data-ar="لوحة المؤشرات" data-en="Dashboard">لوحة المؤشرات</div>
+                    <div class="tile-hint" data-ar="تحليلات وتدفق سلاسل الإمداد" data-en="Executive KPIs & Workflows">تحليلات وتدفق سلاسل الإمداد</div>
+                  </div>
+                </div>
+
+                <div class="welcome-action-tile" onclick="nav('production')">
+                  <div class="tile-icon">🍳</div>
+                  <div class="tile-body">
+                    <div class="tile-title" data-ar="خطة التشغيل (BOM)" data-en="Production & BOM">خطة التشغيل (BOM)</div>
+                    <div class="tile-hint" data-ar="مصفوفة الإنتاج ودفعات الطهي" data-en="Monthly Matrix & Cook Batches">مصفوفة الإنتاج ودفعات الطهي</div>
+                  </div>
+                </div>
+
+                <div class="welcome-action-tile" onclick="nav('orders')">
+                  <div class="tile-icon">📋</div>
+                  <div class="tile-body">
+                    <div class="tile-title" data-ar="طلبات الفروع" data-en="Branch Orders">طلبات الفروع</div>
+                    <div class="tile-hint" data-ar="استلام وتجميع طلبات المطابخ" data-en="Aggregate Daily Branch Orders">استلام وتجميع طلبات المطابخ</div>
+                  </div>
+                </div>
+
+                <div class="welcome-action-tile" onclick="nav('recipes')">
+                  <div class="tile-icon">📖</div>
+                  <div class="tile-body">
+                    <div class="tile-title" data-ar="دليل الـ 74 ريسبي" data-en="74 BOM Recipes">دليل الـ 74 ريسبي</div>
+                    <div class="tile-hint" data-ar="معايير التكلفة وتفكيك المقادير" data-en="Ingredients & Yield Standards">معايير التكلفة وتفكيك المقادير</div>
+                  </div>
+                </div>
+
+                <div class="welcome-action-tile" onclick="nav('centerstock')">
+                  <div class="tile-icon">📦</div>
+                  <div class="tile-body">
+                    <div class="tile-title" data-ar="مخزون المركز الجاهز" data-en="Center Stock">مخزون المركز الجاهز</div>
+                    <div class="tile-hint" data-ar="أرصدة التجهيزات وسجل الصرف" data-en="Finished Goods Batches">أرصدة التجهيزات وسجل الصرف</div>
+                  </div>
+                </div>
+
+                <div class="welcome-action-tile" onclick="nav('inventory')">
+                  <div class="tile-icon">🥫</div>
+                  <div class="tile-body">
+                    <div class="tile-title" data-ar="مستودع الخامات" data-en="Raw Materials">مستودع الخامات</div>
+                    <div class="tile-hint" data-ar="رصيد 200 خامة ونقاط إعادة الطلب" data-en="200 Items & Low Stock Alerts">رصيد 200 خامة ونقاط إعادة الطلب</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Welcome Footer Action -->
+              <div class="welcome-cta-row">
+                <button class="welcome-primary-btn" onclick="nav('dashboard')">
+                  <span data-ar="الانتقال إلى لوحة العمل الرئيسية" data-en="Enter Operations Dashboard">الانتقال إلى لوحة العمل الرئيسية</span>
+                  <span class="arrow-sym">➔</span>
+                </button>
+                <div class="welcome-status-capsule">
+                  <span class="pulse-dot-green">●</span>
+                  <span data-ar="السيرفر متصل · جاهز لإطلاق العمليات" data-en="Server Online · Operations Ready">السيرفر متصل · جاهز لإطلاق العمليات</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </section>
+
+      <section class="page" id="page-dashboard">
+
+
 
         <!-- ══════════════════════════════════════════════════════════
              SPEC-EXACT KPI CARDS (Matching React Framer-Motion JSX Code)
@@ -1764,6 +2103,60 @@
         <!-- ═══════════════════════════════════════════
              MIDDLE ROW: Interest Rate Mode Style Chart + BOM Simulator
         ═══════════════════════════════════════════ -->
+        
+        <!-- ══════════════════════════════════════════════════════════
+             SPEC-EXACT KPI METRIC CARDS (Clean, Spacious, Framer-Motion Glass)
+             ══════════════════════════════════════════════════════════ -->
+        <div class="kpi-grid">
+          <!-- CARD 1: Total Demand -->
+          <div class="stat-card kpi-card" onclick="nav('orders')" style="cursor:pointer">
+            <div class="kpi-card-inner">
+              <div style="flex:1;min-width:0">
+                <div class="kpi-title" data-ar="إجمالي طلبات الفروع" data-en="Total Branch Demand">إجمالي طلبات الفروع</div>
+                <div class="kpi-num kpi-cyan" id="kpi-total-demand">0.00 Kg</div>
+                <div class="kpi-sub" id="kpi-branches-sub">0 فروع طلبت اليوم</div>
+              </div>
+              <div class="kpi-icon-pill">📋</div>
+            </div>
+          </div>
+
+          <!-- CARD 2: Active Batches -->
+          <div class="stat-card kpi-card" onclick="nav('production')" style="cursor:pointer">
+            <div class="kpi-card-inner">
+              <div style="flex:1;min-width:0">
+                <div class="kpi-title" data-ar="دفعات الطهي النشطة" data-en="Active Kitchen Batches">دفعات الطهي النشطة</div>
+                <div class="kpi-num kpi-amber" id="kpi-active-batches">0 دفعة</div>
+                <div class="kpi-sub" id="kpi-batches-sub">لا توجد تشغيلات اليوم</div>
+              </div>
+              <div class="kpi-icon-pill">🍳</div>
+            </div>
+          </div>
+
+          <!-- CARD 3: Raw Materials in Stock -->
+          <div class="stat-card kpi-card" onclick="nav('inventory')" style="cursor:pointer">
+            <div class="kpi-card-inner">
+              <div style="flex:1;min-width:0">
+                <div class="kpi-title" data-ar="أرصدة خامات المستودع" data-en="Raw Materials In Stock">أرصدة خامات المستودع</div>
+                <div class="kpi-num kpi-green" id="kpi-raw-stock">0 / 200</div>
+                <div class="kpi-sub" id="kpi-stock-sub">المخزن بانتظار استلام بضاعة</div>
+              </div>
+              <div class="kpi-icon-pill">🥫</div>
+            </div>
+          </div>
+
+          <!-- CARD 4: Shortages & Alerts -->
+          <div class="stat-card kpi-card" onclick="nav('reports')" style="cursor:pointer">
+            <div class="kpi-card-inner">
+              <div style="flex:1;min-width:0">
+                <div class="kpi-title" data-ar="نواقص وتنبيهات الإمداد" data-en="Supply Shortages Alert">نواقص وتنبيهات الإمداد</div>
+                <div class="kpi-num kpi-purple" id="kpi-shortages-alert">0</div>
+                <div class="kpi-sub" id="kpi-shortages-sub">جميع الخامات متوفرة</div>
+              </div>
+              <div class="kpi-icon-pill">🔔</div>
+            </div>
+          </div>
+        </div>
+
         <div class="middle-grid">
           <!-- LEFT: VELOCITY CHART (Cyan + Violet, Auro style) -->
           <div class="card">
@@ -10082,7 +10475,18 @@
       renderPage(page);
     }
 
-    function renderPage(p) {
+    function renderWelcome() {
+    const v = document.getElementById('welcome-fullscreen-vid');
+    if (v) {
+      v.muted = true;
+      v.defaultMuted = true;
+      const p = v.play();
+      if (p !== undefined) p.catch(() => {});
+    }
+  }
+
+  function renderPage(p) {
+    if (p === 'welcome') renderWelcome();
       if (p === 'dashboard') renderDash();
       else if (p === 'orders') renderOrders();
       else if (p === 'recipes') renderRecipes();
@@ -14861,6 +15265,7 @@
 
   // ── Dynamic Active Section Syncer (Changes icon & title as user navigates) ──
   const ERP_PAGES_META = {
+    welcome:     { title: 'قسم الترحيب', en: 'Welcome Hub', icon: '✨' },
     dashboard:   { title: 'لوحة المؤشرات', en: 'Dashboard', icon: '🎛️' },
     orders:      { title: 'طلبات الفروع', en: 'Branch Orders', icon: '📋' },
     production:  { title: 'خطة التشغيل (BOM)', en: 'Production Plan', icon: '🍳' },
@@ -14906,25 +15311,30 @@
 
   // Ensure Video Autoplay works smoothly
   function ensureHeroVideoPlays() {
-    const v = document.getElementById('hero-video');
-    if (v) {
-      v.muted = true;
-      v.defaultMuted = true;
-      const p = v.play();
-      if (p !== undefined) {
-        p.catch(() => {});
+    const vids = [
+      document.getElementById('welcome-fullscreen-vid'),
+      document.getElementById('hero-video')
+    ];
+    vids.forEach(v => {
+      if (v) {
+        v.muted = true;
+        v.defaultMuted = true;
+        const p = v.play();
+        if (p !== undefined) {
+          p.catch(() => {});
+        }
       }
-    }
+    });
   }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
       ensureHeroVideoPlays();
-      updateActiveSectionUI('dashboard');
+      nav('welcome');
     });
   } else {
     ensureHeroVideoPlays();
-    updateActiveSectionUI('dashboard');
+    nav('welcome');
   }
 
 </script>
