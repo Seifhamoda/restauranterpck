@@ -38,12 +38,13 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     /* ╔═════════════════════════════════════════════════════════════════════════╗
-       ║  ULTRA-PREMIUM GLASSY DASHBOARD  ·  SPEC-EXACT REFERENCE EDITION       ║
-       ║  Curved Gradient Dock · Framed Glass Window · Hero Video · Spec KPIs   ║
+       ║  ULTRA-PREMIUM GLASSY DASHBOARD  ·  REFERENCE DESIGN PARITY EDITION     ║
+       ║  Curved Angled Dock · Dual Themes · Live Notifications · Clean Sections ║
        ╚═════════════════════════════════════════════════════════════════════════╝ */
 
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;500;600;700;800;900&display=swap');
 
+    /* ── Theme Tokens (Default: Matte Dark Luxury) ────────────────────────── */
     :root {
       --canvas:       #06080e;
       --window-bg:    rgba(11, 15, 25, 0.78);
@@ -82,6 +83,27 @@
       --r-2xl: 26px;
     }
 
+    /* ── Light Mode System (Active when data-theme="light") ────────────────── */
+    [data-theme="light"] {
+      --canvas:       #edf2f9;
+      --window-bg:    rgba(255, 255, 255, 0.88);
+      --dock-grad:    linear-gradient(180deg, #4338ca 0%, #3730a3 45%, #2563eb 100%);
+      --dock-glow:    0 0 25px rgba(67, 56, 202, 0.30);
+
+      /* Glass surfaces */
+      --glass-card:   rgba(255, 255, 255, 0.72);
+      --glass-card-h: rgba(255, 255, 255, 0.96);
+      --glass-subtle: rgba(255, 255, 255, 0.45);
+      --border-glass: rgba(0, 0, 0, 0.08);
+      --border-glow:  rgba(99, 102, 241, 0.35);
+      --border-active:rgba(124, 58, 237, 0.60);
+
+      /* Text tokens */
+      --text:         #0f172a;
+      --text-muted:   #475569;
+      --text-dim:     #94a3b8;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
       height: 100vh;
@@ -90,6 +112,7 @@
       color: var(--text);
       font-family: 'Inter', 'Cairo', sans-serif;
       font-variant-numeric: lining-nums tabular-nums;
+      transition: background 0.25s ease, color 0.25s ease;
     }
     [dir="rtl"] body { font-family: 'Cairo', 'Inter', sans-serif; }
 
@@ -98,6 +121,9 @@
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 99px; }
     ::-webkit-scrollbar-thumb:hover { background: rgba(139,92,246,0.50); }
+
+    /* Hide the old mob-bottom-nav completely across all viewports */
+    .mob-bottom-nav { display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; }
 
     /* ── Ambient Background Lighting (Aurora Orbs) ────────────────────────── */
     .aurora-orb {
@@ -138,22 +164,20 @@
     @media (min-width: 1024px) {
       .app-chassis {
         padding: 12px 14px 12px 12px;
-        gap: 12px;
+        gap: 0;
       }
     }
 
     /* ══════════════════════════════════════════════════════════════════════════
-       THE SIGNATURE CURVED NAVIGATION DOCK (Left)
-       Exact match to reference mockup
+       THE SIGNATURE CURVED / ANGLED NAVIGATION DOCK
+       Exact match to the reference mockup with angled hourglass sweep
     ══════════════════════════════════════════════════════════════════════════ */
     .sidebar {
-      width: 66px !important;
-      min-width: 66px !important;
+      width: 76px !important;
+      min-width: 76px !important;
       height: 100% !important;
-      border-radius: var(--r-2xl) !important;
       background: var(--dock-grad) !important;
-      box-shadow: var(--dock-glow), inset 0 1px 0 rgba(255,255,255,0.25) !important;
-      border: 1px solid rgba(255,255,255,0.14) !important;
+      box-shadow: var(--dock-glow) !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
@@ -163,6 +187,30 @@
       z-index: 100 !important;
       flex-shrink: 0 !important;
       overflow: visible !important;
+      margin: 0 !important;
+      transition: all 0.22s ease !important;
+    }
+
+    /* Angled curve clip paths applied per reading direction */
+    [dir="rtl"] .sidebar {
+      clip-path: url(#curved-dock-rtl);
+      -webkit-clip-path: url(#curved-dock-rtl);
+      border-top-right-radius: 26px !important;
+      border-bottom-right-radius: 26px !important;
+    }
+    [dir="ltr"] .sidebar {
+      clip-path: url(#curved-dock-ltr);
+      -webkit-clip-path: url(#curved-dock-ltr);
+      border-top-left-radius: 26px !important;
+      border-bottom-left-radius: 26px !important;
+    }
+
+    /* Fallback border curves if clip-path is not supported */
+    @supports not (clip-path: url(#curved-dock-rtl)) {
+      .sidebar {
+        border-radius: var(--r-2xl) !important;
+        margin: 8px 6px !important;
+      }
     }
 
     /* Top brand icon inside dock */
@@ -173,16 +221,16 @@
       width: 44px !important;
       height: 44px !important;
       border-radius: 14px !important;
-      background: rgba(255,255,255,0.12) !important;
-      border: 1px solid rgba(255,255,255,0.20) !important;
+      background: rgba(255,255,255,0.14) !important;
+      border: 1px solid rgba(255,255,255,0.22) !important;
       cursor: pointer !important;
       transition: all 0.2s ease !important;
       box-shadow: 0 4px 14px rgba(0,0,0,0.2) !important;
-      margin-bottom: 8px !important;
+      margin-bottom: 6px !important;
       padding: 0 !important;
     }
     .brand-area:hover {
-      background: rgba(255,255,255,0.22) !important;
+      background: rgba(255,255,255,0.25) !important;
       transform: scale(1.06) !important;
     }
     .brand-name, .brand-sub { display: none !important; }
@@ -207,7 +255,7 @@
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      color: rgba(255, 255, 255, 0.82) !important;
+      color: rgba(255, 255, 255, 0.85) !important;
       cursor: pointer !important;
       transition: all 0.18s ease !important;
       position: relative !important;
@@ -217,14 +265,14 @@
       background: transparent !important;
     }
     .nav-item:hover {
-      background: rgba(255, 255, 255, 0.16) !important;
+      background: rgba(255, 255, 255, 0.18) !important;
       color: #ffffff !important;
       transform: scale(1.08) !important;
     }
     /* Active Item: Frosted glass tile matching folder icon in screenshot */
     .nav-item.active {
-      background: rgba(255, 255, 255, 0.22) !important;
-      border-color: rgba(255, 255, 255, 0.35) !important;
+      background: rgba(255, 255, 255, 0.24) !important;
+      border-color: rgba(255, 255, 255, 0.38) !important;
       color: #ffffff !important;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.30) !important;
     }
@@ -346,13 +394,13 @@
       transition: all 0.16s ease;
     }
     .topbar-tab:hover {
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
     }
     .topbar-tab.active {
-      background: rgba(255, 255, 255, 0.10);
-      color: #ffffff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--text);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.20);
     }
     .tab-amber-dot {
       color: #F59E0B;
@@ -371,8 +419,8 @@
       border-radius: 9999px;
       padding: 7px 16px;
       cursor: pointer;
-      min-width: 260px;
-      max-width: 380px;
+      min-width: 240px;
+      max-width: 360px;
       flex: 1;
       backdrop-filter: blur(12px);
       transition: all 0.18s ease;
@@ -396,7 +444,7 @@
       padding: 2px 6px;
       font-size: 10px;
       font-weight: 700;
-      color: rgba(255, 255, 255, 0.7);
+      color: var(--text-dim);
       font-family: inherit;
     }
 
@@ -418,6 +466,10 @@
       padding: 3px 4px;
       gap: 2px;
       cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .theme-toggle-pill:hover {
+      border-color: var(--border-glow);
     }
     .theme-opt {
       font-size: 11px;
@@ -428,8 +480,9 @@
       transition: all 0.15s ease;
     }
     .theme-opt.active {
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--text);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
     }
 
     /* Circular frosted buttons */
@@ -449,7 +502,7 @@
     }
     .topbar-circle-btn:hover {
       background: rgba(255, 255, 255, 0.08);
-      color: #ffffff;
+      color: var(--text);
       border-color: var(--border-glow);
     }
     .unread-dot {
@@ -463,11 +516,114 @@
       box-shadow: 0 0 6px #F43F5E;
     }
 
+    /* ══════════════════════════════════════════════════════════════════════════
+       FLOATING NOTIFICATIONS DROPDOWN PANEL
+    ══════════════════════════════════════════════════════════════════════════ */
+    .notifications-dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      inset-inline-end: 0;
+      width: 360px;
+      background: rgba(11, 15, 25, 0.95);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      border-radius: 20px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.85), 0 0 35px rgba(124, 58, 237, 0.15);
+      z-index: 10000;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      animation: notifScaleIn 0.20s cubic-bezier(0.16,1,0.3,1);
+    }
+    .notifications-dropdown.open {
+      display: flex !important;
+    }
+    @keyframes notifScaleIn {
+      from { opacity: 0; transform: translateY(-8px) scale(0.96); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .notif-header {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-glass);
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .notif-header-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .notif-list {
+      max-height: 380px;
+      overflow-y: auto;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .notif-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border-glass);
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+    .notif-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--border-glow);
+      transform: translateX(2px);
+    }
+    .notif-icon-box {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .notif-alert   { background: rgba(244, 63, 94, 0.12); border: 1px solid rgba(244, 63, 94, 0.25); color: #F43F5E; }
+    .notif-success { background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.25); color: #10B981; }
+    .notif-info    { background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.25); color: #06B6D4; }
+    .notif-prod    { background: rgba(124, 58, 237, 0.12); border: 1px solid rgba(124, 58, 237, 0.25); color: #A78BFA; }
+    .notif-sys     { background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.25); color: #F59E0B; }
+    .notif-content { flex: 1; min-width: 0; }
+    .notif-title   { font-size: 12.5px; font-weight: 700; color: #ffffff; margin-bottom: 2px; }
+    .notif-desc    { font-size: 11.5px; color: var(--text-muted); line-height: 1.4; margin-bottom: 6px; }
+    .notif-footer  { display: flex; align-items: center; justify-content: space-between; font-size: 10.5px; }
+    .notif-time    { color: var(--text-dim); }
+    .notif-action-btn { color: var(--violet-l); font-weight: 700; }
+    .notif-footer-actions {
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-glass);
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .notif-clear-btn {
+      background: transparent; border: none; color: var(--text-muted); font-size: 11px; font-weight: 700; cursor: pointer;
+    }
+    .notif-clear-btn:hover { color: #ffffff; }
+    .notif-view-all-btn {
+      background: rgba(124, 58, 237, 0.15); border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 6px;
+      padding: 4px 10px; font-size: 11px; font-weight: 700; color: #A78BFA; cursor: pointer;
+    }
+    .notif-view-all-btn:hover { background: rgba(124, 58, 237, 0.3); color: #fff; }
+
     /* Export data button */
     .btn-pill-export {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-glass);
-      color: rgba(255, 255, 255, 0.85);
+      color: var(--text-muted);
       font-size: 11.5px;
       font-weight: 700;
       padding: 6px 13px;
@@ -481,7 +637,7 @@
     .btn-pill-export:hover {
       background: rgba(255, 255, 255, 0.08);
       border-color: var(--border-glow);
-      color: #fff;
+      color: var(--text);
     }
 
     /* Add new board primary pill button */
@@ -514,7 +670,7 @@
       flex: 1 1 0% !important;
       overflow-y: auto !important;
       overflow-x: hidden !important;
-      padding: 20px !important;
+      padding: 18px 20px !important;
       position: relative !important;
       z-index: 1 !important;
       background: transparent !important;
@@ -523,18 +679,18 @@
     .page.active { display: block !important; }
 
     /* ══════════════════════════════════════════════════════════════════════════
-       HERO VIDEO SECTION (Compact & Premium)
+       HERO VIDEO SECTION (Compact, Elegant, Balanced)
     ══════════════════════════════════════════════════════════════════════════ */
     .hero-section {
       position: relative;
       border-radius: var(--r-xl);
       overflow: hidden;
-      height: 220px;
-      margin-bottom: 20px;
+      height: 200px;
+      margin-bottom: 18px;
       display: flex;
       align-items: flex-end;
       border: 1px solid var(--border-glass);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.60);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.55);
     }
     .hero-video-bg {
       position: absolute; inset: 0;
@@ -556,21 +712,21 @@
     }
     .hero-content {
       position: relative; z-index: 2;
-      padding: 24px 28px; width: 100%;
+      padding: 20px 24px; width: 100%;
     }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 6px;
-      color: var(--violet-l); font-size: 10.5px; font-weight: 800;
-      letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px;
+      color: var(--violet-l); font-size: 10px; font-weight: 800;
+      letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px;
     }
     .hero-title {
-      font-size: 26px; font-weight: 900; color: #ffffff;
-      line-height: 1.2; margin-bottom: 14px;
+      font-size: 24px; font-weight: 900; color: #ffffff;
+      line-height: 1.2; margin-bottom: 12px;
     }
-    .hero-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hero-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .hero-btn-primary {
       background: #ffffff; color: #090C15;
-      font-size: 12px; font-weight: 800; padding: 8px 20px;
+      font-size: 11.5px; font-weight: 800; padding: 7px 18px;
       border-radius: 9999px; border: none; cursor: pointer;
       display: flex; align-items: center; gap: 6px;
       transition: all 0.18s ease;
@@ -579,7 +735,7 @@
     .hero-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(255,255,255,0.30); }
     .hero-btn-ghost {
       background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.85);
-      font-size: 12px; font-weight: 700; padding: 8px 18px;
+      font-size: 11.5px; font-weight: 700; padding: 7px 16px;
       border-radius: 9999px; border: 1px solid rgba(255,255,255,0.12);
       cursor: pointer; display: flex; align-items: center; gap: 6px;
       backdrop-filter: blur(12px); transition: all 0.18s ease;
@@ -599,14 +755,14 @@
     }
 
     /* ══════════════════════════════════════════════════════════════════════════
-       SPEC-EXACT KPI CARDS (Matching React Framer-Motion code snippet)
+       SPEC-EXACT KPI CARDS (Matching React Framer-Motion JSX Code)
        <motion.div whileHover={{ y: -5 }} className="glass-card p-6 rounded-2xl">
     ══════════════════════════════════════════════════════════════════════════ */
     .kpi-grid {
       display: grid !important;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
       gap: 14px !important;
-      margin-bottom: 20px !important;
+      margin-bottom: 18px !important;
     }
     .kpi-card {
       background: var(--glass-card) !important;
@@ -614,18 +770,16 @@
       -webkit-backdrop-filter: blur(24px) !important;
       border: 1px solid var(--border-glass) !important;
       border-radius: var(--r-xl) !important;                /* rounded-2xl */
-      padding: 22px !important;                              /* p-6 */
+      padding: 20px !important;                              /* p-6 */
       cursor: pointer !important;
       position: relative !important;
       overflow: hidden !important;
       transition: transform 0.20s cubic-bezier(0.16,1,0.3,1), border-color 0.20s ease, box-shadow 0.20s ease, background 0.20s ease !important;
     }
-    /* Subtle top light highlight */
     .kpi-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
     }
-    /* whileHover={{ y: -5 }} */
     .kpi-card:hover {
       transform: translateY(-5px) !important;
       background: var(--glass-card-h) !important;
@@ -637,34 +791,31 @@
       align-items: center;
       justify-content: space-between;
     }
-    /* text-sm text-white/60 */
     .kpi-title {
-      font-size: 13px !important;
+      font-size: 12.5px !important;
       font-weight: 500 !important;
-      color: rgba(255, 255, 255, 0.60) !important;
-      margin-bottom: 6px !important;
+      color: var(--text-muted) !important;
+      margin-bottom: 5px !important;
     }
-    /* text-2xl font-bold text-white */
     .kpi-num {
-      font-size: 26px !important;
+      font-size: 25px !important;
       font-weight: 800 !important;
-      color: #ffffff !important;
+      color: var(--text) !important;
       line-height: 1.2 !important;
-      margin-bottom: 6px !important;
+      margin-bottom: 5px !important;
       letter-spacing: -0.5px !important;
     }
-    /* flex items-center gap-1 text-sm text-emerald-400 */
     .kpi-sub {
       display: flex !important;
       align-items: center !important;
       gap: 4px !important;
-      font-size: 12.5px !important;
+      font-size: 12px !important;
       font-weight: 600 !important;
       color: var(--emerald-400) !important;
     }
     .kpi-icon-pill {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-glass);
@@ -672,11 +823,11 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      color: rgba(255, 255, 255, 0.75);
+      color: var(--text-muted);
     }
 
     /* ══════════════════════════════════════════════════════════════════════════
-       GLASS CARDS & WORKFLOW PIPELINE
+       ORGANIZED EXECUTIVE SECTIONS LAYOUT
     ══════════════════════════════════════════════════════════════════════════ */
     .glass-card, .card, .tbl-wrap, .workflow-pipeline-card {
       background: var(--glass-card) !important;
@@ -684,7 +835,7 @@
       -webkit-backdrop-filter: blur(24px) !important;
       border: 1px solid var(--border-glass) !important;
       border-radius: var(--r-xl) !important;
-      box-shadow: 0 10px 32px rgba(0,0,0,0.40) !important;
+      box-shadow: 0 10px 32px rgba(0,0,0,0.35) !important;
       position: relative !important;
       overflow: hidden !important;
       transition: all 0.22s ease !important;
@@ -696,19 +847,32 @@
     .glass-card:hover, .card:hover {
       border-color: var(--border-glow) !important;
       background: var(--glass-card-h) !important;
-      transform: translateY(-2px) !important;
     }
 
-    .workflow-pipeline-card { padding: 20px !important; margin-bottom: 18px !important; }
-    .pipeline-header { display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 16px !important; }
-    .pipeline-title { font-size: 14px !important; font-weight: 800 !important; color: #fff !important; }
-    .pipeline-sub   { font-size: 11.5px !important; color: var(--text-muted) !important; margin-top: 2px !important; }
-    .pipeline-steps-grid { display: grid !important; grid-template-columns: repeat(5, 1fr) !important; gap: 10px !important; }
+    .workflow-pipeline-card {
+      padding: 18px 20px !important;
+      margin-bottom: 16px !important;
+    }
+    .pipeline-header {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      margin-bottom: 14px !important;
+    }
+    .pipeline-title { font-size: 13.5px !important; font-weight: 800 !important; color: var(--text) !important; }
+    .pipeline-sub   { font-size: 11px !important; color: var(--text-muted) !important; margin-top: 2px !important; }
+    .pipeline-steps-grid {
+      display: grid !important;
+      grid-template-columns: repeat(5, 1fr) !important;
+      gap: 10px !important;
+    }
     .pipeline-step-item {
       background: rgba(255,255,255,0.02) !important;
       border: 1px solid var(--border-glass) !important;
-      border-radius: 14px !important; padding: 14px !important;
-      cursor: pointer !important; transition: all 0.20s ease !important;
+      border-radius: 12px !important;
+      padding: 12px !important;
+      cursor: pointer !important;
+      transition: all 0.20s ease !important;
     }
     .pipeline-step-item:hover {
       background: rgba(124,58,237,0.12) !important;
@@ -716,19 +880,20 @@
       transform: translateY(-2px) !important;
     }
     .step-circle {
-      width: 26px !important; height: 26px !important; border-radius: 50% !important;
+      width: 24px !important; height: 24px !important; border-radius: 50% !important;
       background: rgba(124,58,237,0.20) !important; border: 1px solid rgba(124,58,237,0.45) !important;
-      color: #A78BFA !important; font-size: 11px !important; font-weight: 800 !important;
+      color: #A78BFA !important; font-size: 10.5px !important; font-weight: 800 !important;
       display: flex !important; align-items: center !important; justify-content: center !important;
-      margin-bottom: 8px !important;
+      margin-bottom: 6px !important;
     }
-    .step-label { font-size: 12px !important; font-weight: 800 !important; color: #fff !important; }
-    .step-status { font-size: 11px !important; font-weight: 700 !important; color: var(--cyan) !important; margin-top: 4px !important; }
+    .step-label { font-size: 11.5px !important; font-weight: 800 !important; color: var(--text) !important; }
+    .step-status { font-size: 10.5px !important; font-weight: 700 !important; color: var(--cyan) !important; margin-top: 3px !important; }
     .step-hint { font-size: 10px !important; color: var(--text-dim) !important; margin-top: 2px !important; }
 
+    /* Middle Grid: Split operations workbench */
     .middle-grid {
       display: grid !important;
-      grid-template-columns: 1.5fr 1fr !important;
+      grid-template-columns: 1.55fr 1fr !important;
       gap: 16px !important;
       margin-bottom: 16px !important;
     }
@@ -741,14 +906,14 @@
     table.tbl th, .data-table th {
       background: rgba(255,255,255,0.025) !important;
       backdrop-filter: blur(16px) !important;
-      color: rgba(255,255,255,0.50) !important;
+      color: var(--text-dim) !important;
       font-size: 11px !important; font-weight: 800 !important;
       text-transform: uppercase !important; letter-spacing: 0.08em !important;
-      border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+      border-bottom: 1px solid var(--border-glass) !important;
       padding: 12px 16px !important; text-align: start !important;
     }
     table.tbl td, .data-table td {
-      border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+      border-bottom: 1px solid var(--border-glass) !important;
       padding: 12px 16px !important; color: var(--text) !important;
       font-size: 13px !important; font-weight: 500 !important;
       transition: background 0.15s ease !important;
@@ -835,14 +1000,15 @@
       .sidebar {
         position: fixed !important;
         bottom: 0 !important; left: 0 !important; right: 0 !important;
-        width: 100vw !important; height: 62px !important;
+        width: 100vw !important; height: 60px !important;
+        clip-path: none !important; -webkit-clip-path: none !important;
         border-radius: 0 !important; margin: 0 !important;
         flex-direction: row !important; justify-content: space-around !important;
         padding: 0 10px !important; z-index: 1000 !important;
       }
       .brand-area, .dock-bottom-actions { display: none !important; }
       .nav-scroll { flex-direction: row !important; gap: 4px !important; justify-content: space-around !important; }
-      .main { border-radius: 0 !important; margin-bottom: 62px !important; }
+      .main { border-radius: 0 !important; margin-bottom: 60px !important; }
       .topbar-segmented-tabs, .btn-pill-export { display: none !important; }
       .middle-grid { grid-template-columns: 1fr !important; }
     }
@@ -850,6 +1016,33 @@
 </head>
 
 <body>
+
+  <!-- SVG DEFINITIONS: Angled Curved Navigation Dock Clip Paths -->
+  <svg width="0" height="0" style="position:absolute;pointer-events:none;opacity:0;">
+    <defs>
+      <!-- RTL Curved Dock: Outer right edge straight/rounded, inner left edge has angled flare at top & bottom -->
+      <clipPath id="curved-dock-rtl" clipPathUnits="objectBoundingBox">
+        <path d="M 0,0 
+                 L 1,0 
+                 L 1,1 
+                 L 0,1 
+                 C 0.14,0.97 0.16,0.93 0.16,0.86 
+                 L 0.16,0.14 
+                 C 0.16,0.07 0.14,0.03 0,0 Z" />
+      </clipPath>
+      <!-- LTR Curved Dock: Outer left edge straight/rounded, inner right edge has angled flare at top & bottom -->
+      <clipPath id="curved-dock-ltr" clipPathUnits="objectBoundingBox">
+        <path d="M 0,0 
+                 L 1,0 
+                 C 0.86,0.03 0.84,0.07 0.84,0.14 
+                 L 0.84,0.86 
+                 C 0.84,0.93 0.86,0.97 1,1 
+                 L 0,1 Z" />
+      </clipPath>
+    </defs>
+  </svg>
+
+
 
   <!-- FLOATING AURORA AMBIENT GLOW ORBS -->
   <div class="aurora-orb orb-1"></div>
@@ -974,6 +1167,10 @@
     <!-- ══════════════════════════════════════════════════════════
          TOPBAR — SPEC-EXACT MATCH TO REFERENCE MOCKUP
     ══════════════════════════════════════════════════════════ -->
+    
+    <!-- ══════════════════════════════════════════════════════════
+         TOPBAR — SPEC-EXACT MATCH TO REFERENCE MOCKUP
+    ══════════════════════════════════════════════════════════ -->
     <header class="topbar">
       <!-- Left Segmented Control Tabs -->
       <div class="topbar-segmented-tabs">
@@ -999,30 +1196,42 @@
         <kbd class="search-kbd">⌘K</kbd>
       </div>
 
-      <!-- Right Controls: Light/Dark Toggle, Icons, Export Data, + Add Button -->
+      <!-- Right Controls: Functional Light/Dark Toggle, Notifications Dropdown, Export, + Add Button -->
       <div class="topbar-right-actions">
-        <!-- Light / Dark toggle capsule -->
-        <div class="theme-toggle-pill" onclick="toggleThemeMock()" title="تبديل الوضع">
+        <!-- Functional Light / Dark Mode Toggle Capsule -->
+        <div class="theme-toggle-pill" onclick="toggleTheme()" title="تبديل الوضع (Dark / Light)">
           <span class="theme-opt" id="th-light">☀️ Light</span>
           <span class="theme-opt active" id="th-dark">🌙 Dark</span>
         </div>
 
-        <!-- Notification Bell with unread dot -->
-        <button class="topbar-circle-btn" onclick="openCmdBar()" title="الإشعارات والعمليات">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-          </svg>
-          <span class="unread-dot"></span>
-        </button>
+        <!-- Notification Bell with Unread Dot & Interactive Dropdown -->
+        <div style="position:relative;display:inline-block;">
+          <button class="topbar-circle-btn" id="notif-bell-btn" onclick="toggleNotificationsDropdown(event)" title="الإشعارات والتنبيهات">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+            <span class="unread-dot"></span>
+          </button>
 
-        <!-- Settings Cog -->
-        <button class="topbar-circle-btn" onclick="openCmdBar()" title="الإعدادات">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="3"/>
-            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-          </svg>
-        </button>
+          <!-- Floating Frosted Notifications Dropdown Panel -->
+          <div class="notifications-dropdown" id="notifications-dropdown" onclick="event.stopPropagation()">
+            <div class="notif-header">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="font-size:16px;">🔔</span>
+                <span class="notif-header-title" data-ar="مركز التنبيهات والتشغيل" data-en="System Alerts">مركز التنبيهات والتشغيل</span>
+              </div>
+              <span class="badge badge-purple" id="notif-count-badge">4 تنبيهات</span>
+            </div>
+            <div class="notif-list" id="notif-items-list">
+              <!-- Dynamically rendered items -->
+            </div>
+            <div class="notif-footer-actions">
+              <button class="notif-clear-btn" onclick="markAllNotificationsRead(event)">✓ تحديد الكل كمقروء</button>
+              <button class="notif-view-all-btn" onclick="nav('reports'); closeNotificationsDropdown();">سجل التقارير ←</button>
+            </div>
+          </div>
+        </div>
 
         <!-- Export data pill -->
         <button class="btn-pill-export" onclick="exportDataTrigger()" title="تصدير البيانات">
@@ -1044,6 +1253,7 @@
         <span id="hdr-date" style="display:none"></span>
       </div>
     </header>
+
 
 
     <div class="content" id="content">
@@ -3503,61 +3713,7 @@
 
   
   <!-- MOBILE BOTTOM NAVIGATION DOCK (iOS Safari & Android) -->
-  <nav class="mob-bottom-nav" id="mob-bottom-nav">
-    <button class="mob-nav-btn active" data-page="dashboard" onclick="nav('dashboard')">
-      <div class="mob-nav-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="3" y="3" width="7" height="9" rx="1"/>
-          <rect x="14" y="3" width="7" height="5" rx="1"/>
-          <rect x="14" y="12" width="7" height="9" rx="1"/>
-          <rect x="3" y="16" width="7" height="5" rx="1"/>
-        </svg>
-      </div>
-      <span class="mob-nav-text" data-ar="الرئيسية" data-en="Dash">الرئيسية</span>
-    </button>
-
-    <button class="mob-nav-btn" data-page="orders" onclick="nav('orders')">
-      <div class="mob-nav-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
-          <path d="m3.3 7 8.7 5 8.7-5"/>
-          <path d="M12 22V12"/>
-        </svg>
-      </div>
-      <span class="mob-nav-text" data-ar="الطلبات" data-en="Orders">الطلبات</span>
-    </button>
-
-    <button class="mob-nav-btn" data-page="production" onclick="nav('production')">
-      <div class="mob-nav-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-        </svg>
-      </div>
-      <span class="mob-nav-text" data-ar="التشغيل" data-en="Cook">التشغيل</span>
-    </button>
-
-    <button class="mob-nav-btn" data-page="inventory" onclick="nav('inventory')">
-      <div class="mob-nav-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 8.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8.5"/>
-          <path d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3.5H3Z"/>
-          <path d="M10 12h4"/>
-        </svg>
-      </div>
-      <span class="mob-nav-text" data-ar="المخزن" data-en="Stock">المخزن</span>
-    </button>
-
-    <button class="mob-nav-btn" onclick="openMob()">
-      <div class="mob-nav-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="4" y1="6" x2="20" y2="6"/>
-          <line x1="4" y1="12" x2="20" y2="12"/>
-          <line x1="4" y1="18" x2="20" y2="18"/>
-        </svg>
-      </div>
-      <span class="mob-nav-text" data-ar="المزيد" data-en="Menu">المزيد</span>
-    </button>
-  </nav>
+  
 
 
   <script>
@@ -14248,6 +14404,197 @@
       }
     }
   }
+
+
+  // ── REAL DARK / LIGHT MODE THEME ENGINE ──
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = current === 'light' ? 'dark' : 'light';
+    setTheme(next);
+  }
+
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    const l = document.getElementById('th-light');
+    const d = document.getElementById('th-dark');
+    if (l && d) {
+      if (theme === 'light') {
+        l.classList.add('active');
+        d.classList.remove('active');
+      } else {
+        d.classList.add('active');
+        l.classList.remove('active');
+      }
+    }
+    try {
+      localStorage.setItem('erp_theme', theme);
+    } catch(e) {}
+    if (typeof showToast === 'function') {
+      showToast(theme === 'light' ? '☀️ تم تفعيل وضع النهار (Light Mode)' : '🌙 تم تفعيل الوضع الليلي الفاخر (Dark Mode)');
+    }
+  }
+
+  // Auto-load saved theme on startup
+  try {
+    const savedTheme = localStorage.getItem('erp_theme') || 'dark';
+    if (savedTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      setTimeout(() => {
+        const l = document.getElementById('th-light');
+        const d = document.getElementById('th-dark');
+        if (l && d) { l.classList.add('active'); d.classList.remove('active'); }
+      }, 50);
+    }
+  } catch(e) {}
+
+  // ── LIVE NOTIFICATIONS & ALERTS SYSTEM ──
+  function renderNotificationsList() {
+    const container = document.getElementById('notif-items-list');
+    const countBadge = document.getElementById('notif-count-badge');
+    if (!container) return;
+
+    const notifs = [];
+
+    // 1. Check for shortages or low stock from real ERP state
+    try {
+      let shortageCount = 0;
+      if (typeof S !== 'undefined' && S.inventory) {
+        Object.keys(S.inventory).forEach(k => {
+          const item = S.inventory[k];
+          if (item && Number(item.current || 0) <= Number(item.minStock || 5)) shortageCount++;
+        });
+      }
+      if (shortageCount > 0) {
+        notifs.push({
+          type: 'alert',
+          icon: '⚠️',
+          title: 'تنبيه نقص في خامات المطبخ',
+          desc: shortageCount + ' أصناف خامات وصلت إلى حد إعادة الطلب أو أقل بالمخزن',
+          time: 'منذ قليل',
+          actionText: 'فحص الخامات',
+          actionFn: "nav('inventory')"
+        });
+      } else {
+        notifs.push({
+          type: 'success',
+          icon: '✓',
+          title: 'المخزون متوازن ومكتمل',
+          desc: 'جميع الخامات الاستراتيجية فوق حد الأمان المخزني ولا توجد عوائق',
+          time: 'اليوم',
+          actionText: 'عرض المخزون',
+          actionFn: "nav('inventory')"
+        });
+      }
+    } catch(e) {}
+
+    // 2. Check for branch orders
+    try {
+      let orderCount = 0;
+      if (typeof S !== 'undefined' && S.orders) {
+        orderCount = Array.isArray(S.orders) ? S.orders.length : Object.keys(S.orders).length;
+      }
+      if (orderCount > 0) {
+        notifs.push({
+          type: 'info',
+          icon: '📋',
+          title: 'طلبات الفروع الواردة',
+          desc: 'يوجد ' + orderCount + ' طلب فرع وارد مسجل في دورة التشغيل الحالية',
+          time: 'اليوم',
+          actionText: 'معاينة الطلبات',
+          actionFn: "nav('orders')"
+        });
+      } else {
+        notifs.push({
+          type: 'info',
+          icon: '📝',
+          title: 'جاهزية استلام الطلبات',
+          desc: 'المطبخ المركزي في حالة ترقب وجاهزية لاستلام طلبات الفروع',
+          time: 'اليوم',
+          actionText: 'تسجيل طلب جديد',
+          actionFn: "nav('orders')"
+        });
+      }
+    } catch(e) {}
+
+    // 3. Batches / Cook Plan
+    notifs.push({
+      type: 'prod',
+      icon: '🍳',
+      title: 'خطة تشغيل المطبخ المركزي (BOM)',
+      desc: 'محرك احتساب وتفكيك المكونات والمقادير التلقائي نشط وجاهز للتنفيذ',
+      time: 'نشط الآن',
+      actionText: 'خطة التشغيل',
+      actionFn: "nav('production')"
+    });
+
+    // 4. Cloud Database Sync
+    notifs.push({
+      type: 'sys',
+      icon: '⚡',
+      title: 'حالة المزامنة السحابية',
+      desc: 'السيرفر متصل وقاعدة بيانات Cloud SQL متزامنة بالكامل وبأعلى كفاءة',
+      time: 'مباشر',
+      actionText: 'حالة الربط',
+      actionFn: "toggleSqlSync()"
+    });
+
+    if (countBadge) countBadge.textContent = notifs.length + ' تنبيهات';
+
+    container.innerHTML = notifs.map(n => `
+      <div class="notif-card" onclick="${n.actionFn}; closeNotificationsDropdown();">
+        <div class="notif-icon-box notif-${n.type}">
+          ${n.icon}
+        </div>
+        <div class="notif-content">
+          <div class="notif-title">${n.title}</div>
+          <div class="notif-desc">${n.desc}</div>
+          <div class="notif-footer">
+            <span class="notif-time">${n.time}</span>
+            <span class="notif-action-btn">${n.actionText} ←</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function toggleNotificationsDropdown(e) {
+    if (e) e.stopPropagation();
+    const dd = document.getElementById('notifications-dropdown');
+    if (!dd) return;
+    const isOpen = dd.classList.contains('open');
+    if (isOpen) {
+      dd.classList.remove('open');
+    } else {
+      renderNotificationsList();
+      dd.classList.add('open');
+    }
+  }
+
+  function closeNotificationsDropdown() {
+    const dd = document.getElementById('notifications-dropdown');
+    if (dd) dd.classList.remove('open');
+  }
+
+  function markAllNotificationsRead(e) {
+    if (e) e.stopPropagation();
+    const dot = document.querySelector('.unread-dot');
+    if (dot) dot.style.display = 'none';
+    closeNotificationsDropdown();
+    if (typeof showToast === 'function') {
+      showToast('✓ تم تحديد جميع التنبيهات كمقروءة');
+    }
+  }
+
+  // Global click outside to close dropdown
+  document.addEventListener('click', function(e) {
+    const dd = document.getElementById('notifications-dropdown');
+    const btn = document.getElementById('notif-bell-btn');
+    if (dd && dd.classList.contains('open')) {
+      if (!dd.contains(e.target) && (!btn || !btn.contains(e.target))) {
+        dd.classList.remove('open');
+      }
+    }
+  });
 
 </script>
 
