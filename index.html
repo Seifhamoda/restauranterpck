@@ -1453,7 +1453,7 @@
     }
 
     /* ══════════════════════════════════════════════════════════════════════════
-       DEDICATED FULLSCREEN VIDEO WELCOME SECTION (Welcome Hub)
+       DEDICATED FULLSCREEN VIDEO WELCOME SECTION (Ultra-Sheer Parity Fix)
     ══════════════════════════════════════════════════════════════════════════ */
     .welcome-section-wrapper {
       position: relative !important;
@@ -1464,9 +1464,9 @@
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      border: 1px solid var(--border-glass) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
       box-shadow: 0 30px 80px rgba(0,0,0,0.65) !important;
-      background: #06080e !important;
+      background: #000000 !important;
       margin-bottom: 24px !important;
     }
     .welcome-video-fullscreen {
@@ -1482,7 +1482,7 @@
       position: absolute !important;
       inset: 0 !important;
       z-index: 2 !important;
-      background: radial-gradient(circle at center, rgba(6, 8, 14, 0.55) 0%, rgba(6, 8, 14, 0.85) 75%, rgba(6, 8, 14, 0.96) 100%) !important;
+      background: linear-gradient(180deg, rgba(6, 8, 14, 0.20) 0%, rgba(6, 8, 14, 0.35) 50%, rgba(6, 8, 14, 0.65) 100%) !important;
       pointer-events: none !important;
     }
     .welcome-inner-content {
@@ -1495,14 +1495,13 @@
       justify-content: center !important;
     }
     .welcome-hero-card {
-      background: rgba(11, 15, 25, 0.82) !important;
-      backdrop-filter: blur(32px) !important;
-      -webkit-backdrop-filter: blur(32px) !important;
-      border: 1px solid rgba(255, 255, 255, 0.14) !important;
-      border-radius: 26px !important;
-      padding: 38px 42px !important;
+      background: transparent !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 10px 14px !important;
       width: 100% !important;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.75), 0 0 40px rgba(124, 58, 237, 0.18) !important;
       text-align: center !important;
       display: flex !important;
       flex-direction: column !important;
@@ -1512,34 +1511,40 @@
       display: inline-flex !important;
       align-items: center !important;
       gap: 7px !important;
-      background: rgba(124, 58, 237, 0.20) !important;
-      border: 1px solid rgba(139, 92, 246, 0.40) !important;
+      background: rgba(124, 58, 237, 0.35) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(167, 139, 250, 0.60) !important;
       border-radius: 9999px !important;
-      padding: 6px 18px !important;
+      padding: 6px 20px !important;
       font-size: 12px !important;
       font-weight: 800 !important;
-      color: #c084fc !important;
+      color: #e9d5ff !important;
       letter-spacing: 0.5px !important;
       margin-bottom: 18px !important;
+      box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4) !important;
     }
     .pulse-dot-green {
       color: #10B981 !important;
       font-size: 11px !important;
     }
     .welcome-main-heading {
-      font-size: 34px !important;
+      font-size: 36px !important;
       font-weight: 900 !important;
       color: #ffffff !important;
       line-height: 1.25 !important;
       margin-bottom: 14px !important;
       letter-spacing: -0.5px !important;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 0 0 40px rgba(0, 0, 0, 0.9) !important;
     }
     .welcome-desc-text {
-      font-size: 14.5px !important;
-      color: rgba(255, 255, 255, 0.82) !important;
+      font-size: 15px !important;
+      color: rgba(255, 255, 255, 0.95) !important;
       line-height: 1.65 !important;
       max-width: 760px !important;
-      margin-bottom: 30px !important;
+      margin-bottom: 32px !important;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 0 20px rgba(0, 0, 0, 0.8) !important;
+      font-weight: 500 !important;
     }
     .welcome-action-grid {
       display: grid !important;
@@ -1552,8 +1557,10 @@
       .welcome-action-grid { grid-template-columns: 1fr !important; }
     }
     .welcome-action-tile {
-      background: rgba(255, 255, 255, 0.04) !important;
-      border: 1px solid rgba(255, 255, 255, 0.09) !important;
+      background: rgba(11, 15, 25, 0.45) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.20) !important;
       border-radius: 16px !important;
       padding: 16px 18px !important;
       display: flex !important;
@@ -1562,12 +1569,13 @@
       cursor: pointer !important;
       transition: all 0.22s ease !important;
       text-align: start !important;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45) !important;
     }
     .welcome-action-tile:hover {
-      background: rgba(124, 58, 237, 0.18) !important;
-      border-color: rgba(139, 92, 246, 0.55) !important;
-      transform: translateY(-3px) !important;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.35) !important;
+      background: rgba(124, 58, 237, 0.35) !important;
+      border-color: rgba(167, 139, 250, 0.65) !important;
+      transform: translateY(-3px) scale(1.02) !important;
+      box-shadow: 0 12px 36px rgba(124, 58, 237, 0.45) !important;
     }
     .tile-icon {
       font-size: 28px !important;
@@ -1578,11 +1586,13 @@
       font-weight: 800 !important;
       color: #ffffff !important;
       margin-bottom: 3px !important;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
     }
     .tile-hint {
-      font-size: 11px !important;
-      color: #94a3b8 !important;
+      font-size: 11.5px !important;
+      color: rgba(255, 255, 255, 0.85) !important;
       line-height: 1.3 !important;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8) !important;
     }
     .welcome-cta-row {
       display: flex !important;
@@ -1590,7 +1600,7 @@
       justify-content: space-between !important;
       width: 100% !important;
       padding-top: 20px !important;
-      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
       flex-wrap: wrap !important;
       gap: 14px !important;
     }
@@ -1600,18 +1610,18 @@
       gap: 10px !important;
       background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%) !important;
       color: #ffffff !important;
-      border: 1px solid rgba(139, 92, 246, 0.6) !important;
+      border: 1px solid rgba(167, 139, 250, 0.6) !important;
       border-radius: 9999px !important;
-      padding: 12px 28px !important;
+      padding: 12px 30px !important;
       font-size: 13.5px !important;
       font-weight: 800 !important;
       cursor: pointer !important;
-      box-shadow: 0 6px 25px rgba(124, 58, 237, 0.45) !important;
+      box-shadow: 0 8px 30px rgba(124, 58, 237, 0.55) !important;
       transition: all 0.2s ease !important;
     }
     .welcome-primary-btn:hover {
-      transform: translateY(-2px) scale(1.02) !important;
-      box-shadow: 0 10px 32px rgba(124, 58, 237, 0.6) !important;
+      transform: translateY(-2px) scale(1.03) !important;
+      box-shadow: 0 12px 38px rgba(124, 58, 237, 0.75) !important;
     }
     .welcome-status-capsule {
       display: flex !important;
@@ -1619,34 +1629,32 @@
       gap: 8px !important;
       font-size: 12px !important;
       font-weight: 700 !important;
-      color: #94a3b8 !important;
-      background: rgba(255, 255, 255, 0.04) !important;
-      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      color: #ffffff !important;
+      background: rgba(11, 15, 25, 0.50) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.20) !important;
       border-radius: 9999px !important;
-      padding: 6px 16px !important;
+      padding: 7px 18px !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4) !important;
     }
 
-    [data-theme="light"] .welcome-hero-card {
-      background: rgba(255, 255, 255, 0.95) !important;
-      border-color: rgba(0, 0, 0, 0.1) !important;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15) !important;
-    }
-    [data-theme="light"] .welcome-main-heading { color: #0f172a !important; }
-    [data-theme="light"] .welcome-desc-text { color: #475569 !important; }
     [data-theme="light"] .welcome-action-tile {
-      background: #f8fafc !important;
-      border-color: #e2e8f0 !important;
+      background: rgba(255, 255, 255, 0.85) !important;
+      border-color: rgba(0, 0, 0, 0.12) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
     }
     [data-theme="light"] .welcome-action-tile:hover {
-      background: #ede9fe !important;
+      background: #ffffff !important;
       border-color: #8b5cf6 !important;
+      box-shadow: 0 12px 32px rgba(124, 58, 237, 0.25) !important;
     }
-    [data-theme="light"] .tile-title { color: #0f172a !important; }
-    [data-theme="light"] .tile-hint { color: #64748b !important; }
+    [data-theme="light"] .tile-title { color: #0f172a !important; text-shadow: none !important; }
+    [data-theme="light"] .tile-hint { color: #475569 !important; text-shadow: none !important; }
     [data-theme="light"] .welcome-status-capsule {
-      background: #f1f5f9 !important;
-      border-color: #e2e8f0 !important;
-      color: #475569 !important;
+      background: rgba(255, 255, 255, 0.85) !important;
+      border-color: rgba(0, 0, 0, 0.12) !important;
+      color: #0f172a !important;
     }
 
 
@@ -10377,25 +10385,58 @@
       const root = document.getElementById('html-root');
       root.setAttribute('lang', isAr() ? 'ar-u-nu-latn' : 'en');
       root.setAttribute('dir', isAr() ? 'rtl' : 'ltr');
+
+      // 1. Text translations on all [data-ar] elements
       document.querySelectorAll('[data-ar]').forEach(el => {
         el.textContent = isAr() ? el.getAttribute('data-ar') : el.getAttribute('data-en');
       });
+
+      // 2. Placeholder translations
       document.querySelectorAll('[data-ar-ph]').forEach(el => {
         el.setAttribute('placeholder', isAr() ? el.getAttribute('data-ar-ph') : el.getAttribute('data-en-ph'));
       });
-      const topLangText = document.getElementById('topbar-lang-text');
-      if (topLangText) topLangText.textContent = isAr() ? 'English' : 'عربي';
-      const sideLangLbl = document.getElementById('sidebar-lang-lbl');
-      if (sideLangLbl) sideLangLbl.textContent = isAr() ? 'اللغة: English' : 'Language: العربية';
+
+      // 3. Topbar Search Input placeholder
+      const searchPlaceholder = document.querySelector('.search-placeholder');
+      if (searchPlaceholder) {
+        searchPlaceholder.textContent = isAr()
+          ? 'بحث في الـ 88 منتج، 200 خامة، وأوامر الشراء...'
+          : 'Search 88 products, 200 raw items, purchase orders...';
+      }
+
+      // 4. Header and Hero date
       const hdrDate = document.getElementById('hdr-date');
-      if (hdrDate) hdrDate.textContent = toWesternDigits(new Date().toLocaleDateString(isAr() ? 'ar-EG-u-nu-latn' : 'en-GB', { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' }));
-      
+      if (hdrDate) {
+        hdrDate.textContent = toWesternDigits(new Date().toLocaleDateString(isAr() ? 'ar-EG-u-nu-latn' : 'en-GB', { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' }));
+      }
       const heroDateText = document.getElementById('hero-date-text');
       if (heroDateText) {
         heroDateText.textContent = toWesternDigits(new Date().toLocaleDateString(isAr() ? 'ar-EG-u-nu-latn' : 'en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }));
       }
 
-      // Topbar segmented tabs text sync
+      // 5. Dock tooltips translation
+      const DOCK_TITLES = {
+        welcome:     { ar: '0. قسم الترحيب · Welcome Hub', en: '0. Welcome Hub' },
+        dashboard:   { ar: '1. لوحة المؤشرات · Dashboard', en: '1. Executive Dashboard' },
+        orders:      { ar: '2. طلبات الفروع · Branch Orders', en: '2. Branch Orders' },
+        production:  { ar: '3. خطة التشغيل والطهي · Production Plan', en: '3. Production & BOM Plan' },
+        centerstock: { ar: '4. مخزون المركز الجاهز · Center Stock', en: '4. Finished Center Stock' },
+        inventory:   { ar: '5. مستودع الخامات · Raw Inventory', en: '5. Raw Inventory (200 Items)' },
+        purchase:    { ar: '6. أوامر الشراء والتوريد · Purchase Orders', en: '6. Purchase Orders' },
+        recipes:     { ar: '7. دليل الوصفات والـ BOM · Recipes', en: '7. 74 BOM Recipes Catalog' },
+        waste:       { ar: '8. سجل الهدر والرقابة · Waste Ledger', en: '8. Waste & Loss Ledger' },
+        reports:     { ar: '9. التقارير والتحليلات · Reports', en: '9. Analytics & Matrix Reports' }
+      };
+      document.querySelectorAll('.sidebar .nav-item[data-page], .curved-dock .nav-item[data-page]').forEach(el => {
+        const p = el.getAttribute('data-page');
+        if (DOCK_TITLES[p]) {
+          el.setAttribute('title', isAr() ? DOCK_TITLES[p].ar : DOCK_TITLES[p].en);
+        }
+      });
+
+      // 6. Topbar segmented tabs text sync
+      const tabWelc = document.querySelector('#tab-welc span:last-child');
+      if (tabWelc) tabWelc.textContent = isAr() ? 'قسم الترحيب' : 'Welcome Hub';
       const tabDash = document.querySelector('#tab-dash span:last-child');
       if (tabDash) tabDash.textContent = isAr() ? 'لوحة المؤشرات' : 'Dashboard';
       const tabWork = document.querySelector('#tab-work span:last-child');
@@ -10403,25 +10444,29 @@
       const tabInteg = document.querySelector('#tab-integ span:last-child');
       if (tabInteg) tabInteg.textContent = isAr() ? 'الربط والمزامنة' : 'Integrations';
 
-      // Section metadata badge sync
+      // 7. Language toggle button label
+      const sideLangLbl = document.getElementById('sidebar-lang-lbl');
+      if (sideLangLbl) sideLangLbl.textContent = isAr() ? 'اللغة: English' : 'Language: العربية';
+      const topLangText = document.getElementById('topbar-lang-text');
+      if (topLangText) topLangText.textContent = isAr() ? 'English' : 'عربي';
+
+      // 8. Notifications dropdown translations
+      const notifCountBadge = document.getElementById('notif-count-badge');
+      if (notifCountBadge) notifCountBadge.textContent = isAr() ? '4 تنبيهات' : '4 Alerts';
+      const notifClearBtn = document.querySelector('.notif-clear-btn');
+      if (notifClearBtn) notifClearBtn.textContent = isAr() ? '✓ تحديد الكل كمقروء' : '✓ Mark all as read';
+      const notifViewAllBtn = document.querySelector('.notif-view-all-btn');
+      if (notifViewAllBtn) notifViewAllBtn.textContent = isAr() ? 'سجل التقارير ←' : 'Reports Log →';
+
+      // 9. Sync section title & icon in Topbar
       if (typeof updateActiveSectionUI === 'function' && S.curPage) {
         updateActiveSectionUI(S.curPage);
       }
 
-      const titles = {
-        dashboard: isAr() ? 'لوحة التحكم' : 'Executive Dashboard',
-        centerstock: isAr() ? 'مخزون المركز والدفعات' : 'Center Stock & Batches',
-        orders: isAr() ? 'طلبات الفروع' : 'Branch Orders',
-        production: isAr() ? 'خطة التشغيل والوصفات' : 'Daily Plan & BOM',
-        inventory: isAr() ? 'أرصدة الخامات' : 'Raw Inventory',
-        purchase: isAr() ? 'أوامر الشراء' : 'Purchase Orders',
-        recipes: isAr() ? 'دليل الوصفات والمقادير' : 'Recipes & BOM',
-        waste: isAr() ? 'سجل الهدر' : 'Waste Ledger',
-        reports: isAr() ? 'التقارير التنفيذية' : 'Reports & Analytics'
-      };
-      const pt = document.getElementById('page-title');
-      if (pt && S.curPage) pt.textContent = titles[S.curPage] || S.curPage;
-      if (typeof renderPage === 'function' && S.curPage) renderPage(S.curPage);
+      // 10. Re-render active page to translate all dynamically rendered content
+      if (typeof renderPage === 'function' && S.curPage) {
+        renderPage(S.curPage);
+      }
     }
 
     function toggleLang() {
