@@ -1009,10 +1009,17 @@
     }
 
     /* BOM Ingredients List Glassy Scroll Container */
+    .bom-item-card, div:has(> .bom-item), [data-bom-item], #cs-raw-list > div {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 10px 14px !important;
+      gap: 14px !important;
+    }
     .bom-ingredients-container, #bom-items-list, #cs-raw-list, div:has(> .bom-item) {
-      max-height: 260px !important;
+      max-height: 320px !important;
       overflow-y: auto !important;
-      padding-right: 4px !important;
+      padding-inline-end: 8px !important;
     }
     .bom-ingredients-container::-webkit-scrollbar, #cs-raw-list::-webkit-scrollbar {
       width: 5px;
@@ -2594,7 +2601,7 @@
             </div>
 
             <!-- TABBED OPERATIONS COMMAND DECK -->
-            <div class="card" style="padding:16px 18px;border-radius:16px;border:1px solid rgba(124,58,237,0.3);background:var(--glass-card);">
+            <div class="card max-w-3xl w-full mx-auto" style="padding:18px 20px;border-radius:16px;border:1px solid rgba(124,58,237,0.3);background:var(--glass-card);">
               <!-- Segmented Switcher Header -->
               <div class="cs-tabs-header" style="display:flex;background:rgba(0,0,0,0.35);padding:4px;border-radius:12px;gap:4px;margin-bottom:14px;border:1px solid rgba(255,255,255,0.06)">
                 <button type="button" class="cs-tab-btn active" id="cs-tab-btn-prod" onclick="switchCsTab('prod')">
