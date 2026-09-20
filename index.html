@@ -1647,83 +1647,120 @@
     }
 
     /* ══════════════════════════════════════════════════════════════════
-       MOBILE RESPONSIVE ARCHITECTURE & BOTTOM NAV HOTFIX
+       OFF-CANVAS DRAWER SIDEBAR & MOBILE RESPONSIVE ARCHITECTURE
        ══════════════════════════════════════════════════════════════════ */
-    /* 1. Horizontal Scrollable Bottom Nav Bar (No Icon Crushing) */
-    .bottom-nav, nav[class*="fixed bottom"], .sidebar {
-      overflow-x: auto !important;
-      overflow-y: hidden !important;
-      display: flex !important;
-      justify-content: flex-start !important;
-      align-items: center !important;
-      gap: 12px !important;
-      padding: 8px 16px !important;
-      scrollbar-width: none !important;
-      -webkit-overflow-scrolling: touch !important;
+    #sidebar-toggle-btn {
+      display: none !important;
     }
-    .bottom-nav::-webkit-scrollbar, 
-    nav[class*="fixed bottom"]::-webkit-scrollbar, 
-    .sidebar::-webkit-scrollbar, 
-    .nav-scroll::-webkit-scrollbar { 
-      display: none !important; 
-    }
-    .bottom-nav button, 
-    .bottom-nav a, 
-    .sidebar .nav-item, 
-    nav[class*="fixed bottom"] button {
-      flex-shrink: 0 !important;
-      min-width: 58px !important;
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: center !important;
-      font-size: 11px !important;
-    }
-    .bottom-nav span[class*="text"], 
-    .sidebar .nav-item span.nav-label, 
-    nav[class*="fixed bottom"] span {
-      max-width: 60px !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-      white-space: nowrap !important;
-      display: block !important;
+    .mobile-drawer-header {
+      display: none !important;
     }
 
-    /* 2. Prevent Bottom Overlap - Generous Page Padding */
-    main, .main, .page-container, .page {
-      padding-bottom: 100px !important;
+    /* إزالة الفراغ السفلي الزائد بعد التخلص من الشريط السفلي */
+    main, .main, .page-container, .page, body {
+      padding-bottom: 24px !important;
     }
 
     @media (max-width: 900px) {
-      .app-chassis { padding: 0 !important; gap: 0 !important; }
-      .sidebar {
+      #sidebar-toggle-btn {
+        display: flex !important;
+      }
+      .mobile-drawer-header {
+        display: flex !important;
+      }
+      .brand-area {
+        display: none !important;
+      }
+
+      /* إخفاء الشريط المزدحم من أسفل الشاشة تماماً وتحويله لقائمة جانبية */
+      nav[class*="fixed bottom"], .bottom-nav, #mobile-nav, .sidebar {
         position: fixed !important;
-        bottom: 0 !important; left: 0 !important; right: 0 !important;
-        width: 100vw !important; height: 66px !important;
-        clip-path: none !important; -webkit-clip-path: none !important;
-        border-radius: 0 !important; margin: 0 !important;
-        z-index: 1000 !important;
-        background: rgba(11, 15, 25, 0.95) !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        left: auto !important;
+        width: 280px !important;
+        height: 100vh !important;
+        background: rgba(15, 17, 26, 0.96) !important;
         backdrop-filter: blur(20px) !important;
         -webkit-backdrop-filter: blur(20px) !important;
-        border-top: 1px solid rgba(139, 92, 246, 0.3) !important;
-        box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.5) !important;
-      }
-      .brand-area, .dock-bottom-actions { display: none !important; }
-      .nav-scroll { 
+        border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-top: none !important;
+        clip-path: none !important;
+        -webkit-clip-path: none !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
         display: flex !important;
-        flex-direction: row !important; 
-        gap: 10px !important; 
-        justify-content: flex-start !important; 
-        align-items: center !important;
-        width: max-content !important;
-        min-width: 100% !important;
-        overflow-x: auto !important;
-        overflow-y: hidden !important;
-        padding: 4px 10px !important;
-        scrollbar-width: none !important;
-        -webkit-overflow-scrolling: touch !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        gap: 8px !important;
+        padding: 24px 16px !important;
+        z-index: 9999 !important;
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5) !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
       }
+
+      /* عند تفعيل القائمة الجانبية */
+      nav[class*="fixed bottom"].active, .bottom-nav.active, #mobile-nav.active, .sidebar.active, .sidebar.mob-open {
+        transform: translateX(0) !important;
+      }
+
+      /* أزرار القائمة الجانبية بترتيب رأسي أنيق ومريح للنقر */
+      nav[class*="fixed bottom"] button, .bottom-nav button, .bottom-nav a, .sidebar .nav-item {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 14px !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 44px !important;
+        padding: 12px 16px !important;
+        border-radius: 12px !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        color: #f1f5f9 !important;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        text-align: right !important;
+        cursor: pointer !important;
+        margin-bottom: 4px !important;
+      }
+      .sidebar .nav-item.active {
+        background: linear-gradient(135deg, rgba(124, 58, 237, 0.35), rgba(99, 102, 241, 0.25)) !important;
+        border-color: rgba(139, 92, 246, 0.5) !important;
+        color: #fff !important;
+      }
+
+      nav[class*="fixed bottom"] button span, .bottom-nav button span, .sidebar .nav-item span.nav-label, .sidebar .nav-item span {
+        max-width: none !important;
+        white-space: normal !important;
+        display: inline-block !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        color: #f1f5f9 !important;
+      }
+      .sidebar .nav-item svg {
+        width: 20px !important;
+        height: 20px !important;
+        flex-shrink: 0 !important;
+      }
+
+      .nav-scroll {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        width: 100% !important;
+        padding: 0 !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+      }
+
+      .app-chassis { padding: 0 !important; gap: 0 !important; }
       .main { border-radius: 0 !important; margin-bottom: 0 !important; }
       .topbar-segmented-tabs, .btn-pill-export { display: none !important; }
       .middle-grid { grid-template-columns: 1fr !important; }
@@ -2091,6 +2128,11 @@
   <!-- SIDEBAR -->
   
   <!-- OUTER DESKTOP APP WINDOW (Floating Chassis Frame) -->
+  <!-- Floating Drawer Trigger Button (Mobile) -->
+  <button id="sidebar-toggle-btn" class="fixed bottom-6 right-6 z-[9998] p-3.5 rounded-full bg-amber-500 text-zinc-950 shadow-[0_4px_20px_rgba(245,158,11,0.4)] flex items-center justify-center font-bold" onclick="openMob()" aria-label="Open Navigation">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+  </button>
+
   <div class="app-chassis">
 
     <!-- ══════════════════════════════════════════════════════════
@@ -2103,6 +2145,11 @@
          9 Central Kitchen Sections in Operational Sequence
     ══════════════════════════════════════════════════════════ -->
     <aside class="sidebar" id="sidebar">
+      <!-- Mobile Drawer Close Header -->
+      <div class="mobile-drawer-header flex items-center justify-between pb-4 border-b border-white/10 mb-2 w-full">
+        <span class="text-sm font-bold text-amber-400">القائمة التشغيلية</span>
+        <button id="sidebar-close-btn" type="button" class="p-1.5 text-zinc-400 hover:text-white" onclick="closeMob()">✕</button>
+      </div>
       <!-- Top Brand Logo Glyph -->
       <div class="brand-area" onclick="nav('dashboard')" title="Community Central Kitchen OS">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
@@ -15800,6 +15847,35 @@
     ensureHeroVideoPlays();
     nav('welcome');
   }
+
+  // Mobile Off-canvas Drawer Event Listeners
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('sidebar-toggle-btn');
+    const closeBtn = document.getElementById('sidebar-close-btn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('mob-overlay');
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (typeof openMob === 'function') openMob();
+        else if (sidebar) sidebar.classList.add('active');
+      });
+    }
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (typeof closeMob === 'function') closeMob();
+        else if (sidebar) sidebar.classList.remove('active');
+      });
+    }
+    if (overlay) {
+      overlay.addEventListener('click', function() {
+        if (typeof closeMob === 'function') closeMob();
+        else if (sidebar) sidebar.classList.remove('active');
+      });
+    }
+  });
 
 </script>
 
