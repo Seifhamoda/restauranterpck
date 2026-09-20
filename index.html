@@ -885,13 +885,13 @@
     ══════════════════════════════════════════════════════════════════════════ */
     .dual-pane-workbench {
       display: grid !important;
-      grid-template-columns: 1.4fr 1fr !important;
+      grid-template-columns: 1fr 420px !important;
       gap: 18px !important;
       width: 100% !important;
       margin-bottom: 20px !important;
       align-items: start !important;
     }
-    @media (max-width: 990px) {
+    @media (max-width: 1024px) {
       .dual-pane-workbench { grid-template-columns: 1fr !important; }
       .pane-inspector { position: static !important; max-height: none !important; }
     }
@@ -947,10 +947,61 @@
       border-color: rgba(139, 92, 246, 0.4) !important;
       transform: translateY(-2px) !important;
     }
-    .stream-card.selected-stream-card {
-      background: linear-gradient(135deg, rgba(124, 58, 237, 0.25), rgba(99, 102, 241, 0.15)) !important;
-      border-color: rgba(139, 92, 246, 0.6) !important;
-      box-shadow: 0 4px 16px rgba(124, 58, 237, 0.25) !important;
+    .selected-stream-card, .card.selected-stream-card, .stream-card.selected-stream-card {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.28), rgba(99, 102, 241, 0.18)) !important;
+      border-color: rgba(167, 139, 250, 0.85) !important;
+      box-shadow: 0 0 22px rgba(124, 58, 237, 0.35) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    /* Center Stock Command Deck Tabs & Grid */
+    #cs-stats {
+      display: grid !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 12px !important;
+      margin-bottom: 16px !important;
+    }
+    @media (max-width: 768px) {
+      #cs-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+    .cs-tab-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #94a3b8;
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .cs-tab-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .cs-tab-btn.active {
+      color: #fff;
+      background: linear-gradient(135deg, #7C3AED, #6366F1);
+      border-color: rgba(139, 92, 246, 0.5);
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.35);
+    }
+    [data-theme="light"] .cs-tab-btn {
+      color: #64748b;
+    }
+    [data-theme="light"] .cs-tab-btn:hover {
+      color: #1e293b;
+      background: rgba(0, 0, 0, 0.04);
+    }
+    [data-theme="light"] .cs-tab-btn.active {
+      color: #fff;
+      background: linear-gradient(135deg, #7C3AED, #6366F1);
     }
 
     /* Segmented Tab Navigation Bar */
@@ -1111,16 +1162,47 @@
     /* ══════════════════════════════════════════════════════════════════════════
        DATA TABLES — Transparent Rows & Frosted Sticky Headers
     ══════════════════════════════════════════════════════════════════════════ */
-    .tbl-wrap { border-radius: var(--r-md) !important; overflow-x: auto !important; }
+    .tbl-wrap {
+      border-radius: var(--r-md) !important;
+      overflow-x: auto !important;
+      overflow-y: auto !important;
+      max-width: 100% !important;
+      scrollbar-width: thin !important;
+      scrollbar-color: rgba(124, 58, 237, 0.45) rgba(15, 23, 42, 0.4) !important;
+      -webkit-overflow-scrolling: touch !important;
+    }
+    .tbl-wrap::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    .tbl-wrap::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.35);
+      border-radius: 4px;
+    }
+    .tbl-wrap::-webkit-scrollbar-thumb {
+      background: rgba(124, 58, 237, 0.5);
+      border-radius: 4px;
+    }
+    .tbl-wrap::-webkit-scrollbar-thumb:hover {
+      background: rgba(139, 92, 246, 0.85);
+    }
     table.tbl, .data-table { width: 100% !important; border-collapse: collapse !important; }
     table.tbl th, .data-table th {
-      background: rgba(255,255,255,0.025) !important;
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 10 !important;
+      background: #0d1322 !important;
       backdrop-filter: blur(16px) !important;
       color: var(--text-dim) !important;
       font-size: 11px !important; font-weight: 800 !important;
       text-transform: uppercase !important; letter-spacing: 0.08em !important;
       border-bottom: 1px solid var(--border-glass) !important;
       padding: 12px 16px !important; text-align: start !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    }
+    [data-theme="light"] table.tbl th, [data-theme="light"] .data-table th {
+      background: #f1f5f9 !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
     }
     table.tbl td, .data-table td {
       border-bottom: 1px solid var(--border-glass) !important;
@@ -2380,26 +2462,41 @@
            CENTER STOCK & BATCHES WORKBENCH (مخزون المركز والدفعات)
            ==================================================== -->
       <section class="page" id="page-centerstock">
+        <!-- WORKFLOW STEP BAR (Finished Goods & Central Stock) -->
+        <div class="workflow-step-bar" style="margin-bottom: 16px;">
+          <div class="step-badge-indicator">
+            <span class="step-num-pill" style="background:rgba(124,58,237,0.25);border-color:rgba(139,92,246,0.5);color:#C4B5FD">المطبخ المركزي</span>
+            <span class="step-name-text" data-ar="مخزون المركز التام الجاهز وتشغيل الدفعات" data-en="Finished Center Stock & Production Execution">مخزون المركز التام الجاهز وتشغيل الدفعات</span>
+          </div>
+          <div class="step-nav-buttons">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="nav('production')">« خطة الإنتاج</button>
+            <button type="button" class="btn btn-primary btn-sm bridge-btn" onclick="nav('inventory')">
+              <span>مخزون الخامات ➔</span>
+            </button>
+          </div>
+        </div>
+
         <!-- Dual-Pane Mission Control Workbench -->
         <div class="dual-pane-workbench">
-          <!-- LEFT PANE: LIVE PRODUCT STREAM -->
+          <!-- LIVE PRODUCT STREAM -->
           <div class="pane-stream">
             <!-- Filter & Search Toolbar -->
-            <div class="card" style="padding: 14px 18px; border-radius: 16px;">
+            <div class="card" style="padding: 14px 18px; border-radius: 16px; margin-bottom: 14px;">
               <div class="flex gap-3 items-center flex-wrap">
-                <div style="position:relative;flex:1;min-width:220px">
+                <div style="position:relative;flex:1;min-width:240px">
+                  <span style="position:absolute;inset-inline-start:14px;top:50%;transform:translateY(-50%);pointer-events:none;color:#8B5CF6;display:flex;align-items:center;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="11" cy="11" r="8" />
+                      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                  </span>
                   <input type="text" class="input" id="cs-search"
-                    placeholder="ابحث بالاسم أو الكود... (Filter products)" data-ar-ph="ابحث بالاسم أو الكود..."
-                    data-en-ph="Filter manufactured items..."
-                    style="width:100%;height:40px;padding-right:38px;box-sizing:border-box"
+                    placeholder="ابحث بالاسم أو الكود..." data-ar-ph="ابحث بالاسم أو الكود..."
+                    data-en-ph="Search by name or code..."
+                    style="width:100%;height:42px;padding-inline-start:40px;padding-inline-end:14px;box-sizing:border-box"
                     oninput="renderCenterStock()" />
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"
-                    style="position:absolute;right:12px;top:12px;pointer-events:none">
-                    <circle cx="11" cy="11" r="8" />
-                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                  </svg>
                 </div>
-                <select class="select" id="cs-cat-filter" style="width:170px;height:40px"
+                <select class="select" id="cs-cat-filter" style="min-width:200px;width:auto;flex:0 0 auto;height:42px"
                   onchange="renderCenterStock()">
                   <option value="">جميع الأقسام (All Categories)</option>
                   <option value="beef">🥩 لحوم وبرجر (Beef)</option>
@@ -2410,7 +2507,7 @@
                   <option value="veggies">🥦 خضروات (Veg)</option>
                   <option value="drinks">🧃 مشروبات (Drinks)</option>
                 </select>
-                <select class="select" id="cs-status-filter" style="width:170px;height:40px"
+                <select class="select" id="cs-status-filter" style="min-width:190px;width:auto;flex:0 0 auto;height:42px"
                   onchange="renderCenterStock()">
                   <option value="">جميع الحالات (All Levels)</option>
                   <option value="ok">🟢 متوفر بكفاية (Sufficient)</option>
@@ -2420,179 +2517,186 @@
               </div>
             </div>
 
-            <!-- KPI Row Above Stream -->
-            <div class="g4" id="cs-stats"
-              style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;"></div>
+            <!-- KPI Row Above Stream (All 4 cards in 1 row) -->
+            <div id="cs-stats"></div>
 
             <!-- Product Cards Stream Grid -->
             <div id="cs-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;">
             </div>
           </div>
 
-          <!-- RIGHT PANE: COMMAND DECK / INSPECTOR -->
+          <!-- COMMAND DECK / INSPECTOR -->
           <div class="pane-inspector" id="cs-inspector-deck">
             <!-- Inspected Product Hero -->
             <div class="card card-dept-meat" id="cs-hero-card" style="padding:18px 20px;border-radius:16px;">
               <div class="flex items-center justify-between mb-2">
                 <span class="badge badge-purple" id="cs-hero-cat"
-                  style="font-size:11px;font-weight:800;background:rgba(124,58,237,0.25);border:1px solid rgba(139,92,246,0.4);color:#C4B5FD">المطبخ
-                  المركزي</span>
-                <span class="badge badge-green" id="cs-hero-status" style="font-size:11px;font-weight:800">جاهز
-                  للتشغيل</span>
+                  style="font-size:11px;font-weight:800;background:rgba(124,58,237,0.25);border:1px solid rgba(139,92,246,0.4);color:#C4B5FD">المطبخ المركزي</span>
+                <span class="badge badge-green" id="cs-hero-status" style="font-size:11px;font-weight:800">جاهز للتشغيل</span>
               </div>
               <h2 class="text-white font-bold" id="cs-hero-title"
-                style="font-size:17px;margin:6px 0 10px;line-height:1.3">اختر منتجاً لفحصه والتحكم به</h2>
-              <div class="flex items-center justify-between"
-                style="border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;margin-top:8px">
-                <div>
-                  <div class="text-muted text-xs font-semibold" data-ar="الرصيد الحالي بالمطبخ المركزي"
-                    data-en="CURRENT CENTER STOCK">الرصيد الحالي بالمطبخ المركزي</div>
+                style="font-size:16.5px;margin:6px 0 12px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">اختر منتجاً لفحصه والتحكم به</h2>
+
+              <!-- Hero Dual Metric Display -->
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;">
+                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:10px 12px;">
+                  <div style="font-size:10.5px;color:#94a3b8;font-weight:700;" data-ar="الرصيد بالمركز" data-en="Center Stock">الرصيد بالمركز</div>
                   <div class="kpi-number" id="cs-hero-stock"
-                    style="font-size:1.8rem;color:#A78BFA;margin-top:2px;font-weight:800">0.00 <span
+                    style="font-size:1.5rem;color:#A78BFA;margin-top:2px;font-weight:800">0.00 <span
                       style="font-size:12px;color:#94a3b8">Kg</span></div>
                 </div>
-                <div style="text-align:left;direction:ltr">
-                  <div class="text-muted text-xs font-semibold" style="direction:rtl">تكلفة الوصفة (Recipe Cost)</div>
+                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:10px 12px;">
+                  <div style="font-size:10.5px;color:#94a3b8;font-weight:700;" data-ar="تكلفة الوصفة (BOM)" data-en="Recipe Cost">تكلفة الوصفة (BOM)</div>
                   <div class="text-white font-bold" id="cs-hero-cost"
-                    style="font-size:1.3rem;color:#FBBF24;margin-top:2px">0.00 ج.م</div>
+                    style="font-size:1.35rem;color:#FBBF24;margin-top:3px">0.00 ج.م</div>
                 </div>
               </div>
             </div>
 
-            <!-- Production Batch Simulator & Execution Card -->
-            <div class="card"
-              style="padding:18px 20px;border-radius:16px;border:1px solid rgba(124,58,237,0.35);background:linear-gradient(135deg,rgba(124,58,237,0.08),rgba(15,23,42,0.95))">
-              <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-                <div
-                  style="width:36px;height:36px;border-radius:10px;background:rgba(124,58,237,0.25);border:1px solid rgba(139,92,246,0.4);display:flex;align-items:center;justify-content:center;color:#C4B5FD;flex-shrink:0">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-white font-bold" style="font-size:14px;margin:0;color:#C4B5FD">محاكي ومسجل تشغيل
-                    الدفعات</h3>
-                  <div class="text-muted" style="font-size:11px">حساب واستهلاك الخامات تلقائياً عند الإنتاج</div>
-                </div>
+            <!-- TABBED OPERATIONS COMMAND DECK -->
+            <div class="card" style="padding:16px 18px;border-radius:16px;border:1px solid rgba(124,58,237,0.3);background:var(--glass-card);">
+              <!-- Segmented Switcher Header -->
+              <div class="cs-tabs-header" style="display:flex;background:rgba(0,0,0,0.35);padding:4px;border-radius:12px;gap:4px;margin-bottom:14px;border:1px solid rgba(255,255,255,0.06)">
+                <button type="button" class="cs-tab-btn active" id="cs-tab-btn-prod" onclick="switchCsTab('prod')">
+                  <span>⚡ تشغيل دفعة</span>
+                </button>
+                <button type="button" class="cs-tab-btn" id="cs-tab-btn-adj" onclick="switchCsTab('adj')">
+                  <span>✏️ تسوية جردية</span>
+                </button>
+                <button type="button" class="cs-tab-btn" id="cs-tab-btn-log" onclick="switchCsTab('log')">
+                  <span>📜 سجل الحركات</span>
+                </button>
               </div>
 
-              <div style="display:flex;flex-direction:column;gap:12px">
-                <div>
-                  <label class="field-label"
-                    style="font-size:11.5px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block">المنتج
-                    المصنّع المستهدف</label>
-                  <select class="select" id="cs-prod-select" style="width:100%;height:38px;box-sizing:border-box"
-                    onchange="onCsProdChange()">
-                    <option value="">— اختر المنتج المصنع —</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label class="field-label"
-                    style="font-size:11.5px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block">كمية التشغيلة
-                    المراد إنتاجها</label>
-                  <div style="display:flex;gap:8px;align-items:center">
-                    <input type="number" id="cs-prod-qty" class="input" min="0.01" step="0.01" placeholder="الكمية..."
-                      style="flex:1;height:38px;font-size:14px;font-weight:700;box-sizing:border-box"
-                      oninput="onCsProdChange()" />
-                    <span id="cs-prod-uom" class="badge badge-purple"
-                      style="height:38px;display:flex;align-items:center;justify-content:center;padding:0 12px;font-size:12px;font-weight:700;min-width:54px;border-radius:8px;background:rgba(124,58,237,0.2);border:1px solid rgba(139,92,246,0.3);color:#C4B5FD">Kg</span>
-                  </div>
-                  <!-- Quick stepper pills -->
-                  <div style="display:flex;gap:6px;margin-top:6px">
-                    <button class="btn btn-sm" onclick="stepCsQty(1)"
-                      style="padding:2px 8px;font-size:11px;background:rgba(255,255,255,0.06);border-radius:6px">+1</button>
-                    <button class="btn btn-sm" onclick="stepCsQty(5)"
-                      style="padding:2px 8px;font-size:11px;background:rgba(255,255,255,0.06);border-radius:6px">+5</button>
-                    <button class="btn btn-sm" onclick="stepCsQty(10)"
-                      style="padding:2px 8px;font-size:11px;background:rgba(255,255,255,0.06);border-radius:6px">+10</button>
-                    <button class="btn btn-sm" onclick="stepCsQty(25)"
-                      style="padding:2px 8px;font-size:11px;background:rgba(255,255,255,0.06);border-radius:6px">+25</button>
-                  </div>
-                </div>
-
-                <!-- Raw Materials Preview -->
-                <div id="cs-raw-preview"
-                  style="display:none;background:rgba(15,23,42,0.85);border:1px solid rgba(124,58,237,0.35);border-radius:12px;padding:12px;box-sizing:border-box">
+              <!-- PANE 1: BATCH PRODUCTION SIMULATOR -->
+              <div id="cs-pane-prod" class="cs-tab-pane">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
                   <div
-                    style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,0.06)">
-                    <span style="font-size:12px;font-weight:700;color:#C4B5FD;display:flex;align-items:center;gap:6px">
-                      <span>📉</span>
-                      <span>الخامات المطلوبة للدفعة (BOM)</span>
-                    </span>
-                    <span id="cs-raw-batch-badge"
-                      style="font-size:11px;color:#94a3b8;background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:6px"></span>
+                    style="width:32px;height:32px;border-radius:9px;background:rgba(124,58,237,0.25);border:1px solid rgba(139,92,246,0.4);display:flex;align-items:center;justify-content:center;color:#C4B5FD;flex-shrink:0">
+                    ⚡
                   </div>
-                  <div id="cs-raw-list"
-                    style="max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:6px"></div>
+                  <div>
+                    <h3 class="text-white font-bold" style="font-size:13.5px;margin:0;color:#C4B5FD">محاكي ومسجل تشغيل الدفعات</h3>
+                    <div class="text-muted" style="font-size:10.5px">حساب واستهلاك الخامات تلقائياً عند الإنتاج</div>
+                  </div>
                 </div>
 
-                <div>
-                  <label class="field-label"
-                    style="font-size:11.5px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block">ملاحظات
-                    الدفعة (اختياري)</label>
-                  <input type="text" id="cs-prod-notes" class="input" placeholder="رقم الوجبة، الوردية، اسم الشيف..."
-                    style="width:100%;height:36px;box-sizing:border-box" />
-                </div>
+                <div style="display:flex;flex-direction:column;gap:11px">
+                  <div>
+                    <label class="field-label"
+                      style="font-size:11px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block">المنتج المصنّع المستهدف</label>
+                    <select class="select" id="cs-prod-select"
+                      style="width:100%;height:38px;font-size:12.5px;box-sizing:border-box"
+                      onchange="onCsProdChange()">
+                      <option value="">— اختر الصنف المصنع —</option>
+                    </select>
+                  </div>
 
-                <button class="btn btn-primary" onclick="logProductionBatch()"
-                  style="width:100%;height:42px;font-weight:800;font-size:13px;justify-content:center;margin-top:4px;background:linear-gradient(135deg,#7C3AED,#6D28D9);border:none;box-shadow:0 0 15px rgba(124,58,237,0.4);cursor:pointer">
-                  ⚡ تأكيد التشغيلة وخصم الخامات آلياً
-                </button>
+                  <div>
+                    <label class="field-label"
+                      style="font-size:11px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block">كمية التشغيلة المراد إنتاجها</label>
+                    <div style="display:flex;gap:8px;align-items:center">
+                      <input type="number" id="cs-prod-qty" class="input" min="0.01" step="0.01" placeholder="الكمية..."
+                        style="flex:1;height:38px;font-size:14px;font-weight:700;box-sizing:border-box"
+                        oninput="onCsProdChange()" />
+                      <span id="cs-prod-uom" class="badge badge-purple"
+                        style="height:38px;display:flex;align-items:center;justify-content:center;padding:0 12px;font-size:12px;font-weight:700;min-width:54px;border-radius:8px;background:rgba(124,58,237,0.2);border:1px solid rgba(139,92,246,0.3);color:#C4B5FD">Kg</span>
+                    </div>
+                    <!-- Quick stepper pills -->
+                    <div style="display:flex;gap:6px;margin-top:6px">
+                      <button type="button" class="btn btn-sm" onclick="stepCsQty(1)"
+                        style="padding:2px 8px;font-size:11px;background:rgba(255,255,255,0.06);border-radius:6px">+1</button>
+                      <button type="button" class="btn btn-sm" onclick="stepCsQty(5)"
+                        style="padding:2px 8px;font-size:11px;background:rgba(255,255,255,0.06);border-radius:6px">+5</button>
+                      <button type="button" class="btn btn-sm" onclick="stepCsQty(10)"
+                        style="padding:2px 8px;font-size:11px;background:rgba(255,255,255,0.06);border-radius:6px">+10</button>
+                      <button type="button" class="btn btn-sm" onclick="stepCsQty(25)"
+                        style="padding:2px 8px;font-size:11px;background:rgba(255,255,255,0.06);border-radius:6px">+25</button>
+                    </div>
+                  </div>
+
+                  <!-- Raw Materials Preview -->
+                  <div id="cs-raw-preview"
+                    style="display:none;background:rgba(15,23,42,0.85);border:1px solid rgba(124,58,237,0.35);border-radius:12px;padding:12px;box-sizing:border-box">
+                    <div
+                      style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,0.06)">
+                      <span style="font-size:11.5px;font-weight:700;color:#C4B5FD;display:flex;align-items:center;gap:6px">
+                        <span>📉</span>
+                        <span>الخامات المطلوبة للدفعة (BOM)</span>
+                      </span>
+                      <span id="cs-raw-batch-badge"
+                        style="font-size:11px;color:#94a3b8;background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:6px"></span>
+                    </div>
+                    <div id="cs-raw-list"
+                      style="max-height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:6px"></div>
+                  </div>
+
+                  <div>
+                    <label class="field-label"
+                      style="font-size:11px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block">ملاحظات الدفعة (اختياري)</label>
+                    <input type="text" id="cs-prod-notes" class="input" placeholder="رقم الوجبة، الوردية، اسم الشيف..."
+                      style="width:100%;height:36px;box-sizing:border-box" />
+                  </div>
+
+                  <button type="button" class="btn btn-primary" onclick="logProductionBatch()"
+                    style="width:100%;height:42px;font-weight:800;font-size:13px;justify-content:center;margin-top:4px;background:linear-gradient(135deg,#7C3AED,#6D28D9);border:none;box-shadow:0 0 15px rgba(124,58,237,0.4);cursor:pointer">
+                    ⚡ تأكيد التشغيلة وخصم الخامات آلياً
+                  </button>
+                </div>
               </div>
-            </div>
 
-            <!-- Manual Adjustment Card -->
-            <div class="card"
-              style="padding:16px 18px;border-radius:16px;border:1px solid rgba(6,182,212,0.3);background:rgba(15,23,42,0.7)">
-              <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-                <div
-                  style="width:28px;height:28px;border-radius:8px;background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.3);display:flex;align-items:center;justify-content:center;color:#06b6d4">
-                  ✏️
+              <!-- PANE 2: MANUAL ADJUSTMENT -->
+              <div id="cs-pane-adj" class="cs-tab-pane" style="display:none">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+                  <div
+                    style="width:32px;height:32px;border-radius:9px;background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.3);display:flex;align-items:center;justify-content:center;color:#06b6d4;flex-shrink:0">
+                    ✏️
+                  </div>
+                  <div>
+                    <h4 class="text-white font-bold" style="color:#06b6d4;font-size:13.5px;margin:0">تسوية جردية لمخزون المركز</h4>
+                    <div class="text-muted" style="font-size:10.5px">إضافة رصيد افتتاح، عجز، أو ضبط الجرد الفعلي</div>
+                  </div>
                 </div>
-                <div>
-                  <h4 class="text-white font-bold" style="color:#06b6d4;font-size:13px;margin:0">تسوية جردية لمخزون
-                    المركز</h4>
-                  <div class="text-muted" style="font-size:10.5px">إضافة رصيد افتتاح، عجز، أو ضبط الجرد الفعلي</div>
+
+                <div style="display:flex;flex-direction:column;gap:10px">
+                  <div>
+                    <label class="field-label" style="font-size:11px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block">المنتج المصنّع</label>
+                    <select class="select" id="cs-adj-prod"
+                      style="width:100%;height:38px;font-size:12px;box-sizing:border-box">
+                      <option value="">— اختر المنتج —</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="field-label" style="font-size:11px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block">نوع التسوية والكمية</label>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:8px">
+                      <select class="select" id="cs-adj-type"
+                        style="width:100%;height:38px;font-size:12px;box-sizing:border-box">
+                        <option value="add">➕ إضافة</option>
+                        <option value="sub">➖ خصم</option>
+                        <option value="set">📌 تحديد جرد</option>
+                      </select>
+                      <input type="number" id="cs-adj-qty" class="input" min="0" step="0.01" placeholder="الكمية..."
+                        style="width:100%;height:38px;box-sizing:border-box" />
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-sm" onclick="adjustCenterStock()"
+                    style="width:100%;height:38px;margin-top:6px;background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.35);color:#06b6d4;font-weight:700;font-size:12.5px;justify-content:center;border-radius:8px">
+                    تطبيق التسوية
+                  </button>
                 </div>
               </div>
 
-              <div style="display:flex;flex-direction:column;gap:8px">
-                <div>
-                  <select class="select" id="cs-adj-prod"
-                    style="width:100%;height:36px;font-size:12px;box-sizing:border-box">
-                    <option value="">— اختر المنتج —</option>
-                  </select>
+              <!-- PANE 3: MOVEMENT LOG -->
+              <div id="cs-pane-log" class="cs-tab-pane" style="display:none">
+                <div class="flex items-center justify-between mb-3">
+                  <h4 class="text-white font-bold flex items-center gap-2" style="font-size:13px;margin:0">
+                    <span>📜</span> سجل حركات مخزون المركز
+                  </h4>
+                  <button type="button" class="btn btn-sm" onclick="exportCenterStockLog()"
+                    style="background:rgba(168,85,247,0.15);border:1px solid rgba(168,85,247,0.3);color:#a855f7;font-size:11px;padding:3px 10px;border-radius:6px">تصدير CSV</button>
                 </div>
-                <div style="display:grid;grid-template-columns:110px 1fr;gap:8px">
-                  <select class="select" id="cs-adj-type"
-                    style="width:100%;height:36px;font-size:12px;box-sizing:border-box">
-                    <option value="add">➕ إضافة</option>
-                    <option value="sub">➖ خصم</option>
-                    <option value="set">📌 تحديد جرد</option>
-                  </select>
-                  <input type="number" id="cs-adj-qty" class="input" min="0" step="0.01" placeholder="الكمية..."
-                    style="width:100%;height:36px;box-sizing:border-box" />
-                </div>
-                <button class="btn btn-sm" onclick="adjustCenterStock()"
-                  style="width:100%;height:36px;background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.3);color:#06b6d4;font-weight:700;font-size:12px;justify-content:center;border-radius:8px">
-                  تطبيق التسوية
-                </button>
+                <div id="cs-log-table" class="tbl-wrap" style="max-height:300px;overflow-y:auto;overflow-x:auto"></div>
               </div>
-            </div>
-
-            <!-- Movement Log Card -->
-            <div class="card" style="padding:16px 18px;border-radius:16px;">
-              <div class="flex items-center justify-between mb-3">
-                <h4 class="text-white font-bold flex items-center gap-2" style="font-size:13px">
-                  <span>📜</span> سجل حركات مخزون المركز
-                </h4>
-                <button class="btn btn-sm" onclick="exportCenterStockLog()"
-                  style="background:rgba(168,85,247,0.15);border:1px solid rgba(168,85,247,0.3);color:#a855f7;font-size:11px;padding:3px 10px;border-radius:6px">تصدير
-                  CSV</button>
-              </div>
-              <div id="cs-log-table" style="max-height:240px;overflow-y:auto;overflow-x:auto"></div>
             </div>
           </div>
         </div>
@@ -11260,6 +11364,18 @@
         if (cur) sel.value = cur;
       });
     }
+
+    window.switchCsTab = function(tab) {
+      ['prod', 'adj', 'log'].forEach(t => {
+        const b = document.getElementById('cs-tab-btn-' + t);
+        const p = document.getElementById('cs-pane-' + t);
+        if (b) {
+          if (t === tab) b.classList.add('active');
+          else b.classList.remove('active');
+        }
+        if (p) p.style.display = (t === tab ? 'block' : 'none');
+      });
+    };
 
     function selectCenterStockItem(prodId) {
       S_inspectedProdId = prodId;
