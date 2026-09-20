@@ -1008,11 +1008,35 @@
       background: linear-gradient(135deg, #7C3AED, #6366F1);
     }
 
-    /* BOM Ingredients List Glassy Scroll Container */
-    .bom-ingredients-container {
-      max-height: 45vh !important;
+    /* ══════════════════════════════════════════════════════════════════
+       PREMIUM GLASSY BATCH SIMULATOR & BOM ARCHITECTURE (MOBILE & DESKTOP)
+       ══════════════════════════════════════════════════════════════════ */
+    .cs-command-card {
+      width: 100% !important;
+      border-radius: 18px !important;
+      padding: 18px 20px !important;
+      background: rgba(15, 23, 42, 0.78) !important;
+      backdrop-filter: blur(24px) !important;
+      -webkit-backdrop-filter: blur(24px) !important;
+      border: 1px solid rgba(139, 92, 246, 0.3) !important;
+      box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.65), 0 0 25px rgba(124, 58, 237, 0.12) !important;
+      box-sizing: border-box !important;
+    }
+    @media (max-width: 640px) {
+      .cs-command-card {
+        padding: 14px 12px !important;
+        border-radius: 16px !important;
+      }
+    }
+
+    .bom-ingredients-container, #cs-raw-list {
+      max-height: 280px !important;
       overflow-y: auto !important;
-      padding-inline-end: 6px !important;
+      padding-inline-end: 4px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 7px !important;
+      scrollbar-width: thin !important;
     }
     .bom-ingredients-container::-webkit-scrollbar, #cs-raw-list::-webkit-scrollbar {
       width: 5px;
@@ -1022,43 +1046,75 @@
       border-radius: 8px;
     }
     .bom-ingredients-container::-webkit-scrollbar-thumb, #cs-raw-list::-webkit-scrollbar-thumb {
-      background: rgba(168, 85, 247, 0.35);
+      background: rgba(168, 85, 247, 0.4);
       border-radius: 8px;
     }
     .bom-ingredients-container::-webkit-scrollbar-thumb:hover, #cs-raw-list::-webkit-scrollbar-thumb:hover {
-      background: rgba(168, 85, 247, 0.6);
+      background: rgba(168, 85, 247, 0.7);
     }
 
-    /* Desktop and Tablet Card Layout */
-    .bom-item-card, [data-bom-item], div:has(> .bom-item), #cs-raw-list > div {
+    /* Sleek Horizontal BOM Ingredient Row (Phone & Desktop) */
+    .bom-item-card, [data-bom-item], #cs-raw-list > div {
       display: flex !important;
+      flex-direction: row !important;
       align-items: center !important;
       justify-content: space-between !important;
+      background: rgba(255, 255, 255, 0.035) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 12px !important;
       padding: 10px 14px !important;
       gap: 12px !important;
-      border-radius: 10px !important;
+      transition: all 0.2s ease !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+    }
+    .bom-item-card:hover, #cs-raw-list > div:hover {
+      background: rgba(255, 255, 255, 0.065) !important;
+      border-color: rgba(139, 92, 246, 0.35) !important;
+      transform: translateY(-1px) !important;
     }
 
-    /* Auto Responsive Mobile Layout (< 640px) */
-    @media (max-width: 640px) {
-      .bom-item-card, [data-bom-item], #cs-raw-list > div {
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: 8px !important;
-        padding: 10px !important;
-      }
-      .bom-item-card .bom-item-details, #cs-raw-list > div > div:first-child {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-      }
-      .bom-item-card .bom-item-metrics, #cs-raw-list > div > div:last-child {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-        padding-top: 6px !important;
-      }
+    /* Right Block: Ingredient Name + Subtext */
+    .bom-item-card .bom-item-details, #cs-raw-list > div > div:first-child {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      text-align: right !important;
+      gap: 3px !important;
+      flex: 1 !important;
+      min-width: 0 !important;
+    }
+
+    /* Left Block: Amount Needed + Availability Pill */
+    .bom-item-card .bom-item-metrics, #cs-raw-list > div > div:last-child {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-end !important;
+      text-align: left !important;
+      gap: 3px !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* Premium Stepper Buttons */
+    .cs-stepper-btn {
+      height: 36px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      border-radius: 9px !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      color: #c4b5fd !important;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      cursor: pointer !important;
+      transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    .cs-stepper-btn:hover, .cs-stepper-btn:active {
+      background: rgba(124, 58, 237, 0.3) !important;
+      border-color: rgba(139, 92, 246, 0.55) !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 12px rgba(124, 58, 237, 0.3) !important;
+      transform: translateY(-1px) !important;
     }
 
     /* Segmented Tab Navigation Bar */
@@ -2626,7 +2682,7 @@
             </div>
 
             <!-- TABBED OPERATIONS COMMAND DECK -->
-            <div class="card w-[95%] max-w-3xl mx-auto my-auto max-h-[90vh] flex flex-col p-4 sm:p-6" style="border-radius:16px;border:1px solid rgba(124,58,237,0.3);background:var(--glass-card);">
+            <div class="card cs-command-card">
               <!-- Segmented Switcher Header -->
               <div class="cs-tabs-header" style="display:flex;background:rgba(0,0,0,0.35);padding:4px;border-radius:12px;gap:4px;margin-bottom:14px;border:1px solid rgba(255,255,255,0.06)">
                 <button type="button" class="cs-tab-btn active" id="cs-tab-btn-prod" onclick="switchCsTab('prod')">
@@ -2676,14 +2732,10 @@
                     </div>
                     <!-- Quick stepper pills -->
                     <div class="grid grid-cols-4 gap-2 w-full mt-2">
-                      <button type="button" class="btn btn-sm" onclick="stepCsQty(1)"
-                        style="padding:5px 0;font-size:11.5px;font-weight:700;background:rgba(255,255,255,0.06);border-radius:6px;justify-content:center">+1</button>
-                      <button type="button" class="btn btn-sm" onclick="stepCsQty(5)"
-                        style="padding:5px 0;font-size:11.5px;font-weight:700;background:rgba(255,255,255,0.06);border-radius:6px;justify-content:center">+5</button>
-                      <button type="button" class="btn btn-sm" onclick="stepCsQty(10)"
-                        style="padding:5px 0;font-size:11.5px;font-weight:700;background:rgba(255,255,255,0.06);border-radius:6px;justify-content:center">+10</button>
-                      <button type="button" class="btn btn-sm" onclick="stepCsQty(25)"
-                        style="padding:5px 0;font-size:11.5px;font-weight:700;background:rgba(255,255,255,0.06);border-radius:6px;justify-content:center">+25</button>
+                      <button type="button" class="cs-stepper-btn" onclick="stepCsQty(1)">+1</button>
+                      <button type="button" class="cs-stepper-btn" onclick="stepCsQty(5)">+5</button>
+                      <button type="button" class="cs-stepper-btn" onclick="stepCsQty(10)">+10</button>
+                      <button type="button" class="cs-stepper-btn" onclick="stepCsQty(25)">+25</button>
                     </div>
                   </div>
 
