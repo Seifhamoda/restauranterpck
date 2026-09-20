@@ -1646,23 +1646,115 @@
       border-color: #8b5cf6 !important;
     }
 
-    /* Mobile Responsive Adaptation */
+    /* ══════════════════════════════════════════════════════════════════
+       MOBILE RESPONSIVE ARCHITECTURE & BOTTOM NAV HOTFIX
+       ══════════════════════════════════════════════════════════════════ */
+    /* 1. Horizontal Scrollable Bottom Nav Bar (No Icon Crushing) */
+    .bottom-nav, nav[class*="fixed bottom"], .sidebar {
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      display: flex !important;
+      justify-content: flex-start !important;
+      align-items: center !important;
+      gap: 12px !important;
+      padding: 8px 16px !important;
+      scrollbar-width: none !important;
+      -webkit-overflow-scrolling: touch !important;
+    }
+    .bottom-nav::-webkit-scrollbar, 
+    nav[class*="fixed bottom"]::-webkit-scrollbar, 
+    .sidebar::-webkit-scrollbar, 
+    .nav-scroll::-webkit-scrollbar { 
+      display: none !important; 
+    }
+    .bottom-nav button, 
+    .bottom-nav a, 
+    .sidebar .nav-item, 
+    nav[class*="fixed bottom"] button {
+      flex-shrink: 0 !important;
+      min-width: 58px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 11px !important;
+    }
+    .bottom-nav span[class*="text"], 
+    .sidebar .nav-item span.nav-label, 
+    nav[class*="fixed bottom"] span {
+      max-width: 60px !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      white-space: nowrap !important;
+      display: block !important;
+    }
+
+    /* 2. Prevent Bottom Overlap - Generous Page Padding */
+    main, .main, .page-container, .page {
+      padding-bottom: 100px !important;
+    }
+
     @media (max-width: 900px) {
       .app-chassis { padding: 0 !important; gap: 0 !important; }
       .sidebar {
         position: fixed !important;
         bottom: 0 !important; left: 0 !important; right: 0 !important;
-        width: 100vw !important; height: 60px !important;
+        width: 100vw !important; height: 66px !important;
         clip-path: none !important; -webkit-clip-path: none !important;
         border-radius: 0 !important; margin: 0 !important;
-        flex-direction: row !important; justify-content: space-around !important;
-        padding: 0 10px !important; z-index: 1000 !important;
+        z-index: 1000 !important;
+        background: rgba(11, 15, 25, 0.95) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border-top: 1px solid rgba(139, 92, 246, 0.3) !important;
+        box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.5) !important;
       }
       .brand-area, .dock-bottom-actions { display: none !important; }
-      .nav-scroll { flex-direction: row !important; gap: 4px !important; justify-content: space-around !important; }
-      .main { border-radius: 0 !important; margin-bottom: 60px !important; }
+      .nav-scroll { 
+        display: flex !important;
+        flex-direction: row !important; 
+        gap: 10px !important; 
+        justify-content: flex-start !important; 
+        align-items: center !important;
+        width: max-content !important;
+        min-width: 100% !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        padding: 4px 10px !important;
+        scrollbar-width: none !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+      .main { border-radius: 0 !important; margin-bottom: 0 !important; }
       .topbar-segmented-tabs, .btn-pill-export { display: none !important; }
       .middle-grid { grid-template-columns: 1fr !important; }
+
+      /* Full width single-column layout for Recipe & BOM views */
+      .recipes-layout,
+      div[style*="grid-template-columns:280px 1fr"],
+      .recipe-split-view, 
+      .bom-layout-container,
+      .dual-pane-workbench {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 16px !important;
+      }
+      .recipes-layout > *,
+      div[style*="grid-template-columns:280px 1fr"] > *,
+      .recipe-split-view > *, 
+      .bom-layout-container > *,
+      .dual-pane-workbench > * {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+      }
+      .recipes-layout > .card:first-child,
+      div[style*="grid-template-columns:280px 1fr"] > .card:first-child {
+        max-height: none !important;
+      }
+      #recipe-list {
+        max-height: 280px !important;
+      }
     }
   
     /* ══════════════════════════════════════════════════════════════════════════
