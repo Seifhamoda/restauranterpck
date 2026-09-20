@@ -1009,17 +1009,10 @@
     }
 
     /* BOM Ingredients List Glassy Scroll Container */
-    .bom-item-card, div:has(> .bom-item), [data-bom-item], #cs-raw-list > div {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      padding: 10px 14px !important;
-      gap: 14px !important;
-    }
-    .bom-ingredients-container, #bom-items-list, #cs-raw-list, div:has(> .bom-item) {
-      max-height: 320px !important;
+    .bom-ingredients-container {
+      max-height: 45vh !important;
       overflow-y: auto !important;
-      padding-inline-end: 8px !important;
+      padding-inline-end: 6px !important;
     }
     .bom-ingredients-container::-webkit-scrollbar, #cs-raw-list::-webkit-scrollbar {
       width: 5px;
@@ -1034,6 +1027,38 @@
     }
     .bom-ingredients-container::-webkit-scrollbar-thumb:hover, #cs-raw-list::-webkit-scrollbar-thumb:hover {
       background: rgba(168, 85, 247, 0.6);
+    }
+
+    /* Desktop and Tablet Card Layout */
+    .bom-item-card, [data-bom-item], div:has(> .bom-item), #cs-raw-list > div {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 10px 14px !important;
+      gap: 12px !important;
+      border-radius: 10px !important;
+    }
+
+    /* Auto Responsive Mobile Layout (< 640px) */
+    @media (max-width: 640px) {
+      .bom-item-card, [data-bom-item], #cs-raw-list > div {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+        padding: 10px !important;
+      }
+      .bom-item-card .bom-item-details, #cs-raw-list > div > div:first-child {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+      }
+      .bom-item-card .bom-item-metrics, #cs-raw-list > div > div:last-child {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        padding-top: 6px !important;
+      }
     }
 
     /* Segmented Tab Navigation Bar */
@@ -2601,7 +2626,7 @@
             </div>
 
             <!-- TABBED OPERATIONS COMMAND DECK -->
-            <div class="card max-w-3xl w-full mx-auto" style="padding:18px 20px;border-radius:16px;border:1px solid rgba(124,58,237,0.3);background:var(--glass-card);">
+            <div class="card w-[95%] max-w-3xl mx-auto my-auto max-h-[90vh] flex flex-col p-4 sm:p-6" style="border-radius:16px;border:1px solid rgba(124,58,237,0.3);background:var(--glass-card);">
               <!-- Segmented Switcher Header -->
               <div class="cs-tabs-header" style="display:flex;background:rgba(0,0,0,0.35);padding:4px;border-radius:12px;gap:4px;margin-bottom:14px;border:1px solid rgba(255,255,255,0.06)">
                 <button type="button" class="cs-tab-btn active" id="cs-tab-btn-prod" onclick="switchCsTab('prod')">
@@ -2650,7 +2675,7 @@
                         style="height:38px;display:flex;align-items:center;justify-content:center;padding:0 12px;font-size:12px;font-weight:700;min-width:54px;border-radius:8px;background:rgba(124,58,237,0.2);border:1px solid rgba(139,92,246,0.3);color:#C4B5FD">Kg</span>
                     </div>
                     <!-- Quick stepper pills -->
-                    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:6px">
+                    <div class="grid grid-cols-4 gap-2 w-full mt-2">
                       <button type="button" class="btn btn-sm" onclick="stepCsQty(1)"
                         style="padding:5px 0;font-size:11.5px;font-weight:700;background:rgba(255,255,255,0.06);border-radius:6px;justify-content:center">+1</button>
                       <button type="button" class="btn btn-sm" onclick="stepCsQty(5)"
