@@ -1670,15 +1670,40 @@
     .mobile-drawer-header {
       display: none !important;
     }
+    .mob-menu-btn {
+      display: none !important;
+    }
+    .mob-search-btn {
+      display: none !important;
+    }
+    .mob-bottom-dock {
+      display: none !important;
+    }
+    .mob-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 9998;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .mob-overlay.open {
+      display: block !important;
+      opacity: 1 !important;
+    }
 
-    /* إزالة الفراغ السفلي الزائد بعد التخلص من الشريط السفلي */
+    /* Standard content spacing */
     main, .main, .page-container, .page, body {
-      padding-bottom: 24px !important;
+      padding-bottom: 0 !important;
     }
 
     @media (max-width: 900px) {
+      /* Permanently remove floating circle button */
       #sidebar-toggle-btn {
-        display: flex !important;
+        display: none !important;
       }
       .mobile-drawer-header {
         display: flex !important;
@@ -1687,19 +1712,70 @@
         display: none !important;
       }
 
-      /* إخفاء الشريط المزدحم من أسفل الشاشة تماماً وتحويله لقائمة جانبية */
+      /* Topbar Mobile Controls */
+      .mob-menu-btn {
+        display: flex !important;
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 10px !important;
+        background: rgba(255, 255, 255, 0.06) !important;
+        border: 1px solid var(--border-glass) !important;
+        color: #ffffff !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        flex-shrink: 0 !important;
+        transition: background 0.18s ease, transform 0.15s ease !important;
+      }
+      .mob-menu-btn:active {
+        transform: scale(0.92) !important;
+        background: rgba(255, 255, 255, 0.12) !important;
+      }
+      .mob-search-btn {
+        display: flex !important;
+      }
+
+      /* Compact Glassy Mobile Topbar */
+      .topbar {
+        height: 52px !important;
+        min-height: 52px !important;
+        padding: 0 10px !important;
+        gap: 8px !important;
+        overflow: hidden !important;
+      }
+      .topbar-active-section-pill {
+        max-width: 135px !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        padding: 4px 8px !important;
+        font-size: 11px !important;
+        flex-shrink: 1 !important;
+      }
+      .topbar-search-pill, .topbar-segmented-tabs, .btn-pill-export, .btn-pill-add {
+        display: none !important;
+      }
+      .theme-toggle-pill {
+        padding: 2px 3px !important;
+      }
+      .theme-opt {
+        padding: 3px 6px !important;
+        font-size: 10px !important;
+      }
+
+      /* Slide-out Mobile Sidebar Drawer */
       nav[class*="fixed bottom"], .bottom-nav, #mobile-nav, .sidebar {
         position: fixed !important;
         top: 0 !important;
         bottom: 0 !important;
         right: 0 !important;
         left: auto !important;
-        width: 280px !important;
+        width: min(290px, 86vw) !important;
         height: 100vh !important;
-        background: rgba(15, 17, 26, 0.96) !important;
-        backdrop-filter: blur(20px) !important;
-        -webkit-backdrop-filter: blur(20px) !important;
-        border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+        background: rgba(15, 17, 26, 0.98) !important;
+        backdrop-filter: blur(28px) !important;
+        -webkit-backdrop-filter: blur(28px) !important;
+        border-left: 1px solid rgba(255, 255, 255, 0.12) !important;
         border-top: none !important;
         clip-path: none !important;
         -webkit-clip-path: none !important;
@@ -1710,32 +1786,30 @@
         align-items: stretch !important;
         justify-content: flex-start !important;
         gap: 8px !important;
-        padding: 24px 16px !important;
+        padding: 20px 14px !important;
         z-index: 9999 !important;
         transform: translateX(100%);
-        transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
         will-change: transform;
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5) !important;
+        box-shadow: -10px 0 35px rgba(0, 0, 0, 0.65) !important;
         overflow-y: auto !important;
         overflow-x: hidden !important;
       }
-
-      /* عند تفعيل القائمة الجانبية */
       nav[class*="fixed bottom"].active, .bottom-nav.active, #mobile-nav.active, .sidebar.active, .sidebar.mob-open {
         transform: translateX(0) !important;
       }
 
-      /* أزرار القائمة الجانبية بترتيب رأسي أنيق ومريح للنقر */
+      /* Sidebar Drawer Items */
       nav[class*="fixed bottom"] button, .bottom-nav button, .bottom-nav a, .sidebar .nav-item {
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
         justify-content: flex-start !important;
-        gap: 14px !important;
+        gap: 12px !important;
         width: 100% !important;
         height: auto !important;
         min-height: 44px !important;
-        padding: 12px 16px !important;
+        padding: 10px 14px !important;
         border-radius: 12px !important;
         background: rgba(255, 255, 255, 0.03) !important;
         border: 1px solid rgba(255, 255, 255, 0.05) !important;
@@ -1744,14 +1818,13 @@
         font-weight: 500 !important;
         text-align: right !important;
         cursor: pointer !important;
-        margin-bottom: 4px !important;
+        margin-bottom: 3px !important;
       }
       .sidebar .nav-item.active {
         background: linear-gradient(135deg, rgba(124, 58, 237, 0.35), rgba(99, 102, 241, 0.25)) !important;
         border-color: rgba(139, 92, 246, 0.5) !important;
         color: #fff !important;
       }
-
       nav[class*="fixed bottom"] button span, .bottom-nav button span, .sidebar .nav-item span.nav-label, .sidebar .nav-item span {
         max-width: none !important;
         white-space: normal !important;
@@ -1761,42 +1834,131 @@
         color: #f1f5f9 !important;
       }
       .sidebar .nav-item svg {
-        width: 20px !important;
-        height: 20px !important;
+        width: 19px !important;
+        height: 19px !important;
         flex-shrink: 0 !important;
       }
 
       .nav-scroll {
         display: flex !important;
         flex-direction: column !important;
-        gap: 8px !important;
+        gap: 6px !important;
         width: 100% !important;
         padding: 0 !important;
         overflow-y: auto !important;
         overflow-x: hidden !important;
       }
 
+      /* Ultra-Sleek Glassy Mobile Bottom Navigation Bar */
+      .mob-bottom-dock {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: calc(56px + env(safe-area-inset-bottom, 0px)) !important;
+        padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+        background: rgba(11, 15, 25, 0.94) !important;
+        backdrop-filter: blur(24px) !important;
+        -webkit-backdrop-filter: blur(24px) !important;
+        border-top: 1px solid var(--border-glass) !important;
+        z-index: 999 !important;
+        align-items: center !important;
+        justify-content: space-around !important;
+        padding-inline: 4px !important;
+        box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.5) !important;
+      }
+      .mob-dock-btn {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 2px !important;
+        flex: 1 !important;
+        height: 100% !important;
+        background: transparent !important;
+        border: none !important;
+        color: var(--text-dim) !important;
+        cursor: pointer !important;
+        font-size: 10px !important;
+        font-weight: 700 !important;
+        transition: all 0.18s ease !important;
+        position: relative !important;
+        padding: 4px 0 !important;
+        font-family: inherit !important;
+        user-select: none !important;
+      }
+      .mob-dock-btn svg {
+        transition: transform 0.18s ease, stroke 0.18s ease !important;
+      }
+      .mob-dock-btn.active {
+        color: #a78bfa !important;
+      }
+      .mob-dock-btn.active svg {
+        stroke: #a78bfa !important;
+        transform: translateY(-1px) scale(1.08) !important;
+      }
+      [data-theme="light"] .mob-bottom-dock {
+        background: rgba(255, 255, 255, 0.95) !important;
+        border-top-color: rgba(0, 0, 0, 0.08) !important;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06) !important;
+      }
+      [data-theme="light"] .mob-dock-btn.active {
+        color: #6366f1 !important;
+      }
+      [data-theme="light"] .mob-dock-btn.active svg {
+        stroke: #6366f1 !important;
+      }
+
+      /* Content Area with Bottom Dock Clearance */
       .app-chassis { padding: 0 !important; gap: 0 !important; height: 100dvh !important; }
+      .main { border-radius: 0 !important; margin-bottom: 0 !important; }
       .content {
-        padding: 12px 10px 36px !important;
-        overscroll-behavior: auto !important;
+        padding: 10px 10px calc(70px + env(safe-area-inset-bottom, 12px)) 10px !important;
+        overscroll-behavior: contain !important;
         -webkit-overflow-scrolling: touch !important;
         touch-action: pan-y !important;
+        overflow-x: hidden !important;
       }
-      #sidebar-toggle-btn {
-        transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease !important;
+
+      /* Horizontal Scrollable Tabs and Filters */
+      .orders-nav-tabs, #inv-cat-filters, .nav-tabs, .filter-pills, .chip-group, .step-nav-buttons, #fg-tabs {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        padding-bottom: 4px !important;
+        gap: 6px !important;
+        max-width: 100% !important;
       }
-      #sidebar-toggle-btn:active {
-        transform: scale(0.90) !important;
+      .orders-nav-tabs::-webkit-scrollbar, #inv-cat-filters::-webkit-scrollbar, #fg-tabs::-webkit-scrollbar {
+        display: none !important;
       }
-      .sidebar .nav-item {
-        transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      .orders-tab-btn, .step-nav-buttons > * {
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
       }
-      .sidebar .nav-item:active {
-        transform: scale(0.97) !important;
+
+      /* Touch-Optimized Tables and Containment */
+      .tbl-wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        margin-bottom: 12px !important;
+        border: 1px solid var(--border-glass) !important;
+        border-radius: var(--r-md) !important;
       }
-      .main { border-radius: 0 !important; margin-bottom: 0 !important; }
-      .topbar-segmented-tabs, .btn-pill-export { display: none !important; }
+      table.tbl {
+        min-width: 520px !important;
+      }
+      table.tbl th, table.tbl td {
+        padding: 9px 11px !important;
+        font-size: 12px !important;
+        white-space: nowrap !important;
+      }
+
       .middle-grid { grid-template-columns: 1fr !important; }
 
       /* Full width single-column layout for Recipe & BOM views */
@@ -1808,7 +1970,7 @@
         display: flex !important;
         flex-direction: column !important;
         width: 100% !important;
-        gap: 16px !important;
+        gap: 14px !important;
       }
       .recipes-layout > *,
       div[style*="grid-template-columns:280px 1fr"] > *,
@@ -1825,6 +1987,56 @@
       }
       #recipe-list {
         max-height: 280px !important;
+      }
+
+      /* KPI Cards & Grids on Small Screens */
+      .kpi-grid, .orders-kpi-grid, #cs-stats, .pipeline-steps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+      }
+      .kpi-card {
+        padding: 12px 10px !important;
+        border-radius: 14px !important;
+      }
+      .kpi-value {
+        font-size: 1.25rem !important;
+      }
+
+      /* Welcome Hub Hero on Mobile */
+      .welcome-section-wrapper {
+        min-height: auto !important;
+        height: auto !important;
+        padding: 24px 12px !important;
+      }
+      .welcome-inner-content {
+        padding: 16px 8px !important;
+      }
+      .welcome-main-heading {
+        font-size: 1.6rem !important;
+      }
+      .welcome-desc-text {
+        font-size: 13px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 20px !important;
+      }
+      .welcome-action-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+      }
+
+      /* Modals on Mobile */
+      .modal-box, div[style*="max-width:600px"], div[style*="max-width: 600px"], div[style*="max-width:800px"], div[style*="max-width: 800px"] {
+        width: 95vw !important;
+        max-width: 95vw !important;
+        max-height: 88vh !important;
+        margin: auto !important;
+        padding: 16px 12px !important;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .kpi-grid, .orders-kpi-grid, #cs-stats {
+        grid-template-columns: 1fr !important;
       }
     }
   
@@ -2163,9 +2375,8 @@
   <!-- SIDEBAR -->
   
   <!-- OUTER DESKTOP APP WINDOW (Floating Chassis Frame) -->
-  <!-- Floating Drawer Trigger Button (Mobile) -->
-  <button id="sidebar-toggle-btn" class="fixed bottom-6 right-6 z-[9998] p-3.5 rounded-full bg-amber-500 text-zinc-950 shadow-[0_4px_20px_rgba(245,158,11,0.4)] flex items-center justify-center font-bold" onclick="openMob()" aria-label="Open Navigation">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+  <!-- Legacy Floating Drawer Trigger Button (replaced by mobile header & bottom dock) -->
+  <button id="sidebar-toggle-btn" style="display:none !important;" class="hidden" onclick="openMob()" aria-label="Open Navigation">
   </button>
 
   <div class="app-chassis">
@@ -2320,6 +2531,15 @@
          TOPBAR — SPEC-EXACT MATCH TO REFERENCE MOCKUP
     ══════════════════════════════════════════════════════════ -->
     <header class="topbar">
+      <!-- Mobile Hamburger Menu Button -->
+      <button class="mob-menu-btn" id="mob-menu-btn" onclick="openMob()" aria-label="القائمة التشغيلية" title="القائمة التشغيلية">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
       <!-- Left Segmented Control Tabs -->
       
         <!-- DYNAMIC ACTIVE SECTION BADGE (Updates as user navigates) -->
@@ -2358,6 +2578,14 @@
 
       <!-- Right Controls: Functional Light/Dark Toggle, Notifications Dropdown, Export, + Add Button -->
       <div class="topbar-right-actions">
+        <!-- Mobile Search Quick Button -->
+        <button class="topbar-circle-btn mob-search-btn" id="mob-search-btn" onclick="openCmdBar()" aria-label="بحث سريع" title="بحث سريع (Ctrl+K)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
         <!-- Functional Light / Dark Mode Toggle Capsule -->
         <div class="theme-toggle-pill" onclick="toggleTheme()" title="تبديل الوضع (Dark / Light)">
           <span class="theme-opt" id="th-light">☀️ Light</span>
@@ -10931,7 +11159,7 @@
     function nav(page) {
       // Sync Mobile Bottom Navigation buttons
       try {
-        document.querySelectorAll('.mob-nav-btn[data-page]').forEach(function(b) {
+        document.querySelectorAll('.mob-nav-btn[data-page], .mob-dock-btn[data-page]').forEach(function(b) {
           if (b.getAttribute('data-page') === page) {
             b.classList.add('active');
           } else {
@@ -15920,6 +16148,49 @@
 
 
   </div><!-- CLOSE APP CHASSIS -->
+
+  <!-- MOBILE GLASSY BOTTOM NAVIGATION DOCK -->
+  <nav class="mob-bottom-dock" id="mob-bottom-dock" aria-label="التنقل السفلي السريع">
+    <button class="mob-dock-btn" data-page="dashboard" onclick="nav('dashboard')" title="لوحة المؤشرات">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/>
+        <rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/>
+      </svg>
+      <span>الرئيسية</span>
+    </button>
+    <button class="mob-dock-btn" data-page="orders" onclick="nav('orders')" title="طلبات الفروع">
+      <div style="position:relative;display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+        <span class="dock-badge" id="dock-orders-badge-mob" style="top:-3px;right:-7px;min-width:14px;height:14px;font-size:9px;border-width:1px;">3</span>
+      </div>
+      <span>الطلبات</span>
+    </button>
+    <button class="mob-dock-btn" data-page="production" onclick="nav('production')" title="خطة التشغيل">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 13.8V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9.8"/>
+        <path d="M3 14h18v4a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-4z"/>
+        <line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
+      <span>الإنتاج</span>
+    </button>
+    <button class="mob-dock-btn" data-page="centerstock" onclick="nav('centerstock')" title="مخزون المركز">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+      </svg>
+      <span>المخزون</span>
+    </button>
+    <button class="mob-dock-btn" type="button" onclick="openMob()" title="جميع الأقسام">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/><circle cx="5" cy="12" r="1.8"/>
+      </svg>
+      <span>المزيد</span>
+    </button>
+  </nav>
 </body>
 
 </html>
