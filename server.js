@@ -1,5 +1,8 @@
-const express = require('express');
+require('dotenv').config();
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const cors = require('cors');
+const express = require('express');
 const path = require('node:path');
 const db = require('./db.js');
 
@@ -11,9 +14,31 @@ process.on('unhandledRejection', (reason, promise) => {
 });
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+// درع حماية الرؤوس
+app.use(helmet({ contentSecurityPolicy: false }));
+
+// حصر الـ CORS على النطاق المعتمد والتطوير المحلي
+const allowedOrigins = [process.env.ALLOWED_ORIGIN, 'http://localhost:3000', 'http://localhost:8080'];
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error('Blocked by CORS policy'));
+  },
+  credentials: true
+}));
+
+// تحديد معدل الطلبات للـ APIs لمنع الإغراق
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 300,
+  message: { error: 'تم تجاوز الحد المسموح به من الطلبات مؤقتاً' },
+  standardHeaders: true,
+  legacyHeaders: false
+});
+app.use('/api/', apiLimiter);
+
 app.use(express.json({ limit: '50mb' }));
 app.use((req, res, next) => {
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
