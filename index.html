@@ -34,15 +34,13 @@
     href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <style>
 /* ╔═════════════════════════════════════════════════════════════════════════╗
        ║  ULTRA-PREMIUM GLASSY DASHBOARD  ·  SUPPLY CHAIN ERP PARITY EDITION     ║
        ║  Curved Angled Dock · Dual Themes · Live Notifications · Clean Sections ║
        ╚═════════════════════════════════════════════════════════════════════════╝ */
-
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;500;600;700;800;900&display=swap');
 
     /* ── Theme Tokens (Default: Matte Dark Luxury) ────────────────────────── */
     :root {
@@ -163,22 +161,30 @@
     .aurora-orb {
       position: fixed; border-radius: 50%;
       pointer-events: none; z-index: 0;
-      animation: orbDrift 20s ease-in-out infinite alternate;
+      transform: translate3d(0,0,0);
+      backface-visibility: hidden;
+      will-change: transform;
+      animation: orbDrift 25s ease-in-out infinite alternate;
     }
     .orb-1 {
-      width: 750px; height: 750px; top: -20%; right: -10%;
-      background: radial-gradient(circle, rgba(99,88,255,0.18) 0%, rgba(124,58,237,0.06) 50%, transparent 70%);
-      filter: blur(120px);
+      width: 650px; height: 650px; top: -15%; right: -10%;
+      background: radial-gradient(circle, rgba(99,88,255,0.14) 0%, rgba(124,58,237,0.04) 45%, transparent 68%);
+      filter: blur(28px);
     }
     .orb-2 {
-      width: 700px; height: 700px; bottom: -20%; left: -10%;
-      background: radial-gradient(circle, rgba(16,185,129,0.12) 0%, rgba(6,182,212,0.05) 50%, transparent 70%);
-      filter: blur(130px);
+      width: 600px; height: 600px; bottom: -15%; left: -10%;
+      background: radial-gradient(circle, rgba(16,185,129,0.10) 0%, rgba(6,182,212,0.03) 45%, transparent 68%);
+      filter: blur(28px);
     }
     .orb-3 {
-      width: 450px; height: 450px; top: 30%; left: 35%;
-      background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 65%);
-      filter: blur(90px);
+      width: 400px; height: 400px; top: 30%; left: 35%;
+      background: radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 60%);
+      filter: blur(20px);
+    }
+    @media (max-width: 768px) {
+      .aurora-orb {
+        display: none !important; /* Huge mobile GPU performance win */
+      }
     }
     @keyframes orbDrift {
       0% { transform: translate(0,0) scale(1); }
@@ -2510,6 +2516,33 @@
       background: #f8fafc !important;
     }
 
+
+    /* ══════════════════════════════════════════════════════════════════════════
+       HIGH-PERFORMANCE RENDERING ENGINE (60 FPS ACCELERATION)
+    ══════════════════════════════════════════════════════════════════════════ */
+    /* CSS Containment to isolate card layouts and eliminate whole-page reflows */
+    .card, .stat-card, .kpi-card, .tbl-wrap, .workflow-pipeline-card {
+      contain: layout style;
+    }
+
+    /* Fast hardware scrolling */
+    .content {
+      -webkit-overflow-scrolling: touch !important;
+      overscroll-behavior-y: contain !important;
+    }
+
+    /* Mobile GPU De-throttling: remove stacked blurs on mobile scrolling elements */
+    @media (max-width: 768px) {
+      .stat-card, .kpi-card, .card, .glass-card, .pane-stream, .pane-inspector,
+      .tbl-wrap, .btn-secondary, .hero-stat-pill, .workflow-pipeline-card {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      .content {
+        transform: translateZ(0);
+      }
+    }
+
 </style>
 </head>
 
@@ -2834,7 +2867,7 @@
            ══════════════════════════════════════════════════════════ -->
       <section class="page active" id="page-welcome">
         <div class="welcome-section-wrapper">
-          <video class="welcome-video-fullscreen" autoplay muted loop playsinline preload="auto" id="welcome-fullscreen-vid">
+          <video class="welcome-video-fullscreen" muted loop playsinline preload="none" id="welcome-fullscreen-vid">
             <source src="177781627_1789861568003635.mp4" type="video/mp4">
             <source src="A_premium_and_dynamic_animatio.mp4" type="video/mp4">
             <source src="hero_bg.mp4" type="video/mp4">
@@ -11196,6 +11229,21 @@
       localStorage.removeItem(LS_KEY);
       location.reload();
     }
+    
+    /* Fast Debounce Utility for Smooth, Non-blocking Search */
+    function debounce(fn, wait = 120) {
+      let timeout;
+      return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => fn.apply(this, args), wait);
+      };
+    }
+    const debouncedRenderInv = debounce(function() { if (typeof renderInv === 'function') renderInv(); }, 120);
+    const debouncedRenderCenterStock = debounce(function() { if (typeof renderCenterStock === 'function') renderCenterStock(); }, 120);
+    const debouncedFilterRecipes = debounce(function() { if (typeof filterRecipesList === 'function') filterRecipesList(); }, 120);
+    const debouncedRenderProdMatrix = debounce(function() { if (typeof renderProdMatrixTable === 'function') renderProdMatrixTable(); }, 120);
+    const debouncedHandleCmdSearch = debounce(function(val) { if (typeof handleCmdSearch === 'function') handleCmdSearch(val); }, 100);
+
     function isAr() {
       return S.lang === 'ar';
     }
@@ -11655,6 +11703,18 @@
     }
 
     function nav(page) {
+      // Video playback optimization: only decode video when on welcome page
+      try {
+        const welcVid = document.getElementById('welcome-fullscreen-vid');
+        if (welcVid) {
+          if (page === 'welcome') {
+            welcVid.play().catch(() => {});
+          } else {
+            welcVid.pause();
+          }
+        }
+      } catch(e) {}
+
       // Sync Mobile Bottom Navigation buttons
       try {
         document.querySelectorAll('.mob-nav-btn[data-page], .mob-dock-btn[data-page]').forEach(function(b) {
@@ -16324,6 +16384,15 @@
       renderPage(S.curPage);
     }
   }
+
+  
+  // Pause background video on startup if not on welcome page
+  try {
+    const initVid = document.getElementById('welcome-fullscreen-vid');
+    if (initVid && S.curPage !== 'welcome') {
+      initVid.pause();
+    }
+  } catch(e) {}
 
   // Auto-load saved language on startup
   try {
