@@ -42,7 +42,7 @@
 <body>
 
   <!-- SVG DEFINITIONS: Angled Curved Navigation Dock Clip Paths -->
-  <svg width="0" height="0" style="position:absolute;pointer-events:none;opacity:0;">
+  <svg width="0" height="0" class="ck-svg-clip-hidden">
     <defs>
       <!-- RTL Curved Dock: Outer right edge straight/rounded, inner left edge has angled flare at top & bottom -->
       <clipPath id="curved-dock-rtl" clipPathUnits="objectBoundingBox">
@@ -79,7 +79,7 @@
   
   <!-- OUTER DESKTOP APP WINDOW (Floating Chassis Frame) -->
   <!-- Legacy Floating Drawer Trigger Button (replaced by mobile header & bottom dock) -->
-  <button id="sidebar-toggle-btn" style="display:none !important;" class="hidden" onclick="openMob()" aria-label="Open Navigation">
+  <button id="sidebar-toggle-btn" class="hidden ck-hidden-important" onclick="openMob()" aria-label="Open Navigation">
   </button>
 
   <div class="app-chassis">
@@ -118,7 +118,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
           </svg>
-          <span class="nav-label" style="display:none" data-ar="قسم الترحيب" data-en="Welcome Hub">قسم الترحيب</span>
+          <span class="nav-label ck-hidden" data-ar="قسم الترحيب" data-en="Welcome Hub">قسم الترحيب</span>
         </div>
 
         <!-- 1. لوحة المؤشرات (Dashboard) -->
@@ -127,7 +127,7 @@
             <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/>
             <rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/>
           </svg>
-          <span class="nav-label" style="display:none" data-ar="لوحة المؤشرات" data-en="Dashboard">لوحة المؤشرات</span>
+          <span class="nav-label ck-hidden" data-ar="لوحة المؤشرات" data-en="Dashboard">لوحة المؤشرات</span>
         </div>
 
         <!-- 2. طلبات الفروع (Branch Orders) -->
@@ -139,7 +139,7 @@
             <line x1="10" y1="9" x2="8" y2="9"/>
           </svg>
           <span class="dock-badge" id="dock-orders-badge">3</span>
-          <span class="nav-label" style="display:none" data-ar="طلبات الفروع" data-en="Branch Orders">طلبات الفروع</span>
+          <span class="nav-label ck-hidden" data-ar="طلبات الفروع" data-en="Branch Orders">طلبات الفروع</span>
         </div>
 
         <!-- 3. خطة التشغيل والطهي (Daily Cook Plan / BOM) -->
@@ -149,7 +149,7 @@
             <path d="M3 14h18v4a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-4z"/>
             <line x1="12" y1="8" x2="12.01" y2="8"/>
           </svg>
-          <span class="nav-label" style="display:none" data-ar="خطة التشغيل" data-en="Production Plan">خطة التشغيل</span>
+          <span class="nav-label ck-hidden" data-ar="خطة التشغيل" data-en="Production Plan">خطة التشغيل</span>
         </div>
 
         <!-- 4. مخزون المركز التام الجاهز (Center Stock) -->
@@ -159,7 +159,7 @@
             <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
             <line x1="12" y1="22.08" x2="12" y2="12"/>
           </svg>
-          <span class="nav-label" style="display:none" data-ar="مخزون المركز" data-en="Center Stock">مخزون المركز</span>
+          <span class="nav-label ck-hidden" data-ar="مخزون المركز" data-en="Center Stock">مخزون المركز</span>
         </div>
 
         <!-- 5. مستودع وأرصدة الخامات (Raw Materials Inventory) -->
@@ -169,7 +169,7 @@
             <polyline points="2 17 12 22 22 17"/>
             <polyline points="2 12 12 17 22 12"/>
           </svg>
-          <span class="nav-label" style="display:none" data-ar="أرصدة الخامات" data-en="Raw Inventory">أرصدة الخامات</span>
+          <span class="nav-label ck-hidden" data-ar="أرصدة الخامات" data-en="Raw Inventory">أرصدة الخامات</span>
         </div>
 
         <!-- 6. أوامر الشراء والتوريد (Purchase Orders / Procurement) -->
@@ -178,7 +178,7 @@
             <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
           </svg>
-          <span class="nav-label" style="display:none" data-ar="أوامر الشراء" data-en="Purchase Orders">أوامر الشراء</span>
+          <span class="nav-label ck-hidden" data-ar="أوامر الشراء" data-en="Purchase Orders">أوامر الشراء</span>
         </div>
 
         <!-- 7. دليل الوصفات والـ BOM (Recipes & Catalog) -->
@@ -187,7 +187,7 @@
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
           </svg>
-          <span class="nav-label" style="display:none" data-ar="دليل الوصفات" data-en="Recipes Catalog">دليل الوصفات</span>
+          <span class="nav-label ck-hidden" data-ar="دليل الوصفات" data-en="Recipes Catalog">دليل الوصفات</span>
         </div>
 
         <!-- 8. سجل الهدر والتوالف (Waste & Spoilage Ledger) -->
@@ -197,7 +197,7 @@
             <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
             <line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/>
           </svg>
-          <span class="nav-label" style="display:none" data-ar="سجل الهدر" data-en="Waste Ledger">سجل الهدر</span>
+          <span class="nav-label ck-hidden" data-ar="سجل الهدر" data-en="Waste Ledger">سجل الهدر</span>
         </div>
 
         <!-- 9. التقارير التنفيذية والمصفوفة (Executive Analytics & Reports) -->
@@ -206,7 +206,7 @@
             <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
             <line x1="6" y1="20" x2="6" y2="14"/>
           </svg>
-          <span class="nav-label" style="display:none" data-ar="التقارير التنفيذية" data-en="Executive Reports">التقارير التنفيذية</span>
+          <span class="nav-label ck-hidden" data-ar="التقارير التنفيذية" data-en="Executive Reports">التقارير التنفيذية</span>
         </div>
       </nav>
 
@@ -218,7 +218,7 @@
             <line x1="2" y1="12" x2="22" y2="12"/>
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
           </svg>
-          <span class="nav-label" style="display:none" data-ar="اللغة" data-en="Language">اللغة</span>
+          <span class="nav-label ck-hidden" data-ar="اللغة" data-en="Language">اللغة</span>
         </div>
       </div>
     </aside>
@@ -298,7 +298,7 @@
         </div>
 
         <!-- Notification Bell with Unread Dot & Interactive Dropdown -->
-        <div style="position:relative;display:inline-block;">
+        <div class="ck-relative-inline">
           <button class="topbar-circle-btn" id="notif-bell-btn" onclick="toggleNotificationsDropdown(event)" title="الإشعارات والتنبيهات">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
@@ -310,8 +310,8 @@
           <!-- Floating Frosted Notifications Dropdown Panel -->
           <div class="notifications-dropdown" id="notifications-dropdown" onclick="event.stopPropagation()">
             <div class="notif-header">
-              <div style="display:flex;align-items:center;gap:8px;">
-                <span style="font-size:16px;">🔔</span>
+              <div class="ck-flex-gap-8">
+                <span class="ck-fs-16">🔔</span>
                 <span class="notif-header-title" data-ar="مركز التنبيهات والتشغيل" data-en="System Alerts">مركز التنبيهات والتشغيل</span>
               </div>
               <span class="badge badge-purple" id="notif-count-badge">4 تنبيهات</span>
@@ -334,7 +334,7 @@
             <line x1="12" y1="15" x2="12" y2="3"/>
           </svg>
           <span data-ar="تصدير البيانات" data-en="Export data">Export data</span>
-          <span style="font-size:9px;opacity:0.6;">▾</span>
+          <span class="ck-fs-9-op6">▾</span>
         </button>
 
         <!-- + Add new board primary glowing pill -->
@@ -342,8 +342,8 @@
           + <span data-ar="طلب جديد" data-en="Add new board">Add new board</span>
         </button>
 
-        <span id="page-title" style="display:none"></span>
-        <span id="hdr-date" style="display:none"></span>
+        <span id="page-title" class="ck-hidden"></span>
+        <span id="hdr-date" class="ck-hidden"></span>
       </div>
     </header>
 
@@ -374,14 +374,14 @@
                 <span data-ar="THE CENTRAL KITCHEN • المطبخ المركزي الرئيسي" data-en="THE CENTRAL KITCHEN • Main Production Hub">THE CENTRAL KITCHEN • المطبخ المركزي الرئيسي</span>
               </span>
               
-              <h1 class="welcome-main-heading text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-snug drop-shadow-md text-center" style="margin: 16px 0 14px;">
+              <h1 class="welcome-main-heading text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-snug drop-shadow-md text-center ck-my-16-14">
                 <span data-ar="المطبخ المركزي الرئيسي لإمداد وتجهيز فروع" data-en="Main Central Kitchen for Supplying & Prepping">المطبخ المركزي الرئيسي لإمداد وتجهيز فروع</span>
                 <span class="block mt-2 text-2xl md:text-4xl lg:text-5xl font-black tracking-normal text-amber-500 drop-shadow-[0_2px_10px_rgba(245,158,11,0.5)]">
                   BRGR &amp; Saints &amp; Split
                 </span>
               </h1>
               
-              <p class="welcome-desc-text text-sm md:text-base text-zinc-200 font-normal max-w-3xl mx-auto leading-relaxed drop-shadow" style="margin-bottom: 24px;" data-ar="من هنا تبدأ كل وجبة. المنظومة التشغيلية للمطبخ المركزي لإعداد وتجهيز المصنعات، تلبية طلبيات الفروع اليومية، إدارة مستودع الخامات، وتطبيق معادلات الـ BOM لضبط الجودة ومنع الهدر." data-en="Where every meal begins. The Central Kitchen OS for manufacturing prep, fulfilling daily branch orders, raw inventory management, and BOM explosions to maintain quality and eliminate waste.">
+              <p class="welcome-desc-text text-sm md:text-base text-zinc-200 font-normal max-w-3xl mx-auto leading-relaxed drop-shadow ck-mb-24" data-ar="من هنا تبدأ كل وجبة. المنظومة التشغيلية للمطبخ المركزي لإعداد وتجهيز المصنعات، تلبية طلبيات الفروع اليومية، إدارة مستودع الخامات، وتطبيق معادلات الـ BOM لضبط الجودة ومنع الهدر." data-en="Where every meal begins. The Central Kitchen OS for manufacturing prep, fulfilling daily branch orders, raw inventory management, and BOM explosions to maintain quality and eliminate waste.">
                 من هنا تبدأ كل وجبة. المنظومة التشغيلية للمطبخ المركزي لإعداد وتجهيز المصنعات، تلبية طلبيات الفروع اليومية، إدارة مستودع الخامات، وتطبيق معادلات الـ BOM لضبط الجودة ومنع الهدر.
               </p>
 
@@ -469,9 +469,9 @@
              ══════════════════════════════════════════════════════════ -->
         <div class="kpi-grid">
           <!-- CARD 1: Total Demand -->
-          <div class="stat-card kpi-card" onclick="nav('orders')" style="cursor:pointer">
+          <div class="stat-card kpi-card ck-pointer" onclick="nav('orders')">
             <div class="kpi-card-inner">
-              <div style="flex:1;min-width:0">
+              <div class="ck-flex-1">
                 <div class="kpi-title" data-ar="إجمالي طلبات الفروع" data-en="Total Branch Demand">إجمالي طلبات الفروع</div>
                 <div class="kpi-num kpi-cyan" id="kpi-total-demand">0.00 Kg</div>
                 <div class="kpi-sub" id="kpi-branches-sub">0 فروع طلبت اليوم</div>
@@ -481,9 +481,9 @@
           </div>
 
           <!-- CARD 2: Active Batches -->
-          <div class="stat-card kpi-card" onclick="nav('production')" style="cursor:pointer">
+          <div class="stat-card kpi-card ck-pointer" onclick="nav('production')">
             <div class="kpi-card-inner">
-              <div style="flex:1;min-width:0">
+              <div class="ck-flex-1">
                 <div class="kpi-title" data-ar="دفعات الطهي النشطة" data-en="Active Kitchen Batches">دفعات الطهي النشطة</div>
                 <div class="kpi-num kpi-amber" id="kpi-active-batches">0 دفعة</div>
                 <div class="kpi-sub" id="kpi-batches-sub">لا توجد تشغيلات اليوم</div>
@@ -493,9 +493,9 @@
           </div>
 
           <!-- CARD 3: Raw Materials in Stock -->
-          <div class="stat-card kpi-card" onclick="nav('inventory')" style="cursor:pointer">
+          <div class="stat-card kpi-card ck-pointer" onclick="nav('inventory')">
             <div class="kpi-card-inner">
-              <div style="flex:1;min-width:0">
+              <div class="ck-flex-1">
                 <div class="kpi-title" data-ar="أرصدة خامات المستودع" data-en="Raw Materials In Stock">أرصدة خامات المستودع</div>
                 <div class="kpi-num kpi-green" id="kpi-raw-stock">0 / 200</div>
                 <div class="kpi-sub" id="kpi-stock-sub">المخزن بانتظار استلام بضاعة</div>
@@ -505,9 +505,9 @@
           </div>
 
           <!-- CARD 4: Shortages & Alerts -->
-          <div class="stat-card kpi-card" onclick="nav('reports')" style="cursor:pointer">
+          <div class="stat-card kpi-card ck-pointer" onclick="nav('reports')">
             <div class="kpi-card-inner">
-              <div style="flex:1;min-width:0">
+              <div class="ck-flex-1">
                 <div class="kpi-title" data-ar="نواقص وتنبيهات الإمداد" data-en="Supply Shortages Alert">نواقص وتنبيهات الإمداد</div>
                 <div class="kpi-num kpi-purple" id="kpi-shortages-alert">0</div>
                 <div class="kpi-sub" id="kpi-shortages-sub">جميع الخامات متوفرة</div>
@@ -521,53 +521,53 @@
           <!-- LEFT: VELOCITY CHART (Cyan + Violet, Auro style) -->
           <div class="card">
             <div
-              style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+              class="ck-flex-between-wrap ck-mb-12">
               <div>
-                <h3 style="font-size:14px;font-weight:800;color:#fff;margin:0;"
+                <h3 class="ck-title-14-black-white"
                   data-ar="معدل سحب طلبات الفروع والإنتاج التراكمي"
                   data-en="Interest Rate Mode — Branch Demand Velocity">
                   معدل سحب طلبات الفروع والإنتاج التراكمي
                 </h3>
-                <p style="color:#64748B;font-size:11px;margin-top:2px;"
+                <p class="ck-sub-dim-mt2"
                   data-ar="سحب الاستهلاك المباشر عبر جميع الفروع الـ 26"
                   data-en="Live demand consumption across all 26 branches">
                   سحب الاستهلاك المباشر عبر جميع الفروع الـ 26
                 </p>
               </div>
-              <div style="display:flex;gap:6px;">
-                <button class="filter-chip active" style="font-size:10.5px;padding:3px 8px;">1M</button>
-                <button class="filter-chip" style="font-size:10.5px;padding:3px 8px;">1Y</button>
-                <button class="filter-chip" style="font-size:10.5px;padding:3px 8px;" data-ar="الكل"
+              <div class="ck-flex-gap-6">
+                <button class="filter-chip active ck-chip-pad-sm">1M</button>
+                <button class="filter-chip ck-chip-pad-sm">1Y</button>
+                <button class="filter-chip ck-chip-pad-sm" data-ar="الكل"
                   data-en="ALL">الكل</button>
               </div>
             </div>
-            <div style="height:210px;position:relative;">
+            <div class="ck-chart-h210">
               <canvas id="ch-demand-velocity"></canvas>
             </div>
             <!-- Utilization Bar (matching Auro) -->
             <div
-              style="margin-top:10px;padding:6px 10px;background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.2);border-radius:8px;display:flex;align-items:center;justify-content:space-between;">
-              <div style="font-size:11px;color:#06B6D4;font-weight:700;">
+              class="ck-banner-cyan-peak">
+              <div class="ck-fs-11-cyan-bold">
                 <span data-ar="الاستهلاك الحالي للطاقة الإنتاجية" data-en="Current Utilization">الاستهلاك الحالي للطاقة
                   الإنتاجية</span>
                 <span
-                  style="background:#06B6D4;color:#0B0E14;padding:2px 8px;border-radius:9999px;font-size:10.5px;font-weight:800;margin-inline-start:8px;">83.4%</span>
+                  class="ck-badge-cyan-pill">83.4%</span>
               </div>
-              <div style="font-size:10.5px;color:#64748B;" data-ar="الذروة: 142.5 كجم" data-en="Peak: 142.5 Kg">الذروة:
+              <div class="ck-fs-105-dim" data-ar="الذروة: 142.5 كجم" data-en="Peak: 142.5 Kg">الذروة:
                 142.5 كجم</div>
             </div>
           </div>
 
           <!-- RIGHT: BORROW INFO Style — Live BOM Simulator -->
-          <div class="card" style="border:1px solid rgba(124,58,237,0.35);box-shadow:0 0 30px rgba(124,58,237,0.1);">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-              <h3 style="font-size:14px;font-weight:800;color:#fff;margin:0;" data-ar="محاكي تفكيك الوصفة والتشغيل الحي"
+          <div class="card ck-card-violet-glow">
+            <div class="ck-flex-between ck-mb-8">
+              <h3 class="ck-title-14-black-white" data-ar="محاكي تفكيك الوصفة والتشغيل الحي"
                 data-en="Live BOM Batch Simulator">
                 محاكي تفكيك الوصفة والتشغيل الحي
               </h3>
               <span class="badge badge-orange" data-ar="حي وتفاعلي" data-en="Interactive">حي وتفاعلي</span>
             </div>
-            <p style="color:#64748B;font-size:11px;margin-bottom:10px;"
+            <p class="ck-sub-dim-mb10"
               data-ar="اختر صنفاً مصنّعاً لحساب استهلاك الخامات فورياً"
               data-en="Select a manufactured item to simulate BOM deduction">
               اختر صنفاً مصنّعاً لحساب استهلاك الخامات فورياً
@@ -575,31 +575,31 @@
 
             <!-- Product Selector -->
             <div
-              style="background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.2);border-radius:8px;padding:10px 12px;margin-bottom:10px;">
-              <label style="color:#8B5CF6;font-size:10.5px;font-weight:700;display:block;margin-bottom:4px;"
+              class="ck-box-violet-subtle">
+              <label class="ck-label-violet-sm"
                 data-ar="الصنف المصنّع المراد تشغيله:" data-en="Item to produce:">الصنف المصنّع المراد تشغيله:</label>
               <select id="bom-sim-select" onchange="updateBomSimPreview()"
-                style="width:100%;background:rgba(11,14,20,0.9);border:1px solid #1E2340;border-radius:6px;color:#fff;font-size:12px;padding:6px 10px;outline:none;">
+                class="ck-input-dark-sm">
                 <option value="">-- اختر صنفاً للتشغيل --</option>
               </select>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
-                <span style="color:#94A3B8;font-size:11px;" data-ar="حجم الدفعة المطلوبة:" data-en="Batch Quantity:">حجم
+              <div class="ck-flex-between ck-mt-8">
+                <span class="ck-sub-muted-11" data-ar="حجم الدفعة المطلوبة:" data-en="Batch Quantity:">حجم
                   الدفعة المطلوبة:</span>
                 <input type="number" id="bom-sim-qty" value="10" min="1" oninput="updateBomSimPreview()"
-                  style="width:80px;background:rgba(11,14,20,0.9);border:1px solid #1E2340;border-radius:6px;color:#06B6D4;font-size:12px;font-weight:700;padding:4px 8px;text-align:center;outline:none;" />
+                  class="ck-input-dark-w80-cyan" />
               </div>
             </div>
 
             <!-- Ingredients List container -->
             <div id="bom-sim-ings-list"
-              style="display:flex;flex-direction:column;gap:6px;font-size:11.5px;margin-bottom:12px;min-height:90px;max-height:130px;overflow-y:auto;">
-              <div style="text-align:center;padding:25px 10px;color:#64748B;font-size:12px;">
+              class="ck-bom-ing-preview-box">
+              <div class="ck-empty-state-p25">
                 👈 اختر صنفاً من القائمة أعلاه لعرض مكونات الوصفة ورصيد خاماتها
               </div>
             </div>
 
             <button type="button" onclick="executeSelectedBatch()"
-              style="width:100%;background:linear-gradient(135deg,#7C3AED,#8B5CF6);color:#fff;font-size:12.5px;font-weight:800;padding:11px;border-radius:9999px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;box-shadow:0 4px 20px rgba(124,58,237,0.4);transition:all 0.2s;">
+              class="ck-btn-pill-primary-cta">
               ⚡ <span data-ar="اعتماد وتشغيل الدفعة وخصم الخامات" data-en="EXECUTE BATCH & DEDUCT RAW STOCK">اعتماد
                 وتشغيل الدفعة وخصم الخامات</span>
             </button>
@@ -609,25 +609,25 @@
         <!-- ═══════════════════════════════════════════
              SUPPLY INFO Section — Finished Goods Table (Auro equalizer style)
         ═══════════════════════════════════════════ -->
-        <div class="card" style="padding:18px 20px;">
+        <div class="card ck-card-pad-simple">
           <div class="table-filter-bar"
-            style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:10px;">
+            class="ck-flex-between-wrap-10 ck-mb-12">
             <div>
-              <h3 style="font-size:14px;font-weight:800;color:#fff;margin:0;display:flex;align-items:center;gap:8px;">
+              <h3 class="ck-title-14-flex">
                 📋 <span data-ar="أصناف المركز المصنعة المعتمدة (88 صنف PA)"
                   data-en="Supply Info — Center Finished Goods Master (88 PA Products)">أصناف المركز المصنعة المعتمدة
                   (88 صنف PA)</span>
-                <span class="badge badge-slate" id="fg-table-count-badge" style="font-size:11px;font-weight:700;">0
+                <span class="badge badge-slate ck-badge-bold-sm" id="fg-table-count-badge">0
                   مطلوب للتشغيل</span>
               </h3>
-              <p style="color:#64748B;font-size:11px;margin-top:2px;"
+              <p class="ck-sub-dim-mt2"
                 data-ar="مطابقة المخزون الجاهز مع طلبات الفروع مع تشغيل فوري للدفعات"
                 data-en="Real-time stock vs branch demand with one-click production trigger">
                 مطابقة المخزون الجاهز مع طلبات الفروع مع تشغيل فوري للدفعات
               </p>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-              <div style="display:flex;gap:4px;">
+            <div class="ck-flex-gap-8 ck-flex-wrap">
+              <div class="ck-flex-gap-4">
                 <button class="filter-chip active" onclick="filterFG('', 'all', this)" data-ar="الكل"
                   data-en="All">الكل</button>
                 <button class="filter-chip" onclick="filterFG('', 'Sauces', this)" data-ar="الصوصات"
@@ -641,38 +641,38 @@
               </div>
               <input type="text" id="fg-search-input" oninput="debouncedFilterFG(this.value, activeFGCat)"
                 placeholder="بحث سريع..." data-ar-ph="بحث سريع بالأصناف..." data-en-ph="Quick search..."
-                style="background:rgba(11,14,20,0.9);border:1px solid #1E2340;border-radius:6px;color:#fff;font-size:11.5px;padding:4px 10px;width:150px;outline:none;" />
+                class="ck-input-dark-w150" />
             </div>
           </div>
 
           <!-- Supply Info Bar Chart (Auro Volume Equalizer style) -->
-          <div style="height:80px;margin-bottom:12px;position:relative;">
+          <div class="ck-chart-h80">
             <canvas id="ch-supply-bars"></canvas>
           </div>
 
-          <div class="tbl-wrap" style="max-height:280px;overflow-y:auto;">
+          <div class="tbl-wrap ck-tbl-wrap-h280">
             <table class="tbl" id="fg-master-table">
               <thead>
                 <tr>
-                  <th style="width:80px;" data-ar="الكود" data-en="Code">الكود</th>
+                  <th class="ck-th-w80" data-ar="الكود" data-en="Code">الكود</th>
                   <th data-ar="الصنف المصنع (PA)" data-en="Manufactured Product (PA)">الصنف المصنع (PA)</th>
-                  <th style="width:100px;" data-ar="القسم" data-en="Category">القسم</th>
-                  <th style="width:110px;" data-ar="جاهز بالمركز" data-en="Center Ready">جاهز بالمركز</th>
-                  <th style="width:110px;" data-ar="طلبات الفروع" data-en="Branch Demand">طلبات الفروع</th>
-                  <th style="width:140px;" data-ar="حالة التغطية" data-en="Coverage Status">حالة التغطية</th>
-                  <th style="width:100px;text-align:center;" data-ar="تشغيل سريع" data-en="Action">تشغيل سريع</th>
+                  <th class="ck-th-w100" data-ar="القسم" data-en="Category">القسم</th>
+                  <th class="ck-th-w110" data-ar="جاهز بالمركز" data-en="Center Ready">جاهز بالمركز</th>
+                  <th class="ck-th-w110" data-ar="طلبات الفروع" data-en="Branch Demand">طلبات الفروع</th>
+                  <th class="ck-th-w140" data-ar="حالة التغطية" data-en="Coverage Status">حالة التغطية</th>
+                  <th class="ck-th-w100-center" data-ar="تشغيل سريع" data-en="Action">تشغيل سريع</th>
                 </tr>
               </thead>
               <tbody id="fg-table-body">
                 <tr class="empty-state-row">
-                  <td colspan="7" style="text-align:center;padding:40px 20px;color:#94a3b8;">
+                  <td colspan="7" class="ck-empty-cell-p40">
                     <div
-                      style="width:48px;height:48px;margin:0 auto 12px;border-radius:14px;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.25);display:flex;align-items:center;justify-content:center;color:#A78BFA;font-size:1.5rem">
+                      class="ck-icon-box-violet-lg">
                       📋</div>
-                    <div style="font-weight:700;color:#f1f5f9;font-size:14px;margin-bottom:6px;"
+                    <div class="ck-title-14-bold-white"
                       data-ar="لا توجد أصناف مطلوبة للتشغيل حالياً" data-en="No Production Demand Required Currently">لا
                       توجد أصناف مطلوبة للتشغيل حالياً</div>
-                    <div style="font-size:12px;color:#64748b;max-width:420px;margin:0 auto;line-height:1.5;"
+                    <div class="ck-sub-desc-center"
                       data-ar="تظهر الأصناف هنا تلقائياً فور تسجيل طلبات الفروع واحتياجها للإنتاج"
                       data-en="Products will appear here automatically when requested by branches">تظهر الأصناف هنا
                       تلقائياً فور تسجيل طلبات الفروع واحتياجها للإنتاج</div>
@@ -687,27 +687,27 @@
         </div>
 
         <!-- Hidden compatibility stubs -->
-        <div id="dash-stats" style="display:none"></div>
-        <div id="dash-alerts" style="display:none"></div>
+        <div id="dash-stats" class="ck-hidden"></div>
+        <div id="dash-alerts" class="ck-hidden"></div>
 
         <!-- ════ FIX 4: Live Low-Stock Alert Panel ════ -->
-        <div style="margin-top:20px;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <span style="font-size:16px;">🚨</span>
-            <h3 class="text-white font-bold" style="font-size:14px;margin:0"
+        <div class="ck-mt-20">
+          <div class="ck-flex-gap-10 ck-mb-12">
+            <span class="ck-fs-16">🚨</span>
+            <h3 class="text-white font-bold ck-title-14-m0"
                 data-ar="تنبيهات إعادة الطلب — خامات المطبخ المركزي"
                 data-en="Reorder Alerts — Central Kitchen Raw Materials">
               تنبيهات إعادة الطلب — خامات المطبخ المركزي
             </h3>
-            <span class="chip" style="font-size:10.5px;color:#f43f5e;background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);"
+            <span class="chip ck-badge-rose-subtle"
                   data-ar="مباشر" data-en="Live">مباشر</span>
           </div>
-          <div id="dash-low-stock-alerts" style="min-height:60px;">
+          <div id="dash-low-stock-alerts" class="ck-min-h-60">
             <!-- Populated by fetchAndRenderLowStockAlerts() after sync -->
           </div>
         </div>
-        <canvas id="ch-ing" style="display:none"></canvas>
-        <canvas id="ch-br" style="display:none"></canvas>
+        <canvas id="ch-ing" class="ck-hidden"></canvas>
+        <canvas id="ch-br" class="ck-hidden"></canvas>
       </section>
 
       <!-- ====================================================
@@ -715,9 +715,9 @@
            ==================================================== -->
       <section class="page" id="page-centerstock">
         <!-- WORKFLOW STEP BAR (Finished Goods & Central Stock) -->
-        <div class="workflow-step-bar" style="margin-bottom: 16px;">
+        <div class="workflow-step-bar ck-mb-16">
           <div class="step-badge-indicator">
-            <span class="step-num-pill" style="background:rgba(124,58,237,0.25);border-color:rgba(139,92,246,0.5);color:#C4B5FD">المطبخ المركزي</span>
+            <span class="step-num-pill ck-step-num-active">المطبخ المركزي</span>
             <span class="step-name-text" data-ar="مخزون المركز التام الجاهز وتشغيل الدفعات" data-en="Finished Center Stock & Production Execution">مخزون المركز التام الجاهز وتشغيل الدفعات</span>
           </div>
           <div class="step-nav-buttons">
@@ -733,10 +733,10 @@
           <!-- LIVE PRODUCT STREAM -->
           <div class="pane-stream">
             <!-- Filter & Search Toolbar -->
-            <div class="card" style="padding: 14px 18px; border-radius: 16px; margin-bottom: 14px;">
+            <div class="card ck-card-pad-sm ck-mb-14">
               <div class="flex gap-3 items-center flex-wrap">
-                <div style="position:relative;flex:1;min-width:240px">
-                  <span style="position:absolute;inset-inline-start:14px;top:50%;transform:translateY(-50%);pointer-events:none;color:#8B5CF6;display:flex;align-items:center;">
+                <div class="ck-relative-flex-240">
+                  <span class="ck-search-icon-pos">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <circle cx="11" cy="11" r="8" />
                       <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -745,10 +745,10 @@
                   <input type="text" class="input" id="cs-search"
                     placeholder="ابحث بالاسم أو الكود..." data-ar-ph="ابحث بالاسم أو الكود..."
                     data-en-ph="Search by name or code..."
-                    style="width:100%;height:42px;padding-inline-start:40px;padding-inline-end:14px;box-sizing:border-box"
+                    class="ck-search-inp-styled"
                     oninput="debouncedRenderCenterStock()" />
                 </div>
-                <select class="select" id="cs-cat-filter" style="min-width:200px;width:auto;flex:0 0 auto;height:42px"
+                <select class="select ck-select-cs-cat" id="cs-cat-filter"
                   onchange="renderCenterStock()">
                   <option value="">جميع الأقسام (All Categories)</option>
                   <option value="beef">🥩 لحوم وبرجر (Beef)</option>
@@ -759,7 +759,7 @@
                   <option value="veggies">🥦 خضروات (Veg)</option>
                   <option value="drinks">🧃 مشروبات (Drinks)</option>
                 </select>
-                <select class="select" id="cs-status-filter" style="min-width:190px;width:auto;flex:0 0 auto;height:42px"
+                <select class="select ck-select-cs-status" id="cs-status-filter"
                   onchange="renderCenterStock()">
                   <option value="">جميع الحالات (All Levels)</option>
                   <option value="ok">🟢 متوفر بكفاية (Sufficient)</option>
@@ -773,34 +773,34 @@
             <div id="cs-stats"></div>
 
             <!-- Product Cards Stream Grid -->
-            <div id="cs-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;">
+            <div id="cs-grid" class="ck-grid-auto-210">
             </div>
           </div>
 
           <!-- COMMAND DECK / INSPECTOR -->
           <div class="pane-inspector" id="cs-inspector-deck">
             <!-- Inspected Product Hero -->
-            <div class="card card-dept-meat" id="cs-hero-card" style="padding:18px 20px;border-radius:16px;">
+            <div class="card card-dept-meat ck-card-pad" id="cs-hero-card">
               <div class="flex items-center justify-between mb-2">
                 <span class="badge badge-purple" id="cs-hero-cat"
-                  style="font-size:11px;font-weight:800;background:rgba(124,58,237,0.25);border:1px solid rgba(139,92,246,0.4);color:#C4B5FD">المطبخ المركزي</span>
-                <span class="badge badge-green" id="cs-hero-status" style="font-size:11px;font-weight:800">جاهز للتشغيل</span>
+                  class="ck-badge-violet-glow">المطبخ المركزي</span>
+                <span class="badge badge-green ck-badge-bolder-sm" id="cs-hero-status">جاهز للتشغيل</span>
               </div>
               <h2 class="text-white font-bold" id="cs-hero-title"
-                style="font-size:16.5px;margin:6px 0 12px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">اختر منتجاً لفحصه والتحكم به</h2>
+                class="ck-title-cs-hero">اختر منتجاً لفحصه والتحكم به</h2>
 
               <!-- Hero Dual Metric Display -->
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;">
-                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:10px 12px;">
-                  <div style="font-size:10.5px;color:#94a3b8;font-weight:700;" data-ar="الرصيد بالمركز" data-en="Center Stock">الرصيد بالمركز</div>
+              <div class="ck-grid-2-border-top">
+                <div class="ck-subpanel-card">
+                  <div class="ck-fs-105-bold-muted" data-ar="الرصيد بالمركز" data-en="Center Stock">الرصيد بالمركز</div>
                   <div class="kpi-number" id="cs-hero-stock"
-                    style="font-size:1.5rem;color:#A78BFA;margin-top:2px;font-weight:800">0.00 <span
-                      style="font-size:12px;color:#94a3b8">Kg</span></div>
+                    class="ck-kpi-val-purple">0.00 <span
+                      class="ck-fs-12-muted">Kg</span></div>
                 </div>
-                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:10px 12px;">
-                  <div style="font-size:10.5px;color:#94a3b8;font-weight:700;" data-ar="تكلفة الوصفة (BOM)" data-en="Recipe Cost">تكلفة الوصفة (BOM)</div>
+                <div class="ck-subpanel-card">
+                  <div class="ck-fs-105-bold-muted" data-ar="تكلفة الوصفة (BOM)" data-en="Recipe Cost">تكلفة الوصفة (BOM)</div>
                   <div class="text-white font-bold" id="cs-hero-cost"
-                    style="font-size:1.35rem;color:#FBBF24;margin-top:3px">0.00 ج.م</div>
+                    class="ck-kpi-val-amber">0.00 ج.م</div>
                 </div>
               </div>
             </div>
@@ -808,7 +808,7 @@
             <!-- TABBED OPERATIONS COMMAND DECK -->
             <div class="card cs-command-card">
               <!-- Segmented Switcher Header -->
-              <div class="cs-tabs-header" style="display:flex;background:rgba(0,0,0,0.35);padding:4px;border-radius:12px;gap:4px;margin-bottom:14px;border:1px solid rgba(255,255,255,0.06)">
+              <div class="cs-tabs-header ck-segmented-pills-bar">
                 <button type="button" class="cs-tab-btn active" id="cs-tab-btn-prod" onclick="switchCsTab('prod')">
                   <span>⚡ تشغيل دفعة</span>
                 </button>
@@ -822,23 +822,23 @@
 
               <!-- PANE 1: BATCH PRODUCTION SIMULATOR -->
               <div id="cs-pane-prod" class="cs-tab-pane">
-                <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+                <div class="ck-flex-gap-10 ck-mb-12">
                   <div
-                    style="width:32px;height:32px;border-radius:9px;background:rgba(124,58,237,0.25);border:1px solid rgba(139,92,246,0.4);display:flex;align-items:center;justify-content:center;color:#C4B5FD;flex-shrink:0">
+                    class="ck-icon-box-violet-sm">
                     ⚡
                   </div>
                   <div>
-                    <h3 class="text-white font-bold" style="font-size:13.5px;margin:0;color:#C4B5FD">محاكي ومسجل تشغيل الدفعات</h3>
-                    <div class="text-muted" style="font-size:10.5px">حساب واستهلاك الخامات تلقائياً عند الإنتاج</div>
+                    <h3 class="text-white font-bold ck-title-135-violet">محاكي ومسجل تشغيل الدفعات</h3>
+                    <div class="text-muted ck-fs-105">حساب واستهلاك الخامات تلقائياً عند الإنتاج</div>
                   </div>
                 </div>
 
-                <div style="display:flex;flex-direction:column;gap:11px">
+                <div class="ck-flex-col-11">
                   <div>
                     <label class="field-label"
-                      style="font-size:11px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block">المنتج المصنّع المستهدف</label>
+                      class="ck-label-std-sm">المنتج المصنّع المستهدف</label>
                     <select class="select" id="cs-prod-select"
-                      style="width:100%;height:38px;font-size:12.5px;box-sizing:border-box"
+                      class="ck-input-w-full-h38-fs125"
                       onchange="onCsProdChange()">
                       <option value="">— اختر الصنف المصنع —</option>
                     </select>
@@ -846,13 +846,13 @@
 
                   <div>
                     <label class="field-label"
-                      style="font-size:11px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block">كمية التشغيلة المراد إنتاجها</label>
-                    <div style="display:flex;gap:8px;align-items:center">
+                      class="ck-label-std-sm">كمية التشغيلة المراد إنتاجها</label>
+                    <div class="ck-flex-gap-8">
                       <input type="number" id="cs-prod-qty" class="input" min="0.01" step="0.01" placeholder="الكمية..."
-                        style="flex:1;height:38px;font-size:14px;font-weight:700;box-sizing:border-box"
+                        class="ck-input-flex-h38-fw700"
                         oninput="onCsProdChange()" />
                       <span id="cs-prod-uom" class="badge badge-purple"
-                        style="height:38px;display:flex;align-items:center;justify-content:center;padding:0 12px;font-size:12px;font-weight:700;min-width:54px;border-radius:8px;background:rgba(124,58,237,0.2);border:1px solid rgba(139,92,246,0.3);color:#C4B5FD">Kg</span>
+                        class="ck-btn-stepper-unit">Kg</span>
                     </div>
                     <!-- Quick stepper pills -->
                     <div class="grid grid-cols-4 gap-2 w-full mt-2">
@@ -865,85 +865,85 @@
 
                   <!-- Raw Materials Preview -->
                   <div id="cs-raw-preview"
-                    style="display:none;background:rgba(15,23,42,0.85);border:1px solid rgba(124,58,237,0.35);border-radius:12px;padding:12px;box-sizing:border-box">
+                    class="ck-box-cs-raw-preview ck-hidden">
                     <div
-                      style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,0.06)">
-                      <span style="font-size:11.5px;font-weight:700;color:#C4B5FD;display:flex;align-items:center;gap:6px">
+                      class="ck-flex-between-border-b ck-mb-8">
+                      <span class="ck-fs-115-violet-bold-flex">
                         <span>📉</span>
                         <span>الخامات المطلوبة للدفعة (BOM)</span>
                       </span>
                       <span id="cs-raw-batch-badge"
-                        style="font-size:11px;color:#94a3b8;background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:6px"></span>
+                        class="ck-badge-muted-pill"></span>
                     </div>
                     <div id="cs-raw-list" class="bom-ingredients-container space-y-2 pr-1"
-                      style="max-height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:6px"></div>
+                      class="ck-raw-preview-list-scroll"></div>
                   </div>
 
                   <div>
                     <label class="field-label"
-                      style="font-size:11px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block">ملاحظات الدفعة (اختياري)</label>
+                      class="ck-label-std-sm">ملاحظات الدفعة (اختياري)</label>
                     <input type="text" id="cs-prod-notes" class="input" placeholder="رقم الوجبة، الوردية، اسم الشيف..."
-                      style="width:100%;height:36px;box-sizing:border-box" />
+                      class="ck-input-w-full-h36" />
                   </div>
 
                   <button type="button" class="btn btn-primary" onclick="logProductionBatch()"
-                    style="width:100%;height:42px;font-weight:800;font-size:13px;justify-content:center;margin-top:4px;background:linear-gradient(135deg,#7C3AED,#6D28D9);border:none;box-shadow:0 0 15px rgba(124,58,237,0.4);cursor:pointer">
+                    class="ck-btn-primary-gradient-h42-full">
                     ⚡ تأكيد التشغيلة وخصم الخامات آلياً
                   </button>
                 </div>
               </div>
 
               <!-- PANE 2: MANUAL ADJUSTMENT -->
-              <div id="cs-pane-adj" class="cs-tab-pane" style="display:none">
-                <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+              <div id="cs-pane-adj" class="cs-tab-pane ck-hidden">
+                <div class="ck-flex-gap-10 ck-mb-12">
                   <div
-                    style="width:32px;height:32px;border-radius:9px;background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.3);display:flex;align-items:center;justify-content:center;color:#06b6d4;flex-shrink:0">
+                    class="ck-icon-box-cyan-9">
                     ✏️
                   </div>
                   <div>
-                    <h4 class="text-white font-bold" style="color:#06b6d4;font-size:13.5px;margin:0">تسوية جردية لمخزون المركز</h4>
-                    <div class="text-muted" style="font-size:10.5px">إضافة رصيد افتتاح، عجز، أو ضبط الجرد الفعلي</div>
+                    <h4 class="text-white font-bold ck-title-cyan">تسوية جردية لمخزون المركز</h4>
+                    <div class="text-muted ck-fs-105">إضافة رصيد افتتاح، عجز، أو ضبط الجرد الفعلي</div>
                   </div>
                 </div>
 
-                <div style="display:flex;flex-direction:column;gap:10px">
+                <div class="ck-flex-col-10">
                   <div>
-                    <label class="field-label" style="font-size:11px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block">المنتج المصنّع</label>
+                    <label class="field-label ck-label-std-sm">المنتج المصنّع</label>
                     <select class="select" id="cs-adj-prod"
-                      style="width:100%;height:38px;font-size:12px;box-sizing:border-box">
+                      class="ck-input-w-full-h38-fs12">
                       <option value="">— اختر المنتج —</option>
                     </select>
                   </div>
                   <div>
-                    <label class="field-label" style="font-size:11px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block">نوع التسوية والكمية</label>
-                    <div style="display:grid;grid-template-columns:110px 1fr;gap:8px">
+                    <label class="field-label ck-label-std-sm">نوع التسوية والكمية</label>
+                    <div class="ck-grid-110-1fr">
                       <select class="select" id="cs-adj-type"
-                        style="width:100%;height:38px;font-size:12px;box-sizing:border-box">
+                        class="ck-input-w-full-h38-fs12">
                         <option value="add">➕ إضافة</option>
                         <option value="sub">➖ خصم</option>
                         <option value="set">📌 تحديد جرد</option>
                       </select>
                       <input type="number" id="cs-adj-qty" class="input" min="0" step="0.01" placeholder="الكمية..."
-                        style="width:100%;height:38px;box-sizing:border-box" />
+                        class="ck-input-w-full-h38" />
                     </div>
                   </div>
                   <button type="button" class="btn btn-sm" onclick="adjustCenterStock()"
-                    style="width:100%;height:38px;margin-top:6px;background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.35);color:#06b6d4;font-weight:700;font-size:12.5px;justify-content:center;border-radius:8px">
+                    class="ck-btn-cyan-subtle-h38">
                     تطبيق التسوية
                   </button>
                 </div>
               </div>
 
               <!-- PANE 3: MOVEMENT LOG -->
-              <div id="cs-pane-log" class="cs-tab-pane" style="display:none">
+              <div id="cs-pane-log" class="cs-tab-pane ck-hidden">
                 <div class="flex items-center justify-between mb-3">
-                  <h4 class="text-white font-bold flex items-center gap-2" style="font-size:13px;margin:0">
+                  <h4 class="text-white font-bold flex items-center gap-2 ck-title-13">
                     <span>📜</span> سجل حركات مخزون المركز
                   </h4>
                   <button type="button" class="btn btn-sm" onclick="exportCenterStockLog()"
-                    style="background:rgba(168,85,247,0.15);border:1px solid rgba(168,85,247,0.3);color:#a855f7;font-size:11px;padding:3px 10px;border-radius:6px">تصدير CSV</button>
+                    class="ck-badge-purple-subtle">تصدير CSV</button>
                 </div>
-                <div id="cs-log-table" class="tbl-wrap" style="max-height:300px;overflow-y:auto;overflow-x:auto"></div>
+                <div id="cs-log-table" class="tbl-wrap ck-tbl-wrap-h300"></div>
               </div>
             </div>
           </div>
@@ -974,45 +974,45 @@
         </div>
         <!-- Top Executive KPI Summary Row -->
         <div class="orders-kpi-grid">
-          <div class="kpi-card" style="padding:16px 18px;border-radius:16px;">
+          <div class="kpi-card ck-card-pad-sm">
             <div class="flex items-center justify-between mb-1">
               <span class="kpi-label" data-ar="إجمالي الطلبيات" data-en="Total Orders">إجمالي الطلبيات</span>
-              <span style="font-size:1.3rem">📋</span>
+              <span class="ck-fs-13rem">📋</span>
             </div>
-            <div class="kpi-value" id="orders-kpi-total" style="color:#f1f5f9;font-size:1.8rem;font-weight:800">0</div>
+            <div class="kpi-value ck-orders-kpi-white" id="orders-kpi-total">0</div>
             <div class="text-muted text-xs" data-ar="طلبية مسجلة بالنظام" data-en="Recorded in system">طلبية مسجلة
               بالنظام</div>
           </div>
 
-          <div class="kpi-card" style="padding:16px 18px;border-radius:16px;">
+          <div class="kpi-card ck-card-pad-sm">
             <div class="flex items-center justify-between mb-1">
               <span class="kpi-label" data-ar="الفروع الطالبة" data-en="Active Branches">الفروع الطالبة</span>
-              <span style="font-size:1.3rem">🏢</span>
+              <span class="ck-fs-13rem">🏢</span>
             </div>
-            <div class="kpi-value" id="orders-kpi-branches" style="color:#A78BFA;font-size:1.8rem;font-weight:800">0
+            <div class="kpi-value ck-orders-kpi-purple" id="orders-kpi-branches">0
             </div>
             <div class="text-muted text-xs" data-ar="فرع نشط لديه طلبات" data-en="Active branches with demand">فرع نشط
               لديه طلبات</div>
           </div>
 
-          <div class="kpi-card" style="padding:16px 18px;border-radius:16px;">
+          <div class="kpi-card ck-card-pad-sm">
             <div class="flex items-center justify-between mb-1">
               <span class="kpi-label" data-ar="إجمالي وحدات الطلب" data-en="Total Units Demanded">إجمالي وحدات
                 الطلب</span>
-              <span style="font-size:1.3rem">📦</span>
+              <span class="ck-fs-13rem">📦</span>
             </div>
-            <div class="kpi-value" id="orders-kpi-units" style="color:#38BDF8;font-size:1.8rem;font-weight:800">0</div>
+            <div class="kpi-value ck-orders-kpi-cyan" id="orders-kpi-units">0</div>
             <div class="text-muted text-xs" data-ar="وحدة مطلوبة للتشغيل" data-en="Units to prepare">وحدة مطلوبة للتشغيل
             </div>
           </div>
 
-          <div class="kpi-card" style="padding:16px 18px;border-radius:16px;">
+          <div class="kpi-card ck-card-pad-sm">
             <div class="flex items-center justify-between mb-1">
               <span class="kpi-label" data-ar="إجمالي القيمة التقديرية" data-en="Est. Total Value">إجمالي القيمة
                 التقديرية</span>
-              <span style="font-size:1.3rem">💰</span>
+              <span class="ck-fs-13rem">💰</span>
             </div>
-            <div class="kpi-value" id="orders-kpi-val" style="color:#34D399;font-size:1.8rem;font-weight:800">0 ج.م
+            <div class="kpi-value ck-orders-kpi-green" id="orders-kpi-val">0 ج.م
             </div>
             <div class="text-muted text-xs" data-ar="تكلفة المنتجات المطلوبة" data-en="Total recipe cost">تكلفة المنتجات
               المطلوبة</div>
@@ -1048,27 +1048,27 @@
         </div>
 
         <!-- ================= PANE 1: ORDERS LOG & DEMAND MATRIX ================= -->
-        <div class="orders-tab-pane" id="orders-pane-log" style="display:block;">
+        <div class="orders-tab-pane ck-block" id="orders-pane-log">
           <!-- Filter & Action Toolbar -->
-          <div class="card" style="padding:14px 18px;border-radius:16px;margin-bottom:16px;">
+          <div class="card ck-card-pad-sm ck-mb-16">
             <div class="flex items-center justify-between gap-3 flex-wrap">
               <!-- Filter Controls -->
-              <div class="flex items-center gap-2.5 flex-wrap" style="flex:1;min-width:280px">
-                <div style="position:relative;min-width:220px;flex:1">
+              <div class="flex items-center gap-2.5 flex-wrap ck-flex-1-min280">
+                <div class="ck-relative-flex-220">
                   <select class="select" id="f-branch"
-                    style="width:100%;height:40px;padding-right:34px;box-sizing:border-box" onchange="renderOrders()">
+                    class="ck-input-pr34-h40" onchange="renderOrders()">
                     <option value="" data-ar="🏢 جميع الفروع (بحث وتصفية)" data-en="🏢 All Branches">🏢 جميع الفروع (بحث
                       وتصفية)</option>
                   </select>
-                  <span style="position:absolute;right:10px;top:11px;pointer-events:none;color:#8B5CF6">🏢</span>
+                  <span class="ck-select-icon-pos">🏢</span>
                 </div>
 
-                <div style="position:relative;width:170px">
-                  <input type="date" class="input" id="f-date" style="width:100%;height:40px;box-sizing:border-box"
+                <div class="ck-relative-w-170">
+                  <input type="date" class="input ck-input-w-full-h40" id="f-date"
                     onchange="renderOrders()" title="تصفية بتاريخ الطلب" />
                 </div>
 
-                <button class="btn btn-secondary btn-sm" style="height:40px;padding:0 14px;border-radius:10px;"
+                <button class="btn btn-secondary btn-sm ck-btn-h40"
                   onclick="clearFilters()" data-ar="إلغاء الفلتر" data-en="Clear Filter">
                   🔄 إلغاء الفلتر
                 </button>
@@ -1077,21 +1077,21 @@
               <!-- Quick Action & Clear Buttons -->
               <div class="flex items-center gap-2 flex-wrap">
                 <button class="btn btn-sm"
-                  style="height:40px;padding:0 14px;background:linear-gradient(135deg,#7C3AED,#6D28D9);color:#fff;border:none;border-radius:10px;font-weight:700;box-shadow:0 0 12px rgba(124,58,237,0.35)"
+                  class="ck-btn-primary-gradient-h40"
                   onclick="switchOrdersTab('manual')">
                   ➕ طلبية يدوية
                 </button>
-                <button class="btn btn-secondary btn-sm" style="height:40px;padding:0 14px;border-radius:10px;"
+                <button class="btn btn-secondary btn-sm ck-btn-h40"
                   onclick="switchOrdersTab('excel')">
                   📥 استيراد إكسيل
                 </button>
                 <button class="btn btn-sm"
-                  style="height:40px;padding:0 12px;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);color:#f87171;border-radius:10px;font-weight:700;display:none"
+                  class="ck-btn-danger-subtle-h40 ck-hidden"
                   onclick="clearOrdersForDate()" id="btn-clear-date" title="مسح طلبات التاريخ المحدد">
                   🗑️ مسح طلبات اليوم
                 </button>
                 <button class="btn btn-sm"
-                  style="height:40px;padding:0 12px;background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.35);color:#ef4444;border-radius:10px;font-weight:800"
+                  class="ck-btn-danger-subtle-h40-show"
                   onclick="clearAllOrders()" title="مسح كل الطلبيات المسجلة">
                   ⚠️ مسح كل الطلبيات
                 </button>
@@ -1100,15 +1100,15 @@
           </div>
 
           <!-- Aggregated Demand Table Card -->
-          <div class="card" style="padding:18px 20px;border-radius:16px;margin-bottom:16px;">
+          <div class="card ck-card-pad ck-mb-16">
             <div class="flex items-center justify-between mb-3">
               <div class="flex items-center gap-2">
                 <div
-                  style="width:32px;height:32px;border-radius:8px;background:rgba(124,58,237,0.2);display:flex;align-items:center;justify-content:center;color:#C4B5FD">
+                  class="ck-icon-box-violet-subtle-sm">
                   📈
                 </div>
                 <div>
-                  <h3 class="text-white font-bold" style="font-size:15px;margin:0"
+                  <h3 class="text-white font-bold ck-title-15-m0"
                     data-ar="إجمالي الطلبات مجمّع بالمنتج" data-en="Aggregated Demand by Product">إجمالي الطلبات مجمّع
                     بالمنتج</h3>
                   <div class="text-muted text-xs" data-ar="الكميات الكلية المطلوبة لجميع الفروع المحسوبة آلياً"
@@ -1117,18 +1117,18 @@
                 </div>
               </div>
               <span class="badge badge-purple" id="orders-count-badge"
-                style="font-size:11.5px;padding:4px 10px;border-radius:8px">0 طلبات</span>
+                class="ck-badge-pill-md">0 طلبات</span>
             </div>
 
-            <div class="tbl-wrap" style="max-height:380px;border-radius:10px;">
+            <div class="tbl-wrap ck-tbl-wrap-h380">
               <table class="tbl">
                 <thead>
                   <tr>
                     <th data-ar="المنتج" data-en="Product">المنتج</th>
-                    <th data-ar="إجمالي الوحدات" data-en="Total Units" style="text-align:center">إجمالي الوحدات</th>
-                    <th data-ar="الفروع الطالبة" data-en="Branches" style="text-align:center">الفروع الطالبة</th>
-                    <th data-ar="تكلفة الوحدة" data-en="Unit Cost" style="text-align:center">تكلفة الوحدة</th>
-                    <th data-ar="إجمالي التكلفة" data-en="Total Cost" style="text-align:center">إجمالي التكلفة</th>
+                    <th data-ar="إجمالي الوحدات" data-en="Total Units" class="ck-text-center">إجمالي الوحدات</th>
+                    <th data-ar="الفروع الطالبة" data-en="Branches" class="ck-text-center">الفروع الطالبة</th>
+                    <th data-ar="تكلفة الوحدة" data-en="Unit Cost" class="ck-text-center">تكلفة الوحدة</th>
+                    <th data-ar="إجمالي التكلفة" data-en="Total Cost" class="ck-text-center">إجمالي التكلفة</th>
                   </tr>
                 </thead>
                 <tbody id="agg-body"></tbody>
@@ -1137,51 +1137,51 @@
           </div>
 
           <!-- Detailed Individual Orders Log Card -->
-          <div class="card" style="padding:18px 20px;border-radius:16px;">
+          <div class="card ck-card-pad">
             <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
               <div class="flex items-center gap-2">
                 <div
-                  style="width:32px;height:32px;border-radius:8px;background:rgba(56,189,248,0.15);display:flex;align-items:center;justify-content:center;color:#38bdf8">
+                  class="ck-icon-box-cyan-sm">
                   📜
                 </div>
                 <div>
-                  <h3 class="text-white font-bold" style="font-size:15px;margin:0" data-ar="سجل طلبيات الفروع الفردية"
+                  <h3 class="text-white font-bold ck-title-15-m0" data-ar="سجل طلبيات الفروع الفردية"
                     data-en="Individual Branch Orders Log">سجل طلبيات الفروع الفردية</h3>
                   <div class="text-muted text-xs"
                     data-ar="تفاصيل كل طلبية مرسلة من كل فرع مع إمكانية عرض واستعراض الأصناف"
                     data-en="Breakdown of individual orders per branch">تفاصيل كل طلبية مرسلة من كل فرع مع إمكانية عرض
                     واستعراض الأصناف</div>
                 </div>
-                <span class="chip" id="indiv-orders-count-badge" style="font-size:11.5px;margin-right:6px">0
+                <span class="chip ck-chip-mr-6" id="indiv-orders-count-badge">0
                   طلبية</span>
               </div>
               <button class="btn btn-secondary btn-sm" onclick="toggleOrdersListCollapse()" id="btn-toggle-orders-log"
-                style="font-size:11.5px;padding:5px 12px;border-radius:8px">
+                class="ck-badge-pill-lg">
                 <span id="toggle-orders-log-text">👁️ إخفاء السجل الفردي</span>
               </button>
             </div>
 
             <div id="orders-log-container">
-              <div class="tbl-wrap" style="max-height:460px;border-radius:10px;">
+              <div class="tbl-wrap ck-tbl-wrap-h460">
                 <table class="tbl" id="indiv-orders-table">
                   <thead>
                     <tr>
-                      <th style="width:45px;text-align:center">#</th>
+                      <th class="ck-th-w45-center">#</th>
                       <th data-ar="الفرع" data-en="Branch">الفرع</th>
-                      <th style="width:115px;text-align:center" data-ar="التاريخ" data-en="Date">التاريخ</th>
-                      <th style="width:125px;text-align:center" data-ar="صوص البرجر" data-en="Burger Sauce">صوص البرجر
+                      <th class="ck-th-w115-center" data-ar="التاريخ" data-en="Date">التاريخ</th>
+                      <th class="ck-th-w125-center" data-ar="صوص البرجر" data-en="Burger Sauce">صوص البرجر
                       </th>
-                      <th style="text-align:center" data-ar="الأصناف المطلوبة" data-en="Items Ordered">الأصناف المطلوبة
+                      <th class="ck-text-center" data-ar="الأصناف المطلوبة" data-en="Items Ordered">الأصناف المطلوبة
                       </th>
-                      <th style="width:125px;text-align:center" data-ar="القيمة التقديرية" data-en="Est. Value">القيمة
+                      <th class="ck-th-w125-center" data-ar="القيمة التقديرية" data-en="Est. Value">القيمة
                         التقديرية</th>
-                      <th style="width:130px;text-align:center" data-ar="إجراءات" data-en="Actions">إجراءات</th>
+                      <th class="ck-th-w130-center" data-ar="إجراءات" data-en="Actions">إجراءات</th>
                     </tr>
                   </thead>
                   <tbody id="orders-tbl-body"></tbody>
                 </table>
               </div>
-              <div id="orders-list-empty" class="empty-state" style="display:none;padding:32px;text-align:center">
+              <div id="orders-list-empty" class="empty-state ck-empty-state-p32 ck-hidden">
                 <p data-ar="لا توجد طلبيات تطابق معايير الفلترة الحالية"
                   data-en="No branch orders found matching criteria">لا توجد طلبيات تطابق معايير الفلترة الحالية</p>
               </div>
@@ -1190,64 +1190,64 @@
         </div>
 
         <!-- ================= PANE 2: MANUAL ORDER ENTRY ================= -->
-        <div class="orders-tab-pane" id="orders-pane-manual" style="display:none;">
+        <div class="orders-tab-pane ck-hidden" id="orders-pane-manual">
           <div class="card"
-            style="max-width:850px;margin:0 auto;padding:24px 28px;border-radius:18px;border:1px solid rgba(124,58,237,0.35);background:linear-gradient(135deg,rgba(124,58,237,0.06),rgba(15,23,42,0.95));box-shadow:0 10px 35px rgba(0,0,0,0.5)">
+            class="ck-card-order-entry-violet">
             <div class="flex items-center justify-between mb-4 pb-3"
-              style="border-bottom:1px solid rgba(255,255,255,0.08)">
+              class="ck-tr-border-b">
               <div class="flex items-center gap-3">
                 <div
-                  style="width:40px;height:40px;border-radius:12px;background:rgba(124,58,237,0.25);border:1px solid rgba(139,92,246,0.4);display:flex;align-items:center;justify-content:center;color:#C4B5FD;font-size:1.2rem">
+                  class="ck-icon-box-violet">
                   ✍️
                 </div>
                 <div>
-                  <h3 class="text-white font-bold" style="font-size:17px;margin:0" data-ar="تسجيل طلبية يدوية للفرع"
+                  <h3 class="text-white font-bold ck-title-17-m0" data-ar="تسجيل طلبية يدوية للفرع"
                     data-en="Manual Branch Order Entry">تسجيل طلبية يدوية للفرع</h3>
-                  <div class="text-muted" style="font-size:11.5px"
+                  <div class="text-muted ck-fs-115"
                     data-ar="إدخال طلبية مخصصة مباشرة وتحديد الكميات وخصم الخامات آلياً"
                     data-en="Create customized branch order with auto stock deduction">إدخال طلبية مخصصة مباشرة وتحديد
                     الكميات وخصم الخامات آلياً</div>
                 </div>
               </div>
-              <button class="btn btn-secondary btn-sm" onclick="switchOrdersTab('log')" style="border-radius:8px">✕
+              <button class="btn btn-secondary btn-sm ck-rounded-8" onclick="switchOrdersTab('log')">✕
                 إغلاق والعودة</button>
             </div>
 
-            <div style="display:flex;flex-direction:column;gap:16px">
+            <div class="ck-flex-col-16">
               <!-- Branch & Date 2-col row -->
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+              <div class="ck-grid-2-14">
                 <div>
                   <label class="field-label"
-                    style="font-size:12px;font-weight:700;color:#cbd5e1;margin-bottom:6px;display:block"
+                    class="ck-label-std-md"
                     data-ar="🏢 الفرع المستهدف" data-en="Branch">🏢 الفرع المستهدف</label>
-                  <select class="select" id="o-branch" style="width:100%;height:42px;box-sizing:border-box">
+                  <select class="select ck-input-w-full-h42" id="o-branch">
                     <option value="" data-ar="-- اختر الفرع --" data-en="-- Select Branch --">-- اختر الفرع --</option>
                   </select>
                 </div>
                 <div>
                   <label class="field-label"
-                    style="font-size:12px;font-weight:700;color:#cbd5e1;margin-bottom:6px;display:block"
+                    class="ck-label-std-md"
                     data-ar="📅 تاريخ الطلبية" data-en="Order Date">📅 تاريخ الطلبية</label>
-                  <input type="date" class="input" id="o-date" style="width:100%;height:42px;box-sizing:border-box" />
+                  <input type="date" class="input ck-input-w-full-h42" id="o-date" />
                 </div>
               </div>
 
               <!-- Item Selector & Adder Sub-card -->
               <div
-                style="background:rgba(255,255,255,0.03);border:1px solid rgba(124,58,237,0.25);border-radius:14px;padding:16px 18px;">
+                class="ck-box-violet-order">
                 <label class="field-label"
-                  style="font-size:12px;font-weight:700;color:#C4B5FD;margin-bottom:8px;display:block"
+                  class="ck-label-violet-md"
                   data-ar="➕ اختيار الصنف وإضافته للطلبية" data-en="Add Products to Order">➕ اختيار الصنف وإضافته
                   للطلبية</label>
-                <div style="display:grid;grid-template-columns:1fr 110px auto;gap:10px;align-items:center;">
-                  <select class="select" id="o-item-select" style="width:100%;height:42px;box-sizing:border-box">
+                <div class="ck-grid-order-row">
+                  <select class="select ck-input-w-full-h42" id="o-item-select">
                     <option value="">-- ابحث أو اختر الصنف (171 صنف) --</option>
                   </select>
                   <input type="number" step="any" min="0.01" class="input" id="o-item-qty" value="1"
                     placeholder="الكمية"
-                    style="width:100%;height:42px;text-align:center;font-weight:700;box-sizing:border-box" />
+                    class="ck-input-w-full-h42-center" />
                   <button type="button" class="btn"
-                    style="height:42px;padding:0 18px;background:linear-gradient(135deg,#7C3AED,#6D28D9);color:#fff;border:none;border-radius:10px;font-weight:700;box-shadow:0 0 12px rgba(124,58,237,0.3)"
+                    class="ck-btn-primary-gradient-h42"
                     onclick="addManualOrderItem()">
                     ➕ إضافة
                   </button>
@@ -1255,38 +1255,38 @@
 
                 <!-- Selected items live preview table -->
                 <div id="o-selected-wrap"
-                  style="display:none;margin-top:14px;border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;">
+                  class="ck-box-order-manual-preview ck-hidden">
                   <div class="flex justify-between items-center mb-2">
                     <span class="text-xs font-bold text-white flex items-center gap-1">
                       <span>📋</span> <span data-ar="الأصناف المضافة للطلبية الحالية:" data-en="Added items:">الأصناف
                         المضافة للطلبية الحالية:</span>
                     </span>
                     <button type="button" onclick="clearManualOrderItems()" class="btn btn-sm"
-                      style="font-size:10.5px;padding:2px 8px;background:rgba(239,68,68,0.15);color:#f87171;border:none;border-radius:6px">مسح
+                      class="ck-btn-del-chip">مسح
                       الكل</button>
                   </div>
-                  <div class="tbl-wrap" style="max-height:190px;border-radius:8px">
-                    <table class="tbl" id="o-selected-table" style="font-size:11.5px">
+                  <div class="tbl-wrap ck-tbl-wrap-h190">
+                    <table class="tbl ck-fs-115" id="o-selected-table">
                       <thead>
                         <tr>
-                          <th style="text-align:right;padding:6px 10px" data-ar="الصنف" data-en="Item">الصنف</th>
-                          <th style="width:80px;text-align:center;padding:6px 6px" data-ar="الكمية" data-en="Qty">الكمية
+                          <th class="ck-th-item-right" data-ar="الصنف" data-en="Item">الصنف</th>
+                          <th class="ck-th-w80-center" data-ar="الكمية" data-en="Qty">الكمية
                           </th>
-                          <th style="width:55px;text-align:center;padding:6px 6px" data-ar="الوحدة" data-en="Unit">
+                          <th class="ck-th-w55-center" data-ar="الوحدة" data-en="Unit">
                             الوحدة</th>
-                          <th style="width:85px;text-align:center;padding:6px 8px" data-ar="الإجمالي" data-en="Total">
+                          <th class="ck-th-w85-center" data-ar="الإجمالي" data-en="Total">
                             الإجمالي</th>
-                          <th style="width:35px;text-align:center;padding:6px 4px">✕</th>
+                          <th class="ck-th-w35-center">✕</th>
                         </tr>
                       </thead>
                       <tbody id="o-selected-tbody"></tbody>
                     </table>
                   </div>
                   <div class="flex justify-between items-center mt-3 px-2 text-sm font-bold"
-                    style="background:rgba(124,58,237,0.12);border-radius:8px;padding:8px 12px">
+                    class="ck-box-violet-cost">
                     <span class="text-muted" data-ar="إجمالي قيمة الطلبية:" data-en="Order Total:">إجمالي قيمة
                       الطلبية:</span>
-                    <span id="o-manual-total-cost" style="color:#4ade80;font-size:15px;font-weight:800">0 ج.م</span>
+                    <span id="o-manual-total-cost" class="ck-val-green-bold">0 ج.م</span>
                   </div>
                 </div>
               </div>
@@ -1294,22 +1294,22 @@
               <!-- Order Notes -->
               <div>
                 <label class="field-label"
-                  style="font-size:12px;font-weight:700;color:#cbd5e1;margin-bottom:6px;display:block"
+                  class="ck-label-std-md"
                   data-ar="📝 ملاحظات الطلبية (اختياري)" data-en="Notes">📝 ملاحظات الطلبية (اختياري)</label>
                 <input type="text" class="input" id="o-notes"
                   placeholder="ملاحظات إضافية، الوردية، أو تفاصيل تشغيلية..."
-                  style="width:100%;height:40px;box-sizing:border-box" />
+                  class="ck-input-w-full-h40" />
               </div>
 
               <!-- Submit Button -->
-              <div style="display:flex;gap:10px;margin-top:6px">
+              <div class="ck-flex-gap-10 ck-mt-6">
                 <button class="btn btn-primary"
-                  style="flex:1;height:44px;font-size:14px;font-weight:800;justify-content:center;background:linear-gradient(135deg,#7C3AED,#6D28D9);border:none;border-radius:12px;box-shadow:0 0 18px rgba(124,58,237,0.4)"
+                  class="ck-btn-primary-gradient-h44-flex"
                   onclick="submitOrder()">
                   ✨ <span data-ar="حفظ واعتماد الطلبية في النظام" data-en="Save & Record Order">حفظ واعتماد الطلبية في
                     النظام</span>
                 </button>
-                <button class="btn btn-secondary" style="height:44px;padding:0 20px;border-radius:12px;"
+                <button class="btn btn-secondary ck-btn-h44-p20"
                   onclick="switchOrdersTab('log')">
                   إلغاء
                 </button>
@@ -1319,54 +1319,54 @@
         </div>
 
         <!-- ================= PANE 3: EXCEL BATCH IMPORTER ================= -->
-        <div class="orders-tab-pane" id="orders-pane-excel" style="display:none;">
+        <div class="orders-tab-pane ck-hidden" id="orders-pane-excel">
           <div class="card"
-            style="max-width:850px;margin:0 auto;padding:24px 28px;border-radius:18px;border:1px solid rgba(139,92,246,0.35);background:linear-gradient(135deg,rgba(124,58,237,0.06),rgba(15,23,42,0.95));box-shadow:0 10px 35px rgba(0,0,0,0.5)">
+            class="ck-card-order-entry-purple">
             <div class="flex items-center justify-between mb-4 pb-3"
-              style="border-bottom:1px solid rgba(255,255,255,0.08)">
+              class="ck-tr-border-b">
               <div class="flex items-center gap-3">
                 <div
-                  style="width:40px;height:40px;border-radius:12px;background:rgba(124,58,237,0.25);border:1px solid rgba(139,92,246,0.4);display:flex;align-items:center;justify-content:center;color:#C4B5FD;font-size:1.2rem">
+                  class="ck-icon-box-violet">
                   📊
                 </div>
                 <div>
-                  <h3 class="text-white font-bold" style="font-size:17px;margin:0"
+                  <h3 class="text-white font-bold ck-title-17-m0"
                     data-ar="استيراد وتجميع شيت إكسيل الفروع" data-en="Import & Aggregate Branch Excel">استيراد وتجميع
                     شيت إكسيل الفروع</h3>
-                  <div class="text-muted" style="font-size:11.5px"
+                  <div class="text-muted ck-fs-115"
                     data-ar="قراءة كميات الأصناف، تجميع الفروع آلياً، واستخراج صوص البرجر منفصلاً"
                     data-en="Auto parses Column K, groups branches, extracts burger sauce">قراءة كميات الأصناف، تجميع
                     الفروع آلياً، واستخراج صوص البرجر منفصلاً</div>
                 </div>
               </div>
-              <button class="btn btn-secondary btn-sm" onclick="switchOrdersTab('log')" style="border-radius:8px">✕
+              <button class="btn btn-secondary btn-sm ck-rounded-8" onclick="switchOrdersTab('log')">✕
                 إغلاق والعودة</button>
             </div>
 
             <!-- Drag & Drop Zone -->
             <div class="excel-dropzone" id="excel-drop-zone"
               onclick="document.getElementById('excel-file-input').click()">
-              <input type="file" id="excel-file-input" accept=".xlsx,.xls,.csv" style="display:none"
+              <input type="file" id="excel-file-input" accept=".xlsx,.xls,.csv" class="ck-hidden"
                 onchange="handleExcelFile(this.files[0])" />
               <div
-                style="width:52px;height:52px;margin:0 auto 12px;border-radius:16px;background:rgba(124,58,237,0.2);display:flex;align-items:center;justify-content:center;color:#A78BFA">
+                class="ck-icon-box-violet-xl">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                   <polyline points="17 8 12 3 7 8" />
                   <line x1="12" y1="3" x2="12" y2="15" />
                 </svg>
               </div>
-              <div style="font-size:14px;font-weight:700;color:#f1f5f9;margin-bottom:4px"
+              <div class="ck-title-14-bold-white-mb4"
                 data-ar="اسحب وأفلت ملف الفروع هنا أو اضغط للاختيار"
                 data-en="Drop Branch Excel file here or click to browse">
                 اسحب وأفلت ملف الفروع هنا أو اضغط للاختيار
               </div>
-              <div class="text-muted" style="font-size:11.5px">يدعم ملفات .xlsx / .xls / .csv التابعة للفروع</div>
+              <div class="text-muted ck-fs-115">يدعم ملفات .xlsx / .xls / .csv التابعة للفروع</div>
             </div>
 
             <!-- Direct Instant Load Button -->
             <button class="btn w-full mt-3"
-              style="height:44px;justify-content:center;background:rgba(124,58,237,0.2);border:1px solid rgba(139,92,246,0.4);color:#C4B5FD;font-weight:700;font-size:13px;border-radius:12px;transition:all 0.2s ease;"
+              class="ck-btn-upload-drop-zone"
               onclick="loadDefaultBranchesFile()">
               ⚡ <span data-ar="قراءة ملف الفروع المرفق (الفروع.xlsx) فوراً"
                 data-en="Load Attached (الفروع.xlsx) Instantly">قراءة ملف الفروع المرفق (الفروع.xlsx) فوراً</span>
@@ -1374,23 +1374,23 @@
 
             <!-- Excel Preview & Approval Box -->
             <div id="excel-preview"
-              style="display:none;margin-top:18px;background:rgba(15,23,42,0.9);border:1px solid rgba(139,92,246,0.3);border-radius:14px;padding:16px 18px;">
+              class="ck-box-excel-preview ck-hidden">
               <div class="flex justify-between items-center mb-3">
                 <span class="font-bold text-sm text-white" id="excel-preview-title">معاينة الشيت المستورد</span>
-                <label class="flex items-center gap-2 text-xs" style="color:#cbd5e1;cursor:pointer">
-                  <input type="checkbox" id="excel-replace-mode" checked style="accent-color:#7C3AED" />
+                <label class="flex items-center gap-2 text-xs ck-label-clickable">
+                  <input type="checkbox" id="excel-replace-mode" checked class="ck-accent-violet" />
                   <span data-ar="استبدال طلبات نفس اليوم وتفادي التكرار" data-en="Replace same date orders">استبدال
                     طلبات نفس اليوم وتفادي التكرار</span>
                 </label>
               </div>
-              <div class="tbl-wrap" style="max-height:220px;margin-bottom:14px;border-radius:8px">
-                <table class="tbl" id="excel-preview-table" style="font-size:11.5px"></table>
+              <div class="tbl-wrap ck-tbl-wrap-h220">
+                <table class="tbl ck-fs-115" id="excel-preview-table"></table>
               </div>
               <div class="flex gap-2">
-                <button class="btn btn-secondary flex-1" style="height:38px;justify-content:center;border-radius:10px"
+                <button class="btn btn-secondary flex-1 ck-btn-h38-center"
                   onclick="cancelExcelImport()" data-ar="إلغاء" data-en="Cancel">إلغاء</button>
                 <button class="btn btn-primary flex-1"
-                  style="height:38px;justify-content:center;background:linear-gradient(135deg,#7C3AED,#6D28D9);border:none;border-radius:10px;font-weight:700"
+                  class="ck-btn-primary-gradient-h38-simple"
                   onclick="confirmExcelImport()" data-ar="اعتماد واستيراد الشيت" data-en="Confirm & Import">اعتماد
                   واستيراد الشيت</button>
               </div>
@@ -1401,21 +1401,21 @@
 
       <!-- RECIPES -->
       <section class="page" id="page-recipes">
-        <div style="display:grid;grid-template-columns:280px 1fr;gap:20px" class="recipes-layout">
-          <div class="card" style="height:fit-content;max-height:720px;display:flex;flex-direction:column">
+        <div class="recipes-layout ck-grid-280-1fr">
+          <div class="card ck-recipe-sidebar-col">
             <div class="flex items-center justify-between mb-2">
               <h3 class="text-white font-bold" data-ar="تجهيزات المطبخ المركزي" data-en="CK Products (BOM)">تجهيزات
                 المطبخ المركزي</h3>
               <span class="badge badge-purple" id="recipes-count-badge">74 ريسبي</span>
             </div>
-            <div style="position:relative;margin-bottom:10px">
+            <div class="ck-relative-mb-10">
               <input type="text" id="recipe-search-input" class="input" placeholder="بحث في الـ 74 ريسبي..."
-                style="padding:6px 10px;font-size:12px" oninput="debouncedFilterRecipes()" />
+                class="ck-input-pad-sm" oninput="debouncedFilterRecipes()" />
             </div>
-            <div id="recipe-list" class="sy3" style="flex:1;overflow-y:auto;max-height:500px;padding-inline-end:4px">
+            <div id="recipe-list" class="sy3 ck-recipe-list-scroll">
             </div>
             <div class="divider"></div>
-            <button class="btn btn-secondary w-full" style="justify-content:center" onclick="openModal('modal-prod')">
+            <button class="btn btn-secondary w-full ck-justify-center" onclick="openModal('modal-prod')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10" />
@@ -1431,7 +1431,7 @@
             <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
               <div>
                 <div class="flex items-center gap-2">
-                  <h2 class="text-white font-bold" style="font-size:22px" id="recipe-title">—</h2>
+                  <h2 class="text-white font-bold ck-title-22" id="recipe-title">—</h2>
                   <span class="badge badge-purple" id="recipe-cat-badge">تجهيز مطبخ مركزي</span>
                 </div>
                 <p class="text-muted text-sm mt-1"
@@ -1439,27 +1439,27 @@
                   data-en="Central Kitchen Recipe, Material Breakdown & Live Branch Demand">شجرة مواصفات تشغيل وتصنيع
                   الصنف وحساب الخامات المسحوبة (Manufacturing BOM)</p>
               </div>
-              <div style="text-align:end">
-                <div class="text-gradient font-bold" style="font-size:26px" id="recipe-total-cost">0.00</div>
+              <div class="ck-text-end">
+                <div class="text-gradient font-bold ck-title-26" id="recipe-total-cost">0.00</div>
                 <div class="text-muted text-sm" id="recipe-cost-label">ج.م / كجم منتج</div>
               </div>
             </div>
 
             <!-- Live Branch Demand Banner for this product (Executive & Structured) -->
             <div id="recipe-branch-demand-card" class="card"
-              style="background:linear-gradient(145deg, rgba(30,41,59,0.7), rgba(15,23,42,0.85));border:1px solid rgba(56,189,248,0.22);border-radius:14px;padding:16px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,0.25)">
+              class="ck-box-recipe-target">
               <div class="flex items-center justify-between flex-wrap gap-3 mb-3">
                 <div class="flex items-center gap-3">
                   <div
-                    style="width:42px;height:42px;border-radius:10px;background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.25);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">
+                    class="ck-icon-box-cyan-lg">
                     📦
                   </div>
                   <div>
-                    <div style="font-size:14px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px">
+                    <div class="ck-title-14-flex">
                       <span data-ar="مؤشر طلبات الفروع المباشرة" data-en="Live Branch Demand Indicator">مؤشر طلبات
                         الفروع المباشرة</span>
                       <span class="badge badge-purple" id="recipe-demand-branches-count"
-                        style="font-size:11px;font-weight:700">0 فروع</span>
+                        class="ck-badge-bold-sm">0 فروع</span>
                     </div>
                     <div class="text-muted text-xs mt-0.5"
                       data-ar="إجمالي الكميات المسحوبة والمطلوبة لتغطية طلبيات الفروع الحالية"
@@ -1470,15 +1470,15 @@
 
                 <div class="flex items-center gap-3">
                   <div
-                    style="text-align:center;padding:5px 14px;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.28);border-radius:10px">
-                    <span style="font-size:10.5px;color:#fb923c;font-weight:700;display:block" data-ar="إجمالي المطلوب"
+                    class="ck-stat-box-orange">
+                    <span class="ck-fs-105-orange-bold" data-ar="إجمالي المطلوب"
                       data-en="Total Demand">إجمالي المطلوب</span>
                     <span id="recipe-demand-total-badge"
-                      style="font-size:16px;font-weight:900;color:#fb923c">0.00</span>
+                      class="ck-val-orange-black">0.00</span>
                   </div>
                   <button class="btn btn-primary btn-sm" onclick="applyBranchDemandToBatch()"
                     id="btn-apply-demand-batch"
-                    style="padding:8px 14px;font-weight:700;background:linear-gradient(135deg,#f97316,#ea580c);border:none;box-shadow:0 4px 14px rgba(249,115,22,0.25);border-radius:8px">
+                    class="ck-btn-orange-gradient">
                     ⚡ <span data-ar="تغذية أمر التشغيل بهذا الإجمالي" data-en="Feed Production Batch">تغذية أمر التشغيل
                       بهذا الإجمالي</span>
                   </button>
@@ -1487,8 +1487,8 @@
 
               <!-- Individual Branch Badges Grid -->
               <div
-                style="background:rgba(0,0,0,0.22);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px">
-                <div class="text-xs font-bold mb-2 flex items-center justify-between" style="color:#94a3b8">
+                class="ck-subpanel-dark">
+                <div class="text-xs font-bold mb-2 flex items-center justify-between ck-text-muted-color">
                   <div class="flex items-center gap-1.5">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -1498,7 +1498,7 @@
                       الكميات حسب الفروع الطالبة:</span>
                   </div>
                 </div>
-                <div id="recipe-demand-branches-tags" style="display:flex;flex-wrap:wrap;gap:8px">
+                <div id="recipe-demand-branches-tags" class="ck-flex-wrap-8">
                   <span class="text-muted text-xs">—</span>
                 </div>
               </div>
@@ -1506,14 +1506,14 @@
 
             <!-- Tab Switcher (Base Standard vs Live Batch Deduction) -->
             <div
-              style="display:flex;gap:8px;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:10px;margin-bottom:14px">
+              class="ck-flex-tab-bar-border">
               <button class="btn btn-sm btn-primary" id="tab-btn-base-bom" onclick="switchRecipeTab('base')"
-                style="border-radius:8px">
+                class="ck-rounded-8">
                 📋 <span data-ar="معيار ومكونات الوحدة الأساسية (1 كجم / 1 وحدة)"
                   data-en="Standard Recipe (1 Unit)">معيار ومكونات الوحدة الأساسية (1 كجم / 1 وحدة)</span>
               </button>
               <button class="btn btn-sm btn-secondary" id="tab-btn-batch-bom" onclick="switchRecipeTab('batch')"
-                style="border-radius:8px">
+                class="ck-rounded-8">
                 🏭 <span data-ar="تشغيل الإنتاج الفعلي وحساب الخامات المسحوبة من المخزن"
                   data-en="Batch Production & Material Consumption">تشغيل الإنتاج الفعلي وحساب الخامات المسحوبة من
                   المخزن</span>
@@ -1532,7 +1532,7 @@
                       <th data-ar="سعر الخامة" data-en="Unit Price">سعر الخامة</th>
                       <th data-ar="نسبة الهدر %" data-en="Waste %">نسبة الهدر %</th>
                       <th data-ar="تكلفة المعيار" data-en="Line Cost">تكلفة المعيار</th>
-                      <th style="width:40px"></th>
+                      <th class="ck-th-w40"></th>
                     </tr>
                   </thead>
                   <tbody id="recipe-tbl"></tbody>
@@ -1552,12 +1552,12 @@
             </div>
 
             <!-- TAB 2: Live Batch Deduction & Material Consumption -->
-            <div id="recipe-tab-batch" style="display:none">
+            <div id="recipe-tab-batch" class="ck-hidden">
               <div
-                style="background:rgba(15,23,42,0.7);border:1px solid rgba(56,189,248,0.25);border-radius:12px;padding:16px;margin-bottom:14px">
+                class="ck-box-batch-sim">
                 <div class="flex items-center justify-between flex-wrap gap-3">
                   <div>
-                    <h3 class="text-white font-bold" style="font-size:15px" data-ar="تحديد حجم التشغيلة الفعلية اليوم:"
+                    <h3 class="text-white font-bold ck-title-15" data-ar="تحديد حجم التشغيلة الفعلية اليوم:"
                       data-en="Enter Batch Size to Produce:">تحديد حجم التشغيلة الفعلية اليوم:</h3>
                     <p class="text-muted text-sm mt-1"
                       data-ar="السيستم يحسب تلقائياً إجمالي الخامات المسحوبة ويفحص رصيدها بالمخزن قبل الخصم"
@@ -1568,11 +1568,11 @@
                     <span class="text-muted text-sm font-bold" data-ar="الكمية المنتجة:" data-en="Produced Qty:">الكمية
                       المنتجة:</span>
                     <input type="number" id="batch-prod-qty" class="input"
-                      style="width:110px;text-align:center;font-size:15px;font-weight:800;color:#38bdf8" value="20"
+                      class="ck-input-sim-qty" value="20"
                       min="0.01" step="any" oninput="calcBatchDeduction()" />
-                    <span class="badge badge-purple" id="batch-prod-uom" style="font-size:12px">kg</span>
+                    <span class="badge badge-purple ck-badge-fs12" id="batch-prod-uom">kg</span>
                     <button class="btn btn-primary btn-sm" onclick="executeBatchDeduction()"
-                      style="background:linear-gradient(135deg, #0ea5e9, #0284c7);font-weight:800;box-shadow:0 4px 14px rgba(14,165,233,0.3)">
+                      class="ck-btn-cyan-gradient">
                       <span data-ar="⚡ اعتماد التشغيل وخصم الخامات من المخزون"
                         data-en="⚡ Confirm Production & Deduct Stock">⚡ اعتماد التشغيل وخصم الخامات من المخزون</span>
                     </button>
@@ -1580,20 +1580,20 @@
                 </div>
               </div>
 
-              <div class="tbl-wrap" style="max-height:360px">
-                <table class="tbl" style="font-size:13px">
+              <div class="tbl-wrap ck-tbl-wrap-h360">
+                <table class="tbl ck-tbl-fs13">
                   <thead>
-                    <tr style="background:rgba(255,255,255,0.03)">
+                    <tr class="ck-tr-bg-subtle">
                       <th data-ar="الخامة المسحوبة" data-en="Raw Material">الخامة المسحوبة</th>
-                      <th style="text-align:center" data-ar="المعيار الأساسي" data-en="Standard Ratio">المعيار الأساسي
+                      <th class="ck-text-center" data-ar="المعيار الأساسي" data-en="Standard Ratio">المعيار الأساسي
                       </th>
-                      <th style="text-align:center;color:#38bdf8;font-weight:800" data-ar="إجمالي المسحوب للتشغيلة"
+                      <th class="ck-th-cyan-bold" data-ar="إجمالي المسحوب للتشغيلة"
                         data-en="Total Consumed">إجمالي المسحوب للتشغيلة</th>
-                      <th style="text-align:center" data-ar="الرصيد المتاح بالمخزن" data-en="Current Stock">الرصيد
+                      <th class="ck-text-center" data-ar="الرصيد المتاح بالمخزن" data-en="Current Stock">الرصيد
                         المتاح بالمخزن</th>
-                      <th style="text-align:center;color:#4ade80" data-ar="الرصيد المتبقي بعد الخصم"
+                      <th class="ck-th-green-bold" data-ar="الرصيد المتبقي بعد الخصم"
                         data-en="Stock After">الرصيد المتبقي بعد الخصم</th>
-                      <th style="text-align:center" data-ar="حالة التغطية" data-en="Coverage Status">حالة التغطية</th>
+                      <th class="ck-text-center" data-ar="حالة التغطية" data-en="Coverage Status">حالة التغطية</th>
                     </tr>
                   </thead>
                   <tbody id="batch-deduction-tbody"></tbody>
@@ -1655,12 +1655,12 @@
         </div>
 
         <!-- PANE 1: PRODUCTION MATRIX -->
-        <div class="prod-tab-pane" id="prod-pane-matrix" style="display:block;">
-          <div class="card" style="padding:18px 20px;border-radius:16px;">
+        <div class="prod-tab-pane ck-block" id="prod-pane-matrix">
+          <div class="card ck-card-pad">
             <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
               <div>
-                <h3 class="text-white font-bold flex items-center gap-2" style="font-size:15px">
-                  <span style="color:#A78BFA">📊</span>
+                <h3 class="text-white font-bold flex items-center gap-2 ck-title-15">
+                  <span class="ck-text-violet">📊</span>
                   <span data-ar="المصفوفة الشهرية لتشغيل المنتجات والتوريد للفروع"
                     data-en="Executive Monthly Production & Dispatch Matrix">المصفوفة الشهرية لتشغيل المنتجات والتوريد
                     للفروع</span>
@@ -1673,11 +1673,11 @@
 
               <!-- Controls Toolbar -->
               <div class="flex items-center gap-2.5 flex-wrap">
-                <input type="month" class="input" id="prod-matrix-month" style="width:160px;height:38px"
+                <input type="month" class="input ck-w-160-h38" id="prod-matrix-month"
                   onchange="renderProd()" />
                 <input type="text" class="input" id="prod-matrix-search" placeholder="بحث بالاسم أو الكود..."
-                  style="width:200px;height:38px" oninput="debouncedRenderProdMatrix()" />
-                <select class="select" id="prod-matrix-cat" style="width:160px;height:38px"
+                  class="ck-w-200-h38" oninput="debouncedRenderProdMatrix()" />
+                <select class="select ck-w-160-h38" id="prod-matrix-cat"
                   onchange="renderProdMatrixTable()">
                   <option value="">جميع الأقسام</option>
                   <option value="beef">🥩 لحوم وبرجر</option>
@@ -1689,7 +1689,7 @@
                   <option value="drinks">🧃 مشروبات</option>
                 </select>
                 <button class="btn btn-secondary btn-sm" id="btn-export-prod-matrix"
-                  onclick="exportProdExecutiveMatrix()" style="height:38px;padding:0 14px;border-radius:10px">
+                  onclick="exportProdExecutiveMatrix()" class="ck-btn-h38">
                   📥 تصدير CSV
                 </button>
               </div>
@@ -1700,8 +1700,8 @@
               <span class="chip" id="prod-days-count-badge">0 يوم</span>
             </div>
 
-            <div class="tbl-wrap" style="max-height:480px;border-radius:10px;">
-              <table class="tbl" id="prod-matrix-table" style="font-size:12px">
+            <div class="tbl-wrap ck-tbl-wrap-h480">
+              <table class="tbl ck-badge-fs12" id="prod-matrix-table">
                 <thead id="prod-matrix-head"></thead>
                 <tbody id="prod-matrix-body"></tbody>
               </table>
@@ -1710,12 +1710,12 @@
         </div>
 
         <!-- PANE 2: DAILY BOM EXPLOSION -->
-        <div class="prod-tab-pane" id="prod-pane-bom" style="display:none;">
-          <div class="card" style="padding:18px 20px;border-radius:16px;">
+        <div class="prod-tab-pane ck-hidden" id="prod-pane-bom">
+          <div class="card ck-card-pad">
             <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
               <div>
-                <h3 class="text-white font-bold flex items-center gap-2" style="font-size:15px">
-                  <span style="color:#38BDF8">🧪</span>
+                <h3 class="text-white font-bold flex items-center gap-2 ck-title-15">
+                  <span class="ck-text-cyan">🧪</span>
                   <span data-ar="متطلبات خامات التشغيل اليومي (BOM Explosion + 5% احتياطي)"
                     data-en="Daily Production BOM Requirements">متطلبات خامات التشغيل اليومي (BOM Explosion + 5%
                     احتياطي)</span>
@@ -1725,13 +1725,13 @@
                   data-en="Raw materials needed to cover today's demand mapped against inventory">حساب أوزان المواد
                   الخام اللازمة لتغطية طلبيات اليوم ومطابقتها مع رصيد المخزن</p>
               </div>
-              <span class="chip" style="color:#A78BFA;background:rgba(124,58,237,0.15)">⚡ تحديث فوري مباشر</span>
+              <span class="chip ck-chip-violet-subtle">⚡ تحديث فوري مباشر</span>
             </div>
-            <div class="tbl-wrap" style="max-height:500px;border-radius:10px;">
+            <div class="tbl-wrap ck-tbl-wrap-h500">
               <table class="tbl">
                 <thead>
                   <tr>
-                    <th data-ar="كود الصنف" data-en="Item Code" style="width:105px">كود الصنف</th>
+                    <th data-ar="كود الصنف" data-en="Item Code" class="ck-th-w105">كود الصنف</th>
                     <th data-ar="المادة الخام" data-en="Ingredient">المادة الخام</th>
                     <th data-ar="القسم" data-en="Category">القسم</th>
                     <th data-ar="الاحتياج الأساسي" data-en="Base Required">الاحتياج الأساسي</th>
@@ -1750,12 +1750,12 @@
         </div>
 
         <!-- PANE 3: BURGER SAUCE DEDICATED RUNS -->
-        <div class="prod-tab-pane" id="prod-pane-taztiki" style="display:none;">
-          <div class="card" style="padding:18px 20px;border-radius:16px;">
+        <div class="prod-tab-pane ck-hidden" id="prod-pane-taztiki">
+          <div class="card ck-card-pad">
             <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
               <div>
-                <h3 class="text-white font-bold flex items-center gap-2" style="font-size:15px">
-                  <span style="color:#fb923c">🍔</span>
+                <h3 class="text-white font-bold flex items-center gap-2 ck-title-15">
+                  <span class="ck-text-orange">🍔</span>
                   <span data-ar="سجل تشغيلات صوص البرجر (Burger Sauce Logs)" data-en="Burger Sauce Logs">سجل تشغيلات صوص
                     البرجر (Burger Sauce Logs)</span>
                 </h3>
@@ -1764,12 +1764,12 @@
                   والمصروفة للفروع</p>
               </div>
               <button class="btn btn-primary btn-sm" onclick="openModal('modal-taztiki')"
-                style="background:linear-gradient(135deg,#7C3AED,#6D28D9);border:none;box-shadow:0 0 12px rgba(124,58,237,0.35)">
+                class="ck-btn-primary-gradient">
                 ➕ تسجيل تشغيلة صوص
               </button>
             </div>
 
-            <div class="tbl-wrap" style="max-height:450px;border-radius:10px;">
+            <div class="tbl-wrap ck-tbl-wrap-h450">
               <table class="tbl">
                 <thead>
                   <tr>
@@ -1783,7 +1783,7 @@
                 <tbody id="prod-taztiki-tbody"></tbody>
               </table>
             </div>
-            <div id="prod-taztiki-empty" class="empty-state" style="display:none;padding:32px;text-align:center">
+            <div id="prod-taztiki-empty" class="empty-state ck-empty-state-p32 ck-hidden">
               <p class="mt-2 text-muted" data-ar="لا يوجد سجلات صوص برجر مسجلة بهذا الشهر"
                 data-en="No burger sauce logged for this month">لا يوجد سجلات صوص برجر مسجلة بهذا الشهر</p>
             </div>
@@ -1814,12 +1814,12 @@
         <!-- Top Executive KPI Summary Row -->
         <div class="orders-kpi-grid mb-4" id="inv-stats"></div>
 
-        <div class="card" style="padding:18px 20px;border-radius:16px;">
+        <div class="card ck-card-pad">
           <!-- Top Header & Action Row -->
           <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
             <div>
-              <h3 class="text-white font-bold flex items-center gap-2" style="font-size:16px">
-                <span style="color:#A78BFA">📦</span>
+              <h3 class="text-white font-bold flex items-center gap-2 ck-fs-16">
+                <span class="ck-text-violet">📦</span>
                 <span data-ar="أرصدة المخزون ومقارنتها بالاحتياجات الفعلية (200 خامة ومستلزم)"
                   data-en="Real-Time Stock vs Production Needs (200 Materials)">أرصدة المخزون ومقارنتها بالاحتياجات
                   الفعلية (200 خامة ومستلزم)</span>
@@ -1832,23 +1832,23 @@
 
             <div class="flex items-center gap-3 flex-wrap">
               <!-- Search Bar -->
-              <div style="position:relative;width:240px">
+              <div class="ck-relative-w-240">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"
-                  style="position:absolute;right:10px;top:12px;pointer-events:none">
+                  class="ck-input-icon-pos">
                   <circle cx="11" cy="11" r="8" />
                   <line x1="21" y1="21" x2="16.65" y2="16.65" />
                 </svg>
                 <input type="text" id="inv-search-input" class="input" placeholder="بحث في الخامات الـ 200..."
-                  style="height:38px;padding-right:32px;box-sizing:border-box" oninput="debouncedRenderInv()" />
+                  class="ck-input-pr32-h38" oninput="debouncedRenderInv()" />
               </div>
 
               <!-- Action Buttons -->
               <button class="btn btn-secondary btn-sm" onclick="openModal('modal-ing')"
-                style="height:38px;padding:0 14px;border-radius:10px">
+                class="ck-btn-h38">
                 ➕ <span data-ar="إضافة خامة جديدة" data-en="Add Ingredient">إضافة خامة جديدة</span>
               </button>
               <button class="btn btn-primary btn-sm" onclick="genPOs()"
-                style="height:38px;padding:0 14px;border-radius:10px;background:linear-gradient(135deg,#7C3AED,#6D28D9);border:none;box-shadow:0 0 12px rgba(124,58,237,0.35)">
+                class="ck-btn-primary-gradient-h38">
                 ⚡ <span data-ar="توليد طلبات الشراء تلقائياً" data-en="Generate Purchase Requests">توليد طلبات الشراء
                   تلقائياً</span>
               </button>
@@ -1856,44 +1856,44 @@
           </div>
 
           <!-- Category Filter Pills -->
-          <div class="flex gap-2 flex-wrap mb-4" id="inv-cat-filters" style="overflow-x:auto;padding-bottom:4px">
+          <div class="flex gap-2 flex-wrap mb-4 ck-scroll-x-p4" id="inv-cat-filters">
             <button class="btn btn-sm inv-cat-btn btn-primary" data-cat="all" onclick="setInvCategory('all', this)"
-              style="border-radius:8px">🌐 <span>الكل (All)</span></button>
+              class="ck-rounded-8">🌐 <span>الكل (All)</span></button>
             <button class="btn btn-sm inv-cat-btn btn-secondary" data-cat="Dairy"
-              onclick="setInvCategory('Dairy', this)" style="border-radius:8px">🧀 ألبان وأجبان (Dairy)</button>
+              onclick="setInvCategory('Dairy', this)" class="ck-rounded-8">🧀 ألبان وأجبان (Dairy)</button>
             <button class="btn btn-sm inv-cat-btn btn-secondary" data-cat="Dry" onclick="setInvCategory('Dry', this)"
-              style="border-radius:8px">🌾 جاف وحبوب (Dry)</button>
+              class="ck-rounded-8">🌾 جاف وحبوب (Dry)</button>
             <button class="btn btn-sm inv-cat-btn btn-secondary" data-cat="Fruits & Veg"
-              onclick="setInvCategory('Fruits & Veg', this)" style="border-radius:8px">🥗 خضار وفاكهة (Veg)</button>
+              onclick="setInvCategory('Fruits & Veg', this)" class="ck-rounded-8">🥗 خضار وفاكهة (Veg)</button>
             <button class="btn btn-sm inv-cat-btn btn-secondary" data-cat="Grocery"
-              onclick="setInvCategory('Grocery', this)" style="border-radius:8px">🥫 بقالة وصوصات (Grocery)</button>
+              onclick="setInvCategory('Grocery', this)" class="ck-rounded-8">🥫 بقالة وصوصات (Grocery)</button>
             <button class="btn btn-sm inv-cat-btn btn-secondary" data-cat="Meat & Poultry & Fish"
-              onclick="setInvCategory('Meat & Poultry & Fish', this)" style="border-radius:8px">🥩 لحوم ودواجن
+              onclick="setInvCategory('Meat & Poultry & Fish', this)" class="ck-rounded-8">🥩 لحوم ودواجن
               (Meat)</button>
             <button class="btn btn-sm inv-cat-btn btn-secondary" data-cat="Packing Items"
-              onclick="setInvCategory('Packing Items', this)" style="border-radius:8px">📦 تعبئة وتغليف
+              onclick="setInvCategory('Packing Items', this)" class="ck-rounded-8">📦 تعبئة وتغليف
               (Packing)</button>
             <button class="btn btn-sm inv-cat-btn btn-secondary" data-cat="Cleaning Supplies"
-              onclick="setInvCategory('Cleaning Supplies', this)" style="border-radius:8px">🧼 منظفات
+              onclick="setInvCategory('Cleaning Supplies', this)" class="ck-rounded-8">🧼 منظفات
               (Cleaning)</button>
             <button class="btn btn-sm inv-cat-btn btn-secondary" data-cat="Beverage"
-              onclick="setInvCategory('Beverage', this)" style="border-radius:8px">🍹 مشروبات (Beverage)</button>
+              onclick="setInvCategory('Beverage', this)" class="ck-rounded-8">🍹 مشروبات (Beverage)</button>
           </div>
 
           <!-- Inventory Table -->
-          <div class="tbl-wrap" style="max-height:540px;border-radius:10px;">
+          <div class="tbl-wrap ck-tbl-wrap-h540">
             <table class="tbl">
               <thead>
                 <tr>
-                  <th data-ar="كود الصنف" data-en="Code" style="width:100px">كود الصنف</th>
+                  <th data-ar="كود الصنف" data-en="Code" class="ck-th-w100">كود الصنف</th>
                   <th data-ar="المادة الخام" data-en="Ingredient">المادة الخام</th>
-                  <th data-ar="القسم" data-en="Department" style="width:120px">القسم</th>
-                  <th data-ar="المخزون الحالي" data-en="Current Stock" style="min-width:140px">المخزون الحالي</th>
-                  <th data-ar="حد الأمان" data-en="Safety Stock" style="min-width:120px">حد الأمان</th>
-                  <th data-ar="المطلوب للإنتاج" data-en="Required Today" style="min-width:120px">المطلوب للإنتاج</th>
-                  <th data-ar="حالة الرصيد" data-en="Status" style="width:130px">حالة الرصيد</th>
-                  <th data-ar="مؤشر الكفاية" data-en="Stock Level" style="width:120px">مؤشر الكفاية</th>
-                  <th data-ar="تعديل" data-en="Edit" style="width:70px;text-align:center">تعديل</th>
+                  <th data-ar="القسم" data-en="Department" class="ck-th-w120">القسم</th>
+                  <th data-ar="المخزون الحالي" data-en="Current Stock" class="ck-th-min-w140">المخزون الحالي</th>
+                  <th data-ar="حد الأمان" data-en="Safety Stock" class="ck-th-min-w120">حد الأمان</th>
+                  <th data-ar="المطلوب للإنتاج" data-en="Required Today" class="ck-th-min-w120">المطلوب للإنتاج</th>
+                  <th data-ar="حالة الرصيد" data-en="Status" class="ck-th-w130">حالة الرصيد</th>
+                  <th data-ar="مؤشر الكفاية" data-en="Stock Level" class="ck-th-w120">مؤشر الكفاية</th>
+                  <th data-ar="تعديل" data-en="Edit" class="ck-th-w70-center">تعديل</th>
                 </tr>
               </thead>
               <tbody id="inv-tbl"></tbody>
@@ -1924,11 +1924,11 @@
         </div>
         <div class="orders-kpi-grid mb-4" id="po-stats"></div>
 
-        <div class="card" style="padding:18px 20px;border-radius:16px;">
+        <div class="card ck-card-pad">
           <div class="flex items-center justify-between flex-wrap gap-4 mb-4">
             <div>
-              <h3 class="text-white font-bold flex items-center gap-2" style="font-size:16px">
-                <span style="color:#A78BFA">🛒</span>
+              <h3 class="text-white font-bold flex items-center gap-2 ck-fs-16">
+                <span class="ck-text-violet">🛒</span>
                 <span data-ar="إدارة ومتابعة طلبات الشراء للموردين" data-en="Purchase Orders Management">إدارة ومتابعة
                   طلبات الشراء للموردين</span>
               </h3>
@@ -1938,38 +1938,38 @@
             </div>
             <div class="flex gap-2.5 flex-wrap">
               <button class="btn btn-secondary btn-sm" onclick="genPOs()"
-                style="height:38px;padding:0 14px;border-radius:10px">
+                class="ck-btn-h38">
                 🔄 <span data-ar="إعادة الحساب والتحديث" data-en="Refresh POs">إعادة الحساب والتحديث</span>
               </button>
               <button class="btn btn-primary btn-sm" onclick="sendAllDraft()"
-                style="height:38px;padding:0 14px;border-radius:10px;background:linear-gradient(135deg,#7C3AED,#6D28D9);border:none;box-shadow:0 0 12px rgba(124,58,237,0.35)">
+                class="ck-btn-primary-gradient-h38">
                 📤 <span data-ar="إرسال جميع المسودات للموردين" data-en="Send All Drafts">إرسال جميع المسودات
                   للموردين</span>
               </button>
             </div>
           </div>
 
-          <div class="tbl-wrap" style="max-height:500px;border-radius:10px;">
+          <div class="tbl-wrap ck-tbl-wrap-h500">
             <table class="tbl">
               <thead>
                 <tr>
                   <th data-ar="رقم الطلب" data-en="PO #">رقم الطلب</th>
                   <th data-ar="المادة المطلوبة" data-en="Ingredient">المادة المطلوبة</th>
-                  <th data-ar="الكمية المطلوبة" data-en="Quantity" style="text-align:center">الكمية المطلوبة</th>
-                  <th data-ar="الوحدة" data-en="UOM" style="text-align:center">الوحدة</th>
-                  <th data-ar="التكلفة التقديرية" data-en="Est. Cost" style="text-align:center">التكلفة التقديرية</th>
+                  <th data-ar="الكمية المطلوبة" data-en="Quantity" class="ck-text-center">الكمية المطلوبة</th>
+                  <th data-ar="الوحدة" data-en="UOM" class="ck-text-center">الوحدة</th>
+                  <th data-ar="التكلفة التقديرية" data-en="Est. Cost" class="ck-text-center">التكلفة التقديرية</th>
                   <th data-ar="المورد المعتمد" data-en="Supplier">المورد المعتمد</th>
-                  <th data-ar="درجة الأولوية" data-en="Priority" style="text-align:center">درجة الأولوية</th>
-                  <th data-ar="حالة الطلب" data-en="Status" style="text-align:center">حالة الطلب</th>
-                  <th data-ar="الإجراء" data-en="Actions" style="text-align:center">الإجراء</th>
+                  <th data-ar="درجة الأولوية" data-en="Priority" class="ck-text-center">درجة الأولوية</th>
+                  <th data-ar="حالة الطلب" data-en="Status" class="ck-text-center">حالة الطلب</th>
+                  <th data-ar="الإجراء" data-en="Actions" class="ck-text-center">الإجراء</th>
                 </tr>
               </thead>
               <tbody id="po-tbl"></tbody>
             </table>
           </div>
-          <div id="po-empty" class="empty-state" style="display:none;padding:36px;text-align:center">
+          <div id="po-empty" class="empty-state ck-empty-state-p36 ck-hidden">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5"
-              stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 8px">
+              stroke-linecap="round" stroke-linejoin="round" class="ck-svg-center-margin">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
               <polyline points="22 4 12 14.01 9 11.01" />
             </svg>
@@ -1992,10 +1992,10 @@
                 الاستلام من المخزن</p>
             </div>
             <div class="flex gap-3 flex-wrap">
-              <select class="select" id="inv-bill-sup" style="width:200px" onchange="renderInvoices()">
+              <select class="select ck-w-200" id="inv-bill-sup" onchange="renderInvoices()">
                 <option value="" data-ar="جميع الموردين" data-en="All Suppliers">جميع الموردين</option>
               </select>
-              <input type="month" class="input" id="inv-bill-month" style="width:160px" onchange="renderInvoices()" />
+              <input type="month" class="input ck-w-160" id="inv-bill-month" onchange="renderInvoices()" />
               <button class="btn btn-secondary btn-sm"
                 onclick="document.getElementById('inv-bill-sup').value='';document.getElementById('inv-bill-month').value='';renderInvoices()"
                 data-ar="مسح الفلتر" data-en="Clear">مسح الفلتر</button>
@@ -2019,7 +2019,7 @@
               <tbody id="invoices-tbl"></tbody>
             </table>
           </div>
-          <div id="invoices-empty" class="empty-state" style="display:none">
+          <div id="invoices-empty" class="empty-state ck-hidden">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="1.5"
               stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
@@ -2039,49 +2039,49 @@
       <section class="page" id="page-waste">
         <div class="orders-kpi-grid mb-4" id="waste-stats"></div>
 
-        <div style="display:grid;grid-template-columns:380px 1fr;gap:20px;align-items:start" class="waste-layout">
+        <div class="waste-layout ck-grid-380-1fr">
           <!-- Log Waste Form -->
           <div class="card"
-            style="padding:20px;border-radius:16px;border:1px solid rgba(239,68,68,0.3);background:linear-gradient(135deg,rgba(239,68,68,0.06),rgba(15,23,42,0.95))">
-            <h3 class="text-white font-bold flex items-center gap-2 mb-3" style="color:#f87171;font-size:15px">
-              <span style="font-size:1.2rem">🗑️</span>
+            class="ck-box-danger-glass">
+            <h3 class="text-white font-bold flex items-center gap-2 mb-3 ck-title-rose">
+              <span class="ck-fs-12rem">🗑️</span>
               <span data-ar="تسجيل هدر / تلف جديد" data-en="Log New Waste / Spoilage">تسجيل هدر / تلف جديد</span>
             </h3>
 
-            <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="ck-flex-col-12">
               <div>
                 <label class="field-label"
-                  style="font-size:11.5px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block"
+                  class="ck-label-std"
                   data-ar="المادة الخام التالفة" data-en="Ingredient">المادة الخام التالفة</label>
-                <select class="select" id="w-ing" style="width:100%;height:38px;box-sizing:border-box"
+                <select class="select ck-input-w-full-h38" id="w-ing"
                   onchange="updWasteUnitLabel()"></select>
               </div>
 
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div class="ck-grid-2-10">
                 <div>
                   <label class="field-label"
-                    style="font-size:11.5px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block"
+                    class="ck-label-std"
                     data-ar="الكمية التالفة" data-en="Quantity">الكمية التالفة</label>
-                  <div style="display:flex;gap:6px;align-items:center">
+                  <div class="ck-flex-gap-6">
                     <input type="number" step="any" min="0.01" class="input" id="w-qty" placeholder="0"
-                      style="width:100%;height:38px;font-weight:700;box-sizing:border-box" />
+                      class="ck-input-w-full-h38-fw700" />
                     <span id="w-uom" class="badge badge-purple"
-                      style="height:38px;display:flex;align-items:center;justify-content:center;padding:0 10px;font-size:11px">Kg</span>
+                      class="ck-btn-stepper-unit-sm">Kg</span>
                   </div>
                 </div>
                 <div>
                   <label class="field-label"
-                    style="font-size:11.5px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block"
+                    class="ck-label-std"
                     data-ar="تاريخ الهدر" data-en="Date">تاريخ الهدر</label>
-                  <input type="date" class="input" id="w-date" style="width:100%;height:38px;box-sizing:border-box" />
+                  <input type="date" class="input ck-input-w-full-h38" id="w-date" />
                 </div>
               </div>
 
               <div>
                 <label class="field-label"
-                  style="font-size:11.5px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block"
+                  class="ck-label-std"
                   data-ar="سبب الهدر / التلف" data-en="Reason">سبب الهدر / التلف</label>
-                <select class="select" id="w-reason" style="width:100%;height:38px;box-sizing:border-box">
+                <select class="select ck-input-w-full-h38" id="w-reason">
                   <option value="expired" data-ar="⏳ انتهاء صلاحية" data-en="⏳ Expired">⏳ انتهاء صلاحية</option>
                   <option value="cooking" data-ar="🍳 تلف أثناء الطبخ/التجهيز" data-en="🍳 Cooking Spoilage">🍳 تلف
                     أثناء الطبخ/التجهيز</option>
@@ -2095,14 +2095,14 @@
 
               <div>
                 <label class="field-label"
-                  style="font-size:11.5px;font-weight:700;color:#cbd5e1;margin-bottom:4px;display:block"
+                  class="ck-label-std"
                   data-ar="ملاحظات والتفاصيل" data-en="Notes">ملاحظات والتفاصيل</label>
                 <textarea class="textarea" rows="2" id="w-notes" placeholder="اكتب تفاصيل سبب التلف..."
-                  style="width:100%;box-sizing:border-box"></textarea>
+                  class="ck-w-full-box"></textarea>
               </div>
 
               <button class="btn btn-primary w-full mt-2"
-                style="height:42px;justify-content:center;background:linear-gradient(135deg,#ef4444,#dc2626);border:none;border-radius:10px;font-weight:800;box-shadow:0 0 15px rgba(239,68,68,0.35)"
+                class="ck-btn-danger-gradient-h42"
                 onclick="logWaste()">
                 🗑️ <span data-ar="تسجيل الهدر وخصمه من المخزن" data-en="Log Waste & Deduct Stock">تسجيل الهدر وخصمه من
                   المخزن</span>
@@ -2111,11 +2111,11 @@
           </div>
 
           <!-- Waste Log & Analytics Table -->
-          <div class="card" style="padding:20px;border-radius:16px;">
+          <div class="card ck-card-pad-lg">
             <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
               <div>
-                <h3 class="text-white font-bold flex items-center gap-2" style="font-size:15px">
-                  <span style="color:#f87171">📜</span>
+                <h3 class="text-white font-bold flex items-center gap-2 ck-title-15">
+                  <span class="ck-text-rose">📜</span>
                   <span data-ar="سجل وتقارير الهدر والتالف" data-en="Waste Ledger & Analytics">سجل وتقارير الهدر
                     والتالف</span>
                 </h3>
@@ -2124,7 +2124,7 @@
                 </p>
               </div>
               <div class="flex gap-2.5 flex-wrap items-center">
-                <select class="select" id="w-filter-reason" style="width:170px;height:38px" onchange="renderWaste()">
+                <select class="select ck-w-170-h38" id="w-filter-reason" onchange="renderWaste()">
                   <option value="" data-ar="جميع أسباب الهدر" data-en="All Reasons">جميع أسباب الهدر</option>
                   <option value="expired" data-ar="انتهاء صلاحية" data-en="Expired">انتهاء صلاحية</option>
                   <option value="cooking" data-ar="تلف الطبخ" data-en="Cooking">تلف الطبخ</option>
@@ -2132,34 +2132,34 @@
                   <option value="trimming" data-ar="هدر تقطيع" data-en="Trimming">هدر تقطيع</option>
                   <option value="other" data-ar="أسباب أخرى" data-en="Other">أسباب أخرى</option>
                 </select>
-                <input type="month" class="input" id="w-filter-month" style="width:150px;height:38px"
+                <input type="month" class="input ck-w-150-h38" id="w-filter-month"
                   onchange="renderWaste()" />
-                <button class="btn btn-secondary btn-sm" style="height:38px;padding:0 12px;border-radius:10px"
+                <button class="btn btn-secondary btn-sm ck-btn-h38-p12"
                   onclick="document.getElementById('w-filter-reason').value='';document.getElementById('w-filter-month').value='';renderWaste()"
                   data-ar="مسح الفلتر" data-en="Clear">مسح الفلتر</button>
               </div>
             </div>
 
-            <div class="tbl-wrap" style="max-height:480px;border-radius:10px;">
+            <div class="tbl-wrap ck-tbl-wrap-h480">
               <table class="tbl">
                 <thead>
                   <tr>
                     <th data-ar="التاريخ" data-en="Date">التاريخ</th>
                     <th data-ar="الخامة / المادة" data-en="Ingredient">الخامة / المادة</th>
-                    <th data-ar="الكمية التالفة" data-en="Qty Wasted" style="text-align:center">الكمية التالفة</th>
-                    <th data-ar="الوحدة" data-en="UOM" style="text-align:center">الوحدة</th>
-                    <th data-ar="سعر الوحدة" data-en="Unit Price" style="text-align:center">سعر الوحدة</th>
-                    <th data-ar="إجمالي الخسارة" data-en="Total Loss" style="text-align:center">إجمالي الخسارة</th>
-                    <th data-ar="سبب الهدر" data-en="Reason" style="text-align:center">سبب الهدر</th>
-                    <th data-ar="الإجراء" data-en="Action" style="text-align:center">الإجراء</th>
+                    <th data-ar="الكمية التالفة" data-en="Qty Wasted" class="ck-text-center">الكمية التالفة</th>
+                    <th data-ar="الوحدة" data-en="UOM" class="ck-text-center">الوحدة</th>
+                    <th data-ar="سعر الوحدة" data-en="Unit Price" class="ck-text-center">سعر الوحدة</th>
+                    <th data-ar="إجمالي الخسارة" data-en="Total Loss" class="ck-text-center">إجمالي الخسارة</th>
+                    <th data-ar="سبب الهدر" data-en="Reason" class="ck-text-center">سبب الهدر</th>
+                    <th data-ar="الإجراء" data-en="Action" class="ck-text-center">الإجراء</th>
                   </tr>
                 </thead>
                 <tbody id="waste-tbl"></tbody>
               </table>
             </div>
-            <div id="waste-empty" class="empty-state" style="display:none;padding:36px;text-align:center">
+            <div id="waste-empty" class="empty-state ck-empty-state-p36 ck-hidden">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 8px">
+                stroke-linecap="round" stroke-linejoin="round" class="ck-svg-center-margin">
                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                 <polyline points="22 4 12 14.01 9 11.01" />
               </svg>
@@ -2189,13 +2189,13 @@
             <div class="flex gap-3 flex-wrap items-center">
               <div>
                 <label class="text-muted text-sm block mb-1" data-ar="من تاريخ" data-en="From Date">من تاريخ</label>
-                <input type="date" class="input" id="ship-from" style="width:150px" onchange="renderShipments()" />
+                <input type="date" class="input ck-w-150" id="ship-from" onchange="renderShipments()" />
               </div>
               <div>
                 <label class="text-muted text-sm block mb-1" data-ar="إلى تاريخ" data-en="To Date">إلى تاريخ</label>
-                <input type="date" class="input" id="ship-to" style="width:150px" onchange="renderShipments()" />
+                <input type="date" class="input ck-w-150" id="ship-to" onchange="renderShipments()" />
               </div>
-              <div style="display:flex;flex-direction:column;gap:8px;margin-top:18px">
+              <div class="ck-flex-col-8 ck-mt-18">
                 <button class="btn btn-primary btn-sm" onclick="exportShipmentsExcel()">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -2220,13 +2220,13 @@
 
           <!-- Note about Taztiki Sauce -->
           <div
-            style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.2);margin-bottom:16px">
+            class="ck-flex-banner-purple">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2">
               <circle cx="12" cy="12" r="10" />
               <line x1="12" y1="8" x2="12" y2="12" />
               <line x1="12" y1="16" x2="12.01" y2="16" />
             </svg>
-            <span style="color:#c084fc;font-size:13px;font-weight:600"
+            <span class="ck-text-purple-13"
               data-ar="🧴 Burger Sauce (صوص البرجر) يظهر في شيت مستقل داخل ملف الإكسيل المصدّر — يدخل يدوياً أو من الخانة المحددة في شيت الفروع"
               data-en="🧴 Taztiki Sauce appears in a separate sheet in the exported Excel — can be entered manually or mapped from branches sheet">🧴
               Burger Sauce (صوص البرجر) يظهر في شيت مستقل داخل ملف الإكسيل المصدّر</span>
@@ -2235,7 +2235,7 @@
           <!-- Main table: Products × Days -->
           <div id="ship-table-wrap">
             <div class="tbl-wrap">
-              <table class="tbl" id="ship-main-table" style="min-width:800px">
+              <table class="tbl ck-tbl-min-800" id="ship-main-table">
                 <thead id="ship-thead"></thead>
                 <tbody id="ship-tbody"></tbody>
               </table>
@@ -2244,7 +2244,7 @@
         </div>
 
         <!-- Taztiki Sauce card (manual input section) -->
-        <div class="card" style="border:1px solid rgba(168,85,247,0.3);background:rgba(168,85,247,0.04)">
+        <div class="card ck-card-purple-subtle">
           <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
             <div>
               <h3 class="text-white font-bold flex items-center gap-2">
@@ -2284,7 +2284,7 @@
               <tbody id="taztiki-tbody"></tbody>
             </table>
           </div>
-          <div id="taztiki-empty" class="empty-state" style="display:none">
+          <div id="taztiki-empty" class="empty-state ck-hidden">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="1.5">
               <path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3" />
             </svg>
@@ -2316,11 +2316,11 @@
           </div>
         </div>
         <!-- Filter & Comparison Toolbar -->
-        <div class="card mb-4" style="padding:18px 20px;border-radius:16px;">
+        <div class="card mb-4 ck-card-pad">
           <div class="flex items-center justify-between flex-wrap gap-3">
             <div>
-              <h3 class="text-white font-bold flex items-center gap-2" style="font-size:16px">
-                <span style="color:#A78BFA">📊</span>
+              <h3 class="text-white font-bold flex items-center gap-2 ck-fs-16">
+                <span class="ck-text-violet">📊</span>
                 <span data-ar="لوحة المقارنات والتحليلات المتقدمة" data-en="Advanced Comparison Analytics">لوحة
                   المقارنات والتحليلات المتقدمة</span>
               </h3>
@@ -2334,18 +2334,18 @@
               <div>
                 <label class="text-muted text-xs block mb-1 font-bold" data-ar="الشهر الأول (الأساس)"
                   data-en="Base Month">الشهر الأول (الأساس)</label>
-                <input type="month" class="input" id="rep-m1" style="width:150px;height:38px"
+                <input type="month" class="input ck-w-150-h38" id="rep-m1"
                   onchange="renderReports()" />
               </div>
-              <div style="align-self:flex-end;padding-bottom:8px;font-size:15px;font-weight:800;color:#A78BFA">VS</div>
+              <div class="ck-stat-self-end-purple">VS</div>
               <div>
                 <label class="text-muted text-xs block mb-1 font-bold" data-ar="الشهر الثاني (المقارن)"
                   data-en="Comparison Month">الشهر الثاني (المقارن)</label>
-                <input type="month" class="input" id="rep-m2" style="width:150px;height:38px"
+                <input type="month" class="input ck-w-150-h38" id="rep-m2"
                   onchange="renderReports()" />
               </div>
-              <div style="align-self:flex-end">
-                <select class="select" id="rep-branch" style="width:180px;height:38px" onchange="renderReports()">
+              <div class="ck-self-end">
+                <select class="select ck-w-180-h38" id="rep-branch" onchange="renderReports()">
                   <option value="" data-ar="🏢 جميع الفروع" data-en="🏢 All Branches">🏢 جميع الفروع</option>
                 </select>
               </div>
@@ -2358,65 +2358,65 @@
 
         <!-- Charts Grid 1: Branch Orders Comparison & Waste Comparison -->
         <div class="g2 mb-4">
-          <div class="card" style="padding:18px 20px;border-radius:16px;">
+          <div class="card ck-card-pad">
             <div class="flex items-center justify-between mb-3">
-              <h3 class="text-white font-bold" style="font-size:14px" data-ar="🏢 مقارنة طلبات الفروع بين الشهرين"
+              <h3 class="text-white font-bold ck-title-14" data-ar="🏢 مقارنة طلبات الفروع بين الشهرين"
                 data-en="Branch Orders Comparison">🏢 مقارنة طلبات الفروع بين الشهرين</h3>
               <span class="badge badge-purple" data-ar="إجمالي الوحدات" data-en="Total Units">إجمالي الوحدات</span>
             </div>
-            <div style="height:250px;position:relative"><canvas id="ch-rep-branch"></canvas></div>
+            <div class="ck-chart-h250"><canvas id="ch-rep-branch"></canvas></div>
           </div>
 
-          <div class="card" style="padding:18px 20px;border-radius:16px;">
+          <div class="card ck-card-pad">
             <div class="flex items-center justify-between mb-3">
-              <h3 class="text-white font-bold" style="font-size:14px"
+              <h3 class="text-white font-bold ck-title-14"
                 data-ar="🗑️ مقارنة خسائر الهدر المالي بين الشهرين" data-en="Waste Loss Comparison">🗑️ مقارنة خسائر
                 الهدر المالي بين الشهرين</h3>
               <span class="badge badge-red" data-ar="بالجنيه" data-en="EGP">بالجنيه</span>
             </div>
-            <div style="height:250px;position:relative"><canvas id="ch-rep-waste"></canvas></div>
+            <div class="ck-chart-h250"><canvas id="ch-rep-waste"></canvas></div>
           </div>
         </div>
 
         <!-- Charts Grid 2: Top Products Trend & Cost Breakdown -->
         <div class="g2 mb-4">
-          <div class="card" style="padding:18px 20px;border-radius:16px;">
+          <div class="card ck-card-pad">
             <div class="flex items-center justify-between mb-3">
-              <h3 class="text-white font-bold" style="font-size:14px"
+              <h3 class="text-white font-bold ck-title-14"
                 data-ar="🥫 استهلاك الأصناف والتجهيزات الأكثر طلباً" data-en="Top CK Products Usage">🥫 استهلاك الأصناف
                 والتجهيزات الأكثر طلباً</h3>
               <span class="badge badge-blue" data-ar="مقارنة الكميات" data-en="Qty Comparison">مقارنة الكميات</span>
             </div>
-            <div style="height:250px;position:relative"><canvas id="ch-rep-prods"></canvas></div>
+            <div class="ck-chart-h250"><canvas id="ch-rep-prods"></canvas></div>
           </div>
 
-          <div class="card" style="padding:18px 20px;border-radius:16px;">
+          <div class="card ck-card-pad">
             <div class="flex items-center justify-between mb-3">
-              <h3 class="text-white font-bold" style="font-size:14px" data-ar="💰 توزيع الهدر مقابل تكلفة الإنتاج"
+              <h3 class="text-white font-bold ck-title-14" data-ar="💰 توزيع الهدر مقابل تكلفة الإنتاج"
                 data-en="Cost vs Waste Breakdown">💰 توزيع الهدر مقابل تكلفة الإنتاج</h3>
               <span class="badge badge-green" data-ar="نسبة التكاليف" data-en="Cost Ratio">نسبة التكاليف</span>
             </div>
-            <div style="height:250px;position:relative"><canvas id="ch-rep-cost"></canvas></div>
+            <div class="ck-chart-h250"><canvas id="ch-rep-cost"></canvas></div>
           </div>
         </div>
 
         <!-- Detailed Comparison Matrix Table -->
-        <div class="card" style="padding:18px 20px;border-radius:16px;">
-          <h3 class="text-white font-bold mb-3" style="font-size:15px"
+        <div class="card ck-card-pad">
+          <h3 class="text-white font-bold mb-3 ck-title-15"
             data-ar="📋 جدول المقارنة التفصيلي ومؤشرات النمو/الانخفاض"
             data-en="Detailed Comparison Matrix & Growth Indicators">📋 جدول المقارنة التفصيلي ومؤشرات النمو/الانخفاض
           </h3>
-          <div class="tbl-wrap" style="max-height:480px;border-radius:10px;">
+          <div class="tbl-wrap ck-tbl-wrap-h480">
             <table class="tbl">
               <thead>
                 <tr>
                   <th data-ar="البيان / المعيار" data-en="Metric / Branch">البيان / المعيار</th>
-                  <th id="rep-th-m1" data-ar="الشهر الأول" data-en="Month 1" style="text-align:center">الشهر الأول</th>
-                  <th id="rep-th-m2" data-ar="الشهر الثاني" data-en="Month 2" style="text-align:center">الشهر الثاني
+                  <th id="rep-th-m1" data-ar="الشهر الأول" data-en="Month 1" class="ck-text-center">الشهر الأول</th>
+                  <th id="rep-th-m2" data-ar="الشهر الثاني" data-en="Month 2" class="ck-text-center">الشهر الثاني
                   </th>
-                  <th data-ar="الفارق العددي" data-en="Difference" style="text-align:center">الفارق العددي</th>
-                  <th data-ar="نسبة التغير" data-en="% Change" style="text-align:center">نسبة التغير</th>
-                  <th data-ar="المؤشر والتأثير" data-en="Status Indicator" style="text-align:center">المؤشر والتأثير
+                  <th data-ar="الفارق العددي" data-en="Difference" class="ck-text-center">الفارق العددي</th>
+                  <th data-ar="نسبة التغير" data-en="% Change" class="ck-text-center">نسبة التغير</th>
+                  <th data-ar="المؤشر والتأثير" data-en="Status Indicator" class="ck-text-center">المؤشر والتأثير
                   </th>
                 </tr>
               </thead>
@@ -2436,12 +2436,12 @@
       <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
       <polyline points="22 4 12 14.01 9 11.01" />
     </svg>
-    <span id="t-msg" style="font-size:13.5px;font-weight:600;color:#fff"></span>
+    <span id="t-msg" class="ck-fs-135-white-semibold"></span>
   </div>
 
   <!-- MODAL: RECEIVE PO — ENTER INVOICE NUMBER -->
   <div class="modal-overlay" id="modal-receive">
-    <div class="modal" style="max-width:460px">
+    <div class="modal ck-modal-460">
       <div class="modal-header">
         <h3 class="modal-title">🧾 <span data-ar="استلام شحنة من المورد" data-en="Receive Supplier Shipment">استلام شحنة
             من المورد</span></h3>
@@ -2450,16 +2450,16 @@
       <div class="sy4">
         <input type="hidden" id="receive-po-idx" />
         <div
-          style="background:rgba(249,115,22,0.08);border:1px solid rgba(249,115,22,0.2);border-radius:12px;padding:14px">
-          <div class="text-muted text-sm" style="margin-bottom:6px" data-ar="تفاصيل الشحنة" data-en="Shipment Details">
+          class="ck-box-warning-subtle">
+          <div class="text-muted text-sm ck-mb-6" data-ar="تفاصيل الشحنة" data-en="Shipment Details">
             تفاصيل الشحنة</div>
-          <div id="receive-po-details" style="color:#fff;font-size:14px;font-weight:600"></div>
+          <div id="receive-po-details" class="ck-text-white-14"></div>
         </div>
         <div>
           <label class="field-label">🔢 <span data-ar="رقم الفاتورة من المورد (مطلوب)"
               data-en="Supplier Invoice Number (Required)">رقم الفاتورة من المورد (مطلوب)</span></label>
           <input class="input" id="invoice-number" placeholder="مثال: INV-2024-0091"
-            style="font-size:16px;font-weight:700;letter-spacing:0.05em" />
+            class="ck-input-code-large" />
         </div>
         <div class="g2">
           <div>
@@ -2480,7 +2480,7 @@
           <label class="field-label" data-ar="ملاحظات (اختياري)" data-en="Notes (optional)">ملاحظات (اختياري)</label>
           <textarea class="textarea" rows="2" id="invoice-notes" placeholder="ملاحظات الاستلام..."></textarea>
         </div>
-        <div class="flex gap-3" style="justify-content:flex-end">
+        <div class="flex gap-3 ck-justify-end">
           <button class="btn btn-secondary" onclick="closeModal('modal-receive')" data-ar="إلغاء"
             data-en="Cancel">إلغاء</button>
           <button class="btn btn-primary" onclick="confirmReceivePO()">
@@ -2515,7 +2515,7 @@
             <input class="input" id="ing-en" placeholder="e.g. Minced Meat" />
           </div>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+        <div class="ck-grid-3-12">
           <div>
             <label class="field-label" data-ar="وحدة القياس" data-en="UOM">وحدة القياس</label>
             <select class="select" id="ing-uom">
@@ -2545,7 +2545,7 @@
             <input class="input" id="ing-sup" placeholder="اسم شركة التوريد" />
           </div>
         </div>
-        <div class="flex gap-3" style="justify-content:flex-end">
+        <div class="flex gap-3 ck-justify-end">
           <button class="btn btn-secondary" onclick="closeModal('modal-ing')" data-ar="إلغاء"
             data-en="Cancel">إلغاء</button>
           <button class="btn btn-primary" onclick="saveIngredient()"><span data-ar="حفظ المادة"
@@ -2557,7 +2557,7 @@
 
   <!-- MODAL: ADD PRODUCT -->
   <div class="modal-overlay" id="modal-prod">
-    <div class="modal" style="max-width:440px">
+    <div class="modal ck-modal-440">
       <div class="modal-header">
         <h3 class="modal-title" data-ar="إضافة تجهيز مطبخ مركزي جديد" data-en="New Central Kitchen Product">إضافة تجهيز
           مطبخ مركزي جديد</h3>
@@ -2590,10 +2590,10 @@
           <div>
             <label class="field-label" data-ar="لون التمييز" data-en="Color Tag">لون التمييز</label>
             <input type="color" class="input" id="prod-color" value="#f97316"
-              style="height:44px;padding:4px;cursor:pointer" />
+              class="ck-input-color-picker" />
           </div>
         </div>
-        <div class="flex gap-3" style="justify-content:flex-end">
+        <div class="flex gap-3 ck-justify-end">
           <button class="btn btn-secondary" onclick="closeModal('modal-prod')" data-ar="إلغاء"
             data-en="Cancel">إلغاء</button>
           <button class="btn btn-primary" onclick="saveProduct()"><span data-ar="إنشاء التجهيز"
@@ -2605,7 +2605,7 @@
 
   <!-- MODAL: EDIT STOCK -->
   <div class="modal-overlay" id="modal-stock">
-    <div class="modal" style="max-width:380px">
+    <div class="modal ck-modal-380">
       <div class="modal-header">
         <h3 class="modal-title" id="stock-modal-title" data-ar="تحديث رصيد المخزون" data-en="Update Stock Level">تحديث
           رصيد المخزون</h3>
@@ -2623,7 +2623,7 @@
             data-en="Safety Stock Level">حد الأمان (الحد الأدنى)</label>
           <input class="input" type="number" min="0" step="0.1" id="stock-safety" />
         </div>
-        <div class="flex gap-3" style="justify-content:flex-end">
+        <div class="flex gap-3 ck-justify-end">
           <button class="btn btn-secondary" onclick="closeModal('modal-stock')" data-ar="إلغاء"
             data-en="Cancel">إلغاء</button>
           <button class="btn btn-primary" onclick="saveStock()"><span data-ar="حفظ التعديل" data-en="Save Changes">حفظ
@@ -2651,7 +2651,7 @@
 
   <!-- MODAL: PRINT OFFICIAL PO VOUCHER -->
   <div class="modal-overlay" id="modal-print-po">
-    <div class="modal" style="max-width:720px;padding:20px;background:#0b1120">
+    <div class="modal ck-modal-po-print">
       <div class="flex items-center justify-between mb-3">
         <h3 class="text-white font-bold flex items-center gap-2">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2">
@@ -2679,54 +2679,54 @@
       <div id="printable-area">
         <div class="voucher-sheet">
           <div class="voucher-header">
-            <div style="display:flex;align-items:center;gap:14px">
+            <div class="ck-flex-gap-14">
               <img src="images.png" alt="Community Restaurants"
-                style="width:64px;height:64px;object-fit:contain;border-radius:8px;border:1px solid #e2e8f0;padding:2px" />
+                class="ck-po-print-logo" />
               <div>
-                <h2 style="font-size:20px;font-weight:900;color:#0f172a;margin:0">COMMUNITY RESTAURANTS</h2>
-                <div style="font-size:13px;font-weight:700;color:#f97316">إدارة المطبخ المركزي — Central Kitchen
+                <h2 class="ck-po-print-brand-title">COMMUNITY RESTAURANTS</h2>
+                <div class="ck-po-print-brand-sub">إدارة المطبخ المركزي — Central Kitchen
                   Management</div>
-                <div style="font-size:11px;color:#64748b;margin-top:2px">أمر توريد وشراء خامات ومواد تشغيل</div>
+                <div class="ck-po-print-dim">أمر توريد وشراء خامات ومواد تشغيل</div>
               </div>
             </div>
-            <div style="text-align:end">
-              <div style="font-size:16px;font-weight:900;color:#0f172a" id="pr-po-number">PO-1001</div>
-              <div style="font-size:12px;color:#64748b" id="pr-po-date">التاريخ: 2026-08-28</div>
+            <div class="ck-text-end">
+              <div class="ck-po-print-bold-title" id="pr-po-number">PO-1001</div>
+              <div class="ck-po-print-meta" id="pr-po-date">التاريخ: 2026-08-28</div>
               <span
-                style="display:inline-block;padding:2px 8px;border-radius:12px;background:#fef3c7;color:#d97706;font-size:11px;font-weight:700;margin-top:4px"
+                class="ck-po-print-status-badge"
                 id="pr-po-status">معتمد للطلب</span>
             </div>
           </div>
 
           <div
-            style="display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#f8fafc;padding:12px;border-radius:8px;margin-bottom:16px;font-size:12.5px">
+            class="ck-po-print-vendor-grid">
             <div><strong>المورد المعتمد:</strong> <span id="pr-po-sup">—</span></div>
             <div><strong>درجة الأولوية:</strong> <span id="pr-po-priority">—</span></div>
           </div>
 
-          <table style="width:100%;border-collapse:collapse;margin-bottom:20px;font-size:13px">
+          <table class="ck-po-print-table">
             <thead>
-              <tr style="background:#f1f5f9;border-bottom:2px solid #cbd5e1;text-align:start">
-                <th style="padding:8px 10px">#</th>
-                <th style="padding:8px 10px">المادة الخام / الصنف</th>
-                <th style="padding:8px 10px">الكمية المطلوبة</th>
-                <th style="padding:8px 10px">الوحدة</th>
-                <th style="padding:8px 10px">سعر الوحدة التقريبي</th>
-                <th style="padding:8px 10px">إجمالي القيمة</th>
+              <tr class="ck-po-print-th-row">
+                <th class="ck-cell-pad-sm">#</th>
+                <th class="ck-cell-pad-sm">المادة الخام / الصنف</th>
+                <th class="ck-cell-pad-sm">الكمية المطلوبة</th>
+                <th class="ck-cell-pad-sm">الوحدة</th>
+                <th class="ck-cell-pad-sm">سعر الوحدة التقريبي</th>
+                <th class="ck-cell-pad-sm">إجمالي القيمة</th>
               </tr>
             </thead>
             <tbody id="pr-po-items"></tbody>
           </table>
 
           <div
-            style="display:flex;justify-content:space-between;margin-top:40px;padding-top:20px;border-top:1px dashed #cbd5e1;font-size:12px">
-            <div style="text-align:center;width:180px">
-              <div style="font-weight:700;margin-bottom:30px">توقيع مسؤول المطبخ المركزي</div>
-              <div style="border-bottom:1px solid #94a3b8;width:100%"></div>
+            class="ck-po-print-signature-row">
+            <div class="ck-po-print-sig-col">
+              <div class="ck-po-print-sig-label">توقيع مسؤول المطبخ المركزي</div>
+              <div class="ck-po-print-sig-line"></div>
             </div>
-            <div style="text-align:center;width:180px">
-              <div style="font-weight:700;margin-bottom:30px">استلام وتوقيع مندوب المورد</div>
-              <div style="border-bottom:1px solid #94a3b8;width:100%"></div>
+            <div class="ck-po-print-sig-col">
+              <div class="ck-po-print-sig-label">استلام وتوقيع مندوب المورد</div>
+              <div class="ck-po-print-sig-line"></div>
             </div>
           </div>
         </div>

@@ -2505,3 +2505,324 @@
       }
     }
 
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   MODULAR & REUSABLE CLASS ARCHITECTURE (.ck-* & Component Classes)
+   Pure Class-Based System Extracted from HTML Markup
+══════════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Layout & Containers ────────────────────────────────────────────── */
+.ck-card-pad          { padding: 18px 20px !important; border-radius: 16px !important; }
+.ck-card-pad-sm       { padding: 14px 18px !important; border-radius: 16px !important; }
+.ck-card-pad-simple   { padding: 18px 20px !important; }
+.ck-card-pad-lg       { padding: 20px !important; border-radius: 16px !important; }
+.ck-card-violet-glow  { border: 1px solid rgba(124, 58, 237, 0.35) !important; box-shadow: 0 0 30px rgba(124, 58, 237, 0.1) !important; }
+.ck-card-purple-subtle{ border: 1px solid rgba(168, 85, 247, 0.3) !important; background: rgba(168, 85, 247, 0.04) !important; }
+.ck-subpanel-card     { background: rgba(255, 255, 255, 0.03) !important; border: 1px solid rgba(255, 255, 255, 0.07) !important; border-radius: 12px !important; padding: 10px 12px !important; }
+.ck-subpanel-dark     { background: rgba(0, 0, 0, 0.22) !important; border: 1px solid rgba(255, 255, 255, 0.06) !important; border-radius: 10px !important; padding: 10px 12px !important; }
+.ck-box-violet-subtle { background: rgba(124, 58, 237, 0.08) !important; border: 1px solid rgba(124, 58, 237, 0.2) !important; border-radius: 8px !important; padding: 10px 12px !important; margin-bottom: 10px !important; }
+.ck-box-violet-order  { background: rgba(255, 255, 255, 0.03) !important; border: 1px solid rgba(124, 58, 237, 0.25) !important; border-radius: 14px !important; padding: 16px 18px !important; }
+.ck-box-violet-cost   { background: rgba(124, 58, 237, 0.12) !important; border-radius: 8px !important; padding: 8px 12px !important; }
+.ck-box-recipe-target { background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.85)) !important; border: 1px solid rgba(56, 189, 248, 0.22) !important; border-radius: 14px !important; padding: 16px !important; margin-bottom: 18px !important; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25) !important; }
+.ck-box-batch-sim     { background: rgba(15, 23, 42, 0.7) !important; border: 1px solid rgba(56, 189, 248, 0.25) !important; border-radius: 12px !important; padding: 16px !important; margin-bottom: 14px !important; }
+.ck-box-warning-subtle{ background: rgba(249, 115, 22, 0.08) !important; border: 1px solid rgba(249, 115, 22, 0.2) !important; border-radius: 12px !important; padding: 14px !important; }
+.ck-box-danger-glass  { padding: 20px !important; border-radius: 16px !important; border: 1px solid rgba(239, 68, 68, 0.3) !important; background: linear-gradient(135deg, rgba(239, 68, 68, 0.06), rgba(15, 23, 42, 0.95)) !important; }
+.ck-card-order-entry-violet { max-width: 850px !important; margin: 0 auto !important; padding: 24px 28px !important; border-radius: 18px !important; border: 1px solid rgba(124, 58, 237, 0.35) !important; background: linear-gradient(135deg, rgba(124, 58, 237, 0.06), rgba(15, 23, 42, 0.95)) !important; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5) !important; }
+.ck-card-order-entry-purple { max-width: 850px !important; margin: 0 auto !important; padding: 24px 28px !important; border-radius: 18px !important; border: 1px solid rgba(139, 92, 246, 0.35) !important; background: linear-gradient(135deg, rgba(124, 58, 237, 0.06), rgba(15, 23, 42, 0.95)) !important; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5) !important; }
+.ck-recipe-sidebar-col{ height: fit-content !important; max-height: 720px !important; display: flex !important; flex-direction: column !important; }
+.ck-recipe-list-scroll{ flex: 1 !important; overflow-y: auto !important; max-height: 500px !important; padding-inline-end: 4px !important; }
+
+/* ── 2. Flex & Grid Layouts ────────────────────────────────────────────── */
+.ck-flex-gap-4        { display: flex !important; gap: 4px !important; }
+.ck-flex-gap-6        { display: flex !important; gap: 6px !important; align-items: center !important; }
+.ck-flex-gap-8        { display: flex !important; gap: 8px !important; align-items: center !important; }
+.ck-flex-gap-10       { display: flex !important; gap: 10px !important; align-items: center !important; }
+.ck-flex-gap-14       { display: flex !important; gap: 14px !important; align-items: center !important; }
+.ck-flex-wrap         { flex-wrap: wrap !important; }
+.ck-flex-wrap-8       { display: flex !important; flex-wrap: wrap !important; gap: 8px !important; }
+.ck-flex-banner-purple{ display: flex !important; align-items: center !important; gap: 10px !important; padding: 10px 14px !important; border-radius: 10px !important; background: rgba(168, 85, 247, 0.08) !important; border: 1px solid rgba(168, 85, 247, 0.2) !important; margin-bottom: 16px !important; }
+.ck-flex-tab-bar-border{ display: flex !important; gap: 8px !important; border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important; padding-bottom: 10px !important; margin-bottom: 14px !important; }
+.ck-flex-col-6        { display: flex !important; flex-direction: column !important; gap: 6px !important; }
+.ck-flex-col-8        { display: flex !important; flex-direction: column !important; gap: 8px !important; }
+.ck-flex-col-10       { display: flex !important; flex-direction: column !important; gap: 10px !important; }
+.ck-flex-col-11       { display: flex !important; flex-direction: column !important; gap: 11px !important; }
+.ck-flex-col-12       { display: flex !important; flex-direction: column !important; gap: 12px !important; }
+.ck-flex-col-16       { display: flex !important; flex-direction: column !important; gap: 16px !important; }
+.ck-bom-ing-preview-box{ display: flex !important; flex-direction: column !important; gap: 6px !important; font-size: 11.5px !important; margin-bottom: 12px !important; min-height: 90px !important; max-height: 130px !important; overflow-y: auto !important; }
+.ck-flex-between      { display: flex !important; justify-content: space-between !important; align-items: center !important; }
+.ck-flex-between-wrap { display: flex !important; justify-content: space-between !important; align-items: center !important; flex-wrap: wrap !important; gap: 8px !important; }
+.ck-flex-between-wrap-10 { display: flex !important; justify-content: space-between !important; align-items: center !important; flex-wrap: wrap !important; gap: 10px !important; }
+.ck-flex-between-border-b{ display: flex !important; justify-content: space-between !important; align-items: center !important; padding-bottom: 6px !important; border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important; }
+.ck-segmented-pills-bar{ display: flex !important; background: rgba(0, 0, 0, 0.35) !important; padding: 4px !important; border-radius: 12px !important; gap: 4px !important; margin-bottom: 14px !important; border: 1px solid rgba(255, 255, 255, 0.06) !important; }
+.ck-grid-2-10         { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+.ck-grid-2-14         { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 14px !important; }
+.ck-grid-3-12         { display: grid !important; grid-template-columns: 1fr 1fr 1fr !important; gap: 12px !important; }
+.ck-grid-auto-210     { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)) !important; gap: 14px !important; }
+.ck-grid-2-border-top { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 10px !important; margin-top: 8px !important; border-top: 1px solid rgba(255, 255, 255, 0.08) !important; padding-top: 12px !important; }
+.ck-grid-110-1fr      { display: grid !important; grid-template-columns: 110px 1fr !important; gap: 8px !important; }
+.ck-grid-order-row    { display: grid !important; grid-template-columns: 1fr 110px auto !important; gap: 10px !important; align-items: center !important; }
+.ck-grid-280-1fr      { display: grid !important; grid-template-columns: 280px 1fr !important; gap: 20px !important; }
+.ck-grid-380-1fr      { display: grid !important; grid-template-columns: 380px 1fr !important; gap: 20px !important; align-items: start !important; }
+
+/* ── 3. Charts & Visual Elements ────────────────────────────────────────── */
+.ck-chart-h250        { height: 250px !important; position: relative !important; }
+.ck-chart-h210        { height: 210px !important; position: relative !important; }
+.ck-chart-h80         { height: 80px !important; margin-bottom: 12px !important; position: relative !important; }
+.ck-svg-center-margin { margin: 0 auto 8px !important; }
+.ck-banner-cyan-peak  { margin-top: 10px !important; padding: 6px 10px !important; background: rgba(6, 182, 212, 0.1) !important; border: 1px solid rgba(6, 182, 212, 0.2) !important; border-radius: 8px !important; display: flex !important; align-items: center !important; justify-content: space-between !important; }
+
+/* ── 4. Forms, Inputs & Selects ────────────────────────────────────────── */
+.ck-input-w-full-h38  { width: 100% !important; height: 38px !important; box-sizing: border-box !important; }
+.ck-input-w-full-h40  { width: 100% !important; height: 40px !important; box-sizing: border-box !important; }
+.ck-input-w-full-h42  { width: 100% !important; height: 42px !important; box-sizing: border-box !important; }
+.ck-input-w-full-h36  { width: 100% !important; height: 36px !important; box-sizing: border-box !important; }
+.ck-w-full-box        { width: 100% !important; box-sizing: border-box !important; }
+.ck-input-w-full-h38-fs12 { width: 100% !important; height: 38px !important; font-size: 12px !important; box-sizing: border-box !important; }
+.ck-input-w-full-h38-fs125{ width: 100% !important; height: 38px !important; font-size: 12.5px !important; box-sizing: border-box !important; }
+.ck-input-w-full-h38-fw700{ width: 100% !important; height: 38px !important; font-weight: 700 !important; box-sizing: border-box !important; }
+.ck-input-w-full-h42-center{ width: 100% !important; height: 42px !important; text-align: center !important; font-weight: 700 !important; box-sizing: border-box !important; }
+.ck-search-inp-styled { width: 100% !important; height: 42px !important; padding-inline-start: 40px !important; padding-inline-end: 14px !important; box-sizing: border-box !important; }
+.ck-input-pr34-h40    { width: 100% !important; height: 40px !important; padding-right: 34px !important; box-sizing: border-box !important; }
+.ck-input-pr32-h38    { height: 38px !important; padding-right: 32px !important; box-sizing: border-box !important; }
+.ck-input-flex-h38-fw700 { flex: 1 !important; height: 38px !important; font-size: 14px !important; font-weight: 700 !important; box-sizing: border-box !important; }
+.ck-input-pad-sm      { padding: 6px 10px !important; font-size: 12px !important; }
+.ck-cell-pad-sm       { padding: 8px 10px !important; }
+.ck-w-150-h38         { width: 150px !important; height: 38px !important; }
+.ck-w-160-h38         { width: 160px !important; height: 38px !important; }
+.ck-w-170-h38         { width: 170px !important; height: 38px !important; }
+.ck-w-180-h38         { width: 180px !important; height: 38px !important; }
+.ck-w-200-h38         { width: 200px !important; height: 38px !important; }
+.ck-w-150             { width: 150px !important; }
+.ck-w-160             { width: 160px !important; }
+.ck-w-200             { width: 200px !important; }
+.ck-select-cs-cat     { min-width: 200px !important; width: auto !important; flex: 0 0 auto !important; height: 42px !important; }
+.ck-select-cs-status  { min-width: 190px !important; width: auto !important; flex: 0 0 auto !important; height: 42px !important; }
+.ck-input-dark-sm     { width: 100% !important; background: rgba(11, 14, 20, 0.9) !important; border: 1px solid #1E2340 !important; border-radius: 6px !important; color: #fff !important; font-size: 12px !important; padding: 6px 10px !important; outline: none !important; }
+.ck-input-dark-w150   { background: rgba(11, 14, 20, 0.9) !important; border: 1px solid #1E2340 !important; border-radius: 6px !important; color: #fff !important; font-size: 11.5px !important; padding: 4px 10px !important; width: 150px !important; outline: none !important; }
+.ck-input-dark-w80-cyan { width: 80px !important; background: rgba(11, 14, 20, 0.9) !important; border: 1px solid #1E2340 !important; border-radius: 6px !important; color: #06B6D4 !important; font-size: 12px !important; font-weight: 700 !important; padding: 4px 8px !important; text-align: center !important; outline: none !important; }
+.ck-accent-violet     { accent-color: #7C3AED !important; }
+
+/* ── 5. Form Labels ─────────────────────────────────────────────────────── */
+.ck-label-std-sm      { font-size: 11px !important; font-weight: 700 !important; color: #cbd5e1 !important; margin-bottom: 4px !important; display: block !important; }
+.ck-label-std         { font-size: 11.5px !important; font-weight: 700 !important; color: #cbd5e1 !important; margin-bottom: 4px !important; display: block !important; }
+.ck-label-std-md      { font-size: 12px !important; font-weight: 700 !important; color: #cbd5e1 !important; margin-bottom: 6px !important; display: block !important; }
+.ck-label-violet-md   { font-size: 12px !important; font-weight: 700 !important; color: #C4B5FD !important; margin-bottom: 8px !important; display: block !important; }
+.ck-label-violet-sm   { color: #8B5CF6 !important; font-size: 10.5px !important; font-weight: 700 !important; display: block !important; margin-bottom: 4px !important; }
+.ck-label-clickable   { color: #cbd5e1 !important; cursor: pointer !important; }
+
+/* ── 6. Buttons & Interactive Controls ──────────────────────────────────── */
+.ck-rounded-8         { border-radius: 8px !important; }
+.ck-btn-h38           { height: 38px !important; padding: 0 14px !important; border-radius: 10px !important; }
+.ck-btn-h40           { height: 40px !important; padding: 0 14px !important; border-radius: 10px !important; }
+.ck-btn-h38-p12       { height: 38px !important; padding: 0 12px !important; border-radius: 10px !important; }
+.ck-btn-h44-p20       { height: 44px !important; padding: 0 20px !important; border-radius: 12px !important; }
+.ck-btn-h38-center    { height: 38px !important; justify-content: center !important; border-radius: 10px !important; }
+.ck-btn-primary-gradient { background: linear-gradient(135deg, #7C3AED, #6D28D9) !important; border: none !important; box-shadow: 0 0 12px rgba(124, 58, 237, 0.35) !important; }
+.ck-btn-primary-gradient-h38 { height: 38px !important; padding: 0 14px !important; border-radius: 10px !important; background: linear-gradient(135deg, #7C3AED, #6D28D9) !important; border: none !important; box-shadow: 0 0 12px rgba(124, 58, 237, 0.35) !important; }
+.ck-btn-primary-gradient-h40 { height: 40px !important; padding: 0 14px !important; background: linear-gradient(135deg, #7C3AED, #6D28D9) !important; color: #fff !important; border: none !important; border-radius: 10px !important; font-weight: 700 !important; box-shadow: 0 0 12px rgba(124, 58, 237, 0.35) !important; }
+.ck-btn-primary-gradient-h42 { height: 42px !important; padding: 0 18px !important; background: linear-gradient(135deg, #7C3AED, #6D28D9) !important; color: #fff !important; border: none !important; border-radius: 10px !important; font-weight: 700 !important; box-shadow: 0 0 12px rgba(124, 58, 237, 0.3) !important; }
+.ck-btn-primary-gradient-h38-simple { height: 38px !important; justify-content: center !important; background: linear-gradient(135deg, #7C3AED, #6D28D9) !important; border: none !important; border-radius: 10px !important; font-weight: 700 !important; }
+.ck-btn-primary-gradient-h44-flex { flex: 1 !important; height: 44px !important; font-size: 14px !important; font-weight: 800 !important; justify-content: center !important; background: linear-gradient(135deg, #7C3AED, #6D28D9) !important; border: none !important; border-radius: 12px !important; box-shadow: 0 0 18px rgba(124, 58, 237, 0.4) !important; }
+.ck-btn-primary-gradient-h42-full { width: 100% !important; height: 42px !important; font-weight: 800 !important; font-size: 13px !important; justify-content: center !important; margin-top: 4px !important; background: linear-gradient(135deg, #7C3AED, #6D28D9) !important; border: none !important; box-shadow: 0 0 15px rgba(124, 58, 237, 0.4) !important; cursor: pointer !important; }
+.ck-btn-pill-primary-cta { width: 100% !important; background: linear-gradient(135deg, #7C3AED, #8B5CF6) !important; color: #fff !important; font-size: 12.5px !important; font-weight: 800 !important; padding: 11px !important; border-radius: 9999px !important; border: none !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: center !important; gap: 7px !important; box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4) !important; transition: all 0.2s !important; }
+.ck-btn-orange-gradient { padding: 8px 14px !important; font-weight: 700 !important; background: linear-gradient(135deg, #f97316, #ea580c) !important; border: none !important; box-shadow: 0 4px 14px rgba(249, 115, 22, 0.25) !important; border-radius: 8px !important; }
+.ck-btn-cyan-gradient   { background: linear-gradient(135deg, #0ea5e9, #0284c7) !important; font-weight: 800 !important; box-shadow: 0 4px 14px rgba(14, 165, 233, 0.3) !important; }
+.ck-btn-danger-gradient-h42 { height: 42px !important; justify-content: center !important; background: linear-gradient(135deg, #ef4444, #dc2626) !important; border: none !important; border-radius: 10px !important; font-weight: 800 !important; box-shadow: 0 0 15px rgba(239, 68, 68, 0.35) !important; }
+.ck-btn-danger-subtle-h40 { height: 40px !important; padding: 0 12px !important; background: rgba(239, 68, 68, 0.12) !important; border: 1px solid rgba(239, 68, 68, 0.3) !important; color: #f87171 !important; border-radius: 10px !important; font-weight: 700 !important; }
+.ck-btn-danger-subtle-h40-show { height: 40px !important; padding: 0 12px !important; background: rgba(239, 68, 68, 0.15) !important; border: 1px solid rgba(239, 68, 68, 0.35) !important; color: #ef4444 !important; border-radius: 10px !important; font-weight: 800 !important; }
+.ck-btn-upload-drop-zone { height: 44px !important; justify-content: center !important; background: rgba(124, 58, 237, 0.2) !important; border: 1px solid rgba(139, 92, 246, 0.4) !important; color: #C4B5FD !important; font-weight: 700 !important; font-size: 13px !important; border-radius: 12px !important; transition: all 0.2s ease !important; }
+.ck-btn-cyan-subtle-h38 { width: 100% !important; height: 38px !important; margin-top: 6px !important; background: rgba(6, 182, 212, 0.15) !important; border: 1px solid rgba(6, 182, 212, 0.35) !important; color: #06b6d4 !important; font-weight: 700 !important; font-size: 12.5px !important; justify-content: center !important; border-radius: 8px !important; }
+.ck-btn-stepper-unit    { height: 38px !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0 12px !important; font-size: 12px !important; font-weight: 700 !important; min-width: 54px !important; border-radius: 8px !important; background: rgba(124, 58, 237, 0.2) !important; border: 1px solid rgba(139, 92, 246, 0.3) !important; color: #C4B5FD !important; }
+.ck-btn-stepper-unit-sm { height: 38px !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0 10px !important; font-size: 11px !important; }
+.ck-chip-pad-sm         { font-size: 10.5px !important; padding: 3px 8px !important; }
+.ck-btn-del-chip        { font-size: 10.5px !important; padding: 2px 8px !important; background: rgba(239, 68, 68, 0.15) !important; color: #f87171 !important; border: none !important; border-radius: 6px !important; }
+.ck-input-color-picker  { height: 44px !important; padding: 4px !important; cursor: pointer !important; }
+
+/* ── 7. Data Tables & Wrappers ──────────────────────────────────────────── */
+.ck-tbl-wrap-h480     { max-height: 480px !important; border-radius: 10px !important; }
+.ck-tbl-wrap-h500     { max-height: 500px !important; border-radius: 10px !important; }
+.ck-tbl-wrap-h450     { max-height: 450px !important; border-radius: 10px !important; }
+.ck-tbl-wrap-h460     { max-height: 460px !important; border-radius: 10px !important; }
+.ck-tbl-wrap-h380     { max-height: 380px !important; border-radius: 10px !important; }
+.ck-tbl-wrap-h280     { max-height: 280px !important; overflow-y: auto !important; }
+.ck-tbl-wrap-h300     { max-height: 300px !important; overflow-y: auto !important; overflow-x: auto !important; }
+.ck-tbl-wrap-h360     { max-height: 360px !important; }
+.ck-tbl-wrap-h540     { max-height: 540px !important; border-radius: 10px !important; }
+.ck-tbl-wrap-h220     { max-height: 220px !important; margin-bottom: 14px !important; border-radius: 8px !important; }
+.ck-tbl-wrap-h190     { max-height: 190px !important; border-radius: 8px !important; }
+.ck-raw-preview-list-scroll { max-height: 260px !important; overflow-y: auto !important; display: flex !important; flex-direction: column !important; gap: 6px !important; }
+.ck-tbl-min-800       { min-width: 800px !important; }
+.ck-tbl-fs13          { font-size: 13px !important; }
+.ck-tr-border-b       { border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important; }
+.ck-tr-bg-subtle      { background: rgba(255, 255, 255, 0.03) !important; }
+.ck-scroll-x-p4       { overflow-x: auto !important; padding-bottom: 4px !important; }
+
+/* ── 8. Table Columns & Sizing ──────────────────────────────────────────── */
+.ck-th-w35-center     { width: 35px !important; text-align: center !important; padding: 6px 4px !important; }
+.ck-th-w40            { width: 40px !important; }
+.ck-th-w45-center     { width: 45px !important; text-align: center !important; }
+.ck-th-w55-center     { width: 55px !important; text-align: center !important; padding: 6px 6px !important; }
+.ck-th-w70-center     { width: 70px !important; text-align: center !important; }
+.ck-th-w80            { width: 80px !important; }
+.ck-th-w80-center     { width: 80px !important; text-align: center !important; padding: 6px 6px !important; }
+.ck-th-w85-center     { width: 85px !important; text-align: center !important; padding: 6px 8px !important; }
+.ck-th-w100           { width: 100px !important; }
+.ck-th-w100-center    { width: 100px !important; text-align: center !important; }
+.ck-th-w105           { width: 105px !important; }
+.ck-th-w110           { width: 110px !important; }
+.ck-input-sim-qty     { width: 110px !important; text-align: center !important; font-size: 15px !important; font-weight: 800 !important; color: #38bdf8 !important; }
+.ck-th-w115-center    { width: 115px !important; text-align: center !important; }
+.ck-th-w120           { width: 120px !important; }
+.ck-th-w125-center    { width: 125px !important; text-align: center !important; }
+.ck-th-w130           { width: 130px !important; }
+.ck-th-w130-center    { width: 130px !important; text-align: center !important; }
+.ck-th-w140           { width: 140px !important; }
+.ck-th-min-w120       { min-width: 120px !important; }
+.ck-th-min-w140       { min-width: 140px !important; }
+.ck-th-cyan-bold      { text-align: center !important; color: #38bdf8 !important; font-weight: 800 !important; }
+.ck-th-green-bold     { text-align: center !important; color: #4ade80 !important; }
+.ck-th-item-right     { text-align: right !important; padding: 6px 10px !important; }
+
+/* ── 9. Badges, Chips & Status Pills ────────────────────────────────────── */
+.ck-badge-bold-sm     { font-size: 11px !important; font-weight: 700 !important; }
+.ck-badge-bolder-sm   { font-size: 11px !important; font-weight: 800 !important; }
+.ck-badge-fs12        { font-size: 12px !important; }
+.ck-badge-pill-md     { font-size: 11.5px !important; padding: 4px 10px !important; border-radius: 8px !important; }
+.ck-badge-pill-lg     { font-size: 11.5px !important; padding: 5px 12px !important; border-radius: 8px !important; }
+.ck-chip-mr-6         { font-size: 11.5px !important; margin-right: 6px !important; }
+.ck-chip-violet-subtle{ color: #A78BFA !important; background: rgba(124, 58, 237, 0.15) !important; }
+.ck-badge-violet-glow { font-size: 11px !important; font-weight: 800 !important; background: rgba(124, 58, 237, 0.25) !important; border: 1px solid rgba(139, 92, 246, 0.4) !important; color: #C4B5FD !important; }
+.ck-badge-purple-subtle{ background: rgba(168, 85, 247, 0.15) !important; border: 1px solid rgba(168, 85, 247, 0.3) !important; color: #a855f7 !important; font-size: 11px !important; padding: 3px 10px !important; border-radius: 6px !important; }
+.ck-badge-muted-pill  { font-size: 11px !important; color: #94a3b8 !important; background: rgba(255, 255, 255, 0.06) !important; padding: 2px 8px !important; border-radius: 6px !important; }
+.ck-badge-rose-subtle { font-size: 10.5px !important; color: #f43f5e !important; background: rgba(244, 63, 94, 0.1) !important; border: 1px solid rgba(244, 63, 94, 0.2) !important; }
+.ck-step-num-active   { background: rgba(124, 58, 237, 0.25) !important; border-color: rgba(139, 92, 246, 0.5) !important; color: #C4B5FD !important; }
+.ck-badge-cyan-pill   { background: #06B6D4 !important; color: #0B0E14 !important; padding: 2px 8px !important; border-radius: 9999px !important; font-size: 10.5px !important; font-weight: 800 !important; margin-inline-start: 8px !important; }
+
+/* ── 10. Modals & Popovers ──────────────────────────────────────────────── */
+.ck-modal-380         { max-width: 380px !important; }
+.ck-modal-440         { max-width: 440px !important; }
+.ck-modal-460         { max-width: 460px !important; }
+.ck-modal-po-print    { max-width: 720px !important; padding: 20px !important; background: #0b1120 !important; }
+.ck-box-cs-raw-preview{ background: rgba(15, 23, 42, 0.85) !important; border: 1px solid rgba(124, 58, 237, 0.35) !important; border-radius: 12px !important; padding: 12px !important; box-sizing: border-box !important; }
+.ck-box-order-manual-preview { margin-top: 14px !important; border-top: 1px solid rgba(255, 255, 255, 0.08) !important; padding-top: 12px !important; }
+.ck-box-excel-preview { margin-top: 18px !important; background: rgba(15, 23, 42, 0.9) !important; border: 1px solid rgba(139, 92, 246, 0.3) !important; border-radius: 14px !important; padding: 16px 18px !important; }
+
+/* ── 11. Empty States & Icon Circles ────────────────────────────────────── */
+.ck-empty-state-p32   { padding: 32px !important; text-align: center !important; }
+.ck-empty-state-p36   { padding: 36px !important; text-align: center !important; }
+.ck-empty-cell-p40    { text-align: center !important; padding: 40px 20px !important; color: #94a3b8 !important; }
+.ck-empty-state-p25   { text-align: center !important; padding: 25px 10px !important; color: #64748B !important; font-size: 12px !important; }
+.ck-icon-box-violet   { width: 40px !important; height: 40px !important; border-radius: 12px !important; background: rgba(124, 58, 237, 0.25) !important; border: 1px solid rgba(139, 92, 246, 0.4) !important; display: flex !important; align-items: center !important; justify-content: center !important; color: #C4B5FD !important; font-size: 1.2rem !important; }
+.ck-icon-box-violet-sm{ width: 32px !important; height: 32px !important; border-radius: 9px !important; background: rgba(124, 58, 237, 0.25) !important; border: 1px solid rgba(139, 92, 246, 0.4) !important; display: flex !important; align-items: center !important; justify-content: center !important; color: #C4B5FD !important; flex-shrink: 0 !important; }
+.ck-icon-box-violet-subtle-sm{ width: 32px !important; height: 32px !important; border-radius: 8px !important; background: rgba(124, 58, 237, 0.2) !important; display: flex !important; align-items: center !important; justify-content: center !important; color: #C4B5FD !important; }
+.ck-icon-box-cyan-sm  { width: 32px !important; height: 32px !important; border-radius: 8px !important; background: rgba(56, 189, 248, 0.15) !important; display: flex !important; align-items: center !important; justify-content: center !important; color: #38bdf8 !important; }
+.ck-icon-box-cyan-9   { width: 32px !important; height: 32px !important; border-radius: 9px !important; background: rgba(6, 182, 212, 0.15) !important; border: 1px solid rgba(6, 182, 212, 0.3) !important; display: flex !important; align-items: center !important; justify-content: center !important; color: #06b6d4 !important; flex-shrink: 0 !important; }
+.ck-icon-box-cyan-lg  { width: 42px !important; height: 42px !important; border-radius: 10px !important; background: rgba(56, 189, 248, 0.12) !important; border: 1px solid rgba(56, 189, 248, 0.25) !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 20px !important; flex-shrink: 0 !important; }
+.ck-icon-box-violet-lg{ width: 48px !important; height: 48px !important; margin: 0 auto 12px !important; border-radius: 14px !important; background: rgba(124, 58, 237, 0.12) !important; border: 1px solid rgba(124, 58, 237, 0.25) !important; display: flex !important; align-items: center !important; justify-content: center !important; color: #A78BFA !important; font-size: 1.5rem !important; }
+.ck-icon-box-violet-xl{ width: 52px !important; height: 52px !important; margin: 0 auto 12px !important; border-radius: 16px !important; background: rgba(124, 58, 237, 0.2) !important; display: flex !important; align-items: center !important; justify-content: center !important; color: #A78BFA !important; }
+
+/* ── 12. Typography & Text Utilities ────────────────────────────────────── */
+.ck-fs-9-op6          { font-size: 9px !important; opacity: 0.6 !important; }
+.ck-fs-105            { font-size: 10.5px !important; }
+.ck-fs-105-dim        { font-size: 10.5px !important; color: #64748B !important; }
+.ck-fs-105-bold-muted { font-size: 10.5px !important; color: #94a3b8 !important; font-weight: 700 !important; }
+.ck-fs-105-orange-bold{ font-size: 10.5px !important; color: #fb923c !important; font-weight: 700 !important; display: block !important; }
+.ck-fs-11-cyan-bold   { font-size: 11px !important; color: #06B6D4 !important; font-weight: 700 !important; }
+.ck-fs-115            { font-size: 11.5px !important; }
+.ck-fs-115-violet-bold-flex { font-size: 11.5px !important; font-weight: 700 !important; color: #C4B5FD !important; display: flex !important; align-items: center !important; gap: 6px !important; }
+.ck-sub-desc-center   { font-size: 12px !important; color: #64748b !important; max-width: 420px !important; margin: 0 auto !important; line-height: 1.5 !important; }
+.ck-fs-12-muted       { font-size: 12px !important; color: #94a3b8 !important; }
+.ck-title-13          { font-size: 13px !important; margin: 0 !important; }
+.ck-title-135-violet  { font-size: 13.5px !important; margin: 0 !important; color: #C4B5FD !important; }
+.ck-fs-135-white-semibold { font-size: 13.5px !important; font-weight: 600 !important; color: #fff !important; }
+.ck-title-14          { font-size: 14px !important; }
+.ck-title-14-m0       { font-size: 14px !important; margin: 0 !important; }
+.ck-title-14-bold-white { font-size: 14px !important; font-weight: 700 !important; color: #f1f5f9 !important; margin-bottom: 6px !important; }
+.ck-title-14-bold-white-mb4 { font-size: 14px !important; font-weight: 700 !important; color: #f1f5f9 !important; margin-bottom: 4px !important; }
+.ck-title-14-black-white { font-size: 14px !important; font-weight: 800 !important; color: #fff !important; margin: 0 !important; }
+.ck-title-14-flex     { font-size: 14px !important; font-weight: 800 !important; color: #fff !important; display: flex !important; align-items: center !important; gap: 8px !important; margin: 0 !important; }
+.ck-title-15          { font-size: 15px !important; }
+.ck-title-15-m0       { font-size: 15px !important; margin: 0 !important; }
+.ck-fs-16             { font-size: 16px !important; }
+.ck-title-cs-hero     { font-size: 16.5px !important; margin: 6px 0 12px !important; line-height: 1.3 !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; }
+.ck-title-17-m0       { font-size: 17px !important; margin: 0 !important; }
+.ck-title-22          { font-size: 22px !important; }
+.ck-title-26          { font-size: 26px !important; }
+.ck-fs-12rem          { font-size: 1.2rem !important; }
+.ck-fs-13rem          { font-size: 1.3rem !important; }
+.ck-kpi-val-amber     { font-size: 1.35rem !important; color: #FBBF24 !important; margin-top: 3px !important; font-weight: 800 !important; }
+.ck-kpi-val-purple    { font-size: 1.5rem !important; color: #A78BFA !important; margin-top: 2px !important; font-weight: 800 !important; }
+.ck-stat-box-orange   { text-align: center !important; padding: 5px 14px !important; background: rgba(249, 115, 22, 0.1) !important; border: 1px solid rgba(249, 115, 22, 0.28) !important; border-radius: 10px !important; }
+.ck-val-orange-black  { font-size: 16px !important; font-weight: 900 !important; color: #fb923c !important; }
+.ck-input-code-large  { font-size: 16px !important; font-weight: 700 !important; letter-spacing: 0.05em !important; }
+.ck-text-violet       { color: #A78BFA !important; }
+.ck-text-cyan         { color: #38BDF8 !important; }
+.ck-text-orange       { color: #fb923c !important; }
+.ck-text-rose         { color: #f87171 !important; }
+.ck-title-rose        { color: #f87171 !important; font-size: 15px !important; }
+.ck-title-cyan        { color: #06b6d4 !important; font-size: 13.5px !important; margin: 0 !important; }
+.ck-val-green-bold    { color: #4ade80 !important; font-size: 15px !important; font-weight: 800 !important; }
+.ck-sub-dim-mt2       { color: #64748B !important; font-size: 11px !important; margin-top: 2px !important; }
+.ck-sub-dim-mb10      { color: #64748B !important; font-size: 11px !important; margin-bottom: 10px !important; }
+.ck-sub-muted-11      { color: #94A3B8 !important; font-size: 11px !important; }
+.ck-text-muted-color  { color: #94a3b8 !important; }
+.ck-text-purple-13    { color: #c084fc !important; font-size: 13px !important; font-weight: 600 !important; }
+.ck-text-white-14     { color: #fff !important; font-size: 14px !important; font-weight: 600 !important; }
+.ck-my-16-14          { margin: 16px 0 14px !important; }
+.ck-mb-24             { margin-bottom: 24px !important; }
+.ck-mb-16             { margin-bottom: 16px !important; }
+.ck-mb-14             { margin-bottom: 14px !important; }
+.ck-mb-12             { margin-bottom: 12px !important; }
+.ck-mb-8              { margin-bottom: 8px !important; }
+.ck-mb-6              { margin-bottom: 6px !important; }
+.ck-mt-6              { margin-top: 6px !important; }
+.ck-mt-8              { margin-top: 8px !important; }
+.ck-mt-18             { margin-top: 18px !important; }
+.ck-mt-20             { margin-top: 20px !important; }
+.ck-min-h-60          { min-height: 60px !important; }
+.ck-stat-self-end-purple { align-self: flex-end !important; padding-bottom: 8px !important; font-size: 15px !important; font-weight: 800 !important; color: #A78BFA !important; }
+.ck-self-end          { align-self: flex-end !important; }
+.ck-orders-kpi-white  { color: #f1f5f9 !important; font-size: 1.8rem !important; font-weight: 800 !important; }
+.ck-orders-kpi-purple { color: #A78BFA !important; font-size: 1.8rem !important; font-weight: 800 !important; }
+.ck-orders-kpi-cyan   { color: #38BDF8 !important; font-size: 1.8rem !important; font-weight: 800 !important; }
+.ck-orders-kpi-green  { color: #34D399 !important; font-size: 1.8rem !important; font-weight: 800 !important; }
+
+/* ── 13. General Core Utilities ─────────────────────────────────────────── */
+.ck-hidden            { display: none !important; }
+.ck-hidden-important  { display: none !important; }
+.ck-text-center       { text-align: center !important; }
+.ck-text-end          { text-align: end !important; }
+.ck-pointer           { cursor: pointer !important; }
+.ck-flex-1            { flex: 1 !important; min-width: 0 !important; }
+.ck-flex-1-min280     { flex: 1 !important; min-width: 280px !important; }
+.ck-block             { display: block !important; }
+.ck-justify-end       { justify-content: flex-end !important; }
+.ck-justify-center    { justify-content: center !important; }
+.ck-relative          { position: relative !important; }
+.ck-relative-inline   { position: relative !important; display: inline-block !important; }
+.ck-relative-flex-240 { position: relative !important; flex: 1 !important; min-width: 240px !important; }
+.ck-relative-flex-220 { position: relative !important; min-width: 220px !important; flex: 1 !important; }
+.ck-relative-w-170    { position: relative !important; width: 170px !important; }
+.ck-relative-w-240    { position: relative !important; width: 240px !important; }
+.ck-relative-mb-10    { position: relative !important; margin-bottom: 10px !important; }
+.ck-svg-clip-hidden   { position: absolute !important; pointer-events: none !important; opacity: 0 !important; }
+.ck-search-icon-pos   { position: absolute !important; inset-inline-start: 14px !important; top: 50% !important; transform: translateY(-50%) !important; pointer-events: none !important; color: #8B5CF6 !important; display: flex !important; align-items: center !important; }
+.ck-select-icon-pos   { position: absolute !important; right: 10px !important; top: 11px !important; pointer-events: none !important; color: #8B5CF6 !important; }
+.ck-input-icon-pos    { position: absolute !important; right: 10px !important; top: 12px !important; pointer-events: none !important; }
+
+/* ── 14. Purchase Order Print Template System ───────────────────────────── */
+.ck-po-print-logo     { width: 64px !important; height: 64px !important; object-fit: contain !important; border-radius: 8px !important; border: 1px solid #e2e8f0 !important; padding: 2px !important; }
+.ck-po-print-brand-title { font-size: 20px !important; font-weight: 900 !important; color: #0f172a !important; margin: 0 !important; }
+.ck-po-print-brand-sub{ font-size: 13px !important; font-weight: 700 !important; color: #f97316 !important; }
+.ck-po-print-dim      { font-size: 11px !important; color: #64748b !important; margin-top: 2px !important; }
+.ck-po-print-bold-title { font-size: 16px !important; font-weight: 900 !important; color: #0f172a !important; }
+.ck-po-print-meta     { font-size: 12px !important; color: #64748b !important; }
+.ck-po-print-status-badge { display: inline-block !important; padding: 2px 8px !important; border-radius: 12px !important; background: #fef3c7 !important; color: #d97706 !important; font-size: 11px !important; font-weight: 700 !important; margin-top: 4px !important; }
+.ck-po-print-vendor-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 16px !important; background: #f8fafc !important; padding: 12px !important; border-radius: 8px !important; margin-bottom: 16px !important; font-size: 12.5px !important; }
+.ck-po-print-table    { width: 100% !important; border-collapse: collapse !important; margin-bottom: 20px !important; font-size: 13px !important; }
+.ck-po-print-th-row   { background: #f1f5f9 !important; border-bottom: 2px solid #cbd5e1 !important; text-align: start !important; }
+.ck-po-print-signature-row { display: flex !important; justify-content: space-between !important; margin-top: 40px !important; padding-top: 20px !important; border-top: 1px dashed #cbd5e1 !important; font-size: 12px !important; }
+.ck-po-print-sig-col  { text-align: center !important; width: 180px !important; }
+.ck-po-print-sig-label{ font-weight: 700 !important; margin-bottom: 30px !important; }
+.ck-po-print-sig-line { border-bottom: 1px solid #94a3b8 !important; width: 100% !important; }
