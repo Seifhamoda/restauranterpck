@@ -3146,7 +3146,7 @@
                 <button class="filter-chip" onclick="filterFG('', 'Bakery', this)" data-ar="المخبوزات"
                   data-en="Bakery">المخبوزات</button>
               </div>
-              <input type="text" id="fg-search-input" oninput="filterFG(this.value, activeFGCat)"
+              <input type="text" id="fg-search-input" oninput="debouncedFilterFG(this.value, activeFGCat)"
                 placeholder="بحث سريع..." data-ar-ph="بحث سريع بالأصناف..." data-en-ph="Quick search..."
                 style="background:rgba(11,14,20,0.9);border:1px solid #1E2340;border-radius:6px;color:#fff;font-size:11.5px;padding:4px 10px;width:150px;outline:none;" />
             </div>
@@ -3193,9 +3193,26 @@
           </div>
         </div>
 
-        <!-- Hidden elements for code integrity -->
+        <!-- Hidden compatibility stubs -->
         <div id="dash-stats" style="display:none"></div>
         <div id="dash-alerts" style="display:none"></div>
+
+        <!-- ════ FIX 4: Live Low-Stock Alert Panel ════ -->
+        <div style="margin-top:20px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <span style="font-size:16px;">🚨</span>
+            <h3 class="text-white font-bold" style="font-size:14px;margin:0"
+                data-ar="تنبيهات إعادة الطلب — خامات المطبخ المركزي"
+                data-en="Reorder Alerts — Central Kitchen Raw Materials">
+              تنبيهات إعادة الطلب — خامات المطبخ المركزي
+            </h3>
+            <span class="chip" style="font-size:10.5px;color:#f43f5e;background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.2);"
+                  data-ar="مباشر" data-en="Live">مباشر</span>
+          </div>
+          <div id="dash-low-stock-alerts" style="min-height:60px;">
+            <!-- Populated by fetchAndRenderLowStockAlerts() after sync -->
+          </div>
+        </div>
         <canvas id="ch-ing" style="display:none"></canvas>
         <canvas id="ch-br" style="display:none"></canvas>
       </section>
@@ -3236,7 +3253,7 @@
                     placeholder="ابحث بالاسم أو الكود..." data-ar-ph="ابحث بالاسم أو الكود..."
                     data-en-ph="Search by name or code..."
                     style="width:100%;height:42px;padding-inline-start:40px;padding-inline-end:14px;box-sizing:border-box"
-                    oninput="renderCenterStock()" />
+                    oninput="debouncedRenderCenterStock()" />
                 </div>
                 <select class="select" id="cs-cat-filter" style="min-width:200px;width:auto;flex:0 0 auto;height:42px"
                   onchange="renderCenterStock()">
@@ -3900,7 +3917,7 @@
             </div>
             <div style="position:relative;margin-bottom:10px">
               <input type="text" id="recipe-search-input" class="input" placeholder="بحث في الـ 74 ريسبي..."
-                style="padding:6px 10px;font-size:12px" oninput="filterRecipesList()" />
+                style="padding:6px 10px;font-size:12px" oninput="debouncedFilterRecipes()" />
             </div>
             <div id="recipe-list" class="sy3" style="flex:1;overflow-y:auto;max-height:500px;padding-inline-end:4px">
             </div>
@@ -4166,7 +4183,7 @@
                 <input type="month" class="input" id="prod-matrix-month" style="width:160px;height:38px"
                   onchange="renderProd()" />
                 <input type="text" class="input" id="prod-matrix-search" placeholder="بحث بالاسم أو الكود..."
-                  style="width:200px;height:38px" oninput="renderProdMatrixTable()" />
+                  style="width:200px;height:38px" oninput="debouncedRenderProdMatrix()" />
                 <select class="select" id="prod-matrix-cat" style="width:160px;height:38px"
                   onchange="renderProdMatrixTable()">
                   <option value="">جميع الأقسام</option>
@@ -4329,7 +4346,7 @@
                   <line x1="21" y1="21" x2="16.65" y2="16.65" />
                 </svg>
                 <input type="text" id="inv-search-input" class="input" placeholder="بحث في الخامات الـ 200..."
-                  style="height:38px;padding-right:32px;box-sizing:border-box" oninput="renderInv()" />
+                  style="height:38px;padding-right:32px;box-sizing:border-box" oninput="debouncedRenderInv()" />
               </div>
 
               <!-- Action Buttons -->
@@ -5132,7 +5149,7 @@
           <line x1="21" y1="21" x2="16.65" y2="16.65" />
         </svg>
         <input class="cmd-input" id="cmd-search-input" placeholder="ابحث عن خامة، وجبة، مورد، أو تنقل سريع..."
-          oninput="handleCmdSearch(this.value)" />
+          oninput="debouncedHandleCmdSearch(this.value)" />
         <button class="cmd-close-btn" onclick="closeCmdBar()" title="إغلاق (Esc)">✕</button>
       </div>
       <div class="cmd-results" id="cmd-results"></div>
@@ -11230,19 +11247,45 @@
       location.reload();
     }
     
-    /* Fast Debounce Utility for Smooth, Non-blocking Search */
-    function debounce(fn, wait = 120) {
+    /* Fast Debounce Utility for Smooth, Non-blocking Search (250ms) */
+    function debounce(fn, wait = 250) {
       let timeout;
       return function(...args) {
         clearTimeout(timeout);
         timeout = setTimeout(() => fn.apply(this, args), wait);
       };
     }
-    const debouncedRenderInv = debounce(function() { if (typeof renderInv === 'function') renderInv(); }, 120);
-    const debouncedRenderCenterStock = debounce(function() { if (typeof renderCenterStock === 'function') renderCenterStock(); }, 120);
-    const debouncedFilterRecipes = debounce(function() { if (typeof filterRecipesList === 'function') filterRecipesList(); }, 120);
-    const debouncedRenderProdMatrix = debounce(function() { if (typeof renderProdMatrixTable === 'function') renderProdMatrixTable(); }, 120);
-    const debouncedHandleCmdSearch = debounce(function(val) { if (typeof handleCmdSearch === 'function') handleCmdSearch(val); }, 100);
+    const debouncedRenderInv = debounce(function() { if (typeof renderInv === 'function') renderInv(); }, 250);
+    const debouncedRenderCenterStock = debounce(function() { if (typeof renderCenterStock === 'function') renderCenterStock(); }, 250);
+    const debouncedFilterRecipes = debounce(function() { if (typeof filterRecipesList === 'function') filterRecipesList(); }, 250);
+    const debouncedRenderProdMatrix = debounce(function() { if (typeof renderProdMatrixTable === 'function') renderProdMatrixTable(); }, 250);
+    const debouncedHandleCmdSearch = debounce(function(val) { if (typeof handleCmdSearch === 'function') handleCmdSearch(val); }, 250);
+    const debouncedFilterFG = debounce(function(val, cat) { if (typeof filterFG === 'function') filterFG(val, cat); }, 250);
+
+    window.debouncedRenderInv = debouncedRenderInv;
+    window.debouncedRenderCenterStock = debouncedRenderCenterStock;
+    window.debouncedFilterRecipes = debouncedFilterRecipes;
+    window.debouncedRenderProdMatrix = debouncedRenderProdMatrix;
+    window.debouncedHandleCmdSearch = debouncedHandleCmdSearch;
+    window.debouncedFilterFG = debouncedFilterFG;
+
+    /**
+     * Clean Human-Readable Product Name for Dropdowns & UI Selects
+     * Strips bracketed IDs [prod-xxxx], unit tags (Each/Kg), and (PA) indicators.
+     * e.g., "Turkey pastrame (PA) (Each) [prod-turkey-pastrame-pa]" -> "Turkey pastrame"
+     */
+    function cleanProductName(p) {
+      if (!p) return '';
+      let raw = (typeof p === 'string') ? p : (isAr() ? (p.ar || p.en || '') : (p.en || p.ar || ''));
+      return (raw || '')
+        .replace(/\[[^\]]+\]/g, '')
+        .replace(/\s*\([Pp][Aa]\)\s*/gi, ' ')
+        .replace(/\s*\((?:Each|Kg|Kilogram|Portion|ltr|pcs|g|tray)[^)]*\)/gi, ' ')
+        .replace(/\s+\.\s*/g, ' ')
+        .replace(/[\s\.\-]+$/, '')
+        .trim();
+    }
+    window.cleanProductName = cleanProductName;
 
     function isAr() {
       return S.lang === 'ar';
@@ -11742,6 +11785,7 @@
       if (cnt) cnt.scrollTop = 0;
       renderPage(page);
     }
+    window.nav = nav;
 
     function renderWelcome() {
     const v = document.getElementById('welcome-fullscreen-vid');
@@ -11912,15 +11956,24 @@
       });
     }
 
-    function initBomSimSelect() {
+    function initBomSimSelect(force = false) {
       const sel = document.getElementById('bom-sim-select');
-      if (!sel || sel.options.length > 1) return;
+      if (!sel) return;
+      if (!force && sel.options.length > 1) return;
+      const frag = document.createDocumentFragment();
+      const placeholder = document.createElement('option');
+      placeholder.value = '';
+      placeholder.textContent = '-- ' + (isAr() ? 'اختر صنفاً للتشغيل' : 'Select Item') + ' --';
+      frag.appendChild(placeholder);
+
       (S.products || []).forEach(p => {
         const opt = document.createElement('option');
         opt.value = p.id;
-        opt.textContent = (p.id ? '[' + p.id + '] ' : '') + pname(p) + ' (' + (p.unit || 'Kg') + ')';
-        sel.appendChild(opt);
+        opt.textContent = cleanProductName(p);
+        frag.appendChild(opt);
       });
+      sel.innerHTML = '';
+      sel.appendChild(frag);
     }
 
     function updateBomSimPreview() {
@@ -12427,24 +12480,29 @@
       return { label: isAr() ? 'متوفر بكفاية' : 'Sufficient', badge: 'badge-green', key: 'ok' };
     }
 
-    function populateCsProductSelects() {
+    function populateCsProductSelects(force = false) {
       const selects = ['cs-prod-select', 'cs-adj-prod'];
       selects.forEach(sid => {
         const sel = document.getElementById(sid);
         if (!sel) return;
+        if (!force && sel.options.length > 1) return;
         const cur = sel.value;
-        sel.innerHTML = '<option value="">— ' + (isAr() ? 'اختر المنتج المصنّع' : 'Select Product') + ' —</option>';
+        const frag = document.createDocumentFragment();
+        const placeholder = document.createElement('option');
+        placeholder.value = '';
+        placeholder.textContent = '— ' + (isAr() ? 'اختر المنتج المصنّع' : 'Select Product') + ' —';
+        frag.appendChild(placeholder);
+
         if (Array.isArray(S.products)) {
           S.products.forEach(p => {
             const opt = document.createElement('option');
             opt.value = p.id;
-            const cs = S.centerStock && S.centerStock[p.id];
-            const stockQty = cs ? (cs.qty || 0) : 0;
-            const uom = cs ? cs.uom : (p.unit || 'Kg');
-            opt.textContent = pname(p) + ' (' + (stockQty % 1 === 0 ? stockQty : stockQty.toFixed(2)) + ' ' + uom + ')';
-            sel.appendChild(opt);
+            opt.textContent = cleanProductName(p);
+            frag.appendChild(opt);
           });
         }
+        sel.innerHTML = '';
+        sel.appendChild(frag);
         if (cur) sel.value = cur;
       });
     }
@@ -12986,7 +13044,7 @@
         if (grp.items.length) {
           html += `<optgroup label="${grp.label}">`;
           grp.items.forEach(p => {
-            html += `<option value="${p.id}">${pname(p)} (${p.unit}) — ${f2(p.cost)} ${cur()}</option>`;
+            html += `<option value="${p.id}">${cleanProductName(p)}</option>`;
           });
           html += `</optgroup>`;
         }
@@ -13807,7 +13865,9 @@
     }
 
     function renderProd() {
+      // ── Defensive guard: element may not exist if DOM not yet rendered ──
       const monthInput = document.getElementById('prod-matrix-month');
+      if (!monthInput) return; // Abort silently — page section not visible yet
       if (!monthInput.value) monthInput.value = new Date().toISOString().slice(0, 7);
 
       const { monthStr, days, prods, matrix, monthOrders } = getProdExecutiveMatrix();
@@ -13834,13 +13894,17 @@
         { v: fmt(tazTotal, 1) + ' L', l: T('Burger Sauce (صوص البرجر)', 'Taztiki Sauce Shipped'), c: 'kpi-purple', sub: T('مسجل بشيت منفصل', 'Separate dedicated sheet') }
       ];
 
-      document.getElementById('prod-stats').innerHTML = kpis.map(k => `
+      // ── Defensive guard: prod-stats must exist before innerHTML assignment ──
+      const prodStatsEl = document.getElementById('prod-stats');
+      if (prodStatsEl) {
+        prodStatsEl.innerHTML = kpis.map(k => `
     <div class="stat-card">
       <div class="kpi-number ${k.c}" style="margin-bottom:4px">${k.v}</div>
       <div class="text-muted text-sm font-semibold mb-1">${k.l}</div>
       <div style="font-size:11.5px;color:#94a3b8">${k.sub}</div>
     </div>
   `).join('');
+      }
 
       renderProdMatrixTable();
       renderProdTaztikiTable();
@@ -13848,15 +13912,27 @@
     }
 
     function renderProdMatrixTable() {
+      // ── FIX: Correct element IDs to match the actual HTML markup ──
+      // HTML defines: id="prod-matrix-head" / id="prod-matrix-body"
+      // Previous code incorrectly used: prod-matrix-thead / prod-matrix-tbody
+      const thead = document.getElementById('prod-matrix-head');
+      const tbody = document.getElementById('prod-matrix-body');
+
+      // ── Defensive null-guard: abort if DOM containers are unavailable ──
+      if (!thead || !tbody) {
+        console.warn('[renderProdMatrixTable] Required DOM containers not found — skipping render.');
+        return;
+      }
+
       const { fromDay, toDay, days, prods, matrix } = getProdExecutiveMatrix();
 
-      document.getElementById('prod-items-count-badge').textContent = `${prods.length} ${T('صنف معروض', 'Items')}`;
-      document.getElementById('prod-days-count-badge').textContent = `${days.length} ${T('يوم', 'Days')}`;
+      // ── Safe badge updates with null checks ──
+      const itemsBadge = document.getElementById('prod-items-count-badge');
+      const daysBadge  = document.getElementById('prod-days-count-badge');
+      if (itemsBadge) itemsBadge.textContent = `${prods.length} ${T('صنف معروض', 'Items')}`;
+      if (daysBadge)  daysBadge.textContent  = `${days.length} ${T('يوم', 'Days')}`;
 
-      const thead = document.getElementById('prod-matrix-thead');
-      const tbody = document.getElementById('prod-matrix-tbody');
-
-      // Build Thead: [ م | البند / الصنف | الوحدة | يوم 1 | يوم 2 ... | الإجمالي | متوسط اليوم | التكلفة ]
+      // ── Build Thead: [ م | البند / الصنف | الوحدة | يوم 1 | ... | الإجمالي | متوسط اليوم | التكلفة ] ──
       thead.innerHTML = `
     <tr>
       <th style="width:40px;text-align:center">#</th>
@@ -13916,7 +13992,7 @@
         return sum + (rTot * (p.cost || 30));
       }, 0);
 
-      tbody.innerHTML += `
+      const grandTotalRow = `
     <tr style="background:rgba(249,115,22,0.08);border-top:2px solid rgba(249,115,22,0.3);font-weight:800">
       <td colspan="3" style="text-align:start;color:#fb923c;padding:10px 14px">
         ⚡ ${T('الإجمالي اليومي العام لجميع الأصناف', 'Daily Total All Products')}
@@ -13927,6 +14003,7 @@
       <td style="text-align:center;color:#4ade80;font-size:13px">${fmt(Math.round(grandTotalValue))}</td>
     </tr>
   `;
+      tbody.innerHTML += grandTotalRow;
     }
 
     function renderProdTaztikiTable() {
@@ -16281,29 +16358,36 @@
       if (mobBtn) {
         mobBtn.style.display = (window.innerWidth <= 768) ? 'flex' : 'none';
       }
-      window.addEventListener('resize', () => {
+      window.addEventListener('resize', debounce(() => {
         const mob = document.getElementById('mob-btn');
         if (mob) mob.style.display = (window.innerWidth <= 768) ? 'flex' : 'none';
-      });
+      }, 250));
 
-      // 💾 1. Fast initial render from state/localStorage
-      loadState();
-      applyLang();
-      renderDash();
-      updateLiveTicker();
+      // ── 💾 1. Fast initial render from state/localStorage ──
+      try {
+        loadState();
+        applyLang();
+        renderDash();
+        updateLiveTicker();
+      } catch (initErr) {
+        console.error('[Init] Initial render pipeline failed — UI may be partial:', initErr);
+      }
 
-      // ⚡ 2. Async Cloud Sync from Supabase SQL (loads real-time data on Phone, PC, Tablet)
+      // ── ⚡ 2. Async Cloud Sync from Supabase SQL ──
+      // Wrapped in defensive try-catch so any sync or render error
+      // is isolated and never crashes the entire application shell.
       syncFromSQL().then(synced => {
-        if (synced) {
-          renderDash();
-          renderOrders();
-          renderInv();
-          renderRecipes();
-          if (typeof renderProd === 'function') renderProd();
-          if (typeof renderProduction === 'function') renderProduction();
+        if (!synced) return;
+                try {
+          // Render only the active page on sync to eliminate startup lag
+          renderPage(S.curPage || 'welcome');
           updateLiveTicker();
+          // ── Fix 4 Hook: Fetch and render low-stock alerts after sync ──
+          if (typeof fetchAndRenderLowStockAlerts === 'function') fetchAndRenderLowStockAlerts();
+        } catch (postSyncErr) {
+          console.error('[PostSync] Render pipeline error after cloud sync:', postSyncErr);
         }
-      }).catch(err => console.warn('Init sync failed:', err));
+      }).catch(err => console.warn('[InitSync] Cloud sync connection failed:', err));
     });
   </script>
 
@@ -16637,30 +16721,7 @@
   // ── UNIVERSAL SECTION SCROLLER & KEYBOARD NAVIGATION ───────────────────
   // Guarantees effortless mouse-wheel, trackpad, and keyboard navigation across all sections
   (function initUniversalScroller() {
-    window.addEventListener('wheel', function(e) {
-      const cnt = document.querySelector('.content');
-      if (!cnt) return;
-      // Check if event occurred inside an active nested scroll container
-      let cur = e.target;
-      let handledByInner = false;
-      while (cur && cur !== cnt && cur !== document.body) {
-        if (cur.scrollHeight > cur.clientHeight + 2) {
-          const ov = window.getComputedStyle(cur).overflowY;
-          if (ov === 'auto' || ov === 'scroll') {
-            const atTop = cur.scrollTop <= 0 && e.deltaY < 0;
-            const atBottom = cur.scrollTop + cur.clientHeight >= cur.scrollHeight - 1 && e.deltaY > 0;
-            if (!atTop && !atBottom) {
-              handledByInner = true;
-              break;
-            }
-          }
-        }
-        cur = cur.parentElement;
-      }
-      if (!handledByInner) {
-        cnt.scrollTop += e.deltaY;
-      }
-    }, { passive: true });
+    // Native GPU-accelerated smooth scrolling enabled (wheel layout thrashing removed)
 
     window.addEventListener('keydown', function(e) {
       const cnt = document.querySelector('.content');
@@ -16727,8 +16788,239 @@
 
 </script>
 
+<!-- ════════════════════════════════════════════════════════════════════
+     FIX 4 — STOCK-OUT & REORDER ALERT ENGINE (Frontend Hook)
+     fetchAndRenderLowStockAlerts()
+     ─────────────────────────────────────────────────────────────────
+     Called automatically after every successful cloud sync (see Fix 1).
+     Fetches GET /api/alerts/low-stock and renders alert badge cards into
+     the #dash-low-stock-alerts container on the managerial dashboard.
+
+     Design system: Glassy Dark — severity colours match the app palette:
+       critical → Rose  (#f43f5e / rose-500)
+       warning  → Amber (#fbbf24 / amber-400)
+       watch    → Sky   (#38bdf8 / sky-400)
+     ════════════════════════════════════════════════════════════════════ -->
+<script>
+  /**
+   * Fetches the low-stock alert data from the backend and renders
+   * a real-time alert panel on the managerial dashboard.
+   *
+   * Designed for Open-Closed extensibility: the rendering contract
+   * only requires a container with id="dash-low-stock-alerts".
+   * All display logic is self-contained here.
+   */
+  async function fetchAndRenderLowStockAlerts() {
+    const container = document.getElementById('dash-low-stock-alerts');
+    if (!container) return; // Dashboard section not in view — no-op
+
+    try {
+      // Show loading skeleton while fetching
+      container.innerHTML = `
+        <div style="display:flex;align-items:center;gap:10px;padding:14px 16px;
+                    background:rgba(255,255,255,0.04);border-radius:12px;border:1px solid rgba(255,255,255,0.07);">
+          <span style="font-size:18px;animation:spin 1s linear infinite;display:inline-block">⏳</span>
+          <span style="color:#94a3b8;font-size:13px;">
+            ${(typeof isAr === 'function' && isAr()) ? 'جاري فحص مستويات المخزون...' : 'Checking stock levels...'}
+          </span>
+        </div>`;
+
+      const response = await fetch('/api/alerts/low-stock');
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      const data = await response.json();
+
+      // ── No alerts state ──────────────────────────────────────────────
+      if (!data.success || data.totalAlerts === 0) {
+        container.innerHTML = `
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 18px;
+                      background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.18);
+                      border-radius:14px;">
+            <span style="font-size:22px">✅</span>
+            <div>
+              <div style="font-weight:700;color:#34d399;font-size:13.5px;">
+                ${(typeof isAr === 'function' && isAr()) ? 'جميع الخامات فوق الحد الأدنى' : 'All Raw Materials Above Minimum'}
+              </div>
+              <div style="color:#64748b;font-size:11.5px;margin-top:2px;">
+                ${data.message || ''}
+              </div>
+            </div>
+          </div>`;
+        return;
+      }
+
+      // ── Severity colour map (matches Glassy Dark design system) ─────
+      const SEVERITY_STYLE = {
+        critical: {
+          bg:      'rgba(244,63,94,0.08)',
+          border:  'rgba(244,63,94,0.25)',
+          accent:  '#f43f5e',
+          badge:   'background:rgba(244,63,94,0.15);color:#fb7185;border:1px solid rgba(244,63,94,0.3);',
+          icon:    '🔴'
+        },
+        warning: {
+          bg:      'rgba(251,191,36,0.06)',
+          border:  'rgba(251,191,36,0.22)',
+          accent:  '#fbbf24',
+          badge:   'background:rgba(251,191,36,0.12);color:#fcd34d;border:1px solid rgba(251,191,36,0.3);',
+          icon:    '🟡'
+        },
+        watch: {
+          bg:      'rgba(56,189,248,0.05)',
+          border:  'rgba(56,189,248,0.18)',
+          accent:  '#38bdf8',
+          badge:   'background:rgba(56,189,248,0.10);color:#7dd3fc;border:1px solid rgba(56,189,248,0.25);',
+          icon:    '🔵'
+        }
+      };
+
+      const ar = typeof isAr === 'function' && isAr();
+
+      // ── Summary header bar ───────────────────────────────────────────
+      let html = `
+        <div style="display:flex;align-items:center;justify-content:space-between;
+                    flex-wrap:wrap;gap:10px;margin-bottom:12px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:20px">⚠️</span>
+            <div>
+              <div style="font-weight:800;color:#f1f5f9;font-size:14px;">
+                ${ar ? `تنبيهات مخزون الخامات (${data.totalAlerts} صنف)` : `Raw Material Alerts (${data.totalAlerts} items)`}
+              </div>
+              <div style="font-size:11px;color:#64748b;margin-top:1px;">
+                ${ar
+                  ? `${data.criticalCount || 0} حرج · ${data.warningCount || 0} تحذير`
+                  : `${data.criticalCount || 0} critical · ${data.warningCount || 0} warning`}
+                — ${ar ? 'تحديث: ' : 'Updated: '}${new Date(data.generatedAt).toLocaleTimeString()}
+              </div>
+            </div>
+          </div>
+          <button onclick="fetchAndRenderLowStockAlerts()"
+                  style="padding:5px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);
+                         background:rgba(255,255,255,0.05);color:#94a3b8;cursor:pointer;
+                         font-size:11.5px;transition:all 0.2s"
+                  onmouseover="this.style.background='rgba(255,255,255,0.1)'"
+                  onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+            ${ar ? '🔄 تحديث' : '🔄 Refresh'}
+          </button>
+        </div>`;
+
+      // ── Alert cards (max 12 displayed to keep dashboard clean) ───────
+      const displayAlerts = data.alerts.slice(0, 12);
+      html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;">`;
+
+      displayAlerts.forEach(alert => {
+        const sty = SEVERITY_STYLE[alert.severity] || SEVERITY_STYLE.watch;
+        const stockPct = Math.min(100, alert.stock_ratio);
+        const barColor = sty.accent;
+
+        html += `
+          <div style="padding:13px 15px;border-radius:13px;border:1px solid ${sty.border};
+                      background:${sty.bg};transition:transform 0.15s;cursor:default;"
+               onmouseover="this.style.transform='translateY(-2px)'"
+               onmouseout="this.style.transform='translateY(0)'">
+
+            <!-- Header row -->
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;">
+              <div style="font-size:12.5px;font-weight:700;color:#f1f5f9;
+                          max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"
+                   title="${ar ? alert.name_ar : alert.name_en}">
+                ${ar ? alert.name_ar : alert.name_en}
+              </div>
+              <span style="font-size:9.5px;font-weight:800;padding:2px 7px;border-radius:5px;
+                           flex-shrink:0;margin-left:6px;${sty.badge}">
+                ${sty.icon} ${ar ? alert.severity_ar : alert.severity.toUpperCase()}
+              </span>
+            </div>
+
+            <!-- Stock progress bar -->
+            <div style="height:4px;background:rgba(255,255,255,0.06);border-radius:2px;
+                        margin-bottom:8px;overflow:hidden;">
+              <div style="height:100%;width:${stockPct}%;background:${barColor};
+                          border-radius:2px;transition:width 0.5s ease;"></div>
+            </div>
+
+            <!-- Stock figures -->
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:#94a3b8;margin-bottom:5px;">
+              <span>${ar ? 'الرصيد الحالي' : 'Current'}: <strong style="color:${barColor};">${alert.current_stock} ${alert.uom}</strong></span>
+              <span>${ar ? 'الحد الأدنى' : 'Min'}: ${alert.min_stock} ${alert.uom}</span>
+            </div>
+
+            <!-- Reorder suggestion -->
+            <div style="font-size:11px;padding:5px 9px;border-radius:7px;
+                        background:rgba(255,255,255,0.04);color:#cbd5e1;display:flex;
+                        justify-content:space-between;align-items:center;">
+              <span>${ar ? '📦 اقتراح الطلب' : '📦 Reorder Qty'}:</span>
+              <strong style="color:${sty.accent};font-size:12px;">
+                ${alert.suggested_reorder_qty.toFixed(1)} ${alert.uom}
+              </strong>
+            </div>
+
+            ${alert.supplier ? `
+              <div style="font-size:10px;color:#475569;margin-top:5px;">
+                🏭 ${ar ? 'المورد' : 'Supplier'}: ${alert.supplier}
+              </div>` : ''}
+          </div>`;
+      });
+
+      html += '</div>';
+
+      // If there are more alerts than shown, add a "view all" hint
+      if (data.alerts.length > 12) {
+        html += `
+          <div style="text-align:center;margin-top:10px;font-size:11.5px;color:#64748b;">
+            ${ar
+              ? `و ${data.alerts.length - 12} صنف آخر · انتقل إلى صفحة الخامات لعرض الكل`
+              : `and ${data.alerts.length - 12} more · Navigate to Raw Materials for full view`}
+          </div>`;
+      }
+
+      container.innerHTML = html;
+
+      // ── Sync dashboard KPI shortages counter ───────────────────────
+      const kpiShortEl = document.getElementById('kpi-shortages-alert');
+      if (kpiShortEl && data.totalAlerts > 0) {
+        kpiShortEl.style.color = data.criticalCount > 0 ? '#f87171' : '#fbbf24';
+        kpiShortEl.textContent = data.totalAlerts +
+          ((typeof isAr === 'function' && isAr()) ? ' خامة منخفضة ⚠️' : ' Items Low ⚠️');
+      }
+
+    } catch (err) {
+      console.error('[LowStockAlerts] Failed to fetch:', err.message);
+      const container2 = document.getElementById('dash-low-stock-alerts');
+      if (container2) {
+        container2.innerHTML = `
+          <div style="padding:12px 16px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);
+                      border-radius:12px;color:#f87171;font-size:12.5px;">
+            ⚠️ ${(typeof isAr === 'function' && isAr())
+              ? 'تعذّر تحميل تنبيهات المخزون — سيُعاد المحاولة عند المزامنة التالية.'
+              : 'Could not load stock alerts — will retry on next sync.'}
+          </div>`;
+      }
+    }
+  }
+
+  // ── Auto-invoke on dashboard navigation ──────────────────────────────
+  // Extend the nav() function post-hoc so alerts refresh when user
+  // returns to the dashboard tab without a full page reload.
+  (function patchNavForAlerts() {
+    const _originalNav = typeof nav === 'function' ? nav : null;
+    if (!_originalNav) return; // nav not yet defined — will run via startup hook
+
+    window.nav = function(page, ...args) {
+      _originalNav(page, ...args);
+      if (page === 'dashboard') {
+        // Debounce to avoid double-fetch on rapid tab switching
+        clearTimeout(window._alertNavDebounce);
+        window._alertNavDebounce = setTimeout(fetchAndRenderLowStockAlerts, 300);
+      }
+    };
+  })();
+
+</script>
 
   </div><!-- CLOSE APP CHASSIS -->
+
 
   
 </body>
