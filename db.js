@@ -112,12 +112,6 @@ db.exec(`
     ref_id TEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
   );
-  CREATE TABLE IF NOT EXISTS center_stock (
-    product_id  TEXT PRIMARY KEY,
-    qty         REAL NOT NULL DEFAULT 0,
-    uom         TEXT,
-    updated_at  DATETIME DEFAULT CURRENT_TIMESTAMP
-  );
 `);
 
 module.exports = db;
