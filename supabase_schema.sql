@@ -117,6 +117,16 @@ CREATE TABLE IF NOT EXISTS stock_movements (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now())
 );
 
+-- 12. Center Stock (مخزون المنتجات التامة بالمطبخ المركزي)
+-- Tracks on-hand finished/manufactured goods inventory at the central kitchen.
+-- Deducted atomically by POST /api/stock/dispatch for direct-dispatch items.
+CREATE TABLE IF NOT EXISTS center_stock (
+  product_id  TEXT PRIMARY KEY,
+  qty         NUMERIC NOT NULL DEFAULT 0,
+  uom         TEXT,
+  updated_at  TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now())
+);
+
 -- Enable Public Access for Anon Key
 ALTER TABLE branches ENABLE ROW LEVEL SECURITY;
 ALTER TABLE products ENABLE ROW LEVEL SECURITY;
@@ -129,6 +139,7 @@ ALTER TABLE taztiki_records ENABLE ROW LEVEL SECURITY;
 ALTER TABLE purchase_orders ENABLE ROW LEVEL SECURITY;
 ALTER TABLE invoices ENABLE ROW LEVEL SECURITY;
 ALTER TABLE stock_movements ENABLE ROW LEVEL SECURITY;
+ALTER TABLE center_stock ENABLE ROW LEVEL SECURITY;
 
 CREATE POLICY "Allow public all access on branches" ON branches FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Allow public all access on products" ON products FOR ALL USING (true) WITH CHECK (true);
@@ -141,3 +152,4 @@ CREATE POLICY "Allow public all access on taztiki_records" ON taztiki_records FO
 CREATE POLICY "Allow public all access on purchase_orders" ON purchase_orders FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Allow public all access on invoices" ON invoices FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Allow public all access on stock_movements" ON stock_movements FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow public all access on center_stock" ON center_stock FOR ALL USING (true) WITH CHECK (true);
