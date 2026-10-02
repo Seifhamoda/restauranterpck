@@ -32,6 +32,20 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    (function() {
+      try {
+        const theme = localStorage.getItem('theme') || localStorage.getItem('erp_theme');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.removeAttribute('data-theme');
+        }
+      } catch(e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -13611,23 +13625,31 @@
 
 
   // ── REAL DARK / LIGHT MODE THEME ENGINE ──
-  // Default = Warm Cream (no attribute). Dark = data-theme="dark".
+  // Consistent 100% CSS Variables Engine. Toggles .dark class and data-theme.
   function toggleTheme() {
-    const current = document.documentElement.getAttribute('data-theme') || 'light';
-    const next = current === 'dark' ? 'light' : 'dark';
+    const isDark = document.documentElement.classList.contains('dark') || 
+                   (document.body && document.body.classList.contains('dark')) ||
+                   document.documentElement.getAttribute('data-theme') === 'dark';
+    const next = isDark ? 'light' : 'dark';
     setTheme(next);
   }
 
   function setTheme(theme) {
-    if (theme === 'dark') {
+    const isDark = (theme === 'dark');
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+      if (document.body) document.body.classList.add('dark');
       document.documentElement.setAttribute('data-theme', 'dark');
     } else {
+      document.documentElement.classList.remove('dark');
+      if (document.body) document.body.classList.remove('dark');
       document.documentElement.removeAttribute('data-theme');
     }
+
     const l = document.getElementById('th-light');
     const d = document.getElementById('th-dark');
     if (l && d) {
-      if (theme === 'dark') {
+      if (isDark) {
         d.classList.add('active');
         l.classList.remove('active');
       } else {
@@ -13635,37 +13657,27 @@
         d.classList.remove('active');
       }
     }
+
     const modeText = document.getElementById('theme-mode-text');
     if (modeText) {
       const isArabic = typeof isAr === 'function' ? isAr() : true;
-      modeText.textContent = theme === 'dark' ? (isArabic ? 'ليلي' : 'Dark') : (isArabic ? 'نهاري' : 'Light');
+      modeText.textContent = isDark ? (isArabic ? 'ليلي' : 'Dark') : (isArabic ? 'نهاري' : 'Light');
     }
+
     try {
+      localStorage.setItem('theme', theme);
       localStorage.setItem('erp_theme', theme);
     } catch(e) {}
+
     if (typeof showToast === 'function') {
-      showToast(theme === 'dark' ? '🌙 تم تفعيل الوضع الليلي الفاخر (Dark Mode)' : '☀️ تم تفعيل وضع النهار الدافئ (Warm Mode)');
+      showToast(isDark ? '🌙 تم تفعيل الوضع الليلي الفاخر (Dark Mode)' : '☀️ تم تفعيل وضع النهار الدافئ (Warm Mode)');
     }
   }
 
   // Auto-load saved theme on startup — default is warm cream
   try {
-    const savedTheme = localStorage.getItem('erp_theme') || 'light';
-    if (savedTheme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      setTimeout(() => {
-        const l = document.getElementById('th-light');
-        const d = document.getElementById('th-dark');
-        if (l && d) { d.classList.add('active'); l.classList.remove('active'); }
-      }, 50);
-    } else {
-      // Ensure warm cream is active
-      setTimeout(() => {
-        const l = document.getElementById('th-light');
-        const d = document.getElementById('th-dark');
-        if (l && d) { l.classList.add('active'); d.classList.remove('active'); }
-      }, 50);
-    }
+    const savedTheme = localStorage.getItem('theme') || localStorage.getItem('erp_theme') || 'light';
+    setTheme(savedTheme);
   } catch(e) {}
 
   // ── LIVE NOTIFICATIONS & ALERTS SYSTEM ──
