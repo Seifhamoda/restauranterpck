@@ -286,6 +286,13 @@
             🌐
           </button>
 
+          <!-- Theme toggle button (Dark / Night Mode) -->
+          <button type="button" class="dock-theme-btn" id="dock-theme-toggle-btn" onclick="toggleTheme()" title="تبديل الوضع الليلي / النهاري">
+            <span class="theme-icon light-icon">☀️</span>
+            <span class="theme-icon dark-icon">🌙</span>
+            <span class="theme-mode-text" id="theme-mode-text" data-ar="نهاري" data-en="Light">نهاري</span>
+          </button>
+
           <!-- Notifications Bell & Dropdown -->
           <div class="notif-bell-wrapper">
             <button type="button" class="dock-icon-btn" id="notif-bell-btn" onclick="toggleNotificationsDropdown(event)" title="التنبيهات">
@@ -9207,6 +9214,67 @@
 
     function executeBatchSimulation() { return executeSelectedBatch(); }
 
+    // ── LIVE COOK CYCLE TIMER ENGINE ──
+    let cookTimerInterval = null;
+    let cookTimerSeconds = 6135; // 01:42:15 default start
+    let cookTimerRunning = false;
+
+    function toggleCookTimer() {
+      const btn = document.getElementById('timer-toggle-btn');
+      const display = document.getElementById('cook-timer-display');
+      cookTimerRunning = !cookTimerRunning;
+
+      if (cookTimerRunning) {
+        if (btn) btn.innerHTML = '⏸ ' + ((typeof isAr === 'function' && isAr()) ? 'إيقاف مؤقت' : 'Pause');
+        clearInterval(cookTimerInterval);
+        cookTimerInterval = setInterval(() => {
+          cookTimerSeconds++;
+          const h = String(Math.floor(cookTimerSeconds / 3600)).padStart(2, '0');
+          const m = String(Math.floor((cookTimerSeconds % 3600) / 60)).padStart(2, '0');
+          const s = String(cookTimerSeconds % 60).padStart(2, '0');
+          if (display) display.textContent = `${h}:${m}:${s}`;
+        }, 1000);
+        if (typeof toast === 'function') toast(((typeof isAr === 'function' && isAr()) ? '▶ تم تشغيل دورة الطهي' : '▶ Cook cycle started'), 'info');
+      } else {
+        clearInterval(cookTimerInterval);
+        if (btn) btn.innerHTML = '▶ ' + ((typeof isAr === 'function' && isAr()) ? 'تشغيل الدورة' : 'Start Cycle');
+        if (typeof toast === 'function') toast(((typeof isAr === 'function' && isAr()) ? '⏸ تم إيقاف الدورة مؤقتاً' : '⏸ Cycle paused'), 'info');
+      }
+    }
+
+    function resetCookTimer() {
+      clearInterval(cookTimerInterval);
+      cookTimerRunning = false;
+      cookTimerSeconds = 0;
+      const btn = document.getElementById('timer-toggle-btn');
+      const display = document.getElementById('cook-timer-display');
+      if (btn) btn.innerHTML = '▶ ' + ((typeof isAr === 'function' && isAr()) ? 'تشغيل الدورة' : 'Start Cycle');
+      if (display) display.textContent = '00:00:00';
+      if (typeof toast === 'function') toast(((typeof isAr === 'function' && isAr()) ? '↺ تم تصفير مؤقت الدورة' : '↺ Timer reset'), 'info');
+    }
+
+    function toggleTaskCheck(el) {
+      if (!el) return;
+      const isDone = el.classList.contains('is-done');
+      const check = el.querySelector('.dark-check-box');
+      if (isDone) {
+        el.classList.remove('is-done');
+        if (check) { check.textContent = ''; check.classList.remove('checked'); }
+      } else {
+        el.classList.add('is-done');
+        el.classList.remove('in-progress');
+        if (check) { check.textContent = '✓'; check.classList.add('checked'); }
+      }
+    }
+
+    function exportProdExecutiveMatrix() {
+      if (typeof exportExecutiveProductionExcel === 'function') {
+        exportExecutiveProductionExcel();
+      } else if (typeof exportCenterStockLog === 'function') {
+        exportCenterStockLog();
+      }
+    }
+
     function renderDash() {
       try {
         initBomSimSelect();
@@ -13567,6 +13635,11 @@
         d.classList.remove('active');
       }
     }
+    const modeText = document.getElementById('theme-mode-text');
+    if (modeText) {
+      const isArabic = typeof isAr === 'function' ? isAr() : true;
+      modeText.textContent = theme === 'dark' ? (isArabic ? 'ليلي' : 'Dark') : (isArabic ? 'نهاري' : 'Light');
+    }
     try {
       localStorage.setItem('erp_theme', theme);
     } catch(e) {}
@@ -13813,66 +13886,15 @@
     });
   }
 
-  // ── UNIVERSAL SECTION SCROLLER & KEYBOARD NAVIGATION ───────────────────
-  // Guarantees effortless mouse-wheel, trackpad, and keyboard navigation across all sections
-  (function initUniversalScroller() {
-    window.addEventListener('wheel', function(e) {
-      const cnt = document.querySelector('.content');
-      if (!cnt) return;
-      // Check if event occurred inside an active nested scroll container
-      let cur = e.target;
-      let handledByInner = false;
-      while (cur && cur !== cnt && cur !== document.body) {
-        if (cur.scrollHeight > cur.clientHeight + 2) {
-          const ov = window.getComputedStyle(cur).overflowY;
-          if (ov === 'auto' || ov === 'scroll') {
-            const atTop = cur.scrollTop <= 0 && e.deltaY < 0;
-            const atBottom = cur.scrollTop + cur.clientHeight >= cur.scrollHeight - 1 && e.deltaY > 0;
-            if (!atTop && !atBottom) {
-              handledByInner = true;
-              break;
-            }
-          }
-        }
-        cur = cur.parentElement;
-      }
-      if (!handledByInner) {
-        cnt.scrollTop += e.deltaY;
-      }
-    }, { passive: true });
-
-    window.addEventListener('keydown', function(e) {
-      const cnt = document.querySelector('.content');
-      if (!cnt) return;
-      const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
-      if (['input', 'textarea', 'select'].includes(activeTag) || document.activeElement?.isContentEditable) return;
-      
-      if (e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey)) {
-        cnt.scrollTop += cnt.clientHeight * 0.8;
-        e.preventDefault();
-      } else if (e.key === 'PageUp' || (e.key === ' ' && e.shiftKey)) {
-        cnt.scrollTop -= cnt.clientHeight * 0.8;
-        e.preventDefault();
-      } else if (e.key === 'ArrowDown') {
-        cnt.scrollTop += 60;
-      } else if (e.key === 'ArrowUp') {
-        cnt.scrollTop -= 60;
-      } else if (e.key === 'Home') {
-        cnt.scrollTop = 0;
-      } else if (e.key === 'End') {
-        cnt.scrollTop = cnt.scrollHeight;
-      }
-    });
-  })();
-
+  // Native window & document scrolling enabled
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
       ensureHeroVideoPlays();
-      nav('welcome');
+      nav('dashboard');
     });
   } else {
     ensureHeroVideoPlays();
-    nav('welcome');
+    nav('dashboard');
   }
 
   // Mobile Off-canvas Drawer Event Listeners
