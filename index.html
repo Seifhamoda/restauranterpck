@@ -46,7 +46,7 @@
       } catch(e) {}
     })();
   </script>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20261002_02" />
 </head>
 
 <body>
@@ -13664,13 +13664,19 @@
       modeText.textContent = isDark ? (isArabic ? 'ليلي' : 'Dark') : (isArabic ? 'نهاري' : 'Light');
     }
 
+    const floatText = document.getElementById('floating-theme-label');
+    if (floatText) {
+      const isArabic = typeof isAr === 'function' ? isAr() : true;
+      floatText.textContent = isDark ? (isArabic ? 'المظهر: ليلي 🌙' : 'Dark Theme 🌙') : (isArabic ? 'المظهر: نهاري ☀️' : 'Light Theme ☀️');
+    }
+
     try {
       localStorage.setItem('theme', theme);
       localStorage.setItem('erp_theme', theme);
     } catch(e) {}
 
     if (typeof showToast === 'function') {
-      showToast(isDark ? '🌙 تم تفعيل الوضع الليلي الفاخر (Dark Mode)' : '☀️ تم تفعيل وضع النهار الدافئ (Warm Mode)');
+      showToast(isDark ? '🌙 تم تفعيل الوضع الليلي الفاخر (Dark Mode)' : '☀️ تم تفعيل وضع النهار الدافئ (Warm Cream)');
     }
   }
 
@@ -13940,6 +13946,13 @@
 
 </script>
 
+
+  <!-- Floating Quick Theme Switcher Pill (Always accessible) -->
+  <button type="button" class="floating-theme-switch-btn" id="floating-theme-toggle-btn" onclick="toggleTheme()" title="تبديل الوضع الليلي / النهاري">
+    <span class="floating-theme-icon light-icon">☀️</span>
+    <span class="floating-theme-icon dark-icon">🌙</span>
+    <span class="floating-theme-label" id="floating-theme-label">المظهر: نهاري ☀️</span>
+  </button>
 
   </div><!-- CLOSE APP CHASSIS -->
 </body>
