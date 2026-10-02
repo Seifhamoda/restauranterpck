@@ -222,7 +222,7 @@
 
   <!-- MAIN -->
     <!-- MAIN APP WINDOW -->
-  <div class="main">
+  <main class="main" id="main-content">
     
     <!-- ══════════════════════════════════════════════════════════
          A. TOP FLOATING CAPSULE DOCK (1:1 Video Match)
@@ -351,25 +351,28 @@
     <div class="content" id="content">
 
       <!-- ══════════════════════════════════════════════════════════
-           PAGE: WELCOME (Lightweight Minimalist Hub)
+           PAGE: WELCOME (Clean Modern Dashboard Greeting Card)
       ══════════════════════════════════════════════════════════ -->
       <section class="page" id="page-welcome">
         <!-- Invisible video element for script safety -->
         <video id="welcome-fullscreen-vid" class="js-hidden" muted></video>
         
-        <div class="welcome-clean-card">
-          <div class="welcome-clean-badge">
-            <span class="status-pulse-dot"></span>
-            <span>CENTRAL KITCHEN OS · المطبخ المركزي الرئيسي</span>
+        <div class="dashboard-greeting-header greeting-card-warm">
+          <div class="greeting-left">
+            <div class="greeting-status-tag">
+              <span class="status-indicator-live"></span>
+              <span data-ar="المطبخ المركزي الرئيسي · تشغيل نشط" data-en="Central Kitchen OS · Active">المطبخ المركزي الرئيسي · تشغيل نشط</span>
+              <span class="meta-separator">•</span>
+              <span>BRGR &amp; Saints &amp; Split</span>
+            </div>
+            <h1 class="greeting-heading">
+              <span data-ar="مرحباً بك في إمداد فود ERP" data-en="Welcome to Emdad Food ERP">مرحباً بك في إمداد فود ERP</span> ✦
+            </h1>
+            <p class="greeting-sub">
+              المنظومة السحابية الموحدة لإدارة وجدولة طلبات الفروع الـ 26، تفكيك مقادير الـ BOM، ومراقبة المخزون والهدر بأعلى معايير الجودة.
+            </p>
           </div>
-          <h1 class="welcome-clean-title">
-            المطبخ المركزي الرئيسي لإمداد وتجهيز الفروع
-            <span class="welcome-clean-brand">BRGR &amp; Saints &amp; Split</span>
-          </h1>
-          <p class="welcome-clean-desc">
-            المنظومة السحابية الموحدة لإدارة وجدولة طلبات الفروع الـ 26، تفكيك مقادير الـ BOM، ومراقبة المخزون والهدر بأعلى معايير الجودة.
-          </p>
-          <div class="welcome-clean-actions">
+          <div class="greeting-quick-actions">
             <button type="button" class="btn-solid-dark" onclick="nav('dashboard')">
               <span>الانتقال إلى لوحة العمل الرئيسية</span> ➔
             </button>
@@ -2765,7 +2768,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
 
   
   <!-- MOBILE BOTTOM NAVIGATION DOCK (iOS Safari & Android) -->
