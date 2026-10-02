@@ -221,414 +221,516 @@
 
 
   <!-- MAIN -->
+    <!-- MAIN APP WINDOW -->
   <div class="main">
     
     <!-- ══════════════════════════════════════════════════════════
-         TOPBAR — SPEC-EXACT MATCH TO REFERENCE MOCKUP
+         A. TOP FLOATING CAPSULE DOCK (1:1 Video Match)
+         Centered floating matte charcoal dock (#18181B)
     ══════════════════════════════════════════════════════════ -->
-    
-    <!-- ══════════════════════════════════════════════════════════
-         TOPBAR — SPEC-EXACT MATCH TO REFERENCE MOCKUP
-    ══════════════════════════════════════════════════════════ -->
-    <header class="topbar">
-      <!-- Left Segmented Control Tabs -->
-      
-        <!-- DYNAMIC ACTIVE SECTION BADGE (Updates as user navigates) -->
-        <div class="topbar-active-section-pill" id="topbar-active-pill" title="القسم النشط حالياً">
-          <span id="topbar-active-icon">🎛️</span>
-          <span id="topbar-active-title" data-ar="لوحة المؤشرات" data-en="Dashboard">لوحة المؤشرات</span>
+    <header class="top-dock-container" id="top-dock-container">
+      <div class="floating-capsule-dock" id="floating-capsule-dock">
+        <!-- Brand Glyph -->
+        <div class="dock-brand-pill" onclick="nav('dashboard')" title="Emdad Food Central ERP">
+          <div class="dock-brand-glyph">✦</div>
+          <span class="dock-brand-name">إمداد ERP</span>
         </div>
 
-        <div class="topbar-segmented-tabs">
-        
-        <button class="topbar-tab active" onclick="nav('welcome')" id="tab-welc">
-          <span class="tab-amber-dot">●</span>
-          <span data-ar="قسم الترحيب" data-en="Welcome Hub">قسم الترحيب</span>
-        </button>
-        <button class="topbar-tab" onclick="nav('dashboard')" id="tab-dash">
-          <span class="tab-amber-dot">●</span>
-          <span data-ar="لوحة المؤشرات" data-en="Dashboard">Dashboard</span>
-        </button>
-        <button class="topbar-tab" onclick="scrollToWorkflow()" id="tab-work">
-          <span data-ar="مسار التشغيل" data-en="Workflows">Workflows</span>
-        </button>
-        <button class="topbar-tab" onclick="toggleSqlSync()" id="tab-integ">
-          <span data-ar="الربط والمزامنة" data-en="Integrations">Integrations</span>
-        </button>
-      </div>
+        <!-- Navigation Pills -->
+        <nav class="dock-nav-pill-group">
+          <button type="button" class="dock-nav-pill active" id="tab-dash" data-page="dashboard" onclick="nav('dashboard')">
+            <span class="dock-active-dot">●</span>
+            <span data-ar="لوحة المؤشرات" data-en="Dashboard">لوحة المؤشرات</span>
+          </button>
+          <button type="button" class="dock-nav-pill" id="tab-ord" data-page="orders" onclick="nav('orders')">
+            <span data-ar="طلبات الفروع" data-en="Branch Orders">طلبات الفروع</span>
+          </button>
+          <button type="button" class="dock-nav-pill" id="tab-prod" data-page="production" onclick="nav('production')">
+            <span data-ar="خطة التشغيل (BOM)" data-en="Production & BOM">خطة التشغيل (BOM)</span>
+          </button>
+          <button type="button" class="dock-nav-pill" id="tab-cstk" data-page="centerstock" onclick="nav('centerstock')">
+            <span data-ar="مخزون المركز" data-en="Center Stock">مخزون المركز</span>
+          </button>
+          <button type="button" class="dock-nav-pill" data-page="inventory" onclick="nav('inventory')">
+            <span data-ar="مستودع الخامات" data-en="Raw Inventory">مستودع الخامات</span>
+          </button>
+          <button type="button" class="dock-nav-pill" id="tab-rec" data-page="recipes" onclick="nav('recipes')">
+            <span data-ar="دليل الوصفات" data-en="Recipes">دليل الوصفات</span>
+          </button>
+          <button type="button" class="dock-nav-pill" data-page="waste" onclick="nav('waste')">
+            <span data-ar="سجل الهدر" data-en="Waste">سجل الهدر</span>
+          </button>
+          <button type="button" class="dock-nav-pill" data-page="reports" onclick="nav('reports')">
+            <span data-ar="التقارير والمصفوفة" data-en="Reports">التقارير والمصفوفة</span>
+          </button>
+          <!-- Hidden compatibility buttons for JS queries -->
+          <button type="button" class="js-hidden" id="tab-welc" onclick="nav('welcome')"></button>
+          <button type="button" class="js-hidden" id="tab-work" onclick="scrollToWorkflow()"></button>
+          <button type="button" class="js-hidden" id="tab-integ" onclick="toggleSqlSync()"></button>
+        </nav>
 
-      <!-- Center Rounded Command Search Pill -->
-      <div class="topbar-search-pill" onclick="openCmdBar()" title="بحث سريع (Ctrl+K)">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="2">
-          <circle cx="11" cy="11" r="8"/>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-        <span class="search-placeholder" data-ar="بحث في الـ 88 منتج، 200 خامة، وأوامر الشراء..." data-en="Search or type command...">Search or type command...</span>
-        <kbd class="search-kbd">⌘K</kbd>
-      </div>
-
-      <!-- Right Controls: Functional Light/Dark Toggle, Notifications Dropdown, Export, + Add Button -->
-      <div class="topbar-right-actions">
-        <!-- Functional Light / Dark Mode Toggle Capsule -->
-        <div class="theme-toggle-pill" onclick="toggleTheme()" title="تبديل الوضع (Dark / Light)">
-          <span class="theme-opt" id="th-light">☀️ Light</span>
-          <span class="theme-opt active" id="th-dark">🌙 Dark</span>
-        </div>
-
-        <!-- Notification Bell with Unread Dot & Interactive Dropdown -->
-        <div class="notif-bell-wrapper">
-          <button class="topbar-circle-btn" id="notif-bell-btn" onclick="toggleNotificationsDropdown(event)" title="الإشعارات والتنبيهات">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        <!-- Right End Controls: Search Pill, Language, Notifications, Avatar, Action Trigger -->
+        <div class="dock-end-controls">
+          <!-- Search Pill -->
+          <div class="dock-search-pill" onclick="openCmdBar()" title="بحث سريع (Ctrl+K)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
             </svg>
-            <span class="unread-dot"></span>
+            <span class="dock-search-text" data-ar="بحث..." data-en="Search...">بحث...</span>
+            <kbd class="dock-search-kbd">⌘K</kbd>
+          </div>
+
+          <!-- Language toggle -->
+          <button type="button" class="dock-icon-btn" onclick="toggleLang()" title="اللغة / Language">
+            🌐
           </button>
 
-          <!-- Floating Frosted Notifications Dropdown Panel -->
-          <div class="notifications-dropdown" id="notifications-dropdown" onclick="event.stopPropagation()">
-            <div class="notif-header">
-              <div class="notif-title-group">
-                <span class="notif-bell-icon">🔔</span>
-                <span class="notif-header-title" data-ar="مركز التنبيهات والتشغيل" data-en="System Alerts">مركز التنبيهات والتشغيل</span>
+          <!-- Notifications Bell & Dropdown -->
+          <div class="notif-bell-wrapper">
+            <button type="button" class="dock-icon-btn" id="notif-bell-btn" onclick="toggleNotificationsDropdown(event)" title="التنبيهات">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+              </svg>
+              <span class="unread-dot"></span>
+            </button>
+
+            <!-- Floating Frosted Notifications Dropdown Panel -->
+            <div class="notifications-dropdown" id="notifications-dropdown" onclick="event.stopPropagation()">
+              <div class="notif-header">
+                <div class="notif-title-group">
+                  <span class="notif-bell-icon">🔔</span>
+                  <span class="notif-header-title" data-ar="مركز التنبيهات والتشغيل" data-en="System Alerts">مركز التنبيهات والتشغيل</span>
+                </div>
+                <span class="badge badge-purple" id="notif-count-badge">4 تنبيهات</span>
               </div>
-              <span class="badge badge-purple" id="notif-count-badge">4 تنبيهات</span>
-            </div>
-            <div class="notif-list" id="notif-items-list">
-              <!-- Dynamically rendered items -->
-            </div>
-            <div class="notif-footer-actions">
-              <button class="notif-clear-btn" onclick="markAllNotificationsRead(event)">✓ تحديد الكل كمقروء</button>
-              <button class="notif-view-all-btn" onclick="nav('reports'); closeNotificationsDropdown();">سجل التقارير ←</button>
+              <div class="notif-list" id="notif-items-list">
+                <!-- Dynamically rendered items -->
+              </div>
+              <div class="notif-footer-actions">
+                <button class="notif-clear-btn" onclick="markAllNotificationsRead(event)">✓ تحديد الكل كمقروء</button>
+                <button class="notif-view-all-btn" onclick="nav('reports'); closeNotificationsDropdown();">سجل التقارير ←</button>
+              </div>
             </div>
           </div>
+
+          <!-- Profile Avatar Pill -->
+          <div class="dock-profile-avatar" title="الشيف فهد التميمي · مدير التشغيل">
+            <span class="avatar-emoji">👨‍🍳</span>
+            <span class="avatar-live-dot"></span>
+          </div>
+
+          <!-- Primary Action Trigger Pill (+ Add / Dispatch) -->
+          <button type="button" class="dock-action-trigger" onclick="nav('orders')" title="إضافة طلب فرع جديد">
+            <span>+ أمر جديد</span>
+          </button>
         </div>
-
-        <!-- Export data pill -->
-        <button class="btn-pill-export" onclick="exportDataTrigger()" title="تصدير البيانات">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
-          </svg>
-          <span data-ar="تصدير البيانات" data-en="Export data">Export data</span>
-          <span class="export-caret">▾</span>
-        </button>
-
-        <!-- + Add new board primary glowing pill -->
-        <button class="btn-pill-add" onclick="nav('orders')" title="إضافة طلب فرع جديد">
-          + <span data-ar="طلب جديد" data-en="Add new board">Add new board</span>
-        </button>
-
-        <span id="page-title" class="js-hidden"></span>
-        <span id="hdr-date" class="js-hidden"></span>
       </div>
+
+      <!-- Preserved legacy elements for script compatibility -->
+      <div id="topbar-active-pill" class="js-hidden">
+        <span id="topbar-active-icon">🎛️</span>
+        <span id="topbar-active-title">لوحة المؤشرات</span>
+      </div>
+      <div class="theme-toggle-pill js-hidden" onclick="toggleTheme()">
+        <span id="th-light">☀️ Light</span>
+        <span id="th-dark">🌙 Dark</span>
+      </div>
+      <span id="page-title" class="js-hidden"></span>
     </header>
 
-
-
+    <!-- CONTENT WRAPPER -->
     <div class="content" id="content">
 
-      <!-- DASHBOARD -->
-      
-      <!-- DASHBOARD -->
-      
       <!-- ══════════════════════════════════════════════════════════
-           PAGE: WELCOME (Immersive Fullscreen Video Hub)
-           ══════════════════════════════════════════════════════════ -->
-      <section class="page active" id="page-welcome">
-        <div class="welcome-section-wrapper">
-          <video class="welcome-video-fullscreen" autoplay muted loop playsinline preload="auto" id="welcome-fullscreen-vid">
-            <source src="177781627_1789861568003635.mp4" type="video/mp4">
-            <source src="A_premium_and_dynamic_animatio.mp4" type="video/mp4">
-            <source src="hero_bg.mp4" type="video/mp4">
-          </video>
-          <div class="welcome-gradient-overlay"></div>
-
-          <div class="welcome-inner-content">
-            <div class="welcome-hero-card">
-              <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20 shadow-[0_0_20px_rgba(245,158,11,0.15)] welcome-pill-tag">
-                <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-                <span data-ar="THE CENTRAL KITCHEN • المطبخ المركزي الرئيسي" data-en="THE CENTRAL KITCHEN • Main Production Hub">THE CENTRAL KITCHEN • المطبخ المركزي الرئيسي</span>
-              </span>
-              
-              <h1 class="welcome-main-heading text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-snug drop-shadow-md text-center">
-                <span data-ar="المطبخ المركزي الرئيسي لإمداد وتجهيز فروع" data-en="Main Central Kitchen for Supplying & Prepping">المطبخ المركزي الرئيسي لإمداد وتجهيز فروع</span>
-                <span class="block mt-2 text-2xl md:text-4xl lg:text-5xl font-black tracking-normal text-amber-500 drop-shadow-[0_2px_10px_rgba(245,158,11,0.5)]">
-                  BRGR &amp; Saints &amp; Split
-                </span>
-              </h1>
-              
-              <p class="welcome-desc-text text-sm md:text-base text-zinc-200 font-normal max-w-3xl mx-auto leading-relaxed drop-shadow" data-ar="من هنا تبدأ كل وجبة. المنظومة التشغيلية للمطبخ المركزي لإعداد وتجهيز المصنعات، تلبية طلبيات الفروع اليومية، إدارة مستودع الخامات، وتطبيق معادلات الـ BOM لضبط الجودة ومنع الهدر." data-en="Where every meal begins. The Central Kitchen OS for manufacturing prep, fulfilling daily branch orders, raw inventory management, and BOM explosions to maintain quality and eliminate waste.">
-                من هنا تبدأ كل وجبة. المنظومة التشغيلية للمطبخ المركزي لإعداد وتجهيز المصنعات، تلبية طلبيات الفروع اليومية، إدارة مستودع الخامات، وتطبيق معادلات الـ BOM لضبط الجودة ومنع الهدر.
-              </p>
-
-              <!-- Quick Navigation Grid to all ERP Sections -->
-              <div class="welcome-action-grid">
-                <div class="welcome-action-tile" onclick="nav('dashboard')">
-                  <div class="tile-icon">🎛️</div>
-                  <div class="tile-body">
-                    <div class="tile-title" data-ar="لوحة المؤشرات" data-en="Dashboard">لوحة المؤشرات</div>
-                    <div class="tile-hint" data-ar="تحليلات وتدفق سلاسل الإمداد" data-en="Executive KPIs & Workflows">تحليلات وتدفق سلاسل الإمداد</div>
-                  </div>
-                </div>
-
-                <div class="welcome-action-tile" onclick="nav('production')">
-                  <div class="tile-icon">🍳</div>
-                  <div class="tile-body">
-                    <div class="tile-title" data-ar="خطة التشغيل (BOM)" data-en="Production & BOM">خطة التشغيل (BOM)</div>
-                    <div class="tile-hint" data-ar="مصفوفة الإنتاج ودفعات الطهي" data-en="Monthly Matrix & Cook Batches">مصفوفة الإنتاج ودفعات الطهي</div>
-                  </div>
-                </div>
-
-                <div class="welcome-action-tile" onclick="nav('orders')">
-                  <div class="tile-icon">📋</div>
-                  <div class="tile-body">
-                    <div class="tile-title" data-ar="طلبات الفروع" data-en="Branch Orders">طلبات الفروع</div>
-                    <div class="tile-hint" data-ar="استلام وتجميع طلبات المطابخ" data-en="Aggregate Daily Branch Orders">استلام وتجميع طلبات المطابخ</div>
-                  </div>
-                </div>
-
-                <div class="welcome-action-tile" onclick="nav('recipes')">
-                  <div class="tile-icon">📖</div>
-                  <div class="tile-body">
-                    <div class="tile-title" data-ar="دليل الـ 74 ريسبي" data-en="74 BOM Recipes">دليل الـ 74 ريسبي</div>
-                    <div class="tile-hint" data-ar="معايير التكلفة وتفكيك المقادير" data-en="Ingredients & Yield Standards">معايير التكلفة وتفكيك المقادير</div>
-                  </div>
-                </div>
-
-                <div class="welcome-action-tile" onclick="nav('centerstock')">
-                  <div class="tile-icon">📦</div>
-                  <div class="tile-body">
-                    <div class="tile-title" data-ar="مخزون المركز الجاهز" data-en="Center Stock">مخزون المركز الجاهز</div>
-                    <div class="tile-hint" data-ar="أرصدة التجهيزات وسجل الصرف" data-en="Finished Goods Batches">أرصدة التجهيزات وسجل الصرف</div>
-                  </div>
-                </div>
-
-                <div class="welcome-action-tile" onclick="nav('inventory')">
-                  <div class="tile-icon">🥫</div>
-                  <div class="tile-body">
-                    <div class="tile-title" data-ar="مستودع الخامات" data-en="Raw Materials">مستودع الخامات</div>
-                    <div class="tile-hint" data-ar="رصيد 200 خامة ونقاط إعادة الطلب" data-en="200 Items & Low Stock Alerts">رصيد 200 خامة ونقاط إعادة الطلب</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Welcome Footer Action -->
-              <div class="welcome-cta-row">
-                <button class="welcome-primary-btn" onclick="nav('dashboard')">
-                  <span data-ar="الانتقال إلى لوحة العمل الرئيسية" data-en="Enter Operations Dashboard">الانتقال إلى لوحة العمل الرئيسية</span>
-                  <span class="arrow-sym">➔</span>
-                </button>
-                <div class="welcome-status-capsule">
-                  <span class="pulse-dot-green">●</span>
-                  <span data-ar="السيرفر متصل · جاهز لإطلاق العمليات" data-en="Server Online · Operations Ready">السيرفر متصل · جاهز لإطلاق العمليات</span>
-                </div>
-              </div>
-            </div>
+           PAGE: WELCOME (Lightweight Minimalist Hub)
+      ══════════════════════════════════════════════════════════ -->
+      <section class="page" id="page-welcome">
+        <!-- Invisible video element for script safety -->
+        <video id="welcome-fullscreen-vid" class="js-hidden" muted></video>
+        
+        <div class="welcome-clean-card">
+          <div class="welcome-clean-badge">
+            <span class="status-pulse-dot"></span>
+            <span>CENTRAL KITCHEN OS · المطبخ المركزي الرئيسي</span>
+          </div>
+          <h1 class="welcome-clean-title">
+            المطبخ المركزي الرئيسي لإمداد وتجهيز الفروع
+            <span class="welcome-clean-brand">BRGR &amp; Saints &amp; Split</span>
+          </h1>
+          <p class="welcome-clean-desc">
+            المنظومة السحابية الموحدة لإدارة وجدولة طلبات الفروع الـ 26، تفكيك مقادير الـ BOM، ومراقبة المخزون والهدر بأعلى معايير الجودة.
+          </p>
+          <div class="welcome-clean-actions">
+            <button type="button" class="btn-solid-dark" onclick="nav('dashboard')">
+              <span>الانتقال إلى لوحة العمل الرئيسية</span> ➔
+            </button>
+            <button type="button" class="btn-solid-amber" onclick="nav('orders')">
+              <span>عرض طلبات الفروع النشطة</span>
+            </button>
           </div>
         </div>
       </section>
 
-      <section class="page" id="page-dashboard">
-
-
-
-        <!-- ══════════════════════════════════════════════════════════
-             SPEC-EXACT KPI CARDS (Matching React Framer-Motion JSX Code)
-             whileHover={{ y: -5 }} className="glass-card p-6 rounded-2xl"
-        ══════════════════════════════════════════════════════════ -->
-        <!-- ═══════════════════════════════════════════
-             MIDDLE ROW: Interest Rate Mode Style Chart + BOM Simulator
-        ═══════════════════════════════════════════ -->
+      <!-- ══════════════════════════════════════════════════════════
+           PAGE: DASHBOARD (1:1 Reference Video Bento Grid SaaS Dashboard)
+      ══════════════════════════════════════════════════════════ -->
+      <section class="page active" id="page-dashboard">
         
-        <!-- ══════════════════════════════════════════════════════════
-             SPEC-EXACT KPI METRIC CARDS (Clean, Spacious, Framer-Motion Glass)
-             ══════════════════════════════════════════════════════════ -->
-        <div class="kpi-grid">
-          <!-- CARD 1: Total Demand -->
-          <div class="stat-card kpi-card cursor-pointer" onclick="nav('orders')">
-            <div class="kpi-card-inner">
-              <div class="flex-1-min-0">
-                <div class="kpi-title" data-ar="إجمالي طلبات الفروع" data-en="Total Branch Demand">إجمالي طلبات الفروع</div>
-                <div class="kpi-num kpi-cyan" id="kpi-total-demand">0.00 Kg</div>
-                <div class="kpi-sub" id="kpi-branches-sub">0 فروع طلبت اليوم</div>
-              </div>
-              <div class="kpi-icon-pill">📋</div>
+        <!-- B. TOP ROW: GREETING & STATS HEADER (1:1 Video Match) -->
+        <div class="dashboard-greeting-header">
+          <div class="greeting-left">
+            <div class="greeting-status-tag">
+              <span class="status-indicator-live"></span>
+              <span data-ar="الوردية الصباحية المباشرة · نشط" data-en="Live Morning Shift · Active">الوردية الصباحية المباشرة · نشط</span>
+              <span class="meta-separator">•</span>
+              <span id="hdr-date">2 أكتوبر 2026</span>
             </div>
+            <h1 class="greeting-heading">
+              <span data-ar="صباح الخير، الشيف التنفيذي" data-en="Good morning, Executive Chef">صباح الخير، الشيف التنفيذي</span> 👋
+            </h1>
+            <p class="greeting-sub">
+              متابعة تدفق الإنتاج، طلبات الـ 26 فرع، وتفكيك خامات الـ BOM لحظياً.
+            </p>
           </div>
 
-          <!-- CARD 2: Active Batches -->
-          <div class="stat-card kpi-card cursor-pointer" onclick="nav('production')">
-            <div class="kpi-card-inner">
-              <div class="flex-1-min-0">
-                <div class="kpi-title" data-ar="دفعات الطهي النشطة" data-en="Active Kitchen Batches">دفعات الطهي النشطة</div>
-                <div class="kpi-num kpi-amber" id="kpi-active-batches">0 دفعة</div>
-                <div class="kpi-sub" id="kpi-batches-sub">لا توجد تشغيلات اليوم</div>
+          <div class="greeting-stats-grid">
+            <!-- Counter 1: Total Demand -->
+            <div class="greeting-stat-pill" onclick="nav('orders')">
+              <div class="stat-pill-top">
+                <span class="stat-pill-label" data-ar="إجمالي الطلبات" data-en="Total Demand">إجمالي الطلبات</span>
+                <span class="pill-status-chip chip-cyan" id="kpi-branches-sub">26 فرع</span>
               </div>
-              <div class="kpi-icon-pill">🍳</div>
+              <div class="stat-pill-num kpi-cyan" id="kpi-total-demand">0.00 Kg</div>
             </div>
-          </div>
 
-          <!-- CARD 3: Raw Materials in Stock -->
-          <div class="stat-card kpi-card cursor-pointer" onclick="nav('inventory')">
-            <div class="kpi-card-inner">
-              <div class="flex-1-min-0">
-                <div class="kpi-title" data-ar="أرصدة خامات المستودع" data-en="Raw Materials In Stock">أرصدة خامات المستودع</div>
-                <div class="kpi-num kpi-green" id="kpi-raw-stock">0 / 200</div>
-                <div class="kpi-sub" id="kpi-stock-sub">المخزن بانتظار استلام بضاعة</div>
+            <!-- Counter 2: Active Batches -->
+            <div class="greeting-stat-pill" onclick="nav('production')">
+              <div class="stat-pill-top">
+                <span class="stat-pill-label" data-ar="دفعات الطهي" data-en="Active Batches">دفعات الطهي</span>
+                <span class="pill-status-chip chip-amber" id="kpi-batches-sub">جاهز للتجهيز</span>
               </div>
-              <div class="kpi-icon-pill">🥫</div>
+              <div class="stat-pill-num kpi-amber" id="kpi-active-batches">0 دفعة</div>
             </div>
-          </div>
 
-          <!-- CARD 4: Shortages & Alerts -->
-          <div class="stat-card kpi-card cursor-pointer" onclick="nav('reports')">
-            <div class="kpi-card-inner">
-              <div class="flex-1-min-0">
-                <div class="kpi-title" data-ar="نواقص وتنبيهات الإمداد" data-en="Supply Shortages Alert">نواقص وتنبيهات الإمداد</div>
-                <div class="kpi-num kpi-purple" id="kpi-shortages-alert">0</div>
-                <div class="kpi-sub" id="kpi-shortages-sub">جميع الخامات متوفرة</div>
+            <!-- Counter 3: Raw Stock -->
+            <div class="greeting-stat-pill" onclick="nav('inventory')">
+              <div class="stat-pill-top">
+                <span class="stat-pill-label" data-ar="خامات المستودع" data-en="Raw Stock">خامات المستودع</span>
+                <span class="pill-status-chip chip-green" id="kpi-stock-sub">المخزون آمن</span>
               </div>
-              <div class="kpi-icon-pill">🔔</div>
+              <div class="stat-pill-num kpi-green" id="kpi-raw-stock">0 / 200</div>
+            </div>
+
+            <!-- Counter 4: Shortages & Alerts -->
+            <div class="greeting-stat-pill" onclick="nav('reports')">
+              <div class="stat-pill-top">
+                <span class="stat-pill-label" data-ar="النواقص والتنبيهات" data-en="Alerts">النواقص والتنبيهات</span>
+                <span class="pill-status-chip chip-purple" id="kpi-shortages-sub">حالة ممتازة</span>
+              </div>
+              <div class="stat-pill-num kpi-purple" id="kpi-shortages-alert">0</div>
             </div>
           </div>
         </div>
 
-        <div class="middle-grid">
-          <!-- LEFT: VELOCITY CHART (Cyan + Violet, Auro style) -->
-          <div class="card">
-            <div
-              class="card-header-flex">
-              <div>
-                <h3 class="card-title-main"
-                  data-ar="معدل سحب طلبات الفروع والإنتاج التراكمي"
-                  data-en="Interest Rate Mode — Branch Demand Velocity">
-                  معدل سحب طلبات الفروع والإنتاج التراكمي
-                </h3>
-                <p class="card-sub-desc"
-                  data-ar="سحب الاستهلاك المباشر عبر جميع الفروع الـ 26"
-                  data-en="Live demand consumption across all 26 branches">
-                  سحب الاستهلاك المباشر عبر جميع الفروع الـ 26
-                </p>
+        <!-- C. BENTO GRID DASHBOARD CORE (Exact Video Placement) -->
+        <div class="bento-dashboard-grid">
+          
+          <!-- WIDGET 1: Profile / Status Card -->
+          <div class="bento-card bento-profile-card">
+            <div class="profile-card-header">
+              <div class="profile-avatar-box">
+                <span class="profile-avatar-emoji">👨‍🍳</span>
+                <span class="profile-online-badge"></span>
               </div>
-              <div class="filter-chip-group">
-                <button class="filter-chip active">1M</button>
-                <button class="filter-chip">1Y</button>
-                <button class="filter-chip" data-ar="الكل"
-                  data-en="ALL">الكل</button>
+              <div class="profile-meta-info">
+                <div class="profile-status-pill">
+                  <span class="status-dot-green">●</span>
+                  <span>جاهز للتشغيل · HACCP Certified</span>
+                </div>
+                <h3 class="profile-lead-name">الشيف فهد التميمي</h3>
+                <p class="profile-lead-role">مدير تشغيل المطبخ المركزي الرئيسي</p>
               </div>
             </div>
-            <div class="chart-wrap-210">
+
+            <div class="profile-location-chip">
+              <span class="loc-icon">📍</span>
+              <span>محطة الإنتاج والتجهيز المركزية — الرياض</span>
+            </div>
+
+            <div class="profile-mini-accordion">
+              <div class="accordion-stat-row">
+                <div class="accordion-stat-label">
+                  <span>معدل الالتزام بمعايير الـ BOM</span>
+                  <span class="accordion-stat-val text-amber">98.6%</span>
+                </div>
+                <div class="accordion-bar-track"><div class="accordion-bar-fill bar-fill-98"></div></div>
+              </div>
+              <div class="accordion-stat-row">
+                <div class="accordion-stat-label">
+                  <span>درجة حرارة التبريد المركزي</span>
+                  <span class="accordion-stat-val text-emerald">+3.2°C (مثالي)</span>
+                </div>
+                <div class="accordion-bar-track"><div class="accordion-bar-fill fill-emerald bar-fill-92"></div></div>
+              </div>
+              <div class="accordion-stat-row">
+                <div class="accordion-stat-label">
+                  <span>أسطول النقل المبرد للفروع</span>
+                  <span class="accordion-stat-val text-blue">8 شاحنات في المسار</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WIDGET 2: Weekly Progress / Bar Chart -->
+          <div class="bento-card bento-progress-card">
+            <div class="bento-card-header">
+              <div>
+                <h3 class="bento-card-title">معدل سحب الاستهلاك الأسبوعي</h3>
+                <p class="bento-card-sub">Weekly Demand & Consumption Velocity</p>
+              </div>
+              <span class="badge-amber-pill">83.4% طاقة مستهلكة</span>
+            </div>
+
+            <!-- 7 Vertical Day Bar Indicators (M T W T F S S) -->
+            <div class="weekly-bars-flex">
+              <div class="day-col">
+                <div class="day-track"><div class="day-fill bar-h-65"></div></div>
+                <span class="day-tag">ح</span>
+              </div>
+              <div class="day-col">
+                <div class="day-track"><div class="day-fill bar-h-82"></div></div>
+                <span class="day-tag">ن</span>
+              </div>
+              <div class="day-col">
+                <div class="day-track"><div class="day-fill bar-h-52"></div></div>
+                <span class="day-tag">ث</span>
+              </div>
+              <div class="day-col">
+                <div class="day-track"><div class="day-fill bar-h-94"></div></div>
+                <span class="day-tag">ر</span>
+              </div>
+              <div class="day-col active-day">
+                <div class="day-track"><div class="day-fill amber-active-fill bar-h-88"></div></div>
+                <span class="day-tag active-pill">خ</span>
+              </div>
+              <div class="day-col">
+                <div class="day-track"><div class="day-fill bar-h-100"></div></div>
+                <span class="day-tag">ج</span>
+              </div>
+              <div class="day-col">
+                <div class="day-track"><div class="day-fill bar-h-70"></div></div>
+                <span class="day-tag">س</span>
+              </div>
+            </div>
+
+            <!-- Live Chart Canvas for Demand Velocity -->
+            <div class="bento-chart-container">
               <canvas id="ch-demand-velocity"></canvas>
             </div>
-            <!-- Utilization Bar (matching Auro) -->
-            <div
-              class="stat-highlight-pill">
-              <div class="stat-highlight-text">
-                <span data-ar="الاستهلاك الحالي للطاقة الإنتاجية" data-en="Current Utilization">الاستهلاك الحالي للطاقة
-                  الإنتاجية</span>
-                <span
-                  class="stat-highlight-badge">83.4%</span>
+          </div>
+
+          <!-- WIDGET 3: Time Tracker / Dial Gauge -->
+          <div class="bento-card bento-timer-card">
+            <div class="bento-card-header">
+              <div>
+                <h3 class="bento-card-title">مؤقت دورة الطهي والتشغيل</h3>
+                <p class="bento-card-sub">Live Cook Cycle Timer</p>
               </div>
-              <div class="stat-highlight-sub" data-ar="الذروة: 142.5 كجم" data-en="Peak: 142.5 Kg">الذروة:
-                142.5 كجم</div>
+              <span class="status-pulse-badge">● جاري الطهي</span>
+            </div>
+
+            <div class="dial-gauge-center">
+              <div class="dial-circle-wrapper">
+                <svg class="dial-svg-graphic" viewBox="0 0 160 160">
+                  <circle class="dial-base-circle" cx="80" cy="80" r="70"></circle>
+                  <circle class="dial-progress-circle" cx="80" cy="80" r="70"></circle>
+                </svg>
+                <div class="dial-center-body">
+                  <span class="dial-counter-digits" id="cook-timer-display">01:42:15</span>
+                  <span class="dial-batch-tag">دورة صوصات #104</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="dial-controls-row">
+              <button type="button" class="btn-solid-amber btn-pill-sm" id="timer-toggle-btn" onclick="toggleCookTimer()">
+                ▶ تشغيل الدورة
+              </button>
+              <button type="button" class="btn-secondary btn-pill-sm" onclick="resetCookTimer()">
+                ↺ تصفير
+              </button>
             </div>
           </div>
 
-          <!-- RIGHT: BORROW INFO Style — Live BOM Simulator -->
-          <div class="card">
-            <div class="card-header-flex-sm">
-              <h3 class="card-title-main" data-ar="محاكي تفكيك الوصفة والتشغيل الحي"
-                data-en="Live BOM Batch Simulator">
-                محاكي تفكيك الوصفة والتشغيل الحي
-              </h3>
-              <span class="badge badge-orange" data-ar="حي وتفاعلي" data-en="Interactive">حي وتفاعلي</span>
+          <!-- WIDGET 4: Dark Onboarding / Tasks Widget (#18181B) -->
+          <div class="bento-card bento-dark-tasks-card">
+            <div class="dark-tasks-header">
+              <div>
+                <span class="dark-tasks-badge">وردية الصباح</span>
+                <h3 class="dark-tasks-title">مهام المطبخ اليومية</h3>
+              </div>
+              <span class="dark-tasks-progress-pill">75% مكتمل</span>
             </div>
-            <p class="card-sub-desc"
-              data-ar="اختر صنفاً مصنّعاً لحساب استهلاك الخامات فورياً"
-              data-en="Select a manufactured item to simulate BOM deduction">
-              اختر صنفاً مصنّعاً لحساب استهلاك الخامات فورياً
-            </p>
 
-            <!-- Product Selector -->
-            <div
-              class="sim-box">
-              <label class="sim-label"
-                data-ar="الصنف المصنّع المراد تشغيله:" data-en="Item to produce:">الصنف المصنّع المراد تشغيله:</label>
-              <select id="bom-sim-select" onchange="updateBomSimPreview()"
-                class="sim-select">
-                <option value="">-- اختر صنفاً للتشغيل --</option>
-              </select>
-              <div class="sim-batch-row">
-                <span class="sim-batch-label" data-ar="حجم الدفعة المطلوبة:" data-en="Batch Quantity:">حجم
-                  الدفعة المطلوبة:</span>
-                <input type="number" id="bom-sim-qty" value="10" min="1" oninput="updateBomSimPreview()"
-                  class="sim-qty-input" />
+            <div class="dark-tasks-checklist">
+              <div class="dark-task-row is-done" onclick="toggleTaskCheck(this)">
+                <div class="dark-check-box checked">✓</div>
+                <div class="dark-task-content">
+                  <span class="task-title-text">فحص درجات حرارة الثلاجات والمجمدات</span>
+                  <span class="task-meta-time">06:00 ص · تم الفحص والتوثيق بنجاح</span>
+                </div>
+              </div>
+              <div class="dark-task-row is-done" onclick="toggleTaskCheck(this)">
+                <div class="dark-check-box checked">✓</div>
+                <div class="dark-task-content">
+                  <span class="task-title-text">تجميع طلبات الـ 26 فرع واعتماد خطة الـ BOM</span>
+                  <span class="task-meta-time">07:30 ص · تم الاعتماد والتصدير</span>
+                </div>
+              </div>
+              <div class="dark-task-row in-progress" onclick="toggleTaskCheck(this)">
+                <div class="dark-check-box in-prog">⏳</div>
+                <div class="dark-task-content">
+                  <span class="task-title-text">طهي وتجهيز صوصات البرجر والمصنعات الكبرى</span>
+                  <span class="task-meta-time">08:30 ص · جاري الطهي والتبريد السريع</span>
+                </div>
+              </div>
+              <div class="dark-task-row" onclick="toggleTaskCheck(this)">
+                <div class="dark-check-box"></div>
+                <div class="dark-task-content">
+                  <span class="task-title-text">معاينة أوزان التعبئة وتحميل شاحنات التوزيع المبرد</span>
+                  <span class="task-meta-time">11:30 ص · في انتظار اكتمال التبريد</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WIDGET 5: Weekly Schedule / Calendar Timeline & Live Simulator -->
+          <div class="bento-card bento-timeline-card">
+            <div class="bento-card-header">
+              <div>
+                <h3 class="bento-card-title">جدول التشغيل والمسارات الزمني</h3>
+                <p class="bento-card-sub">Daily Operations & Dispatch Timeline</p>
+              </div>
+              <div class="timeline-header-badges">
+                <span class="badge badge-green">3 فترات تشغيلية</span>
+                <span class="badge badge-amber">الطهي نشط</span>
               </div>
             </div>
 
-            <!-- Ingredients List container -->
-            <div id="bom-sim-ings-list"
-              class="sim-results-box">
-              <div class="sim-empty-state">
-                👈 اختر صنفاً من القائمة أعلاه لعرض مكونات الوصفة ورصيد خاماتها
+            <!-- Horizontal Timeline Axis -->
+            <div class="timeline-track-container">
+              <div class="timeline-slot-col">
+                <div class="timeline-schedule-block block-dark">
+                  <div class="block-header-info">
+                    <span class="block-time-range">06:00 - 08:30</span>
+                    <span class="block-location-chip">مستودع الخامات</span>
+                  </div>
+                  <h4 class="block-heading">استلام وتفريغ شحنات الموردين والمجمدات</h4>
+                  <div class="block-attendees-row">
+                    <span class="attendee-avatar-glyph">📦</span>
+                    <span class="attendee-avatar-glyph">🧑‍💼</span>
+                    <span class="attendee-count-text">3 أمناء مستودع</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-slot-col">
+                <div class="timeline-schedule-block block-amber-glow">
+                  <div class="block-header-info">
+                    <span class="block-time-range">08:30 - 12:00</span>
+                    <span class="block-location-chip chip-amber">مطبخ الإنتاج A1</span>
+                  </div>
+                  <h4 class="block-heading">دفعات الطهي الكبرى وتجهيز صوصات البرجر (BOM)</h4>
+                  <div class="block-attendees-row">
+                    <span class="attendee-avatar-glyph">🍳</span>
+                    <span class="attendee-avatar-glyph">👨‍🍳</span>
+                    <span class="attendee-count-text">فريق الطهي والتجهيز</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-slot-col">
+                <div class="timeline-schedule-block block-dark">
+                  <div class="block-header-info">
+                    <span class="block-time-range">12:00 - 15:30</span>
+                    <span class="block-location-chip">رصيف الشحن</span>
+                  </div>
+                  <h4 class="block-heading">شحن وتوزيع أسطول سيارات الفروع المبرد</h4>
+                  <div class="block-attendees-row">
+                    <span class="attendee-avatar-glyph">🚚</span>
+                    <span class="attendee-avatar-glyph">🚛</span>
+                    <span class="attendee-count-text">أسطول Split &amp; BRGR</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <button type="button" onclick="executeSelectedBatch()"
-              class="sim-btn-action">
-              ⚡ <span data-ar="اعتماد وتشغيل الدفعة وخصم الخامات" data-en="EXECUTE BATCH & DEDUCT RAW STOCK">اعتماد
-                وتشغيل الدفعة وخصم الخامات</span>
-            </button>
+            <!-- Embedded Live BOM Simulator -->
+            <div class="timeline-simulator-box">
+              <div class="sim-box-header">
+                <div class="flex items-center gap-2">
+                  <span class="sim-icon">⚡</span>
+                  <h4 class="sim-box-title">محاكي تفكيك الوصفة والتشغيل الحي (Live BOM Batch Simulator)</h4>
+                </div>
+                <span class="badge badge-amber">تفاعلي وفوري</span>
+              </div>
+              <div class="sim-controls-grid">
+                <div class="sim-col-select">
+                  <label class="sim-input-label">الصنف المصنّع المراد تشغيله:</label>
+                  <select id="bom-sim-select" onchange="updateBomSimPreview()" class="search-pill-input w-full">
+                    <option value="">-- اختر صنفاً للتشغيل --</option>
+                  </select>
+                </div>
+                <div class="sim-col-qty">
+                  <label class="sim-input-label">حجم الدفعة المطلوبة:</label>
+                  <input type="number" id="bom-sim-qty" value="10" min="1" oninput="updateBomSimPreview()" class="search-pill-input w-full" />
+                </div>
+                <div class="sim-col-btn">
+                  <button type="button" onclick="executeSelectedBatch()" class="btn-solid-amber w-full">
+                    ⚡ اعتماد وتشغيل الدفعة وخصم الخامات
+                  </button>
+                </div>
+              </div>
+              <div id="bom-sim-ings-list" class="sim-results-box mt-3">
+                <div class="sim-empty-state">👈 اختر صنفاً من القائمة أعلاه لعرض مكونات الوصفة ورصيد خاماتها</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- ═══════════════════════════════════════════
-             SUPPLY INFO Section — Finished Goods Table (Auro equalizer style)
-        ═══════════════════════════════════════════ -->
-        <div class="card">
+        <!-- D. SECONDARY VIEWS: MASTER FINISHED GOODS DATA TABLE -->
+        <div class="bento-card mt-6">
           <div class="table-filter-bar card-header-flex">
             <div>
-              <h3 class="card-title-main">
-                📋 <span data-ar="أصناف المركز المصنعة المعتمدة (88 صنف PA)"
-                  data-en="Supply Info — Center Finished Goods Master (88 PA Products)">أصناف المركز المصنعة المعتمدة
-                  (88 صنف PA)</span>
-                <span class="badge badge-slate" id="fg-table-count-badge" class="text-[11px] font-bold">0
-                  مطلوب للتشغيل</span>
+              <h3 class="bento-card-title">
+                📋 <span data-ar="أصناف المركز المصنعة المعتمدة (88 صنف PA)" data-en="Supply Info — Center Finished Goods Master (88 PA Products)">أصناف المركز المصنعة المعتمدة (88 صنف PA)</span>
+                <span class="badge badge-slate" id="fg-table-count-badge">0 مطلوب للتشغيل</span>
               </h3>
-              <p class="card-sub-desc"
-                data-ar="مطابقة المخزون الجاهز مع طلبات الفروع مع تشغيل فوري للدفعات"
-                data-en="Real-time stock vs branch demand with one-click production trigger">
+              <p class="bento-card-sub" data-ar="مطابقة المخزون الجاهز مع طلبات الفروع مع تشغيل فوري للدفعات" data-en="Real-time stock vs branch demand with one-click production trigger">
                 مطابقة المخزون الجاهز مع طلبات الفروع مع تشغيل فوري للدفعات
               </p>
             </div>
             <div class="flex items-center gap-2 flex-wrap">
               <div class="flex gap-1">
-                <button class="filter-chip active" onclick="filterFG('', 'all', this)" data-ar="الكل"
-                  data-en="All">الكل</button>
-                <button class="filter-chip" onclick="filterFG('', 'Sauces', this)" data-ar="الصوصات"
-                  data-en="Sauces">الصوصات</button>
-                <button class="filter-chip" onclick="filterFG('', 'Cheese', this)" data-ar="الجبن"
-                  data-en="Cheese">الجبن</button>
-                <button class="filter-chip" onclick="filterFG('', 'Beef', this)" data-ar="اللحوم"
-                  data-en="Beef">اللحوم</button>
-                <button class="filter-chip" onclick="filterFG('', 'Bakery', this)" data-ar="المخبوزات"
-                  data-en="Bakery">المخبوزات</button>
+                <button class="filter-chip active" onclick="filterFG('', 'all', this)" data-ar="الكل" data-en="All">الكل</button>
+                <button class="filter-chip" onclick="filterFG('', 'Sauces', this)" data-ar="الصوصات" data-en="Sauces">الصوصات</button>
+                <button class="filter-chip" onclick="filterFG('', 'Cheese', this)" data-ar="الجبن" data-en="Cheese">الجبن</button>
+                <button class="filter-chip" onclick="filterFG('', 'Beef', this)" data-ar="اللحوم" data-en="Beef">اللحوم</button>
+                <button class="filter-chip" onclick="filterFG('', 'Bakery', this)" data-ar="المخبوزات" data-en="Bakery">المخبوزات</button>
               </div>
-              <input type="text" id="fg-search-input" oninput="filterFG(this.value, activeFGCat)"
-                placeholder="بحث سريع..." data-ar-ph="بحث سريع بالأصناف..." data-en-ph="Quick search..."
-                class="input w-150px" />
+              <input type="text" id="fg-search-input" oninput="filterFG(this.value, activeFGCat)" placeholder="بحث سريع بالأصناف..." data-ar-ph="بحث سريع بالأصناف..." data-en-ph="Quick search..." class="search-pill-input min-w-[200px]" />
             </div>
           </div>
 
-          <!-- Supply Info Bar Chart (Auro Volume Equalizer style) -->
-          <div class="chart-wrap-80">
+          <!-- Supply Info Bar Chart Canvas -->
+          <div class="chart-wrap-80 mt-3 mb-3">
             <canvas id="ch-supply-bars"></canvas>
           </div>
 
-          <div class="tbl-wrap tbl-scroll-h280">
-            <table class="tbl" id="fg-master-table">
+          <div class="table-responsive-container">
+            <table class="minimal-table" id="fg-master-table">
               <thead>
                 <tr>
                   <th class="tbl-col-80" data-ar="الكود" data-en="Code">الكود</th>
@@ -643,22 +745,15 @@
               <tbody id="fg-table-body">
                 <tr class="empty-state-row">
                   <td colspan="7" class="empty-table-cell">
-                    <div
-                      class="empty-table-icon-wrap">
-                      📋</div>
-                    <div class="empty-table-title"
-                      data-ar="لا توجد أصناف مطلوبة للتشغيل حالياً" data-en="No Production Demand Required Currently">لا
-                      توجد أصناف مطلوبة للتشغيل حالياً</div>
-                    <div class="empty-table-sub"
-                      data-ar="تظهر الأصناف هنا تلقائياً فور تسجيل طلبات الفروع واحتياجها للإنتاج"
-                      data-en="Products will appear here automatically when requested by branches">تظهر الأصناف هنا
-                      تلقائياً فور تسجيل طلبات الفروع واحتياجها للإنتاج</div>
+                    <div class="empty-table-icon-wrap">📋</div>
+                    <div class="empty-table-title" data-ar="لا توجد أصناف مطلوبة للتشغيل حالياً" data-en="No Production Demand Required Currently">لا توجد أصناف مطلوبة للتشغيل حالياً</div>
+                    <div class="empty-table-sub" data-ar="تظهر الأصناف هنا تلقائياً فور تسجيل طلبات الفروع واحتياجها للإنتاج" data-en="Products will appear here automatically when requested by branches">تظهر الأصناف هنا تلقائياً فور تسجيل طلبات الفروع واحتياجها للإنتاج</div>
                   </td>
                 </tr>
               </tbody>
             </table>
 
-            <!-- MOBILE TOUCH CARDS CONTAINER -->
+            <!-- Mobile touch cards container -->
             <div id="fg-mobile-cards" class="fg-mobile-cards"></div>
           </div>
         </div>
