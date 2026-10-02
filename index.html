@@ -4,34 +4,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <title>نظام إدارة مطعم متكامل — Restaurant ERP</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            canvas:  '#F5F2EB',
-            sidebar: '#1C1917',
-            card:    '#FFFFFF',
-            card2:   '#FAF9F6',
-            amber:   { DEFAULT: '#F59E0B', deep: '#D97706', warm: '#EAB308' },
-            stone:   { DEFAULT: '#78716C', light: '#A8A29E' },
-            charcoal:'#1C1917',
-          },
-          fontFamily: { sans: ['Inter', 'Cairo', 'Plus Jakarta Sans', 'sans-serif'] }
-        }
-      }
-    }
-  </script>
+  <meta name="description" content="إمداد فود ERP — نظام إدارة المطبخ المركزي الموحد للفروع والإنتاج والمخزون" />
+  <title>إمداد فود — نظام إدارة المطبخ المركزي ERP</title>
+  <!-- Google Fonts: Cairo + Inter + Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <!-- SheetJS (Excel import) -->
   <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <!-- Supabase SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Instant Theme Detector (FOUC Prevention) — runs before CSS paints -->
   <script>
     (function() {
       try {
@@ -46,7 +31,8 @@
       } catch(e) {}
     })();
   </script>
-  <link rel="stylesheet" href="style.css?v=20261002_02" />
+  <!-- ERP Design System — Warm Cream Luxury Dashboard (v3 — Tailwind-Free) -->
+  <link rel="stylesheet" href="style.css?v=20261003_01" />
 </head>
 
 <body>
