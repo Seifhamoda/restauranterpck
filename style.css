@@ -7472,3 +7472,1365 @@ html.dark #modal-ing .select:focus {
   background: #27272A !important;
   border-color: #EAB308 !important;
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   PHASE 4D — RADICAL VISUAL OVERHAUL: WASTE, SHIPMENTS & REPORTS
+   Waste Control Center, Dispatch & Shipment Control, Management Intelligence
+══════════════════════════════════════════════════════════════════════ */
+
+/* ──────────────────────────────────────────────────────────────────────
+   1. WASTE MODULE (#page-waste) — WASTE CONTROL CENTER
+────────────────────────────────────────────────────────────────────── */
+
+/* Top Bento KPI Grid for Waste */
+#page-waste #waste-stats.orders-kpi-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 16px !important;
+  margin-bottom: 20px !important;
+}
+
+@media (max-width: 860px) {
+  #page-waste #waste-stats.orders-kpi-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+#page-waste #waste-stats .stat-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 8px 24px -4px rgba(28, 25, 23, 0.03) !important;
+  padding: 22px 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#page-waste #waste-stats .stat-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 14px 32px -4px rgba(28, 25, 23, 0.06) !important;
+  border-color: rgba(234, 179, 8, 0.25) !important;
+}
+
+#page-waste #waste-stats .stat-card > div:first-child {
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums !important;
+  line-height: 1.2 !important;
+}
+
+/* Override KPI #fff text in light mode */
+#page-waste #waste-stats .stat-card:first-child > div:first-child {
+  color: #18181B !important;
+}
+html.dark #page-waste #waste-stats .stat-card:first-child > div:first-child {
+  color: #F4F4F5 !important;
+}
+
+#page-waste #waste-stats .stat-card:nth-child(2) > div:first-child {
+  color: #EF4444 !important;
+}
+
+#page-waste #waste-stats .stat-card:nth-child(3) > div:first-child {
+  color: #D97706 !important;
+}
+html.dark #page-waste #waste-stats .stat-card:nth-child(3) > div:first-child {
+  color: #F59E0B !important;
+}
+
+#page-waste #waste-stats .stat-card .text-muted {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #71717A !important;
+  margin-top: 8px !important;
+}
+
+/* Two-column Modular Waste Layout */
+#page-waste .waste-layout {
+  display: grid !important;
+  grid-template-columns: 360px 1fr !important;
+  gap: 20px !important;
+  align-items: start !important;
+}
+
+@media (max-width: 1040px) {
+  #page-waste .waste-layout {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Left Card: Log Waste Form */
+#page-waste .waste-entry-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 10px 30px -4px rgba(28, 25, 23, 0.03) !important;
+  padding: 24px !important;
+  position: relative !important;
+}
+
+#page-waste .waste-entry-card .waste-header-title {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: #18181B !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-bottom: 20px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.06) !important;
+}
+html.dark #page-waste .waste-entry-card .waste-header-title {
+  color: #F4F4F5 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#page-waste .waste-entry-card .field-label {
+  display: block !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #71717A !important;
+  margin-bottom: 6px !important;
+  letter-spacing: 0.01em !important;
+}
+
+#page-waste .waste-entry-card .input,
+#page-waste .waste-entry-card .select,
+#page-waste .waste-entry-card .textarea {
+  border-radius: 12px !important;
+  background: #F5F2EB !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  color: #18181B !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+  padding-inline: 14px !important;
+}
+
+#page-waste .waste-entry-card .input,
+#page-waste .waste-entry-card .select {
+  height: 42px !important;
+}
+
+#page-waste .waste-entry-card .textarea {
+  padding: 10px 14px !important;
+  min-height: 72px !important;
+  resize: vertical !important;
+}
+
+#page-waste .waste-entry-card .input:focus,
+#page-waste .waste-entry-card .select:focus,
+#page-waste .waste-entry-card .textarea:focus {
+  background: #FFFFFF !important;
+  border-color: #EAB308 !important;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15) !important;
+  outline: none !important;
+}
+
+#page-waste #w-uom {
+  height: 42px !important;
+  border-radius: 12px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-inline: 14px !important;
+  font-weight: 800 !important;
+  background: rgba(168, 85, 247, 0.12) !important;
+  color: #9333EA !important;
+  border: 1px solid rgba(168, 85, 247, 0.25) !important;
+}
+
+#page-waste .waste-entry-card button[onclick="logWaste()"] {
+  height: 46px !important;
+  border-radius: 14px !important;
+  background: #18181B !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  font-size: 14px !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(24, 24, 27, 0.18) !important;
+  transition: all 0.2s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  width: 100% !important;
+  margin-top: 8px !important;
+}
+
+#page-waste .waste-entry-card button[onclick="logWaste()"]:hover {
+  background: #27272A !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 18px rgba(24, 24, 27, 0.24) !important;
+}
+
+/* Right Card: Waste Log & Analytics Table */
+#page-waste .waste-layout > .card.p-5 {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 10px 30px -4px rgba(28, 25, 23, 0.03) !important;
+  padding: 24px !important;
+}
+
+#page-waste .waste-layout > .card .card-title-main {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: #18181B !important;
+}
+html.dark #page-waste .waste-layout > .card .card-title-main {
+  color: #F4F4F5 !important;
+}
+
+#page-waste #w-filter-reason,
+#page-waste #w-filter-month {
+  height: 40px !important;
+  border-radius: 12px !important;
+  background: #F5F2EB !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  color: #18181B !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  padding-inline: 12px !important;
+  transition: all 0.2s ease !important;
+}
+
+#page-waste #w-filter-reason:focus,
+#page-waste #w-filter-month:focus {
+  background: #FFFFFF !important;
+  border-color: #EAB308 !important;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15) !important;
+  outline: none !important;
+}
+
+#page-waste button[onclick*="w-filter-reason"] {
+  height: 40px !important;
+  border-radius: 12px !important;
+  background: #FAF7F2 !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  color: #71717A !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  padding-inline: 14px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+#page-waste button[onclick*="w-filter-reason"]:hover {
+  background: #E4E4E7 !important;
+  color: #18181B !important;
+}
+
+/* Waste Data Table */
+#page-waste .tbl-wrap.tbl-scroll-h480 {
+  border-radius: 16px !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  background: #FFFFFF !important;
+  overflow-x: auto !important;
+  max-height: 520px !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+#page-waste .tbl {
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+
+#page-waste .tbl thead th {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+  background: #FAF7F2 !important;
+  padding: 14px 16px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #71717A !important;
+  text-transform: uppercase !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.06) !important;
+}
+
+#page-waste #waste-tbl tr {
+  height: 52px !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.04) !important;
+  transition: background 0.15s ease !important;
+}
+
+#page-waste #waste-tbl tr:hover {
+  background: rgba(245, 242, 235, 0.6) !important;
+}
+
+#page-waste #waste-tbl td {
+  padding: 12px 16px !important;
+  font-size: 13.5px !important;
+  vertical-align: middle !important;
+}
+
+/* Fix hardcoded inline text colors in waste table */
+#page-waste #waste-tbl td[style*="color:#fff"],
+#page-waste #waste-tbl td[style*="color: #fff"],
+#page-waste #waste-tbl td[style*="color:rgb(255, 255, 255)"] {
+  color: #18181B !important;
+  font-weight: 700 !important;
+}
+html.dark #page-waste #waste-tbl td[style*="color:#fff"],
+html.dark #page-waste #waste-tbl td[style*="color: #fff"],
+html.dark #page-waste #waste-tbl td[style*="color:rgb(255, 255, 255)"] {
+  color: #F4F4F5 !important;
+}
+
+#page-waste #waste-tbl .td-mono {
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 12.5px !important;
+  color: #71717A !important;
+}
+
+#page-waste #waste-tbl td:nth-child(3) {
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+#page-waste #waste-tbl td:nth-child(6) span {
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums !important;
+  color: #EF4444 !important;
+}
+
+/* Reason Badges */
+#page-waste #waste-tbl .badge {
+  border-radius: 9999px !important;
+  padding: 4px 12px !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+#page-waste #waste-tbl .badge-red {
+  background: rgba(239, 68, 68, 0.10) !important;
+  color: #DC2626 !important;
+  border: 1px solid rgba(239, 68, 68, 0.22) !important;
+}
+
+#page-waste #waste-tbl .badge-amber {
+  background: rgba(234, 179, 8, 0.12) !important;
+  color: #B45309 !important;
+  border: 1px solid rgba(234, 179, 8, 0.25) !important;
+}
+
+#page-waste #waste-tbl .badge-orange {
+  background: rgba(249, 115, 22, 0.10) !important;
+  color: #EA580C !important;
+  border: 1px solid rgba(249, 115, 22, 0.22) !important;
+}
+
+/* Waste Notes Sub-Row */
+#page-waste #waste-tbl td[colspan="8"] {
+  background: rgba(250, 247, 242, 0.6) !important;
+  color: #52525B !important;
+  font-size: 12.5px !important;
+  padding: 8px 16px !important;
+  border-bottom: 1px dashed rgba(28, 25, 23, 0.08) !important;
+}
+html.dark #page-waste #waste-tbl td[colspan="8"] {
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: #A1A1AA !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Delete Waste Action Button */
+#page-waste #waste-tbl button[onclick*="delWaste"] {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 10px !important;
+  background: rgba(239, 68, 68, 0.08) !important;
+  border: 1px solid rgba(239, 68, 68, 0.20) !important;
+  color: #EF4444 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+#page-waste #waste-tbl button[onclick*="delWaste"]:hover {
+  background: #EF4444 !important;
+  color: #FFFFFF !important;
+  transform: scale(1.05) !important;
+}
+
+/* Empty State */
+#page-waste #waste-empty {
+  background: #FAF7F2 !important;
+  border: 1px dashed rgba(28, 25, 23, 0.12) !important;
+  border-radius: 18px !important;
+  padding: 42px 24px !important;
+  text-align: center !important;
+  margin-top: 16px !important;
+}
+
+#page-waste #waste-empty p {
+  color: #18181B !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  margin-top: 10px !important;
+}
+html.dark #page-waste #waste-empty p {
+  color: #F4F4F5 !important;
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────
+   2. SHIPMENTS MODULE (#page-shipments) — DISPATCH & SHIPMENT CONTROL
+────────────────────────────────────────────────────────────────────── */
+
+/* Top Bento KPI Grid for Shipments */
+#page-shipments #ship-stats.g4 {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 16px !important;
+  margin-bottom: 20px !important;
+}
+
+@media (max-width: 1040px) {
+  #page-shipments #ship-stats.g4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 600px) {
+  #page-shipments #ship-stats.g4 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+#page-shipments #ship-stats .stat-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 8px 24px -4px rgba(28, 25, 23, 0.03) !important;
+  padding: 22px 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#page-shipments #ship-stats .stat-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 14px 32px -4px rgba(28, 25, 23, 0.06) !important;
+  border-color: rgba(234, 179, 8, 0.25) !important;
+}
+
+#page-shipments #ship-stats .kpi-number {
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums !important;
+  line-height: 1.2 !important;
+  margin-bottom: 4px !important;
+}
+
+#page-shipments #ship-stats .kpi-number.kpi-cyan {
+  color: #0284C7 !important;
+}
+html.dark #page-shipments #ship-stats .kpi-number.kpi-cyan {
+  color: #38BDF8 !important;
+}
+
+#page-shipments #ship-stats .kpi-number.kpi-green {
+  color: #059669 !important;
+}
+html.dark #page-shipments #ship-stats .kpi-number.kpi-green {
+  color: #4ADE80 !important;
+}
+
+#page-shipments #ship-stats .kpi-number.kpi-amber {
+  color: #D97706 !important;
+}
+html.dark #page-shipments #ship-stats .kpi-number.kpi-amber {
+  color: #FBBF24 !important;
+}
+
+#page-shipments #ship-stats .kpi-number.kpi-purple {
+  color: #9333EA !important;
+}
+html.dark #page-shipments #ship-stats .kpi-number.kpi-purple {
+  color: #C084FC !important;
+}
+
+#page-shipments #ship-stats .text-muted {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #71717A !important;
+}
+
+/* Filter & Main Card */
+#page-shipments > .card.mb-4,
+#page-shipments > .card:not(.mb-4) {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 10px 30px -4px rgba(28, 25, 23, 0.03) !important;
+  padding: 24px !important;
+  margin-bottom: 20px !important;
+}
+
+#page-shipments .card-title-main {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: #18181B !important;
+}
+html.dark #page-shipments .card-title-main {
+  color: #F4F4F5 !important;
+}
+
+#page-shipments #ship-from,
+#page-shipments #ship-to {
+  height: 42px !important;
+  border-radius: 12px !important;
+  background: #F5F2EB !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  color: #18181B !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  padding-inline: 12px !important;
+  transition: all 0.2s ease !important;
+}
+
+#page-shipments #ship-from:focus,
+#page-shipments #ship-to:focus {
+  background: #FFFFFF !important;
+  border-color: #EAB308 !important;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15) !important;
+  outline: none !important;
+}
+
+#page-shipments button[onclick="exportShipmentsExcel()"] {
+  height: 40px !important;
+  border-radius: 12px !important;
+  background: #18181B !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(24, 24, 27, 0.18) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding-inline: 16px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+#page-shipments button[onclick="exportShipmentsExcel()"]:hover {
+  background: #27272A !important;
+  transform: translateY(-1px) !important;
+}
+
+#page-shipments button[onclick="resetShipDateRange()"] {
+  height: 40px !important;
+  border-radius: 12px !important;
+  background: #FAF7F2 !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  color: #71717A !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  padding-inline: 14px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+#page-shipments button[onclick="resetShipDateRange()"]:hover {
+  background: #E4E4E7 !important;
+  color: #18181B !important;
+}
+
+/* Shipment Banner */
+#page-shipments .shipment-banner {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 12px 18px !important;
+  border-radius: 14px !important;
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.08), rgba(168, 85, 247, 0.06)) !important;
+  border: 1px solid rgba(234, 179, 8, 0.22) !important;
+  margin-bottom: 20px !important;
+}
+
+#page-shipments .shipment-banner-text {
+  color: #92400E !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+}
+html.dark #page-shipments .shipment-banner {
+  background: rgba(234, 179, 8, 0.10) !important;
+  border-color: rgba(234, 179, 8, 0.25) !important;
+}
+html.dark #page-shipments .shipment-banner-text {
+  color: #FDE68A !important;
+}
+
+/* Shipments Main Matrix Table */
+#page-shipments #ship-table-wrap .tbl-wrap {
+  border-radius: 16px !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  background: #FFFFFF !important;
+  overflow-x: auto !important;
+  max-width: 100% !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+#page-shipments #ship-main-table {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+#page-shipments #ship-thead th {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+  background: #FAF7F2 !important;
+  padding: 14px 16px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #71717A !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.06) !important;
+  text-align: center !important;
+}
+
+/* Sticky first column for Product Name */
+#page-shipments #ship-thead th:first-child {
+  position: sticky !important;
+  inset-inline-start: 0 !important;
+  z-index: 20 !important;
+  background: #FAF7F2 !important;
+  text-align: start !important;
+  min-width: 180px !important;
+}
+
+#page-shipments #ship-tbody td:first-child {
+  position: sticky !important;
+  inset-inline-start: 0 !important;
+  z-index: 5 !important;
+  background: #FFFFFF !important;
+  text-align: start !important;
+  min-width: 180px !important;
+}
+
+/* Directional shadows for sticky first column */
+html[dir="rtl"] #page-shipments #ship-thead th:first-child,
+html[dir="rtl"] #page-shipments #ship-tbody td:first-child {
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.03) !important;
+}
+html[dir="ltr"] #page-shipments #ship-thead th:first-child,
+html[dir="ltr"] #page-shipments #ship-tbody td:first-child {
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.03) !important;
+}
+
+#page-shipments #ship-tbody tr:hover td:first-child {
+  background: #FAF7F2 !important;
+}
+
+#page-shipments #ship-tbody tr {
+  height: 50px !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.04) !important;
+  transition: background 0.15s ease !important;
+}
+
+#page-shipments #ship-tbody tr:hover {
+  background: rgba(245, 242, 235, 0.6) !important;
+}
+
+#page-shipments #ship-tbody td {
+  padding: 10px 14px !important;
+  font-size: 13.5px !important;
+  vertical-align: middle !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.04) !important;
+}
+
+/* Fix product text in first column */
+#page-shipments #ship-tbody td:first-child span[style*="color:#f1f5f9"],
+#page-shipments #ship-tbody td:first-child span {
+  color: #18181B !important;
+  font-weight: 700 !important;
+}
+html.dark #page-shipments #ship-tbody td:first-child span[style*="color:#f1f5f9"],
+html.dark #page-shipments #ship-tbody td:first-child span {
+  color: #F4F4F5 !important;
+}
+
+/* Date matrix values */
+#page-shipments #ship-tbody td[style*="color:#e2e8f0"] {
+  color: #18181B !important;
+  font-weight: 600 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html.dark #page-shipments #ship-tbody td[style*="color:#e2e8f0"] {
+  color: #F4F4F5 !important;
+}
+
+#page-shipments #ship-tbody td[style*="color:#475569"] {
+  color: #A1A1AA !important;
+}
+
+/* Total Column highlighting */
+#page-shipments #ship-tbody td:last-child {
+  background: rgba(16, 185, 129, 0.05) !important;
+  color: #059669 !important;
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html.dark #page-shipments #ship-tbody td:last-child {
+  background: rgba(16, 185, 129, 0.12) !important;
+  color: #4ADE80 !important;
+}
+
+/* Taztiki Section button & table */
+#page-shipments button[onclick="addTaztikiRow()"] {
+  height: 38px !important;
+  border-radius: 12px !important;
+  background: rgba(168, 85, 247, 0.08) !important;
+  border: 1px solid rgba(168, 85, 247, 0.22) !important;
+  color: #9333EA !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding-inline: 14px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+#page-shipments button[onclick="addTaztikiRow()"]:hover {
+  background: #9333EA !important;
+  color: #FFFFFF !important;
+}
+
+#page-shipments #taztiki-tbody tr {
+  height: 50px !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.04) !important;
+}
+
+#page-shipments #taztiki-tbody td {
+  padding: 12px 16px !important;
+  font-size: 13.5px !important;
+}
+
+#page-shipments #taztiki-tbody td[style*="color:#e2e8f0"] {
+  color: #18181B !important;
+  font-weight: 700 !important;
+}
+html.dark #page-shipments #taztiki-tbody td[style*="color:#e2e8f0"] {
+  color: #F4F4F5 !important;
+}
+
+#page-shipments #taztiki-tbody td[style*="color:#c084fc"] {
+  color: #9333EA !important;
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+#page-shipments #taztiki-tbody button[onclick*="deleteTaztikiRow"] {
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 9px !important;
+  background: rgba(239, 68, 68, 0.08) !important;
+  border: 1px solid rgba(239, 68, 68, 0.20) !important;
+  color: #EF4444 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+#page-shipments #taztiki-tbody button[onclick*="deleteTaztikiRow"]:hover {
+  background: #EF4444 !important;
+  color: #FFFFFF !important;
+}
+
+#page-shipments #taztiki-empty {
+  background: #FAF7F2 !important;
+  border: 1px dashed rgba(28, 25, 23, 0.12) !important;
+  border-radius: 16px !important;
+  padding: 36px 20px !important;
+  text-align: center !important;
+  color: #71717A !important;
+  margin-top: 14px !important;
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────
+   3. REPORTS MODULE (#page-reports) — MANAGEMENT INTELLIGENCE CENTER
+────────────────────────────────────────────────────────────────────── */
+
+/* Workflow Step Bar (Step 5 of 5) */
+#page-reports .workflow-step-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+  gap: 14px !important;
+  padding: 16px 22px !important;
+  border-radius: 20px !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  box-shadow: 0 4px 18px -2px rgba(28, 25, 23, 0.03) !important;
+  margin-bottom: 20px !important;
+}
+
+#page-reports .step-badge-indicator {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+#page-reports .step-num-pill {
+  background: #18181B !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  font-size: 12px !important;
+  padding: 5px 12px !important;
+  border-radius: 9999px !important;
+  letter-spacing: 0.02em !important;
+}
+
+#page-reports .step-name-text {
+  font-weight: 800 !important;
+  font-size: 14px !important;
+  color: #18181B !important;
+  margin-inline-start: 10px !important;
+}
+html.dark #page-reports .step-name-text {
+  color: #F4F4F5 !important;
+}
+
+#page-reports .step-nav-buttons {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+
+#page-reports .step-nav-buttons .btn-secondary {
+  height: 38px !important;
+  border-radius: 12px !important;
+  background: #FAF7F2 !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  color: #71717A !important;
+  font-weight: 600 !important;
+  font-size: 12.5px !important;
+  padding-inline: 14px !important;
+  transition: all 0.2s ease !important;
+}
+
+#page-reports .step-nav-buttons .btn-secondary:hover {
+  background: #E4E4E7 !important;
+  color: #18181B !important;
+}
+
+#page-reports .step-nav-buttons .bridge-btn {
+  height: 38px !important;
+  border-radius: 12px !important;
+  background: #18181B !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  font-size: 12.5px !important;
+  border: none !important;
+  padding-inline: 16px !important;
+  box-shadow: 0 4px 12px rgba(24, 24, 27, 0.15) !important;
+  transition: all 0.2s ease !important;
+}
+
+#page-reports .step-nav-buttons .bridge-btn:hover {
+  background: #27272A !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Comparison & Filter Toolbar Card */
+#page-reports > .card.mb-4:first-of-type {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 10px 30px -4px rgba(28, 25, 23, 0.03) !important;
+  padding: 22px 24px !important;
+  margin-bottom: 20px !important;
+}
+
+#page-reports .card-title-main {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: #18181B !important;
+}
+html.dark #page-reports .card-title-main {
+  color: #F4F4F5 !important;
+}
+
+#page-reports #rep-m1,
+#page-reports #rep-m2,
+#page-reports #rep-branch {
+  height: 42px !important;
+  border-radius: 12px !important;
+  background: #F5F2EB !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  color: #18181B !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  padding-inline: 12px !important;
+  transition: all 0.2s ease !important;
+}
+
+#page-reports #rep-m1:focus,
+#page-reports #rep-m2:focus,
+#page-reports #rep-branch:focus {
+  background: #FFFFFF !important;
+  border-color: #EAB308 !important;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15) !important;
+  outline: none !important;
+}
+
+/* VS Badge in comparison toolbar */
+#page-reports .icon-amber {
+  color: #D97706 !important;
+}
+
+/* Executive Comparative KPI Grid */
+#page-reports #rep-kpi-stats.orders-kpi-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 16px !important;
+  margin-bottom: 20px !important;
+}
+
+@media (max-width: 1040px) {
+  #page-reports #rep-kpi-stats.orders-kpi-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 600px) {
+  #page-reports #rep-kpi-stats.orders-kpi-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+#page-reports #rep-kpi-stats .stat-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 8px 24px -4px rgba(28, 25, 23, 0.03) !important;
+  padding: 22px 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#page-reports #rep-kpi-stats .stat-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 14px 32px -4px rgba(28, 25, 23, 0.06) !important;
+  border-color: rgba(234, 179, 8, 0.25) !important;
+}
+
+#page-reports #rep-kpi-stats .kpi-number {
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums !important;
+  line-height: 1.2 !important;
+  margin-bottom: 6px !important;
+}
+
+#page-reports #rep-kpi-stats .kpi-number.kpi-cyan {
+  color: #0284C7 !important;
+}
+html.dark #page-reports #rep-kpi-stats .kpi-number.kpi-cyan {
+  color: #38BDF8 !important;
+}
+
+#page-reports #rep-kpi-stats .kpi-number.kpi-red {
+  color: #EF4444 !important;
+}
+
+#page-reports #rep-kpi-stats .kpi-number.kpi-purple {
+  color: #9333EA !important;
+}
+html.dark #page-reports #rep-kpi-stats .kpi-number.kpi-purple {
+  color: #C084FC !important;
+}
+
+#page-reports #rep-kpi-stats .kpi-number.kpi-amber {
+  color: #D97706 !important;
+}
+html.dark #page-reports #rep-kpi-stats .kpi-number.kpi-amber {
+  color: #FBBF24 !important;
+}
+
+#page-reports #rep-kpi-stats .text-muted {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #71717A !important;
+  margin-bottom: 12px !important;
+}
+
+/* Difference / Growth Indicator Pill */
+#page-reports #rep-kpi-stats .stat-card > div[style*="border-radius:20px"] {
+  border-radius: 9999px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  padding: 4px 12px !important;
+  font-variant-numeric: tabular-nums !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  width: fit-content !important;
+}
+
+/* Charts Grid Bento Layout */
+#page-reports .g2 {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+@media (max-width: 960px) {
+  #page-reports .g2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+#page-reports .g2 .card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 10px 30px -4px rgba(28, 25, 23, 0.03) !important;
+  padding: 22px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+}
+
+#page-reports .g2 .card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 14px 34px -4px rgba(28, 25, 23, 0.06) !important;
+  border-color: rgba(234, 179, 8, 0.25) !important;
+}
+
+#page-reports .g2 .card .card-title-main {
+  font-size: 14.5px !important;
+  font-weight: 800 !important;
+  color: #18181B !important;
+}
+html.dark #page-reports .g2 .card .card-title-main {
+  color: #F4F4F5 !important;
+}
+
+#page-reports .chart-wrap-250 {
+  height: 260px !important;
+  position: relative !important;
+  width: 100% !important;
+  margin-top: 10px !important;
+}
+
+/* Badges on Charts */
+#page-reports .g2 .badge {
+  border-radius: 9999px !important;
+  padding: 4px 12px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+#page-reports .badge-purple {
+  background: rgba(168, 85, 247, 0.10) !important;
+  color: #9333EA !important;
+  border: 1px solid rgba(168, 85, 247, 0.22) !important;
+}
+
+#page-reports .badge-red {
+  background: rgba(239, 68, 68, 0.10) !important;
+  color: #DC2626 !important;
+  border: 1px solid rgba(239, 68, 68, 0.22) !important;
+}
+
+#page-reports .badge-blue {
+  background: rgba(2, 132, 199, 0.10) !important;
+  color: #0284C7 !important;
+  border: 1px solid rgba(2, 132, 199, 0.22) !important;
+}
+
+#page-reports .badge-green {
+  background: rgba(16, 185, 129, 0.10) !important;
+  color: #059669 !important;
+  border: 1px solid rgba(16, 185, 129, 0.22) !important;
+}
+
+/* Detailed Comparison Matrix Table Card */
+#page-reports > .card:last-of-type {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 10px 30px -4px rgba(28, 25, 23, 0.03) !important;
+  padding: 24px !important;
+}
+
+#page-reports > .card:last-of-type h3 {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: #18181B !important;
+  margin-bottom: 16px !important;
+}
+html.dark #page-reports > .card:last-of-type h3 {
+  color: #F4F4F5 !important;
+}
+
+#page-reports .tbl-wrap.tbl-scroll-h480 {
+  border-radius: 16px !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  background: #FFFFFF !important;
+  overflow-x: auto !important;
+  max-height: 520px !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+#page-reports .tbl thead th {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+  background: #FAF7F2 !important;
+  padding: 14px 16px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #71717A !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.06) !important;
+}
+
+#page-reports #rep-th-m1 {
+  color: #0284C7 !important;
+  font-weight: 800 !important;
+}
+#page-reports #rep-th-m2 {
+  color: #059669 !important;
+  font-weight: 800 !important;
+}
+
+#page-reports #rep-matrix-tbl tr {
+  height: 52px !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.04) !important;
+  transition: background 0.15s ease !important;
+}
+
+#page-reports #rep-matrix-tbl tr:hover {
+  background: rgba(245, 242, 235, 0.6) !important;
+}
+
+#page-reports #rep-matrix-tbl td {
+  padding: 12px 16px !important;
+  font-size: 13.5px !important;
+  vertical-align: middle !important;
+}
+
+/* Branch name override */
+#page-reports #rep-matrix-tbl td[style*="color:#fff"],
+#page-reports #rep-matrix-tbl td[style*="color: #fff"],
+#page-reports #rep-matrix-tbl td[style*="color:rgb(255, 255, 255)"] {
+  color: #18181B !important;
+  font-weight: 700 !important;
+}
+html.dark #page-reports #rep-matrix-tbl td[style*="color:#fff"],
+html.dark #page-reports #rep-matrix-tbl td[style*="color: #fff"],
+html.dark #page-reports #rep-matrix-tbl td[style*="color:rgb(255, 255, 255)"] {
+  color: #F4F4F5 !important;
+}
+
+/* Numeric columns in Matrix */
+#page-reports #rep-matrix-tbl td:nth-child(2) {
+  color: #0284C7 !important;
+  font-weight: 700 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html.dark #page-reports #rep-matrix-tbl td:nth-child(2) {
+  color: #38BDF8 !important;
+}
+
+#page-reports #rep-matrix-tbl td:nth-child(3) {
+  color: #059669 !important;
+  font-weight: 700 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html.dark #page-reports #rep-matrix-tbl td:nth-child(3) {
+  color: #4ADE80 !important;
+}
+
+#page-reports #rep-matrix-tbl td:nth-child(4) {
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+#page-reports #rep-matrix-tbl .badge {
+  border-radius: 9999px !important;
+  padding: 4px 10px !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 3px !important;
+}
+
+/* Waste Loss Row in Matrix */
+#page-reports #rep-matrix-tbl tr[style*="rgba(248,113,113"] {
+  background: rgba(239, 68, 68, 0.03) !important;
+  border-top: 1px solid rgba(239, 68, 68, 0.15) !important;
+}
+#page-reports #rep-matrix-tbl tr[style*="rgba(248,113,113"] td:first-child {
+  color: #EF4444 !important;
+  font-weight: 800 !important;
+}
+#page-reports #rep-matrix-tbl tr[style*="rgba(248,113,113"] td:nth-child(2) {
+  color: #D97706 !important;
+}
+html.dark #page-reports #rep-matrix-tbl tr[style*="rgba(248,113,113"] td:nth-child(2) {
+  color: #FBBF24 !important;
+}
+#page-reports #rep-matrix-tbl tr[style*="rgba(248,113,113"] td:nth-child(3) {
+  color: #DC2626 !important;
+}
+html.dark #page-reports #rep-matrix-tbl tr[style*="rgba(248,113,113"] td:nth-child(3) {
+  color: #F87171 !important;
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────
+   4. COMPREHENSIVE DARK MODE SUPPORT FOR PHASE 4D
+────────────────────────────────────────────────────────────────────── */
+
+html.dark #page-waste #waste-stats .stat-card,
+html.dark #page-waste .waste-entry-card,
+html.dark #page-waste .waste-layout > .card.p-5,
+html.dark #page-shipments #ship-stats .stat-card,
+html.dark #page-shipments > .card.mb-4,
+html.dark #page-shipments > .card:not(.mb-4),
+html.dark #page-reports .workflow-step-bar,
+html.dark #page-reports > .card.mb-4:first-of-type,
+html.dark #page-reports #rep-kpi-stats .stat-card,
+html.dark #page-reports .g2 .card,
+html.dark #page-reports > .card:last-of-type {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.40) !important;
+}
+
+html.dark #page-waste .tbl-wrap,
+html.dark #page-shipments .tbl-wrap,
+html.dark #page-reports .tbl-wrap {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark #page-waste .tbl thead th,
+html.dark #page-shipments #ship-thead th,
+html.dark #page-reports .tbl thead th {
+  background: #202024 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #A1A1AA !important;
+}
+
+html.dark #page-shipments #ship-thead th:first-child,
+html.dark #page-shipments #ship-tbody td:first-child {
+  background: #18181B !important;
+}
+
+html.dark[dir="rtl"] #page-shipments #ship-thead th:first-child,
+html.dark[dir="rtl"] #page-shipments #ship-tbody td:first-child {
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.40) !important;
+}
+html.dark[dir="ltr"] #page-shipments #ship-thead th:first-child,
+html.dark[dir="ltr"] #page-shipments #ship-tbody td:first-child {
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.40) !important;
+}
+
+html.dark #page-shipments #ship-tbody tr:hover td:first-child {
+  background: #222226 !important;
+}
+
+html.dark #page-waste #waste-tbl tr:hover,
+html.dark #page-shipments #ship-tbody tr:hover,
+html.dark #page-reports #rep-matrix-tbl tr:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+html.dark #page-waste #waste-tbl tr,
+html.dark #page-shipments #ship-tbody tr,
+html.dark #page-shipments #taztiki-tbody tr,
+html.dark #page-reports #rep-matrix-tbl tr {
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+html.dark #page-waste .input,
+html.dark #page-waste .select,
+html.dark #page-waste .textarea,
+html.dark #page-shipments .input,
+html.dark #page-shipments .select,
+html.dark #page-reports .input,
+html.dark #page-reports .select {
+  background: #222226 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F4F4F5 !important;
+}
+
+html.dark #page-waste .input:focus,
+html.dark #page-waste .select:focus,
+html.dark #page-waste .textarea:focus,
+html.dark #page-shipments .input:focus,
+html.dark #page-shipments .select:focus,
+html.dark #page-reports .input:focus,
+html.dark #page-reports .select:focus {
+  background: #27272A !important;
+  border-color: #EAB308 !important;
+}
+
+html.dark #page-waste button[onclick*="w-filter-reason"],
+html.dark #page-shipments button[onclick="resetShipDateRange()"],
+html.dark #page-reports .step-nav-buttons .btn-secondary {
+  background: #222226 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #A1A1AA !important;
+}
+html.dark #page-waste button[onclick*="w-filter-reason"]:hover,
+html.dark #page-shipments button[onclick="resetShipDateRange()"]:hover,
+html.dark #page-reports .step-nav-buttons .btn-secondary:hover {
+  background: #27272A !important;
+  color: #F4F4F5 !important;
+}
+
+html.dark #page-waste .waste-entry-card button[onclick="logWaste()"],
+html.dark #page-shipments button[onclick="exportShipmentsExcel()"],
+html.dark #page-reports .step-nav-buttons .bridge-btn {
+  background: #FAF7F2 !important;
+  color: #18181B !important;
+  box-shadow: 0 4px 14px rgba(250, 247, 242, 0.15) !important;
+}
+
+html.dark #page-waste #waste-empty,
+html.dark #page-shipments #taztiki-empty {
+  background: #202024 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html.dark #page-reports .step-num-pill {
+  background: #FAF7F2 !important;
+  color: #18181B !important;
+}
