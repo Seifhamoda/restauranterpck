@@ -653,62 +653,6 @@ button, .btn, .dock-nav-pill, .nav-item, .cs-stepper-btn, .cs-tab-btn, a {
   line-height: 1.4;
 }
 
-.greeting-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(130px, 1fr));
-  gap: 12px;
-}
-@media (max-width: 900px) {
-  .greeting-stats-grid { grid-template-columns: repeat(2, 1fr); width: 100%; }
-}
-
-.greeting-stat-pill {
-  background: var(--bg-secondary) !important;
-  border: 1px solid var(--border-color) !important;
-  border-radius: var(--radius-pill);
-  padding: 12px 20px;
-  box-shadow: var(--card-shadow) !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 130px;
-  cursor: pointer;
-  transition: var(--transition);
-  color: var(--text-primary) !important;
-}
-.greeting-stat-pill:hover {
-  transform: translateY(-2px);
-  border-color: var(--border-amber);
-  box-shadow: var(--shadow-card);
-}
-.stat-pill-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-.stat-pill-label {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-.pill-status-chip {
-  font-size: 9.5px;
-  font-weight: 700;
-  padding: 2px 7px;
-  border-radius: var(--radius-pill);
-}
-.chip-cyan { background: rgba(8, 145, 178, 0.10); color: #0891B2; }
-.chip-amber { background: var(--amber-bg); color: var(--amber-deep); }
-.chip-green { background: var(--emerald-bg); color: var(--emerald); }
-.chip-purple { background: rgba(124, 58, 237, 0.10); color: #7C3AED; }
-.stat-pill-num {
-  font-size: 20px;
-  font-weight: 800;
-  font-variant-numeric: lining-nums tabular-nums;
-  letter-spacing: -0.02em;
-}
-
 /* ══════════════════════════════════════════════════════════════════════
    7. C. BENTO GRID DASHBOARD CORE (Exact Video Placement)
 ══════════════════════════════════════════════════════════════════════ */
@@ -751,106 +695,6 @@ button, .btn, .dock-nav-pill, .nav-item, .cs-stepper-btn, .cs-tab-btn, a {
 }
 
 /* WIDGET 1: Profile / Status Card (4 cols) */
-.bento-profile-card {
-  grid-column: span 4;
-}
-@media (max-width: 1100px) { .bento-profile-card { grid-column: span 6; } }
-@media (max-width: 768px) { .bento-profile-card { grid-column: span 12; } }
-
-.profile-card-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 16px;
-}
-.profile-avatar-box {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--surface-alt);
-  border: 2px solid var(--accent-amber);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  position: relative;
-  flex-shrink: 0;
-}
-.profile-online-badge {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #10B981;
-  border: 2px solid #FFFFFF;
-}
-.profile-status-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--emerald);
-  margin-bottom: 2px;
-}
-.status-dot-green {
-  color: #10B981;
-}
-.profile-lead-name {
-  font-size: 15px;
-  font-weight: 800;
-  color: var(--text-main);
-}
-.profile-lead-role {
-  font-size: 11.5px;
-  color: var(--text-muted);
-}
-.profile-location-chip {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--surface-warm);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-pill);
-  padding: 6px 14px;
-  font-size: 11px;
-  color: var(--text-muted);
-  margin-bottom: 18px;
-}
-.profile-mini-accordion {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.accordion-stat-row {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.accordion-stat-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11.5px;
-  color: var(--text-muted);
-}
-.accordion-stat-val {
-  font-weight: 700;
-}
-.accordion-bar-track {
-  width: 100%;
-  height: 6px;
-  background: var(--surface-alt);
-  border-radius: var(--radius-pill);
-  overflow: hidden;
-}
-.accordion-bar-fill {
-  height: 100%;
-  background: var(--accent-amber);
-  border-radius: var(--radius-pill);
-}
 .fill-emerald {
   background: var(--emerald);
 }
@@ -1302,83 +1146,6 @@ button, .btn, .dock-nav-pill, .nav-item, .cs-stepper-btn, .cs-tab-btn, a {
 }
 
 /* ══════════════════════════════════════════════════════════════════════
-   9. BUTTONS & CONTROLS
-══════════════════════════════════════════════════════════════════════ */
-.btn {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 8px !important;
-  font-weight: 700 !important;
-  border-radius: var(--radius-pill) !important;
-  cursor: pointer !important;
-  transition: var(--transition) !important;
-  border: 1px solid transparent !important;
-  font-family: inherit !important;
-  padding: 9px 20px !important;
-  font-size: 13px !important;
-}
-
-.btn-solid-dark, .btn-primary {
-  background: #18181B !important;
-  color: #FFFFFF !important;
-  border: 1px solid rgba(255, 255, 255, 0.10) !important;
-  padding: 10px 22px !important;
-  border-radius: var(--radius-pill) !important;
-  font-size: 0.9rem !important;
-  font-weight: 600 !important;
-  cursor: pointer !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  transition: var(--transition) !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.20) !important;
-}
-.btn-solid-dark:hover, .btn-primary:hover {
-  background: #27272A !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28) !important;
-}
-
-.btn-solid-amber {
-  background: var(--accent-amber) !important;
-  color: #18181B !important;
-  border: none !important;
-  padding: 10px 22px !important;
-  border-radius: var(--radius-pill) !important;
-  font-size: 0.9rem !important;
-  font-weight: 700 !important;
-  cursor: pointer !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 8px !important;
-  transition: var(--transition) !important;
-}
-.btn-solid-amber:hover {
-  background: var(--accent-amber-hover) !important;
-  transform: translateY(-1px) !important;
-}
-
-.btn-secondary {
-  background: var(--surface-alt) !important;
-  color: var(--text-main) !important;
-  border: 1px solid var(--border-subtle) !important;
-  padding: 9px 20px !important;
-  border-radius: var(--radius-pill) !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  cursor: pointer !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  transition: var(--transition) !important;
-}
-.btn-secondary:hover {
-  background: var(--surface-hover) !important;
-  border-color: var(--border-amber) !important;
-}
-
 /* ══════════════════════════════════════════════════════════════════════
    10. PAGE ROUTING (Strict Single View Display)
 ══════════════════════════════════════════════════════════════════════ */
@@ -1482,26 +1249,6 @@ button, .btn, .dock-nav-pill, .nav-item, .cs-stepper-btn, .cs-tab-btn, a {
   pointer-events: auto !important;
 }
 
-.modal, .modal-box, .modal-box-custom {
-  background: var(--bg-secondary) !important;
-  border: 1px solid var(--border-color) !important;
-  border-radius: var(--radius-card-lg) !important;
-  width: 90% !important;
-  max-width: 640px !important;
-  max-height: 88vh !important;
-  overflow-y: auto !important;
-  padding: 32px !important;
-  box-shadow: var(--shadow-dark) !important;
-  transform: scale(0.96) !important;
-  transition: var(--transition) !important;
-  position: relative !important;
-  color: var(--text-primary) !important;
-}
-.modal-overlay.open .modal, .modal-overlay.active .modal,
-.modal-backdrop-custom.open .modal-box-custom {
-  transform: scale(1) !important;
-}
-
 /* ══════════════════════════════════════════════════════════════════════
    13. ALL COMPONENT STYLES & DUAL-PANE WORKBENCH (From ERP Engine)
 ══════════════════════════════════════════════════════════════════════ */
@@ -1553,102 +1300,6 @@ button, .btn, .dock-nav-pill, .nav-item, .cs-stepper-btn, .cs-tab-btn, a {
   border-color: var(--amber-border) !important;
   box-shadow: 0 0 16px rgba(234, 179, 8, 0.18) !important;
   transform: translateY(-2px) !important;
-}
-
-#cs-stats {
-  display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  gap: 14px !important;
-  margin-bottom: 18px !important;
-}
-@media (max-width: 768px) {
-  #cs-stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-}
-
-.cs-tab-btn {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  padding: 9px 14px;
-  border-radius: var(--radius-pill);
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--text-muted);
-  background: transparent;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: var(--transition);
-}
-.cs-tab-btn:hover {
-  color: var(--text-main);
-  background: var(--surface-hover);
-}
-.cs-tab-btn.active {
-  color: var(--text-main);
-  background: var(--bg-secondary);
-  border-color: var(--border-amber);
-  box-shadow: var(--shadow-sm);
-  font-weight: 700;
-}
-
-.cs-command-card {
-  width: 100% !important;
-  border-radius: var(--radius-card) !important;
-  padding: 22px 24px !important;
-  background: var(--surface) !important;
-  border: 1px solid var(--border-subtle) !important;
-  box-shadow: var(--shadow-card) !important;
-  box-sizing: border-box !important;
-}
-
-.bom-ingredients-container, #cs-raw-list {
-  max-height: 280px !important;
-  overflow-y: auto !important;
-  padding-inline-end: 4px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 8px !important;
-  scrollbar-width: thin !important;
-}
-.bom-item-card, [data-bom-item], #cs-raw-list > div {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  background: var(--surface-warm) !important;
-  border: 1px solid var(--border-subtle) !important;
-  border-radius: 12px !important;
-  padding: 11px 16px !important;
-  gap: 12px !important;
-  transition: var(--transition) !important;
-  box-shadow: var(--shadow-sm) !important;
-}
-.bom-item-card:hover, #cs-raw-list > div:hover {
-  background: var(--surface-hover) !important;
-  border-color: var(--border-amber) !important;
-  transform: translateY(-1px) !important;
-}
-
-.cs-stepper-btn {
-  height: 38px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border-radius: var(--radius-pill) !important;
-  background: var(--surface-warm) !important;
-  border: 1px solid var(--border-subtle) !important;
-  color: var(--amber-deep) !important;
-  font-size: 12.5px !important;
-  font-weight: 800 !important;
-  cursor: pointer !important;
-  transition: var(--transition) !important;
-}
-.cs-stepper-btn:hover {
-  background: var(--amber-bg) !important;
-  border-color: var(--amber-border) !important;
-  color: var(--text-main) !important;
 }
 
 #toast {
@@ -1801,8 +1452,6 @@ button, .btn, .dock-nav-pill, .nav-item, .cs-stepper-btn, .cs-tab-btn, a {
 .step-nav-buttons { display: flex !important; align-items: center !important; gap: 10px !important; flex-wrap: wrap !important; }
 .btn { display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 7px !important; font-weight: 700 !important; border-radius: var(--r-md) !important; cursor: pointer !important; transition: all 0.2s ease !important; border: 1px solid transparent !important; font-family: inherit !important; }
 .btn-sm { padding: 6px 14px !important; font-size: 12px !important; }
-.btn-primary { background: var(--dock-bg) !important; color: #ffffff !important; border: 1px solid rgba(255,255,255,0.08) !important; box-shadow: 0 4px 14px rgba(0,0,0,0.22) !important; }
-.btn-primary:hover { transform: translateY(-1px) !important; background: #292524 !important; box-shadow: 0 6px 20px rgba(0,0,0,0.30) !important; }
 .btn-secondary { background: var(--surface-warm) !important; color: var(--text-primary) !important; border: 1px solid var(--border-warm) !important; }
 .btn-secondary:hover { background: var(--surface-hover) !important; border-color: var(--border-amber) !important; }
 
@@ -1866,7 +1515,6 @@ select option {
 ══════════════════════════════════════════════════════════════════════ */
 .modal-overlay { position: fixed !important; inset: 0 !important; background: rgba(28,25,23,0.55) !important; backdrop-filter: blur(8px) !important; z-index: 2000 !important; display: none !important; align-items: center !important; justify-content: center !important; padding: 16px !important; }
 .modal-overlay.open { display: flex !important; }
-.modal { background: var(--bg-secondary) !important; border: 1px solid var(--border-warm) !important; border-radius: var(--r-xl) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.18) !important; max-width: 540px !important; width: 100% !important; padding: 26px !important; color: var(--text-primary) !important; }
 #modal-cmd.modal-overlay { align-items: flex-start !important; padding-top: 10vh !important; }
 .cmd-palette {
   width: 100% !important;
@@ -2068,76 +1716,6 @@ body.dark .floating-theme-switch-btn .light-icon,
 /* ══════════════════════════════════════════════════════════════════════
    16. ULTRA-LUXURY DARK & NIGHT MODE THEME SYSTEM (Deep Glassmorphic Obsidian)
 ══════════════════════════════════════════════════════════════════════ */
-html.dark, body.dark, [data-theme="dark"] {
-  /* Canonical Design System Tokens in Dark */
-  --bg-primary:          #0F0F12;
-  --bg-secondary:        #18181B;
-  --bg-muted:            #27272A;
-  --text-primary:        #F8FAFC;
-  --text-secondary:      #CBD5E1;
-  --border-color:        rgba(255, 255, 255, 0.08);
-  --card-shadow:         0 12px 32px -4px rgba(0, 0, 0, 0.40);
-  --dock-bg:             #27272A;
-  --dock-text:           #FFFFFF;
-  --input-bg:            #222226;
-  --accent-amber:        #F59E0B;
-  --table-hover:         #1F1F23;
-  --table-th-bg:         #141416;
-
-  /* Canvas & Background */
-  --bg-main:             var(--bg-primary);
-  --bg-canvas:           var(--bg-primary);
-  --canvas:              var(--bg-primary);
-  --bg-glow:             radial-gradient(ellipse 70% 50% at 50% 0%, rgba(234, 179, 8, 0.15) 0%, #0F0F12 65%);
-  --canvas-glow:         radial-gradient(ellipse 80% 50% at 50% -5%, rgba(245, 158, 11, 0.14) 0%, transparent 65%),
-                         radial-gradient(ellipse 60% 40% at 90% 90%, rgba(124, 58, 237, 0.08) 0%, transparent 60%),
-                         var(--bg-primary);
-
-  /* Surfaces & Containers */
-  --surface:             var(--bg-secondary);
-  --surface-alt:         var(--bg-muted);
-  --surface-warm:        var(--table-th-bg);
-  --surface-hover:       var(--table-hover);
-  --surface-dark:        #0B0B0E;
-  --window-bg:           rgba(24, 24, 27, 0.96);
-
-  /* Dock & Floating Navigation */
-  --dock-bg-2:           #1E1E22;
-  --dock-border:         rgba(255, 255, 255, 0.12);
-  --dock-grad:           linear-gradient(180deg, #323238 0%, #27272A 100%);
-  --dock-glow-var:       0 16px 36px -6px rgba(0, 0, 0, 0.65);
-
-  /* Borders & Dividers */
-  --border-subtle:       var(--border-color);
-  --border-warm:         var(--border-color);
-  --border-strong:       rgba(255, 255, 255, 0.16);
-  --border-dark:         rgba(255, 255, 255, 0.18);
-  --border-glass:        rgba(255, 255, 255, 0.08);
-  --border-glow:         rgba(245, 158, 11, 0.35);
-
-  /* High-Contrast Luxury Typography */
-  --text-main:           var(--text-primary);
-  --text-muted:          var(--text-secondary);
-  --text-dim:            #71717A;
-  --text:                var(--text-primary);
-  --muted:               var(--text-secondary);
-
-  /* Legacy Engine Tokens */
-  --card:                var(--bg-secondary);
-  --card2:               var(--bg-muted);
-  --card3:               var(--input-bg);
-  --glass-card:          var(--bg-secondary);
-  --glass-card-h:        var(--bg-muted);
-  --glass-subtle:        var(--table-hover);
-
-  /* Elevated Soft Glow Shadows */
-  --shadow-sm:           0 4px 14px rgba(0, 0, 0, 0.45);
-  --shadow-card:         var(--card-shadow);
-  --shadow-card-hover:   0 18px 40px -4px rgba(0, 0, 0, 0.65), 0 4px 12px rgba(0, 0, 0, 0.40);
-  --shadow-elevated:     0 22px 50px -8px rgba(0, 0, 0, 0.70);
-  --shadow-dark:         0 20px 60px rgba(0, 0, 0, 0.85);
-}
-
 /* Dark Mode Overrides for Bento Cards & Modules */
 [data-theme="dark"] .bento-card,
 [data-theme="dark"] .card,
@@ -3244,99 +2822,6 @@ header.top-dock-container {
   width: 100% !important;
   margin-bottom: 24px !important;
   padding: 0 16px !important;
-}
-
-.floating-capsule-dock {
-  background: #18181B !important;
-  color: #FFFFFF !important;
-  border-radius: 9999px !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.45) !important;
-  padding: 8px 16px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 10px !important;
-  max-width: 1200px !important;
-  width: 100% !important;
-  margin: 0 auto !important;
-}
-
-.dock-brand-pill {
-  display: flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  padding: 6px 14px !important;
-  border-radius: 9999px !important;
-  background: rgba(255, 255, 255, 0.08) !important;
-  color: #FFFFFF !important;
-  cursor: pointer !important;
-}
-
-.dock-brand-name {
-  color: #FFFFFF !important;
-  font-weight: 700 !important;
-  font-size: 13px !important;
-}
-
-.dock-brand-glyph {
-  color: #EAB308 !important;
-  font-size: 14px !important;
-}
-
-.dock-nav-pill-group {
-  display: flex !important;
-  align-items: center !important;
-  gap: 4px !important;
-}
-
-.dock-nav-pill {
-  border-radius: 9999px !important;
-  padding: 8px 14px !important;
-  color: #A1A1AA !important;
-  background: transparent !important;
-  border: none !important;
-  font-weight: 600 !important;
-  font-size: 12.5px !important;
-  transition: all 0.2s ease !important;
-  cursor: pointer !important;
-}
-
-.dock-nav-pill:hover {
-  color: #FFFFFF !important;
-  background: rgba(255, 255, 255, 0.08) !important;
-}
-
-.dock-nav-pill.active {
-  background: #27272A !important;
-  color: #EAB308 !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.30) !important;
-}
-
-.dock-active-dot {
-  color: #EAB308 !important;
-}
-
-.dock-search-pill {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border-radius: 9999px !important;
-  padding: 6px 14px !important;
-  color: #A1A1AA !important;
-  cursor: pointer !important;
-  font-size: 12px !important;
-}
-.dock-search-pill:hover {
-  background: rgba(255, 255, 255, 0.14) !important;
-  color: #FFFFFF !important;
-}
-
-.dock-theme-btn, 
-.dock-icon-btn {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border-radius: 9999px !important;
-  border: 1px solid rgba(255, 255, 255, 0.10) !important;
-  color: #FFFFFF !important;
-  cursor: pointer !important;
 }
 
 /* ── 9. MODALS SYSTEM ── */
@@ -5585,16 +5070,6 @@ html.dark #tab-btn-base-bom.btn-secondary:hover {
 }
 
 /* BOM Standard Ingredient Table (#recipe-tbl) */
-#page-recipes #recipe-tab-base .tbl-wrap {
-  border-radius: 18px !important;
-  border: 1px solid rgba(28, 25, 23, 0.06) !important;
-  overflow: hidden !important;
-  background: #FFFFFF !important;
-}
-html.dark #page-recipes #recipe-tab-base .tbl-wrap {
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  background: #18181B !important;
-}
 
 #recipe-tab-base .tbl thead th {
   background: #F7F4EE !important;
@@ -5813,16 +5288,6 @@ html.dark #recipe-tab-batch button[onclick="executeBatchDeduction()"]:hover {
 }
 
 /* Batch Table Wrapper and Cells */
-#recipe-tab-batch .tbl-wrap {
-  border-radius: 18px !important;
-  border: 1px solid rgba(28, 25, 23, 0.06) !important;
-  overflow: hidden !important;
-  background: #FFFFFF !important;
-}
-html.dark #recipe-tab-batch .tbl-wrap {
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  background: #18181B !important;
-}
 
 #recipe-tab-batch .tbl thead th {
   background: #F7F4EE !important;
@@ -6389,16 +5854,6 @@ html.dark #prod-rm-tbl .badge-green {
 }
 
 /* ── PANE 3: SAUCE PRODUCTION (#prod-pane-taztiki) ── */
-#prod-pane-taztiki .tbl-wrap {
-  border-radius: 18px !important;
-  border: 1px solid rgba(28, 25, 23, 0.06) !important;
-  overflow: hidden !important;
-  background: #FFFFFF !important;
-}
-html.dark #prod-pane-taztiki .tbl-wrap {
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  background: #18181B !important;
-}
 
 #prod-pane-taztiki .tbl thead th {
   background: #F7F4EE !important;
@@ -6745,15 +6200,7 @@ html.dark #page-inventory button[onclick="genPOs()"]:hover {
 
 /* Raw Material Table (#inv-tbl) */
 #page-inventory .tbl-wrap {
-  border-radius: 18px !important;
-  border: 1px solid rgba(28, 25, 23, 0.06) !important;
-  overflow: auto !important;
-  background: #FFFFFF !important;
   max-height: 560px !important;
-}
-html.dark #page-inventory .tbl-wrap {
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  background: #18181B !important;
 }
 
 #page-inventory .tbl thead th {
@@ -7013,15 +6460,7 @@ html.dark #page-purchase button[onclick="sendAllDraft()"]:hover {
 
 /* Purchase Table (#po-tbl) */
 #page-purchase .tbl-wrap {
-  border-radius: 18px !important;
-  border: 1px solid rgba(28, 25, 23, 0.06) !important;
-  overflow: auto !important;
-  background: #FFFFFF !important;
   max-height: 520px !important;
-}
-html.dark #page-purchase .tbl-wrap {
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  background: #18181B !important;
 }
 
 #page-purchase .tbl thead th {
@@ -7309,15 +6748,7 @@ html.dark #page-invoices button[onclick*="inv-bill-sup"]:hover {
 
 /* Invoices Table (#invoices-tbl) */
 #page-invoices .tbl-wrap {
-  border-radius: 18px !important;
-  border: 1px solid rgba(28, 25, 23, 0.06) !important;
-  overflow: auto !important;
-  background: #FFFFFF !important;
   max-height: 520px !important;
-}
-html.dark #page-invoices .tbl-wrap {
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  background: #18181B !important;
 }
 
 #page-invoices .tbl thead th {
@@ -8083,15 +7514,6 @@ html.dark #page-shipments .shipment-banner-text {
 }
 
 /* Shipments Main Matrix Table */
-#page-shipments #ship-table-wrap .tbl-wrap {
-  border-radius: 16px !important;
-  border: 1px solid rgba(28, 25, 23, 0.06) !important;
-  background: #FFFFFF !important;
-  overflow-x: auto !important;
-  max-width: 100% !important;
-  -webkit-overflow-scrolling: touch !important;
-}
-
 #page-shipments #ship-main-table {
   width: 100% !important;
   border-collapse: separate !important;
