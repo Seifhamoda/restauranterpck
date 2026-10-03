@@ -203,6 +203,28 @@
           </svg>
           <span class="nav-label">التقارير التنفيذية</span>
         </div>
+
+        <!-- 10. فروع التوزيع (Shipments & Distribution) -->
+        <div class="nav-item" data-page="shipments" onclick="nav('shipments')" title="10. فروع التوزيع · Branch Shipments">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="3" width="15" height="13"></rect>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+          </svg>
+          <span class="nav-label">فروع التوزيع</span>
+        </div>
+
+        <!-- 11. سجل الفواتير (Invoices) -->
+        <div class="nav-item" data-page="invoices" onclick="nav('invoices')" title="11. سجل الفواتير · Invoices">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span class="nav-label">سجل الفواتير</span>
+        </div>
       </nav>
 
       <!-- Bottom Dock Actions: Language Toggle -->
@@ -238,33 +260,55 @@
 
         <!-- Navigation Pills -->
         <nav class="dock-nav-pill-group">
-          <button type="button" class="dock-nav-pill active" id="tab-dash" data-page="dashboard" onclick="nav('dashboard')">
+          <button type="button" class="dock-nav-pill nav-item active" id="tab-dash" data-page="dashboard" onclick="nav('dashboard')">
             <span class="dock-active-dot">●</span>
             <span data-ar="لوحة المؤشرات" data-en="Dashboard">لوحة المؤشرات</span>
           </button>
-          <button type="button" class="dock-nav-pill" id="tab-ord" data-page="orders" onclick="nav('orders')">
-            <span data-ar="طلبات الفروع" data-en="Branch Orders">طلبات الفروع</span>
+          <button type="button" class="dock-nav-pill nav-item" id="tab-ord" data-page="orders" onclick="nav('orders')">
+            <span class="dock-active-dot">●</span>
+            <span data-ar="طلبات الفروع" data-en="Orders">طلبات الفروع</span>
           </button>
-          <button type="button" class="dock-nav-pill" id="tab-prod" data-page="production" onclick="nav('production')">
-            <span data-ar="خطة التشغيل (BOM)" data-en="Production & BOM">خطة التشغيل (BOM)</span>
+          <button type="button" class="dock-nav-pill nav-item" id="tab-prod" data-page="production" onclick="nav('production')">
+            <span class="dock-active-dot">●</span>
+            <span data-ar="خطة التشغيل (BOM)" data-en="Production & BOM">خطة التشغيل</span>
           </button>
-          <button type="button" class="dock-nav-pill" id="tab-cstk" data-page="centerstock" onclick="nav('centerstock')">
+          <button type="button" class="dock-nav-pill nav-item" id="tab-cstk" data-page="centerstock" onclick="nav('centerstock')">
+            <span class="dock-active-dot">●</span>
             <span data-ar="مخزون المركز" data-en="Center Stock">مخزون المركز</span>
           </button>
-          <button type="button" class="dock-nav-pill" data-page="inventory" onclick="nav('inventory')">
+          <button type="button" class="dock-nav-pill nav-item" id="tab-inv" data-page="inventory" onclick="nav('inventory')">
+            <span class="dock-active-dot">●</span>
             <span data-ar="مستودع الخامات" data-en="Raw Inventory">مستودع الخامات</span>
           </button>
-          <button type="button" class="dock-nav-pill" id="tab-rec" data-page="recipes" onclick="nav('recipes')">
+          <button type="button" class="dock-nav-pill nav-item" id="tab-pur" data-page="purchase" onclick="nav('purchase')">
+            <span class="dock-active-dot">●</span>
+            <span data-ar="أوامر الشراء" data-en="Purchase Orders">أوامر الشراء</span>
+          </button>
+          <button type="button" class="dock-nav-pill nav-item" id="tab-rec" data-page="recipes" onclick="nav('recipes')">
+            <span class="dock-active-dot">●</span>
             <span data-ar="دليل الوصفات" data-en="Recipes">دليل الوصفات</span>
           </button>
-          <button type="button" class="dock-nav-pill" data-page="waste" onclick="nav('waste')">
+          <button type="button" class="dock-nav-pill nav-item" id="tab-wst" data-page="waste" onclick="nav('waste')">
+            <span class="dock-active-dot">●</span>
             <span data-ar="سجل الهدر" data-en="Waste">سجل الهدر</span>
           </button>
-          <button type="button" class="dock-nav-pill" data-page="reports" onclick="nav('reports')">
+          <button type="button" class="dock-nav-pill nav-item" id="tab-ship" data-page="shipments" onclick="nav('shipments')">
+            <span class="dock-active-dot">●</span>
+            <span data-ar="فروع التوزيع" data-en="Shipments">فروع التوزيع</span>
+          </button>
+          <button type="button" class="dock-nav-pill nav-item" id="tab-invc" data-page="invoices" onclick="nav('invoices')">
+            <span class="dock-active-dot">●</span>
+            <span data-ar="سجل الفواتير" data-en="Invoices">الفواتير</span>
+          </button>
+          <button type="button" class="dock-nav-pill nav-item" id="tab-rep" data-page="reports" onclick="nav('reports')">
+            <span class="dock-active-dot">●</span>
             <span data-ar="التقارير والمصفوفة" data-en="Reports">التقارير والمصفوفة</span>
           </button>
-          <!-- Hidden compatibility buttons for JS queries -->
-          <button type="button" class="js-hidden" id="tab-welc" onclick="nav('welcome')"></button>
+          <button type="button" class="dock-nav-pill nav-item" id="tab-welc" data-page="welcome" onclick="nav('welcome')">
+            <span class="dock-active-dot">●</span>
+            <span data-ar="قسم الترحيب" data-en="Welcome">الترحيب</span>
+          </button>
+          <!-- Compatibility anchors for script queries -->
           <button type="button" class="js-hidden" id="tab-work" onclick="scrollToWorkflow()"></button>
           <button type="button" class="js-hidden" id="tab-integ" onclick="toggleSqlSync()"></button>
         </nav>
