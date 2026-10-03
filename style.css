@@ -8847,3 +8847,348 @@ html:not(.dark) #dash-alerts span[style*="color:#ffffff"] {
 html:not(.dark) #stock-modal-title span[style*="color:#fff"] {
   color: #18181B !important;
 }
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   STAGE 3B — LAYOUT FOUNDATION & MOBILE CORRECTION
+   Harmonized Proportions, Spacing, Touch Targets, Mobile Navigation & Grid System
+══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --ui-space-1: 4px;
+  --ui-space-2: 8px;
+  --ui-space-3: 12px;
+  --ui-space-4: 16px;
+  --ui-space-5: 20px;
+  --ui-space-6: 24px;
+  --ui-space-7: 32px;
+
+  --ui-radius-sm: 8px;
+  --ui-radius-md: 12px;
+  --ui-radius-lg: 16px;
+  --ui-radius-xl: 20px;
+
+  --ui-control-h: 42px;
+  --ui-control-h-sm: 38px;
+  --ui-touch-min: 44px;
+
+  --ui-page-pad-desktop: 20px;
+  --ui-page-pad-tablet: 16px;
+  --ui-page-pad-mobile: 12px;
+
+  --ui-section-gap: 20px;
+  --ui-card-gap: 14px;
+}
+
+/* 1. Global Page Chassis & Containment */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+.app-chassis {
+  max-width: 1380px !important;
+  padding: 16px var(--ui-page-pad-desktop) 48px !important;
+  box-sizing: border-box !important;
+  overflow-x: hidden !important;
+  margin: 0 auto !important;
+}
+
+.content {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* 2. Radius Normalization for Major Surfaces */
+.bento-card, .dash-card, .card, .workflow-pipeline-card, .recipe-side-card {
+  border-radius: var(--ui-radius-lg) !important;
+}
+
+.modal, .modal-box, .modal-box-custom {
+  border-radius: var(--ui-radius-xl) !important;
+}
+
+.sub-card-box, .excel-preview-box, .sim-box {
+  border-radius: var(--ui-radius-md) !important;
+}
+
+/* 3. Reduce Card-in-Card Visual Clutter (Content > Container Decoration) */
+.sub-card-box, .excel-preview-box {
+  background: var(--surface-warm) !important;
+  border: 1px solid var(--border-subtle) !important;
+  box-shadow: none !important;
+  padding: var(--ui-space-4) !important;
+}
+
+.dashboard-greeting-header {
+  padding: var(--ui-space-5) !important;
+  border-radius: var(--ui-radius-lg) !important;
+}
+
+/* 4. Controls Normalization & Touch Targets */
+.input, .select, select, input[type="text"], input[type="number"], input[type="date"], input[type="search"] {
+  min-height: var(--ui-control-h-sm);
+  border-radius: var(--ui-radius-md) !important;
+  font-size: 13px !important;
+}
+
+.filter-chip {
+  min-height: 38px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 6px 14px !important;
+  border-radius: 9999px !important;
+  cursor: pointer !important;
+}
+
+.cs-stepper-btn {
+  min-width: 38px !important;
+  min-height: 38px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: var(--ui-radius-sm) !important;
+  cursor: pointer !important;
+}
+
+/* 5. Mobile Navigation & Dock Header */
+.dock-mobile-menu-btn {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  #sidebar-toggle-btn {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .app-chassis {
+    padding-inline: var(--ui-page-pad-tablet) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-chassis {
+    padding-inline: var(--ui-page-pad-mobile) !important;
+    padding-top: 10px !important;
+    padding-bottom: 32px !important;
+    gap: 14px !important;
+  }
+
+  /* Compact Mobile Header Dock (Replaces the 1,100px wide track) */
+  .top-dock-container {
+    padding: 0 !important;
+    margin-bottom: 12px !important;
+    width: 100% !important;
+    overflow: visible !important;
+    justify-content: center !important;
+  }
+
+  .floating-capsule-dock {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 52px !important;
+    padding: 6px 12px !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 8px !important;
+    border-radius: 9999px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+  }
+
+  /* Hide the 1,100px desktop pills on mobile screens */
+  .dock-nav-pill-group {
+    display: none !important;
+  }
+
+  /* Show mobile menu drawer trigger inside the compact header */
+  .dock-mobile-menu-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    color: #FFFFFF !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+  }
+  .dock-mobile-menu-btn:active {
+    background: rgba(234, 179, 8, 0.25) !important;
+    border-color: #EAB308 !important;
+    color: #EAB308 !important;
+  }
+
+  .dock-brand-pill {
+    padding: 4px 8px !important;
+    gap: 6px !important;
+    cursor: pointer !important;
+  }
+  .dock-brand-name {
+    font-size: 13px !important;
+    font-weight: 800 !important;
+  }
+
+  .dock-end-controls {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+
+  .dock-search-pill {
+    min-width: 44px !important;
+    height: 44px !important;
+    padding: 0 10px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .dock-search-text, .dock-search-kbd {
+    display: none !important;
+  }
+
+  .dock-theme-btn {
+    min-height: 44px !important;
+    padding: 0 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .theme-mode-text {
+    display: none !important;
+  }
+
+  /* Hide secondary desktop-only elements on mobile header to fit 360px */
+  .dock-profile-avatar,
+  .dock-action-trigger,
+  .notif-bell-wrapper,
+  .dock-icon-btn[onclick*="toggleLang"] {
+    display: none !important;
+  }
+
+  /* 6. Mobile Grid System Correction */
+  .grid-cols-4,
+  .orders-kpi-grid,
+  .greeting-stats-grid,
+  .sim-controls-grid,
+  .bento-dashboard-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .grid-110-1fr,
+  .grid-1fr-110-auto {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dashboard-greeting-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: var(--ui-space-4) !important;
+  }
+
+  /* 7. Tables Responsive Scrolling & Sticky Isolation */
+  .tbl-wrap, .table-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-radius: var(--ui-radius-md) !important;
+  }
+
+  .tbl-wrap table, .table-container table {
+    min-width: 600px;
+  }
+
+  .tbl-wrap th, .tbl-wrap td {
+    padding: 10px 12px !important;
+    font-size: 12px !important;
+  }
+
+  /* Sticky first column in wide matrices during horizontal swipe */
+  #prod-matrix-table th:first-child,
+  #prod-matrix-table td:first-child,
+  #ship-main-table th:first-child,
+  #ship-main-table td:first-child {
+    position: sticky !important;
+    inset-inline-start: 0 !important;
+    background: #FFFFFF !important;
+    z-index: 5 !important;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.04) !important;
+  }
+  html.dark #prod-matrix-table th:first-child,
+  html.dark #prod-matrix-table td:first-child,
+  html.dark #ship-main-table th:first-child,
+  html.dark #ship-main-table td:first-child {
+    background: #18181B !important;
+  }
+
+  #sidebar-toggle-btn {
+    bottom: 20px !important;
+    inset-inline-end: 20px !important;
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 8. Dense Card Stacking on Small Mobile (360px - 430px) */
+  .grid-cols-4,
+  .orders-kpi-grid,
+  .greeting-stats-grid,
+  .sim-controls-grid,
+  .bento-dashboard-grid,
+  .grid-cols-3,
+  .grid-cols-2,
+  .grid-1fr-1fr {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  /* Compact padding for cards on small screens to maximize data area */
+  .bento-card, .dash-card, .card, .workflow-pipeline-card, .recipe-side-card {
+    padding: var(--ui-space-3) var(--ui-space-4) !important;
+    border-radius: var(--ui-radius-md) !important;
+  }
+
+  /* 9. Mobile Modals Full Fluidity */
+  .modal, .modal-box, .modal-box-custom {
+    width: calc(100% - 24px) !important;
+    max-width: 100% !important;
+    margin: 10px auto !important;
+    padding: 18px 16px !important;
+    border-radius: var(--ui-radius-lg) !important;
+    max-height: 90vh !important;
+  }
+
+  .modal .grid-cols-2,
+  .modal .grid-1fr-1fr,
+  .modal .grid-cols-3 {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .modal-actions, .modal-footer {
+    flex-direction: column-reverse !important;
+    gap: 8px !important;
+  }
+  .modal-actions button, .modal-footer button {
+    width: 100% !important;
+    min-height: var(--ui-touch-min) !important;
+  }
+
+  /* Ensure modal titles are compact and legible */
+  .modal h2, .modal h3, .modal-title {
+    font-size: 16px !important;
+  }
+}

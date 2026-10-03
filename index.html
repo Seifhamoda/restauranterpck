@@ -315,6 +315,10 @@
 
         <!-- Right End Controls: Search Pill, Language, Notifications, Avatar, Action Trigger -->
         <div class="dock-end-controls">
+          <!-- Mobile Menu Drawer Trigger -->
+          <button type="button" class="dock-mobile-menu-btn" id="dock-mobile-menu-btn" onclick="openMob()" aria-label="القائمة التشغيلية" title="القائمة التشغيلية">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
           <!-- Search Pill -->
           <div class="dock-search-pill" onclick="openCmdBar()" title="بحث سريع (Ctrl+K)">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -8988,13 +8992,7 @@
     }
 
     function renderWelcome() {
-    const v = document.getElementById('welcome-fullscreen-vid');
-    if (v) {
-      v.muted = true;
-      v.defaultMuted = true;
-      const p = v.play();
-      if (p !== undefined) p.catch(() => {});
-    }
+    // Clean Welcome Card view - obsolete video polling removed
   }
 
   function renderPage(p) {
@@ -11184,23 +11182,38 @@
         return;
       }
 
-      // Build Body Rows
-      tbody.innerHTML = prods.map((p, idx) => {
-        const dm = matrix[p.id] || {};
-        const rowTotal = days.reduce((s, d) => s + (dm[d] || 0), 0);
-        const avgDaily = days.length ? (rowTotal / days.length).toFixed(1) : 0;
-        const rowValue = rowTotal * (p.cost || 30);
+      // High-performance chunked row rendering
+      tbody.innerHTML = '';
+      window._prodMatrixToken = (window._prodMatrixToken || 0) + 1;
+      const curToken = window._prodMatrixToken;
+      const CHUNK_SIZE = 25;
+      let curIdx = 0;
 
-        const cells = days.map(d => {
-          const v = dm[d] || 0;
-          const isHigh = v > 50;
-          const hasVal = v > 0;
-          return `<td style="text-align:center;padding:6px 4px;font-size:12px;${hasVal ? (isHigh ? 'color:#4ade80;font-weight:700;background:rgba(74,222,128,0.06)' : 'color:#f1f5f9;font-weight:600') : 'color:#475569'}">
+      const scheduleNext = typeof requestAnimationFrame === 'function' ? requestAnimationFrame : (fn => setTimeout(fn, 0));
+
+      function renderBatch() {
+        if (window._prodMatrixToken !== curToken) return;
+
+        const end = Math.min(curIdx + CHUNK_SIZE, prods.length);
+        let batchHtml = '';
+
+        for (let idx = curIdx; idx < end; idx++) {
+          const p = prods[idx];
+          const dm = matrix[p.id] || {};
+          const rowTotal = days.reduce((s, d) => s + (dm[d] || 0), 0);
+          const avgDaily = days.length ? (rowTotal / days.length).toFixed(1) : 0;
+          const rowValue = rowTotal * (p.cost || 30);
+
+          const cells = days.map(d => {
+            const v = dm[d] || 0;
+            const isHigh = v > 50;
+            const hasVal = v > 0;
+            return `<td style="text-align:center;padding:6px 4px;font-size:12px;${hasVal ? (isHigh ? 'color:#4ade80;font-weight:700;background:rgba(74,222,128,0.06)' : 'color:#f1f5f9;font-weight:600') : 'color:#475569'}">
         ${hasVal ? fmt(v, v % 1 === 0 ? 0 : 2) : '—'}
       </td>`;
-        }).join('');
+          }).join('');
 
-        return `
+          batchHtml += `
       <tr>
         <td style="text-align:center;color:#64748b;font-size:11px">${idx + 1}</td>
         <td>
@@ -11216,17 +11229,23 @@
         <td style="text-align:center;font-weight:700;color:#4ade80">${rowValue > 0 ? fmt(Math.round(rowValue)) : '—'}</td>
       </tr>
     `;
-      }).join('');
+        }
 
-      // Append Grand Totals Summary Row
-      const grandDayTotals = days.map(d => prods.reduce((s, p) => s + ((matrix[p.id] && matrix[p.id][d]) || 0), 0));
-      const grandTotalUnits = grandDayTotals.reduce((a, b) => a + b, 0);
-      const grandTotalValue = prods.reduce((sum, p) => {
-        const rTot = days.reduce((s, d) => s + ((matrix[p.id] && matrix[p.id][d]) || 0), 0);
-        return sum + (rTot * (p.cost || 30));
-      }, 0);
+        if (typeof tbody.insertAdjacentHTML === 'function') { tbody.insertAdjacentHTML('beforeend', batchHtml); } else { tbody.innerHTML += batchHtml; }
+        curIdx = end;
 
-      tbody.innerHTML += `
+        if (curIdx < prods.length) {
+          scheduleNext(renderBatch);
+        } else {
+          // Append Grand Totals Summary Row
+          const grandDayTotals = days.map(d => prods.reduce((s, p) => s + ((matrix[p.id] && matrix[p.id][d]) || 0), 0));
+          const grandTotalUnits = grandDayTotals.reduce((a, b) => a + b, 0);
+          const grandTotalValue = prods.reduce((sum, p) => {
+            const rTot = days.reduce((s, d) => s + ((matrix[p.id] && matrix[p.id][d]) || 0), 0);
+            return sum + (rTot * (p.cost || 30));
+          }, 0);
+
+          const grandRowHtml = `
     <tr style="background:rgba(249,115,22,0.08);border-top:2px solid rgba(249,115,22,0.3);font-weight:800">
       <td colspan="3" style="text-align:start;color:#fb923c;padding:10px 14px">
         ⚡ ${T('الإجمالي اليومي العام لجميع الأصناف', 'Daily Total All Products')}
@@ -11237,6 +11256,15 @@
       <td style="text-align:center;color:#4ade80;font-size:13px">${fmt(Math.round(grandTotalValue))}</td>
     </tr>
   `;
+          if (typeof tbody.insertAdjacentHTML === 'function') {
+            tbody.insertAdjacentHTML('beforeend', grandRowHtml);
+          } else {
+            tbody.innerHTML += grandRowHtml;
+          }
+        }
+      }
+
+      renderBatch();
     }
 
     function renderProdTaztikiTable() {
@@ -13927,22 +13955,9 @@
     };
   }
 
-  // Ensure Video Autoplay works smoothly
+  // Ensure Video Autoplay works smoothly (Obsolete polling safely removed)
   function ensureHeroVideoPlays() {
-    const vids = [
-      document.getElementById('welcome-fullscreen-vid'),
-      document.getElementById('hero-video')
-    ];
-    vids.forEach(v => {
-      if (v) {
-        v.muted = true;
-        v.defaultMuted = true;
-        const p = v.play();
-        if (p !== undefined) {
-          p.catch(() => {});
-        }
-      }
-    });
+    // Obsolete hero video polling removed safely for performance
   }
 
   // Native window & document scrolling enabled
