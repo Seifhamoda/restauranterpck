@@ -4359,3 +4359,775 @@ html.dark .filter-chip.active {
   background: #EAB308 !important;
   color: #18181B !important;
 }
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   PHASE 4A — RADICAL VISUAL OVERHAUL: CENTER STOCK & ORDERS
+══════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. COMMON WORKFLOW STEP BAR ── */
+.workflow-step-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 18px !important;
+  padding: 12px 20px !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.03) !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+}
+
+html.dark .workflow-step-bar {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.40) !important;
+}
+
+.step-badge-indicator {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.step-num-pill {
+  background: rgba(234, 179, 8, 0.15) !important;
+  color: #B45309 !important;
+  border: 1px solid rgba(234, 179, 8, 0.30) !important;
+  padding: 4px 12px !important;
+  border-radius: 9999px !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.01em !important;
+}
+html.dark .step-num-pill {
+  background: rgba(234, 179, 8, 0.20) !important;
+  color: #FCD34D !important;
+  border-color: rgba(234, 179, 8, 0.40) !important;
+}
+
+.step-name-text {
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  color: #18181B !important;
+}
+html.dark .step-name-text {
+  color: #F4F4F5 !important;
+}
+
+.step-nav-buttons {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.step-nav-buttons .btn {
+  border-radius: 9999px !important;
+  padding: 8px 18px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.step-nav-buttons .btn-primary {
+  background: #18181B !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.20) !important;
+}
+.step-nav-buttons .btn-primary:hover {
+  background: #27272A !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.30) !important;
+}
+
+.step-nav-buttons .btn-secondary {
+  background: #FAF7F2 !important;
+  color: #18181B !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+}
+.step-nav-buttons .btn-secondary:hover {
+  background: #F5EFE6 !important;
+  border-color: rgba(234, 179, 8, 0.3) !important;
+}
+
+html.dark .step-nav-buttons .btn-secondary {
+  background: #27272A !important;
+  color: #F4F4F5 !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+}
+html.dark .step-nav-buttons .btn-secondary:hover {
+  background: #323238 !important;
+}
+
+/* ── 2. CENTER STOCK: DUAL PANE WORKBENCH ── */
+#page-centerstock .dual-pane-workbench {
+  display: grid !important;
+  grid-template-columns: 1fr 390px !important;
+  gap: 20px !important;
+  align-items: start !important;
+  width: 100% !important;
+}
+
+@media (max-width: 1100px) {
+  #page-centerstock .dual-pane-workbench {
+    grid-template-columns: 1fr !important;
+  }
+  #page-centerstock .pane-inspector {
+    position: static !important;
+    max-height: none !important;
+  }
+}
+
+/* Center Stock Stream Pane */
+#page-centerstock .pane-stream {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+/* Filter & Search Card */
+#page-centerstock .pane-stream .card.mb-3\.5,
+#page-centerstock .pane-stream > .card:first-child {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 20px !important;
+  padding: 14px 18px !important;
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.03) !important;
+  margin-bottom: 16px !important;
+}
+html.dark #page-centerstock .pane-stream .card.mb-3\.5,
+html.dark #page-centerstock .pane-stream > .card:first-child {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#cs-search, #cs-cat-filter, #cs-status-filter {
+  height: 42px !important;
+  border-radius: 9999px !important;
+  background: #F5F2EB !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  color: #18181B !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  padding-inline: 16px !important;
+  outline: none !important;
+  transition: all 0.2s ease !important;
+}
+#cs-search {
+  padding-inline-start: 36px !important;
+}
+#cs-search:focus, #cs-cat-filter:focus, #cs-status-filter:focus {
+  background: #FFFFFF !important;
+  border-color: #EAB308 !important;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15) !important;
+}
+html.dark #cs-search, html.dark #cs-cat-filter, html.dark #cs-status-filter {
+  background: #222226 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F4F4F5 !important;
+}
+html.dark #cs-search:focus, html.dark #cs-cat-filter:focus, html.dark #cs-status-filter:focus {
+  background: #18181B !important;
+}
+
+/* Center Stock KPI Summary Row */
+#cs-stats {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 12px !important;
+  margin-bottom: 18px !important;
+}
+@media (max-width: 900px) {
+  #cs-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 480px) {
+  #cs-stats {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+#cs-stats .kpi-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 20px !important;
+  padding: 14px 18px !important;
+  box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.03) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+#cs-stats .kpi-card:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(234, 179, 8, 0.35) !important;
+  box-shadow: 0 10px 30px -4px rgba(234, 179, 8, 0.12) !important;
+}
+html.dark #cs-stats .kpi-card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#cs-stats .kpi-label {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #71717A !important;
+  margin-bottom: 4px !important;
+}
+html.dark #cs-stats .kpi-label {
+  color: #A1A1AA !important;
+}
+
+#cs-stats .kpi-value {
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  font-variant-numeric: lining-nums tabular-nums !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.2 !important;
+}
+
+/* Force light-mode contrast on #cs-stats numbers with inline styles */
+html:not(.dark) #cs-stats .kpi-card:nth-child(1) .kpi-value {
+  color: #18181B !important;
+}
+
+/* Product Cards Grid */
+#cs-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)) !important;
+  gap: 14px !important;
+}
+
+#cs-grid .card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 20px !important;
+  padding: 16px 18px !important;
+  box-shadow: 0 4px 18px -2px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+#cs-grid .card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 28px -4px rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(234, 179, 8, 0.35) !important;
+}
+html.dark #cs-grid .card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#cs-grid .selected-stream-card,
+#cs-grid .card.selected-stream-card {
+  background: #FFFFFF !important;
+  border: 2px solid #EAB308 !important;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.20), 0 12px 32px -4px rgba(234, 179, 8, 0.15) !important;
+  transform: translateY(-2px) !important;
+}
+html.dark #cs-grid .selected-stream-card,
+html.dark #cs-grid .card.selected-stream-card {
+  background: #18181B !important;
+}
+
+/* Product Card Texts in Light Mode */
+html:not(.dark) #cs-grid .card div[style*="color:#f1f5f9"],
+html:not(.dark) #cs-grid .card div[style*="color: #f1f5f9"] {
+  color: #18181B !important;
+}
+html:not(.dark) #cs-grid .card .kpi-number {
+  color: #18181B !important;
+  text-shadow: none !important;
+  font-weight: 800 !important;
+}
+
+.stock-sufficiency-bar {
+  height: 6px !important;
+  background: #FAF7F2 !important;
+  border-radius: 9999px !important;
+  overflow: hidden !important;
+  margin-top: 8px !important;
+}
+html.dark .stock-sufficiency-bar {
+  background: #27272A !important;
+}
+.stock-sufficiency-fill {
+  height: 100% !important;
+  border-radius: 9999px !important;
+}
+
+/* ── 3. CENTER STOCK: COMMAND DECK & INSPECTOR ── */
+#page-centerstock .pane-inspector {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  position: sticky !important;
+  top: 80px !important;
+  max-height: calc(100vh - 100px) !important;
+  overflow-y: auto !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+/* Inspected Product Hero Card */
+#cs-hero-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 22px !important;
+  padding: 20px 22px !important;
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.04) !important;
+}
+html.dark #cs-hero-card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#cs-hero-title {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: #18181B !important;
+  letter-spacing: -0.01em !important;
+}
+html.dark #cs-hero-title {
+  color: #F4F4F5 !important;
+}
+
+#cs-hero-card .grid-1fr-1fr {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 12px !important;
+  margin-top: 14px !important;
+  padding-top: 14px !important;
+  border-top: 1px solid rgba(28, 25, 23, 0.06) !important;
+}
+html.dark #cs-hero-card .grid-1fr-1fr {
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#cs-hero-card .sim-box {
+  background: #FAF7F2 !important;
+  border-radius: 14px !important;
+  padding: 10px 14px !important;
+  border: 1px solid rgba(28, 25, 23, 0.04) !important;
+}
+html.dark #cs-hero-card .sim-box {
+  background: #141416 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#cs-hero-stock {
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  color: #18181B !important;
+  font-variant-numeric: lining-nums tabular-nums !important;
+}
+html.dark #cs-hero-stock {
+  color: #F4F4F5 !important;
+}
+
+#cs-hero-cost {
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  color: #D97706 !important;
+  font-variant-numeric: lining-nums tabular-nums !important;
+}
+
+/* Command Deck Card */
+.cs-command-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 22px !important;
+  padding: 20px 22px !important;
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.04) !important;
+}
+html.dark .cs-command-card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Segmented Tabs Header */
+.cs-tabs-header {
+  display: flex !important;
+  background: #FAF7F2 !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  border-radius: 9999px !important;
+  padding: 4px !important;
+  gap: 4px !important;
+  margin-bottom: 16px !important;
+}
+html.dark .cs-tabs-header {
+  background: #141416 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.cs-tab-btn {
+  flex: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 7px 12px !important;
+  border-radius: 9999px !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  color: #71717A !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+}
+.cs-tab-btn:hover {
+  color: #18181B !important;
+  background: rgba(0, 0, 0, 0.04) !important;
+}
+.cs-tab-btn.active {
+  background: #18181B !important;
+  color: #EAB308 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25) !important;
+}
+html.dark .cs-tab-btn.active {
+  background: #27272A !important;
+  color: #EAB308 !important;
+}
+
+/* Stepper buttons */
+.cs-stepper-btn {
+  height: 36px !important;
+  border-radius: 9999px !important;
+  background: #FAF7F2 !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  color: #18181B !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  transition: all 0.18s ease !important;
+}
+.cs-stepper-btn:hover {
+  background: #EAB308 !important;
+  border-color: #EAB308 !important;
+  color: #18181B !important;
+  transform: translateY(-1px) !important;
+}
+html.dark .cs-stepper-btn {
+  background: #27272A !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+  color: #F4F4F5 !important;
+}
+html.dark .cs-stepper-btn:hover {
+  background: #EAB308 !important;
+  color: #18181B !important;
+}
+
+/* Raw preview box */
+.cs-raw-preview-box {
+  background: #FAF7F2 !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  border-radius: 16px !important;
+  padding: 12px 14px !important;
+}
+html.dark .cs-raw-preview-box {
+  background: #141416 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ── 4. ORDERS: EXECUTIVE DEMAND CENTER ── */
+
+/* Orders KPI Grid */
+.orders-kpi-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 14px !important;
+  margin-bottom: 22px !important;
+}
+@media (max-width: 900px) {
+  .orders-kpi-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 480px) {
+  .orders-kpi-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.orders-kpi-grid .kpi-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 22px !important;
+  padding: 18px 20px !important;
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.04) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.orders-kpi-grid .kpi-card:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(234, 179, 8, 0.35) !important;
+  box-shadow: 0 12px 32px -4px rgba(234, 179, 8, 0.12) !important;
+}
+html.dark .orders-kpi-grid .kpi-card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.orders-kpi-grid .kpi-label {
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  color: #71717A !important;
+}
+html.dark .orders-kpi-grid .kpi-label {
+  color: #A1A1AA !important;
+}
+
+.orders-kpi-grid .kpi-value {
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  font-variant-numeric: lining-nums tabular-nums !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.2 !important;
+  margin-top: 4px !important;
+  margin-bottom: 2px !important;
+}
+
+#orders-kpi-total { color: #18181B !important; }
+html.dark #orders-kpi-total { color: #F4F4F5 !important; }
+#orders-kpi-branches { color: #D97706 !important; }
+#orders-kpi-units { color: #0891B2 !important; }
+#orders-kpi-val { color: #059669 !important; }
+
+/* Orders Segmented Tabs */
+.orders-nav-tabs {
+  display: flex !important;
+  align-items: center !important;
+  background: #FAF7F2 !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  border-radius: 9999px !important;
+  padding: 4px !important;
+  gap: 4px !important;
+  margin-bottom: 20px !important;
+  width: max-content !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+html.dark .orders-nav-tabs {
+  background: #141416 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.orders-tab-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 8px 18px !important;
+  border-radius: 9999px !important;
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  color: #71717A !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  white-space: nowrap !important;
+}
+.orders-tab-btn:hover {
+  color: #18181B !important;
+  background: rgba(0, 0, 0, 0.04) !important;
+}
+.orders-tab-btn.active {
+  background: #18181B !important;
+  color: #EAB308 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.30) !important;
+}
+html.dark .orders-tab-btn.active {
+  background: #27272A !important;
+  color: #EAB308 !important;
+}
+
+/* Orders Filter Toolbar Card */
+#orders-pane-log .card:first-child {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 22px !important;
+  padding: 16px 20px !important;
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.03) !important;
+  margin-bottom: 18px !important;
+}
+html.dark #orders-pane-log .card:first-child {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#f-branch, #f-date {
+  height: 42px !important;
+  border-radius: 9999px !important;
+  background: #F5F2EB !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  color: #18181B !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  padding-inline: 16px !important;
+  outline: none !important;
+}
+#f-branch {
+  padding-inline-end: 36px !important;
+}
+html.dark #f-branch, html.dark #f-date {
+  background: #222226 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F4F4F5 !important;
+}
+
+/* Orders Aggregated Table & Individual Table Cards */
+#orders-pane-log .card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 22px !important;
+  padding: 22px !important;
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.04) !important;
+  margin-bottom: 20px !important;
+}
+html.dark #orders-pane-log .card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Orders Tables Overrides for Contrast & Breathability */
+#page-orders table.tbl {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+#page-orders table.tbl th {
+  padding: 14px 18px !important;
+  background: #FAF8F4 !important;
+  color: #71717A !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.06) !important;
+  white-space: nowrap !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 5 !important;
+}
+html.dark #page-orders table.tbl th {
+  background: #141416 !important;
+  color: #A1A1AA !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#page-orders table.tbl td {
+  padding: 14px 18px !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.04) !important;
+  color: #18181B !important;
+  font-size: 13px !important;
+  vertical-align: middle !important;
+  transition: background 0.15s ease !important;
+}
+html.dark #page-orders table.tbl td {
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+  color: #F4F4F5 !important;
+}
+
+#page-orders table.tbl tbody tr:hover td {
+  background: #FDFCF9 !important;
+}
+html.dark #page-orders table.tbl tbody tr:hover td {
+  background: #1F1F23 !important;
+}
+
+/* Force light-mode dark contrast on table spans with inline color:#fff */
+html:not(.dark) #agg-body td span[style*="color:#fff"],
+html:not(.dark) #agg-body td span[style*="color: #fff"],
+html:not(.dark) #agg-body td span[style*="color:white"],
+html:not(.dark) #orders-tbl-body td span[style*="color:#fff"],
+html:not(.dark) #orders-tbl-body td span[style*="color: #fff"],
+html:not(.dark) #indiv-orders-table td span[style*="color:#fff"],
+html:not(.dark) #indiv-orders-table td span[style*="color: #fff"] {
+  color: #18181B !important;
+}
+
+/* Manual Order Card */
+.manual-order-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 24px !important;
+  padding: 26px !important;
+  box-shadow: 0 10px 36px -4px rgba(0, 0, 0, 0.04) !important;
+}
+html.dark .manual-order-card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#o-branch, #o-date, #o-item-select, #o-item-qty, #o-notes {
+  height: 42px !important;
+  border-radius: 12px !important;
+  background: #F5F2EB !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  color: #18181B !important;
+  font-size: 13px !important;
+  padding-inline: 14px !important;
+  outline: none !important;
+}
+html.dark #o-branch, html.dark #o-date, html.dark #o-item-select, html.dark #o-item-qty, html.dark #o-notes {
+  background: #222226 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F4F4F5 !important;
+}
+
+/* Excel Batch Importer Card */
+.excel-upload-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 24px !important;
+  padding: 26px !important;
+  box-shadow: 0 10px 36px -4px rgba(0, 0, 0, 0.04) !important;
+}
+html.dark .excel-upload-card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.excel-dropzone, #excel-drop-zone {
+  background: #FAF7F2 !important;
+  border: 2px dashed rgba(234, 179, 8, 0.45) !important;
+  border-radius: 20px !important;
+  padding: 38px 24px !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.excel-dropzone:hover, #excel-drop-zone:hover {
+  background: #F5EFE6 !important;
+  border-color: #EAB308 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 30px -4px rgba(234, 179, 8, 0.15) !important;
+}
+html.dark .excel-dropzone, html.dark #excel-drop-zone {
+  background: #141416 !important;
+  border-color: rgba(234, 179, 8, 0.40) !important;
+}
+html.dark .excel-dropzone:hover, html.dark #excel-drop-zone:hover {
+  background: #1C1917 !important;
+}
+
+.excel-preview-box, #excel-preview {
+  background: #FAF7F2 !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  border-radius: 18px !important;
+  padding: 18px 20px !important;
+  margin-top: 18px !important;
+}
+html.dark .excel-preview-box, html.dark #excel-preview {
+  background: #141416 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
