@@ -6495,3 +6495,980 @@ html.dark #prod-pane-taztiki button[onclick="openModal('modal-taztiki')"] {
 html.dark #prod-pane-taztiki button[onclick="openModal('modal-taztiki')"]:hover {
   background: #F59E0B !important;
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   PHASE 4C — RADICAL VISUAL OVERHAUL: INVENTORY, PURCHASE & INVOICES
+   Raw Material Control, Procurement Control & Accounts Payable Centers
+══════════════════════════════════════════════════════════════════════ */
+
+/* ──────────────────────────────────────────────────────────────────────
+   1. INVENTORY MODULE (#page-inventory) — RAW MATERIAL CONTROL CENTER
+────────────────────────────────────────────────────────────────────── */
+
+/* Top Executive KPI Grid for Inventory */
+#page-inventory #inv-stats.orders-kpi-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 16px !important;
+  margin-bottom: 20px !important;
+}
+
+@media (max-width: 1100px) {
+  #page-inventory #inv-stats.orders-kpi-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 640px) {
+  #page-inventory #inv-stats.orders-kpi-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+#inv-stats .stat-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 20px !important;
+  padding: 18px 20px !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#inv-stats .stat-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.06) !important;
+}
+
+html.dark #inv-stats .stat-card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 28px -4px rgba(0, 0, 0, 0.40) !important;
+}
+
+#inv-stats .stat-card > div:first-child {
+  font-size: 26px !important;
+  font-weight: 900 !important;
+  line-height: 1.15 !important;
+  margin-bottom: 4px !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+/* Card 1: Total Raw Materials */
+#inv-stats .stat-card:first-child > div:first-child {
+  color: #18181B !important;
+}
+html.dark #inv-stats .stat-card:first-child > div:first-child {
+  color: #F4F4F5 !important;
+}
+
+/* Card 2: Shortages */
+#inv-stats .stat-card:nth-child(2) > div:first-child {
+  color: #DC2626 !important;
+}
+html.dark #inv-stats .stat-card:nth-child(2) > div:first-child {
+  color: #F87171 !important;
+}
+#inv-stats .stat-card:nth-child(2) {
+  border-color: rgba(239, 68, 68, 0.18) !important;
+}
+
+/* Card 3: Low Safety Stock */
+#inv-stats .stat-card:nth-child(3) > div:first-child {
+  color: #D97706 !important;
+}
+html.dark #inv-stats .stat-card:nth-child(3) > div:first-child {
+  color: #FBBF24 !important;
+}
+#inv-stats .stat-card:nth-child(3) {
+  border-color: rgba(234, 179, 8, 0.20) !important;
+}
+
+/* Card 4: Adequate Stock */
+#inv-stats .stat-card:nth-child(4) > div:first-child {
+  color: #059669 !important;
+}
+html.dark #inv-stats .stat-card:nth-child(4) > div:first-child {
+  color: #34D399 !important;
+}
+#inv-stats .stat-card:nth-child(4) {
+  border-color: rgba(16, 185, 129, 0.18) !important;
+}
+
+/* Inventory Main Card */
+#page-inventory .card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 22px !important;
+  padding: 24px !important;
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.dark #page-inventory .card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 32px -4px rgba(0, 0, 0, 0.40) !important;
+}
+
+/* Inventory Search Input */
+#inv-search-input {
+  height: 42px !important;
+  border-radius: 12px !important;
+  background: #F5F2EB !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  color: #18181B !important;
+  font-size: 13px !important;
+  padding-inline-start: 14px !important;
+  padding-inline-end: 38px !important;
+  width: 100% !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#inv-search-input:focus {
+  background: #FFFFFF !important;
+  border-color: #EAB308 !important;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15) !important;
+  outline: none !important;
+}
+
+html.dark #inv-search-input {
+  background: #222226 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F4F4F5 !important;
+}
+
+html.dark #inv-search-input:focus {
+  background: #27272A !important;
+  border-color: #EAB308 !important;
+}
+
+/* Inventory Category Filter Pills */
+#inv-cat-filters {
+  display: flex !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 20px !important;
+}
+
+.inv-cat-btn {
+  height: 36px !important;
+  padding: 0 16px !important;
+  border-radius: 9999px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  border: 1px solid transparent !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  white-space: nowrap !important;
+}
+
+.inv-cat-btn.btn-secondary {
+  background: #F5F2EB !important;
+  color: #71717A !important;
+}
+.inv-cat-btn.btn-secondary:hover {
+  background: #ECE6DA !important;
+  color: #18181B !important;
+  transform: translateY(-1px) !important;
+}
+
+.inv-cat-btn.btn-primary {
+  background: #18181B !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+}
+
+html.dark .inv-cat-btn.btn-secondary {
+  background: #27272A !important;
+  color: #A1A1AA !important;
+}
+html.dark .inv-cat-btn.btn-secondary:hover {
+  background: #323238 !important;
+  color: #FFFFFF !important;
+}
+html.dark .inv-cat-btn.btn-primary {
+  background: #EAB308 !important;
+  color: #18181B !important;
+  box-shadow: 0 4px 16px rgba(234, 179, 8, 0.25) !important;
+}
+
+/* Inventory Action Buttons */
+#page-inventory button[onclick="openModal('modal-ing')"] {
+  height: 42px !important;
+  border-radius: 12px !important;
+  padding: 0 18px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  background: #F5F2EB !important;
+  color: #18181B !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  transition: all 0.2s ease !important;
+}
+#page-inventory button[onclick="openModal('modal-ing')"]:hover {
+  background: #ECE6DA !important;
+  transform: translateY(-1px) !important;
+}
+html.dark #page-inventory button[onclick="openModal('modal-ing')"] {
+  background: #27272A !important;
+  color: #F4F4F5 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+html.dark #page-inventory button[onclick="openModal('modal-ing')"]:hover {
+  background: #323238 !important;
+}
+
+#page-inventory button[onclick="genPOs()"] {
+  height: 42px !important;
+  border-radius: 12px !important;
+  padding: 0 20px !important;
+  font-size: 13.5px !important;
+  font-weight: 800 !important;
+  background: #18181B !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+#page-inventory button[onclick="genPOs()"]:hover {
+  background: #27272A !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20) !important;
+}
+html.dark #page-inventory button[onclick="genPOs()"] {
+  background: #EAB308 !important;
+  color: #18181B !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(234, 179, 8, 0.25) !important;
+}
+html.dark #page-inventory button[onclick="genPOs()"]:hover {
+  background: #F59E0B !important;
+  box-shadow: 0 8px 24px rgba(234, 179, 8, 0.35) !important;
+}
+
+/* Raw Material Table (#inv-tbl) */
+#page-inventory .tbl-wrap {
+  border-radius: 18px !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  overflow: auto !important;
+  background: #FFFFFF !important;
+  max-height: 560px !important;
+}
+html.dark #page-inventory .tbl-wrap {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  background: #18181B !important;
+}
+
+#page-inventory .tbl thead th {
+  background: #F7F4EE !important;
+  padding: 14px 16px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #71717A !important;
+  border-bottom: 2px solid rgba(28, 25, 23, 0.06) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+  white-space: nowrap !important;
+}
+html.dark #page-inventory .tbl thead th {
+  background: #18181B !important;
+  color: #A1A1AA !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#inv-tbl tr td {
+  padding: 13px 16px !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.04) !important;
+  font-size: 13px !important;
+  vertical-align: middle !important;
+}
+html.dark #inv-tbl tr td {
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+#inv-tbl tr:hover td {
+  background: #FCFAF7 !important;
+}
+html.dark #inv-tbl tr:hover td {
+  background: #202024 !important;
+}
+
+/* Text overrides in Inventory table */
+#inv-tbl td:nth-child(2) span:first-child {
+  color: #18181B !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+}
+html.dark #inv-tbl td:nth-child(2) span:first-child {
+  color: #F4F4F5 !important;
+}
+
+#inv-tbl td:nth-child(5) div {
+  color: #71717A !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+}
+html.dark #inv-tbl td:nth-child(5) div {
+  color: #CBD5E1 !important;
+}
+
+#inv-tbl td:nth-child(6) div {
+  color: #0284C7 !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+}
+html.dark #inv-tbl td:nth-child(6) div {
+  color: #60A5FA !important;
+}
+
+/* Status Badges in Inventory */
+#inv-tbl .badge-red {
+  background: rgba(239, 68, 68, 0.12) !important;
+  color: #DC2626 !important;
+  border: 1px solid rgba(239, 68, 68, 0.25) !important;
+  border-radius: 9999px !important;
+  padding: 4px 12px !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+}
+html.dark #inv-tbl .badge-red {
+  color: #F87171 !important;
+}
+
+#inv-tbl .badge-amber {
+  background: rgba(234, 179, 8, 0.12) !important;
+  color: #D97706 !important;
+  border: 1px solid rgba(234, 179, 8, 0.25) !important;
+  border-radius: 9999px !important;
+  padding: 4px 12px !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+}
+html.dark #inv-tbl .badge-amber {
+  color: #FBBF24 !important;
+}
+
+#inv-tbl .badge-green {
+  background: rgba(16, 185, 129, 0.12) !important;
+  color: #059669 !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  border-radius: 9999px !important;
+  padding: 4px 12px !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+}
+html.dark #inv-tbl .badge-green {
+  color: #34D399 !important;
+}
+
+/* Progress track in Stock Level */
+#inv-tbl .progress {
+  height: 6px !important;
+  border-radius: 9999px !important;
+  background: rgba(28, 25, 23, 0.08) !important;
+}
+html.dark #inv-tbl .progress {
+  background: rgba(255, 255, 255, 0.10) !important;
+}
+
+/* Edit icon button in Inventory */
+#inv-tbl button[onclick*="openEditStock"] {
+  width: 34px !important;
+  height: 34px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 10px !important;
+  background: #F5F2EB !important;
+  color: #18181B !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  transition: all 0.2s ease !important;
+}
+#inv-tbl button[onclick*="openEditStock"]:hover {
+  background: #ECE6DA !important;
+  transform: scale(1.05) !important;
+}
+html.dark #inv-tbl button[onclick*="openEditStock"] {
+  background: #27272A !important;
+  color: #F4F4F5 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+html.dark #inv-tbl button[onclick*="openEditStock"]:hover {
+  background: #323238 !important;
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────
+   2. PURCHASE MODULE (#page-purchase) — PROCUREMENT CONTROL CENTER
+────────────────────────────────────────────────────────────────────── */
+
+/* Top KPI Grid for Purchase */
+#page-purchase #po-stats.orders-kpi-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 16px !important;
+  margin-bottom: 20px !important;
+}
+
+@media (max-width: 800px) {
+  #page-purchase #po-stats.orders-kpi-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+#po-stats .stat-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 20px !important;
+  padding: 18px 20px !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#po-stats .stat-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.06) !important;
+}
+
+html.dark #po-stats .stat-card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 28px -4px rgba(0, 0, 0, 0.40) !important;
+}
+
+#po-stats .stat-card > div:first-child {
+  font-size: 26px !important;
+  font-weight: 900 !important;
+  line-height: 1.15 !important;
+  margin-bottom: 4px !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+/* Purchase Main Card */
+#page-purchase .card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 22px !important;
+  padding: 24px !important;
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.dark #page-purchase .card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 32px -4px rgba(0, 0, 0, 0.40) !important;
+}
+
+/* Purchase Header Buttons */
+#page-purchase button[onclick="genPOs()"] {
+  height: 42px !important;
+  border-radius: 12px !important;
+  padding: 0 18px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  background: #F5F2EB !important;
+  color: #18181B !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  transition: all 0.2s ease !important;
+}
+#page-purchase button[onclick="genPOs()"]:hover {
+  background: #ECE6DA !important;
+  transform: translateY(-1px) !important;
+}
+html.dark #page-purchase button[onclick="genPOs()"] {
+  background: #27272A !important;
+  color: #F4F4F5 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+html.dark #page-purchase button[onclick="genPOs()"]:hover {
+  background: #323238 !important;
+}
+
+#page-purchase button[onclick="sendAllDraft()"] {
+  height: 42px !important;
+  border-radius: 12px !important;
+  padding: 0 20px !important;
+  font-size: 13.5px !important;
+  font-weight: 800 !important;
+  background: #18181B !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+#page-purchase button[onclick="sendAllDraft()"]:hover {
+  background: #27272A !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20) !important;
+}
+html.dark #page-purchase button[onclick="sendAllDraft()"] {
+  background: #EAB308 !important;
+  color: #18181B !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(234, 179, 8, 0.25) !important;
+}
+html.dark #page-purchase button[onclick="sendAllDraft()"]:hover {
+  background: #F59E0B !important;
+  box-shadow: 0 8px 24px rgba(234, 179, 8, 0.35) !important;
+}
+
+/* Purchase Table (#po-tbl) */
+#page-purchase .tbl-wrap {
+  border-radius: 18px !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  overflow: auto !important;
+  background: #FFFFFF !important;
+  max-height: 520px !important;
+}
+html.dark #page-purchase .tbl-wrap {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  background: #18181B !important;
+}
+
+#page-purchase .tbl thead th {
+  background: #F7F4EE !important;
+  padding: 14px 16px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #71717A !important;
+  border-bottom: 2px solid rgba(28, 25, 23, 0.06) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+  white-space: nowrap !important;
+}
+html.dark #page-purchase .tbl thead th {
+  background: #18181B !important;
+  color: #A1A1AA !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#po-tbl tr td {
+  padding: 13px 16px !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.04) !important;
+  font-size: 13px !important;
+  vertical-align: middle !important;
+}
+html.dark #po-tbl tr td {
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+#po-tbl tr:hover td {
+  background: #FCFAF7 !important;
+}
+html.dark #po-tbl tr:hover td {
+  background: #202024 !important;
+}
+
+/* Text overrides in Purchase table */
+#po-tbl td:nth-child(2) {
+  color: #18181B !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+}
+html.dark #po-tbl td:nth-child(2) {
+  color: #F4F4F5 !important;
+}
+
+#po-tbl td:nth-child(3) {
+  color: #0284C7 !important;
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html.dark #po-tbl td:nth-child(3) {
+  color: #60A5FA !important;
+}
+
+#po-tbl .select {
+  height: 36px !important;
+  border-radius: 10px !important;
+  background: #F5F2EB !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  color: #18181B !important;
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  padding: 0 10px !important;
+}
+html.dark #po-tbl .select {
+  background: #27272A !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F4F4F5 !important;
+}
+
+#po-tbl button[onclick*="openReceiveModal"] {
+  height: 34px !important;
+  border-radius: 10px !important;
+  padding: 0 14px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  background: rgba(16, 185, 129, 0.12) !important;
+  color: #059669 !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  transition: all 0.2s ease !important;
+}
+#po-tbl button[onclick*="openReceiveModal"]:hover {
+  background: #10B981 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px) !important;
+}
+html.dark #po-tbl button[onclick*="openReceiveModal"] {
+  color: #34D399 !important;
+}
+
+#po-tbl button[onclick*="printPO"] {
+  width: 34px !important;
+  height: 34px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 10px !important;
+  background: #F5F2EB !important;
+  color: #18181B !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  transition: all 0.2s ease !important;
+}
+#po-tbl button[onclick*="printPO"]:hover {
+  background: #ECE6DA !important;
+  transform: scale(1.05) !important;
+}
+html.dark #po-tbl button[onclick*="printPO"] {
+  background: #27272A !important;
+  color: #F4F4F5 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+html.dark #po-tbl button[onclick*="printPO"]:hover {
+  background: #323238 !important;
+}
+
+/* Empty State in Purchase */
+#po-empty {
+  background: #FAF7F2 !important;
+  border: 1px dashed rgba(16, 185, 129, 0.35) !important;
+  border-radius: 18px !important;
+  padding: 38px 24px !important;
+  text-align: center !important;
+  margin-top: 16px !important;
+}
+html.dark #po-empty {
+  background: #202024 !important;
+  border-color: rgba(16, 185, 129, 0.40) !important;
+}
+
+#po-empty p {
+  color: #18181B !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+}
+html.dark #po-empty p {
+  color: #F4F4F5 !important;
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────
+   3. INVOICES MODULE (#page-invoices) — ACCOUNTS PAYABLE CENTER
+────────────────────────────────────────────────────────────────────── */
+
+/* Top KPI Grid for Invoices */
+#page-invoices #inv-bill-stats.g3 {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 16px !important;
+  margin-bottom: 20px !important;
+}
+
+@media (max-width: 800px) {
+  #page-invoices #inv-bill-stats.g3 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+#inv-bill-stats .stat-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 20px !important;
+  padding: 18px 20px !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#inv-bill-stats .stat-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.06) !important;
+}
+
+html.dark #inv-bill-stats .stat-card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 28px -4px rgba(0, 0, 0, 0.40) !important;
+}
+
+#inv-bill-stats .stat-card > div:first-child {
+  font-size: 26px !important;
+  font-weight: 900 !important;
+  line-height: 1.15 !important;
+  margin-bottom: 4px !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+/* Card 1: Total Invoices */
+#inv-bill-stats .stat-card:first-child > div:first-child {
+  color: #18181B !important;
+}
+html.dark #inv-bill-stats .stat-card:first-child > div:first-child {
+  color: #F4F4F5 !important;
+}
+
+/* Card 2: Total Value */
+#inv-bill-stats .stat-card:nth-child(2) > div:first-child {
+  color: #D97706 !important;
+}
+html.dark #inv-bill-stats .stat-card:nth-child(2) > div:first-child {
+  color: #FB923C !important;
+}
+
+/* Card 3: Unpaid */
+#inv-bill-stats .stat-card:nth-child(3) > div:first-child {
+  color: #DC2626 !important;
+}
+html.dark #inv-bill-stats .stat-card:nth-child(3) > div:first-child {
+  color: #F87171 !important;
+}
+
+/* Invoices Main Card */
+#page-invoices .card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 22px !important;
+  padding: 24px !important;
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.dark #page-invoices .card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 32px -4px rgba(0, 0, 0, 0.40) !important;
+}
+
+/* Invoices Filters */
+#inv-bill-sup,
+#inv-bill-month {
+  height: 42px !important;
+  border-radius: 12px !important;
+  background: #F5F2EB !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  color: #18181B !important;
+  font-size: 13px !important;
+  padding: 0 14px !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#inv-bill-sup:focus,
+#inv-bill-month:focus {
+  background: #FFFFFF !important;
+  border-color: #EAB308 !important;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15) !important;
+  outline: none !important;
+}
+
+html.dark #inv-bill-sup,
+html.dark #inv-bill-month {
+  background: #222226 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F4F4F5 !important;
+}
+
+html.dark #inv-bill-sup:focus,
+html.dark #inv-bill-month:focus {
+  background: #27272A !important;
+  border-color: #EAB308 !important;
+}
+
+#page-invoices button[onclick*="inv-bill-sup"] {
+  height: 42px !important;
+  border-radius: 12px !important;
+  background: #F5F2EB !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  color: #71717A !important;
+  font-weight: 700 !important;
+  padding: 0 18px !important;
+  transition: all 0.2s ease !important;
+}
+#page-invoices button[onclick*="inv-bill-sup"]:hover {
+  background: #ECE6DA !important;
+  color: #18181B !important;
+}
+html.dark #page-invoices button[onclick*="inv-bill-sup"] {
+  background: #27272A !important;
+  color: #A1A1AA !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+html.dark #page-invoices button[onclick*="inv-bill-sup"]:hover {
+  background: #323238 !important;
+  color: #FFFFFF !important;
+}
+
+/* Invoices Table (#invoices-tbl) */
+#page-invoices .tbl-wrap {
+  border-radius: 18px !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  overflow: auto !important;
+  background: #FFFFFF !important;
+  max-height: 520px !important;
+}
+html.dark #page-invoices .tbl-wrap {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  background: #18181B !important;
+}
+
+#page-invoices .tbl thead th {
+  background: #F7F4EE !important;
+  padding: 14px 16px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #71717A !important;
+  border-bottom: 2px solid rgba(28, 25, 23, 0.06) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+  white-space: nowrap !important;
+}
+html.dark #page-invoices .tbl thead th {
+  background: #18181B !important;
+  color: #A1A1AA !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#invoices-tbl tr td {
+  padding: 13px 16px !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.04) !important;
+  font-size: 13px !important;
+  vertical-align: middle !important;
+}
+html.dark #invoices-tbl tr td {
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+#invoices-tbl tr:hover td {
+  background: #FCFAF7 !important;
+}
+html.dark #invoices-tbl tr:hover td {
+  background: #202024 !important;
+}
+
+/* Text overrides in Invoices table */
+#invoices-tbl td:nth-child(3) {
+  color: #18181B !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+}
+html.dark #invoices-tbl td:nth-child(3) {
+  color: #F4F4F5 !important;
+}
+
+#invoices-tbl td:nth-child(4) {
+  color: #0284C7 !important;
+  font-weight: 700 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html.dark #invoices-tbl td:nth-child(4) {
+  color: #60A5FA !important;
+}
+
+/* Empty State in Invoices */
+#invoices-empty {
+  background: #FAF7F2 !important;
+  border: 1px dashed rgba(28, 25, 23, 0.12) !important;
+  border-radius: 18px !important;
+  padding: 38px 24px !important;
+  text-align: center !important;
+  margin-top: 16px !important;
+}
+html.dark #invoices-empty {
+  background: #202024 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────
+   4. MODALS ENHANCEMENT: PURCHASE, INVENTORY & RECEIVING
+────────────────────────────────────────────────────────────────────── */
+
+#modal-receive .modal,
+#modal-ing .modal,
+#modal-print-po .modal {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 20px 48px -8px rgba(0, 0, 0, 0.22) !important;
+  padding: 24px !important;
+}
+
+html.dark #modal-receive .modal,
+html.dark #modal-ing .modal,
+html.dark #modal-print-po .modal {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 24px 54px -8px rgba(0, 0, 0, 0.60) !important;
+}
+
+#modal-receive .modal-title,
+#modal-ing .modal-title,
+#modal-print-po h3 {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: #18181B !important;
+}
+html.dark #modal-receive .modal-title,
+html.dark #modal-ing .modal-title,
+html.dark #modal-print-po h3 {
+  color: #F4F4F5 !important;
+}
+
+#modal-receive .sim-box {
+  background: #FAF7F2 !important;
+  border: 1px solid rgba(234, 179, 8, 0.30) !important;
+  border-radius: 14px !important;
+  padding: 14px 16px !important;
+}
+html.dark #modal-receive .sim-box {
+  background: #222226 !important;
+  border-color: rgba(234, 179, 8, 0.35) !important;
+}
+
+#modal-receive .input,
+#modal-receive .select,
+#modal-ing .input,
+#modal-ing .select {
+  height: 42px !important;
+  border-radius: 12px !important;
+  background: #F5F2EB !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  color: #18181B !important;
+  font-size: 13px !important;
+  padding: 0 14px !important;
+}
+#modal-receive .input:focus,
+#modal-receive .select:focus,
+#modal-ing .input:focus,
+#modal-ing .select:focus {
+  background: #FFFFFF !important;
+  border-color: #EAB308 !important;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15) !important;
+  outline: none !important;
+}
+
+html.dark #modal-receive .input,
+html.dark #modal-receive .select,
+html.dark #modal-ing .input,
+html.dark #modal-ing .select {
+  background: #222226 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F4F4F5 !important;
+}
+html.dark #modal-receive .input:focus,
+html.dark #modal-receive .select:focus,
+html.dark #modal-ing .input:focus,
+html.dark #modal-ing .select:focus {
+  background: #27272A !important;
+  border-color: #EAB308 !important;
+}
