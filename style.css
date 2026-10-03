@@ -8834,3 +8834,16 @@ html.dark #page-reports .step-num-pill {
   background: #FAF7F2 !important;
   color: #18181B !important;
 }
+/* ──────────────────────────────────────────────────────────────────────
+   FINAL QA FIXES — LIGHT MODE CONTRAST
+────────────────────────────────────────────────────────────────────── */
+
+/* Issue 3: Dashboard Shortage Alert text contrast in light mode */
+html:not(.dark) #dash-alerts span[style*="color:#ffffff"] {
+  color: #18181B !important;
+}
+
+/* Issue 4: Stock Par Modal Title contrast in light mode */
+html:not(.dark) #stock-modal-title span[style*="color:#fff"] {
+  color: #18181B !important;
+}

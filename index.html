@@ -11158,8 +11158,13 @@
       document.getElementById('prod-items-count-badge').textContent = `${prods.length} ${T('صنف معروض', 'Items')}`;
       document.getElementById('prod-days-count-badge').textContent = `${days.length} ${T('يوم', 'Days')}`;
 
-      const thead = document.getElementById('prod-matrix-thead');
-      const tbody = document.getElementById('prod-matrix-tbody');
+      const thead =
+        document.getElementById('prod-matrix-thead') ||
+        document.getElementById('prod-matrix-head');
+
+      const tbody =
+        document.getElementById('prod-matrix-tbody') ||
+        document.getElementById('prod-matrix-body');
 
       // Build Thead: [ م | البند / الصنف | الوحدة | يوم 1 | يوم 2 ... | الإجمالي | متوسط اليوم | التكلفة ]
       thead.innerHTML = `
@@ -12118,7 +12123,10 @@
       const ingId = document.getElementById('w-ing').value;
       const iv = S.ings[ingId];
       if (iv) {
-        document.getElementById('w-unit-lbl').textContent = iv.uom;
+        const lbl =
+          document.getElementById('w-uom') ||
+          document.getElementById('w-unit-lbl');
+        if (lbl) lbl.textContent = iv.uom;
       }
     }
 
