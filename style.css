@@ -5131,3 +5131,1367 @@ html.dark .excel-preview-box, html.dark #excel-preview {
   background: #141416 !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   PHASE 4B — RADICAL VISUAL OVERHAUL: RECIPES & PRODUCTION
+   Recipe Studio / BOM Control Center & Operations Planning Center
+══════════════════════════════════════════════════════════════════════ */
+
+/* ──────────────────────────────────────────────────────────────────────
+   1. RECIPES MODULE (#page-recipes) — RECIPE STUDIO / BOM CONTROL CENTER
+────────────────────────────────────────────────────────────────────── */
+
+/* Main Responsive Layout Grid */
+#page-recipes .recipes-layout {
+  display: grid !important;
+  grid-template-columns: 330px minmax(0, 1fr) !important;
+  gap: 24px !important;
+  align-items: start !important;
+}
+
+@media (max-width: 1024px) {
+  #page-recipes .recipes-layout {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+/* Card Overhauls for Recipes */
+#page-recipes .card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 22px !important;
+  padding: 22px 24px !important;
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+html.dark #page-recipes .card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 32px -4px rgba(0, 0, 0, 0.40) !important;
+}
+
+/* Sidebar Recipe Selector */
+.recipe-side-card {
+  padding: 20px !important;
+}
+
+@media (min-width: 1025px) {
+  .recipe-side-card {
+    position: sticky !important;
+    top: 96px !important;
+    max-height: calc(100vh - 120px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
+
+#recipes-count-badge {
+  background: rgba(234, 179, 8, 0.15) !important;
+  color: #B45309 !important;
+  border: 1px solid rgba(234, 179, 8, 0.30) !important;
+  border-radius: 9999px !important;
+  padding: 3px 10px !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+}
+
+html.dark #recipes-count-badge {
+  background: rgba(234, 179, 8, 0.20) !important;
+  color: #FCD34D !important;
+  border-color: rgba(234, 179, 8, 0.40) !important;
+}
+
+#recipe-search-input {
+  height: 42px !important;
+  border-radius: 12px !important;
+  background: #F5F2EB !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  color: #18181B !important;
+  font-size: 13px !important;
+  padding: 0 14px !important;
+  width: 100% !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#recipe-search-input:focus {
+  background: #FFFFFF !important;
+  border-color: #EAB308 !important;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15) !important;
+  outline: none !important;
+}
+
+html.dark #recipe-search-input {
+  background: #222226 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F4F4F5 !important;
+}
+
+html.dark #recipe-search-input:focus {
+  background: #27272A !important;
+  border-color: #EAB308 !important;
+}
+
+/* Recipe Scrollable List */
+#recipe-list.recipe-list-scroll {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  max-height: 460px !important;
+  overflow-y: auto !important;
+  padding-inline-end: 4px !important;
+  margin-block: 8px !important;
+}
+
+#recipe-list.recipe-list-scroll::-webkit-scrollbar {
+  width: 5px !important;
+}
+#recipe-list.recipe-list-scroll::-webkit-scrollbar-thumb {
+  background: rgba(28, 25, 23, 0.12) !important;
+  border-radius: 9999px !important;
+}
+html.dark #recipe-list.recipe-list-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Individual Recipe Nav Item */
+#recipe-list .nav-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 10px 14px !important;
+  border-radius: 14px !important;
+  background: #FAF8F4 !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#recipe-list .nav-item span {
+  transition: color 0.2s ease !important;
+}
+
+#recipe-list .nav-item:hover {
+  background: #F3ECE0 !important;
+  border-color: rgba(234, 179, 8, 0.40) !important;
+  transform: translateX(-3px) !important;
+}
+
+[dir="ltr"] #recipe-list .nav-item:hover {
+  transform: translateX(3px) !important;
+}
+
+html.dark #recipe-list .nav-item {
+  background: #202024 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.dark #recipe-list .nav-item:hover {
+  background: #27272A !important;
+  border-color: rgba(234, 179, 8, 0.40) !important;
+}
+
+/* Active Recipe Item State */
+#recipe-list .nav-item.active {
+  background: #18181B !important;
+  border-color: #EAB308 !important;
+  box-shadow: 0 4px 18px -2px rgba(0, 0, 0, 0.18) !important;
+  transform: none !important;
+}
+
+#recipe-list .nav-item.active div > div:first-child span:last-child {
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+}
+
+#recipe-list .nav-item.active div > div:last-child {
+  color: #F4F4F5 !important;
+}
+
+#recipe-list .nav-item.active .badge {
+  background: rgba(234, 179, 8, 0.25) !important;
+  color: #FDE047 !important;
+  border-color: rgba(234, 179, 8, 0.50) !important;
+}
+
+html.dark #recipe-list .nav-item.active {
+  background: #27272A !important;
+  border-color: #EAB308 !important;
+  box-shadow: 0 4px 20px -2px rgba(234, 179, 8, 0.20) !important;
+}
+
+/* Add Recipe Product Button */
+.recipe-side-card button[onclick="openModal('modal-prod')"] {
+  height: 42px !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  background: #F5F2EB !important;
+  color: #18181B !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  transition: all 0.2s ease !important;
+}
+.recipe-side-card button[onclick="openModal('modal-prod')"]:hover {
+  background: #ECE6DA !important;
+  color: #18181B !important;
+  transform: translateY(-1px) !important;
+}
+html.dark .recipe-side-card button[onclick="openModal('modal-prod')"] {
+  background: #27272A !important;
+  color: #F4F4F5 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+html.dark .recipe-side-card button[onclick="openModal('modal-prod')"]:hover {
+  background: #323238 !important;
+}
+
+/* Recipe Identity Header in Detail Area */
+.recipe-hero-title {
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  color: #18181B !important;
+  margin: 0 !important;
+  letter-spacing: -0.02em !important;
+}
+html.dark .recipe-hero-title {
+  color: #F4F4F5 !important;
+}
+
+#recipe-cat-badge {
+  background: rgba(234, 179, 8, 0.15) !important;
+  color: #B45309 !important;
+  border: 1px solid rgba(234, 179, 8, 0.30) !important;
+  border-radius: 9999px !important;
+  padding: 4px 12px !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+}
+html.dark #recipe-cat-badge {
+  background: rgba(234, 179, 8, 0.20) !important;
+  color: #FCD34D !important;
+  border-color: rgba(234, 179, 8, 0.40) !important;
+}
+
+.recipe-hero-cost {
+  font-size: 28px !important;
+  font-weight: 900 !important;
+  color: #D97706 !important;
+  font-variant-numeric: tabular-nums !important;
+  line-height: 1.1 !important;
+}
+html.dark .recipe-hero-cost {
+  color: #FBBF24 !important;
+}
+
+#recipe-cost-label {
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  color: #71717A !important;
+}
+html.dark #recipe-cost-label {
+  color: #A1A1AA !important;
+}
+
+/* Live Branch Demand Indicator Card */
+#recipe-branch-demand-card.recipe-hero-card {
+  background: #FAF7F2 !important;
+  border: 1px solid rgba(234, 179, 8, 0.30) !important;
+  border-radius: 20px !important;
+  padding: 18px 22px !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 6px 24px -4px rgba(234, 179, 8, 0.08) !important;
+}
+
+html.dark #recipe-branch-demand-card.recipe-hero-card {
+  background: #202024 !important;
+  border-color: rgba(234, 179, 8, 0.35) !important;
+  box-shadow: 0 8px 28px -4px rgba(0, 0, 0, 0.40) !important;
+}
+
+.recipe-icon-box {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 14px !important;
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.25), rgba(245, 158, 11, 0.10)) !important;
+  border: 1px solid rgba(234, 179, 8, 0.35) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 20px !important;
+  flex-shrink: 0 !important;
+}
+
+#recipe-demand-branches-count {
+  background: rgba(234, 179, 8, 0.20) !important;
+  color: #B45309 !important;
+  border: 1px solid rgba(234, 179, 8, 0.35) !important;
+  border-radius: 9999px !important;
+  padding: 2px 10px !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+}
+html.dark #recipe-demand-branches-count {
+  background: rgba(234, 179, 8, 0.25) !important;
+  color: #FDE047 !important;
+}
+
+.tag-amber-badge {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(234, 179, 8, 0.35) !important;
+  border-radius: 14px !important;
+  padding: 6px 16px !important;
+  min-width: 105px !important;
+}
+html.dark .tag-amber-badge {
+  background: #18181B !important;
+  border-color: rgba(234, 179, 8, 0.40) !important;
+}
+
+.tag-amber-label {
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  color: #71717A !important;
+}
+html.dark .tag-amber-label {
+  color: #A1A1AA !important;
+}
+
+.tag-amber-val {
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  color: #D97706 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html.dark .tag-amber-val {
+  color: #FBBF24 !important;
+}
+
+#btn-apply-demand-batch {
+  height: 40px !important;
+  border-radius: 12px !important;
+  padding: 0 18px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  background: #18181B !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+#btn-apply-demand-batch:hover {
+  background: #27272A !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20) !important;
+}
+html.dark #btn-apply-demand-batch {
+  background: #EAB308 !important;
+  color: #18181B !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(234, 179, 8, 0.25) !important;
+}
+html.dark #btn-apply-demand-batch:hover {
+  background: #F59E0B !important;
+  box-shadow: 0 8px 24px rgba(234, 179, 8, 0.35) !important;
+}
+
+/* Branch Tags Grid Container */
+#recipe-branch-demand-card .card.p-2.5 {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 14px !important;
+  padding: 12px 16px !important;
+}
+html.dark #recipe-branch-demand-card .card.p-2.5 {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#recipe-demand-branches-tags .chip,
+#recipe-demand-branches-tags .badge,
+#recipe-demand-branches-tags > span:not(.text-muted) {
+  background: #F5EFE6 !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  border-radius: 9999px !important;
+  padding: 4px 12px !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  color: #18181B !important;
+}
+html.dark #recipe-demand-branches-tags .chip,
+html.dark #recipe-demand-branches-tags .badge,
+html.dark #recipe-demand-branches-tags > span:not(.text-muted) {
+  background: #27272A !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F4F4F5 !important;
+}
+
+/* Recipe Sub-tabs (Base Recipe Standard vs Batch Deduction) */
+#page-recipes .border-warm {
+  border-color: rgba(28, 25, 23, 0.06) !important;
+}
+html.dark #page-recipes .border-warm {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#tab-btn-base-bom,
+#tab-btn-batch-bom {
+  height: 40px !important;
+  border-radius: 12px !important;
+  padding: 0 18px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  border: 1px solid transparent !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#tab-btn-base-bom.btn-primary,
+#tab-btn-batch-bom.btn-primary {
+  background: #18181B !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+}
+html.dark #tab-btn-base-bom.btn-primary,
+html.dark #tab-btn-batch-bom.btn-primary {
+  background: #EAB308 !important;
+  color: #18181B !important;
+  box-shadow: 0 4px 16px rgba(234, 179, 8, 0.25) !important;
+}
+
+#tab-btn-base-bom.btn-secondary,
+#tab-btn-batch-bom.btn-secondary {
+  background: #F5F2EB !important;
+  color: #71717A !important;
+  border-color: rgba(28, 25, 23, 0.05) !important;
+}
+#tab-btn-base-bom.btn-secondary:hover,
+#tab-btn-batch-bom.btn-secondary:hover {
+  background: #ECE6DA !important;
+  color: #18181B !important;
+}
+html.dark #tab-btn-base-bom.btn-secondary,
+html.dark #tab-btn-batch-bom.btn-secondary {
+  background: #27272A !important;
+  color: #A1A1AA !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+html.dark #tab-btn-base-bom.btn-secondary:hover {
+  background: #323238 !important;
+  color: #FFFFFF !important;
+}
+
+/* BOM Standard Ingredient Table (#recipe-tbl) */
+#page-recipes #recipe-tab-base .tbl-wrap {
+  border-radius: 18px !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  overflow: hidden !important;
+  background: #FFFFFF !important;
+}
+html.dark #page-recipes #recipe-tab-base .tbl-wrap {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  background: #18181B !important;
+}
+
+#recipe-tab-base .tbl thead th {
+  background: #F7F4EE !important;
+  padding: 14px 16px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #71717A !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.06) !important;
+}
+html.dark #recipe-tab-base .tbl thead th {
+  background: #18181B !important;
+  color: #A1A1AA !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#recipe-tbl tr td {
+  padding: 12px 14px !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.04) !important;
+  vertical-align: middle !important;
+}
+html.dark #recipe-tbl tr td {
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+#recipe-tbl tr:hover td {
+  background: #FCFAF7 !important;
+}
+html.dark #recipe-tbl tr:hover td {
+  background: #202024 !important;
+}
+
+/* Form Controls Inside Recipe Table */
+#recipe-tbl .select {
+  height: 40px !important;
+  border-radius: 10px !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  color: #18181B !important;
+  padding: 0 12px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+#recipe-tbl .select:focus {
+  border-color: #EAB308 !important;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15) !important;
+  outline: none !important;
+}
+html.dark #recipe-tbl .select {
+  background: #222226 !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+  color: #F4F4F5 !important;
+}
+html.dark #recipe-tbl .select:focus {
+  background: #27272A !important;
+  border-color: #EAB308 !important;
+}
+
+#recipe-tbl .input {
+  height: 40px !important;
+  border-radius: 10px !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  color: #18181B !important;
+  text-align: center !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  font-variant-numeric: tabular-nums !important;
+  padding: 0 8px !important;
+  transition: all 0.2s ease !important;
+}
+#recipe-tbl .input:focus {
+  border-color: #EAB308 !important;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15) !important;
+  outline: none !important;
+}
+html.dark #recipe-tbl .input {
+  background: #222226 !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+  color: #F4F4F5 !important;
+}
+html.dark #recipe-tbl .input:focus {
+  background: #27272A !important;
+  border-color: #EAB308 !important;
+}
+
+#recipe-tbl td:nth-child(6) {
+  font-weight: 800 !important;
+  font-size: 14px !important;
+  color: #D97706 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html.dark #recipe-tbl td:nth-child(6) {
+  color: #FBBF24 !important;
+}
+
+#recipe-tbl .btn-danger {
+  width: 34px !important;
+  height: 34px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 10px !important;
+  background: rgba(239, 68, 68, 0.08) !important;
+  color: #EF4444 !important;
+  border: 1px solid rgba(239, 68, 68, 0.18) !important;
+  transition: all 0.2s ease !important;
+}
+#recipe-tbl .btn-danger:hover {
+  background: #EF4444 !important;
+  color: #FFFFFF !important;
+  transform: scale(1.05) !important;
+}
+
+/* Add Ingredient to Recipe Button */
+#recipe-tab-base button[onclick="addIngRow()"] {
+  height: 40px !important;
+  border-radius: 12px !important;
+  padding: 0 20px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  background: #F5F2EB !important;
+  color: #18181B !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  transition: all 0.2s ease !important;
+}
+#recipe-tab-base button[onclick="addIngRow()"]:hover {
+  background: #ECE6DA !important;
+  transform: translateY(-1px) !important;
+}
+html.dark #recipe-tab-base button[onclick="addIngRow()"] {
+  background: #27272A !important;
+  color: #F4F4F5 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+html.dark #recipe-tab-base button[onclick="addIngRow()"]:hover {
+  background: #323238 !important;
+}
+
+/* Tab 2: Operational Batch Panel (#recipe-tab-batch) */
+#recipe-tab-batch .bg-warm {
+  background: #FAF7F2 !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  border-radius: 18px !important;
+  padding: 18px 22px !important;
+}
+html.dark #recipe-tab-batch .bg-warm {
+  background: #202024 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#batch-prod-qty {
+  height: 42px !important;
+  width: 120px !important;
+  border-radius: 12px !important;
+  background: #FFFFFF !important;
+  border: 2px solid rgba(234, 179, 8, 0.40) !important;
+  color: #0284C7 !important;
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  text-align: center !important;
+  font-variant-numeric: tabular-nums !important;
+}
+#batch-prod-qty:focus {
+  border-color: #EAB308 !important;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15) !important;
+  outline: none !important;
+}
+html.dark #batch-prod-qty {
+  background: #27272A !important;
+  border-color: rgba(234, 179, 8, 0.50) !important;
+  color: #38BDF8 !important;
+}
+
+#batch-prod-uom {
+  background: rgba(234, 179, 8, 0.15) !important;
+  color: #B45309 !important;
+  border: 1px solid rgba(234, 179, 8, 0.30) !important;
+  border-radius: 9999px !important;
+  padding: 4px 12px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+}
+html.dark #batch-prod-uom {
+  background: rgba(234, 179, 8, 0.20) !important;
+  color: #FCD34D !important;
+}
+
+#recipe-tab-batch button[onclick="executeBatchDeduction()"] {
+  height: 42px !important;
+  border-radius: 12px !important;
+  padding: 0 22px !important;
+  font-size: 13.5px !important;
+  font-weight: 800 !important;
+  background: #18181B !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+#recipe-tab-batch button[onclick="executeBatchDeduction()"]:hover {
+  background: #27272A !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20) !important;
+}
+html.dark #recipe-tab-batch button[onclick="executeBatchDeduction()"] {
+  background: #EAB308 !important;
+  color: #18181B !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(234, 179, 8, 0.25) !important;
+}
+html.dark #recipe-tab-batch button[onclick="executeBatchDeduction()"]:hover {
+  background: #F59E0B !important;
+  box-shadow: 0 8px 24px rgba(234, 179, 8, 0.35) !important;
+}
+
+/* Batch Table Wrapper and Cells */
+#recipe-tab-batch .tbl-wrap {
+  border-radius: 18px !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  overflow: hidden !important;
+  background: #FFFFFF !important;
+}
+html.dark #recipe-tab-batch .tbl-wrap {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  background: #18181B !important;
+}
+
+#recipe-tab-batch .tbl thead th {
+  background: #F7F4EE !important;
+  padding: 14px 16px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #71717A !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.06) !important;
+}
+html.dark #recipe-tab-batch .tbl thead th {
+  background: #18181B !important;
+  color: #A1A1AA !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#batch-deduction-tbody tr td {
+  padding: 13px 16px !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.04) !important;
+  font-size: 13px !important;
+  vertical-align: middle !important;
+  color: #18181B !important;
+}
+html.dark #batch-deduction-tbody tr td {
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+  color: #F4F4F5 !important;
+}
+
+#batch-deduction-tbody tr:hover td {
+  background: #FCFAF7 !important;
+}
+html.dark #batch-deduction-tbody tr:hover td {
+  background: #202024 !important;
+}
+
+#batch-deduction-tbody td:first-child {
+  font-weight: 700 !important;
+}
+
+#batch-deduction-tbody td:nth-child(3) {
+  color: #0284C7 !important;
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html.dark #batch-deduction-tbody td:nth-child(3) {
+  color: #38BDF8 !important;
+}
+
+#batch-deduction-tbody td:nth-child(5) {
+  color: #059669 !important;
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html.dark #batch-deduction-tbody td:nth-child(5) {
+  color: #34D399 !important;
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────
+   2. PRODUCTION MODULE (#page-production) — OPERATIONS PLANNING CENTER
+────────────────────────────────────────────────────────────────────── */
+
+/* Top Production KPI Stats Row */
+#page-production #prod-stats.orders-kpi-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 16px !important;
+  margin-bottom: 20px !important;
+}
+
+@media (max-width: 1100px) {
+  #page-production #prod-stats.orders-kpi-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 640px) {
+  #page-production #prod-stats.orders-kpi-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+#prod-stats .stat-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 20px !important;
+  padding: 18px 20px !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#prod-stats .stat-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.06) !important;
+}
+
+html.dark #prod-stats .stat-card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 28px -4px rgba(0, 0, 0, 0.40) !important;
+}
+
+#prod-stats .kpi-number {
+  font-size: 26px !important;
+  font-weight: 900 !important;
+  line-height: 1.15 !important;
+  margin-bottom: 4px !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+#prod-stats .kpi-number.kpi-cyan {
+  color: #0284C7 !important;
+}
+html.dark #prod-stats .kpi-number.kpi-cyan {
+  color: #38BDF8 !important;
+}
+
+#prod-stats .kpi-number.kpi-amber {
+  color: #D97706 !important;
+}
+html.dark #prod-stats .kpi-number.kpi-amber {
+  color: #FBBF24 !important;
+}
+
+#prod-stats .kpi-number.kpi-green {
+  color: #059669 !important;
+}
+html.dark #prod-stats .kpi-number.kpi-green {
+  color: #34D399 !important;
+}
+
+#prod-stats .kpi-number.kpi-purple {
+  color: #7C3AED !important;
+}
+html.dark #prod-stats .kpi-number.kpi-purple {
+  color: #A78BFA !important;
+}
+
+/* Production Segmented Tab Navigation */
+#page-production .orders-nav-tabs {
+  display: flex !important;
+  gap: 8px !important;
+  padding: 6px !important;
+  background: #F5F2EB !important;
+  border-radius: 18px !important;
+  margin-bottom: 20px !important;
+  border: 1px solid rgba(28, 25, 23, 0.04) !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+
+html.dark #page-production .orders-nav-tabs {
+  background: #202024 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+#page-production .orders-tab-btn {
+  height: 42px !important;
+  padding: 0 20px !important;
+  border-radius: 13px !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: #71717A !important;
+  background: transparent !important;
+  border: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  white-space: nowrap !important;
+}
+
+#page-production .orders-tab-btn:hover {
+  background: rgba(0, 0, 0, 0.04) !important;
+  color: #18181B !important;
+}
+
+#page-production .orders-tab-btn.active {
+  background: #18181B !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+}
+
+html.dark #page-production .orders-tab-btn {
+  color: #A1A1AA !important;
+}
+html.dark #page-production .orders-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #FFFFFF !important;
+}
+html.dark #page-production .orders-tab-btn.active {
+  background: #EAB308 !important;
+  color: #18181B !important;
+  box-shadow: 0 4px 16px rgba(234, 179, 8, 0.25) !important;
+}
+
+/* Production Tab Panes and Cards */
+.prod-tab-pane .card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 22px !important;
+  padding: 24px !important;
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.dark .prod-tab-pane .card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 32px -4px rgba(0, 0, 0, 0.40) !important;
+}
+
+/* Controls Toolbar in Monthly Matrix */
+#prod-matrix-month,
+#prod-matrix-search,
+#prod-matrix-cat {
+  height: 42px !important;
+  border-radius: 12px !important;
+  background: #F5F2EB !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  color: #18181B !important;
+  font-size: 13px !important;
+  padding: 0 14px !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#prod-matrix-month:focus,
+#prod-matrix-search:focus,
+#prod-matrix-cat:focus {
+  background: #FFFFFF !important;
+  border-color: #EAB308 !important;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15) !important;
+  outline: none !important;
+}
+
+html.dark #prod-matrix-month,
+html.dark #prod-matrix-search,
+html.dark #prod-matrix-cat {
+  background: #222226 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F4F4F5 !important;
+}
+
+html.dark #prod-matrix-month:focus,
+html.dark #prod-matrix-search:focus,
+html.dark #prod-matrix-cat:focus {
+  background: #27272A !important;
+  border-color: #EAB308 !important;
+}
+
+#btn-export-prod-matrix {
+  height: 42px !important;
+  border-radius: 12px !important;
+  background: #F5F2EB !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  color: #18181B !important;
+  font-weight: 700 !important;
+  padding: 0 18px !important;
+  transition: all 0.2s ease !important;
+}
+#btn-export-prod-matrix:hover {
+  background: #ECE6DA !important;
+  transform: translateY(-1px) !important;
+}
+html.dark #btn-export-prod-matrix {
+  background: #27272A !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F4F4F5 !important;
+}
+html.dark #btn-export-prod-matrix:hover {
+  background: #323238 !important;
+}
+
+#prod-items-count-badge,
+#prod-days-count-badge {
+  background: rgba(234, 179, 8, 0.15) !important;
+  color: #B45309 !important;
+  border: 1px solid rgba(234, 179, 8, 0.30) !important;
+  border-radius: 9999px !important;
+  padding: 4px 12px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+}
+html.dark #prod-items-count-badge,
+html.dark #prod-days-count-badge {
+  background: rgba(234, 179, 8, 0.20) !important;
+  color: #FCD34D !important;
+  border-color: rgba(234, 179, 8, 0.40) !important;
+}
+
+/* ── PANE 1: MONTHLY PRODUCTION MATRIX TABLE ── */
+.tbl-scroll-h480 {
+  max-height: 520px !important;
+  overflow: auto !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  background: #FFFFFF !important;
+  position: relative !important;
+}
+html.dark .tbl-scroll-h480 {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  background: #18181B !important;
+}
+
+#prod-matrix-table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  width: 100% !important;
+}
+
+/* Sticky Thead */
+#prod-matrix-head {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 25 !important;
+}
+
+#prod-matrix-head th {
+  background: #F7F4EE !important;
+  border-bottom: 2px solid rgba(28, 25, 23, 0.08) !important;
+  padding: 12px 6px !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+  color: #71717A !important;
+  white-space: nowrap !important;
+}
+
+html.dark #prod-matrix-head th {
+  background: #18181B !important;
+  border-bottom-color: rgba(255, 255, 255, 0.10) !important;
+  color: #A1A1AA !important;
+}
+
+/* Sticky Columns in Production Matrix */
+/* Column 1 (#): fixed width 44px */
+#prod-matrix-table th:first-child,
+#prod-matrix-table td:first-child {
+  position: sticky !important;
+  right: 0 !important;
+  z-index: 10 !important;
+  background: #FFFFFF !important;
+  width: 44px !important;
+  min-width: 44px !important;
+  max-width: 44px !important;
+  text-align: center !important;
+}
+#prod-matrix-table th:first-child {
+  background: #F7F4EE !important;
+  z-index: 30 !important;
+}
+
+/* Column 2 (Item Name): fixed offset 44px */
+#prod-matrix-table th:nth-child(2),
+#prod-matrix-table td:nth-child(2) {
+  position: sticky !important;
+  right: 44px !important;
+  z-index: 10 !important;
+  background: #FFFFFF !important;
+  min-width: 180px !important;
+  border-left: 2px solid rgba(28, 25, 23, 0.08) !important;
+}
+#prod-matrix-table th:nth-child(2) {
+  background: #F7F4EE !important;
+  z-index: 30 !important;
+  border-left-color: rgba(28, 25, 23, 0.10) !important;
+}
+
+/* LTR overrides for sticky columns */
+[dir="ltr"] #prod-matrix-table th:first-child,
+[dir="ltr"] #prod-matrix-table td:first-child {
+  right: auto !important;
+  left: 0 !important;
+}
+[dir="ltr"] #prod-matrix-table th:nth-child(2),
+[dir="ltr"] #prod-matrix-table td:nth-child(2) {
+  right: auto !important;
+  left: 44px !important;
+  border-left: none !important;
+  border-right: 2px solid rgba(28, 25, 23, 0.08) !important;
+}
+
+/* Dark mode sticky backgrounds */
+html.dark #prod-matrix-table th:first-child,
+html.dark #prod-matrix-table td:first-child,
+html.dark #prod-matrix-table th:nth-child(2),
+html.dark #prod-matrix-table td:nth-child(2) {
+  background: #18181B !important;
+}
+html.dark #prod-matrix-table th:nth-child(2),
+html.dark #prod-matrix-table td:nth-child(2) {
+  border-color: rgba(255, 255, 255, 0.10) !important;
+}
+
+/* Hover row sticky background sync */
+#prod-matrix-table tbody tr:hover td {
+  background: #FCFAF7 !important;
+}
+html.dark #prod-matrix-table tbody tr:hover td {
+  background: #202024 !important;
+}
+
+/* Text color overrides for matrix rows */
+#prod-matrix-table td:nth-child(2) span {
+  color: #18181B !important;
+  font-weight: 700 !important;
+}
+html.dark #prod-matrix-table td:nth-child(2) span {
+  color: #F4F4F5 !important;
+}
+
+#prod-matrix-body tr td {
+  border-bottom: 1px solid rgba(28, 25, 23, 0.04) !important;
+  vertical-align: middle !important;
+}
+html.dark #prod-matrix-body tr td {
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Active Day Quantities vs Zero */
+#prod-matrix-body td[style*="color:#f1f5f9"],
+#prod-matrix-body td[style*="color: #f1f5f9"] {
+  color: #18181B !important;
+  font-weight: 600 !important;
+}
+html.dark #prod-matrix-body td[style*="color:#f1f5f9"],
+html.dark #prod-matrix-body td[style*="color: #f1f5f9"] {
+  color: #F4F4F5 !important;
+}
+
+#prod-matrix-body td[style*="color:#475569"],
+#prod-matrix-body td[style*="color: #475569"] {
+  color: #A1A1AA !important;
+}
+
+/* Totals Columns in Matrix */
+#prod-matrix-head th:nth-last-child(3),
+#prod-matrix-body td:nth-last-child(3) {
+  color: #0284C7 !important;
+  font-weight: 800 !important;
+  background: rgba(2, 132, 199, 0.05) !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html.dark #prod-matrix-head th:nth-last-child(3),
+html.dark #prod-matrix-body td:nth-last-child(3) {
+  color: #38BDF8 !important;
+  background: rgba(56, 189, 248, 0.08) !important;
+}
+
+#prod-matrix-head th:nth-last-child(2),
+#prod-matrix-body td:nth-last-child(2) {
+  color: #D97706 !important;
+  font-weight: 700 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html.dark #prod-matrix-head th:nth-last-child(2),
+html.dark #prod-matrix-body td:nth-last-child(2) {
+  color: #FBBF24 !important;
+}
+
+#prod-matrix-head th:last-child,
+#prod-matrix-body td:last-child {
+  color: #059669 !important;
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html.dark #prod-matrix-head th:last-child,
+html.dark #prod-matrix-body td:last-child {
+  color: #34D399 !important;
+}
+
+/* ── PANE 2: DAILY BOM EXPLOSION TABLE (#prod-rm-tbl) ── */
+.tbl-scroll-h500 {
+  max-height: 520px !important;
+  overflow: auto !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  background: #FFFFFF !important;
+}
+html.dark .tbl-scroll-h500 {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  background: #18181B !important;
+}
+
+#prod-pane-bom .tbl thead th {
+  background: #F7F4EE !important;
+  padding: 14px 16px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #71717A !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.06) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+}
+html.dark #prod-pane-bom .tbl thead th {
+  background: #18181B !important;
+  color: #A1A1AA !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#prod-rm-tbl tr td {
+  padding: 13px 16px !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.04) !important;
+  font-size: 13px !important;
+  vertical-align: middle !important;
+}
+html.dark #prod-rm-tbl tr td {
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+#prod-rm-tbl tr:hover td {
+  background: #FCFAF7 !important;
+}
+html.dark #prod-rm-tbl tr:hover td {
+  background: #202024 !important;
+}
+
+/* Text overrides in BOM Explosion rows */
+#prod-rm-tbl td:first-child span {
+  color: #18181B !important;
+  font-weight: 700 !important;
+}
+html.dark #prod-rm-tbl td:first-child span {
+  color: #F4F4F5 !important;
+}
+
+#prod-rm-tbl td:nth-child(4) {
+  color: #18181B !important;
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html.dark #prod-rm-tbl td:nth-child(4) {
+  color: #F4F4F5 !important;
+}
+
+#prod-rm-tbl td:nth-child(6) {
+  font-variant-numeric: tabular-nums !important;
+}
+
+/* Status Badges in BOM Explosion */
+#prod-rm-tbl .badge-red {
+  background: rgba(239, 68, 68, 0.12) !important;
+  color: #DC2626 !important;
+  border: 1px solid rgba(239, 68, 68, 0.25) !important;
+  border-radius: 9999px !important;
+  padding: 4px 12px !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+}
+html.dark #prod-rm-tbl .badge-red {
+  color: #F87171 !important;
+}
+
+#prod-rm-tbl .badge-green {
+  background: rgba(16, 185, 129, 0.12) !important;
+  color: #059669 !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  border-radius: 9999px !important;
+  padding: 4px 12px !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+}
+html.dark #prod-rm-tbl .badge-green {
+  color: #34D399 !important;
+}
+
+/* ── PANE 3: SAUCE PRODUCTION (#prod-pane-taztiki) ── */
+#prod-pane-taztiki .tbl-wrap {
+  border-radius: 18px !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  overflow: hidden !important;
+  background: #FFFFFF !important;
+}
+html.dark #prod-pane-taztiki .tbl-wrap {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  background: #18181B !important;
+}
+
+#prod-pane-taztiki .tbl thead th {
+  background: #F7F4EE !important;
+  padding: 14px 16px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #71717A !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.06) !important;
+}
+html.dark #prod-pane-taztiki .tbl thead th {
+  background: #18181B !important;
+  color: #A1A1AA !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#prod-taztiki-tbody tr td {
+  padding: 13px 16px !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.04) !important;
+  font-size: 13px !important;
+  vertical-align: middle !important;
+}
+html.dark #prod-taztiki-tbody tr td {
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+#prod-taztiki-tbody tr:hover td {
+  background: #FCFAF7 !important;
+}
+html.dark #prod-taztiki-tbody tr:hover td {
+  background: #202024 !important;
+}
+
+#prod-taztiki-tbody td:first-child {
+  color: #18181B !important;
+  font-weight: 700 !important;
+}
+html.dark #prod-taztiki-tbody td:first-child {
+  color: #F4F4F5 !important;
+}
+
+#prod-taztiki-tbody td:nth-child(2) {
+  color: #7C3AED !important;
+  font-weight: 800 !important;
+  font-size: 14px !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html.dark #prod-taztiki-tbody td:nth-child(2) {
+  color: #C084FC !important;
+}
+
+#prod-taztiki-tbody td:nth-child(3) {
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+html.dark #prod-taztiki-tbody td:nth-child(3) {
+  color: #E2E8F0 !important;
+}
+
+#prod-taztiki-empty {
+  background: #FAF7F2 !important;
+  border: 1px dashed rgba(28, 25, 23, 0.12) !important;
+  border-radius: 16px !important;
+  padding: 32px 20px !important;
+  text-align: center !important;
+  margin-top: 16px !important;
+}
+html.dark #prod-taztiki-empty {
+  background: #202024 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+#prod-pane-taztiki button[onclick="openModal('modal-taztiki')"] {
+  height: 40px !important;
+  border-radius: 12px !important;
+  padding: 0 18px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  background: #18181B !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+#prod-pane-taztiki button[onclick="openModal('modal-taztiki')"]:hover {
+  background: #27272A !important;
+  transform: translateY(-2px) !important;
+}
+html.dark #prod-pane-taztiki button[onclick="openModal('modal-taztiki')"] {
+  background: #EAB308 !important;
+  color: #18181B !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(234, 179, 8, 0.25) !important;
+}
+html.dark #prod-pane-taztiki button[onclick="openModal('modal-taztiki')"]:hover {
+  background: #F59E0B !important;
+}
