@@ -3950,8 +3950,8 @@ html.dark .step-nav-buttons .btn-secondary:hover {
 /* ── 2. CENTER STOCK: DUAL PANE WORKBENCH ── */
 #page-centerstock .dual-pane-workbench {
   display: grid !important;
-  grid-template-columns: 1fr 390px !important;
-  gap: 20px !important;
+  grid-template-columns: minmax(0, 1fr) 350px !important;
+  gap: 16px !important;
   align-items: start !important;
   width: 100% !important;
 }
@@ -4436,29 +4436,45 @@ html.dark .orders-tab-btn.active {
   color: #EAB308 !important;
 }
 
-/* Orders Filter Toolbar Card */
-#orders-pane-log .card:first-child {
+/* Orders Aggregated Table & Individual Table Cards */
+#orders-pane-log .card {
   background: #FFFFFF !important;
   border: 1px solid rgba(28, 25, 23, 0.05) !important;
-  border-radius: 22px !important;
-  padding: 16px 20px !important;
-  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.03) !important;
-  margin-bottom: 18px !important;
+  border-radius: 20px !important;
+  padding: 18px 20px !important;
+  box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.04) !important;
+  margin-bottom: 16px !important;
 }
-html.dark #orders-pane-log .card:first-child {
+html.dark #orders-pane-log .card {
+  background: #18181B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Orders Filter Toolbar Card */
+#orders-pane-log .card:first-child,
+#orders-pane-log > .card:first-child {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.05) !important;
+  border-radius: 18px !important;
+  padding: 12px 18px !important;
+  box-shadow: 0 3px 16px -4px rgba(0, 0, 0, 0.03) !important;
+  margin-bottom: 14px !important;
+}
+html.dark #orders-pane-log .card:first-child,
+html.dark #orders-pane-log > .card:first-child {
   background: #18181B !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 #f-branch, #f-date {
-  height: 42px !important;
-  border-radius: 9999px !important;
+  height: 40px !important;
+  border-radius: 10px !important;
   background: #F5F2EB !important;
   border: 1px solid rgba(28, 25, 23, 0.06) !important;
   color: #18181B !important;
   font-size: 12.5px !important;
   font-weight: 600 !important;
-  padding-inline: 16px !important;
+  padding-inline: 14px !important;
   outline: none !important;
 }
 #f-branch {
@@ -4468,20 +4484,6 @@ html.dark #f-branch, html.dark #f-date {
   background: #222226 !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
   color: #F4F4F5 !important;
-}
-
-/* Orders Aggregated Table & Individual Table Cards */
-#orders-pane-log .card {
-  background: #FFFFFF !important;
-  border: 1px solid rgba(28, 25, 23, 0.05) !important;
-  border-radius: 22px !important;
-  padding: 22px !important;
-  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.04) !important;
-  margin-bottom: 20px !important;
-}
-html.dark #orders-pane-log .card {
-  background: #18181B !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 /* Orders Tables Overrides for Contrast & Breathability */
@@ -4573,8 +4575,10 @@ html.dark #o-branch, html.dark #o-date, html.dark #o-item-select, html.dark #o-i
 .excel-upload-card {
   background: #FFFFFF !important;
   border: 1px solid rgba(28, 25, 23, 0.05) !important;
-  border-radius: 24px !important;
-  padding: 26px !important;
+  border-radius: 20px !important;
+  padding: 20px 22px !important;
+  max-width: 720px !important;
+  margin-inline: auto !important;
   box-shadow: 0 10px 36px -4px rgba(0, 0, 0, 0.04) !important;
 }
 html.dark .excel-upload-card {
@@ -4585,8 +4589,8 @@ html.dark .excel-upload-card {
 .excel-dropzone, #excel-drop-zone {
   background: #FAF7F2 !important;
   border: 2px dashed rgba(234, 179, 8, 0.45) !important;
-  border-radius: 20px !important;
-  padding: 38px 24px !important;
+  border-radius: 18px !important;
+  padding: 22px 24px !important;
   text-align: center !important;
   cursor: pointer !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
@@ -4629,15 +4633,15 @@ html.dark .excel-preview-box, html.dark #excel-preview {
 /* Main Responsive Layout Grid */
 #page-recipes .recipes-layout {
   display: grid !important;
-  grid-template-columns: 330px minmax(0, 1fr) !important;
-  gap: 24px !important;
+  grid-template-columns: 320px minmax(0, 1fr) !important;
+  gap: 16px !important;
   align-items: start !important;
 }
 
 @media (max-width: 1024px) {
   #page-recipes .recipes-layout {
     grid-template-columns: 1fr !important;
-    gap: 20px !important;
+    gap: 16px !important;
   }
 }
 
@@ -4645,9 +4649,9 @@ html.dark .excel-preview-box, html.dark #excel-preview {
 #page-recipes .card {
   background: #FFFFFF !important;
   border: 1px solid rgba(28, 25, 23, 0.05) !important;
-  border-radius: 22px !important;
-  padding: 22px 24px !important;
-  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.04) !important;
+  border-radius: 18px !important;
+  padding: 18px 20px !important;
+  box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.04) !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
@@ -7000,10 +7004,13 @@ html.dark #page-waste #waste-stats .stat-card:nth-child(3) > div:first-child {
 #page-waste .waste-entry-card {
   background: #FFFFFF !important;
   border: 1px solid rgba(28, 25, 23, 0.05) !important;
-  border-radius: 24px !important;
+  border-radius: 18px !important;
   box-shadow: 0 10px 30px -4px rgba(28, 25, 23, 0.03) !important;
-  padding: 24px !important;
-  position: relative !important;
+  padding: 18px 20px !important;
+  position: sticky !important;
+  top: 20px !important;
+  max-height: calc(100vh - 60px) !important;
+  overflow-y: auto !important;
 }
 
 #page-waste .waste-entry-card .waste-header-title {
@@ -7106,9 +7113,9 @@ html.dark #page-waste .waste-entry-card .waste-header-title {
 #page-waste .waste-layout > .card.p-5 {
   background: #FFFFFF !important;
   border: 1px solid rgba(28, 25, 23, 0.05) !important;
-  border-radius: 24px !important;
-  box-shadow: 0 10px 30px -4px rgba(28, 25, 23, 0.03) !important;
-  padding: 24px !important;
+  border-radius: 18px !important;
+  box-shadow: 0 8px 24px -4px rgba(28, 25, 23, 0.03) !important;
+  padding: 18px 20px !important;
 }
 
 #page-waste .waste-layout > .card .card-title-main {
@@ -8666,6 +8673,7 @@ html.dark .greeting-sub, html.dark .bento-card-sub, html.dark .text-secondary, h
   border-radius: var(--ui-radius-lg) !important;
   border: 1px solid rgba(28, 25, 23, 0.06) !important;
   background: #FFFFFF !important;
+  padding: 18px 20px !important;
   box-shadow: 0 4px 18px -2px rgba(28, 25, 23, 0.03), 0 1px 3px rgba(28, 25, 23, 0.02) !important;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
@@ -8720,6 +8728,7 @@ html.dark .dashboard-greeting-header {
 .greeting-stat-pill {
   padding: 10px 16px !important;
   border-radius: 14px !important;
+  min-height: 72px !important;
   background: #FFFFFF !important;
   border: 1px solid rgba(28, 25, 23, 0.06) !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02) !important;
