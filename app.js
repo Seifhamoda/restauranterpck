@@ -5556,28 +5556,15 @@ window.fetch = function(url, options = {}) {
       }
 
       /* ============================================================
-         LOCAL STORAGE — PERSISTENT DATA (V2 WITH ALL 74 BOM RECIPES)
+         LOCAL STORAGE & SQLITE API SYNC (WHITE-LABEL V5)
       ============================================================ */
-      const LS_KEY = 'ck-erp-v4';
-      // Self-healing: purge legacy cache keys that contained duplicated or text-ID items
+      const LS_KEY = 'ck-erp-v5-whitelabel';
+      // Self-healing: purge all legacy cache keys that contained stale or proprietary data
       try {
-        ['ck-erp-v1', 'ck-erp-v2', 'ck-erp-v3'].forEach(k => localStorage.removeItem(k));
+        ['ck-erp-v1', 'ck-erp-v2', 'ck-erp-v3', 'ck-erp-v4', 'erp_state', 'ck_erp_orders'].forEach(k => {
+          localStorage.removeItem(k);
+        });
       } catch (e) { }
-
-
-      /* ============================================================
-     SUPABASE CLOUD SQL DATABASE SYNC & PERSISTENCE
-  ============================================================ */
-      const SUPABASE_URL = 'https://ihminamcbstcexsdacys.supabase.co';
-      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlobWluYW1jYnN0Y2V4c2RhY3lzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc5Mjg5MDksImV4cCI6MjEwMzUwNDkwOX0.4i4zO2ygSHdkQULp2Chqz3mxiUYevOjbX537w7uWRrE';
-      let _supaClient = null;
-
-      function getSupabaseClient() {
-        if (!_supaClient && typeof window !== 'undefined' && window.supabase && typeof window.supabase.createClient === 'function') {
-          _supaClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        }
-        return _supaClient;
-      }
 
       // Toggleable SQL Sync Flag (Allows pausing SQL completely for safe local testing)
       let SQL_SYNC_ENABLED = localStorage.getItem('ck_sql_sync_enabled') !== 'false';
@@ -5591,7 +5578,7 @@ window.fetch = function(url, options = {}) {
           badge.style.borderColor = 'rgba(245,158,11,0.4)';
           badge.style.color = '#fbbf24';
           badge.style.cursor = 'pointer';
-          badge.title = T('اضغط لتفعيل المزامنة السحابية والحفظ في SQL', 'Click to resume live Cloud SQL sync');
+          badge.title = T('اضغط لتفعيل المزامنة المباشرة والحفظ في قاعدة البيانات', 'Click to resume live SQL sync');
           badge.innerHTML = '🧪 <span>' + T('وضع التجربة (SQL متوقف مؤقتاً)', 'Sandbox (SQL Paused)') + '</span>';
         } else {
           badge.className = 'badge badge-green cursor-pointer';
@@ -5599,8 +5586,8 @@ window.fetch = function(url, options = {}) {
           badge.style.borderColor = 'rgba(34,197,94,0.35)';
           badge.style.color = '#4ade80';
           badge.style.cursor = 'pointer';
-          badge.title = T('اضغط لإيقاف الـ SQL مؤقتاً والتحويل إلى وضع التجربة الآمن', 'Click to pause SQL & test safely');
-          badge.innerHTML = '<span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block"></span> ⚡ <span>' + T('السيرفر السحابي متصل ومحدّث', 'Cloud SQL Connected') + '</span>';
+          badge.title = T('قاعدة البيانات متصلة ومحدثة بالكامل', 'Database Connected & Synced');
+          badge.innerHTML = '<span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block"></span> ⚡ <span>' + T('الداتابيز متصلة ومحدّثة', 'SQL DB Connected') + '</span>';
         }
       }
 
@@ -5609,225 +5596,69 @@ window.fetch = function(url, options = {}) {
         localStorage.setItem('ck_sql_sync_enabled', SQL_SYNC_ENABLED ? 'true' : 'false');
         updateSqlSyncBadge();
         if (SQL_SYNC_ENABLED) {
-          toast(T('⚡ تم استئناف المزامنة السحابية — البيانات تُحفظ في قاعدة البيانات مباشرة', 'Cloud SQL Sync RESUMED!'), 'success');
+          toast(T('⚡ تم استئناف المزامنة — البيانات تُحفظ في قاعدة البيانات مباشرة', 'Live SQL Sync RESUMED!'), 'success');
           syncFromSQL().then(() => {
+            renderDash();
             renderOrders();
             renderInv();
             renderRecipes();
+            if (typeof updateStockHealthDial === 'function') updateStockHealthDial();
             if (typeof renderProd === 'function') renderProd();
           });
         } else {
-          toast(T('🧪 تم إيقاف الـ SQL مؤقتاً — أنت الآن في وضع التجربة المحلي (لن يتم تعديل أو حفظ أي شيء في الداتابيز)', 'SQL PAUSED: Sandbox mode active (zero DB writes)'), 'warning');
+          toast(T('🧪 تم إيقاف المزامنة مؤقتاً — أنت الآن في وضع التجربة المحلي (لن يتم تعديل أو حفظ أي شيء في الداتابيز)', 'SQL PAUSED: Sandbox mode active (zero DB writes)'), 'warning');
         }
       }
 
-      async function syncFromSQL(retries = 3) {
+      async function syncFromSQL() {
         updateSqlSyncBadge();
         if (!SQL_SYNC_ENABLED) {
           console.log('🧪 SQL Sync is currently paused. Running in local sandbox mode.');
           return false;
         }
         try {
-          let client = getSupabaseClient();
-          if (!client && retries > 0) {
-            await new Promise(r => setTimeout(r, 200));
-            return syncFromSQL(retries - 1);
-          }
-          if (client) {
-            // Fetch from Supabase Cloud
-            const [brRes, prRes, rawRes, recRes, ordRes, ordItemsRes, tazRes] = await Promise.all([
-              client.from('branches').select('name').order('id', { ascending: true }),
-              client.from('products').select('*').order('ar', { ascending: true }),
-              client.from('raw_materials').select('*').order('ar', { ascending: true }),
-              client.from('recipe_items').select('*'),
-              client.from('orders').select('*').order('created_at', { ascending: false }),
-              client.from('order_items').select('*'),
-              client.from('taztiki_records').select('*').order('created_at', { ascending: false })
-            ]);
-
-            if (brRes.data && brRes.data.length) S.branches = brRes.data.map(r => r.name);
-            if (prRes.data && prRes.data.length) {
-              const codeMap = {};
-              S.products.forEach(p => { if (p.code || p.item_no) codeMap[p.id] = p.code || p.item_no; });
-              const validProdIds = new Set(S.products.map(p => p.id));
-              const staleProdIds = prRes.data.filter(p => !validProdIds.has(p.id)).map(p => p.id);
-              if (staleProdIds.length > 0) {
-                client.from('products').delete().in('id', staleProdIds).then(() => {
-                  console.log('🧹 Auto-cleaned', staleProdIds.length, 'stale product records from Supabase');
-                });
-              }
-              // Auto-upsert any official products missing in Supabase Cloud
-              const cloudProdIds = new Set((prRes.data || []).map(p => p.id));
-              const prodsToUpsert = S.products.filter(p => !cloudProdIds.has(p.id)).map(p => ({
-                id: p.id,
-                code: p.code,
-                item_no: p.code,
-                ar: p.ar,
-                en: p.en,
-                unit: p.unit,
-                cat: p.cat,
-                cost: p.cost || 0,
-                stock: p.stock || 0
-              }));
-              if (prodsToUpsert.length > 0) {
-                client.from('products').upsert(prodsToUpsert, { onConflict: 'id' }).then(() => {
-                  console.log('☁️ Auto-synced', prodsToUpsert.length, 'official products to Supabase Cloud');
-                });
-              }
-              prRes.data.forEach(p => {
-                const local = S.products.find(lp => lp.id === p.id);
-                if (local) {
-                  if (p.stock !== null && p.stock !== undefined) local.stock = p.stock;
-                  local.code = p.code || p.item_no || local.code || codeMap[p.id] || '';
-                }
-              });
-            }
-
-            if (rawRes.data && rawRes.data.length) {
-              // Valid official categories from ورقة العمل catalog
-              const VALID_CATS = ['Meat & Poultry & Fish', 'Grocery', 'Dairy', 'Fruits & Veg', 'Packing Items', 'Dry', 'Bakery', 'Beverage', 'Cleaning Supplies'];
-              const validIds = new Set(Object.keys(S.ings));
-              // Delete: not in catalog OR has invalid category (عام / General / empty)
-              const staleRawIds = rawRes.data
-                .filter(r => !validIds.has(r.id) || !VALID_CATS.includes(r.cat || r.category))
-                .map(r => r.id);
-              if (staleRawIds.length > 0) {
-                client.from('raw_materials').delete().in('id', staleRawIds).then(() => {
-                  console.log('🧹 Auto-cleaned', staleRawIds.length, 'stale/invalid raw_material records from Supabase');
-                });
-              }
-              // Auto-upsert any official raw materials missing in Supabase Cloud
-              const cloudRawIds = new Set((rawRes.data || []).map(r => r.id));
-              const rawsToUpsert = Object.entries(S.ings)
-                .filter(([id]) => !cloudRawIds.has(id))
-                .map(([id, r]) => ({
-                  id: id,
-                  code: r.code,
-                  ar: r.ar,
-                  en: r.en,
-                  uom: r.uom,
-                  cat: r.cat,
-                  price: r.price || 0,
-                  stock: r.stock || 0,
-                  safety: r.safety || 0
-                }));
-              if (rawsToUpsert.length > 0) {
-                client.from('raw_materials').upsert(rawsToUpsert, { onConflict: 'id' }).then(() => {
-                  console.log('☁️ Auto-synced', rawsToUpsert.length, 'official raw materials to Supabase Cloud');
-                });
-              }
-              rawRes.data.forEach(r => {
-                if (validIds.has(r.id) && VALID_CATS.includes(r.cat || r.category)) {
-                  if (r.stock !== null && r.stock !== undefined) S.ings[r.id].stock = r.stock;
-                  if (r.safety !== null && r.safety !== undefined) S.ings[r.id].safety = r.safety;
-                  if (r.price !== null && r.price !== undefined) S.ings[r.id].price = r.price;
-                }
-              });
-            }
-
-            if (recRes.data && recRes.data.length) {
-              S.recipes = {};
-              recRes.data.forEach(row => {
-                if (!S.recipes[row.product_id]) S.recipes[row.product_id] = { ings: [] };
-                S.recipes[row.product_id].ings.push({ id: row.raw_id, qty: row.qty, waste: row.waste });
-              });
-            }
-
-            if (ordRes.data) {
-              const itemsMap = {};
-              (ordItemsRes.data || []).forEach(it => {
-                if (!itemsMap[it.order_id]) itemsMap[it.order_id] = {};
-                itemsMap[it.order_id][it.product_id] = it.qty;
-              });
-              S.orders = ordRes.data.map(o => ({
-                id: isNaN(o.id) ? o.id : Number(o.id),
-                branch: o.branch,
-                date: o.order_date,
-                notes: o.notes,
-                items: itemsMap[o.id] || {}
-              }));
-            }
-
-            if (tazRes.data) {
-              S.taztikiRecords = tazRes.data.map(r => ({
-                id: r.id,
-                date: r.order_date,
-                branch: r.branch,
-                qty: r.qty,
-                type: r.type,
-                notes: r.notes
-              }));
-            }
-
-            updateSqlSyncBadge();
-            return true;
-          }
-
-          // Fallback to local server /api
           const res = await fetch('/api/state');
           if (res.ok) {
             const data = await res.json();
             if (data.success) {
-              if (data.branches) S.branches = data.branches;
-              if (data.products) S.products = data.products;
-              if (data.ings) S.ings = data.ings;
-              if (data.recipes) S.recipes = data.recipes;
-              if (data.orders) S.orders = data.orders;
-              if (data.taztikiRecords) S.taztikiRecords = data.taztikiRecords;
+              if (Array.isArray(data.branches) && data.branches.length) {
+                S.branches = data.branches;
+              }
+              if (Array.isArray(data.products) && data.products.length) {
+                S.products = data.products;
+              }
+              if (data.ings && typeof data.ings === 'object' && Object.keys(data.ings).length) {
+                S.ings = data.ings;
+              }
+              if (data.recipes && typeof data.recipes === 'object' && Object.keys(data.recipes).length) {
+                S.recipes = data.recipes;
+              }
+              if (Array.isArray(data.orders)) {
+                S.orders = data.orders;
+              }
+              if (Array.isArray(data.taztikiRecords)) {
+                S.taztikiRecords = data.taztikiRecords;
+              }
+              if (Array.isArray(data.POs)) {
+                S.POs = data.POs;
+              }
+              if (Array.isArray(data.invoices)) {
+                S.invoices = data.invoices;
+              }
+              saveState();
+              updateSqlSyncBadge();
               return true;
             }
           }
         } catch (err) {
-          console.warn('Sync failed:', err);
-          const badge = document.getElementById('sql-sync-badge');
-          if (badge) {
-            badge.className = 'badge badge-amber';
-            badge.innerHTML = '⚠️ وضع محلي (Local)';
-          }
-          return false;
+          console.warn('Sync from /api/state fallback:', err);
         }
+        return false;
       }
 
       async function apiSaveOrders(ordersList, replaceDates = []) {
         if (!SQL_SYNC_ENABLED) return;
         try {
-          const client = getSupabaseClient();
-          if (client) {
-            if (replaceDates && replaceDates.length) {
-              for (const d of replaceDates) {
-                const { data: oldOrders } = await client.from('orders').select('id').eq('order_date', d);
-                if (oldOrders && oldOrders.length) {
-                  const oids = oldOrders.map(o => o.id);
-                  await client.from('order_items').delete().in('order_id', oids);
-                  await client.from('orders').delete().in('id', oids);
-                }
-                await client.from('taztiki_records').delete().eq('order_date', d);
-              }
-            }
-
-            const orderRows = ordersList.map(o => ({
-              id: String(o.id || Date.now()),
-              branch: o.branch,
-              order_date: o.date,
-              notes: o.notes || ''
-            }));
-            await client.from('orders').upsert(orderRows);
-
-            const itemRows = [];
-            ordersList.forEach(o => {
-              const oid = String(o.id || Date.now());
-              if (o.items) {
-                Object.entries(o.items).forEach(([pid, qty]) => {
-                  if (qty > 0) itemRows.push({ order_id: oid, product_id: pid, qty });
-                });
-              }
-            });
-            if (itemRows.length) {
-              await client.from('order_items').insert(itemRows);
-            }
-            return;
-          }
-
           await fetch('/api/orders', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -5839,45 +5670,20 @@ window.fetch = function(url, options = {}) {
       async function apiDeleteOrder(orderId) {
         if (!SQL_SYNC_ENABLED) return;
         try {
-          const client = getSupabaseClient();
-          if (client) {
-            const oid = String(orderId);
-            await client.from('order_items').delete().eq('order_id', oid);
-            await client.from('orders').delete().eq('id', oid);
-            return;
-          }
-          await fetch(`/api/orders/${orderId}`, { method: 'DELETE' });
+          await fetch('/api/orders/' + encodeURIComponent(orderId), { method: 'DELETE' });
         } catch (e) { console.warn('apiDeleteOrder error:', e); }
       }
 
       async function apiDeleteOrdersForDate(dateStr) {
         if (!SQL_SYNC_ENABLED) return;
         try {
-          const client = getSupabaseClient();
-          if (client) {
-            const { data: oldOrders } = await client.from('orders').select('id').eq('order_date', dateStr);
-            if (oldOrders && oldOrders.length) {
-              const oids = oldOrders.map(o => o.id);
-              await client.from('order_items').delete().in('order_id', oids);
-              await client.from('orders').delete().in('id', oids);
-            }
-            await client.from('taztiki_records').delete().eq('order_date', dateStr);
-            return;
-          }
-          await fetch(`/api/orders/date/${dateStr}`, { method: 'DELETE' });
+          await fetch('/api/orders/date/' + encodeURIComponent(dateStr), { method: 'DELETE' });
         } catch (e) { console.warn('apiDeleteOrdersForDate error:', e); }
       }
 
       async function apiClearAllOrders() {
         if (!SQL_SYNC_ENABLED) return;
         try {
-          const client = getSupabaseClient();
-          if (client) {
-            await client.from('order_items').delete().neq('id', 0);
-            await client.from('orders').delete().neq('id', '');
-            await client.from('taztiki_records').delete().neq('id', '');
-            return;
-          }
           await fetch('/api/orders', { method: 'DELETE' });
         } catch (e) { console.warn('apiClearAllOrders error:', e); }
       }
@@ -5885,20 +5691,6 @@ window.fetch = function(url, options = {}) {
       async function apiBatchDeduct(productId, batchQty, deductions) {
         if (!SQL_SYNC_ENABLED) return;
         try {
-          const client = getSupabaseClient();
-          if (client) {
-            for (const d of deductions) {
-              const cur = S.ings[d.id] ? S.ings[d.id].stock : 0;
-              await client.from('raw_materials').update({ stock: Math.max(0, cur) }).eq('id', d.id);
-              await client.from('stock_movements').insert({
-                ing_id: d.id,
-                change_qty: -d.qty,
-                reason: `Batch Production: ${batchQty} of ${productId}`,
-                ref_id: productId
-              });
-            }
-            return;
-          }
           await fetch('/api/batch-deduct', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -5910,12 +5702,7 @@ window.fetch = function(url, options = {}) {
       async function apiUpdateRawStock(id, stock, safety, price) {
         if (!SQL_SYNC_ENABLED) return;
         try {
-          const client = getSupabaseClient();
-          if (client) {
-            await client.from('raw_materials').update({ stock, safety, price }).eq('id', id);
-            return;
-          }
-          await fetch(`/api/raw-materials/${id}`, {
+          await fetch('/api/raw-materials/' + encodeURIComponent(id), {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ stock, safety, price })
@@ -5925,7 +5712,7 @@ window.fetch = function(url, options = {}) {
 
       async function apiAddRawMaterial(rawObj) {
         try {
-          await fetch(`${API_BASE}/raw-materials`, {
+          await fetch('/api/raw-materials', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(rawObj)
@@ -5933,7 +5720,7 @@ window.fetch = function(url, options = {}) {
         } catch (e) { console.warn('apiAddRawMaterial error:', e); }
       }
 
-      function saveState() {
+            function saveState() {
         try {
           const data = {
             orders: S.orders,
