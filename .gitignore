@@ -6,3 +6,4 @@ database.db*
 .vscode/
 scratch/
 Untitled-1.ipynb
+.env

@@ -4989,13 +4989,13 @@ html.dark #btn-apply-demand-batch:hover {
 }
 
 /* Branch Tags Grid Container */
-#recipe-branch-demand-card .card.p-2.5 {
+#recipe-branch-demand-card .card.p-2\.5 {
   background: #FFFFFF !important;
   border: 1px solid rgba(28, 25, 23, 0.05) !important;
   border-radius: 14px !important;
   padding: 12px 16px !important;
 }
-html.dark #recipe-branch-demand-card .card.p-2.5 {
+html.dark #recipe-branch-demand-card .card.p-2\.5 {
   background: #18181B !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
 }
@@ -9048,4 +9048,454 @@ input:focus {
 html.dark .input:focus, html.dark .select:focus, html.dark select:focus,
 html.dark input:focus {
   background: #27272A !important;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   PHASE 5: WARM MINIMALIST LUXURY DESIGN SYSTEM & ULTRA-RESPONSIVE ENGINE
+   Pure Native CSS — 100% White-Labeled Commercial Release
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* 1. Master CSS Variables & Color Tokens */
+:root {
+  --bg-primary: #FAF7F2;
+  --bg-glow-radial: radial-gradient(ellipse 70% 50% at 50% 0%, #FFF5D6 0%, #FAF7F2 70%);
+  --card-bg: #FFFFFF;
+  --card-radius: 22px;
+  --card-border: 1px solid rgba(28, 25, 23, 0.06);
+  --card-shadow: 0 10px 30px -5px rgba(28, 25, 23, 0.04);
+  --dock-bg: #18181B;
+  --dock-border: rgba(255, 255, 255, 0.12);
+  --dock-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.35);
+  --accent-amber: #EAB308;
+  --accent-amber-hover: #CA8A04;
+  --text-espresso: #1C1917;
+  --text-stone: #78716C;
+  --pill-radius: 9999px;
+  --input-bg: #F7F4EE;
+  --input-border: 1px solid rgba(28, 25, 23, 0.08);
+}
+
+/* 2. Global Document Reset (Warm Cream #FAF7F2 with subtle #FFF5D6 radial glow) */
+html, body {
+  background-color: #FAF7F2 !important;
+  background-image: radial-gradient(ellipse 70% 50% at 50% 0%, #FFF5D6 0%, #FAF7F2 70%) !important;
+  background-attachment: fixed !important;
+  color: #1C1917 !important;
+  font-family: 'Cairo', 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Neutralize any dark mode classes */
+html.dark, body.dark, [data-theme="dark"] {
+  background-color: #FAF7F2 !important;
+  background-image: radial-gradient(ellipse 70% 50% at 50% 0%, #FFF5D6 0%, #FAF7F2 70%) !important;
+  color: #1C1917 !important;
+}
+
+#floating-theme-toggle-btn {
+  display: none !important;
+}
+
+/* 3. Cards: Pure Crisp White (#FFFFFF), 22px Radius, 1px Border rgba(28,25,23,0.06), Soft Shadow */
+.card,
+.bento-card,
+.glass-card,
+.kpi-card,
+.greeting-card-warm,
+.dashboard-greeting-header,
+.modal-box,
+.timeline-simulator-box,
+.cs-command-card,
+.workflow-pipeline-card,
+.timeline-schedule-block,
+[class*="bg-slate-"],
+[class*="bg-gray-"],
+[class*="bg-zinc-"] {
+  background: #FFFFFF !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  box-shadow: 0 10px 30px -5px rgba(28, 25, 23, 0.04) !important;
+  color: #1C1917 !important;
+}
+
+/* 4. Tables: Crisp White, Spacious, 22px Radius Container */
+.tbl-wrap,
+.table-container,
+.responsive-table-wrapper {
+  background: #FFFFFF !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  box-shadow: 0 10px 30px -5px rgba(28, 25, 23, 0.04) !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  width: 100% !important;
+}
+
+table,
+.tbl {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  background: #FFFFFF !important;
+  border: none !important;
+  border-radius: 22px !important;
+}
+
+table th {
+  background: #FAF8F5 !important;
+  color: #1C1917 !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  padding: 14px 18px !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.06) !important;
+  white-space: nowrap !important;
+}
+
+table td {
+  padding: 14px 18px !important;
+  color: #1C1917 !important;
+  font-size: 13.5px !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.04) !important;
+}
+
+table tbody tr:hover td {
+  background: #FCFBF9 !important;
+}
+
+table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* 5. Typography: Deep Espresso (#1C1917) & Muted Stone (#78716C) */
+h1, h2, h3, h4, h5, h6,
+.card-title-main,
+.bento-card-title,
+.stat-pill-num,
+.kpi-num,
+.greeting-heading,
+.dial-counter-digits,
+.font-bold,
+.font-extrabold {
+  color: #1C1917 !important;
+}
+
+p,
+.greeting-sub,
+.bento-card-sub,
+.text-muted,
+.text-secondary,
+.stat-pill-label,
+.fs-10-5,
+.accordion-stat-label,
+.day-tag {
+  color: #78716C !important;
+}
+
+/* 6. Pill Geometry on ALL Buttons, Badges, Inputs, and Nav Items (border-radius: 9999px) */
+button,
+.btn,
+.btn-pill,
+.btn-pill-sm,
+.btn-solid-amber,
+.btn-solid-dark,
+.btn-secondary,
+.btn-danger,
+.btn-sm,
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+.badge,
+.chip,
+.dock-nav-pill,
+.greeting-stat-pill,
+.dock-brand-pill,
+.dock-search-pill,
+.status-pulse-badge,
+.badge-amber-pill,
+.profile-status-pill,
+.day-tag.active-pill {
+  border-radius: 9999px !important;
+}
+
+textarea {
+  border-radius: 18px !important;
+}
+
+/* Inputs & Form Fields */
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  background: #F7F4EE !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  color: #1C1917 !important;
+  padding: 10px 18px !important;
+  font-size: 13.5px !important;
+  outline: none !important;
+  transition: all 0.2s ease !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #EAB308 !important;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.18) !important;
+  background: #FFFFFF !important;
+}
+
+/* 7. Primary Accents: Matte Charcoal (#18181B) & Warm Golden Amber (#EAB308) */
+.btn-solid-amber {
+  background: #EAB308 !important;
+  color: #18181B !important;
+  font-weight: 700 !important;
+  border: 1px solid #CA8A04 !important;
+  box-shadow: 0 4px 14px rgba(234, 179, 8, 0.25) !important;
+  cursor: pointer !important;
+}
+
+.btn-solid-amber:hover {
+  background: #CA8A04 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-solid-dark {
+  background: #18181B !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 14px rgba(24, 24, 27, 0.2) !important;
+  cursor: pointer !important;
+}
+
+.btn-solid-dark:hover {
+  background: #27272A !important;
+}
+
+.btn-secondary {
+  background: #F5EFE6 !important;
+  color: #1C1917 !important;
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  cursor: pointer !important;
+}
+
+.btn-secondary:hover {
+  background: #EAE2D5 !important;
+}
+
+/* Navigation Dock Styling: Matte Charcoal Capsule */
+.top-dock-container .floating-capsule-dock,
+.floating-capsule-dock {
+  background: #18181B !important;
+  color: #FFFFFF !important;
+  border-radius: 9999px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.35) !important;
+}
+
+.dock-nav-pill {
+  color: #A1A1AA !important;
+  background: transparent !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.dock-nav-pill:hover {
+  color: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dock-nav-pill.active {
+  background: rgba(255, 255, 255, 0.14) !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+.dock-nav-pill.active .dock-active-dot {
+  color: #EAB308 !important;
+}
+
+.greeting-stat-pill {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 25, 23, 0.06) !important;
+  box-shadow: 0 6px 20px -3px rgba(28, 25, 23, 0.03) !important;
+  padding: 12px 18px !important;
+  cursor: pointer !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.greeting-stat-pill:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 28px -4px rgba(28, 25, 23, 0.06) !important;
+}
+
+/* 8. Desktop Breakpoint (> 768px): Centered Floating Dock, 4-Col Bento KPI, Borderless Tables */
+@media (min-width: 769px) {
+  .top-dock-container {
+    position: sticky !important;
+    top: 16px !important;
+    display: flex !important;
+    justify-content: center !important;
+    z-index: 1000 !important;
+    width: 100% !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  .floating-capsule-dock {
+    display: flex !important;
+    align-items: center !important;
+    max-width: 1320px !important;
+    padding: 6px 14px !important;
+    gap: 8px !important;
+  }
+
+  .bento-dashboard-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .greeting-stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .app-chassis {
+    padding: 20px 32px 60px !important;
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+  }
+
+  #sidebar-toggle-btn,
+  .dock-mobile-menu-btn,
+  .mob-overlay {
+    display: none !important;
+  }
+}
+
+/* 9. Mobile & Tablet Breakpoint (<= 768px): Fixed Bottom Bar, 1fr Bento, 16px Padding, Scrollable Tables */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden !important;
+    padding-bottom: 96px !important; /* Space for the bottom navigation dock */
+  }
+
+  /* Fixed Bottom Capsule Navigation Bar */
+  .top-dock-container {
+    position: fixed !important;
+    bottom: 12px !important;
+    top: auto !important;
+    left: 12px !important;
+    right: 12px !important;
+    width: calc(100% - 24px) !important;
+    z-index: 999 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .floating-capsule-dock {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px 12px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    border-radius: 9999px !important;
+  }
+
+  .dock-brand-pill {
+    display: none !important;
+  }
+
+  .dock-nav-pill-group {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    width: 100% !important;
+  }
+
+  .dock-nav-pill-group::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .dock-nav-pill {
+    white-space: nowrap !important;
+    padding: 8px 14px !important;
+    font-size: 12px !important;
+    min-height: 42px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    border-radius: 9999px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .dock-end-controls {
+    display: none !important;
+  }
+
+  /* Stack all Bento Grids, Cards, and Rows into Single Column (1fr) */
+  .bento-dashboard-grid,
+  .greeting-stats-grid,
+  .grid-4col,
+  .grid-3col,
+  .grid-2col,
+  .dashboard-greeting-header {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  .dashboard-greeting-header {
+    padding: 16px !important;
+  }
+
+  .app-chassis,
+  .main,
+  .page {
+    padding: 16px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Wrap all tables in smooth horizontally scrollable containers */
+  .tbl-wrap,
+  .table-container,
+  .responsive-table-wrapper {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+    display: block !important;
+    max-width: 100% !important;
+  }
+
+  /* Modals fit 95% screen width */
+  .modal,
+  .modal-box,
+  .dialog-box {
+    width: 95% !important;
+    max-width: 95vw !important;
+    margin: 12px auto !important;
+    padding: 18px 16px !important;
+    border-radius: 22px !important;
+    box-sizing: border-box !important;
+  }
+
+  #sidebar-toggle-btn {
+    display: none !important;
+  }
 }

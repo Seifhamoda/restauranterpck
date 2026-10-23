@@ -23,6 +23,7 @@ db.exec(`
     cat TEXT NOT NULL,
     cost REAL NOT NULL,
     color TEXT,
+    stock REAL NOT NULL DEFAULT 0,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
   );
 
@@ -57,6 +58,7 @@ db.exec(`
     id TEXT PRIMARY KEY,
     branch TEXT NOT NULL,
     order_date TEXT NOT NULL,
+    status TEXT DEFAULT 'Pending',
     notes TEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
   );
