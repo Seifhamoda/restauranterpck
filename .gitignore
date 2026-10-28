@@ -7,3 +7,5 @@ database.db*
 scratch/
 Untitled-1.ipynb
 .env
+_quarantine_legacy_supabase_do_not_publish/
+_backup_pre_phase2/

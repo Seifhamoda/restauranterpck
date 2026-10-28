@@ -3,6 +3,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const { rateLimit } = require('express-rate-limit');
 const path = require('node:path');
+const crypto = require('node:crypto');
 const db = require('./db.js');
 
 // Load environment variables if available
@@ -34,7 +35,98 @@ process.on('unhandledRejection', (reason, promise) => {
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-const API_SECRET_KEY = process.env.API_SECRET_KEY || 'ck_erp_secret_key_demo_2026';
+
+// Security configuration: No public fallback secret. If missing, machine API key is disabled.
+const API_SECRET_KEY = process.env.API_SECRET_KEY && process.env.API_SECRET_KEY.trim() !== ''
+  ? process.env.API_SECRET_KEY.trim()
+  : null;
+
+// ── AUTHENTICATION HELPERS ──
+function hashPassword(password, salt) {
+  return crypto.pbkdf2Sync(String(password), salt, 100000, 64, 'sha512').toString('hex');
+}
+
+function parseCookies(req) {
+  const list = {};
+  const cookieHeader = req.headers.cookie;
+  if (!cookieHeader) return list;
+  cookieHeader.split(';').forEach(cookie => {
+    let [name, ...rest] = cookie.split('=');
+    name = name.trim();
+    if (!name) return;
+    const value = rest.join('=').trim();
+    list[name] = decodeURIComponent(value);
+  });
+  return list;
+}
+
+function getAuthenticatedUser(req) {
+  try {
+    const cookies = parseCookies(req);
+    const authHeader = req.headers['authorization'] || '';
+    const bearerToken = authHeader.startsWith('Bearer ') ? authHeader.slice(7).trim() : null;
+    const token = cookies['erp_session'] || bearerToken;
+
+    if (!token) return null;
+
+    const now = Date.now();
+    const session = db.prepare(`
+      SELECT s.id, s.user_id, s.expires_at, u.username, u.role
+      FROM sessions s
+      JOIN users u ON s.user_id = u.id
+      WHERE s.id = ?
+    `).get(token);
+
+    if (session && session.expires_at > now) {
+      return {
+        id: session.user_id,
+        username: session.username,
+        role: session.role
+      };
+    }
+  } catch (err) {
+    console.error('Error verifying session:', err);
+  }
+  return null;
+}
+
+function ensureAdminUser() {
+  try {
+    const row = db.prepare('SELECT COUNT(*) as count FROM users').get();
+    if (!row || row.count === 0) {
+      const adminUsername = (process.env.ADMIN_USERNAME || 'admin').trim();
+      let adminPassword = process.env.ADMIN_PASSWORD ? process.env.ADMIN_PASSWORD.trim() : null;
+      let isGenerated = false;
+
+      if (!adminPassword) {
+        adminPassword = crypto.randomBytes(12).toString('base64url');
+        isGenerated = true;
+      }
+
+      const salt = crypto.randomBytes(16).toString('hex');
+      const hash = hashPassword(adminPassword, salt);
+      const userId = 'usr-' + crypto.randomBytes(6).toString('hex');
+
+      db.prepare('INSERT INTO users (id, username, password_hash, salt, role) VALUES (?, ?, ?, ?, ?)').run(
+        userId, adminUsername, hash, salt, 'admin'
+      );
+
+      console.log(`\n======================================================`);
+      console.log(`🔐 [SECURITY] Initial Administrator Account Created`);
+      console.log(`👤 Username: ${adminUsername}`);
+      if (isGenerated) {
+        console.log(`🔑 Temporary One-Time Password: ${adminPassword}`);
+        console.log(`⚠️  Configure ADMIN_PASSWORD in .env for custom credentials.`);
+      } else {
+        console.log(`🔑 Password set from environment (ADMIN_PASSWORD).`);
+      }
+      console.log(`======================================================\n`);
+    }
+  } catch (err) {
+    console.error('Error ensuring admin user:', err);
+  }
+}
+ensureAdminUser();
 
 // ── 1. HTTP HEADER SECURITY (HELMET) ──
 app.use(helmet({ contentSecurityPolicy: false }));
@@ -45,7 +137,6 @@ const allowedOrigins = rawOrigins.split(',').map(s => s.trim().toLowerCase());
 
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (e.g. mobile web views, same-origin browser fetches, curl, postman)
     if (!origin) return callback(null, true);
     const lowerOrigin = origin.toLowerCase();
     if (allowedOrigins.includes('*') || allowedOrigins.includes(lowerOrigin)) {
@@ -78,33 +169,112 @@ const apiLimiter = rateLimit({
 });
 app.use('/api/', apiLimiter);
 
-// ── 5. AUTHENTICATION & SECURITY MIDDLEWARE FOR STATE-CHANGING METHODS ──
-const apiAuthMiddleware = (req, res, next) => {
-  const method = req.method.toUpperCase();
-  const stateChanging = ['POST', 'PUT', 'DELETE', 'PATCH'];
-
-  if (stateChanging.includes(method)) {
-    const clientHeader = req.headers['x-requested-with'];
-    const apiKey = req.headers['x-api-key'];
-
-    const isSameOriginUi = clientHeader === 'CK-ERP-Client';
-    const isValidApiKey = apiKey && apiKey === API_SECRET_KEY;
-
-    if (!isSameOriginUi && !isValidApiKey) {
-      return res.status(401).json({
-        success: false,
-        error: 'Unauthorized: State-changing operations require X-Requested-With: CK-ERP-Client or valid x-api-key'
-      });
+// ── 5. AUTHENTICATION ENDPOINTS (PUBLIC) ──
+app.post('/api/auth/login', (req, res) => {
+  try {
+    const { username, password } = req.body || {};
+    if (!username || !password) {
+      return res.status(400).json({ success: false, error: 'Username and password are required' });
     }
+
+    const user = db.prepare('SELECT * FROM users WHERE username = ?').get(String(username).trim());
+    if (!user) {
+      return res.status(401).json({ success: false, error: 'Invalid username or password' });
+    }
+
+    const calculatedHash = hashPassword(String(password), user.salt);
+    if (calculatedHash !== user.password_hash) {
+      return res.status(401).json({ success: false, error: 'Invalid username or password' });
+    }
+
+    // Generate 7-day session token
+    const sessionToken = crypto.randomBytes(32).toString('hex');
+    const expiresAt = Date.now() + (7 * 24 * 60 * 60 * 1000);
+
+    db.prepare('INSERT INTO sessions (id, user_id, expires_at) VALUES (?, ?, ?)').run(
+      sessionToken, user.id, expiresAt
+    );
+
+    res.setHeader('Set-Cookie', `erp_session=${sessionToken}; HttpOnly; Path=/; SameSite=Lax; Max-Age=604800`);
+    res.json({
+      success: true,
+      user: { id: user.id, username: user.username, role: user.role }
+    });
+  } catch (err) {
+    console.error('Login error:', err);
+    res.status(500).json({ success: false, error: 'Internal login error' });
   }
-  next();
+});
+
+app.post('/api/auth/logout', (req, res) => {
+  try {
+    const cookies = parseCookies(req);
+    const token = cookies['erp_session'];
+    if (token) {
+      db.prepare('DELETE FROM sessions WHERE id = ?').run(token);
+    }
+    res.setHeader('Set-Cookie', 'erp_session=; HttpOnly; Path=/; SameSite=Lax; Max-Age=0');
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+app.get('/api/auth/me', (req, res) => {
+  const user = getAuthenticatedUser(req);
+  if (user) {
+    res.json({ success: true, authenticated: true, user });
+  } else {
+    res.status(401).json({ success: false, authenticated: false, error: 'Not authenticated' });
+  }
+});
+
+// ── 6. SECURED API MIDDLEWARE (PROTECTS ALL SENSITIVE /api/ ENDPOINTS) ──
+const apiAuthMiddleware = (req, res, next) => {
+  // 1. External Machine-to-Machine B2B API Key (if configured in environment)
+  const apiKey = req.headers['x-api-key'];
+  if (API_SECRET_KEY && apiKey && apiKey === API_SECRET_KEY) {
+    return next();
+  }
+
+  // 2. Cookie session or Authorization Bearer header
+  const user = getAuthenticatedUser(req);
+  if (user) {
+    req.user = user;
+    return next();
+  }
+
+  return res.status(401).json({
+    success: false,
+    error: 'Unauthorized: Valid session or API key required'
+  });
 };
 app.use('/api', apiAuthMiddleware);
 
-// Static assets
-app.use(express.static(path.join(__dirname), { etag: false, maxAge: 0 }));
+// ── 7. STATIC ASSET PROTECTION (SERVE ONLY PUBLIC DIRECTORY) ──
+// Explicit guard to block direct attempts to access sensitive files
+app.use((req, res, next) => {
+  const blocked = [
+    /^\/\.env/i,
+    /\.db/i,
+    /\.git/i,
+    /server\.js/i,
+    /db\.js/i,
+    /package(-lock)?\.json/i,
+    /_quarantine/i,
+    /migrate\.js/i,
+    /seed_demo\.js/i
+  ];
+  if (blocked.some(rx => rx.test(req.path))) {
+    return res.status(403).json({ success: false, error: 'Access forbidden' });
+  }
+  next();
+});
 
-// ── GET FULL STATE ──
+const publicDir = path.join(__dirname, 'public');
+app.use(express.static(publicDir, { etag: false, maxAge: 0 }));
+
+// ── 8. GET FULL STATE ──
 app.get('/api/state', (req, res) => {
   try {
     const branches = db.prepare('SELECT name FROM branches ORDER BY id ASC').all().map(r => r.name);
@@ -205,7 +375,7 @@ app.get('/api/state', (req, res) => {
   }
 });
 
-// ── SAVE / BATCH ORDERS ──
+// ── 9. SAVE / BATCH ORDERS ──
 app.post('/api/orders', (req, res) => {
   try {
     const { orders, replaceDates } = req.body;
@@ -248,7 +418,7 @@ app.post('/api/orders', (req, res) => {
   }
 });
 
-// ── UPDATE ORDER STATUS & DISPATCH (WITH STOCK DEDUCTION) ──
+// ── 10. UPDATE ORDER STATUS & DISPATCH (WITH STOCK DEDUCTION) ──
 app.put('/api/orders/:id/status', (req, res) => {
   try {
     const oid = String(req.params.id);
@@ -273,7 +443,7 @@ app.put('/api/orders/:id/status', (req, res) => {
   }
 });
 
-// ── DELETE SINGLE ORDER ──
+// ── 11. DELETE SINGLE ORDER ──
 app.delete('/api/orders/:id', (req, res) => {
   try {
     const oid = String(req.params.id);
@@ -285,7 +455,7 @@ app.delete('/api/orders/:id', (req, res) => {
   }
 });
 
-// ── DELETE ORDERS FOR DATE ──
+// ── 12. DELETE ORDERS FOR DATE ──
 app.delete('/api/orders/date/:date', (req, res) => {
   try {
     const d = req.params.date;
@@ -298,7 +468,7 @@ app.delete('/api/orders/date/:date', (req, res) => {
   }
 });
 
-// ── CLEAR ALL ORDERS ──
+// ── 13. CLEAR ALL ORDERS ──
 app.delete('/api/orders', (req, res) => {
   try {
     db.prepare('DELETE FROM order_items').run();
@@ -310,8 +480,7 @@ app.delete('/api/orders', (req, res) => {
   }
 });
 
-// ── LIVE BATCH PRODUCTION & STOCK DEDUCTION ──
-// Deducts raw materials, increments finished product stock, and logs stock movements
+// ── 14. LIVE BATCH PRODUCTION & STOCK DEDUCTION ──
 app.post('/api/batch-deduct', (req, res) => {
   try {
     const { productId, batchQty, deductions } = req.body;
@@ -324,13 +493,11 @@ app.post('/api/batch-deduct', (req, res) => {
     const updateProdStock = db.prepare('UPDATE products SET stock = stock + ? WHERE id = ?');
     const logMovement = db.prepare('INSERT INTO stock_movements (ing_id, change_qty, reason, ref_id) VALUES (?, ?, ?, ?)');
 
-    // 1. Deduct raw materials
     deductions.forEach(d => {
       updateStock.run(d.qty, d.id);
       logMovement.run(d.id, -d.qty, `BOM Batch Deduction: ${qtyNumber} units of ${productId}`, productId);
     });
 
-    // 2. Increment finished product stock
     if (productId) {
       updateProdStock.run(qtyNumber, productId);
       logMovement.run(productId, qtyNumber, `BOM Batch Output: Produced ${qtyNumber} units`, productId);
@@ -343,7 +510,7 @@ app.post('/api/batch-deduct', (req, res) => {
   }
 });
 
-// ── UPDATE RAW MATERIAL STOCK / SAFETY / PRICE ──
+// ── 15. UPDATE RAW MATERIAL STOCK / SAFETY / PRICE ──
 app.put('/api/raw-materials/:id', (req, res) => {
   try {
     const id = req.params.id;
@@ -355,7 +522,7 @@ app.put('/api/raw-materials/:id', (req, res) => {
   }
 });
 
-// ── ADD RAW MATERIAL ──
+// ── 16. ADD RAW MATERIAL ──
 app.post('/api/raw-materials', (req, res) => {
   try {
     const { id, ar, en, uom, price, stock, safety, sup } = req.body;
@@ -367,7 +534,7 @@ app.post('/api/raw-materials', (req, res) => {
   }
 });
 
-// ── SAVE / UPDATE RECIPE ──
+// ── 17. SAVE / UPDATE RECIPE ──
 app.post('/api/recipes', (req, res) => {
   try {
     const { productId, ings } = req.body;
@@ -386,7 +553,7 @@ app.post('/api/recipes', (req, res) => {
   }
 });
 
-// ── TAZTIKI / SPECIALTY BATCHES ──
+// ── 18. TAZTIKI / SPECIALTY BATCHES ──
 app.post('/api/taztiki', (req, res) => {
   try {
     const { id, date, branch, qty, type, notes } = req.body;
@@ -407,7 +574,7 @@ app.delete('/api/taztiki/:id', (req, res) => {
   }
 });
 
-// ── PURCHASE ORDERS ──
+// ── 19. PURCHASE ORDERS ──
 app.post('/api/purchase-orders', (req, res) => {
   try {
     const { pos } = req.body;
@@ -433,7 +600,7 @@ app.put('/api/purchase-orders/:id', (req, res) => {
   }
 });
 
-// ── INVOICES ──
+// ── 20. INVOICES ──
 app.post('/api/invoices', (req, res) => {
   try {
     const { id, poId, ingId, qty, unit, value, sup, payment, notes, date } = req.body;
@@ -448,10 +615,11 @@ app.post('/api/invoices', (req, res) => {
 // ── START SECURED SERVER ──
 const server = app.listen(PORT, () => {
   console.log(`\n======================================================`);
-  console.log(`🛡️ Smart Central Kitchen ERP Server (Hardened & Secured)`);
+  console.log(`🛡️  Smart Central Kitchen ERP Server (Secured & Hardened)`);
   console.log(`🌐 URL: http://localhost:${PORT}`);
-  console.log(`🗄️ SQL DB: ${path.join(__dirname, 'database.db')}`);
-  console.log(`🔒 Security: Helmet ON, RateLimit (300/15m) ON, Auth ON`);
+  console.log(`📂 Public Root: ${publicDir}`);
+  console.log(`🗄️  SQL DB: ${path.join(__dirname, 'database.db')}`);
+  console.log(`🔒 Security: Helmet ON, RateLimit (300/15m) ON, Auth ON (Sessions & B2B Keys)`);
   console.log(`======================================================\n`);
 });
 

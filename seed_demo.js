@@ -4,7 +4,8 @@ const db = require('./db.js');
 
 console.log('🔄 Re-creating fresh schema and seeding demo data...');
 
-// Drop all tables to guarantee clean schema with new columns
+// Drop ERP transactional & master tables to guarantee clean schema
+// Note: 'users' and 'sessions' tables are preserved to retain admin credentials
 db.exec(`
   DROP TABLE IF EXISTS order_items;
   DROP TABLE IF EXISTS orders;
@@ -125,120 +126,119 @@ db.exec(`
   );
 `);
 
-// 1. 4 Generic Branches
+// 1. 4 Demo Branches
 const branches = [
-  { id: 'br-tagamoa', name: 'فرع التجمع الخامس' },
-  { id: 'br-zayed', name: 'فرع الشيخ زايد' },
-  { id: 'br-maadi', name: 'فرع المعادي' },
-  { id: 'br-smouha', name: 'فرع سموحة' }
+  { id: 'br-downtown', name: 'Downtown Central Kitchen' },
+  { id: 'br-westside', name: 'Westside Hub' },
+  { id: 'br-eastside', name: 'Eastside Flagship' },
+  { id: 'br-north', name: 'North Coast Express' }
 ];
 
 const insertBranch = db.prepare('INSERT INTO branches (id, name) VALUES (?, ?)');
 branches.forEach(b => insertBranch.run(b.id, b.name));
 console.log(`✅ Seeded ${branches.length} Generic Branches`);
 
-// 2. 10 Raw Materials & Semi-Finished Products
-// Exactly 5 below safety (low stock alert) and 5 above safety (safe healthy stock)
+// 2. 10 Raw Materials & Semi-Finished Items (5 low stock alert, 5 safe healthy stock)
 const rawMaterials = [
   {
     id: 'raw-beef-patty',
-    ar: 'لحم بقري مفروم ممتاز (80/20)',
+    ar: 'Premium Ground Beef Patty Mix (80/20)',
     en: 'Premium Ground Beef Patty Mix (80/20)',
     uom: 'kg',
     price: 320.00,
     stock: 35.0,    // Below safety (80.0) -> ALERT ⚠️
     safety: 80.0,
-    sup: 'شركة اللحوم الوطنية المعتمدة'
+    sup: 'National Quality Meats'
   },
   {
     id: 'raw-chicken-breast',
-    ar: 'صدور دجاج طازجة مخلية',
+    ar: 'Fresh Boneless Chicken Breasts',
     en: 'Fresh Boneless Chicken Breasts',
     uom: 'kg',
     price: 165.00,
     stock: 140.0,   // Above safety (60.0) -> SAFE ✅
     safety: 60.0,
-    sup: 'مزارع الدواجن الحديثة'
+    sup: 'Prime Poultry Farms'
   },
   {
     id: 'raw-cheddar-cheese',
-    ar: 'جبنة شيدر حمراء قوالب طبيعية',
+    ar: 'Aged Red Cheddar Cheese Blocks',
     en: 'Aged Red Cheddar Cheese Blocks',
     uom: 'kg',
     price: 280.00,
     stock: 18.0,    // Below safety (35.0) -> ALERT ⚠️
     safety: 35.0,
-    sup: 'مصانع الألبان والأجبان الممتازة'
+    sup: 'Artisan Dairy Suppliers'
   },
   {
     id: 'raw-brioche-buns',
-    ar: 'خبز بريوش طازج فاخر',
+    ar: 'Artisan Brioche Burger Buns',
     en: 'Artisan Brioche Burger Buns',
     uom: 'pcs',
     price: 8.50,
     stock: 950.0,   // Above safety (400.0) -> SAFE ✅
     safety: 400.0,
-    sup: 'مخبز الأغذية الذكية المركزي'
+    sup: 'Smart Central Bakery'
   },
   {
     id: 'raw-mayo-base',
-    ar: 'مايونيز أصلي عالي الكثافة',
+    ar: 'Heavy Gourmet Mayonnaise Base',
     en: 'Heavy Gourmet Mayonnaise Base',
     uom: 'kg',
     price: 75.00,
     stock: 15.0,    // Below safety (30.0) -> ALERT ⚠️
     safety: 30.0,
-    sup: 'شركة الزيوت والصلصات التخصصية'
+    sup: 'Specialty Sauce & Oils Co.'
   },
   {
     id: 'raw-dill-pickles',
-    ar: 'خيار مخلل مقرمش شرائح',
+    ar: 'Crispy Sliced Dill Pickles',
     en: 'Crispy Sliced Dill Pickles',
     uom: 'kg',
     price: 45.00,
     stock: 85.0,    // Above safety (40.0) -> SAFE ✅
     safety: 40.0,
-    sup: 'شركة خيرات الوادي للتخليل'
+    sup: 'Valley Pickling Co.'
   },
   {
     id: 'raw-potatoes',
-    ar: 'بطاطس مقطعة تبريد سريع للقلي',
+    ar: 'Grade-A Frozen French Fries Cut',
     en: 'Grade-A Frozen French Fries Cut',
     uom: 'kg',
     price: 32.00,
     stock: 420.0,   // Above safety (150.0) -> SAFE ✅
     safety: 150.0,
-    sup: 'المحاصيل الزراعية المبردة'
+    sup: 'Cold Harvest Logistics'
   },
   {
     id: 'raw-secret-spices',
-    ar: 'خلطة بهارات المطبخ السرية المركّزة',
+    ar: 'Signature Master Seasoning Blend',
     en: 'Signature Master Seasoning Blend',
     uom: 'kg',
     price: 210.00,
     stock: 6.5,     // Below safety (20.0) -> ALERT ⚠️
     safety: 20.0,
-    sup: 'مطاحن التوابل العالمية'
+    sup: 'Global Spice Mills'
   },
   {
     id: 'semi-caramelized-onions',
-    ar: 'بصل مكرمل طازج نصف جاهز',
+    ar: 'Prepared Caramelized Sweet Onions',
     en: 'Prepared Caramelized Sweet Onions',
     uom: 'kg',
     price: 65.00,
     stock: 75.0,    // Above safety (30.0) -> SAFE ✅
     safety: 30.0,
-    sup: 'وحدة التجهيز والطهي الأولي'
+    sup: 'Prep Kitchen Unit A'
   },
   {
     id: 'semi-smoky-bbq',
-    ar: 'صوص باربكيو مدخن مركّز نصف جاهز',
+    ar: 'Smoky Glaze BBQ Base Sauce',
     en: 'Smoky Glaze BBQ Base Sauce',
     uom: 'kg',
     price: 95.00,
     stock: 12.0,    // Below safety (25.0) -> ALERT ⚠️
     safety: 25.0,
-    sup: 'وحدة المستحلبات والصوصات'
+    sup: 'Sauce Emulsion Unit B'
   }
 ];
 
@@ -251,11 +251,11 @@ rawMaterials.forEach(r => {
 });
 console.log(`✅ Seeded ${rawMaterials.length} Raw Materials & Semi-Finished Items (5 low stock, 5 safe)`);
 
-// 3. 5 Finished Products
+// 3. 5 Finished Manufactured Products
 const products = [
   {
     id: 'prod-classic-burger-kit',
-    ar: 'وجبة برجر كلاسيك (مجهزة نصف مصنعة)',
+    ar: 'Classic Gourmet Burger Kit',
     en: 'Classic Gourmet Burger Kit (PA)',
     unit: 'Portion',
     cat: 'beef',
@@ -265,7 +265,7 @@ const products = [
   },
   {
     id: 'prod-crispy-chicken-fillet',
-    ar: 'فيليه دجاج مقرمش متبل وجاهز للقلي',
+    ar: 'Marinated Crispy Chicken Fillet',
     en: 'Marinated Crispy Chicken Fillet (PA)',
     unit: 'Portion',
     cat: 'chicken',
@@ -275,7 +275,7 @@ const products = [
   },
   {
     id: 'prod-signature-house-sauce',
-    ar: 'صوص المطبخ المركزي الخاص (عبوة مركزة)',
+    ar: 'Signature Central House Sauce',
     en: 'Signature Central House Sauce (PA)',
     unit: 'kg',
     cat: 'sauce',
@@ -285,7 +285,7 @@ const products = [
   },
   {
     id: 'prod-gourmet-loaded-fries',
-    ar: 'بطاطس مجهزة بخلطة الشيدر والبهار',
+    ar: 'Gourmet Seasoned Cheddar Fries',
     en: 'Gourmet Seasoned Cheddar Fries (PA)',
     unit: 'Portion',
     cat: 'sides',
@@ -295,7 +295,7 @@ const products = [
   },
   {
     id: 'prod-smoky-bbq-burger-kit',
-    ar: 'وجبة برجر سموكي باربكيو فاخرة',
+    ar: 'Smoky BBQ Bacon Burger Kit',
     en: 'Smoky BBQ Bacon Burger Kit (PA)',
     unit: 'Portion',
     cat: 'beef',
@@ -318,7 +318,7 @@ console.log(`✅ Seeded ${products.length} Finished Products`);
 const recipes = [
   {
     productId: 'prod-classic-burger-kit',
-    title: 'تركيبة وجبة برجر كلاسيك الفاخرة',
+    title: 'Classic Gourmet Burger Kit Recipe',
     items: [
       { rawId: 'raw-beef-patty', qty: 0.15, waste: 0.02 },
       { rawId: 'raw-brioche-buns', qty: 1.0, waste: 0.0 },
@@ -328,7 +328,7 @@ const recipes = [
   },
   {
     productId: 'prod-crispy-chicken-fillet',
-    title: 'تركيبة فيليه الدجاج المقرمش المتبل',
+    title: 'Marinated Crispy Chicken Fillet Recipe',
     items: [
       { rawId: 'raw-chicken-breast', qty: 0.18, waste: 0.03 },
       { rawId: 'raw-secret-spices', qty: 0.015, waste: 0.005 }
@@ -336,7 +336,7 @@ const recipes = [
   },
   {
     productId: 'prod-signature-house-sauce',
-    title: 'تركيبة خلطة صوص المطبخ المميز',
+    title: 'Signature Central House Sauce Recipe',
     items: [
       { rawId: 'raw-mayo-base', qty: 0.65, waste: 0.02 },
       { rawId: 'semi-smoky-bbq', qty: 0.25, waste: 0.01 },
@@ -346,7 +346,7 @@ const recipes = [
   },
   {
     productId: 'prod-gourmet-loaded-fries',
-    title: 'تركيبة البطاطس المحملة بخلطة الشيدر',
+    title: 'Gourmet Seasoned Cheddar Fries Recipe',
     items: [
       { rawId: 'raw-potatoes', qty: 0.25, waste: 0.03 },
       { rawId: 'raw-cheddar-cheese', qty: 0.04, waste: 0.01 },
@@ -355,7 +355,7 @@ const recipes = [
   },
   {
     productId: 'prod-smoky-bbq-burger-kit',
-    title: 'تركيبة برجر السموكي باربكيو الخاص',
+    title: 'Smoky BBQ Bacon Burger Kit Recipe',
     items: [
       { rawId: 'raw-beef-patty', qty: 0.18, waste: 0.02 },
       { rawId: 'raw-brioche-buns', qty: 1.0, waste: 0.0 },
@@ -381,10 +381,10 @@ const todayStr = new Date().toISOString().split('T')[0];
 const sampleOrders = [
   {
     id: 'ord-1001',
-    branch: 'فرع التجمع الخامس',
+    branch: 'Downtown Central Kitchen',
     date: todayStr,
     status: 'Delivered',
-    notes: 'طلبية الصباح المكتملة — تم التوصيل والاستلام بنجاح',
+    notes: 'Morning shift batch order — Delivered & Received',
     items: {
       'prod-classic-burger-kit': 45,
       'prod-signature-house-sauce': 12,
@@ -393,10 +393,10 @@ const sampleOrders = [
   },
   {
     id: 'ord-1002',
-    branch: 'فرع الشيخ زايد',
+    branch: 'Westside Hub',
     date: todayStr,
     status: 'Processing',
-    notes: 'جاري التجهيز والطهي والتحميل لأسطول النقل المبرد',
+    notes: 'Kitchen prep in progress — Loaded into refrigerated fleet',
     items: {
       'prod-crispy-chicken-fillet': 50,
       'prod-gourmet-loaded-fries': 40
@@ -404,10 +404,10 @@ const sampleOrders = [
   },
   {
     id: 'ord-1003',
-    branch: 'فرع المعادي',
+    branch: 'Eastside Flagship',
     date: todayStr,
     status: 'Pending',
-    notes: 'طلبية قيد الانتظار لموافقة إدارة العمليات وجدولة التحضير',
+    notes: 'Pending operations manager approval & cook scheduling',
     items: {
       'prod-smoky-bbq-burger-kit': 35,
       'prod-classic-burger-kit': 25
@@ -432,4 +432,4 @@ rawMaterials.forEach(r => {
   insertLog.run(r.id, r.stock, 'Initial Inventory Stock Balance (Demo Seed)', 'INIT-SEED');
 });
 
-console.log('🎉 Demo Seeding Completed Successfully with 100% Interconnected Data!');
+console.log('🎉 Demo Seeding Script Prepared Successfully with 100% Interconnected Generic Data!');

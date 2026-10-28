@@ -4,14 +4,12 @@ const db = require('./db.js');
 
 console.log('🚀 Starting Database Migration & Seed...');
 
-// 1. Migrate Branches (24 official branches)
+// 1. Migrate Branches (Demo branches)
 const branches = [
-  'فرع واتر واي (Water Way)', 'فرع أب تاون (Uptown)', 'فرع O1 (O1)', 'فرع المعادي (The Field)',
-  'فرع ميفيدا (Mivida)', 'فرع سوديك (Sodic)', 'فرع نيو جيزة (New Giza)', 'فرع نادي نيو جيزة (New Giza Club)',
-  'فرع بارك ستريت (Park St)', 'فرع مول العرب (Mall of Arabia)', 'فرع بالم هيلز (Palm Hills)', 'فرع كود (Kode)',
-  'فرع دهشور (Dahshour)', 'فرع مدينتي (Madinty)', 'فرع ديستريكت 5 (District 5)', 'فرع إل بوسكو (IL Bosco)',
-  'فرع D2 (Drive 02)', 'فرع قطامية (Katameya)', 'فرع الجولف (NGG Golf)', 'فرع Core WOC', 'فرع Core PH',
-  'فرع اسبليت واتر واي (Split Water Way)', 'فرع اسبليت O1 (Split O1)', 'فرع اسبليت نيو جيزة (Split New Giza)'
+  'Downtown Central Kitchen',
+  'Westside Hub',
+  'Eastside Flagship',
+  'North Coast Express'
 ];
 
 const insertBranch = db.prepare('INSERT OR IGNORE INTO branches (id, name) VALUES (?, ?)');
@@ -20,7 +18,7 @@ branches.forEach((b, idx) => {
 });
 console.log(`✅ Migrated ${branches.length} Branches.`);
 
-// 2. Migrate Products (171 manufactured products)
+// 2. Migrate Products (if JSON provided)
 if (fs.existsSync(path.join(__dirname, 'manufactured_products.json'))) {
   const products = JSON.parse(fs.readFileSync(path.join(__dirname, 'manufactured_products.json'), 'utf8'));
   const insertProduct = db.prepare('INSERT OR REPLACE INTO products (id, ar, en, unit, cat, cost, color) VALUES (?, ?, ?, ?, ?, ?, ?)');
@@ -31,7 +29,7 @@ if (fs.existsSync(path.join(__dirname, 'manufactured_products.json'))) {
   console.log(`✅ Migrated ${products.length} Manufactured Products.`);
 }
 
-// 3. Migrate Raw Materials & Recipes (139 raw materials + 74 recipes)
+// 3. Migrate Raw Materials & Recipes (if JSON provided)
 if (fs.existsSync(path.join(__dirname, 'compiled_bom.json'))) {
   const compiled = JSON.parse(fs.readFileSync(path.join(__dirname, 'compiled_bom.json'), 'utf8'));
   const rawIngs = compiled.raw_ings || {};
@@ -39,7 +37,7 @@ if (fs.existsSync(path.join(__dirname, 'compiled_bom.json'))) {
 
   const insertRaw = db.prepare('INSERT OR REPLACE INTO raw_materials (id, ar, en, uom, price, stock, safety, sup) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
   Object.entries(rawIngs).forEach(([id, r]) => {
-    insertRaw.run(id, r.ar || id, r.en || id, r.uom || 'kg', r.price || 45.0, r.stock || 100, r.safety || 10, r.sup || 'المورد المعتمد');
+    insertRaw.run(id, r.ar || id, r.en || id, r.uom || 'kg', r.price || 45.0, r.stock || 100, r.safety || 10, r.sup || 'Approved Supplier');
   });
   console.log(`✅ Migrated ${Object.keys(rawIngs).length} Raw Materials.`);
 

@@ -1,5 +1,6 @@
 const fs = require('fs');
-const html = fs.readFileSync('index.html', 'utf8');
+const path = require('path');
+const html = fs.readFileSync(path.join(__dirname, 'public', 'index.html'), 'utf8');
 
 const regex = /document\.getElementById\s*\(\s*['"]([^'"]+)['"]\s*\)/g;
 let match;
