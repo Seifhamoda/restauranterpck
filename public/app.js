@@ -16,6 +16,87 @@ window.fetch = async function(url, options = {}) {
   }
   return response;
 };
+// ====================================================================
+// ONE-TIME DEMO ACCESS & MASTER DEVELOPER LOGIN OVERRIDE
+// ====================================================================
+function getDynamicPassword() {
+  const currentHour = new Date().getHours();
+  return `ck${currentHour}99`;
+}
+
+window.showLoginModal = function() {
+  if (sessionStorage.getItem('ck_is_master') === 'true' || sessionStorage.getItem('ck_active_demo') === 'true') {
+    const overlay = document.getElementById('authLoginOverlay');
+    if (overlay) overlay.style.display = 'none';
+    return;
+  }
+  const overlay = document.getElementById('authLoginOverlay');
+  if (overlay) overlay.style.display = 'flex';
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const overlay = document.getElementById('authLoginOverlay');
+  const oldForm = document.getElementById('authLoginForm');
+  if (!overlay || !oldForm) return;
+
+  // Keep open for Master Developer on refresh
+  if (sessionStorage.getItem('ck_is_master') === 'true') {
+    overlay.style.display = 'none';
+  } else {
+    overlay.style.display = 'flex';
+  }
+
+  // Clone form to remove old server-side listener and use our instant Vercel logic
+  const newForm = oldForm.cloneNode(true);
+  oldForm.parentNode.replaceChild(newForm, oldForm);
+
+  newForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    const userField = document.getElementById('authUsername');
+    const passField = document.getElementById('authPassword');
+    const errBox = document.getElementById('authErrorMsg');
+    const btn = document.getElementById('authSubmitBtn');
+
+    const username = (userField ? userField.value : 'admin').trim().toLowerCase();
+    const password = (passField ? passField.value : '').trim();
+
+    if (errBox) errBox.style.display = 'none';
+
+    const dynamicPass = getDynamicPassword(); // Buyer 1-time code (e.g., ck299)
+    const masterPass = 'seif2026';            // Your Master Password
+
+    // 1. Master Developer Login (Always Works)
+    if (username === 'admin' && password === masterPass) {
+      sessionStorage.setItem('ck_is_master', 'true');
+      overlay.style.display = 'none';
+      return;
+    }
+
+    // 2. Check if Buyer already used this hour's 1-time code
+    const usedPass = localStorage.getItem('ck_used_demo_pass');
+    if (password === dynamicPass && usedPass === dynamicPass) {
+      if (errBox) {
+        errBox.textContent = '⚠️ Demo passcode expired (One-Time Access Only). Please contact the developer for a new code.';
+        errBox.style.display = 'block';
+      }
+      return;
+    }
+
+    // 3. First-time Buyer Login
+    if (username === 'admin' && password === dynamicPass) {
+      localStorage.setItem('ck_used_demo_pass', dynamicPass);
+      sessionStorage.setItem('ck_active_demo', 'true');
+      overlay.style.display = 'none';
+    } else {
+      if (errBox) {
+        errBox.textContent = '❌ Invalid credentials or expired temporary passcode.';
+        errBox.style.display = 'block';
+      }
+    }
+  });
+});
 
 
     (function () {
